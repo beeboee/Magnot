@@ -2,9 +2,9 @@ package com.beeboee.magnot.compat.sable;
 
 import com.beeboee.magnot.client.ClientFerrousRegionStore;
 import com.beeboee.magnot.region.FerrousRegion;
+import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.companion.SableCompanion;
 import dev.ryanhcode.sable.companion.SubLevelAccess;
-import dev.ryanhcode.sable.companion.math.BoundingBox3d;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -14,8 +14,6 @@ import java.util.List;
 import java.util.Optional;
 
 public final class MagnotSableClientCompat {
-    private static final double PATH_BOUNDS_PADDING = 0.5D;
-
     private MagnotSableClientCompat() {}
 
     public static boolean blocksMagnet(Level level, Vec3 source, Vec3 itemPosition) {
@@ -28,7 +26,7 @@ public final class MagnotSableClientCompat {
         Vec3 globalFrom = SableCompanion.INSTANCE.projectOutOfSubLevel(level, from);
         Vec3 globalTo = SableCompanion.INSTANCE.projectOutOfSubLevel(level, to);
 
-        for (SubLevelAccess subLevel : candidateSubLevels(level, from, to, globalFrom, globalTo)) {
+        for (SubLevelAccess subLevel : candidateSubLevels(level, from, to)) {
             Vec3 localFrom = subLevel.logicalPose().transformPositionInverse(globalFrom);
             Vec3 localTo = subLevel.logicalPose().transformPositionInverse(globalTo);
 
@@ -82,14 +80,16 @@ public final class MagnotSableClientCompat {
         return transformed == null ? bounds : transformed;
     }
 
-    private static List<SubLevelAccess> candidateSubLevels(Level level, Vec3 from, Vec3 to, Vec3 globalFrom, Vec3 globalTo) {
+    private static List<SubLevelAccess> candidateSubLevels(Level level, Vec3 from, Vec3 to) {
         List<SubLevelAccess> candidates = new ArrayList<>();
         addCandidate(candidates, SableCompanion.INSTANCE.getContaining(level, from));
         addCandidate(candidates, SableCompanion.INSTANCE.getContaining(level, to));
 
-        AABB pathBounds = new AABB(globalFrom, globalTo).inflate(PATH_BOUNDS_PADDING);
-        for (SubLevelAccess subLevel : SableCompanion.INSTANCE.getAllIntersecting(level, new BoundingBox3d(pathBounds))) {
-            addCandidate(candidates, subLevel);
+        SubLevelContainer container = SubLevelContainer.getContainer(level);
+        if (container != null) {
+            for (SubLevelAccess subLevel : container.getAllSubLevels()) {
+                addCandidate(candidates, subLevel);
+            }
         }
 
         return candidates;
