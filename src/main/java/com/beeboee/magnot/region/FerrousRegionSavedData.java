@@ -13,6 +13,7 @@ import net.minecraft.world.phys.Vec3;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public class FerrousRegionSavedData extends SavedData {
     private static final String DATA_NAME = Magnot.MOD_ID + "_ferrous_regions";
@@ -57,7 +58,7 @@ public class FerrousRegionSavedData extends SavedData {
         return region;
     }
 
-    public Optional<FerrousRegion> removeClosestIntersecting(Vec3 from, Vec3 to) {
+    public Optional<FerrousRegion> findClosestIntersecting(Vec3 from, Vec3 to) {
         FerrousRegion closest = null;
         double bestDistance = Double.MAX_VALUE;
 
@@ -77,13 +78,32 @@ public class FerrousRegionSavedData extends SavedData {
             bestDistance = distance;
         }
 
-        if (closest == null) {
+        return Optional.ofNullable(closest);
+    }
+
+    public Optional<FerrousRegion> removeIntersectingById(UUID id, Vec3 from, Vec3 to) {
+        for (FerrousRegion region : regions) {
+            if (!region.id().equals(id) || region.clip(from, to).isEmpty()) {
+                continue;
+            }
+
+            regions.remove(region);
+            setDirty();
+            return Optional.of(region);
+        }
+
+        return Optional.empty();
+    }
+
+    public Optional<FerrousRegion> removeClosestIntersecting(Vec3 from, Vec3 to) {
+        Optional<FerrousRegion> closest = findClosestIntersecting(from, to);
+        if (closest.isEmpty()) {
             return Optional.empty();
         }
 
-        regions.remove(closest);
+        regions.remove(closest.get());
         setDirty();
-        return Optional.of(closest);
+        return closest;
     }
 
     public boolean blocksMagnet(Vec3 source, Vec3 itemPos) {
