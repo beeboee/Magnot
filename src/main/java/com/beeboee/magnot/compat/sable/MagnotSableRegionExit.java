@@ -1,5 +1,6 @@
 package com.beeboee.magnot.compat.sable;
 
+import com.beeboee.magnot.debug.MagnotDebug;
 import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.region.FerrousRegionSavedData;
@@ -21,6 +22,9 @@ public final class MagnotSableRegionExit {
 
         for (FerrousRegion region : regions) {
             FerrousRegion worldRegion = toWorldRegion(region, subLevel);
+            MagnotDebug.region("sable-exit-before", region);
+            MagnotDebug.region("sable-exit-after", worldRegion);
+
             if (data.removeRegion(region.id())) {
                 data.addRegion(worldRegion);
             }
@@ -39,49 +43,17 @@ public final class MagnotSableRegionExit {
         int sy = region.max().getY() - region.min().getY() + 1;
         int sz = region.max().getZ() - region.min().getZ() + 1;
 
-        int[] worldSizes = mapSizes(subLevel, sx, sy, sz);
         BlockPos min = new BlockPos(
-                centerBlock.getX() - (worldSizes[0] - 1) / 2,
-                centerBlock.getY() - (worldSizes[1] - 1) / 2,
-                centerBlock.getZ() - (worldSizes[2] - 1) / 2
+                centerBlock.getX() - (sx - 1) / 2,
+                centerBlock.getY() - (sy - 1) / 2,
+                centerBlock.getZ() - (sz - 1) / 2
         );
         BlockPos max = new BlockPos(
-                min.getX() + worldSizes[0] - 1,
-                min.getY() + worldSizes[1] - 1,
-                min.getZ() + worldSizes[2] - 1
+                min.getX() + sx - 1,
+                min.getY() + sy - 1,
+                min.getZ() + sz - 1
         );
 
         return FerrousRegion.fromCorners(region.id(), region.groupId(), min, max, null);
-    }
-
-    private static int[] mapSizes(SubLevelAccess subLevel, int sx, int sy, int sz) {
-        int[] sizes = new int[]{1, 1, 1};
-        boolean[] used = new boolean[]{false, false, false};
-        assign(sizes, used, subLevel.logicalPose().transformNormal(new Vec3(1, 0, 0)), sx);
-        assign(sizes, used, subLevel.logicalPose().transformNormal(new Vec3(0, 1, 0)), sy);
-        assign(sizes, used, subLevel.logicalPose().transformNormal(new Vec3(0, 0, 1)), sz);
-        return sizes;
-    }
-
-    private static void assign(int[] sizes, boolean[] used, Vec3 axis, int size) {
-        int index = strongestUnusedAxis(axis, used);
-        sizes[index] = size;
-        used[index] = true;
-    }
-
-    private static int strongestUnusedAxis(Vec3 axis, boolean[] used) {
-        double ax = Math.abs(axis.x);
-        double ay = Math.abs(axis.y);
-        double az = Math.abs(axis.z);
-        int best = -1;
-        double strength = -1;
-        double[] values = new double[]{ax, ay, az};
-        for (int i = 0; i < values.length; i++) {
-            if (!used[i] && values[i] > strength) {
-                best = i;
-                strength = values[i];
-            }
-        }
-        return best >= 0 ? best : 0;
     }
 }
