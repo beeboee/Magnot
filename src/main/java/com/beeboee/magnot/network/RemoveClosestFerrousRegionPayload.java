@@ -8,21 +8,24 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
-public record RemoveClosestFerrousRegionPayload() implements CustomPacketPayload {
+import java.util.UUID;
+
+public record RemoveClosestFerrousRegionPayload(UUID selectedRegionId) implements CustomPacketPayload {
     public static final Type<RemoveClosestFerrousRegionPayload> TYPE = new Type<>(
             ResourceLocation.fromNamespaceAndPath(Magnot.MOD_ID, "remove_closest_ferrous_region")
     );
 
     public static RemoveClosestFerrousRegionPayload decode(FriendlyByteBuf buf) {
-        return new RemoveClosestFerrousRegionPayload();
+        return new RemoveClosestFerrousRegionPayload(buf.readUUID());
     }
 
     public void write(FriendlyByteBuf buf) {
+        buf.writeUUID(selectedRegionId);
     }
 
     public static void handle(RemoveClosestFerrousRegionPayload payload, IPayloadContext context) {
         if (context.player() instanceof ServerPlayer serverPlayer) {
-            FerrousRegionActions.removeClosestRegion(serverPlayer);
+            FerrousRegionActions.removeSelectedRegion(serverPlayer, payload.selectedRegionId());
         }
     }
 
