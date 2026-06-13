@@ -28,6 +28,14 @@ repositories {
         url = 'https://modmaven.dev/artifactory/local-releases/'
         content {
             includeGroup 'de.mari_023'
+            includeGroup 'mekanism'
+        }
+    }
+    maven {
+        name = 'TheIllusiveC4 Maven'
+        url = 'https://maven.theillusivec4.top/'
+        content {
+            includeGroup 'top.theillusivec4.curios'
         }
     }
     maven {
@@ -102,6 +110,10 @@ dependencies {
     runtimeOnly("curse.maven:sophisticated-core-${sophisticated_core_curse_id}:${sophisticated_core_file_id}")
     runtimeOnly("curse.maven:sophisticated-backpacks-${sophisticated_backpacks_curse_id}:${sophisticated_backpacks_file_id}")
     runtimeOnly("curse.maven:sophisticated-storage-${sophisticated_storage_curse_id}:${sophisticated_storage_file_id}")
+
+    runtimeOnly("top.theillusivec4.curios:curios-neoforge:${curios_version}")
+    runtimeOnly("curse.maven:artifacts-${artifacts_curse_id}:${artifacts_file_id}")
+    runtimeOnly("mekanism:Mekanism:${mekanism_version}")
 }
 
 var replaceProperties = [
