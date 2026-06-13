@@ -24,14 +24,15 @@ public final class ClientFerrousRegionStore {
         FerrousRegion closest = null;
         double bestDistance = Double.MAX_VALUE;
 
-        for (FerrousRegion region : regions) {
+        for (int i = regions.size() - 1; i >= 0; i--) {
+            FerrousRegion region = regions.get(i);
             var hitDistance = region.hitDistanceSqr(from, to);
             if (hitDistance.isEmpty()) {
                 continue;
             }
 
             double distance = hitDistance.get();
-            if (distance >= bestDistance) {
+            if (distance > bestDistance) {
                 continue;
             }
 
