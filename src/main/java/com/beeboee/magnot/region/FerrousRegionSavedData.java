@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.function.Predicate;
 
 public class FerrousRegionSavedData extends SavedData {
     private static final String DATA_NAME = Magnot.MOD_ID + "_ferrous_regions";
@@ -58,30 +59,41 @@ public class FerrousRegionSavedData extends SavedData {
     }
 
     public void addRegion(FerrousRegion region) {
+        removeRegion(region.id());
         regions.add(region);
         setDirty();
     }
 
     public boolean removeRegion(UUID id) {
-        for (int i = 0; i < regions.size(); i++) {
-            if (!regions.get(i).id().equals(id)) {
-                continue;
-            }
-
-            regions.remove(i);
+        boolean removed = regions.removeIf(region -> region.id().equals(id));
+        if (removed) {
             setDirty();
-            return true;
         }
-
-        return false;
+        return removed;
     }
 
     public Optional<FerrousRegion> findClosestIntersecting(Vec3 from, Vec3 to) {
+        return findClosestIntersecting(from, to, region -> true);
+    }
+
+    public Optional<FerrousRegion> findClosestWorldIntersecting(Vec3 from, Vec3 to) {
+        return findClosestIntersecting(from, to, FerrousRegion::isWorldRegion);
+    }
+
+    public Optional<FerrousRegion> findClosestSubLevelIntersecting(UUID subLevelId, Vec3 from, Vec3 to) {
+        return findClosestIntersecting(from, to, region -> region.belongsToSubLevel(subLevelId));
+    }
+
+    private Optional<FerrousRegion> findClosestIntersecting(Vec3 from, Vec3 to, Predicate<FerrousRegion> predicate) {
         FerrousRegion closest = null;
         double bestDistance = Double.MAX_VALUE;
 
         for (int i = regions.size() - 1; i >= 0; i--) {
             FerrousRegion region = regions.get(i);
+            if (!predicate.test(region)) {
+                continue;
+            }
+
             var hit = region.clip(from, to);
             if (hit.isEmpty()) {
                 continue;
@@ -100,9 +112,21 @@ public class FerrousRegionSavedData extends SavedData {
     }
 
     public Optional<FerrousRegion> removeIntersectingById(UUID id, Vec3 from, Vec3 to) {
+        return removeIntersectingById(id, from, to, region -> true);
+    }
+
+    public Optional<FerrousRegion> removeWorldIntersectingById(UUID id, Vec3 from, Vec3 to) {
+        return removeIntersectingById(id, from, to, FerrousRegion::isWorldRegion);
+    }
+
+    public Optional<FerrousRegion> removeSubLevelIntersectingById(UUID id, UUID subLevelId, Vec3 from, Vec3 to) {
+        return removeIntersectingById(id, from, to, region -> region.belongsToSubLevel(subLevelId));
+    }
+
+    private Optional<FerrousRegion> removeIntersectingById(UUID id, Vec3 from, Vec3 to, Predicate<FerrousRegion> predicate) {
         for (int i = 0; i < regions.size(); i++) {
             FerrousRegion region = regions.get(i);
-            if (!region.id().equals(id) || region.clip(from, to).isEmpty()) {
+            if (!region.id().equals(id) || !predicate.test(region) || region.clip(from, to).isEmpty()) {
                 continue;
             }
 
@@ -126,7 +150,23 @@ public class FerrousRegionSavedData extends SavedData {
     }
 
     public boolean blocksMagnet(Vec3 source, Vec3 itemPos) {
+        return blocksMagnet(source, itemPos, region -> true);
+    }
+
+    public boolean blocksWorldMagnet(Vec3 source, Vec3 itemPos) {
+        return blocksMagnet(source, itemPos, FerrousRegion::isWorldRegion);
+    }
+
+    public boolean blocksSubLevelMagnet(UUID subLevelId, Vec3 source, Vec3 itemPos) {
+        return blocksMagnet(source, itemPos, region -> region.belongsToSubLevel(subLevelId));
+    }
+
+    private boolean blocksMagnet(Vec3 source, Vec3 itemPos, Predicate<FerrousRegion> predicate) {
         for (FerrousRegion region : regions) {
+            if (!predicate.test(region)) {
+                continue;
+            }
+
             if (region.contains(source) || region.contains(itemPos) || region.intersectsSegment(source, itemPos)) {
                 return true;
             }
