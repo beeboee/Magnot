@@ -21,14 +21,19 @@ public abstract class MagnetUpgradeWrapperMixin {
     @Unique
     private Vec3 magnot$magnetSource;
 
+    @Unique
+    private Player magnot$playerMagnetSource;
+
     @Inject(method = "pickupItems", at = @At("HEAD"))
     private void magnot$captureMagnetSource(Entity entity, Level level, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
-        magnot$magnetSource = entity instanceof Player player ? player.getEyePosition() : entity == null ? Vec3.atCenterOf(pos) : entity.position();
+        magnot$playerMagnetSource = entity instanceof Player player ? player : null;
+        magnot$magnetSource = entity == null ? Vec3.atCenterOf(pos) : entity.position();
     }
 
     @Inject(method = "pickupItems", at = @At("RETURN"))
     private void magnot$clearMagnetSource(Entity entity, Level level, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
         magnot$magnetSource = null;
+        magnot$playerMagnetSource = null;
     }
 
     @Inject(method = "tryToInsertItem", at = @At("HEAD"), cancellable = true)
@@ -37,11 +42,15 @@ public abstract class MagnetUpgradeWrapperMixin {
             return;
         }
 
-        Vec3 source = magnot$magnetSource;
-        if (source == null) {
-            source = player == null ? itemEntity.position() : player.getEyePosition();
+        Player playerSource = magnot$playerMagnetSource == null ? player : magnot$playerMagnetSource;
+        if (playerSource != null) {
+            if (FerrousMagnetRules.blocksPlayerMagnet(serverLevel, playerSource, itemEntity.position())) {
+                cir.setReturnValue(false);
+            }
+            return;
         }
 
+        Vec3 source = magnot$magnetSource == null ? itemEntity.position() : magnot$magnetSource;
         if (FerrousMagnetRules.blocksMagnet(serverLevel, source, itemEntity.position())) {
             cir.setReturnValue(false);
         }
