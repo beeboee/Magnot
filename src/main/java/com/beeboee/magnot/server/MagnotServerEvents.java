@@ -28,10 +28,6 @@ public final class MagnotServerEvents {
         }
 
         event.setCanceled(true);
-
-        if (player instanceof ServerPlayer serverPlayer) {
-            FerrousRegionActions.removeClosestRegion(serverPlayer);
-        }
     }
 
     @SubscribeEvent
