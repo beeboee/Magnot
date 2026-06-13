@@ -2,11 +2,13 @@ package com.beeboee.magnot.client;
 
 import com.beeboee.magnot.Magnot;
 import com.beeboee.magnot.item.FerrousTubeItem;
+import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.registry.MagnotItems;
 import net.createmod.catnip.outliner.Outliner;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
@@ -17,10 +19,13 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 
+import java.util.Optional;
+
 @EventBusSubscriber(modid = Magnot.MOD_ID, value = Dist.CLIENT)
 public final class MagnotClientEvents {
     private static final Object SELECTION_OUTLINE_SLOT = new Object();
     private static final int FERROUS_RED = 0xC63A32;
+    private static final int FERROUS_RED_PASSIVE = 0x7F241F;
 
     private MagnotClientEvents() {
     }
@@ -36,6 +41,20 @@ public final class MagnotClientEvents {
         ItemStack held = player.getMainHandItem();
         if (!held.is(MagnotItems.FERROUS_TUBE.get())) {
             return;
+        }
+
+        Vec3 from = player.getEyePosition();
+        double range = player.getAttributeValue(Attributes.BLOCK_INTERACTION_RANGE) + 1.0D;
+        Vec3 to = from.add(player.getLookAngle().scale(range));
+        Optional<FerrousRegion> selectedRegion = ClientFerrousRegionStore.closestIntersecting(from, to);
+
+        for (FerrousRegion region : ClientFerrousRegionStore.regions()) {
+            boolean selected = selectedRegion.map(FerrousRegion::id).filter(region.id()::equals).isPresent();
+            Outliner.getInstance()
+                    .showAABB(region.id(), region.bounds())
+                    .colored(selected ? FERROUS_RED : FERROUS_RED_PASSIVE)
+                    .disableLineNormals()
+                    .lineWidth(selected ? 1.0F / 16.0F : 1.0F / 64.0F);
         }
 
         var firstCorner = FerrousTubeItem.getFirstCorner(held);
