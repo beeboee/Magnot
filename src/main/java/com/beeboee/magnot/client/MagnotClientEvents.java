@@ -63,6 +63,7 @@ public final class MagnotClientEvents {
             Outliner.getInstance()
                     .showAABB(region.id(), region.bounds())
                     .colored(FERROUS_RED)
+                    .withFaceTextures(MagnotSpecialTextures.FERROUS_REGION, MagnotSpecialTextures.FERROUS_REGION)
                     .disableLineNormals()
                     .lineWidth(selected ? 1.0F / 16.0F : 1.0F / 64.0F);
         }
@@ -81,6 +82,7 @@ public final class MagnotClientEvents {
         Outliner.getInstance()
                 .showAABB(SELECTION_OUTLINE_SLOT, selectionBox)
                 .colored(FERROUS_RED)
+                .withFaceTextures(MagnotSpecialTextures.FERROUS_REGION, MagnotSpecialTextures.FERROUS_REGION)
                 .disableLineNormals()
                 .lineWidth(1.0F / 16.0F);
     }
