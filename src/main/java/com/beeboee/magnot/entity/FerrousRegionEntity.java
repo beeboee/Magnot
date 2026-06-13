@@ -32,7 +32,7 @@ public class FerrousRegionEntity extends Entity implements IEntityWithComplexSpa
     }
 
     public FerrousRegionEntity(Level level, FerrousRegion region) {
-        this(MagnotEntityTypes.FERROUS_REGION.get(), level);
+        this(MagnotEntityTypes.ferrousRegion(), level);
         this.regionId = region.id();
         this.groupId = region.groupId();
         this.subLevelId = region.subLevelId();
