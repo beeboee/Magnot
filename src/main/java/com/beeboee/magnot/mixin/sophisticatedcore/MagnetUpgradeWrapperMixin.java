@@ -1,0 +1,51 @@
+package com.beeboee.magnot.mixin.sophisticatedcore;
+
+import com.beeboee.magnot.region.FerrousMagnetRules;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
+import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import javax.annotation.Nullable;
+
+@Pseudo
+@Mixin(targets = "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper", remap = false)
+public abstract class MagnetUpgradeWrapperMixin {
+    @Unique
+    private Vec3 magnot$magnetSource;
+
+    @Inject(method = "pickupItems", at = @At("HEAD"))
+    private void magnot$captureMagnetSource(@Nullable Entity entity, Level level, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
+        magnot$magnetSource = entity == null ? Vec3.atCenterOf(pos) : entity.position();
+    }
+
+    @Inject(method = "pickupItems", at = @At("RETURN"))
+    private void magnot$clearMagnetSource(@Nullable Entity entity, Level level, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
+        magnot$magnetSource = null;
+    }
+
+    @Inject(method = "tryToInsertItem", at = @At("HEAD"), cancellable = true)
+    private void magnot$blockFerrousRegionPickup(@Nullable Player player, ItemEntity itemEntity, CallbackInfoReturnable<Boolean> cir) {
+        if (!(itemEntity.level() instanceof ServerLevel serverLevel)) {
+            return;
+        }
+
+        Vec3 source = magnot$magnetSource;
+        if (source == null) {
+            source = player == null ? itemEntity.position() : player.position();
+        }
+
+        if (FerrousMagnetRules.blocksMagnet(serverLevel, source, itemEntity.position())) {
+            cir.setReturnValue(false);
+        }
+    }
+}
