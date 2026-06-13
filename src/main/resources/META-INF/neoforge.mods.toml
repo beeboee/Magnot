@@ -44,3 +44,15 @@ modId="sophisticatedstorage"
 type="optional"
 ordering="AFTER"
 side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="ae2"
+type="optional"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="ae2wtlib"
+type="optional"
+ordering="AFTER"
+side="BOTH"
