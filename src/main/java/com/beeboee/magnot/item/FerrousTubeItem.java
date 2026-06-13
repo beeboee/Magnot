@@ -2,6 +2,7 @@ package com.beeboee.magnot.item;
 
 import com.beeboee.magnot.compat.sable.MagnotSableCompat;
 import com.beeboee.magnot.debug.MagnotDebug;
+import com.beeboee.magnot.entity.FerrousRegionEntities;
 import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.region.FerrousRegionSavedData;
@@ -86,6 +87,7 @@ public class FerrousTubeItem extends Item {
         MagnotDebug.log("second-corner first={} clicked={} clamped={} sub={}", firstCorner.get(), clicked, clampedSecondCorner, MagnotDebug.shortId(subLevelId));
         MagnotDebug.region("create", region);
         FerrousRegionSavedData.get(serverLevel).addRegion(region);
+        FerrousRegionEntities.spawn(serverLevel, region);
         MagnotNetwork.syncToPlayersInDimension(serverLevel);
         clearFirstCorner(stack);
         player.displayClientMessage(Component.translatable("message.magnot.region_created"), true);
