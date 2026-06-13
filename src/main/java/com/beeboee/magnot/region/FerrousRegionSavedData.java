@@ -53,9 +53,27 @@ public class FerrousRegionSavedData extends SavedData {
 
     public FerrousRegion addRegion(BlockPos first, BlockPos second) {
         FerrousRegion region = FerrousRegion.fromCorners(first, second);
+        addRegion(region);
+        return region;
+    }
+
+    public void addRegion(FerrousRegion region) {
         regions.add(region);
         setDirty();
-        return region;
+    }
+
+    public boolean removeRegion(UUID id) {
+        for (int i = 0; i < regions.size(); i++) {
+            if (!regions.get(i).id().equals(id)) {
+                continue;
+            }
+
+            regions.remove(i);
+            setDirty();
+            return true;
+        }
+
+        return false;
     }
 
     public Optional<FerrousRegion> findClosestIntersecting(Vec3 from, Vec3 to) {
@@ -82,12 +100,13 @@ public class FerrousRegionSavedData extends SavedData {
     }
 
     public Optional<FerrousRegion> removeIntersectingById(UUID id, Vec3 from, Vec3 to) {
-        for (FerrousRegion region : regions) {
+        for (int i = 0; i < regions.size(); i++) {
+            FerrousRegion region = regions.get(i);
             if (!region.id().equals(id) || region.clip(from, to).isEmpty()) {
                 continue;
             }
 
-            regions.remove(region);
+            regions.remove(i);
             setDirty();
             return Optional.of(region);
         }
