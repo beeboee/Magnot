@@ -1,11 +1,13 @@
 package com.beeboee.magnot.mixin.projecte;
 
 import com.beeboee.magnot.client.ClientFerrousRegionStore;
+import com.beeboee.magnot.compat.sable.MagnotSableClientCompat;
 import com.beeboee.magnot.region.FerrousMagnetRules;
 import moze_intel.projecte.utils.WorldHelper;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.fml.ModList;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
@@ -39,6 +41,10 @@ public abstract class BlackHoleBandMixin {
         }
 
         if (ClientFerrousRegionStore.closestIntersecting(target, itemPosition).isPresent()) {
+            return;
+        }
+
+        if (ModList.get().isLoaded("sable") && MagnotSableClientCompat.blocksMagnet(entity.level(), target, itemPosition)) {
             return;
         }
 
