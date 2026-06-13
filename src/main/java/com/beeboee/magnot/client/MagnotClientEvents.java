@@ -34,13 +34,16 @@ public final class MagnotClientEvents {
 
     @SubscribeEvent
     public static void onInteractionKeyMappingTriggered(InputEvent.InteractionKeyMappingTriggered event) {
-        if (!event.isAttack() || selectedRegion().isEmpty()) {
+        if (!event.isAttack() || !holdingFerrousTube()) {
             return;
         }
 
         event.setCanceled(true);
         event.setSwingHand(true);
-        PacketDistributor.sendToServer(new RemoveClosestFerrousRegionPayload());
+
+        if (selectedRegion().isPresent()) {
+            PacketDistributor.sendToServer(new RemoveClosestFerrousRegionPayload());
+        }
     }
 
     @SubscribeEvent
@@ -85,6 +88,12 @@ public final class MagnotClientEvents {
                 .withFaceTextures(MagnotSpecialTextures.FERROUS_REGION, MagnotSpecialTextures.FERROUS_REGION)
                 .disableLineNormals()
                 .lineWidth(1.0F / 16.0F);
+    }
+
+    private static boolean holdingFerrousTube() {
+        Minecraft minecraft = Minecraft.getInstance();
+        LocalPlayer player = minecraft.player;
+        return player != null && player.getMainHandItem().is(MagnotItems.FERROUS_TUBE.get());
     }
 
     private static Optional<FerrousRegion> selectedRegion() {
