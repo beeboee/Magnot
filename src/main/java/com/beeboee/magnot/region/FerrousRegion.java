@@ -23,6 +23,20 @@ public record FerrousRegion(UUID id, BlockPos min, BlockPos max) {
         return new FerrousRegion(UUID.randomUUID(), min, max);
     }
 
+    public static FerrousRegion fromCorners(UUID id, BlockPos first, BlockPos second) {
+        BlockPos min = new BlockPos(
+                Math.min(first.getX(), second.getX()),
+                Math.min(first.getY(), second.getY()),
+                Math.min(first.getZ(), second.getZ())
+        );
+        BlockPos max = new BlockPos(
+                Math.max(first.getX(), second.getX()),
+                Math.max(first.getY(), second.getY()),
+                Math.max(first.getZ(), second.getZ())
+        );
+        return new FerrousRegion(id, min, max);
+    }
+
     public AABB bounds() {
         return new AABB(
                 min.getX(), min.getY(), min.getZ(),
@@ -32,6 +46,10 @@ public record FerrousRegion(UUID id, BlockPos min, BlockPos max) {
 
     public boolean contains(Vec3 pos) {
         return bounds().contains(pos);
+    }
+
+    public boolean intersectsBlock(BlockPos pos) {
+        return bounds().intersects(new AABB(pos));
     }
 
     public Optional<Vec3> clip(Vec3 from, Vec3 to) {
