@@ -1,0 +1,9 @@
+{
+  "item.magnot.iron_dust": "Iron Dust",
+  "item.magnot.ferrous_paste": "Ferrous Paste",
+  "item.magnot.ferrous_tube": "Ferrous Tube",
+  "message.magnot.first_corner": "Magnot: first corner set",
+  "message.magnot.selection_cleared": "Magnot: selection cleared",
+  "message.magnot.region_created": "Magnot: ferrous region created",
+  "message.magnot.region_removed": "Magnot: ferrous region removed"
+}
