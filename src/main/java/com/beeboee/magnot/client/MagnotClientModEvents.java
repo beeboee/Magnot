@@ -14,6 +14,6 @@ public final class MagnotClientModEvents {
 
     @SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerEntityRenderer(MagnotEntityTypes.FERROUS_REGION.get(), FerrousRegionEntityRenderer::new);
+        event.registerEntityRenderer(MagnotEntityTypes.ferrousRegion(), FerrousRegionEntityRenderer::new);
     }
 }
