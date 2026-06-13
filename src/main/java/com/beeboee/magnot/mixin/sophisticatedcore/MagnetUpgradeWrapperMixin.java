@@ -20,15 +20,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class MagnetUpgradeWrapperMixin {
     @Unique
     private Vec3 magnot$magnetSource;
+    @Unique
+    private boolean magnot$entityBackedMagnetSource;
 
     @Inject(method = "pickupItems", at = @At("HEAD"))
     private void magnot$captureMagnetSource(Entity entity, Level level, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
         magnot$magnetSource = entity == null ? Vec3.atCenterOf(pos) : entity.position();
+        magnot$entityBackedMagnetSource = entity != null;
     }
 
     @Inject(method = "pickupItems", at = @At("RETURN"))
     private void magnot$clearMagnetSource(Entity entity, Level level, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
         magnot$magnetSource = null;
+        magnot$entityBackedMagnetSource = false;
     }
 
     @Inject(method = "tryToInsertItem", at = @At("HEAD"), cancellable = true)
@@ -37,9 +41,17 @@ public abstract class MagnetUpgradeWrapperMixin {
             return;
         }
 
+        if (player == null && !magnot$entityBackedMagnetSource) {
+            return;
+        }
+
         Vec3 source = magnot$magnetSource;
         if (source == null) {
             source = player == null ? itemEntity.position() : player.position();
+        }
+
+        if (source.distanceToSqr(itemEntity.position()) < 1.0E-6D) {
+            return;
         }
 
         if (FerrousMagnetRules.blocksMagnet(serverLevel, source, itemEntity.position())) {
