@@ -8,8 +8,8 @@ import net.minecraft.world.phys.Vec3;
 import java.util.Optional;
 import java.util.UUID;
 
-public record FerrousRegion(UUID id, BlockPos min, BlockPos max, UUID owner) {
-    public static FerrousRegion fromCorners(BlockPos first, BlockPos second, UUID owner) {
+public record FerrousRegion(UUID id, BlockPos min, BlockPos max) {
+    public static FerrousRegion fromCorners(BlockPos first, BlockPos second) {
         BlockPos min = new BlockPos(
                 Math.min(first.getX(), second.getX()),
                 Math.min(first.getY(), second.getY()),
@@ -20,7 +20,7 @@ public record FerrousRegion(UUID id, BlockPos min, BlockPos max, UUID owner) {
                 Math.max(first.getY(), second.getY()),
                 Math.max(first.getZ(), second.getZ())
         );
-        return new FerrousRegion(UUID.randomUUID(), min, max, owner);
+        return new FerrousRegion(UUID.randomUUID(), min, max);
     }
 
     public AABB bounds() {
@@ -32,12 +32,6 @@ public record FerrousRegion(UUID id, BlockPos min, BlockPos max, UUID owner) {
 
     public boolean contains(Vec3 pos) {
         return bounds().contains(pos);
-    }
-
-    public boolean contains(BlockPos pos) {
-        return pos.getX() >= min.getX() && pos.getX() <= max.getX()
-                && pos.getY() >= min.getY() && pos.getY() <= max.getY()
-                && pos.getZ() >= min.getZ() && pos.getZ() <= max.getZ();
     }
 
     public Optional<Vec3> clip(Vec3 from, Vec3 to) {
@@ -58,7 +52,6 @@ public record FerrousRegion(UUID id, BlockPos min, BlockPos max, UUID owner) {
     public CompoundTag save() {
         CompoundTag tag = new CompoundTag();
         tag.putUUID("Id", id);
-        tag.putUUID("Owner", owner);
         tag.putInt("MinX", min.getX());
         tag.putInt("MinY", min.getY());
         tag.putInt("MinZ", min.getZ());
@@ -70,9 +63,8 @@ public record FerrousRegion(UUID id, BlockPos min, BlockPos max, UUID owner) {
 
     public static FerrousRegion load(CompoundTag tag) {
         UUID id = tag.hasUUID("Id") ? tag.getUUID("Id") : UUID.randomUUID();
-        UUID owner = tag.hasUUID("Owner") ? tag.getUUID("Owner") : new UUID(0L, 0L);
         BlockPos min = new BlockPos(tag.getInt("MinX"), tag.getInt("MinY"), tag.getInt("MinZ"));
         BlockPos max = new BlockPos(tag.getInt("MaxX"), tag.getInt("MaxY"), tag.getInt("MaxZ"));
-        return new FerrousRegion(id, min, max, owner);
+        return new FerrousRegion(id, min, max);
     }
 }
