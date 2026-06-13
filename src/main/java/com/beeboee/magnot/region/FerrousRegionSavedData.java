@@ -60,7 +60,8 @@ public class FerrousRegionSavedData extends SavedData {
         Vec3 closestHit = null;
         double bestDistance = Double.MAX_VALUE;
 
-        for (FerrousRegion region : regions) {
+        for (int i = regions.size() - 1; i >= 0; i--) {
+            FerrousRegion region = regions.get(i);
             var hit = region.clip(from, to);
             if (hit.isEmpty()) {
                 continue;
