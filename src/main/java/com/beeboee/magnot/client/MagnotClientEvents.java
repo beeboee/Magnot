@@ -34,6 +34,7 @@ public final class MagnotClientEvents {
     private static final int LIMIT_YELLOW = 0xFFD43B;
     private static final double REGION_REVEAL_RADIUS = 25.0D;
     private static final double REGION_REVEAL_RADIUS_SQR = REGION_REVEAL_RADIUS * REGION_REVEAL_RADIUS;
+    private static long nextRegionRemovalTick = 0L;
 
     private MagnotClientEvents() {
     }
@@ -47,7 +48,19 @@ public final class MagnotClientEvents {
         event.setCanceled(true);
         event.setSwingHand(true);
 
-        selectedRegion().ifPresent(region -> PacketDistributor.sendToServer(new RemoveClosestFerrousRegionPayload(region.id())));
+        Minecraft minecraft = Minecraft.getInstance();
+        LocalPlayer player = minecraft.player;
+        if (player == null || minecraft.level == null) {
+            return;
+        }
+
+        long gameTime = player.level().getGameTime();
+        if (gameTime < nextRegionRemovalTick) {
+            return;
+        }
+        nextRegionRemovalTick = gameTime + 5L;
+
+        selectedRegion(player).ifPresent(region -> PacketDistributor.sendToServer(new RemoveClosestFerrousRegionPayload(region.id())));
     }
 
     @SubscribeEvent
