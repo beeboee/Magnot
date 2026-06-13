@@ -172,14 +172,61 @@ public final class MagnotSableCompat {
     }
 
     private static FerrousRegion projectRegionToWorld(FerrousRegion region, SubLevelAccess subLevel) {
-        Vec3 min = subLevel.logicalPose().transformPosition(Vec3.atLowerCornerOf(region.min()));
-        Vec3 max = subLevel.logicalPose().transformPosition(Vec3.atLowerCornerOf(region.max()).add(1.0D, 1.0D, 1.0D));
-        return FerrousRegion.fromCorners(
-                region.id(),
-                region.groupId(),
-                BlockPos.containing(min),
-                BlockPos.containing(max).offset(-1, -1, -1),
-                null
+        Vec3 center = subLevel.logicalPose().transformPosition(region.bounds().getCenter());
+        BlockPos centerBlock = BlockPos.containing(center);
+
+        int[] localSizes = new int[]{
+                region.max().getX() - region.min().getX() + 1,
+                region.max().getY() - region.min().getY() + 1,
+                region.max().getZ() - region.min().getZ() + 1
+        };
+        int[] worldSizes = new int[]{1, 1, 1};
+        boolean[] usedWorldAxes = new boolean[]{false, false, false};
+
+        assignProjectedAxis(worldSizes, usedWorldAxes, subLevel.logicalPose().transformNormal(new Vec3(1.0D, 0.0D, 0.0D)), localSizes[0]);
+        assignProjectedAxis(worldSizes, usedWorldAxes, subLevel.logicalPose().transformNormal(new Vec3(0.0D, 1.0D, 0.0D)), localSizes[1]);
+        assignProjectedAxis(worldSizes, usedWorldAxes, subLevel.logicalPose().transformNormal(new Vec3(0.0D, 0.0D, 1.0D)), localSizes[2]);
+
+        BlockPos min = new BlockPos(
+                centerBlock.getX() - (worldSizes[0] - 1) / 2,
+                centerBlock.getY() - (worldSizes[1] - 1) / 2,
+                centerBlock.getZ() - (worldSizes[2] - 1) / 2
         );
+        BlockPos max = new BlockPos(
+                min.getX() + worldSizes[0] - 1,
+                min.getY() + worldSizes[1] - 1,
+                min.getZ() + worldSizes[2] - 1
+        );
+
+        return FerrousRegion.fromCorners(region.id(), region.groupId(), min, max, null);
+    }
+
+    private static void assignProjectedAxis(int[] worldSizes, boolean[] usedWorldAxes, Vec3 projectedAxis, int size) {
+        int worldAxis = strongestUnusedAxis(projectedAxis, usedWorldAxes);
+        worldSizes[worldAxis] = size;
+        usedWorldAxes[worldAxis] = true;
+    }
+
+    private static int strongestUnusedAxis(Vec3 axis, boolean[] usedWorldAxes) {
+        double[] strength = new double[]{Math.abs(axis.x), Math.abs(axis.y), Math.abs(axis.z)};
+        int bestAxis = -1;
+        double bestStrength = -1.0D;
+
+        for (int i = 0; i < strength.length; i++) {
+            if (usedWorldAxes[i]) {
+                continue;
+            }
+
+            if (strength[i] > bestStrength) {
+                bestAxis = i;
+                bestStrength = strength[i];
+            }
+        }
+
+        if (bestAxis >= 0) {
+            return bestAxis;
+        }
+
+        return strength[0] >= strength[1] && strength[0] >= strength[2] ? 0 : strength[1] >= strength[2] ? 1 : 2;
     }
 }
