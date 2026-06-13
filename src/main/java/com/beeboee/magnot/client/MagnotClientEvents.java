@@ -85,9 +85,14 @@ public final class MagnotClientEvents {
 
         AABB entitySearch = player.getBoundingBox().inflate(REGION_REVEAL_RADIUS);
         for (FerrousRegionEntity entity : minecraft.level.getEntitiesOfClass(FerrousRegionEntity.class, entitySearch)) {
-            FerrousRegion region = entity.asRegion();
-            if (renderRegion(player, minecraft.level, region, selectedRegion, entity.getUUID())) {
-                entityRenderedRegionIds.add(region.id());
+            FerrousRegion entityRegion = entity.asRegion();
+            Optional<FerrousRegion> syncedRegion = ClientFerrousRegionStore.byId(entityRegion.id());
+            if (syncedRegion.isEmpty() || !syncedRegion.get().equals(entityRegion)) {
+                continue;
+            }
+
+            if (renderRegion(player, minecraft.level, syncedRegion.get(), selectedRegion, entity.getUUID())) {
+                entityRenderedRegionIds.add(entityRegion.id());
             }
         }
 
