@@ -62,7 +62,7 @@ public class FerrousTubeItem extends Item {
             return InteractionResult.SUCCESS;
         }
 
-        FerrousRegionSavedData.get(serverLevel).addRegion(firstCorner.get(), clicked, player.getUUID());
+        FerrousRegionSavedData.get(serverLevel).addRegion(firstCorner.get(), clicked);
         MagnotNetwork.syncToPlayersInDimension(serverLevel);
         clearFirstCorner(stack);
         player.displayClientMessage(Component.translatable("message.magnot.region_created"), true);
