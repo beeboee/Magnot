@@ -72,6 +72,14 @@ public class FerrousRegionSavedData extends SavedData {
         return removed;
     }
 
+    public boolean removeGroup(UUID groupId) {
+        boolean removed = regions.removeIf(region -> region.groupId().equals(groupId));
+        if (removed) {
+            setDirty();
+        }
+        return removed;
+    }
+
     public Optional<FerrousRegion> findClosestIntersecting(Vec3 from, Vec3 to) {
         return findClosestIntersecting(from, to, region -> true);
     }
@@ -130,9 +138,9 @@ public class FerrousRegionSavedData extends SavedData {
                 continue;
             }
 
-            regions.remove(i);
-            setDirty();
-            return Optional.of(region);
+            FerrousRegion selected = region;
+            removeGroup(region.groupId());
+            return Optional.of(selected);
         }
 
         return Optional.empty();
@@ -144,9 +152,9 @@ public class FerrousRegionSavedData extends SavedData {
             return Optional.empty();
         }
 
-        regions.remove(closest.get());
-        setDirty();
-        return closest;
+        FerrousRegion selected = closest.get();
+        removeGroup(selected.groupId());
+        return Optional.of(selected);
     }
 
     public boolean blocksMagnet(Vec3 source, Vec3 itemPos) {
