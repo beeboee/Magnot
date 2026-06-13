@@ -91,11 +91,6 @@ public final class MagnotClientEvents {
             MagnotSpecialTextures faceTexture = selected ? MagnotSpecialTextures.FERROUS_REGION : null;
             float lineWidth = selected ? 1.0F / 16.0F : 1.0F / 64.0F;
 
-            if (ModList.get().isLoaded("sable")
-                    && MagnotSableClientCompat.showRegionOutline(minecraft.level, region.id(), region, FERROUS_RED, faceTexture, lineWidth)) {
-                continue;
-            }
-
             Outliner.getInstance()
                     .showAABB(region.id(), displayBounds)
                     .colored(FERROUS_RED)
