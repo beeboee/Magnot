@@ -4,7 +4,8 @@
   "package": "com.beeboee.magnot.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "sophisticatedcore.MagnetUpgradeWrapperMixin"
+    "sophisticatedcore.MagnetUpgradeWrapperMixin",
+    "ae2wtlib.MagnetHandlerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
