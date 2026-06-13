@@ -1,6 +1,7 @@
 package com.beeboee.magnot.client;
 
 import com.beeboee.magnot.Magnot;
+import com.beeboee.magnot.compat.sable.MagnotSableClientCompat;
 import com.beeboee.magnot.item.FerrousTubeItem;
 import com.beeboee.magnot.network.RemoveClosestFerrousRegionPayload;
 import com.beeboee.magnot.region.FerrousRegion;
@@ -18,6 +19,7 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.InputEvent;
@@ -62,8 +64,13 @@ public final class MagnotClientEvents {
 
         for (FerrousRegion region : ClientFerrousRegionStore.regions()) {
             boolean selected = selectedRegion.map(FerrousRegion::id).filter(region.id()::equals).isPresent();
+            AABB displayBounds = region.bounds();
+            if (ModList.get().isLoaded("sable")) {
+                displayBounds = MagnotSableClientCompat.displayBounds(minecraft.level, region);
+            }
+
             Outliner.getInstance()
-                    .showAABB(region.id(), region.bounds())
+                    .showAABB(region.id(), displayBounds)
                     .colored(FERROUS_RED)
                     .withFaceTextures(MagnotSpecialTextures.FERROUS_REGION, MagnotSpecialTextures.FERROUS_REGION)
                     .disableLineNormals()
@@ -119,7 +126,13 @@ public final class MagnotClientEvents {
         Vec3 from = player.getEyePosition();
         double range = player.getAttributeValue(Attributes.BLOCK_INTERACTION_RANGE) + 1.0D;
         Vec3 to = from.add(player.getLookAngle().scale(range));
-        return ClientFerrousRegionStore.closestIntersecting(from, to);
+
+        Optional<FerrousRegion> selected = ClientFerrousRegionStore.closestIntersecting(from, to);
+        if (selected.isEmpty() && ModList.get().isLoaded("sable")) {
+            selected = MagnotSableClientCompat.closestIntersecting(player.level(), from, to);
+        }
+
+        return selected;
     }
 
     private static AABB boxBetween(BlockPos first, BlockPos second) {
