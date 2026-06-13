@@ -9,6 +9,7 @@ import dev.ryanhcode.sable.companion.SableCompanion;
 import dev.ryanhcode.sable.companion.SubLevelAccess;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.ArrayList;
@@ -89,27 +90,6 @@ public final class MagnotSableCompat {
         MagnotNetwork.syncToPlayersInDimension(level);
     }
 
-    public static void dropRegionsFromSubLevel(ServerLevel level, SubLevelAccess subLevel) {
-        FerrousRegionSavedData data = FerrousRegionSavedData.get(level);
-        List<FerrousRegion> regionsToDrop = data.regions().stream()
-                .filter(region -> region.belongsToSubLevel(subLevel.getUniqueId()))
-                .toList();
-
-        if (regionsToDrop.isEmpty()) {
-            return;
-        }
-
-        for (FerrousRegion region : regionsToDrop) {
-            if (!data.removeRegion(region.id())) {
-                continue;
-            }
-
-            data.addRegion(projectRegionToWorld(region, subLevel));
-        }
-
-        MagnotNetwork.syncToPlayersInDimension(level);
-    }
-
     private static boolean shouldMoveRegion(FerrousRegion region, UUID sourceSubLevelId, Set<BlockPos> movedBlocks) {
         if (sourceSubLevelId == null && !region.isWorldRegion()) {
             return false;
@@ -162,71 +142,23 @@ public final class MagnotSableCompat {
     }
 
     private static FerrousRegion transformRegion(FerrousRegion region, SubLevelAssemblyHelper.AssemblyTransform transform, UUID targetSubLevelId) {
-        return FerrousRegion.fromCorners(
-                region.id(),
-                region.groupId(),
-                transform.apply(region.min()),
-                transform.apply(region.max()),
-                targetSubLevelId
-        );
+        AABB bounds = transformBounds(region.bounds(), transform);
+        BlockPos min = BlockPos.containing(bounds.minX, bounds.minY, bounds.minZ);
+        BlockPos max = BlockPos.containing(bounds.maxX - 1.0E-6D, bounds.maxY - 1.0E-6D, bounds.maxZ - 1.0E-6D);
+        return FerrousRegion.fromCorners(region.id(), region.groupId(), min, max, targetSubLevelId);
     }
 
-    private static FerrousRegion projectRegionToWorld(FerrousRegion region, SubLevelAccess subLevel) {
-        Vec3 center = subLevel.logicalPose().transformPosition(region.bounds().getCenter());
-        BlockPos centerBlock = BlockPos.containing(center);
-
-        int[] localSizes = new int[]{
-                region.max().getX() - region.min().getX() + 1,
-                region.max().getY() - region.min().getY() + 1,
-                region.max().getZ() - region.min().getZ() + 1
-        };
-        int[] worldSizes = new int[]{1, 1, 1};
-        boolean[] usedWorldAxes = new boolean[]{false, false, false};
-
-        assignProjectedAxis(worldSizes, usedWorldAxes, subLevel.logicalPose().transformNormal(new Vec3(1.0D, 0.0D, 0.0D)), localSizes[0]);
-        assignProjectedAxis(worldSizes, usedWorldAxes, subLevel.logicalPose().transformNormal(new Vec3(0.0D, 1.0D, 0.0D)), localSizes[1]);
-        assignProjectedAxis(worldSizes, usedWorldAxes, subLevel.logicalPose().transformNormal(new Vec3(0.0D, 0.0D, 1.0D)), localSizes[2]);
-
-        BlockPos min = new BlockPos(
-                centerBlock.getX() - (worldSizes[0] - 1) / 2,
-                centerBlock.getY() - (worldSizes[1] - 1) / 2,
-                centerBlock.getZ() - (worldSizes[2] - 1) / 2
-        );
-        BlockPos max = new BlockPos(
-                min.getX() + worldSizes[0] - 1,
-                min.getY() + worldSizes[1] - 1,
-                min.getZ() + worldSizes[2] - 1
-        );
-
-        return FerrousRegion.fromCorners(region.id(), region.groupId(), min, max, null);
-    }
-
-    private static void assignProjectedAxis(int[] worldSizes, boolean[] usedWorldAxes, Vec3 projectedAxis, int size) {
-        int worldAxis = strongestUnusedAxis(projectedAxis, usedWorldAxes);
-        worldSizes[worldAxis] = size;
-        usedWorldAxes[worldAxis] = true;
-    }
-
-    private static int strongestUnusedAxis(Vec3 axis, boolean[] usedWorldAxes) {
-        double[] strength = new double[]{Math.abs(axis.x), Math.abs(axis.y), Math.abs(axis.z)};
-        int bestAxis = -1;
-        double bestStrength = -1.0D;
-
-        for (int i = 0; i < strength.length; i++) {
-            if (usedWorldAxes[i]) {
-                continue;
-            }
-
-            if (strength[i] > bestStrength) {
-                bestAxis = i;
-                bestStrength = strength[i];
+    private static AABB transformBounds(AABB bounds, SubLevelAssemblyHelper.AssemblyTransform transform) {
+        AABB transformed = null;
+        for (double x : new double[]{bounds.minX, bounds.maxX}) {
+            for (double y : new double[]{bounds.minY, bounds.maxY}) {
+                for (double z : new double[]{bounds.minZ, bounds.maxZ}) {
+                    Vec3 corner = transform.apply(new Vec3(x, y, z));
+                    AABB point = new AABB(corner, corner);
+                    transformed = transformed == null ? point : transformed.minmax(point);
+                }
             }
         }
-
-        if (bestAxis >= 0) {
-            return bestAxis;
-        }
-
-        return strength[0] >= strength[1] && strength[0] >= strength[2] ? 0 : strength[1] >= strength[2] ? 1 : 2;
+        return transformed == null ? bounds : transformed;
     }
 }
