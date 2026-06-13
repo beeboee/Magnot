@@ -5,6 +5,9 @@ import com.beeboee.magnot.region.FerrousRegion;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.companion.SableCompanion;
 import dev.ryanhcode.sable.companion.SubLevelAccess;
+import dev.ryanhcode.sable.neoforge.mixinhelper.compatibility.create.renderers.AABBOutlineRenderingOptions;
+import net.createmod.catnip.outliner.Outliner;
+import net.createmod.catnip.render.BindableTexture;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -51,6 +54,34 @@ public final class MagnotSableClientCompat {
         }
 
         return Optional.ofNullable(closest);
+    }
+
+    public static boolean showRegionOutline(Level level, Object slot, FerrousRegion region, int color, BindableTexture faceTexture, float lineWidth) {
+        if (region.isWorldRegion() || findSubLevel(level, region) == null) {
+            disableOutlineTransform(slot);
+            return false;
+        }
+
+        Outliner outliner = Outliner.getInstance();
+        var params = outliner.showAABB(slot, region.bounds())
+                .colored(color)
+                .withFaceTextures(faceTexture, faceTexture)
+                .disableLineNormals()
+                .lineWidth(lineWidth);
+
+        var entry = outliner.getOutlines().get(slot);
+        if (entry != null && entry.getOutline() instanceof AABBOutlineRenderingOptions options) {
+            options.sable$shouldTransform(true);
+        }
+
+        return true;
+    }
+
+    public static void disableOutlineTransform(Object slot) {
+        var entry = Outliner.getInstance().getOutlines().get(slot);
+        if (entry != null && entry.getOutline() instanceof AABBOutlineRenderingOptions options) {
+            options.sable$shouldTransform(false);
+        }
     }
 
     public static AABB displayBounds(Level level, FerrousRegion region) {
