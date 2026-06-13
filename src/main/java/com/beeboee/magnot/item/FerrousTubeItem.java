@@ -2,6 +2,7 @@ package com.beeboee.magnot.item;
 
 import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.region.FerrousRegionSavedData;
+import com.beeboee.magnot.server.FerrousParticles;
 import com.simibubi.create.AllSoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -9,6 +10,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -47,8 +49,10 @@ public class FerrousTubeItem extends Item {
         }
 
         if (player.isShiftKeyDown()) {
-            clearFirstCorner(stack);
-            player.displayClientMessage(Component.translatable("message.magnot.selection_cleared"), true);
+            if (getFirstCorner(stack).isPresent()) {
+                clearFirstCorner(stack);
+                player.displayClientMessage(Component.translatable("message.magnot.selection_cleared"), true);
+            }
             return InteractionResult.SUCCESS;
         }
 
@@ -59,6 +63,7 @@ public class FerrousTubeItem extends Item {
             setFirstCorner(stack, clicked);
             player.displayClientMessage(Component.translatable("message.magnot.first_corner"), true);
             AllSoundEvents.SLIME_ADDED.play(serverLevel, null, clicked, 0.5F, 0.85F);
+            FerrousParticles.spawnRedstoneBlockBreak(serverLevel, clicked);
             return InteractionResult.SUCCESS;
         }
 
@@ -67,7 +72,20 @@ public class FerrousTubeItem extends Item {
         clearFirstCorner(stack);
         player.displayClientMessage(Component.translatable("message.magnot.region_created"), true);
         AllSoundEvents.SLIME_ADDED.play(serverLevel, null, clicked, 0.5F, 0.95F);
+        FerrousParticles.spawnRedstoneBlockBreak(serverLevel, clicked);
         return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
+        if (level.isClientSide() || isSelected || getFirstCorner(stack).isEmpty()) {
+            return;
+        }
+
+        clearFirstCorner(stack);
+        if (entity instanceof Player player) {
+            player.displayClientMessage(Component.translatable("message.magnot.selection_cleared"), true);
+        }
     }
 
     public static Optional<BlockPos> getFirstCorner(ItemStack stack) {
