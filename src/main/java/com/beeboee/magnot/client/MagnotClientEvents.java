@@ -2,6 +2,7 @@ package com.beeboee.magnot.client;
 
 import com.beeboee.magnot.Magnot;
 import com.beeboee.magnot.item.FerrousTubeItem;
+import com.beeboee.magnot.network.RemoveClosestFerrousRegionPayload;
 import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.registry.MagnotItems;
 import net.createmod.catnip.outliner.Outliner;
@@ -18,6 +19,8 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
+import net.neoforged.neoforge.client.event.InputEvent;
+import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 
 import java.util.Optional;
 
@@ -28,6 +31,17 @@ public final class MagnotClientEvents {
     private static final int FERROUS_RED_PASSIVE = 0x7F241F;
 
     private MagnotClientEvents() {
+    }
+
+    @SubscribeEvent
+    public static void onInteractionKeyMappingTriggered(InputEvent.InteractionKeyMappingTriggered event) {
+        if (!event.isAttack() || selectedRegion().isEmpty()) {
+            return;
+        }
+
+        event.setCanceled(true);
+        event.setSwingHand(true);
+        ClientPacketDistributor.sendToServer(new RemoveClosestFerrousRegionPayload());
     }
 
     @SubscribeEvent
@@ -43,10 +57,7 @@ public final class MagnotClientEvents {
             return;
         }
 
-        Vec3 from = player.getEyePosition();
-        double range = player.getAttributeValue(Attributes.BLOCK_INTERACTION_RANGE) + 1.0D;
-        Vec3 to = from.add(player.getLookAngle().scale(range));
-        Optional<FerrousRegion> selectedRegion = ClientFerrousRegionStore.closestIntersecting(from, to);
+        Optional<FerrousRegion> selectedRegion = selectedRegion(player);
 
         for (FerrousRegion region : ClientFerrousRegionStore.regions()) {
             boolean selected = selectedRegion.map(FerrousRegion::id).filter(region.id()::equals).isPresent();
@@ -73,6 +84,28 @@ public final class MagnotClientEvents {
                 .colored(FERROUS_RED)
                 .disableLineNormals()
                 .lineWidth(1.0F / 16.0F);
+    }
+
+    private static Optional<FerrousRegion> selectedRegion() {
+        Minecraft minecraft = Minecraft.getInstance();
+        LocalPlayer player = minecraft.player;
+        if (player == null || minecraft.level == null) {
+            return Optional.empty();
+        }
+
+        return selectedRegion(player);
+    }
+
+    private static Optional<FerrousRegion> selectedRegion(LocalPlayer player) {
+        ItemStack held = player.getMainHandItem();
+        if (!held.is(MagnotItems.FERROUS_TUBE.get())) {
+            return Optional.empty();
+        }
+
+        Vec3 from = player.getEyePosition();
+        double range = player.getAttributeValue(Attributes.BLOCK_INTERACTION_RANGE) + 1.0D;
+        Vec3 to = from.add(player.getLookAngle().scale(range));
+        return ClientFerrousRegionStore.closestIntersecting(from, to);
     }
 
     private static AABB boxBetween(BlockPos first, BlockPos second) {
