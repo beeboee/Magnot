@@ -1,0 +1,15 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "tag": "c:ingots/iron"
+    }
+  ],
+  "processingTime": 250,
+  "results": [
+    {
+      "id": "magnot:iron_dust",
+      "count": 1
+    }
+  ]
+}
