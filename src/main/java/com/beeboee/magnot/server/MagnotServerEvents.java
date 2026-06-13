@@ -5,8 +5,10 @@ import com.beeboee.magnot.registry.MagnotItems;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
@@ -31,7 +33,11 @@ public final class MagnotServerEvents {
             return;
         }
 
-        boolean removed = FerrousRegionSavedData.get(serverLevel).removeRegionContaining(event.getPos());
+        double range = player.getAttributeValue(Attributes.BLOCK_INTERACTION_RANGE) + 1.0D;
+        Vec3 from = player.getEyePosition();
+        Vec3 to = from.add(player.getLookAngle().scale(range));
+
+        boolean removed = FerrousRegionSavedData.get(serverLevel).removeClosestIntersecting(from, to);
         if (removed) {
             event.setCanceled(true);
             player.displayClientMessage(Component.translatable("message.magnot.region_removed"), true);
