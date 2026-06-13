@@ -13,7 +13,6 @@ import net.minecraft.world.phys.Vec3;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 public class FerrousRegionSavedData extends SavedData {
     private static final String DATA_NAME = Magnot.MOD_ID + "_ferrous_regions";
@@ -51,8 +50,8 @@ public class FerrousRegionSavedData extends SavedData {
         return List.copyOf(regions);
     }
 
-    public void addRegion(BlockPos first, BlockPos second, UUID owner) {
-        regions.add(FerrousRegion.fromCorners(first, second, owner));
+    public void addRegion(BlockPos first, BlockPos second) {
+        regions.add(FerrousRegion.fromCorners(first, second));
         setDirty();
     }
 
