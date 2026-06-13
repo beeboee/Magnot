@@ -52,6 +52,14 @@ repositories {
             includeGroup 'foundry.veil'
         }
     }
+    maven {
+        name = 'Su5eD Maven'
+        url = 'https://maven.su5ed.dev/releases'
+        content {
+            includeGroup 'gg.moonflower'
+            includeGroup 'io.github.ocelot'
+        }
+    }
     mavenCentral()
 }
 
