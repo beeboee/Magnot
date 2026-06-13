@@ -1,5 +1,6 @@
 package com.beeboee.magnot;
 
+import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.registry.MagnotItems;
 import com.beeboee.magnot.server.MagnotServerEvents;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -18,6 +19,7 @@ public final class Magnot {
     public Magnot(IEventBus modEventBus) {
         MagnotItems.register(modEventBus);
         modEventBus.addListener(this::addCreativeTabContents);
+        modEventBus.addListener(MagnotNetwork::register);
         NeoForge.EVENT_BUS.register(MagnotServerEvents.class);
     }
 
