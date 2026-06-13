@@ -10,6 +10,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -24,6 +25,8 @@ import net.minecraft.world.level.Level;
 import java.util.Optional;
 
 public class FerrousTubeItem extends Item {
+    public static final int MAX_REGION_AXIS_LENGTH = 25;
+    private static final int MAX_REGION_AXIS_OFFSET = MAX_REGION_AXIS_LENGTH - 1;
     private static final int REGION_PLACEMENT_DAMAGE = 2;
     private static final String HAS_FIRST = "MagnotHasFirstCorner";
     private static final String FIRST_X = "MagnotFirstX";
@@ -70,11 +73,12 @@ public class FerrousTubeItem extends Item {
             return InteractionResult.SUCCESS;
         }
 
-        FerrousRegion region = FerrousRegionSavedData.get(serverLevel).addRegion(firstCorner.get(), clicked);
+        BlockPos clampedSecondCorner = clampToRegionLimit(firstCorner.get(), clicked);
+        FerrousRegion region = FerrousRegionSavedData.get(serverLevel).addRegion(firstCorner.get(), clampedSecondCorner);
         MagnotNetwork.syncToPlayersInDimension(serverLevel);
         clearFirstCorner(stack);
         player.displayClientMessage(Component.translatable("message.magnot.region_created"), true);
-        AllSoundEvents.SLIME_ADDED.play(serverLevel, null, clicked, 0.5F, 0.95F);
+        AllSoundEvents.SLIME_ADDED.play(serverLevel, null, clampedSecondCorner, 0.5F, 0.95F);
         FerrousParticles.spawnRedstoneBlockEdges(serverLevel, region);
         damageTubeIfNeeded(player, stack, context.getHand());
         return InteractionResult.SUCCESS;
@@ -100,6 +104,20 @@ public class FerrousTubeItem extends Item {
 
         CompoundTag tag = data.copyTag();
         return Optional.of(new BlockPos(tag.getInt(FIRST_X), tag.getInt(FIRST_Y), tag.getInt(FIRST_Z)));
+    }
+
+    public static BlockPos clampToRegionLimit(BlockPos first, BlockPos second) {
+        return new BlockPos(
+                first.getX() + Mth.clamp(second.getX() - first.getX(), -MAX_REGION_AXIS_OFFSET, MAX_REGION_AXIS_OFFSET),
+                first.getY() + Mth.clamp(second.getY() - first.getY(), -MAX_REGION_AXIS_OFFSET, MAX_REGION_AXIS_OFFSET),
+                first.getZ() + Mth.clamp(second.getZ() - first.getZ(), -MAX_REGION_AXIS_OFFSET, MAX_REGION_AXIS_OFFSET)
+        );
+    }
+
+    public static boolean exceedsRegionLimit(BlockPos first, BlockPos second) {
+        return Math.abs(second.getX() - first.getX()) >= MAX_REGION_AXIS_LENGTH
+                || Math.abs(second.getY() - first.getY()) >= MAX_REGION_AXIS_LENGTH
+                || Math.abs(second.getZ() - first.getZ()) >= MAX_REGION_AXIS_LENGTH;
     }
 
     private static void damageTubeIfNeeded(Player player, ItemStack stack, InteractionHand hand) {
