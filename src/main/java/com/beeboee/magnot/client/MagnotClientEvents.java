@@ -42,9 +42,7 @@ public final class MagnotClientEvents {
         event.setCanceled(true);
         event.setSwingHand(true);
 
-        if (selectedRegion().isPresent()) {
-            PacketDistributor.sendToServer(new RemoveClosestFerrousRegionPayload());
-        }
+        selectedRegion().ifPresent(region -> PacketDistributor.sendToServer(new RemoveClosestFerrousRegionPayload(region.id())));
     }
 
     @SubscribeEvent
