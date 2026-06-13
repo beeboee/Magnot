@@ -1,0 +1,74 @@
+package com.beeboee.magnot.region;
+
+import com.beeboee.magnot.Magnot;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.saveddata.SavedData;
+import net.minecraft.world.phys.Vec3;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+public class FerrousRegionSavedData extends SavedData {
+    private static final String DATA_NAME = Magnot.MOD_ID + "_ferrous_regions";
+    private static final SavedData.Factory<FerrousRegionSavedData> FACTORY = new SavedData.Factory<>(
+            FerrousRegionSavedData::new,
+            FerrousRegionSavedData::load
+    );
+
+    private final List<FerrousRegion> regions = new ArrayList<>();
+
+    public static FerrousRegionSavedData get(ServerLevel level) {
+        return level.getDataStorage().computeIfAbsent(FACTORY, DATA_NAME);
+    }
+
+    public static FerrousRegionSavedData load(CompoundTag tag, HolderLookup.Provider registries) {
+        FerrousRegionSavedData data = new FerrousRegionSavedData();
+        ListTag list = tag.getList("Regions", Tag.TAG_COMPOUND);
+        for (int i = 0; i < list.size(); i++) {
+            data.regions.add(FerrousRegion.load(list.getCompound(i)));
+        }
+        return data;
+    }
+
+    @Override
+    public CompoundTag save(CompoundTag tag, HolderLookup.Provider registries) {
+        ListTag list = new ListTag();
+        for (FerrousRegion region : regions) {
+            list.add(region.save());
+        }
+        tag.put("Regions", list);
+        return tag;
+    }
+
+    public List<FerrousRegion> regions() {
+        return List.copyOf(regions);
+    }
+
+    public void addRegion(BlockPos first, BlockPos second, UUID owner) {
+        regions.add(FerrousRegion.fromCorners(first, second, owner));
+        setDirty();
+    }
+
+    public boolean removeRegionContaining(BlockPos pos) {
+        boolean removed = regions.removeIf(region -> region.contains(pos));
+        if (removed) {
+            setDirty();
+        }
+        return removed;
+    }
+
+    public boolean blocksMagnet(Vec3 source, Vec3 itemPos) {
+        for (FerrousRegion region : regions) {
+            if (region.contains(source) || region.contains(itemPos) || region.intersectsSegment(source, itemPos)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
