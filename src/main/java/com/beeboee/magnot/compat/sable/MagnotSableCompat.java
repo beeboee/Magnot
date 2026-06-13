@@ -80,7 +80,7 @@ public final class MagnotSableCompat {
     }
 
     private static boolean intersectsAnyAssembledBlock(FerrousRegion region, Set<BlockPos> assembledBlocks) {
-        for (BlockPos blockPos : BlockPos.betweenClosed(region.min(), region.max()).map(BlockPos::immutable).toList()) {
+        for (BlockPos blockPos : BlockPos.betweenClosed(region.min(), region.max())) {
             if (assembledBlocks.contains(blockPos)) {
                 return true;
             }
