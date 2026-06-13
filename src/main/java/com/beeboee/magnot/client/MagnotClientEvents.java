@@ -2,6 +2,7 @@ package com.beeboee.magnot.client;
 
 import com.beeboee.magnot.Magnot;
 import com.beeboee.magnot.compat.sable.MagnotSableClientCompat;
+import com.beeboee.magnot.entity.FerrousRegionEntity;
 import com.beeboee.magnot.item.FerrousTubeItem;
 import com.beeboee.magnot.network.RemoveClosestFerrousRegionPayload;
 import com.beeboee.magnot.region.FerrousRegion;
@@ -25,7 +26,10 @@ import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
+import java.util.UUID;
 
 @EventBusSubscriber(modid = Magnot.MOD_ID, value = Dist.CLIENT)
 public final class MagnotClientEvents {
@@ -77,26 +81,22 @@ public final class MagnotClientEvents {
         }
 
         Optional<FerrousRegion> selectedRegion = selectedRegion(player);
+        Set<UUID> entityRenderedRegionIds = new HashSet<>();
+
+        AABB entitySearch = player.getBoundingBox().inflate(REGION_REVEAL_RADIUS);
+        for (FerrousRegionEntity entity : minecraft.level.getEntitiesOfClass(FerrousRegionEntity.class, entitySearch)) {
+            FerrousRegion region = entity.asRegion();
+            if (renderRegion(player, minecraft.level, region, selectedRegion, entity.getUUID())) {
+                entityRenderedRegionIds.add(region.id());
+            }
+        }
 
         for (FerrousRegion region : ClientFerrousRegionStore.regions()) {
-            AABB displayBounds = ModList.get().isLoaded("sable")
-                    ? MagnotSableClientCompat.displayBounds(minecraft.level, region)
-                    : region.bounds();
-
-            if (!isNearPlayer(player, displayBounds)) {
+            if (entityRenderedRegionIds.contains(region.id())) {
                 continue;
             }
 
-            boolean selected = selectedRegion.map(FerrousRegion::id).filter(region.id()::equals).isPresent();
-            MagnotSpecialTextures faceTexture = selected ? MagnotSpecialTextures.FERROUS_REGION : null;
-            float lineWidth = selected ? 1.0F / 16.0F : 1.0F / 64.0F;
-
-            Outliner.getInstance()
-                    .showAABB(region.id(), displayBounds)
-                    .colored(FERROUS_RED)
-                    .withFaceTextures(faceTexture, faceTexture)
-                    .disableLineNormals()
-                    .lineWidth(lineWidth);
+            renderRegion(player, minecraft.level, region, selectedRegion, region.id());
         }
 
         var firstCorner = FerrousTubeItem.getFirstCorner(held);
@@ -126,6 +126,28 @@ public final class MagnotClientEvents {
                 .withFaceTextures(MagnotSpecialTextures.FERROUS_REGION, MagnotSpecialTextures.FERROUS_REGION)
                 .disableLineNormals()
                 .lineWidth(1.0F / 16.0F);
+    }
+
+    private static boolean renderRegion(LocalPlayer player, net.minecraft.world.level.Level level, FerrousRegion region, Optional<FerrousRegion> selectedRegion, Object renderSlot) {
+        AABB displayBounds = ModList.get().isLoaded("sable")
+                ? MagnotSableClientCompat.displayBounds(level, region)
+                : region.bounds();
+
+        if (!isNearPlayer(player, displayBounds)) {
+            return false;
+        }
+
+        boolean selected = selectedRegion.map(FerrousRegion::id).filter(region.id()::equals).isPresent();
+        MagnotSpecialTextures faceTexture = selected ? MagnotSpecialTextures.FERROUS_REGION : null;
+        float lineWidth = selected ? 1.0F / 16.0F : 1.0F / 64.0F;
+
+        Outliner.getInstance()
+                .showAABB(renderSlot, displayBounds)
+                .colored(FERROUS_RED)
+                .withFaceTextures(faceTexture, faceTexture)
+                .disableLineNormals()
+                .lineWidth(lineWidth);
+        return true;
     }
 
     private static boolean holdingFerrousTube() {
