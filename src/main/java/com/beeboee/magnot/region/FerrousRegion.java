@@ -40,9 +40,19 @@ public record FerrousRegion(UUID id, BlockPos min, BlockPos max, UUID owner) {
                 && pos.getZ() >= min.getZ() && pos.getZ() <= max.getZ();
     }
 
+    public Optional<Vec3> clip(Vec3 from, Vec3 to) {
+        if (contains(from)) {
+            return Optional.of(from);
+        }
+        return bounds().clip(from, to);
+    }
+
+    public Optional<Double> hitDistanceSqr(Vec3 from, Vec3 to) {
+        return clip(from, to).map(hit -> hit.distanceToSqr(from));
+    }
+
     public boolean intersectsSegment(Vec3 from, Vec3 to) {
-        Optional<Vec3> hit = bounds().clip(from, to);
-        return hit.isPresent();
+        return clip(from, to).isPresent();
     }
 
     public CompoundTag save() {
