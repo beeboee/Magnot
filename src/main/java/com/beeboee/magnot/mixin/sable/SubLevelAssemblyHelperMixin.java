@@ -26,7 +26,7 @@ public abstract class SubLevelAssemblyHelperMixin {
                 .map(BlockPos::immutable)
                 .toList();
 
-        SubLevelAssemblyHelper.moveBlocks(level, transform, blocks);
+        SubLevelAssemblyHelper.moveBlocks(level, transform, copiedBlocks);
         MagnotSableCompat.moveRegionsAfterAssembly(level, transform, copiedBlocks);
     }
 }
