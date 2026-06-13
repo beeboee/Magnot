@@ -63,6 +63,7 @@ public class FerrousTubeItem extends Item {
         if (firstCorner.isEmpty()) {
             setFirstCorner(stack, clicked);
             AllSoundEvents.SLIME_ADDED.play(serverLevel, null, clicked, 0.5F, 0.85F);
+            FerrousParticles.spawnRedstoneBlockBreak(serverLevel, clicked);
             return InteractionResult.SUCCESS;
         }
 
