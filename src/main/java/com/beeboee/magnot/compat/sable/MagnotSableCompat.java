@@ -12,10 +12,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
@@ -85,13 +83,7 @@ public final class MagnotSableCompat {
                 continue;
             }
 
-            if (targetSubLevelId == null) {
-                for (FerrousRegion transformedPiece : transformRegionToWorldColumns(region, transform)) {
-                    data.addRegion(transformedPiece);
-                }
-            } else {
-                data.addRegion(transformRegion(region, transform, targetSubLevelId));
-            }
+            data.addRegion(transformRegion(region, transform, targetSubLevelId));
         }
 
         MagnotNetwork.syncToPlayersInDimension(level);
@@ -112,9 +104,7 @@ public final class MagnotSableCompat {
                 continue;
             }
 
-            for (FerrousRegion worldPiece : projectRegionToWorldColumns(region, subLevel)) {
-                data.addRegion(worldPiece);
-            }
+            data.addRegion(projectRegionToWorld(region, subLevel));
         }
 
         MagnotNetwork.syncToPlayersInDimension(level);
@@ -181,51 +171,15 @@ public final class MagnotSableCompat {
         );
     }
 
-    private static List<FerrousRegion> transformRegionToWorldColumns(FerrousRegion region, SubLevelAssemblyHelper.AssemblyTransform transform) {
-        Map<ColumnKey, YRange> columns = new HashMap<>();
-
-        for (BlockPos localPos : BlockPos.betweenClosed(region.min(), region.max())) {
-            BlockPos worldPos = transform.apply(localPos);
-            addColumn(columns, worldPos);
-        }
-
-        return columnsToRegions(region.groupId(), columns);
-    }
-
-    private static List<FerrousRegion> projectRegionToWorldColumns(FerrousRegion region, SubLevelAccess subLevel) {
-        Map<ColumnKey, YRange> columns = new HashMap<>();
-
-        for (BlockPos localPos : BlockPos.betweenClosed(region.min(), region.max())) {
-            Vec3 worldCenter = subLevel.logicalPose().transformPosition(Vec3.atCenterOf(localPos));
-            BlockPos worldPos = BlockPos.containing(worldCenter);
-            addColumn(columns, worldPos);
-        }
-
-        return columnsToRegions(region.groupId(), columns);
-    }
-
-    private static void addColumn(Map<ColumnKey, YRange> columns, BlockPos pos) {
-        ColumnKey key = new ColumnKey(pos.getX(), pos.getZ());
-        columns.compute(key, (ignored, range) -> range == null ? new YRange(pos.getY(), pos.getY()) : range.include(pos.getY()));
-    }
-
-    private static List<FerrousRegion> columnsToRegions(UUID groupId, Map<ColumnKey, YRange> columns) {
-        List<FerrousRegion> pieces = new ArrayList<>(columns.size());
-        for (Map.Entry<ColumnKey, YRange> entry : columns.entrySet()) {
-            ColumnKey key = entry.getKey();
-            YRange range = entry.getValue();
-            BlockPos min = new BlockPos(key.x, range.minY, key.z);
-            BlockPos max = new BlockPos(key.x, range.maxY, key.z);
-            pieces.add(FerrousRegion.fromCorners(UUID.randomUUID(), groupId, min, max, null));
-        }
-        return pieces;
-    }
-
-    private record ColumnKey(int x, int z) {}
-
-    private record YRange(int minY, int maxY) {
-        private YRange include(int y) {
-            return new YRange(Math.min(minY, y), Math.max(maxY, y));
-        }
+    private static FerrousRegion projectRegionToWorld(FerrousRegion region, SubLevelAccess subLevel) {
+        Vec3 min = subLevel.logicalPose().transformPosition(Vec3.atLowerCornerOf(region.min()));
+        Vec3 max = subLevel.logicalPose().transformPosition(Vec3.atLowerCornerOf(region.max()).add(1.0D, 1.0D, 1.0D));
+        return FerrousRegion.fromCorners(
+                region.id(),
+                region.groupId(),
+                BlockPos.containing(min),
+                BlockPos.containing(max).offset(-1, -1, -1),
+                null
+        );
     }
 }
