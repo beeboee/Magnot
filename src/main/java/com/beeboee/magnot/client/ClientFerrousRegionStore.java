@@ -32,7 +32,7 @@ public final class ClientFerrousRegionStore {
             }
 
             double distance = hitDistance.get();
-            if (distance > bestDistance) {
+            if (distance >= bestDistance) {
                 continue;
             }
 
