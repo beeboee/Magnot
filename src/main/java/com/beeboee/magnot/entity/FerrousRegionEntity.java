@@ -10,9 +10,12 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.Pose;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -28,7 +31,6 @@ public class FerrousRegionEntity extends Entity implements IEntityWithComplexSpa
 
     public FerrousRegionEntity(EntityType<?> type, Level level) {
         super(type, level);
-        noPhysics = true;
     }
 
     public FerrousRegionEntity(Level level, FerrousRegion region) {
@@ -86,6 +88,7 @@ public class FerrousRegionEntity extends Entity implements IEntityWithComplexSpa
     public void tick() {
         xRotO = getXRot();
         yRotO = getYRot();
+        walkDistO = walkDist;
         xo = getX();
         yo = getY();
         zo = getZ();
@@ -134,13 +137,13 @@ public class FerrousRegionEntity extends Entity implements IEntityWithComplexSpa
             tag.putUUID("SubLevelId", subLevelId);
         }
 
-        AABB bounds = getBoundingBox();
-        tag.putDouble("MinX", bounds.minX);
-        tag.putDouble("MinY", bounds.minY);
-        tag.putDouble("MinZ", bounds.minZ);
-        tag.putDouble("MaxX", bounds.maxX);
-        tag.putDouble("MaxY", bounds.maxY);
-        tag.putDouble("MaxZ", bounds.maxZ);
+        AABB relativeBounds = getBoundingBox().move(position().scale(-1));
+        tag.putDouble("MinX", relativeBounds.minX);
+        tag.putDouble("MinY", relativeBounds.minY);
+        tag.putDouble("MinZ", relativeBounds.minZ);
+        tag.putDouble("MaxX", relativeBounds.maxX);
+        tag.putDouble("MaxY", relativeBounds.maxY);
+        tag.putDouble("MaxZ", relativeBounds.maxZ);
     }
 
     @Override
@@ -149,11 +152,36 @@ public class FerrousRegionEntity extends Entity implements IEntityWithComplexSpa
         groupId = tag.hasUUID("GroupId") ? tag.getUUID("GroupId") : regionId;
         subLevelId = tag.hasUUID("SubLevelId") ? tag.getUUID("SubLevelId") : null;
 
-        setBoundingBox(new AABB(
+        AABB relativeBounds = new AABB(
                 tag.getDouble("MinX"), tag.getDouble("MinY"), tag.getDouble("MinZ"),
                 tag.getDouble("MaxX"), tag.getDouble("MaxY"), tag.getDouble("MaxZ")
-        ));
-        resetPositionToBB();
+        );
+        setBoundingBox(relativeBounds.move(position()));
+    }
+
+    @Override
+    public float rotate(Rotation rotation) {
+        AABB relativeBounds = getBoundingBox().move(position().scale(-1));
+        if (rotation == Rotation.CLOCKWISE_90 || rotation == Rotation.COUNTERCLOCKWISE_90) {
+            setBoundingBox(new AABB(
+                    relativeBounds.minZ,
+                    relativeBounds.minY,
+                    relativeBounds.minX,
+                    relativeBounds.maxZ,
+                    relativeBounds.maxY,
+                    relativeBounds.maxX
+            ).move(position()));
+        }
+        return super.rotate(rotation);
+    }
+
+    @Override
+    public float mirror(Mirror mirror) {
+        return super.mirror(mirror);
+    }
+
+    @Override
+    public void thunderHit(ServerLevel level, LightningBolt lightning) {
     }
 
     @Override
