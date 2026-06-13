@@ -1,6 +1,7 @@
 package com.beeboee.magnot.item;
 
 import com.beeboee.magnot.compat.sable.MagnotSableCompat;
+import com.beeboee.magnot.debug.MagnotDebug;
 import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.region.FerrousRegionSavedData;
@@ -71,7 +72,9 @@ public class FerrousTubeItem extends Item {
         Optional<BlockPos> firstCorner = getFirstCorner(stack);
 
         if (firstCorner.isEmpty()) {
-            setFirstCorner(stack, clicked, getClickedSubLevel(serverLevel, clicked));
+            UUID clickedSubLevelId = getClickedSubLevel(serverLevel, clicked);
+            MagnotDebug.log("first-corner clicked={} sub={}", clicked, MagnotDebug.shortId(clickedSubLevelId));
+            setFirstCorner(stack, clicked, clickedSubLevelId);
             AllSoundEvents.SLIME_ADDED.play(serverLevel, null, clicked, 0.5F, 0.85F);
             FerrousParticles.spawnRedstoneBlockBreak(serverLevel, clicked);
             return InteractionResult.SUCCESS;
@@ -80,6 +83,8 @@ public class FerrousTubeItem extends Item {
         BlockPos clampedSecondCorner = clampToRegionLimit(firstCorner.get(), clicked);
         UUID subLevelId = getFirstSubLevelId(stack).orElseGet(() -> getClickedSubLevel(serverLevel, clicked));
         FerrousRegion region = FerrousRegion.fromCorners(UUID.randomUUID(), firstCorner.get(), clampedSecondCorner, subLevelId);
+        MagnotDebug.log("second-corner first={} clicked={} clamped={} sub={}", firstCorner.get(), clicked, clampedSecondCorner, MagnotDebug.shortId(subLevelId));
+        MagnotDebug.region("create", region);
         FerrousRegionSavedData.get(serverLevel).addRegion(region);
         MagnotNetwork.syncToPlayersInDimension(serverLevel);
         clearFirstCorner(stack);
