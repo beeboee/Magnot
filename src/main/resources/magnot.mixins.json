@@ -5,7 +5,8 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "sophisticatedcore.MagnetUpgradeWrapperMixin",
-    "ae2wtlib.MagnetHandlerMixin"
+    "ae2wtlib.MagnetHandlerMixin",
+    "projecte.BlackHoleBandMixin"
   ],
   "injectors": {
     "defaultRequire": 1
