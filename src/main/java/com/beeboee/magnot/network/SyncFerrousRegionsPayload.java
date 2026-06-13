@@ -28,10 +28,11 @@ public record SyncFerrousRegionsPayload(List<FerrousRegion> regions) implements 
 
         for (int i = 0; i < count; i++) {
             UUID id = buf.readUUID();
+            UUID groupId = buf.readUUID();
             BlockPos min = buf.readBlockPos();
             BlockPos max = buf.readBlockPos();
             UUID subLevelId = buf.readBoolean() ? buf.readUUID() : null;
-            regions.add(new FerrousRegion(id, min, max, subLevelId));
+            regions.add(new FerrousRegion(id, groupId, min, max, subLevelId));
         }
 
         return new SyncFerrousRegionsPayload(regions);
@@ -41,6 +42,7 @@ public record SyncFerrousRegionsPayload(List<FerrousRegion> regions) implements 
         buf.writeVarInt(regions.size());
         for (FerrousRegion region : regions) {
             buf.writeUUID(region.id());
+            buf.writeUUID(region.groupId());
             buf.writeBlockPos(region.min());
             buf.writeBlockPos(region.max());
             buf.writeBoolean(region.subLevelId() != null);
