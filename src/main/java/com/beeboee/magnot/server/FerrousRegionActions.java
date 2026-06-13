@@ -1,6 +1,7 @@
 package com.beeboee.magnot.server;
 
 import com.beeboee.magnot.network.MagnotNetwork;
+import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.region.FerrousRegionSavedData;
 import com.simibubi.create.AllSoundEvents;
 import net.minecraft.core.BlockPos;
@@ -25,13 +26,14 @@ public final class FerrousRegionActions {
         Vec3 from = player.getEyePosition();
         Vec3 to = from.add(player.getLookAngle().scale(range));
 
-        Optional<BlockPos> removedAt = FerrousRegionSavedData.get(serverLevel).removeClosestIntersecting(from, to);
-        if (removedAt.isEmpty()) {
+        Optional<FerrousRegion> removed = FerrousRegionSavedData.get(serverLevel).removeClosestIntersecting(from, to);
+        if (removed.isEmpty()) {
             return false;
         }
 
-        AllSoundEvents.SLIME_ADDED.play(serverLevel, null, removedAt.get(), 0.5F, 0.5F);
-        FerrousParticles.spawnRedstoneBlockBreak(serverLevel, removedAt.get());
+        BlockPos soundPos = BlockPos.containing(removed.get().bounds().getCenter());
+        AllSoundEvents.SLIME_ADDED.play(serverLevel, null, soundPos, 0.5F, 0.5F);
+        FerrousParticles.spawnRedstoneBlockEdges(serverLevel, removed.get());
         MagnotNetwork.syncToPlayersInDimension(serverLevel);
         player.displayClientMessage(Component.translatable("message.magnot.region_removed"), true);
         return true;
