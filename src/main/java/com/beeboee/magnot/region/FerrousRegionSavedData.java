@@ -50,14 +50,15 @@ public class FerrousRegionSavedData extends SavedData {
         return List.copyOf(regions);
     }
 
-    public void addRegion(BlockPos first, BlockPos second) {
-        regions.add(FerrousRegion.fromCorners(first, second));
+    public FerrousRegion addRegion(BlockPos first, BlockPos second) {
+        FerrousRegion region = FerrousRegion.fromCorners(first, second);
+        regions.add(region);
         setDirty();
+        return region;
     }
 
-    public Optional<BlockPos> removeClosestIntersecting(Vec3 from, Vec3 to) {
+    public Optional<FerrousRegion> removeClosestIntersecting(Vec3 from, Vec3 to) {
         FerrousRegion closest = null;
-        Vec3 closestHit = null;
         double bestDistance = Double.MAX_VALUE;
 
         for (int i = regions.size() - 1; i >= 0; i--) {
@@ -73,17 +74,16 @@ public class FerrousRegionSavedData extends SavedData {
             }
 
             closest = region;
-            closestHit = hit.get();
             bestDistance = distance;
         }
 
-        if (closest == null || closestHit == null) {
+        if (closest == null) {
             return Optional.empty();
         }
 
         regions.remove(closest);
         setDirty();
-        return Optional.of(BlockPos.containing(closestHit));
+        return Optional.of(closest);
     }
 
     public boolean blocksMagnet(Vec3 source, Vec3 itemPos) {
