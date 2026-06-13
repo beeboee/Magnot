@@ -16,10 +16,10 @@ public final class FerrousMagnetRules {
     }
 
     public static boolean blocksMagnet(ServerLevel level, Vec3 magnetSource, Vec3 itemPosition) {
-        if (FerrousRegionSavedData.get(level).blocksMagnet(magnetSource, itemPosition)) {
-            return true;
+        if (ModList.get().isLoaded("sable")) {
+            return MagnotSableCompat.blocksMagnet(level, magnetSource, itemPosition);
         }
 
-        return ModList.get().isLoaded("sable") && MagnotSableCompat.blocksMagnet(level, magnetSource, itemPosition);
+        return FerrousRegionSavedData.get(level).blocksMagnet(magnetSource, itemPosition);
     }
 }
