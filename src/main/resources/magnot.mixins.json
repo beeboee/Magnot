@@ -7,7 +7,8 @@
     "sophisticatedcore.MagnetUpgradeWrapperMixin",
     "ae2wtlib.MagnetHandlerMixin",
     "projecte.BlackHoleBandMixin",
-    "sable.SubLevelAssemblyHelperMixin"
+    "sable.SubLevelAssemblyHelperMixin",
+    "sable.SubLevelContainerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
