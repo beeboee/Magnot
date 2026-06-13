@@ -92,6 +92,7 @@ dependencies {
     runtimeOnly("org.appliedenergistics:appliedenergistics2:${ae2_version}")
     runtimeOnly("de.mari_023:ae2wtlib:${ae2wtlib_version}")
 
+    compileOnly("curse.maven:projecte-${projecte_curse_id}:${projecte_file_id}")
     runtimeOnly("curse.maven:projecte-${projecte_curse_id}:${projecte_file_id}")
 
     runtimeOnly("maven.modrinth:oWaK0Q19:${create_aeronautics_modrinth_version}")
