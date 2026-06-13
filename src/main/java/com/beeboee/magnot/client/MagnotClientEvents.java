@@ -76,10 +76,11 @@ public final class MagnotClientEvents {
             }
 
             boolean selected = selectedRegion.map(FerrousRegion::id).filter(region.id()::equals).isPresent();
+            MagnotSpecialTextures faceTexture = selected ? MagnotSpecialTextures.FERROUS_REGION : null;
             Outliner.getInstance()
                     .showAABB(region.id(), displayBounds)
                     .colored(FERROUS_RED)
-                    .withFaceTextures(MagnotSpecialTextures.FERROUS_REGION, MagnotSpecialTextures.FERROUS_REGION)
+                    .withFaceTextures(faceTexture, faceTexture)
                     .disableLineNormals()
                     .lineWidth(selected ? 1.0F / 16.0F : 1.0F / 64.0F);
         }
