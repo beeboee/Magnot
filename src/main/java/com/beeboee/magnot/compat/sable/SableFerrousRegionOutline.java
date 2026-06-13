@@ -1,13 +1,15 @@
 package com.beeboee.magnot.compat.sable;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import com.beeboee.magnot.region.FerrousRegion;
+import com.mojang.blaze3d.vertex.PoseStack;
 import dev.ryanhcode.sable.companion.SubLevelAccess;
+import dev.ryanhcode.sable.companion.math.Pose3dc;
 import net.createmod.catnip.outliner.AABBOutline;
 import net.createmod.catnip.render.SuperRenderTypeBuffer;
 import net.minecraft.world.phys.Vec3;
-import org.joml.Matrix4d;
-import org.joml.Matrix4f;
+import org.joml.Quaterniondc;
+import org.joml.Quaternionf;
+import org.joml.Vector3dc;
 
 public class SableFerrousRegionOutline extends AABBOutline {
     private final SubLevelAccess subLevel;
@@ -19,17 +21,22 @@ public class SableFerrousRegionOutline extends AABBOutline {
 
     @Override
     public void render(PoseStack poseStack, SuperRenderTypeBuffer buffer, Vec3 camera, float partialTicks) {
-        Matrix4d poseD = subLevel.logicalPose().bakeIntoMatrix(new Matrix4d());
-        Matrix4f pose = new Matrix4f(
-                (float) poseD.m00(), (float) poseD.m01(), (float) poseD.m02(), (float) poseD.m03(),
-                (float) poseD.m10(), (float) poseD.m11(), (float) poseD.m12(), (float) poseD.m13(),
-                (float) poseD.m20(), (float) poseD.m21(), (float) poseD.m22(), (float) poseD.m23(),
-                (float) poseD.m30(), (float) poseD.m31(), (float) poseD.m32(), (float) poseD.m33()
-        );
+        Pose3dc pose = subLevel.logicalPose();
+        Vector3dc position = pose.position();
+        Vector3dc scale = pose.scale();
+        Vector3dc rotationPoint = pose.rotationPoint();
+        Quaterniondc orientation = pose.orientation();
 
         poseStack.pushPose();
-        poseStack.translate(-camera.x, -camera.y, -camera.z);
-        poseStack.last().pose().mul(pose);
+        poseStack.translate(position.x() - camera.x, position.y() - camera.y, position.z() - camera.z);
+        poseStack.mulPose(new Quaternionf(
+                (float) orientation.x(),
+                (float) orientation.y(),
+                (float) orientation.z(),
+                (float) orientation.w()
+        ));
+        poseStack.scale((float) scale.x(), (float) scale.y(), (float) scale.z());
+        poseStack.translate(-rotationPoint.x(), -rotationPoint.y(), -rotationPoint.z());
         super.render(poseStack, buffer, Vec3.ZERO, partialTicks);
         poseStack.popPose();
     }
