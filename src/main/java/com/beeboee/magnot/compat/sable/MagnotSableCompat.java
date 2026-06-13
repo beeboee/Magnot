@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
+import java.util.function.Function;
 
 public final class MagnotSableCompat {
     private MagnotSableCompat() {}
@@ -39,10 +40,7 @@ public final class MagnotSableCompat {
         }
 
         for (SubLevelAccess subLevel : candidateSubLevels(level, source, itemPosition)) {
-            Vec3 localSource = subLevel.logicalPose().transformPositionInverse(globalSource);
-            Vec3 localItemPosition = subLevel.logicalPose().transformPositionInverse(globalItemPosition);
-
-            if (data.blocksSubLevelMagnet(subLevel.getUniqueId(), localSource, localItemPosition)) {
+            if (blocksSubLevelMagnet(data, subLevel, globalSource, globalItemPosition)) {
                 return true;
             }
         }
@@ -117,6 +115,39 @@ public final class MagnotSableCompat {
         return intersectsAnyMovedBlock(region, movedBlocks);
     }
 
+    private static boolean blocksSubLevelMagnet(FerrousRegionSavedData data, SubLevelAccess subLevel, Vec3 globalSource, Vec3 globalItemPosition) {
+        UUID subLevelId = subLevel.getUniqueId();
+        Vec3 localSource = subLevel.logicalPose().transformPositionInverse(globalSource);
+        Vec3 localItemPosition = subLevel.logicalPose().transformPositionInverse(globalItemPosition);
+
+        if (data.blocksSubLevelMagnet(subLevelId, localSource, localItemPosition)) {
+            return true;
+        }
+
+        // Older/mis-moved Sable regions can be tagged with a sublevel id while still holding
+        // world-space coordinates. Keep those regions functional instead of silently letting
+        // Artifacts pull through them.
+        if (data.blocksSubLevelMagnet(subLevelId, globalSource, globalItemPosition)) {
+            return true;
+        }
+
+        // The inverse-transform test above is precise, but Sable contraptions can rotate/move
+        // between ticks. This conservative world-space bounds pass catches regions whose live
+        // sublevel pose is what should block the magnet ray.
+        for (FerrousRegion region : data.regions()) {
+            if (!region.belongsToSubLevel(subLevelId)) {
+                continue;
+            }
+
+            AABB worldBounds = transformBounds(region.bounds(), subLevel.logicalPose()::transformPosition);
+            if (intersectsOrContains(worldBounds, globalSource, globalItemPosition)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private static List<SubLevelAccess> candidateSubLevels(ServerLevel level, Vec3 source, Vec3 itemPosition) {
         List<SubLevelAccess> candidates = new ArrayList<>();
         addCandidate(candidates, SableCompanion.INSTANCE.getContaining(level, source));
@@ -164,6 +195,10 @@ public final class MagnotSableCompat {
     }
 
     private static AABB transformBounds(AABB bounds, SubLevelAssemblyHelper.AssemblyTransform transform) {
+        return transformBounds(bounds, transform::apply);
+    }
+
+    private static AABB transformBounds(AABB bounds, Function<Vec3, Vec3> transform) {
         AABB transformed = null;
         for (double x : new double[]{bounds.minX, bounds.maxX}) {
             for (double y : new double[]{bounds.minY, bounds.maxY}) {
@@ -175,5 +210,9 @@ public final class MagnotSableCompat {
             }
         }
         return transformed == null ? bounds : transformed;
+    }
+
+    private static boolean intersectsOrContains(AABB bounds, Vec3 from, Vec3 to) {
+        return bounds.contains(from) || bounds.contains(to) || bounds.clip(from, to).isPresent();
     }
 }
