@@ -1,6 +1,7 @@
 package com.beeboee.magnot.mixin.projecte;
 
 import com.beeboee.magnot.region.FerrousMagnetRules;
+import moze_intel.projecte.utils.WorldHelper;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
@@ -25,11 +26,14 @@ public abstract class BlackHoleBandMixin {
             )
     )
     private void magnot$blockFerrousRegionPull(Entity entity, Vec3 target) {
-        if (entity.level() instanceof ServerLevel serverLevel
-                && FerrousMagnetRules.blocksMagnet(serverLevel, target, entity.position())) {
+        if (!(entity.level() instanceof ServerLevel serverLevel)) {
             return;
         }
 
-        moze_intel.projecte.utils.WorldHelper.gravitateEntityTowards(entity, target);
+        if (FerrousMagnetRules.blocksMagnet(serverLevel, target, entity.position())) {
+            return;
+        }
+
+        WorldHelper.gravitateEntityTowards(entity, target);
     }
 }
