@@ -29,7 +29,11 @@ public final class FerrousRegionActions {
         Vec3 from = player.getEyePosition();
         Vec3 to = from.add(player.getLookAngle().scale(range));
 
-        Optional<FerrousRegion> removed = FerrousRegionSavedData.get(serverLevel).removeIntersectingById(selectedRegionId, from, to);
+        FerrousRegionSavedData data = FerrousRegionSavedData.get(serverLevel);
+        Optional<FerrousRegion> removed = ModList.get().isLoaded("sable")
+                ? data.removeWorldIntersectingById(selectedRegionId, from, to)
+                : data.removeIntersectingById(selectedRegionId, from, to);
+
         if (removed.isEmpty() && ModList.get().isLoaded("sable")) {
             removed = MagnotSableCompat.removeSelectedRegion(serverLevel, selectedRegionId, from, to);
         }
