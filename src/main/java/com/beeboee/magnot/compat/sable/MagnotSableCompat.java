@@ -1,5 +1,6 @@
 package com.beeboee.magnot.compat.sable;
 
+import com.beeboee.magnot.debug.MagnotDebug;
 import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.region.FerrousRegionSavedData;
@@ -57,6 +58,7 @@ public final class MagnotSableCompat {
             Vec3 localTo = subLevel.logicalPose().transformPositionInverse(globalTo);
             Optional<FerrousRegion> removed = FerrousRegionSavedData.get(level).removeSubLevelIntersectingById(selectedRegionId, subLevel.getUniqueId(), localFrom, localTo);
             if (removed.isPresent()) {
+                MagnotDebug.region("remove-sable", removed.get());
                 return removed;
             }
         }
@@ -75,16 +77,27 @@ public final class MagnotSableCompat {
                 .filter(region -> shouldMoveRegion(region, sourceSubLevelId, movedBlocks))
                 .toList();
 
+        MagnotDebug.log("sable-move blocks={} sourceSub={} targetSub={} matchedRegions={}",
+                blocks.size(),
+                MagnotDebug.shortId(sourceSubLevelId),
+                MagnotDebug.shortId(targetSubLevelId),
+                regionsToMove.size()
+        );
+
         if (regionsToMove.isEmpty()) {
             return;
         }
 
         for (FerrousRegion region : regionsToMove) {
+            FerrousRegion transformed = transformRegion(region, transform, targetSubLevelId);
+            MagnotDebug.region("sable-move-before", region);
+            MagnotDebug.region("sable-move-after", transformed);
+
             if (!data.removeRegion(region.id())) {
                 continue;
             }
 
-            data.addRegion(transformRegion(region, transform, targetSubLevelId));
+            data.addRegion(transformed);
         }
 
         MagnotNetwork.syncToPlayersInDimension(level);
