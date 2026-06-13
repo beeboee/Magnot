@@ -8,9 +8,13 @@ import net.minecraft.world.phys.Vec3;
 import java.util.Optional;
 import java.util.UUID;
 
-public record FerrousRegion(UUID id, BlockPos min, BlockPos max, UUID subLevelId) {
+public record FerrousRegion(UUID id, UUID groupId, BlockPos min, BlockPos max, UUID subLevelId) {
     public FerrousRegion(UUID id, BlockPos min, BlockPos max) {
-        this(id, min, max, null);
+        this(id, id, min, max, null);
+    }
+
+    public FerrousRegion(UUID id, BlockPos min, BlockPos max, UUID subLevelId) {
+        this(id, id, min, max, subLevelId);
     }
 
     public static FerrousRegion fromCorners(BlockPos first, BlockPos second) {
@@ -22,6 +26,10 @@ public record FerrousRegion(UUID id, BlockPos min, BlockPos max, UUID subLevelId
     }
 
     public static FerrousRegion fromCorners(UUID id, BlockPos first, BlockPos second, UUID subLevelId) {
+        return fromCorners(id, id, first, second, subLevelId);
+    }
+
+    public static FerrousRegion fromCorners(UUID id, UUID groupId, BlockPos first, BlockPos second, UUID subLevelId) {
         BlockPos min = new BlockPos(
                 Math.min(first.getX(), second.getX()),
                 Math.min(first.getY(), second.getY()),
@@ -32,7 +40,7 @@ public record FerrousRegion(UUID id, BlockPos min, BlockPos max, UUID subLevelId
                 Math.max(first.getY(), second.getY()),
                 Math.max(first.getZ(), second.getZ())
         );
-        return new FerrousRegion(id, min, max, subLevelId);
+        return new FerrousRegion(id, groupId, min, max, subLevelId);
     }
 
     public boolean isWorldRegion() {
@@ -43,12 +51,16 @@ public record FerrousRegion(UUID id, BlockPos min, BlockPos max, UUID subLevelId
         return subLevelId != null && subLevelId.equals(id);
     }
 
+    public boolean belongsToSameGroupAs(FerrousRegion other) {
+        return groupId.equals(other.groupId);
+    }
+
     public FerrousRegion inSubLevel(UUID id) {
-        return new FerrousRegion(this.id, this.min, this.max, id);
+        return new FerrousRegion(this.id, this.groupId, this.min, this.max, id);
     }
 
     public FerrousRegion inWorld() {
-        return new FerrousRegion(this.id, this.min, this.max, null);
+        return new FerrousRegion(this.id, this.groupId, this.min, this.max, null);
     }
 
     public AABB bounds() {
@@ -87,6 +99,7 @@ public record FerrousRegion(UUID id, BlockPos min, BlockPos max, UUID subLevelId
     public CompoundTag save() {
         CompoundTag tag = new CompoundTag();
         tag.putUUID("Id", id);
+        tag.putUUID("GroupId", groupId);
         tag.putInt("MinX", min.getX());
         tag.putInt("MinY", min.getY());
         tag.putInt("MinZ", min.getZ());
@@ -101,9 +114,10 @@ public record FerrousRegion(UUID id, BlockPos min, BlockPos max, UUID subLevelId
 
     public static FerrousRegion load(CompoundTag tag) {
         UUID id = tag.hasUUID("Id") ? tag.getUUID("Id") : UUID.randomUUID();
+        UUID groupId = tag.hasUUID("GroupId") ? tag.getUUID("GroupId") : id;
         BlockPos min = new BlockPos(tag.getInt("MinX"), tag.getInt("MinY"), tag.getInt("MinZ"));
         BlockPos max = new BlockPos(tag.getInt("MaxX"), tag.getInt("MaxY"), tag.getInt("MaxZ"));
         UUID subLevelId = tag.hasUUID("SubLevelId") ? tag.getUUID("SubLevelId") : null;
-        return new FerrousRegion(id, min, max, subLevelId);
+        return new FerrousRegion(id, groupId, min, max, subLevelId);
     }
 }
