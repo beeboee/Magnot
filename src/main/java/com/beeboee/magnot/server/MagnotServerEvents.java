@@ -24,10 +24,6 @@ public final class MagnotServerEvents {
             return;
         }
 
-        // The tube is an editing tool, not a pickaxe. Always consume block attacks while held.
-        event.setCanceled(true);
-        event.setCancellationResult(InteractionResult.SUCCESS);
-
         if (player.level().isClientSide()) {
             return;
         }
@@ -38,6 +34,8 @@ public final class MagnotServerEvents {
 
         boolean removed = FerrousRegionSavedData.get(serverLevel).removeRegionContaining(event.getPos());
         if (removed) {
+            event.setCanceled(true);
+            event.setCancellationResult(InteractionResult.SUCCESS);
             player.displayClientMessage(Component.translatable("message.magnot.region_removed"), true);
         }
     }
