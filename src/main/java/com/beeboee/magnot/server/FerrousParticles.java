@@ -1,6 +1,7 @@
 package com.beeboee.magnot.server;
 
 import com.beeboee.magnot.region.FerrousRegion;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -15,6 +16,20 @@ public final class FerrousParticles {
     );
 
     private FerrousParticles() {
+    }
+
+    public static void spawnRedstoneBlockBreak(ServerLevel level, BlockPos pos) {
+        level.sendParticles(
+                REDSTONE_BLOCK_PARTICLE,
+                pos.getX() + 0.5D,
+                pos.getY() + 0.5D,
+                pos.getZ() + 0.5D,
+                18,
+                0.35D,
+                0.35D,
+                0.35D,
+                0.035D
+        );
     }
 
     public static void spawnRedstoneBlockEdges(ServerLevel level, FerrousRegion region) {
