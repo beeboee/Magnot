@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 public final class MagnotEntityTypes {
     private static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, Magnot.MOD_ID);
 
-    public static final Supplier<EntityType<FerrousRegionEntity>> FERROUS_REGION = ENTITY_TYPES.register(
+    private static final Supplier<EntityType<?>> FERROUS_REGION_HOLDER = ENTITY_TYPES.register(
             "ferrous_region",
             () -> EntityType.Builder.<FerrousRegionEntity>of(
                             (EntityType<FerrousRegionEntity> type, Level level) -> new FerrousRegionEntity(type, level),
@@ -31,5 +31,10 @@ public final class MagnotEntityTypes {
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
+    }
+
+    @SuppressWarnings("unchecked")
+    public static EntityType<FerrousRegionEntity> ferrousRegion() {
+        return (EntityType<FerrousRegionEntity>) FERROUS_REGION_HOLDER.get();
     }
 }
