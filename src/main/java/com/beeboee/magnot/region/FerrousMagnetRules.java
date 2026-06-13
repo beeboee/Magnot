@@ -1,7 +1,9 @@
 package com.beeboee.magnot.region;
 
+import com.beeboee.magnot.compat.sable.MagnotSableCompat;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.fml.ModList;
 
 /**
  * Shared entry point for magnet integrations.
@@ -14,6 +16,10 @@ public final class FerrousMagnetRules {
     }
 
     public static boolean blocksMagnet(ServerLevel level, Vec3 magnetSource, Vec3 itemPosition) {
-        return FerrousRegionSavedData.get(level).blocksMagnet(magnetSource, itemPosition);
+        if (FerrousRegionSavedData.get(level).blocksMagnet(magnetSource, itemPosition)) {
+            return true;
+        }
+
+        return ModList.get().isLoaded("sable") && MagnotSableCompat.blocksMagnet(level, magnetSource, itemPosition);
     }
 }
