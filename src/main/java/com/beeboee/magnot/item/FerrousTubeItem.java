@@ -1,5 +1,6 @@
 package com.beeboee.magnot.item;
 
+import com.beeboee.magnot.compat.sable.MagnotSableCompat;
 import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.region.FerrousRegionSavedData;
@@ -21,8 +22,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.neoforged.fml.ModList;
 
 import java.util.Optional;
+import java.util.UUID;
 
 public class FerrousTubeItem extends Item {
     public static final int MAX_REGION_AXIS_LENGTH = 25;
@@ -32,6 +35,7 @@ public class FerrousTubeItem extends Item {
     private static final String FIRST_X = "MagnotFirstX";
     private static final String FIRST_Y = "MagnotFirstY";
     private static final String FIRST_Z = "MagnotFirstZ";
+    private static final String FIRST_SUB_LEVEL_ID = "MagnotFirstSubLevelId";
 
     public FerrousTubeItem(Properties properties) {
         super(properties);
@@ -67,14 +71,16 @@ public class FerrousTubeItem extends Item {
         Optional<BlockPos> firstCorner = getFirstCorner(stack);
 
         if (firstCorner.isEmpty()) {
-            setFirstCorner(stack, clicked);
+            setFirstCorner(stack, clicked, getClickedSubLevel(serverLevel, clicked));
             AllSoundEvents.SLIME_ADDED.play(serverLevel, null, clicked, 0.5F, 0.85F);
             FerrousParticles.spawnRedstoneBlockBreak(serverLevel, clicked);
             return InteractionResult.SUCCESS;
         }
 
         BlockPos clampedSecondCorner = clampToRegionLimit(firstCorner.get(), clicked);
-        FerrousRegion region = FerrousRegionSavedData.get(serverLevel).addRegion(firstCorner.get(), clampedSecondCorner);
+        UUID subLevelId = getFirstSubLevelId(stack).orElseGet(() -> getClickedSubLevel(serverLevel, clicked));
+        FerrousRegion region = FerrousRegion.fromCorners(firstCorner.get(), clampedSecondCorner, subLevelId);
+        FerrousRegionSavedData.get(serverLevel).addRegion(region);
         MagnotNetwork.syncToPlayersInDimension(serverLevel);
         clearFirstCorner(stack);
         player.displayClientMessage(Component.translatable("message.magnot.region_created"), true);
@@ -120,6 +126,20 @@ public class FerrousTubeItem extends Item {
                 || Math.abs(second.getZ() - first.getZ()) >= MAX_REGION_AXIS_LENGTH;
     }
 
+    private static UUID getClickedSubLevel(ServerLevel level, BlockPos clicked) {
+        return ModList.get().isLoaded("sable") ? MagnotSableCompat.containingSubLevelId(level, clicked) : null;
+    }
+
+    private static Optional<UUID> getFirstSubLevelId(ItemStack stack) {
+        CustomData data = stack.get(DataComponents.CUSTOM_DATA);
+        if (data == null) {
+            return Optional.empty();
+        }
+
+        CompoundTag tag = data.copyTag();
+        return tag.hasUUID(FIRST_SUB_LEVEL_ID) ? Optional.of(tag.getUUID(FIRST_SUB_LEVEL_ID)) : Optional.empty();
+    }
+
     private static void damageTubeIfNeeded(Player player, ItemStack stack, InteractionHand hand) {
         if (player.getAbilities().instabuild) {
             return;
@@ -128,12 +148,17 @@ public class FerrousTubeItem extends Item {
         stack.hurtAndBreak(REGION_PLACEMENT_DAMAGE, player, LivingEntity.getSlotForHand(hand));
     }
 
-    private static void setFirstCorner(ItemStack stack, BlockPos pos) {
+    private static void setFirstCorner(ItemStack stack, BlockPos pos, UUID subLevelId) {
         CompoundTag tag = copyCustomData(stack);
         tag.putBoolean(HAS_FIRST, true);
         tag.putInt(FIRST_X, pos.getX());
         tag.putInt(FIRST_Y, pos.getY());
         tag.putInt(FIRST_Z, pos.getZ());
+        if (subLevelId != null) {
+            tag.putUUID(FIRST_SUB_LEVEL_ID, subLevelId);
+        } else {
+            tag.remove(FIRST_SUB_LEVEL_ID);
+        }
         CustomData.set(DataComponents.CUSTOM_DATA, stack, tag);
     }
 
@@ -143,6 +168,7 @@ public class FerrousTubeItem extends Item {
         tag.remove(FIRST_X);
         tag.remove(FIRST_Y);
         tag.remove(FIRST_Z);
+        tag.remove(FIRST_SUB_LEVEL_ID);
         CustomData.set(DataComponents.CUSTOM_DATA, stack, tag);
     }
 
