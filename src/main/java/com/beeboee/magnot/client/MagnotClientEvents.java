@@ -25,7 +25,9 @@ import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @EventBusSubscriber(modid = Magnot.MOD_ID, value = Dist.CLIENT)
 public final class MagnotClientEvents {
@@ -66,23 +68,24 @@ public final class MagnotClientEvents {
         Optional<FerrousRegion> selectedRegion = selectedRegion(player);
 
         for (FerrousRegion region : ClientFerrousRegionStore.regions()) {
-            AABB displayBounds = region.bounds();
-            if (ModList.get().isLoaded("sable")) {
-                displayBounds = MagnotSableClientCompat.displayBounds(minecraft.level, region);
-            }
+            List<AABB> displayBoxes = ModList.get().isLoaded("sable")
+                    ? MagnotSableClientCompat.displayBoxes(minecraft.level, region)
+                    : List.of(region.bounds());
 
-            if (!isNearPlayer(player, displayBounds)) {
+            if (!isNearPlayer(player, displayBoxes)) {
                 continue;
             }
 
             boolean selected = selectedRegion.map(FerrousRegion::id).filter(region.id()::equals).isPresent();
             MagnotSpecialTextures faceTexture = selected ? MagnotSpecialTextures.FERROUS_REGION : null;
-            Outliner.getInstance()
-                    .showAABB(region.id(), displayBounds)
-                    .colored(FERROUS_RED)
-                    .withFaceTextures(faceTexture, faceTexture)
-                    .disableLineNormals()
-                    .lineWidth(selected ? 1.0F / 16.0F : 1.0F / 64.0F);
+            for (int i = 0; i < displayBoxes.size(); i++) {
+                Outliner.getInstance()
+                        .showAABB(new RegionRenderSlot(region.id(), i), displayBoxes.get(i))
+                        .colored(FERROUS_RED)
+                        .withFaceTextures(faceTexture, faceTexture)
+                        .disableLineNormals()
+                        .lineWidth(selected ? 1.0F / 16.0F : 1.0F / 64.0F);
+            }
         }
 
         var firstCorner = FerrousTubeItem.getFirstCorner(held);
@@ -148,6 +151,15 @@ public final class MagnotClientEvents {
         return selected;
     }
 
+    private static boolean isNearPlayer(LocalPlayer player, List<AABB> boxes) {
+        for (AABB box : boxes) {
+            if (isNearPlayer(player, box)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private static boolean isNearPlayer(LocalPlayer player, AABB bounds) {
         Vec3 playerPosition = player.position();
         double dx = Math.max(Math.max(bounds.minX - playerPosition.x, 0.0D), playerPosition.x - bounds.maxX);
@@ -165,4 +177,6 @@ public final class MagnotClientEvents {
         int maxZ = Math.max(first.getZ(), second.getZ()) + 1;
         return new AABB(new Vec3(minX, minY, minZ), new Vec3(maxX, maxY, maxZ));
     }
+
+    private record RegionRenderSlot(UUID regionId, int index) {}
 }
