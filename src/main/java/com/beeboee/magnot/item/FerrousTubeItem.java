@@ -79,7 +79,7 @@ public class FerrousTubeItem extends Item {
 
         BlockPos clampedSecondCorner = clampToRegionLimit(firstCorner.get(), clicked);
         UUID subLevelId = getFirstSubLevelId(stack).orElseGet(() -> getClickedSubLevel(serverLevel, clicked));
-        FerrousRegion region = FerrousRegion.fromCorners(firstCorner.get(), clampedSecondCorner, subLevelId);
+        FerrousRegion region = FerrousRegion.fromCorners(UUID.randomUUID(), firstCorner.get(), clampedSecondCorner, subLevelId);
         FerrousRegionSavedData.get(serverLevel).addRegion(region);
         MagnotNetwork.syncToPlayersInDimension(serverLevel);
         clearFirstCorner(stack);
