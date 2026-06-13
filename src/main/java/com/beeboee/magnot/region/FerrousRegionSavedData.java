@@ -138,9 +138,9 @@ public class FerrousRegionSavedData extends SavedData {
                 continue;
             }
 
-            FerrousRegion selected = region;
-            removeGroup(region.groupId());
-            return Optional.of(selected);
+            regions.remove(i);
+            setDirty();
+            return Optional.of(region);
         }
 
         return Optional.empty();
@@ -152,9 +152,9 @@ public class FerrousRegionSavedData extends SavedData {
             return Optional.empty();
         }
 
-        FerrousRegion selected = closest.get();
-        removeGroup(selected.groupId());
-        return Optional.of(selected);
+        regions.remove(closest.get());
+        setDirty();
+        return closest;
     }
 
     public boolean blocksMagnet(Vec3 source, Vec3 itemPos) {
