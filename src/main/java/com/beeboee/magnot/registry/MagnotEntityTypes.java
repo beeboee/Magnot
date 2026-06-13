@@ -5,6 +5,7 @@ import com.beeboee.magnot.entity.FerrousRegionEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -15,7 +16,10 @@ public final class MagnotEntityTypes {
 
     public static final Supplier<EntityType<FerrousRegionEntity>> FERROUS_REGION = ENTITY_TYPES.register(
             "ferrous_region",
-            () -> EntityType.Builder.of(FerrousRegionEntity::new, MobCategory.MISC)
+            () -> EntityType.Builder.<FerrousRegionEntity>of(
+                            (EntityType<FerrousRegionEntity> type, Level level) -> new FerrousRegionEntity(type, level),
+                            MobCategory.MISC
+                    )
                     .sized(0.1F, 0.1F)
                     .clientTrackingRange(10)
                     .updateInterval(Integer.MAX_VALUE)
