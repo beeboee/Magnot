@@ -61,21 +61,15 @@ public final class MagnotSableCompat {
         return Optional.empty();
     }
 
-    public static void moveRegionsAfterAssembly(ServerLevel level, SubLevelAssemblyHelper.AssemblyTransform transform, List<BlockPos> blocks) {
+    public static void moveRegionsAfterSableMove(ServerLevel level, SubLevelAssemblyHelper.AssemblyTransform transform, List<BlockPos> blocks, UUID sourceSubLevelId, UUID targetSubLevelId) {
         if (blocks.isEmpty()) {
             return;
         }
 
-        SubLevelAccess targetSubLevel = SableCompanion.INSTANCE.getContaining(level, transform.apply(blocks.getFirst()));
-        if (targetSubLevel == null) {
-            return;
-        }
-
-        Set<BlockPos> assembledBlocks = new HashSet<>(blocks);
+        Set<BlockPos> movedBlocks = new HashSet<>(blocks);
         FerrousRegionSavedData data = FerrousRegionSavedData.get(level);
         List<FerrousRegion> regionsToMove = data.regions().stream()
-                .filter(FerrousRegion::isWorldRegion)
-                .filter(region -> intersectsAnyAssembledBlock(region, assembledBlocks))
+                .filter(region -> shouldMoveRegion(region, sourceSubLevelId, movedBlocks))
                 .toList();
 
         if (regionsToMove.isEmpty()) {
@@ -87,10 +81,22 @@ public final class MagnotSableCompat {
                 continue;
             }
 
-            data.addRegion(transformRegion(region, transform, targetSubLevel.getUniqueId()));
+            data.addRegion(transformRegion(region, transform, targetSubLevelId));
         }
 
         MagnotNetwork.syncToPlayersInDimension(level);
+    }
+
+    private static boolean shouldMoveRegion(FerrousRegion region, UUID sourceSubLevelId, Set<BlockPos> movedBlocks) {
+        if (sourceSubLevelId == null && !region.isWorldRegion()) {
+            return false;
+        }
+
+        if (sourceSubLevelId != null && !region.belongsToSubLevel(sourceSubLevelId)) {
+            return false;
+        }
+
+        return intersectsAnyMovedBlock(region, movedBlocks);
     }
 
     private static List<SubLevelAccess> candidateSubLevels(ServerLevel level, Vec3 source, Vec3 itemPosition, Vec3 globalSource, Vec3 globalItemPosition) {
@@ -120,9 +126,9 @@ public final class MagnotSableCompat {
         candidates.add(candidate);
     }
 
-    private static boolean intersectsAnyAssembledBlock(FerrousRegion region, Set<BlockPos> assembledBlocks) {
+    private static boolean intersectsAnyMovedBlock(FerrousRegion region, Set<BlockPos> movedBlocks) {
         for (BlockPos blockPos : BlockPos.betweenClosed(region.min(), region.max())) {
-            if (assembledBlocks.contains(blockPos)) {
+            if (movedBlocks.contains(blockPos)) {
                 return true;
             }
         }
@@ -130,12 +136,12 @@ public final class MagnotSableCompat {
         return false;
     }
 
-    private static FerrousRegion transformRegion(FerrousRegion region, SubLevelAssemblyHelper.AssemblyTransform transform, UUID subLevelId) {
+    private static FerrousRegion transformRegion(FerrousRegion region, SubLevelAssemblyHelper.AssemblyTransform transform, UUID targetSubLevelId) {
         return FerrousRegion.fromCorners(
                 region.id(),
                 transform.apply(region.min()),
                 transform.apply(region.max()),
-                subLevelId
+                targetSubLevelId
         );
     }
 }
