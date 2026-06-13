@@ -22,6 +22,17 @@ public final class ClientFerrousRegionStore {
         return regions;
     }
 
+    public static Optional<FerrousRegion> byId(UUID id) {
+        for (int i = regions.size() - 1; i >= 0; i--) {
+            FerrousRegion region = regions.get(i);
+            if (region.id().equals(id)) {
+                return Optional.of(region);
+            }
+        }
+
+        return Optional.empty();
+    }
+
     public static Optional<FerrousRegion> closestIntersecting(Vec3 from, Vec3 to) {
         return closestIntersecting(from, to, FerrousRegion::isWorldRegion);
     }
