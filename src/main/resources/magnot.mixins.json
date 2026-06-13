@@ -7,10 +7,14 @@
     "sophisticatedcore.MagnetUpgradeWrapperMixin",
     "ae2wtlib.MagnetHandlerMixin",
     "projecte.BlackHoleBandMixin",
+    "botania.RingOfMagnetizationItemMixin",
+    "artifacts.MagnetismMobEffectMixin",
+    "mekanism.ModuleMagneticAttractionUnitMixin",
+    "draconicevolution.MagnetMixin",
     "sable.SubLevelAssemblyHelperMixin",
     "sable.SubLevelContainerMixin"
   ],
   "injectors": {
-    "defaultRequire": 1
+    "defaultRequire": 0
   }
 }
