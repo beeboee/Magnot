@@ -50,14 +50,9 @@ repositories {
         url = 'https://maven.blamejared.com'
         content {
             includeGroup 'foundry.veil'
-        }
-    }
-    maven {
-        name = 'Su5eD Maven'
-        url = 'https://maven.su5ed.dev/releases'
-        content {
             includeGroup 'gg.moonflower'
             includeGroup 'io.github.ocelot'
+            includeGroup 'mezz.jei'
         }
     }
     mavenCentral()
