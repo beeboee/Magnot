@@ -11,8 +11,11 @@ import net.createmod.catnip.outliner.Outliner;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
@@ -38,6 +41,9 @@ public final class MagnotClientEvents {
     private static final int LIMIT_YELLOW = 0xFFD43B;
     private static final double REGION_REVEAL_RADIUS = 25.0D;
     private static final double REGION_REVEAL_RADIUS_SQR = REGION_REVEAL_RADIUS * REGION_REVEAL_RADIUS;
+    private static final ResourceLocation ARTIFACTS_MAGNETISM = ResourceLocation.fromNamespaceAndPath("artifacts", "magnetism");
+    private static final double ARTIFACTS_MAGNETISM_FALLBACK_RANGE = 12.0D;
+    private static final double ARTIFACTS_MAGNETISM_FALLBACK_RANGE_SQR = ARTIFACTS_MAGNETISM_FALLBACK_RANGE * ARTIFACTS_MAGNETISM_FALLBACK_RANGE;
     private static long nextRegionRemovalTick = 0L;
 
     private MagnotClientEvents() {
@@ -74,6 +80,8 @@ public final class MagnotClientEvents {
         if (player == null || minecraft.level == null) {
             return;
         }
+
+        tickArtifactsMagnetismFallback(minecraft, player);
 
         ItemStack held = player.getMainHandItem();
         if (!held.is(MagnotItems.FERROUS_TUBE.get())) {
@@ -131,6 +139,55 @@ public final class MagnotClientEvents {
                 .withFaceTextures(MagnotSpecialTextures.FERROUS_REGION, MagnotSpecialTextures.FERROUS_REGION)
                 .disableLineNormals()
                 .lineWidth(1.0F / 16.0F);
+    }
+
+    private static void tickArtifactsMagnetismFallback(Minecraft minecraft, LocalPlayer player) {
+        if (!ModList.get().isLoaded("artifacts") || !hasArtifactsMagnetism(player) || minecraft.level == null) {
+            return;
+        }
+
+        Vec3 source = player.position().add(0.0D, 0.75D, 0.0D);
+        AABB search = player.getBoundingBox().inflate(ARTIFACTS_MAGNETISM_FALLBACK_RANGE);
+        for (ItemEntity itemEntity : minecraft.level.getEntitiesOfClass(ItemEntity.class, search)) {
+            Vec3 motion = itemEntity.getDeltaMovement();
+            if (motion.lengthSqr() < 1.0E-6D) {
+                continue;
+            }
+
+            Vec3 itemPosition = itemEntity.position();
+            Vec3 itemCenter = itemEntity.getBoundingBox().getCenter();
+            Vec3 itemToSource = source.subtract(itemCenter);
+            if (itemToSource.lengthSqr() > ARTIFACTS_MAGNETISM_FALLBACK_RANGE_SQR || itemToSource.lengthSqr() < 1.0E-6D) {
+                continue;
+            }
+
+            if (motion.normalize().dot(itemToSource.normalize()) <= 0.2D) {
+                continue;
+            }
+
+            if (!clientBlocksMagnet(player.level(), source, itemPosition)) {
+                continue;
+            }
+
+            itemEntity.setDeltaMovement(Vec3.ZERO);
+            Vec3 previousPosition = new Vec3(itemEntity.xo, itemEntity.yo, itemEntity.zo);
+            if (previousPosition.distanceToSqr(itemPosition) <= 4.0D && clientBlocksMagnet(player.level(), source, previousPosition)) {
+                itemEntity.setPos(previousPosition.x, previousPosition.y, previousPosition.z);
+            }
+        }
+    }
+
+    private static boolean clientBlocksMagnet(net.minecraft.world.level.Level level, Vec3 source, Vec3 itemPosition) {
+        if (ClientFerrousRegionStore.closestIntersecting(source, itemPosition).isPresent()) {
+            return true;
+        }
+
+        return ModList.get().isLoaded("sable") && MagnotSableClientCompat.blocksMagnet(level, source, itemPosition);
+    }
+
+    private static boolean hasArtifactsMagnetism(LocalPlayer player) {
+        return player.getActiveEffects().stream()
+                .anyMatch(effect -> ARTIFACTS_MAGNETISM.equals(BuiltInRegistries.MOB_EFFECT.getKey(effect.getEffect().value())));
     }
 
     private static boolean renderRegion(LocalPlayer player, net.minecraft.world.level.Level level, FerrousRegion region, Optional<FerrousRegion> selectedRegion, Object renderSlot) {
