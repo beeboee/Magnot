@@ -49,7 +49,10 @@ public record FerrousRegion(UUID id, BlockPos min, BlockPos max) {
     }
 
     public boolean intersectsBlock(BlockPos pos) {
-        return bounds().intersects(new AABB(pos));
+        return bounds().intersects(new AABB(
+                pos.getX(), pos.getY(), pos.getZ(),
+                pos.getX() + 1.0D, pos.getY() + 1.0D, pos.getZ() + 1.0D
+        ));
     }
 
     public Optional<Vec3> clip(Vec3 from, Vec3 to) {
