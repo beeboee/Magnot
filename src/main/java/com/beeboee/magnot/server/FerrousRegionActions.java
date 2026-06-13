@@ -1,5 +1,6 @@
 package com.beeboee.magnot.server;
 
+import com.beeboee.magnot.compat.sable.MagnotSableCompat;
 import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.region.FerrousRegionSavedData;
@@ -10,6 +11,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.fml.ModList;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -28,6 +30,9 @@ public final class FerrousRegionActions {
         Vec3 to = from.add(player.getLookAngle().scale(range));
 
         Optional<FerrousRegion> removed = FerrousRegionSavedData.get(serverLevel).removeIntersectingById(selectedRegionId, from, to);
+        if (removed.isEmpty() && ModList.get().isLoaded("sable")) {
+            removed = MagnotSableCompat.removeSelectedRegion(serverLevel, selectedRegionId, from, to);
+        }
         if (removed.isEmpty()) {
             return false;
         }
