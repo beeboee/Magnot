@@ -9,6 +9,9 @@ displayName="${mod_name}"
 authors="${mod_authors}"
 description='''${mod_description}'''
 
+[[mixins]]
+config="magnot.mixins.json"
+
 [[dependencies.${mod_id}]]
 modId="neoforge"
 type="required"
@@ -28,4 +31,10 @@ modId="create"
 type="required"
 versionRange="${create_version_range}"
 ordering="NONE"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="sophisticatedcore"
+type="optional"
+ordering="AFTER"
 side="BOTH"
