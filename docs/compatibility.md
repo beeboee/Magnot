@@ -6,10 +6,9 @@ Magnot blocks supported magnet-style item movement when the source-to-item path 
 
 | Mod | Status | Notes |
 | --- | --- | --- |
-| Sophisticated Core / Backpacks | Implemented, tested in dev | Hooks `MagnetUpgradeWrapper`; backpack magnet behavior is confirmed working. |
-| Sophisticated Storage | Implemented, needs investigation | Uses the same Sophisticated Core wrapper path, but current dev testing shows storage magnets not pulling at all. Confirm whether this is a Magnot hook issue, a test-version mismatch, or Sophisticated Storage behavior before calling it supported. |
+| Sophisticated Core / Backpacks / Storage | Implemented, tested in dev | Hooks `MagnetUpgradeWrapper`; backpacks and storage share the same compatibility path. Storage false alarm was caused by copied NBT from a barrel placed inside a region. |
 | AE2WTLib | Implemented, tested in dev | Hooks the wireless terminal magnet card pickup path. |
-| ProjectE | Implemented, tested in dev | Hooks Black Hole Band-style gravitation from inventory, pedestal, alchemical chest, and alchemical bag contexts. Client-side gravitation is suppressed so blocked pulls do not rubberband against the server. |
+| ProjectE | Implemented, tested in dev | Hooks Black Hole Band-style gravitation from inventory, pedestal, alchemical chest, and alchemical bag contexts. Client-side gravitation checks synced client regions so visual pull behavior matches server-side blocking. |
 
 ## Sable / Create: Aeronautics findings
 
