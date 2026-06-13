@@ -5,6 +5,8 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
+import java.util.function.Predicate;
 
 public final class ClientFerrousRegionStore {
     private static List<FerrousRegion> regions = List.of();
@@ -21,11 +23,23 @@ public final class ClientFerrousRegionStore {
     }
 
     public static Optional<FerrousRegion> closestIntersecting(Vec3 from, Vec3 to) {
+        return closestIntersecting(from, to, FerrousRegion::isWorldRegion);
+    }
+
+    public static Optional<FerrousRegion> closestSubLevelIntersecting(UUID subLevelId, Vec3 from, Vec3 to) {
+        return closestIntersecting(from, to, region -> region.belongsToSubLevel(subLevelId));
+    }
+
+    private static Optional<FerrousRegion> closestIntersecting(Vec3 from, Vec3 to, Predicate<FerrousRegion> predicate) {
         FerrousRegion closest = null;
         double bestDistance = Double.MAX_VALUE;
 
         for (int i = regions.size() - 1; i >= 0; i--) {
             FerrousRegion region = regions.get(i);
+            if (!predicate.test(region)) {
+                continue;
+            }
+
             var hitDistance = region.hitDistanceSqr(from, to);
             if (hitDistance.isEmpty()) {
                 continue;
