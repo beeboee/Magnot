@@ -5,6 +5,7 @@ import com.beeboee.magnot.region.FerrousRegion;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.companion.SableCompanion;
 import dev.ryanhcode.sable.companion.SubLevelAccess;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -53,31 +54,66 @@ public final class MagnotSableClientCompat {
         return Optional.ofNullable(closest);
     }
 
-    public static AABB displayBounds(Level level, FerrousRegion region) {
+    public static List<AABB> displayBoxes(Level level, FerrousRegion region) {
         if (region.isWorldRegion()) {
-            return region.bounds();
+            return List.of(region.bounds());
         }
 
-        Vec3 center = region.bounds().getCenter();
-        SubLevelAccess subLevel = SableCompanion.INSTANCE.getContaining(level, center);
-        if (subLevel == null || !region.belongsToSubLevel(subLevel.getUniqueId())) {
-            return region.bounds();
+        SubLevelAccess subLevel = findSubLevel(level, region);
+        if (subLevel == null) {
+            return List.of(region.bounds());
         }
 
-        AABB bounds = region.bounds();
-        AABB transformed = null;
+        List<AABB> boxes = new ArrayList<>();
+        for (BlockPos localPos : BlockPos.betweenClosed(region.min(), region.max())) {
+            if (!isSurfaceBlock(region, localPos)) {
+                continue;
+            }
 
-        for (double x : new double[]{bounds.minX, bounds.maxX}) {
-            for (double y : new double[]{bounds.minY, bounds.maxY}) {
-                for (double z : new double[]{bounds.minZ, bounds.maxZ}) {
-                    Vec3 corner = subLevel.logicalPose().transformPosition(new Vec3(x, y, z));
-                    AABB cornerBox = new AABB(corner, corner);
-                    transformed = transformed == null ? cornerBox : transformed.minmax(cornerBox);
-                }
+            Vec3 worldCenter = subLevel.logicalPose().transformPosition(Vec3.atCenterOf(localPos));
+            boxes.add(new AABB(
+                    worldCenter.x - 0.5D,
+                    worldCenter.y - 0.5D,
+                    worldCenter.z - 0.5D,
+                    worldCenter.x + 0.5D,
+                    worldCenter.y + 0.5D,
+                    worldCenter.z + 0.5D
+            ));
+        }
+
+        return boxes.isEmpty() ? List.of(region.bounds()) : boxes;
+    }
+
+    public static AABB displayBounds(Level level, FerrousRegion region) {
+        AABB combined = null;
+        for (AABB box : displayBoxes(level, region)) {
+            combined = combined == null ? box : combined.minmax(box);
+        }
+        return combined == null ? region.bounds() : combined;
+    }
+
+    private static boolean isSurfaceBlock(FerrousRegion region, BlockPos pos) {
+        return pos.getX() == region.min().getX()
+                || pos.getX() == region.max().getX()
+                || pos.getY() == region.min().getY()
+                || pos.getY() == region.max().getY()
+                || pos.getZ() == region.min().getZ()
+                || pos.getZ() == region.max().getZ();
+    }
+
+    private static SubLevelAccess findSubLevel(Level level, FerrousRegion region) {
+        SubLevelContainer container = SubLevelContainer.getContainer(level);
+        if (container == null) {
+            return null;
+        }
+
+        for (SubLevelAccess subLevel : container.getAllSubLevels()) {
+            if (region.belongsToSubLevel(subLevel.getUniqueId())) {
+                return subLevel;
             }
         }
 
-        return transformed == null ? bounds : transformed;
+        return null;
     }
 
     private static List<SubLevelAccess> candidateSubLevels(Level level, Vec3 from, Vec3 to) {
