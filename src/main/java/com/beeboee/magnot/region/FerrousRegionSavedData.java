@@ -63,6 +63,34 @@ public class FerrousRegionSavedData extends SavedData {
         return removed;
     }
 
+    public boolean removeClosestIntersecting(Vec3 from, Vec3 to) {
+        FerrousRegion closest = null;
+        double bestDistance = Double.MAX_VALUE;
+
+        for (FerrousRegion region : regions) {
+            var hitDistance = region.hitDistanceSqr(from, to);
+            if (hitDistance.isEmpty()) {
+                continue;
+            }
+
+            double distance = hitDistance.get();
+            if (distance >= bestDistance) {
+                continue;
+            }
+
+            closest = region;
+            bestDistance = distance;
+        }
+
+        if (closest == null) {
+            return false;
+        }
+
+        regions.remove(closest);
+        setDirty();
+        return true;
+    }
+
     public boolean blocksMagnet(Vec3 source, Vec3 itemPos) {
         for (FerrousRegion region : regions) {
             if (region.contains(source) || region.contains(itemPos) || region.intersectsSegment(source, itemPos)) {
