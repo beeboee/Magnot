@@ -1,6 +1,8 @@
 package com.beeboee.magnot.item;
 
+import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.region.FerrousRegionSavedData;
+import com.simibubi.create.AllSoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
@@ -56,12 +58,15 @@ public class FerrousTubeItem extends Item {
         if (firstCorner.isEmpty()) {
             setFirstCorner(stack, clicked);
             player.displayClientMessage(Component.translatable("message.magnot.first_corner"), true);
+            AllSoundEvents.SLIME_ADDED.play(serverLevel, null, clicked, 0.5F, 0.85F);
             return InteractionResult.SUCCESS;
         }
 
         FerrousRegionSavedData.get(serverLevel).addRegion(firstCorner.get(), clicked, player.getUUID());
+        MagnotNetwork.syncToPlayersInDimension(serverLevel);
         clearFirstCorner(stack);
         player.displayClientMessage(Component.translatable("message.magnot.region_created"), true);
+        AllSoundEvents.SLIME_ADDED.play(serverLevel, null, clicked, 0.5F, 0.95F);
         return InteractionResult.SUCCESS;
     }
 
