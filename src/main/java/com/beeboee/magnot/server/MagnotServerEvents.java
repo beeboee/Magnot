@@ -2,16 +2,39 @@ package com.beeboee.magnot.server;
 
 import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.registry.MagnotItems;
+import net.minecraft.ChatFormatting;
+import net.minecraft.commands.Commands;
+import net.minecraft.network.chat.ClickEvent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
+import java.nio.file.Path;
+
 public final class MagnotServerEvents {
     private MagnotServerEvents() {
+    }
+
+    @SubscribeEvent
+    public static void onRegisterCommands(RegisterCommandsEvent event) {
+        event.getDispatcher().register(
+                Commands.literal("magnot")
+                        .then(Commands.literal("log")
+                                .executes(context -> {
+                                    Path logPath = Path.of("logs", "latest.log").toAbsolutePath().normalize();
+                                    Component link = Component.literal(logPath.toString())
+                                            .withStyle(ChatFormatting.UNDERLINE)
+                                            .withStyle(style -> style.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, logPath.toString())));
+                                    context.getSource().sendSuccess(() -> Component.literal("Magnot log: ").append(link), false);
+                                    return 1;
+                                }))
+        );
     }
 
     @SubscribeEvent
