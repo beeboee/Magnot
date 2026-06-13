@@ -93,8 +93,7 @@ public final class MagnotServerEvents {
                 continue;
             }
 
-            if (!FerrousMagnetRules.blocksPlayerMagnet(serverLevel, player, itemPosition)
-                    && !FerrousMagnetRules.blocksPlayerMagnet(serverLevel, player, itemCenter)) {
+            if (!FerrousMagnetRules.blocksPlayerMagnet(serverLevel, player, itemPosition)) {
                 continue;
             }
 
