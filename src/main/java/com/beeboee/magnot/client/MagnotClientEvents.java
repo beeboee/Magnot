@@ -27,8 +27,7 @@ import java.util.Optional;
 @EventBusSubscriber(modid = Magnot.MOD_ID, value = Dist.CLIENT)
 public final class MagnotClientEvents {
     private static final Object SELECTION_OUTLINE_SLOT = new Object();
-    private static final int FERROUS_RED = 0xC63A32;
-    private static final int FERROUS_RED_PASSIVE = 0x7F241F;
+    private static final int FERROUS_RED = 0xBD2537;
 
     private MagnotClientEvents() {
     }
@@ -63,7 +62,7 @@ public final class MagnotClientEvents {
             boolean selected = selectedRegion.map(FerrousRegion::id).filter(region.id()::equals).isPresent();
             Outliner.getInstance()
                     .showAABB(region.id(), region.bounds())
-                    .colored(selected ? FERROUS_RED : FERROUS_RED_PASSIVE)
+                    .colored(FERROUS_RED)
                     .disableLineNormals()
                     .lineWidth(selected ? 1.0F / 16.0F : 1.0F / 64.0F);
         }
