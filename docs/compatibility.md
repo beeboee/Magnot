@@ -6,15 +6,19 @@ Magnot blocks supported magnet-style item movement when the source-to-item path 
 
 | Mod | Status | Notes |
 | --- | --- | --- |
-| Sophisticated Core / Backpacks / Storage | Implemented, tested in dev | Hooks `MagnetUpgradeWrapper`, so backpacks and storage containers share the same compatibility path. |
+| Sophisticated Core / Backpacks | Implemented, tested in dev | Hooks `MagnetUpgradeWrapper`; backpack magnet behavior is confirmed working. |
+| Sophisticated Storage | Implemented, needs investigation | Uses the same Sophisticated Core wrapper path, but current dev testing shows storage magnets not pulling at all. Confirm whether this is a Magnot hook issue, a test-version mismatch, or Sophisticated Storage behavior before calling it supported. |
 | AE2WTLib | Implemented, tested in dev | Hooks the wireless terminal magnet card pickup path. |
-| ProjectE | Implemented, needs dev runtime test | Hooks Black Hole Band-style gravitation from inventory, pedestal, alchemical chest, and alchemical bag contexts. |
+| ProjectE | Implemented, tested in dev | Hooks Black Hole Band-style gravitation from inventory, pedestal, alchemical chest, and alchemical bag contexts. Client-side gravitation is suppressed so blocked pulls do not rubberband against the server. |
 
-## Likely compatible without special hooks
+## Sable / Create: Aeronautics findings
 
-| Mod / system | Status | Notes |
+| Scenario | Status | Notes |
 | --- | --- | --- |
-| Sable / Create: Aeronautics | Needs in-game validation | If Sable exposes assembled contraptions as normal `ServerLevel` block/entity spaces, Magnot regions should work naturally inside that space. Cross-space magnet pulls may still need a dedicated Sable transform/hook. |
+| Static world regions before assembly | Not supported yet | Regions stay in world coordinates when their blocks are assembled into a Sable contraption. They need to be converted into contraption-local data during assembly, similar to glue-like block data. |
+| Regions created on an assembled contraption | Not supported yet | Sable/internal contraption coordinates do not line up with normal item/magnet world coordinates, so current source-to-item checks cannot reliably match the region. |
+| Removing contraptionized regions | Not supported yet | Region removal raycasts currently work against normal world-space boxes only. Contraption-local/funky coordinates need a Sable-aware removal path. |
+| Magnets across contraptionized regions | Not supported yet | Backpacks and AE2WTLib work against static world regions, but not against regions that have been contraptionized. Needs coordinate transform or contraption-attached region storage. |
 | Normal item transport | Intentionally unaffected | Hoppers, water streams, belts, pipes, and normal item physics should not be blocked. Magnot only targets supported magnet pulls. |
 
 ## Planned magnet targets
