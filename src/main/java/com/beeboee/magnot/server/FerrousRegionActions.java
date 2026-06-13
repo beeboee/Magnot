@@ -31,6 +31,7 @@ public final class FerrousRegionActions {
         }
 
         AllSoundEvents.SLIME_ADDED.play(serverLevel, null, removedAt.get(), 0.5F, 0.5F);
+        FerrousParticles.spawnRedstoneBlockBreak(serverLevel, removedAt.get());
         MagnotNetwork.syncToPlayersInDimension(serverLevel);
         player.displayClientMessage(Component.translatable("message.magnot.region_removed"), true);
         return true;
