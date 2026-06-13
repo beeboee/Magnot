@@ -17,9 +17,17 @@ repositories {
     maven { url = 'https://maven.createmod.net' }
     maven { url = 'https://maven.ithundxr.dev/snapshots' }
     maven {
+        name = 'CurseMaven'
         url = 'https://www.cursemaven.com'
         content {
             includeGroup 'curse.maven'
+        }
+    }
+    maven {
+        name = 'ModMaven'
+        url = 'https://modmaven.dev/artifactory/local-releases/'
+        content {
+            includeGroup 'de.mari_023'
         }
     }
     mavenCentral()
@@ -55,6 +63,9 @@ dependencies {
     compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")
     runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
     implementation("com.tterrag.registrate:Registrate:${registrate_version}")
+
+    runtimeOnly("org.appliedenergistics:appliedenergistics2:${ae2_version}")
+    runtimeOnly("de.mari_023:ae2wtlib:${ae2wtlib_version}")
 
     runtimeOnly("curse.maven:sophisticated-core-${sophisticated_core_curse_id}:${sophisticated_core_file_id}")
     runtimeOnly("curse.maven:sophisticated-backpacks-${sophisticated_backpacks_curse_id}:${sophisticated_backpacks_file_id}")
