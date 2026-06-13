@@ -19,13 +19,17 @@ public class SableFerrousRegionOutline extends AABBOutline {
 
     @Override
     public void render(PoseStack poseStack, SuperRenderTypeBuffer buffer, Vec3 camera, float partialTicks) {
-        Matrix4f pose = subLevel.logicalPose()
-                .bakeIntoMatrix(new Matrix4d())
-                .get(new Matrix4f());
+        Matrix4d poseD = subLevel.logicalPose().bakeIntoMatrix(new Matrix4d());
+        Matrix4f pose = new Matrix4f(
+                (float) poseD.m00(), (float) poseD.m01(), (float) poseD.m02(), (float) poseD.m03(),
+                (float) poseD.m10(), (float) poseD.m11(), (float) poseD.m12(), (float) poseD.m13(),
+                (float) poseD.m20(), (float) poseD.m21(), (float) poseD.m22(), (float) poseD.m23(),
+                (float) poseD.m30(), (float) poseD.m31(), (float) poseD.m32(), (float) poseD.m33()
+        );
 
         poseStack.pushPose();
         poseStack.translate(-camera.x, -camera.y, -camera.z);
-        poseStack.mulPoseMatrix(pose);
+        poseStack.last().pose().mul(pose);
         super.render(poseStack, buffer, Vec3.ZERO, partialTicks);
         poseStack.popPose();
     }
