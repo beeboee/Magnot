@@ -12,6 +12,7 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public class FerrousRegionSavedData extends SavedData {
@@ -55,40 +56,34 @@ public class FerrousRegionSavedData extends SavedData {
         setDirty();
     }
 
-    public boolean removeRegionContaining(BlockPos pos) {
-        boolean removed = regions.removeIf(region -> region.contains(pos));
-        if (removed) {
-            setDirty();
-        }
-        return removed;
-    }
-
-    public boolean removeClosestIntersecting(Vec3 from, Vec3 to) {
+    public Optional<BlockPos> removeClosestIntersecting(Vec3 from, Vec3 to) {
         FerrousRegion closest = null;
+        Vec3 closestHit = null;
         double bestDistance = Double.MAX_VALUE;
 
         for (FerrousRegion region : regions) {
-            var hitDistance = region.hitDistanceSqr(from, to);
-            if (hitDistance.isEmpty()) {
+            var hit = region.clip(from, to);
+            if (hit.isEmpty()) {
                 continue;
             }
 
-            double distance = hitDistance.get();
+            double distance = hit.get().distanceToSqr(from);
             if (distance >= bestDistance) {
                 continue;
             }
 
             closest = region;
+            closestHit = hit.get();
             bestDistance = distance;
         }
 
-        if (closest == null) {
-            return false;
+        if (closest == null || closestHit == null) {
+            return Optional.empty();
         }
 
         regions.remove(closest);
         setDirty();
-        return true;
+        return Optional.of(BlockPos.containing(closestHit));
     }
 
     public boolean blocksMagnet(Vec3 source, Vec3 itemPos) {
