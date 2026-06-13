@@ -31,6 +31,9 @@ import java.util.Optional;
 public final class MagnotClientEvents {
     private static final Object SELECTION_OUTLINE_SLOT = new Object();
     private static final int FERROUS_RED = 0xBD2537;
+    private static final int LIMIT_YELLOW = 0xFFD43B;
+    private static final double REGION_REVEAL_RADIUS = 25.0D;
+    private static final double REGION_REVEAL_RADIUS_SQR = REGION_REVEAL_RADIUS * REGION_REVEAL_RADIUS;
 
     private MagnotClientEvents() {
     }
@@ -63,12 +66,16 @@ public final class MagnotClientEvents {
         Optional<FerrousRegion> selectedRegion = selectedRegion(player);
 
         for (FerrousRegion region : ClientFerrousRegionStore.regions()) {
-            boolean selected = selectedRegion.map(FerrousRegion::id).filter(region.id()::equals).isPresent();
             AABB displayBounds = region.bounds();
             if (ModList.get().isLoaded("sable")) {
                 displayBounds = MagnotSableClientCompat.displayBounds(minecraft.level, region);
             }
 
+            if (!isNearPlayer(player, displayBounds)) {
+                continue;
+            }
+
+            boolean selected = selectedRegion.map(FerrousRegion::id).filter(region.id()::equals).isPresent();
             Outliner.getInstance()
                     .showAABB(region.id(), displayBounds)
                     .colored(FERROUS_RED)
@@ -87,15 +94,20 @@ public final class MagnotClientEvents {
             return;
         }
 
+        BlockPos clicked = blockHitResult.getBlockPos();
+        BlockPos clampedCorner = FerrousTubeItem.clampToRegionLimit(firstCorner.get(), clicked);
+        boolean overLimit = FerrousTubeItem.exceedsRegionLimit(firstCorner.get(), clicked);
+        int color = overLimit ? LIMIT_YELLOW : FERROUS_RED;
+
         player.displayClientMessage(
-                Component.translatable("message.magnot.click_to_confirm").withStyle(style -> style.withColor(FERROUS_RED)),
+                Component.translatable("message.magnot.click_to_confirm").withStyle(style -> style.withColor(color)),
                 true
         );
 
-        AABB selectionBox = boxBetween(firstCorner.get(), blockHitResult.getBlockPos());
+        AABB selectionBox = boxBetween(firstCorner.get(), clampedCorner);
         Outliner.getInstance()
                 .showAABB(SELECTION_OUTLINE_SLOT, selectionBox)
-                .colored(FERROUS_RED)
+                .colored(color)
                 .withFaceTextures(MagnotSpecialTextures.FERROUS_REGION, MagnotSpecialTextures.FERROUS_REGION)
                 .disableLineNormals()
                 .lineWidth(1.0F / 16.0F);
@@ -133,6 +145,14 @@ public final class MagnotClientEvents {
         }
 
         return selected;
+    }
+
+    private static boolean isNearPlayer(LocalPlayer player, AABB bounds) {
+        Vec3 playerPosition = player.position();
+        double dx = Math.max(Math.max(bounds.minX - playerPosition.x, 0.0D), playerPosition.x - bounds.maxX);
+        double dy = Math.max(Math.max(bounds.minY - playerPosition.y, 0.0D), playerPosition.y - bounds.maxY);
+        double dz = Math.max(Math.max(bounds.minZ - playerPosition.z, 0.0D), playerPosition.z - bounds.maxZ);
+        return dx * dx + dy * dy + dz * dz <= REGION_REVEAL_RADIUS_SQR;
     }
 
     private static AABB boxBetween(BlockPos first, BlockPos second) {
