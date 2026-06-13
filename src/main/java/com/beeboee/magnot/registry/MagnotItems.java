@@ -15,7 +15,7 @@ public final class MagnotItems {
     public static final DeferredItem<FerrousTubeItem> FERROUS_TUBE = ITEMS.registerItem(
             "ferrous_tube",
             FerrousTubeItem::new,
-            new Item.Properties().stacksTo(1)
+            new Item.Properties().stacksTo(1).durability(99)
     );
 
     private MagnotItems() {
