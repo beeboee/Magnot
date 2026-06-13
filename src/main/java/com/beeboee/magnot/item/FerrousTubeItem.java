@@ -1,6 +1,7 @@
 package com.beeboee.magnot.item;
 
 import com.beeboee.magnot.network.MagnotNetwork;
+import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.region.FerrousRegionSavedData;
 import com.beeboee.magnot.server.FerrousParticles;
 import com.simibubi.create.AllSoundEvents;
@@ -61,18 +62,16 @@ public class FerrousTubeItem extends Item {
 
         if (firstCorner.isEmpty()) {
             setFirstCorner(stack, clicked);
-            player.displayClientMessage(Component.translatable("message.magnot.first_corner"), true);
             AllSoundEvents.SLIME_ADDED.play(serverLevel, null, clicked, 0.5F, 0.85F);
-            FerrousParticles.spawnRedstoneBlockBreak(serverLevel, clicked);
             return InteractionResult.SUCCESS;
         }
 
-        FerrousRegionSavedData.get(serverLevel).addRegion(firstCorner.get(), clicked);
+        FerrousRegion region = FerrousRegionSavedData.get(serverLevel).addRegion(firstCorner.get(), clicked);
         MagnotNetwork.syncToPlayersInDimension(serverLevel);
         clearFirstCorner(stack);
         player.displayClientMessage(Component.translatable("message.magnot.region_created"), true);
         AllSoundEvents.SLIME_ADDED.play(serverLevel, null, clicked, 0.5F, 0.95F);
-        FerrousParticles.spawnRedstoneBlockBreak(serverLevel, clicked);
+        FerrousParticles.spawnRedstoneBlockEdges(serverLevel, region);
         return InteractionResult.SUCCESS;
     }
 
