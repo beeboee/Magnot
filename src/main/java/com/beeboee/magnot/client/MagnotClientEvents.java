@@ -9,6 +9,7 @@ import net.createmod.catnip.outliner.Outliner;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
@@ -80,6 +81,11 @@ public final class MagnotClientEvents {
         if (!(hitResult instanceof BlockHitResult blockHitResult) || hitResult.getType() != HitResult.Type.BLOCK) {
             return;
         }
+
+        player.displayClientMessage(
+                Component.translatable("message.magnot.click_to_confirm").withStyle(style -> style.withColor(FERROUS_RED)),
+                true
+        );
 
         AABB selectionBox = boxBetween(firstCorner.get(), blockHitResult.getBlockPos());
         Outliner.getInstance()
