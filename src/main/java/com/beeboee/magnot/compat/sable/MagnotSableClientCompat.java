@@ -5,8 +5,6 @@ import com.beeboee.magnot.region.FerrousRegion;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.companion.SableCompanion;
 import dev.ryanhcode.sable.companion.SubLevelAccess;
-import net.createmod.catnip.outliner.Outliner;
-import net.createmod.catnip.render.BindableTexture;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -55,26 +53,6 @@ public final class MagnotSableClientCompat {
         return Optional.ofNullable(closest);
     }
 
-    public static boolean showRegionOutline(Level level, Object slot, FerrousRegion region, int color, BindableTexture faceTexture, float lineWidth) {
-        if (region.isWorldRegion()) {
-            return false;
-        }
-
-        SubLevelAccess subLevel = findSubLevel(level, region);
-        if (subLevel == null) {
-            return false;
-        }
-
-        Outliner.getInstance()
-                .showOutline(slot, new SableFerrousRegionOutline(region, subLevel))
-                .colored(color)
-                .withFaceTextures(faceTexture, faceTexture)
-                .disableLineNormals()
-                .disableCull()
-                .lineWidth(lineWidth);
-        return true;
-    }
-
     public static AABB displayBounds(Level level, FerrousRegion region) {
         if (region.isWorldRegion()) {
             return region.bounds();
@@ -85,7 +63,10 @@ public final class MagnotSableClientCompat {
             return region.bounds();
         }
 
-        AABB bounds = region.bounds();
+        return transformBounds(subLevel, region.bounds());
+    }
+
+    private static AABB transformBounds(SubLevelAccess subLevel, AABB bounds) {
         AABB transformed = null;
 
         for (double x : new double[]{bounds.minX, bounds.maxX}) {
