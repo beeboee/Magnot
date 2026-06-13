@@ -62,3 +62,9 @@ modId="projecte"
 type="optional"
 ordering="AFTER"
 side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="sable"
+type="optional"
+ordering="AFTER"
+side="BOTH"
