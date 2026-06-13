@@ -141,12 +141,22 @@ public final class MagnotClientEvents {
         MagnotSpecialTextures faceTexture = selected ? MagnotSpecialTextures.FERROUS_REGION : null;
         float lineWidth = selected ? 1.0F / 16.0F : 1.0F / 64.0F;
 
+        if (ModList.get().isLoaded("sable")
+                && MagnotSableClientCompat.showRegionOutline(level, renderSlot, region, FERROUS_RED, faceTexture, lineWidth)) {
+            return true;
+        }
+
         Outliner.getInstance()
                 .showAABB(renderSlot, displayBounds)
                 .colored(FERROUS_RED)
                 .withFaceTextures(faceTexture, faceTexture)
                 .disableLineNormals()
                 .lineWidth(lineWidth);
+
+        if (ModList.get().isLoaded("sable")) {
+            MagnotSableClientCompat.disableOutlineTransform(renderSlot);
+        }
+
         return true;
     }
 
