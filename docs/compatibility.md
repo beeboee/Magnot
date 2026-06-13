@@ -9,15 +9,17 @@ Magnot blocks supported magnet-style item movement when the source-to-item path 
 | Sophisticated Core / Backpacks / Storage | Implemented, tested in dev | Hooks `MagnetUpgradeWrapper`; backpacks and storage share the same compatibility path. Storage false alarm was caused by copied NBT from a barrel placed inside a region. |
 | AE2WTLib | Implemented, tested in dev | Hooks the wireless terminal magnet card pickup path. |
 | ProjectE | Implemented, tested in dev | Hooks Black Hole Band-style gravitation from inventory, pedestal, alchemical chest, and alchemical bag contexts. Client-side gravitation checks synced client regions so visual pull behavior matches server-side blocking. |
+| Sable / Create: Aeronautics | First-pass implemented, needs dev testing | Ferrous regions move with assembled Sable blocks, magnet checks transform source/item paths into sub-level coordinates, selected/removal raycasts check Sable-transformed regions, and held-tube outlines use transformed display bounds. |
 
-## Sable / Create: Aeronautics findings
+## Sable / Create: Aeronautics test matrix
 
 | Scenario | Status | Notes |
 | --- | --- | --- |
-| Static world regions before assembly | Not supported yet | Regions stay in world coordinates when their blocks are assembled into a Sable contraption. They need to be converted into contraption-local data during assembly, similar to glue-like block data. |
-| Regions created on an assembled contraption | Not supported yet | Sable/internal contraption coordinates do not line up with normal item/magnet world coordinates, so current source-to-item checks cannot reliably match the region. |
-| Removing contraptionized regions | Not supported yet | Region removal raycasts currently work against normal world-space boxes only. Contraption-local/funky coordinates need a Sable-aware removal path. |
-| Magnets across contraptionized regions | Not supported yet | Backpacks and AE2WTLib work against static world regions, but not against regions that have been contraptionized. Needs coordinate transform or contraption-attached region storage. |
+| Static world regions before assembly | Needs retest | Regions are moved during Sable assembly when the assembled block set intersects the saved region. |
+| Regions created on an assembled contraption | Needs retest | Current code should support checks/removal if the saved region is in the sub-level plot coordinate space. |
+| Removing contraptionized regions | Needs retest | Client selects transformed regions; server removes the selected region by transforming the removal ray into sub-level coordinates. |
+| Magnets across contraptionized regions | Needs retest | Server checks static world regions first, then checks intersecting Sable sub-level regions by transforming the source-to-item path into sub-level space. |
+| Region outline on contraptions | Approximate | Outlines transform with the Sable pose but are still drawn as Create Outliner AABBs, so rotated boxes may appear as a world-axis bounding approximation rather than a true oriented box. |
 | Normal item transport | Intentionally unaffected | Hoppers, water streams, belts, pipes, and normal item physics should not be blocked. Magnot only targets supported magnet pulls. |
 
 ## Planned magnet targets
