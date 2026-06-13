@@ -15,8 +15,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import javax.annotation.Nullable;
-
 @Pseudo
 @Mixin(targets = "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper", remap = false)
 public abstract class MagnetUpgradeWrapperMixin {
@@ -24,17 +22,17 @@ public abstract class MagnetUpgradeWrapperMixin {
     private Vec3 magnot$magnetSource;
 
     @Inject(method = "pickupItems", at = @At("HEAD"))
-    private void magnot$captureMagnetSource(@Nullable Entity entity, Level level, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
+    private void magnot$captureMagnetSource(Entity entity, Level level, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
         magnot$magnetSource = entity == null ? Vec3.atCenterOf(pos) : entity.position();
     }
 
     @Inject(method = "pickupItems", at = @At("RETURN"))
-    private void magnot$clearMagnetSource(@Nullable Entity entity, Level level, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
+    private void magnot$clearMagnetSource(Entity entity, Level level, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
         magnot$magnetSource = null;
     }
 
     @Inject(method = "tryToInsertItem", at = @At("HEAD"), cancellable = true)
-    private void magnot$blockFerrousRegionPickup(@Nullable Player player, ItemEntity itemEntity, CallbackInfoReturnable<Boolean> cir) {
+    private void magnot$blockFerrousRegionPickup(Player player, ItemEntity itemEntity, CallbackInfoReturnable<Boolean> cir) {
         if (!(itemEntity.level() instanceof ServerLevel serverLevel)) {
             return;
         }
