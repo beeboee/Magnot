@@ -3,6 +3,7 @@ package com.beeboee.magnot.region;
 import com.beeboee.magnot.compat.sable.MagnotSableCompat;
 import com.beeboee.magnot.debug.MagnotDebug;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -48,6 +49,14 @@ public final class FerrousMagnetRules {
 
         putCached(level, cacheKey, blocked);
         return blocked;
+    }
+
+    public static boolean blocksItemPull(ServerLevel level, Vec3 magnetSource, ItemEntity item) {
+        return blocksMagnet(level, magnetSource, itemPullTarget(item));
+    }
+
+    public static Vec3 itemPullTarget(ItemEntity item) {
+        return item.position().add(0.0D, item.getBbHeight() / 2.0D, 0.0D);
     }
 
     public static boolean blocksPlayerMagnet(ServerLevel level, Player player, Vec3 targetPosition) {
