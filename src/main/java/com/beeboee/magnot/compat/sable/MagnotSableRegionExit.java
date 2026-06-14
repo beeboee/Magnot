@@ -21,6 +21,8 @@ public final class MagnotSableRegionExit {
                 .filter(region -> region.belongsToSubLevel(subLevel.getUniqueId()))
                 .toList();
 
+        MagnotDebug.log("sable-exit sub={} regions={}", MagnotDebug.shortId(subLevel.getUniqueId()), regions.size());
+
         for (FerrousRegion region : regions) {
             FerrousRegion worldRegion = toWorldRegion(region, subLevel);
             MagnotDebug.region("sable-exit-before", region);
