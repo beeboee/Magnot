@@ -42,9 +42,7 @@ public final class FerrousMagnetRules {
         }
 
         boolean blocked;
-        if (FerrousRegionEntityLookup.blocksMagnet(level, magnetSource, targetPosition)) {
-            blocked = true;
-        } else if (ModList.get().isLoaded("sable")) {
+        if (ModList.get().isLoaded("sable")) {
             blocked = MagnotSableCompat.blocksMagnet(level, magnetSource, targetPosition);
             MagnotDebug.recordFallbackCheck(level, "sable", blocked);
         } else {
@@ -76,27 +74,23 @@ public final class FerrousMagnetRules {
             return cached;
         }
 
-        boolean blocked;
-        if (FerrousRegionEntityLookup.blocksPlayerMagnet(level, player, targetPosition)) {
-            blocked = true;
-        } else {
-            AABB body = player.getBoundingBox();
-            Vec3 feet = player.position();
-            Vec3 bodyCenter = body.getCenter();
-            Vec3 eye = player.getEyePosition();
+        AABB body = player.getBoundingBox();
+        Vec3 feet = player.position();
+        Vec3 bodyCenter = body.getCenter();
+        Vec3 eye = player.getEyePosition();
 
-            if (ModList.get().isLoaded("sable")) {
-                blocked = MagnotSableCompat.blocksMagnet(level, feet, targetPosition)
-                        || MagnotSableCompat.blocksMagnet(level, bodyCenter, targetPosition)
-                        || MagnotSableCompat.blocksMagnet(level, eye, targetPosition);
-                MagnotDebug.recordFallbackCheck(level, "sable", blocked);
-            } else {
-                FerrousRegionSavedData data = FerrousRegionSavedData.get(level);
-                blocked = data.blocksMagnet(feet, targetPosition)
-                        || data.blocksMagnet(bodyCenter, targetPosition)
-                        || data.blocksMagnet(eye, targetPosition);
-                MagnotDebug.recordFallbackCheck(level, "saved-data", blocked);
-            }
+        boolean blocked;
+        if (ModList.get().isLoaded("sable")) {
+            blocked = MagnotSableCompat.blocksMagnet(level, feet, targetPosition)
+                    || MagnotSableCompat.blocksMagnet(level, bodyCenter, targetPosition)
+                    || MagnotSableCompat.blocksMagnet(level, eye, targetPosition);
+            MagnotDebug.recordFallbackCheck(level, "sable", blocked);
+        } else {
+            FerrousRegionSavedData data = FerrousRegionSavedData.get(level);
+            blocked = data.blocksMagnet(feet, targetPosition)
+                    || data.blocksMagnet(bodyCenter, targetPosition)
+                    || data.blocksMagnet(eye, targetPosition);
+            MagnotDebug.recordFallbackCheck(level, "saved-data", blocked);
         }
 
         putCached(level, cacheKey, blocked);
@@ -118,9 +112,7 @@ public final class FerrousMagnetRules {
         }
 
         boolean blocked;
-        if (FerrousRegionEntityLookup.containsPoint(level, source)) {
-            blocked = true;
-        } else if (ModList.get().isLoaded("sable")) {
+        if (ModList.get().isLoaded("sable")) {
             blocked = MagnotSableCompat.containsPoint(level, source);
         } else {
             blocked = FerrousRegionSavedData.get(level).containsPoint(source);
