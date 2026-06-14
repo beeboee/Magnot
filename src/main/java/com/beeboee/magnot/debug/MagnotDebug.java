@@ -25,6 +25,8 @@ public final class MagnotDebug {
     private static long lastSummaryTick = Long.MIN_VALUE;
     private static String lastSummaryDimension = "unknown";
 
+    private static long cacheHits;
+    private static long playerCacheHits;
     private static long checks;
     private static long playerChecks;
     private static long entityBlocked;
@@ -78,6 +80,18 @@ public final class MagnotDebug {
                 bounds.maxY,
                 bounds.maxZ
         );
+    }
+
+    public static void recordCacheHit(ServerLevel level, boolean playerCheck) {
+        if (!ENABLED) {
+            return;
+        }
+
+        prepareCounters(level);
+        cacheHits++;
+        if (playerCheck) {
+            playerCacheHits++;
+        }
     }
 
     public static void recordPointInsideCheck(ServerLevel level, boolean hit) {
@@ -159,14 +173,16 @@ public final class MagnotDebug {
     }
 
     private static void writeSummary(long gameTime, String dimension) {
-        if (checks == 0L && fallbackChecked == 0L && pointInsideChecks == 0L) {
+        if (checks == 0L && fallbackChecked == 0L && pointInsideChecks == 0L && cacheHits == 0L) {
             return;
         }
 
         double averageCandidates = candidateSearches == 0L ? 0.0D : (double) candidateTotal / candidateSearches;
-        log("perf dim={} tick={} checks={} playerChecks={} entityBlocked={} entityMissed={} fallbackChecked={} fallbackBlocked={} sableFallbackChecked={} savedDataFallbackChecked={} pointInsideChecks={} pointInsideHits={} candidateSearches={} avgCandidates={} maxCandidates={}",
+        log("perf dim={} tick={} cacheHits={} playerCacheHits={} checks={} playerChecks={} entityBlocked={} entityMissed={} fallbackChecked={} fallbackBlocked={} sableFallbackChecked={} savedDataFallbackChecked={} pointInsideChecks={} pointInsideHits={} candidateSearches={} avgCandidates={} maxCandidates={}",
                 dimension,
                 gameTime,
+                cacheHits,
+                playerCacheHits,
                 checks,
                 playerChecks,
                 entityBlocked,
@@ -184,6 +200,8 @@ public final class MagnotDebug {
     }
 
     private static void resetCounters() {
+        cacheHits = 0L;
+        playerCacheHits = 0L;
         checks = 0L;
         playerChecks = 0L;
         entityBlocked = 0L;
