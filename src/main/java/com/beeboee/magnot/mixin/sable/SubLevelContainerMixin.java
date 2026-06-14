@@ -1,6 +1,7 @@
 package com.beeboee.magnot.mixin.sable;
 
 import com.beeboee.magnot.compat.sable.MagnotSableRegionExit;
+import com.beeboee.magnot.debug.MagnotDebug;
 import dev.ryanhcode.sable.sublevel.SubLevel;
 import dev.ryanhcode.sable.sublevel.storage.SubLevelRemovalReason;
 import net.minecraft.server.level.ServerLevel;
@@ -25,13 +26,25 @@ public abstract class SubLevelContainerMixin {
 
     @Inject(method = "removeSubLevel(IILdev/ryanhcode/sable/sublevel/storage/SubLevelRemovalReason;)V", at = @At("HEAD"), require = 0)
     private void magnot$handleRegionExit(int x, int z, SubLevelRemovalReason reason, CallbackInfo ci) {
-        if (!(level instanceof ServerLevel serverLevel)) {
+        if (!(level instanceof ServerLevel)) {
             return;
         }
 
         SubLevel subLevel = getSubLevel(x, z);
-        if (subLevel != null) {
-            MagnotSableRegionExit.handle(serverLevel, subLevel);
+        if (subLevel == null) {
+            return;
         }
+
+        MagnotDebug.log(
+                "sable-remove-sublevel sub={} x={} z={} reason={} action=ignored",
+                MagnotDebug.shortId(subLevel.getUniqueId()),
+                x,
+                z,
+                reason
+        );
+
+        // Do not call MagnotSableRegionExit.handle here. Sable removes sublevels during
+        // lifecycle events where the blocks are not actually returning to normal world space.
+        // Converting regions here creates stale world-space ferrous hitboxes at their origin.
     }
 }
