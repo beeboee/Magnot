@@ -1,6 +1,6 @@
-# Magnet compatibility
+# Magnet and vacuum compatibility
 
-Magnot magnet support is kept optional. Compat code should be safe when a target mod is missing and should not add hard runtime dependencies to the published mod.
+Magnot support is kept optional. Compat code should be safe when a target mod is missing and should not add hard runtime dependencies to the published mod.
 
 ## Current 1.21.1 NeoForge target
 
@@ -12,21 +12,22 @@ Magnot magnet support is kept optional. Compat code should be safe when a target
 - Artifacts: Magnetism effect.
 - Mekanism: Magnetic Attraction Unit.
 - Draconic Evolution: Magnet / Advanced Magnet.
-- Reliquary Reincarnations: Fortune Coin, including player use and pedestal item pickup.
+- Reliquary Reincarnations: Fortune Coin, including player use, long-range vacuum use, and pedestal item pickup.
 - Actually Additions: pinned in the local test environment; implementation still needs runtime inspection.
 
 ### Planned for this target
 
 - Simple Magnets by SuperMartijn642: Basic Magnet and Advanced Magnet.
 - Simple Magnets / Magnets by LPSMods: magnet items and magnet blocks.
+- Vacuum-style item collectors that are available for Minecraft 1.21.1 on NeoForge and directly move, teleport, or collect item entities across distance.
 
 ## Future target versions or backports
 
 These should be revisited when Magnot targets a Minecraft/mod-loader version where the mod exists and can be tested cleanly:
 
 - Botania: Ring of Magnetization.
-- Cyclic: magnet item/block behavior.
-- Any other magnet-source mod that has a current NeoForge build and directly moves item entities.
+- Cyclic: magnet and vacuum item/block behavior.
+- Any other magnet-source or vacuum-source mod that has a current NeoForge build and directly moves item entities.
 
 ## Compatibility rule
 
