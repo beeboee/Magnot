@@ -6,6 +6,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -90,12 +91,20 @@ public abstract class MagnetismMobEffectMixin {
     }
 
     private boolean magnot$blocksArtifactsPull(ServerLevel level, LivingEntity entity, Vec3 source, ItemEntity itemEntity) {
-        if (!FerrousMagnetRules.blocksItemPull(level, source, itemEntity)) {
+        Vec3 target = FerrousMagnetRules.itemPullTarget(itemEntity);
+        boolean blocked;
+
+        if (entity instanceof Player player) {
+            blocked = FerrousMagnetRules.blocksPlayerMagnet(level, player, target);
+        } else {
+            blocked = FerrousMagnetRules.blocksMagnet(level, source, target);
+        }
+
+        if (!blocked) {
             return false;
         }
 
-        Vec3 target = FerrousMagnetRules.itemPullTarget(itemEntity);
-        if (entity instanceof net.minecraft.world.entity.player.Player player) {
+        if (entity instanceof Player player) {
             MagnotDebug.log("artifacts-filter player={} item={} source={} target={}", player.getName().getString(), itemEntity.getId(), source, target);
         } else {
             MagnotDebug.log("artifacts-filter source={} item={} sourcePos={} target={}", entity.getId(), itemEntity.getId(), source, target);
