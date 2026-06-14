@@ -61,6 +61,7 @@ repositories {
             includeGroup 'gg.moonflower'
             includeGroup 'io.github.ocelot'
             includeGroup 'mezz.jei'
+            includeGroup 'vazkii.patchouli'
         }
     }
     mavenCentral()
@@ -117,8 +118,21 @@ dependencies {
     runtimeOnly("curse.maven:artifacts-${artifacts_curse_id}:${artifacts_file_id}")
     runtimeOnly("mekanism:Mekanism:${mekanism_version}")
 
-    // Local compat test jars. Drop optional magnet-source mods here when testing instead of
-    // pinning fragile CurseMaven file ids for every experiment.
+    // Optional magnet compat test mods. These are runtime-only so Magnot stays
+    // soft-compatible and optional.
+    runtimeOnly("curse.maven:botania-${botania_curse_id}:${botania_file_id}")
+    runtimeOnly("curse.maven:patchouli-${patchouli_curse_id}:${patchouli_file_id}")
+
+    runtimeOnly("curse.maven:draconic-evolution-${draconic_evolution_curse_id}:${draconic_evolution_file_id}")
+    runtimeOnly("curse.maven:brandons-core-${brandons_core_curse_id}:${brandons_core_file_id}")
+    runtimeOnly("curse.maven:codechicken-lib-${codechicken_lib_curse_id}:${codechicken_lib_file_id}")
+
+    runtimeOnly("curse.maven:actually-additions-${actually_additions_curse_id}:${actually_additions_file_id}")
+    runtimeOnly("curse.maven:reliquary-reincarnations-${reliquary_curse_id}:${reliquary_file_id}")
+    runtimeOnly("curse.maven:cyclic-${cyclic_curse_id}:${cyclic_file_id}")
+
+    // Local compat test jars remain available as an escape hatch for jars that
+    // cannot be fetched cleanly from Maven.
     runtimeOnly(localRuntimeMods)
 }
 
