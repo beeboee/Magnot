@@ -14,11 +14,22 @@ import java.util.UUID;
 
 public final class FerrousRegionEntityLookup {
     private static final double SEGMENT_SEARCH_PADDING = 1.0E-3D;
+    private static final double POINT_SEARCH_PADDING = 1.0E-3D;
     private static final Map<CandidateKey, List<FerrousRegionEntity>> CANDIDATE_CACHE = new HashMap<>();
     private static long cacheTick = Long.MIN_VALUE;
     private static String cacheDimension = "";
 
     private FerrousRegionEntityLookup() {
+    }
+
+    public static boolean containsPoint(ServerLevel level, Vec3 point) {
+        List<FerrousRegionEntity> candidates = level.getEntitiesOfClass(FerrousRegionEntity.class, new AABB(point, point).inflate(POINT_SEARCH_PADDING));
+        for (FerrousRegionEntity region : candidates) {
+            if (region.contains(point)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static boolean blocksMagnet(ServerLevel level, Vec3 source, Vec3 targetPosition) {
