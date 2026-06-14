@@ -24,6 +24,7 @@ public class FerrousRegionSavedData extends SavedData {
     );
 
     private final List<FerrousRegion> regions = new ArrayList<>();
+    private transient FerrousRegionIndex regionIndex;
 
     public static FerrousRegionSavedData get(ServerLevel level) {
         return level.getDataStorage().computeIfAbsent(FACTORY, DATA_NAME);
@@ -71,12 +72,14 @@ public class FerrousRegionSavedData extends SavedData {
     public void addRegion(FerrousRegion region) {
         removeRegion(region.id());
         regions.add(region);
+        invalidateIndex();
         setDirty();
     }
 
     public boolean removeRegion(UUID id) {
         boolean removed = regions.removeIf(region -> region.id().equals(id));
         if (removed) {
+            invalidateIndex();
             setDirty();
         }
         return removed;
@@ -85,6 +88,7 @@ public class FerrousRegionSavedData extends SavedData {
     public boolean removeGroup(UUID groupId) {
         boolean removed = regions.removeIf(region -> region.groupId().equals(groupId));
         if (removed) {
+            invalidateIndex();
             setDirty();
         }
         return removed;
@@ -149,6 +153,7 @@ public class FerrousRegionSavedData extends SavedData {
             }
 
             regions.remove(i);
+            invalidateIndex();
             setDirty();
             return Optional.of(region);
         }
@@ -163,53 +168,43 @@ public class FerrousRegionSavedData extends SavedData {
         }
 
         regions.remove(closest.get());
+        invalidateIndex();
         setDirty();
         return closest;
     }
 
     public boolean containsPoint(Vec3 point) {
-        return containsPoint(point, region -> true);
+        return index().containsAnyPoint(point);
     }
 
     public boolean containsWorldPoint(Vec3 point) {
-        return containsPoint(point, FerrousRegion::isWorldRegion);
+        return index().containsWorldPoint(point);
     }
 
     public boolean containsSubLevelPoint(UUID subLevelId, Vec3 point) {
-        return containsPoint(point, region -> region.belongsToSubLevel(subLevelId));
-    }
-
-    private boolean containsPoint(Vec3 point, Predicate<FerrousRegion> predicate) {
-        for (FerrousRegion region : regions) {
-            if (predicate.test(region) && region.contains(point)) {
-                return true;
-            }
-        }
-        return false;
+        return index().containsSubLevelPoint(subLevelId, point);
     }
 
     public boolean blocksMagnet(Vec3 source, Vec3 itemPos) {
-        return blocksMagnet(source, itemPos, region -> true);
+        return index().blocksAnyMagnet(source, itemPos);
     }
 
     public boolean blocksWorldMagnet(Vec3 source, Vec3 itemPos) {
-        return blocksMagnet(source, itemPos, FerrousRegion::isWorldRegion);
+        return index().blocksWorldMagnet(source, itemPos);
     }
 
     public boolean blocksSubLevelMagnet(UUID subLevelId, Vec3 source, Vec3 itemPos) {
-        return blocksMagnet(source, itemPos, region -> region.belongsToSubLevel(subLevelId));
+        return index().blocksSubLevelMagnet(subLevelId, source, itemPos);
     }
 
-    private boolean blocksMagnet(Vec3 source, Vec3 itemPos, Predicate<FerrousRegion> predicate) {
-        for (FerrousRegion region : regions) {
-            if (!predicate.test(region)) {
-                continue;
-            }
-
-            if (region.contains(source) || region.contains(itemPos) || region.intersectsSegment(source, itemPos)) {
-                return true;
-            }
+    private FerrousRegionIndex index() {
+        if (regionIndex == null) {
+            regionIndex = FerrousRegionIndex.build(regions);
         }
-        return false;
+        return regionIndex;
+    }
+
+    private void invalidateIndex() {
+        regionIndex = null;
     }
 }
