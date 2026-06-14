@@ -72,12 +72,6 @@ ordering="AFTER"
 side="BOTH"
 
 [[dependencies.${mod_id}]]
-modId="botania"
-type="optional"
-ordering="AFTER"
-side="BOTH"
-
-[[dependencies.${mod_id}]]
 modId="artifacts"
 type="optional"
 ordering="AFTER"
