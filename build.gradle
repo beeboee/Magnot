@@ -91,6 +91,120 @@ neoForge {
 }
 
 def localRuntimeMods = fileTree(dir: 'run/mods', include: ['*.jar'])
+def compatModrinthProjects = (findProperty('compat_modrinth_projects') ?: '')
+        .toString()
+        .split(',')
+        .collect { it.trim() }
+        .findAll { !it.isEmpty() }
+
+tasks.register('downloadCompatTestMods') {
+    group = 'magnot'
+    description = 'Downloads optional Modrinth compat test jars into run/mods for the dev runtime.'
+
+    inputs.property('minecraft_version', minecraft_version)
+    inputs.property('compat_modrinth_projects', compatModrinthProjects.join(','))
+    outputs.dir(layout.projectDirectory.dir('run/mods'))
+    outputs.upToDateWhen { false }
+
+    onlyIf {
+        (findProperty('compat_modrinth_auto_download') ?: 'true').toString().toBoolean() && !compatModrinthProjects.isEmpty()
+    }
+
+    doLast {
+        File modsDir = file('run/mods')
+        modsDir.mkdirs()
+
+        def urlEncode = { String value ->
+            java.net.URLEncoder.encode(value, java.nio.charset.StandardCharsets.UTF_8.toString())
+        }
+
+        def fetchJson = { String url ->
+            def connection = new URL(url).openConnection()
+            connection.setRequestProperty('User-Agent', "Magnot/${mod_version} optional compat test downloader")
+            connection.connectTimeout = 15000
+            connection.readTimeout = 30000
+            connection.inputStream.withCloseable { input ->
+                new groovy.json.JsonSlurper().parse(input)
+            }
+        }
+
+        def downloadFile = { fileInfo ->
+            File output = new File(modsDir, fileInfo.filename as String)
+            if (output.exists() && output.length() > 0L) {
+                println "Compat test mod already present: ${output.name}"
+                return
+            }
+
+            println "Downloading compat test mod: ${output.name}"
+            def connection = new URL(fileInfo.url as String).openConnection()
+            connection.setRequestProperty('User-Agent', "Magnot/${mod_version} optional compat test downloader")
+            connection.connectTimeout = 15000
+            connection.readTimeout = 120000
+            connection.inputStream.withCloseable { input ->
+                output.withOutputStream { out ->
+                    out << input
+                }
+            }
+        }
+
+        Set<String> queuedProjects = new LinkedHashSet<>(compatModrinthProjects)
+        Set<String> downloadedVersionIds = new LinkedHashSet<>()
+        def queue = new java.util.ArrayDeque<String>(compatModrinthProjects)
+
+        def downloadVersion
+        downloadVersion = { version, String reason ->
+            if (version == null || version.id == null || !downloadedVersionIds.add(version.id as String)) {
+                return
+            }
+
+            def jarFile = (version.files ?: []).find { it.primary && (it.filename as String).endsWith('.jar') }
+                    ?: (version.files ?: []).find { (it.filename as String).endsWith('.jar') }
+            if (jarFile == null) {
+                println "No jar file found for Modrinth version ${version.version_number} (${reason})"
+                return
+            }
+
+            downloadFile(jarFile)
+
+            (version.dependencies ?: [])
+                    .findAll { it.dependency_type == 'required' }
+                    .each { dependency ->
+                        if (dependency.version_id != null) {
+                            try {
+                                def dependencyVersion = fetchJson("https://api.modrinth.com/v2/version/${urlEncode(dependency.version_id as String)}")
+                                downloadVersion(dependencyVersion, "dependency of ${jarFile.filename}")
+                            } catch (Exception exception) {
+                                println "Could not download required Modrinth dependency ${dependency.version_id}: ${exception.message}"
+                            }
+                        } else if (dependency.project_id != null && queuedProjects.add(dependency.project_id as String)) {
+                            queue.add(dependency.project_id as String)
+                        }
+                    }
+        }
+
+        while (!queue.isEmpty()) {
+            String projectSlugOrId = queue.removeFirst()
+            String query = "loaders=${urlEncode('[\"neoforge\"]')}&game_versions=${urlEncode('[\"' + minecraft_version + '\"]')}"
+            String versionsUrl = "https://api.modrinth.com/v2/project/${urlEncode(projectSlugOrId)}/version?${query}"
+
+            try {
+                def versions = fetchJson(versionsUrl)
+                if (versions == null || versions.isEmpty()) {
+                    println "No ${minecraft_version} NeoForge Modrinth version found for ${projectSlugOrId}"
+                    continue
+                }
+
+                downloadVersion(versions.first(), projectSlugOrId)
+            } catch (Exception exception) {
+                println "Could not fetch Modrinth project ${projectSlugOrId}: ${exception.message}"
+            }
+        }
+    }
+}
+
+tasks.matching { it.name in ['runClient', 'runServer'] }.configureEach {
+    dependsOn tasks.named('downloadCompatTestMods')
+}
 
 dependencies {
     implementation("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
