@@ -10,15 +10,22 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.function.Predicate;
 
 @Pseudo
 @Mixin(targets = "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity", remap = false)
 public abstract class VacuumMachineBlockEntityMixin {
+    @Shadow
+    private List<WeakReference> entities;
+
     @Redirect(
             method = "getEntities",
             at = @At(
@@ -41,6 +48,28 @@ public abstract class VacuumMachineBlockEntityMixin {
                 .filter(candidate -> !(candidate instanceof ItemEntity item)
                         || !FerrousMagnetRules.blocksItemPull(serverLevel, source, item))
                 .toList();
+    }
+
+    @Inject(
+            method = "attractEntities",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Ljava/util/List;iterator()Ljava/util/Iterator;",
+                    shift = At.Shift.BEFORE
+            ),
+            require = 0
+    )
+    private void magnot$removeBlockedCachedVacuumItems(Level level, BlockPos pos, int range, CallbackInfo ci) {
+        if (!(level instanceof ServerLevel serverLevel)) {
+            return;
+        }
+
+        Vec3 source = magnot$center(pos);
+        entities.removeIf(reference -> {
+            Object entity = reference.get();
+            return entity instanceof ItemEntity item
+                    && FerrousMagnetRules.blocksItemPull(serverLevel, source, item);
+        });
     }
 
     private static Vec3 magnot$center(BlockPos pos) {
