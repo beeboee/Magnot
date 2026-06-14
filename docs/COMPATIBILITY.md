@@ -1,0 +1,33 @@
+# Magnet compatibility
+
+Magnot magnet support is kept optional. Compat code should be safe when a target mod is missing and should not add hard runtime dependencies to the published mod.
+
+## Current 1.21.1 NeoForge target
+
+### Implemented or actively being tested
+
+- Sophisticated Backpacks / Sophisticated Storage: magnet upgrades.
+- Applied Energistics 2 Wireless Terminals: wireless magnet behavior through AE2WTLib.
+- ProjectE: Black Hole Band.
+- Artifacts: Magnetism effect.
+- Mekanism: Magnetic Attraction Unit.
+- Draconic Evolution: Magnet / Advanced Magnet.
+- Reliquary Reincarnations: Fortune Coin, including player use and pedestal item pickup.
+- Actually Additions: pinned in the local test environment; implementation still needs runtime inspection.
+
+### Planned for this target
+
+- Simple Magnets by SuperMartijn642: Basic Magnet and Advanced Magnet.
+- Simple Magnets / Magnets by LPSMods: magnet items and magnet blocks.
+
+## Future target versions or backports
+
+These should be revisited when Magnot targets a Minecraft/mod-loader version where the mod exists and can be tested cleanly:
+
+- Botania: Ring of Magnetization.
+- Cyclic: magnet item/block behavior.
+- Any other magnet-source mod that has a current NeoForge build and directly moves item entities.
+
+## Compatibility rule
+
+Prefer filtering candidate item entities before a target mod mutates them. Only fall back to intercepting final movement calls when candidate filtering is not practical.
