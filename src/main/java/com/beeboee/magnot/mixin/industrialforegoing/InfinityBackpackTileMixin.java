@@ -20,10 +20,11 @@ import java.util.List;
 @Mixin(targets = "com.buuz135.industrial.block.tool.tile.InfinityBackpackTile", remap = false)
 public abstract class InfinityBackpackTileMixin {
     @Redirect(
-            method = "serverTick",
+            method = "serverTick(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lcom/buuz135/industrial/block/tool/tile/InfinityBackpackTile;)V",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;"
+                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;",
+                    ordinal = 1
             ),
             require = 0
     )
