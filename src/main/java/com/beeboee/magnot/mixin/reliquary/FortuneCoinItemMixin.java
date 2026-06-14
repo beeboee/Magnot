@@ -32,6 +32,9 @@ public abstract class FortuneCoinItemMixin {
     )
     private <T extends Entity> List<T> magnot$filterPlayerFortuneCoinCandidates(Level level, Class<T> entityClass, AABB box, Level originalLevel, Player player, double distance) {
         List<T> candidates = level.getEntitiesOfClass(entityClass, box);
+        if (level.isClientSide()) {
+            return List.of();
+        }
         if (!(level instanceof ServerLevel serverLevel) || !ItemEntity.class.isAssignableFrom(entityClass)) {
             return candidates;
         }
@@ -49,6 +52,10 @@ public abstract class FortuneCoinItemMixin {
             require = 0
     )
     private void magnot$blockPlayerFortuneCoinTeleport(Entity entity, Player player, CallbackInfo ci) {
+        if (player.level().isClientSide()) {
+            ci.cancel();
+            return;
+        }
         if (entity instanceof ItemEntity item
                 && player.level() instanceof ServerLevel serverLevel
                 && FerrousMagnetRules.blocksPlayerMagnet(serverLevel, player, FerrousMagnetRules.itemPullTarget(item))) {
@@ -66,6 +73,9 @@ public abstract class FortuneCoinItemMixin {
     )
     private <T extends Entity> List<T> magnot$filterPedestalFortuneCoinCandidates(Level level, Class<T> entityClass, AABB box, @Coerce Object pedestal, Level originalLevel, BlockPos pedestalPos) {
         List<T> candidates = level.getEntitiesOfClass(entityClass, box);
+        if (level.isClientSide()) {
+            return List.of();
+        }
         if (!(level instanceof ServerLevel serverLevel) || !ItemEntity.class.isAssignableFrom(entityClass)) {
             return candidates;
         }
