@@ -24,7 +24,23 @@ public abstract class MagnetismMobEffectMixin {
             ),
             require = 0
     )
-    private void magnot$blockFerrousRegionPull(Entity targetEntity, Vec3 motion, ServerLevel level, LivingEntity entity, int amplifier) {
+    private void magnot$blockFerrousRegionPullFromEntity(Entity targetEntity, Vec3 motion, ServerLevel level, LivingEntity entity, int amplifier) {
+        magnot$blockFerrousRegionPull(targetEntity, motion, level, entity);
+    }
+
+    @Redirect(
+            method = "applyEffectTick",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/item/ItemEntity;setDeltaMovement(Lnet/minecraft/world/phys/Vec3;)V"
+            ),
+            require = 0
+    )
+    private void magnot$blockFerrousRegionPullFromItem(ItemEntity itemEntity, Vec3 motion, ServerLevel level, LivingEntity entity, int amplifier) {
+        magnot$blockFerrousRegionPull(itemEntity, motion, level, entity);
+    }
+
+    private void magnot$blockFerrousRegionPull(Entity targetEntity, Vec3 motion, ServerLevel level, LivingEntity entity) {
         if (!(targetEntity instanceof ItemEntity itemEntity)) {
             targetEntity.setDeltaMovement(motion);
             return;
@@ -40,6 +56,6 @@ public abstract class MagnetismMobEffectMixin {
             return;
         }
 
-        itemEntity.setDeltaMovement(motion);
+        targetEntity.setDeltaMovement(motion);
     }
 }
