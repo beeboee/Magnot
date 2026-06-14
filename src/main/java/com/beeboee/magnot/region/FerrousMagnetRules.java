@@ -22,6 +22,7 @@ import java.util.UUID;
 public final class FerrousMagnetRules {
     private static final double CACHE_SCALE = 64.0D;
     private static final Map<MagnetCheckKey, Boolean> CHECK_CACHE = new HashMap<>();
+    private static final Map<SourceCheckKey, Boolean> SOURCE_CACHE = new HashMap<>();
     private static long cacheTick = Long.MIN_VALUE;
     private static String cacheDimension = "";
 
@@ -29,7 +30,11 @@ public final class FerrousMagnetRules {
     }
 
     public static boolean blocksMagnet(ServerLevel level, Vec3 magnetSource, Vec3 targetPosition) {
-        MagnetCheckKey cacheKey = MagnetCheckKey.source(level, magnetSource, targetPosition);
+        if (sourceBlocked(level, magnetSource)) {
+            return true;
+        }
+
+        MagnetCheckKey cacheKey = MagnetCheckKey.source(magnetSource, targetPosition);
         Boolean cached = getCached(level, cacheKey);
         if (cached != null) {
             MagnotDebug.recordCacheHit(level, false);
@@ -60,7 +65,11 @@ public final class FerrousMagnetRules {
     }
 
     public static boolean blocksPlayerMagnet(ServerLevel level, Player player, Vec3 targetPosition) {
-        MagnetCheckKey cacheKey = MagnetCheckKey.player(level, player, targetPosition);
+        if (playerSourceBlocked(level, player)) {
+            return true;
+        }
+
+        MagnetCheckKey cacheKey = MagnetCheckKey.player(player, targetPosition);
         Boolean cached = getCached(level, cacheKey);
         if (cached != null) {
             MagnotDebug.recordCacheHit(level, true);
@@ -94,6 +103,33 @@ public final class FerrousMagnetRules {
         return blocked;
     }
 
+    private static boolean playerSourceBlocked(ServerLevel level, Player player) {
+        AABB body = player.getBoundingBox();
+        return sourceBlocked(level, player.position())
+                || sourceBlocked(level, body.getCenter())
+                || sourceBlocked(level, player.getEyePosition());
+    }
+
+    private static boolean sourceBlocked(ServerLevel level, Vec3 source) {
+        SourceCheckKey key = SourceCheckKey.point(source);
+        Boolean cached = getCached(level, key);
+        if (cached != null) {
+            return cached;
+        }
+
+        boolean blocked;
+        if (FerrousRegionEntityLookup.containsPoint(level, source)) {
+            blocked = true;
+        } else if (ModList.get().isLoaded("sable")) {
+            blocked = MagnotSableCompat.containsPoint(level, source);
+        } else {
+            blocked = FerrousRegionSavedData.get(level).containsPoint(source);
+        }
+
+        putCached(level, key, blocked);
+        return blocked;
+    }
+
     private static Boolean getCached(ServerLevel level, MagnetCheckKey key) {
         prepareCache(level);
         return CHECK_CACHE.get(key);
@@ -104,13 +140,34 @@ public final class FerrousMagnetRules {
         CHECK_CACHE.put(key, blocked);
     }
 
+    private static Boolean getCached(ServerLevel level, SourceCheckKey key) {
+        prepareCache(level);
+        return SOURCE_CACHE.get(key);
+    }
+
+    private static void putCached(ServerLevel level, SourceCheckKey key, boolean blocked) {
+        prepareCache(level);
+        SOURCE_CACHE.put(key, blocked);
+    }
+
     private static void prepareCache(ServerLevel level) {
         long gameTime = level.getGameTime();
         String dimension = level.dimension().location().toString();
         if (gameTime != cacheTick || !dimension.equals(cacheDimension)) {
             CHECK_CACHE.clear();
+            SOURCE_CACHE.clear();
             cacheTick = gameTime;
             cacheDimension = dimension;
+        }
+    }
+
+    private record SourceCheckKey(int sourceX, int sourceY, int sourceZ) {
+        private static SourceCheckKey point(Vec3 source) {
+            return new SourceCheckKey(
+                    block(source.x),
+                    block(source.y),
+                    block(source.z)
+            );
         }
     }
 
@@ -125,7 +182,7 @@ public final class FerrousMagnetRules {
             int targetY,
             int targetZ
     ) {
-        private static MagnetCheckKey source(ServerLevel level, Vec3 source, Vec3 target) {
+        private static MagnetCheckKey source(Vec3 source, Vec3 target) {
             return new MagnetCheckKey(
                     false,
                     0L,
@@ -139,7 +196,7 @@ public final class FerrousMagnetRules {
             );
         }
 
-        private static MagnetCheckKey player(ServerLevel level, Player player, Vec3 target) {
+        private static MagnetCheckKey player(Player player, Vec3 target) {
             UUID uuid = player.getUUID();
             Vec3 source = player.position();
             return new MagnetCheckKey(
@@ -158,5 +215,9 @@ public final class FerrousMagnetRules {
         private static int bucket(double value) {
             return (int) Math.floor(value * CACHE_SCALE);
         }
+    }
+
+    private static int block(double value) {
+        return (int) Math.floor(value);
     }
 }
