@@ -3,11 +3,11 @@ package com.beeboee.magnot.mixin.simplemagnets;
 import com.beeboee.magnot.region.FerrousMagnetRules;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.entity.EntityTypeTest;
 import net.minecraft.world.phys.AABB;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
@@ -24,12 +24,12 @@ public abstract class MagnetItemMixin {
             method = {"inventoryTick", "inventoryUpdate"},
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/level/Level;getEntities(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;"
+                    target = "Lnet/minecraft/world/level/Level;getEntities(Lnet/minecraft/world/level/entity/EntityTypeTest;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;"
             ),
             require = 0
     )
-    private <T extends Entity> List<T> magnot$filterSimpleMagnetItems(Level level, EntityType<T> entityType, AABB box, Predicate<? super T> predicate, ItemStack stack, Level originalLevel, Entity entity, int itemSlot, boolean isSelected) {
-        List<T> candidates = level.getEntities(entityType, box, predicate);
+    private <T extends Entity> List<T> magnot$filterSimpleMagnetItems(Level level, EntityTypeTest<Entity, T> entityTypeTest, AABB box, Predicate<? super T> predicate, ItemStack stack, Level originalLevel, Entity entity, int itemSlot, boolean isSelected) {
+        List<T> candidates = level.getEntities(entityTypeTest, box, predicate);
         if (level.isClientSide()) {
             return List.of();
         }
@@ -51,8 +51,8 @@ public abstract class MagnetItemMixin {
             ),
             require = 0
     )
-    private void magnot$blockSimpleMagnetTeleport(ItemEntity itemEntity, double x, double y, double z, ItemStack stack, Level level, Entity entity, int itemSlot, boolean isSelected) {
-        if (level.isClientSide()) {
+    private void magnot$blockSimpleMagnetTeleport(ItemEntity itemEntity, double x, double y, double z, Entity entity) {
+        if (itemEntity.level().isClientSide()) {
             return;
         }
         if (entity instanceof Player player
