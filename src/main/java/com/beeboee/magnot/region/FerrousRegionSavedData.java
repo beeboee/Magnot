@@ -206,5 +206,6 @@ public class FerrousRegionSavedData extends SavedData {
 
     private void invalidateIndex() {
         regionIndex = null;
+        FerrousMagnetRules.invalidateCaches();
     }
 }
