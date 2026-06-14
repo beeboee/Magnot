@@ -14,6 +14,11 @@ Magnot support is kept optional. Compat code should be safe when a target mod is
 - Draconic Evolution: Magnet / Advanced Magnet.
 - Reliquary Reincarnations: Fortune Coin, including player use, long-range vacuum use, and pedestal item pickup.
 - Actually Additions: pinned in the local test environment; implementation still needs runtime inspection.
+- Mob Grinding Utils: Absorption Hopper item pickup.
+- Item Collectors by SuperMartijn642: Basic Item Collector and Advanced Item Collector item pickup.
+- Simple Magnets by SuperMartijn642: Basic Magnet and Advanced Magnet item movement.
+- Modular Routers: Vacuum Module item pickup.
+- Ender IO: Electromagnet item movement and Vacuum Chest item pickup.
 
 ### Downloaded for local testing through Gradle
 
@@ -24,7 +29,7 @@ The `downloadCompatTestMods` Gradle task attempts to download the newest Minecra
 - Simple Magnets by SuperMartijn642: Basic Magnet and Advanced Magnet.
 - Modular Routers: dropped-item absorption modules.
 - Industrial Foregoing: inspect for loose-item collection behavior.
-- Ender IO: inspect for currently ported loose-item collection behavior.
+- Ender IO: Electromagnet and Vacuum Chest.
 
 ### Planned for this target
 
