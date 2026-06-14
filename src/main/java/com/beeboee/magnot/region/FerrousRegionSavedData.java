@@ -167,6 +167,27 @@ public class FerrousRegionSavedData extends SavedData {
         return closest;
     }
 
+    public boolean containsPoint(Vec3 point) {
+        return containsPoint(point, region -> true);
+    }
+
+    public boolean containsWorldPoint(Vec3 point) {
+        return containsPoint(point, FerrousRegion::isWorldRegion);
+    }
+
+    public boolean containsSubLevelPoint(UUID subLevelId, Vec3 point) {
+        return containsPoint(point, region -> region.belongsToSubLevel(subLevelId));
+    }
+
+    private boolean containsPoint(Vec3 point, Predicate<FerrousRegion> predicate) {
+        for (FerrousRegion region : regions) {
+            if (predicate.test(region) && region.contains(point)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean blocksMagnet(Vec3 source, Vec3 itemPos) {
         return blocksMagnet(source, itemPos, region -> true);
     }
