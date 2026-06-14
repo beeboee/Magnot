@@ -22,21 +22,25 @@ import java.util.List;
 @Mixin(targets = "artifacts.effect.MagnetismMobEffect", remap = false)
 public abstract class MagnetismMobEffectMixin {
     @Redirect(
-            method = "applyEffectTick",
+            method = "applyEffectTick(Lnet/minecraft/world/entity/LivingEntity;I)Z",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;"
             ),
             require = 0
     )
-    private List<ItemEntity> magnot$filterFerrousRegionBlockedItems(Level queriedLevel, Class<ItemEntity> entityClass, AABB bounds, ServerLevel level, LivingEntity entity, int amplifier) {
+    private List<ItemEntity> magnot$filterFerrousRegionBlockedItems(Level queriedLevel, Class<ItemEntity> entityClass, AABB bounds, LivingEntity entity, int amplifier) {
         List<ItemEntity> items = queriedLevel.getEntitiesOfClass(entityClass, bounds);
+        if (!(queriedLevel instanceof ServerLevel serverLevel)) {
+            return items;
+        }
+
         Vec3 source = entity.position().add(0.0D, 0.75D, 0.0D);
         List<ItemEntity> filtered = null;
 
         for (int index = 0; index < items.size(); index++) {
             ItemEntity item = items.get(index);
-            if (magnot$blocksArtifactsPull(level, entity, source, item)) {
+            if (magnot$blocksArtifactsPull(serverLevel, entity, source, item)) {
                 if (filtered == null) {
                     filtered = new ArrayList<>(items.size());
                     filtered.addAll(items.subList(0, index));
@@ -53,37 +57,42 @@ public abstract class MagnetismMobEffectMixin {
     }
 
     @Redirect(
-            method = "applyEffectTick",
+            method = "applyEffectTick(Lnet/minecraft/world/entity/LivingEntity;I)Z",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/entity/Entity;setDeltaMovement(Lnet/minecraft/world/phys/Vec3;)V"
             ),
             require = 0
     )
-    private void magnot$blockFerrousRegionPullFromEntity(Entity targetEntity, Vec3 motion, ServerLevel level, LivingEntity entity, int amplifier) {
-        magnot$blockFerrousRegionPull(targetEntity, motion, level, entity);
+    private void magnot$blockFerrousRegionPullFromEntity(Entity targetEntity, Vec3 motion, LivingEntity entity, int amplifier) {
+        magnot$blockFerrousRegionPull(targetEntity, motion, entity);
     }
 
     @Redirect(
-            method = "applyEffectTick",
+            method = "applyEffectTick(Lnet/minecraft/world/entity/LivingEntity;I)Z",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/entity/item/ItemEntity;setDeltaMovement(Lnet/minecraft/world/phys/Vec3;)V"
             ),
             require = 0
     )
-    private void magnot$blockFerrousRegionPullFromItem(ItemEntity itemEntity, Vec3 motion, ServerLevel level, LivingEntity entity, int amplifier) {
-        magnot$blockFerrousRegionPull(itemEntity, motion, level, entity);
+    private void magnot$blockFerrousRegionPullFromItem(ItemEntity itemEntity, Vec3 motion, LivingEntity entity, int amplifier) {
+        magnot$blockFerrousRegionPull(itemEntity, motion, entity);
     }
 
-    private void magnot$blockFerrousRegionPull(Entity targetEntity, Vec3 motion, ServerLevel level, LivingEntity entity) {
+    private void magnot$blockFerrousRegionPull(Entity targetEntity, Vec3 motion, LivingEntity entity) {
         if (!(targetEntity instanceof ItemEntity itemEntity)) {
             targetEntity.setDeltaMovement(motion);
             return;
         }
 
+        if (!(entity.level() instanceof ServerLevel serverLevel)) {
+            targetEntity.setDeltaMovement(motion);
+            return;
+        }
+
         Vec3 source = entity.position().add(0.0D, 0.75D, 0.0D);
-        if (magnot$blocksArtifactsPull(level, entity, source, itemEntity)) {
+        if (magnot$blocksArtifactsPull(serverLevel, entity, source, itemEntity)) {
             return;
         }
 
