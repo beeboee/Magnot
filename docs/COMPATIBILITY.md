@@ -15,11 +15,21 @@ Magnot support is kept optional. Compat code should be safe when a target mod is
 - Reliquary Reincarnations: Fortune Coin, including player use, long-range vacuum use, and pedestal item pickup.
 - Actually Additions: pinned in the local test environment; implementation still needs runtime inspection.
 
+### Downloaded for local testing through Gradle
+
+The `downloadCompatTestMods` Gradle task attempts to download the newest Minecraft 1.21.1 NeoForge Modrinth build for these projects into `run/mods`:
+
+- Mob Grinding Utils: Absorption Hopper.
+- Item Collectors by SuperMartijn642: Basic Item Collector and Advanced Item Collector.
+- Simple Magnets by SuperMartijn642: Basic Magnet and Advanced Magnet.
+- Modular Routers: dropped-item absorption modules.
+- Industrial Foregoing: inspect for loose-item collection behavior.
+- Ender IO: inspect for currently ported loose-item collection behavior.
+
 ### Planned for this target
 
-- Simple Magnets by SuperMartijn642: Basic Magnet and Advanced Magnet.
 - Simple Magnets / Magnets by LPSMods: magnet items and magnet blocks.
-- Vacuum-style item collectors that are available for Minecraft 1.21.1 on NeoForge and directly move, teleport, or collect item entities across distance.
+- Other vacuum-style item collectors that are available for Minecraft 1.21.1 on NeoForge and directly move, teleport, or collect item entities across distance.
 
 ## Future target versions or backports
 
