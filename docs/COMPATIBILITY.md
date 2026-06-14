@@ -24,16 +24,15 @@ These have been tested against the current Magnot dev target:
 - Draconic Evolution: Magnet / Advanced Magnet.
 - Reliquary Reincarnations: Fortune Coin, including normal use, long-range vacuum use, and pedestal item pickup.
 - Actually Additions: magnet behavior.
-
-## Experimental compat layers
-
-These mixins are present in the dev build but should be tested before being listed as confirmed support on a release page:
-
 - Mob Grinding Utils: Absorption Hopper item pickup.
 - Item Collectors by SuperMartijn642: Basic Item Collector and Advanced Item Collector item pickup.
 - Simple Magnets by SuperMartijn642: Basic Magnet and Advanced Magnet item movement.
 - Modular Routers: Vacuum Module item pickup.
 - Ender IO: Electromagnet item movement and Vacuum Chest item pickup.
+
+## Experimental compat layers
+
+No active experimental compat layers are currently listed as supported. New compat layers should be tested before being listed as confirmed support on a release page.
 
 ## Dev test downloads
 
@@ -58,4 +57,4 @@ This task is only for local testing. Downloaded jars should not be committed.
 
 ## Compatibility rule
 
-Prefer filtering candidate item entities before a target mod mutates them. Only fall back to intercepting final movement calls when candidate filtering is not practical.
+Prefer filtering candidate item entities before a target mod mutates them. Use head-cancel hooks for one-shot movement paths. Avoid intercepting final movement calls unless no earlier stable hook is available.
