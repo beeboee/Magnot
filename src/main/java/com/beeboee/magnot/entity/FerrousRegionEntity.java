@@ -1,6 +1,8 @@
 package com.beeboee.magnot.entity;
 
+import com.beeboee.magnot.debug.MagnotDebug;
 import com.beeboee.magnot.region.FerrousRegion;
+import com.beeboee.magnot.region.FerrousRegionSavedData;
 import com.beeboee.magnot.registry.MagnotEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -22,6 +24,7 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.entity.IEntityWithComplexSpawn;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Optional;
 import java.util.UUID;
 
 public class FerrousRegionEntity extends Entity implements IEntityWithComplexSpawn {
@@ -106,7 +109,18 @@ public class FerrousRegionEntity extends Entity implements IEntityWithComplexSpa
 
         if (!level().isClientSide() && getBoundingBox().getSize() <= 0.0D) {
             discard();
+            return;
         }
+
+        if (level() instanceof ServerLevel serverLevel && isStale(serverLevel)) {
+            MagnotDebug.region("discard-stale-entity", asRegion());
+            discard();
+        }
+    }
+
+    private boolean isStale(ServerLevel level) {
+        Optional<FerrousRegion> savedRegion = FerrousRegionSavedData.get(level).findById(regionId);
+        return savedRegion.isEmpty() || !savedRegion.get().equals(asRegion());
     }
 
     @Override
