@@ -13,7 +13,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Coerce;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
 
@@ -38,6 +40,20 @@ public abstract class FortuneCoinItemMixin {
                 .filter(candidate -> !(candidate instanceof ItemEntity item)
                         || !FerrousMagnetRules.blocksPlayerMagnet(serverLevel, player, FerrousMagnetRules.itemPullTarget(item)))
                 .toList();
+    }
+
+    @Inject(
+            method = "teleportEntityToPlayer",
+            at = @At("HEAD"),
+            cancellable = true,
+            require = 0
+    )
+    private void magnot$blockPlayerFortuneCoinTeleport(Entity entity, Player player, CallbackInfo ci) {
+        if (entity instanceof ItemEntity item
+                && player.level() instanceof ServerLevel serverLevel
+                && FerrousMagnetRules.blocksPlayerMagnet(serverLevel, player, FerrousMagnetRules.itemPullTarget(item))) {
+            ci.cancel();
+        }
     }
 
     @Redirect(
