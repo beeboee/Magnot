@@ -7,7 +7,6 @@
     "sophisticatedcore.MagnetUpgradeWrapperMixin",
     "ae2wtlib.MagnetHandlerMixin",
     "projecte.BlackHoleBandMixin",
-    "botania.RingOfMagnetizationItemMixin",
     "artifacts.MagnetismMobEffectMixin",
     "mekanism.ModuleMagneticAttractionUnitMixin",
     "draconicevolution.MagnetMixin",
