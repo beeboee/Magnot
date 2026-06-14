@@ -8,6 +8,10 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.fml.ModList;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
 /**
  * Shared entry point for magnet integrations.
  *
@@ -15,48 +19,135 @@ import net.neoforged.fml.ModList;
  * the adapter should skip that target or abort the magnet pass.
  */
 public final class FerrousMagnetRules {
+    private static final double CACHE_SCALE = 64.0D;
+    private static final Map<MagnetCheckKey, Boolean> CHECK_CACHE = new HashMap<>();
+    private static long cacheTick = Long.MIN_VALUE;
+    private static String cacheDimension = "";
+
     private FerrousMagnetRules() {
     }
 
     public static boolean blocksMagnet(ServerLevel level, Vec3 magnetSource, Vec3 targetPosition) {
+        MagnetCheckKey cacheKey = MagnetCheckKey.source(level, magnetSource, targetPosition);
+        Boolean cached = getCached(level, cacheKey);
+        if (cached != null) {
+            MagnotDebug.recordCacheHit(level, false);
+            return cached;
+        }
+
+        boolean blocked;
         if (FerrousRegionEntityLookup.blocksMagnet(level, magnetSource, targetPosition)) {
-            return true;
-        }
-
-        if (ModList.get().isLoaded("sable")) {
-            boolean blocked = MagnotSableCompat.blocksMagnet(level, magnetSource, targetPosition);
+            blocked = true;
+        } else if (ModList.get().isLoaded("sable")) {
+            blocked = MagnotSableCompat.blocksMagnet(level, magnetSource, targetPosition);
             MagnotDebug.recordFallbackCheck(level, "sable", blocked);
-            return blocked;
+        } else {
+            blocked = FerrousRegionSavedData.get(level).blocksMagnet(magnetSource, targetPosition);
+            MagnotDebug.recordFallbackCheck(level, "saved-data", blocked);
         }
 
-        boolean blocked = FerrousRegionSavedData.get(level).blocksMagnet(magnetSource, targetPosition);
-        MagnotDebug.recordFallbackCheck(level, "saved-data", blocked);
+        putCached(level, cacheKey, blocked);
         return blocked;
     }
 
     public static boolean blocksPlayerMagnet(ServerLevel level, Player player, Vec3 targetPosition) {
+        MagnetCheckKey cacheKey = MagnetCheckKey.player(level, player, targetPosition);
+        Boolean cached = getCached(level, cacheKey);
+        if (cached != null) {
+            MagnotDebug.recordCacheHit(level, true);
+            return cached;
+        }
+
+        boolean blocked;
         if (FerrousRegionEntityLookup.blocksPlayerMagnet(level, player, targetPosition)) {
-            return true;
+            blocked = true;
+        } else {
+            AABB body = player.getBoundingBox();
+            Vec3 feet = player.position();
+            Vec3 bodyCenter = body.getCenter();
+            Vec3 eye = player.getEyePosition();
+
+            if (ModList.get().isLoaded("sable")) {
+                blocked = MagnotSableCompat.blocksMagnet(level, feet, targetPosition)
+                        || MagnotSableCompat.blocksMagnet(level, bodyCenter, targetPosition)
+                        || MagnotSableCompat.blocksMagnet(level, eye, targetPosition);
+                MagnotDebug.recordFallbackCheck(level, "sable", blocked);
+            } else {
+                FerrousRegionSavedData data = FerrousRegionSavedData.get(level);
+                blocked = data.blocksMagnet(feet, targetPosition)
+                        || data.blocksMagnet(bodyCenter, targetPosition)
+                        || data.blocksMagnet(eye, targetPosition);
+                MagnotDebug.recordFallbackCheck(level, "saved-data", blocked);
+            }
         }
 
-        AABB body = player.getBoundingBox();
-        Vec3 feet = player.position();
-        Vec3 bodyCenter = body.getCenter();
-        Vec3 eye = player.getEyePosition();
-
-        if (ModList.get().isLoaded("sable")) {
-            boolean blocked = MagnotSableCompat.blocksMagnet(level, feet, targetPosition)
-                    || MagnotSableCompat.blocksMagnet(level, bodyCenter, targetPosition)
-                    || MagnotSableCompat.blocksMagnet(level, eye, targetPosition);
-            MagnotDebug.recordFallbackCheck(level, "sable", blocked);
-            return blocked;
-        }
-
-        FerrousRegionSavedData data = FerrousRegionSavedData.get(level);
-        boolean blocked = data.blocksMagnet(feet, targetPosition)
-                || data.blocksMagnet(bodyCenter, targetPosition)
-                || data.blocksMagnet(eye, targetPosition);
-        MagnotDebug.recordFallbackCheck(level, "saved-data", blocked);
+        putCached(level, cacheKey, blocked);
         return blocked;
+    }
+
+    private static Boolean getCached(ServerLevel level, MagnetCheckKey key) {
+        prepareCache(level);
+        return CHECK_CACHE.get(key);
+    }
+
+    private static void putCached(ServerLevel level, MagnetCheckKey key, boolean blocked) {
+        prepareCache(level);
+        CHECK_CACHE.put(key, blocked);
+    }
+
+    private static void prepareCache(ServerLevel level) {
+        long gameTime = level.getGameTime();
+        String dimension = level.dimension().location().toString();
+        if (gameTime != cacheTick || !dimension.equals(cacheDimension)) {
+            CHECK_CACHE.clear();
+            cacheTick = gameTime;
+            cacheDimension = dimension;
+        }
+    }
+
+    private record MagnetCheckKey(
+            boolean player,
+            long playerMost,
+            long playerLeast,
+            int sourceX,
+            int sourceY,
+            int sourceZ,
+            int targetX,
+            int targetY,
+            int targetZ
+    ) {
+        private static MagnetCheckKey source(ServerLevel level, Vec3 source, Vec3 target) {
+            return new MagnetCheckKey(
+                    false,
+                    0L,
+                    0L,
+                    bucket(source.x),
+                    bucket(source.y),
+                    bucket(source.z),
+                    bucket(target.x),
+                    bucket(target.y),
+                    bucket(target.z)
+            );
+        }
+
+        private static MagnetCheckKey player(ServerLevel level, Player player, Vec3 target) {
+            UUID uuid = player.getUUID();
+            Vec3 source = player.position();
+            return new MagnetCheckKey(
+                    true,
+                    uuid.getMostSignificantBits(),
+                    uuid.getLeastSignificantBits(),
+                    bucket(source.x),
+                    bucket(source.y),
+                    bucket(source.z),
+                    bucket(target.x),
+                    bucket(target.y),
+                    bucket(target.z)
+            );
+        }
+
+        private static int bucket(double value) {
+            return (int) Math.floor(value * CACHE_SCALE);
+        }
     }
 }
