@@ -2,6 +2,8 @@
 
 Magnot support is kept optional. Compat code should be safe when a target mod is missing and should not add hard runtime dependencies to the published mod.
 
+Mods that move dropped items can also support Magnot directly through the public compatibility API in [API.md](API.md).
+
 ## Current 1.21.1 NeoForge target
 
 ### Implemented or actively being tested
