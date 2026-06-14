@@ -1,6 +1,7 @@
 package com.beeboee.magnot.region;
 
 import com.beeboee.magnot.compat.sable.MagnotSableCompat;
+import com.beeboee.magnot.debug.MagnotDebug;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
@@ -23,10 +24,14 @@ public final class FerrousMagnetRules {
         }
 
         if (ModList.get().isLoaded("sable")) {
-            return MagnotSableCompat.blocksMagnet(level, magnetSource, targetPosition);
+            boolean blocked = MagnotSableCompat.blocksMagnet(level, magnetSource, targetPosition);
+            MagnotDebug.recordFallbackCheck(level, "sable", blocked);
+            return blocked;
         }
 
-        return FerrousRegionSavedData.get(level).blocksMagnet(magnetSource, targetPosition);
+        boolean blocked = FerrousRegionSavedData.get(level).blocksMagnet(magnetSource, targetPosition);
+        MagnotDebug.recordFallbackCheck(level, "saved-data", blocked);
+        return blocked;
     }
 
     public static boolean blocksPlayerMagnet(ServerLevel level, Player player, Vec3 targetPosition) {
@@ -40,14 +45,18 @@ public final class FerrousMagnetRules {
         Vec3 eye = player.getEyePosition();
 
         if (ModList.get().isLoaded("sable")) {
-            return MagnotSableCompat.blocksMagnet(level, feet, targetPosition)
+            boolean blocked = MagnotSableCompat.blocksMagnet(level, feet, targetPosition)
                     || MagnotSableCompat.blocksMagnet(level, bodyCenter, targetPosition)
                     || MagnotSableCompat.blocksMagnet(level, eye, targetPosition);
+            MagnotDebug.recordFallbackCheck(level, "sable", blocked);
+            return blocked;
         }
 
         FerrousRegionSavedData data = FerrousRegionSavedData.get(level);
-        return data.blocksMagnet(feet, targetPosition)
+        boolean blocked = data.blocksMagnet(feet, targetPosition)
                 || data.blocksMagnet(bodyCenter, targetPosition)
                 || data.blocksMagnet(eye, targetPosition);
+        MagnotDebug.recordFallbackCheck(level, "saved-data", blocked);
+        return blocked;
     }
 }
