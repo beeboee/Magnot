@@ -29,6 +29,9 @@ public abstract class ElectromagnetItemMixin {
     )
     private List<Entity> magnot$filterElectromagnetItems(Level level, Entity excluded, AABB box, Predicate<? super Entity> predicate, Player player, ItemStack stack, Level originalLevel, Entity entity, int slotId, boolean isSelected) {
         List<Entity> candidates = level.getEntities(excluded, box, predicate);
+        if (level.isClientSide()) {
+            return List.of();
+        }
         if (!(level instanceof ServerLevel serverLevel)) {
             return candidates;
         }
