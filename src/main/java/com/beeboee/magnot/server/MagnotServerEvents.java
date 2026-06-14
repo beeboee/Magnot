@@ -1,5 +1,6 @@
 package com.beeboee.magnot.server;
 
+import com.beeboee.magnot.debug.MagnotDebug;
 import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.registry.MagnotItems;
 import net.minecraft.ChatFormatting;
@@ -27,7 +28,7 @@ public final class MagnotServerEvents {
                 Commands.literal("magnot")
                         .then(Commands.literal("log")
                                 .executes(context -> {
-                                    Path logPath = Path.of("logs", "latest.log").toAbsolutePath().normalize();
+                                    Path logPath = MagnotDebug.logPath();
                                     Component link = Component.literal(logPath.toString())
                                             .withStyle(ChatFormatting.UNDERLINE)
                                             .withStyle(style -> style.withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_FILE, logPath.toString())));
