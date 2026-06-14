@@ -12,6 +12,12 @@
     "mekanism.ModuleMagneticAttractionUnitMixin",
     "draconicevolution.MagnetMixin",
     "reliquary.FortuneCoinItemMixin",
+    "mobgrindingutils.AbsorptionHopperMixin",
+    "itemcollectors.CollectorBlockEntityMixin",
+    "simplemagnets.MagnetItemMixin",
+    "modularrouters.CompiledVacuumModuleMixin",
+    "enderio.ElectromagnetItemMixin",
+    "enderio.VacuumMachineBlockEntityMixin",
     "sable.SubLevelAssemblyHelperMixin",
     "sable.SubLevelContainerMixin"
   ],
