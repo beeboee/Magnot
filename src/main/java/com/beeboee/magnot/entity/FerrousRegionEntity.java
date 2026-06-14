@@ -72,7 +72,18 @@ public class FerrousRegionEntity extends Entity implements IEntityWithComplexSpa
     }
 
     public boolean contains(BlockPos pos) {
-        return getBoundingBox().contains(Vec3.atCenterOf(pos));
+        return contains(Vec3.atCenterOf(pos));
+    }
+
+    public boolean contains(Vec3 pos) {
+        return getBoundingBox().contains(pos);
+    }
+
+    public boolean blocksMagnet(Vec3 source, Vec3 targetPosition) {
+        AABB bounds = getBoundingBox();
+        return bounds.contains(source)
+                || bounds.contains(targetPosition)
+                || bounds.clip(source, targetPosition).isPresent();
     }
 
     public void resetPositionToBB() {
