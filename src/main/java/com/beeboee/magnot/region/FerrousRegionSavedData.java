@@ -52,6 +52,16 @@ public class FerrousRegionSavedData extends SavedData {
         return List.copyOf(regions);
     }
 
+    public Optional<FerrousRegion> findById(UUID id) {
+        for (FerrousRegion region : regions) {
+            if (region.id().equals(id)) {
+                return Optional.of(region);
+            }
+        }
+
+        return Optional.empty();
+    }
+
     public FerrousRegion addRegion(BlockPos first, BlockPos second) {
         FerrousRegion region = FerrousRegion.fromCorners(first, second);
         addRegion(region);
