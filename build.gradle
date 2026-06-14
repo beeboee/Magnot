@@ -90,6 +90,8 @@ neoForge {
     }
 }
 
+def localRuntimeMods = fileTree(dir: 'run/mods', include: ['*.jar'])
+
 dependencies {
     implementation("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
     implementation("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
@@ -114,6 +116,10 @@ dependencies {
     runtimeOnly("top.theillusivec4.curios:curios-neoforge:${curios_version}")
     runtimeOnly("curse.maven:artifacts-${artifacts_curse_id}:${artifacts_file_id}")
     runtimeOnly("mekanism:Mekanism:${mekanism_version}")
+
+    // Local compat test jars. Drop optional magnet-source mods here when testing instead of
+    // pinning fragile CurseMaven file ids for every experiment.
+    runtimeOnly(localRuntimeMods)
 }
 
 var replaceProperties = [
