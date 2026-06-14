@@ -39,11 +39,13 @@ final class FerrousRegionIndex {
     }
 
     boolean containsWorldPoint(Vec3 point) {
-        return containsPoint(sections(null).get(sectionKey(point)), point);
+        Map<Long, List<FerrousRegion>> sections = sectionsByOwner.get(null);
+        return sections != null && containsPoint(sections.get(sectionKey(point)), point);
     }
 
     boolean containsSubLevelPoint(UUID subLevelId, Vec3 point) {
-        return containsPoint(sections(subLevelId).get(sectionKey(point)), point);
+        Map<Long, List<FerrousRegion>> sections = sectionsByOwner.get(subLevelId);
+        return sections != null && containsPoint(sections.get(sectionKey(point)), point);
     }
 
     boolean blocksAnyMagnet(Vec3 source, Vec3 target) {
@@ -59,7 +61,7 @@ final class FerrousRegionIndex {
     }
 
     private void add(FerrousRegion region) {
-        Map<Long, List<FerrousRegion>> sections = sections(region.subLevelId());
+        Map<Long, List<FerrousRegion>> sections = writableSections(region.subLevelId());
         int minSectionX = section(region.min().getX());
         int minSectionY = section(region.min().getY());
         int minSectionZ = section(region.min().getZ());
@@ -81,7 +83,6 @@ final class FerrousRegionIndex {
             return false;
         }
 
-        Set<FerrousRegion> candidates = new HashSet<>();
         int minSectionX = section(Math.min(source.x, target.x));
         int minSectionY = section(Math.min(source.y, target.y));
         int minSectionZ = section(Math.min(source.z, target.z));
@@ -90,36 +91,45 @@ final class FerrousRegionIndex {
         int maxSectionZ = section(Math.max(source.z, target.z));
 
         if (anyOwner) {
+            Set<FerrousRegion> visited = null;
             for (Map<Long, List<FerrousRegion>> sections : sectionsByOwner.values()) {
-                collectCandidates(sections, candidates, minSectionX, minSectionY, minSectionZ, maxSectionX, maxSectionY, maxSectionZ);
+                TestResult result = testSections(sections, visited, source, target, minSectionX, minSectionY, minSectionZ, maxSectionX, maxSectionY, maxSectionZ);
+                if (result.blocked()) {
+                    return true;
+                }
+                visited = result.visited();
             }
-        } else {
-            collectCandidates(sections(owner), candidates, minSectionX, minSectionY, minSectionZ, maxSectionX, maxSectionY, maxSectionZ);
+            return false;
         }
 
-        for (FerrousRegion region : candidates) {
-            if (region.contains(source) || region.contains(target) || region.intersectsSegment(source, target)) {
-                return true;
-            }
-        }
-        return false;
+        Map<Long, List<FerrousRegion>> sections = sectionsByOwner.get(owner);
+        return sections != null && testSections(sections, null, source, target, minSectionX, minSectionY, minSectionZ, maxSectionX, maxSectionY, maxSectionZ).blocked();
     }
 
-    private static void collectCandidates(Map<Long, List<FerrousRegion>> sections, Set<FerrousRegion> candidates, int minSectionX, int minSectionY, int minSectionZ, int maxSectionX, int maxSectionY, int maxSectionZ) {
-        if (sections.isEmpty()) {
-            return;
-        }
-
+    private static TestResult testSections(Map<Long, List<FerrousRegion>> sections, Set<FerrousRegion> visited, Vec3 source, Vec3 target, int minSectionX, int minSectionY, int minSectionZ, int maxSectionX, int maxSectionY, int maxSectionZ) {
         for (int sectionX = minSectionX; sectionX <= maxSectionX; sectionX++) {
             for (int sectionY = minSectionY; sectionY <= maxSectionY; sectionY++) {
                 for (int sectionZ = minSectionZ; sectionZ <= maxSectionZ; sectionZ++) {
                     List<FerrousRegion> regions = sections.get(sectionKey(sectionX, sectionY, sectionZ));
-                    if (regions != null) {
-                        candidates.addAll(regions);
+                    if (regions == null) {
+                        continue;
+                    }
+
+                    for (FerrousRegion region : regions) {
+                        if (visited == null) {
+                            visited = new HashSet<>();
+                        }
+                        if (!visited.add(region)) {
+                            continue;
+                        }
+                        if (region.contains(source) || region.contains(target) || region.intersectsSegment(source, target)) {
+                            return new TestResult(true, visited);
+                        }
                     }
                 }
             }
         }
+        return new TestResult(false, visited);
     }
 
     private static boolean containsPoint(List<FerrousRegion> candidates, Vec3 point) {
@@ -135,7 +145,7 @@ final class FerrousRegionIndex {
         return false;
     }
 
-    private Map<Long, List<FerrousRegion>> sections(UUID owner) {
+    private Map<Long, List<FerrousRegion>> writableSections(UUID owner) {
         return sectionsByOwner.computeIfAbsent(owner, key -> new HashMap<>());
     }
 
@@ -160,5 +170,8 @@ final class FerrousRegionIndex {
     private static int floor(double value) {
         int integer = (int)value;
         return value < integer ? integer - 1 : integer;
+    }
+
+    private record TestResult(boolean blocked, Set<FerrousRegion> visited) {
     }
 }
