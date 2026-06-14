@@ -42,25 +42,4 @@ public abstract class MagnetItemMixin {
                         || !FerrousMagnetRules.blocksPlayerMagnet(serverLevel, player, FerrousMagnetRules.itemPullTarget(item)))
                 .toList();
     }
-
-    @Redirect(
-            method = {"inventoryTick", "inventoryUpdate"},
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/entity/item/ItemEntity;setPos(DDD)V"
-            ),
-            require = 0
-    )
-    private void magnot$blockSimpleMagnetTeleport(ItemEntity itemEntity, double x, double y, double z, Entity entity) {
-        if (itemEntity.level().isClientSide()) {
-            return;
-        }
-        if (entity instanceof Player player
-                && itemEntity.level() instanceof ServerLevel serverLevel
-                && FerrousMagnetRules.blocksPlayerMagnet(serverLevel, player, FerrousMagnetRules.itemPullTarget(itemEntity))) {
-            return;
-        }
-
-        itemEntity.setPos(x, y, z);
-    }
 }
