@@ -17,7 +17,6 @@
     "modularrouters.CompiledVacuumModuleMixin",
     "enderio.ElectromagnetItemMixin",
     "enderio.VacuumMachineBlockEntityMixin",
-    "industrialforegoing.InfinityBackpackTileMixin",
     "sable.SubLevelAssemblyHelperMixin",
     "sable.SubLevelContainerMixin"
   ],
