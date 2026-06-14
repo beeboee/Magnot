@@ -12,8 +12,8 @@ import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Coerce;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import reliquary.api.IPedestal;
 
 import java.util.List;
 
@@ -48,7 +48,7 @@ public abstract class FortuneCoinItemMixin {
             ),
             require = 0
     )
-    private <T extends Entity> List<T> magnot$filterPedestalFortuneCoinCandidates(Level level, Class<T> entityClass, AABB box, IPedestal pedestal, Level originalLevel, BlockPos pedestalPos) {
+    private <T extends Entity> List<T> magnot$filterPedestalFortuneCoinCandidates(Level level, Class<T> entityClass, AABB box, @Coerce Object pedestal, Level originalLevel, BlockPos pedestalPos) {
         List<T> candidates = level.getEntitiesOfClass(entityClass, box);
         if (!(level instanceof ServerLevel serverLevel) || !ItemEntity.class.isAssignableFrom(entityClass)) {
             return candidates;
