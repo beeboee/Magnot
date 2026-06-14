@@ -122,6 +122,13 @@ public final class FerrousMagnetRules {
         return blocked;
     }
 
+    static void invalidateCaches() {
+        CHECK_CACHE.clear();
+        SOURCE_CACHE.clear();
+        cacheTick = Long.MIN_VALUE;
+        cacheDimension = "";
+    }
+
     private static Boolean getCached(ServerLevel level, MagnetCheckKey key) {
         prepareCache(level);
         return CHECK_CACHE.get(key);
@@ -146,8 +153,7 @@ public final class FerrousMagnetRules {
         long gameTime = level.getGameTime();
         String dimension = level.dimension().location().toString();
         if (gameTime != cacheTick || !dimension.equals(cacheDimension)) {
-            CHECK_CACHE.clear();
-            SOURCE_CACHE.clear();
+            invalidateCaches();
             cacheTick = gameTime;
             cacheDimension = dimension;
         }
