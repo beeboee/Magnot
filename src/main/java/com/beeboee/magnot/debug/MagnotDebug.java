@@ -15,7 +15,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public final class MagnotDebug {
-    public static final boolean ENABLED = true;
+    public static final boolean ENABLED = false;
     private static final String PREFIX = "[Magnot Debug]";
     private static final Path LOG_PATH = Path.of("logs", "magnot.log");
     private static final long SUMMARY_INTERVAL_TICKS = 100L;
