@@ -11,6 +11,7 @@
     "artifacts.MagnetismMobEffectMixin",
     "mekanism.ModuleMagneticAttractionUnitMixin",
     "draconicevolution.MagnetMixin",
+    "reliquary.FortuneCoinItemMixin",
     "sable.SubLevelAssemblyHelperMixin",
     "sable.SubLevelContainerMixin"
   ],
