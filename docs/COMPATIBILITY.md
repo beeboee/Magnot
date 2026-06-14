@@ -1,12 +1,20 @@
 # Magnet and vacuum compatibility
 
-Magnot support is kept optional. Compat code should be safe when a target mod is missing and should not add hard runtime dependencies to the published mod.
+This page tracks exact compatibility status. The README should stay broad; only claim specific mod support publicly after it has been tested against the current Magnot target.
+
+Magnot support is optional. Compat code should be safe when a target mod is missing and should not add hard runtime dependencies to the published mod.
 
 Mods that move dropped items can also support Magnot directly through the public compatibility API in [API.md](API.md).
 
-## Current 1.21.1 NeoForge target
+## Current target
 
-### Implemented or actively being tested
+- Minecraft 1.21.1
+- NeoForge 21.1.230+
+- Create 6.0.10+, below Create 6.1
+
+## Confirmed in current testing
+
+These have been tested against the current Magnot dev target:
 
 - Sophisticated Backpacks / Sophisticated Storage: magnet upgrades.
 - Applied Energistics 2 Wireless Terminals: wireless magnet behavior through AE2WTLib.
@@ -14,37 +22,39 @@ Mods that move dropped items can also support Magnot directly through the public
 - Artifacts: Magnetism effect.
 - Mekanism: Magnetic Attraction Unit.
 - Draconic Evolution: Magnet / Advanced Magnet.
-- Reliquary Reincarnations: Fortune Coin, including player use, long-range vacuum use, and pedestal item pickup.
-- Actually Additions: pinned in the local test environment; implementation still needs runtime inspection.
+- Reliquary Reincarnations: Fortune Coin, including normal use, long-range vacuum use, and pedestal item pickup.
+- Actually Additions: magnet behavior.
+
+## Experimental compat layers
+
+These mixins are present in the dev build but should be tested before being listed as confirmed support on a release page:
+
 - Mob Grinding Utils: Absorption Hopper item pickup.
 - Item Collectors by SuperMartijn642: Basic Item Collector and Advanced Item Collector item pickup.
 - Simple Magnets by SuperMartijn642: Basic Magnet and Advanced Magnet item movement.
 - Modular Routers: Vacuum Module item pickup.
 - Ender IO: Electromagnet item movement and Vacuum Chest item pickup.
 
-### Downloaded for local testing through Gradle
+## Dev test downloads
 
 The `downloadCompatTestMods` Gradle task attempts to download the newest Minecraft 1.21.1 NeoForge Modrinth build for these projects into `run/mods`:
 
-- Mob Grinding Utils: Absorption Hopper.
-- Item Collectors by SuperMartijn642: Basic Item Collector and Advanced Item Collector.
-- Simple Magnets by SuperMartijn642: Basic Magnet and Advanced Magnet.
-- Modular Routers: dropped-item absorption modules.
-- Industrial Foregoing: inspect for loose-item collection behavior.
-- Ender IO: Electromagnet and Vacuum Chest.
+- Mob Grinding Utils
+- Item Collectors by SuperMartijn642
+- Simple Magnets by SuperMartijn642
+- Modular Routers
+- Industrial Foregoing
+- Ender IO
 
-### Planned for this target
+This task is only for local testing. Downloaded jars should not be committed.
+
+## Planned or future work
 
 - Simple Magnets / Magnets by LPSMods: magnet items and magnet blocks.
-- Other vacuum-style item collectors that are available for Minecraft 1.21.1 on NeoForge and directly move, teleport, or collect item entities across distance.
-
-## Future target versions or backports
-
-These should be revisited when Magnot targets a Minecraft/mod-loader version where the mod exists and can be tested cleanly:
-
-- Botania: Ring of Magnetization.
-- Cyclic: magnet and vacuum item/block behavior.
-- Any other magnet-source or vacuum-source mod that has a current NeoForge build and directly moves item entities.
+- Industrial Foregoing: inspect for a current loose-item vacuum or remote item collection path.
+- Botania: revisit when Magnot targets a compatible version with Ring of Magnetization available.
+- Cyclic: revisit when Magnot targets a compatible version with magnet or vacuum behavior available.
+- Other current NeoForge mods that directly move, teleport, or collect dropped items from a distance.
 
 ## Compatibility rule
 
