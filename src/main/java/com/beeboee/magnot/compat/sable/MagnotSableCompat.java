@@ -29,6 +29,24 @@ public final class MagnotSableCompat {
         return subLevel == null ? null : subLevel.getUniqueId();
     }
 
+    public static boolean containsPoint(ServerLevel level, Vec3 point) {
+        FerrousRegionSavedData data = FerrousRegionSavedData.get(level);
+        Vec3 globalPoint = SableCompanion.INSTANCE.projectOutOfSubLevel(level, point);
+
+        if (data.containsWorldPoint(globalPoint)) {
+            return true;
+        }
+
+        for (SubLevelAccess subLevel : candidateSubLevels(level, point, point)) {
+            Vec3 localPoint = subLevel.logicalPose().transformPositionInverse(globalPoint);
+            if (data.containsSubLevelPoint(subLevel.getUniqueId(), localPoint)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public static boolean blocksMagnet(ServerLevel level, Vec3 source, Vec3 itemPosition) {
         FerrousRegionSavedData data = FerrousRegionSavedData.get(level);
         Vec3 globalSource = SableCompanion.INSTANCE.projectOutOfSubLevel(level, source);
@@ -152,7 +170,6 @@ public final class MagnotSableCompat {
                 return true;
             }
         }
-
         return false;
     }
 
