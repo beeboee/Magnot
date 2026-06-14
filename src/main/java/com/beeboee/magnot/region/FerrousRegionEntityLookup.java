@@ -1,5 +1,6 @@
 package com.beeboee.magnot.region;
 
+import com.beeboee.magnot.debug.MagnotDebug;
 import com.beeboee.magnot.entity.FerrousRegionEntity;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
@@ -17,20 +18,25 @@ public final class FerrousRegionEntityLookup {
 
     public static boolean blocksMagnet(ServerLevel level, Vec3 source, Vec3 targetPosition) {
         if (isInsideFerrousRegion(level, targetPosition) || isInsideFerrousRegion(level, source)) {
+            MagnotDebug.recordEntityCheck(level, false, 0, true);
             return true;
         }
 
-        for (FerrousRegionEntity region : candidateRegions(level, source, targetPosition)) {
+        List<FerrousRegionEntity> candidates = candidateRegions(level, source, targetPosition);
+        for (FerrousRegionEntity region : candidates) {
             if (region.blocksMagnet(source, targetPosition)) {
+                MagnotDebug.recordEntityCheck(level, false, candidates.size(), true);
                 return true;
             }
         }
 
+        MagnotDebug.recordEntityCheck(level, false, candidates.size(), false);
         return false;
     }
 
     public static boolean blocksPlayerMagnet(ServerLevel level, Player player, Vec3 targetPosition) {
         if (isInsideFerrousRegion(level, targetPosition)) {
+            MagnotDebug.recordEntityCheck(level, true, 0, true);
             return true;
         }
 
@@ -42,6 +48,7 @@ public final class FerrousRegionEntityLookup {
         if (isInsideFerrousRegion(level, feet)
                 || isInsideFerrousRegion(level, bodyCenter)
                 || isInsideFerrousRegion(level, eye)) {
+            MagnotDebug.recordEntityCheck(level, true, 0, true);
             return true;
         }
 
@@ -54,16 +61,20 @@ public final class FerrousRegionEntityLookup {
             if (region.blocksMagnet(feet, targetPosition)
                     || region.blocksMagnet(bodyCenter, targetPosition)
                     || region.blocksMagnet(eye, targetPosition)) {
+                MagnotDebug.recordEntityCheck(level, true, candidates.size(), true);
                 return true;
             }
         }
 
+        MagnotDebug.recordEntityCheck(level, true, candidates.size(), false);
         return false;
     }
 
     public static boolean isInsideFerrousRegion(ServerLevel level, Vec3 position) {
         AABB searchBounds = new AABB(position, position).inflate(POINT_SEARCH_PADDING);
-        return !level.getEntitiesOfClass(FerrousRegionEntity.class, searchBounds, region -> region.contains(position)).isEmpty();
+        boolean hit = !level.getEntitiesOfClass(FerrousRegionEntity.class, searchBounds, region -> region.contains(position)).isEmpty();
+        MagnotDebug.recordPointInsideCheck(level, hit);
+        return hit;
     }
 
     private static List<FerrousRegionEntity> candidateRegions(ServerLevel level, Vec3 source, Vec3 targetPosition) {
