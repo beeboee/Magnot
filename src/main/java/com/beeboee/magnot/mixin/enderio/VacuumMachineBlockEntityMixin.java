@@ -29,6 +29,9 @@ public abstract class VacuumMachineBlockEntityMixin {
     )
     private <T extends Entity> List<T> magnot$filterVacuumMachineItems(Level level, Class<T> entityClass, AABB box, Predicate<? super T> predicate, Level originalLevel, BlockPos pos, int range, Predicate<T> filter) {
         List<T> candidates = level.getEntitiesOfClass(entityClass, box, predicate);
+        if (level.isClientSide()) {
+            return List.of();
+        }
         if (!(level instanceof ServerLevel serverLevel) || !ItemEntity.class.isAssignableFrom(entityClass)) {
             return candidates;
         }
