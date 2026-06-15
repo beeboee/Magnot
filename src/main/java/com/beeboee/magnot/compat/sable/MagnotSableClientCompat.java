@@ -26,14 +26,15 @@ public final class MagnotSableClientCompat {
     }
 
     public static boolean blocksItemPull(Level level, Vec3 source, ItemEntity item) {
+        Vec3 itemTarget = FerrousMagnetRules.itemPullTarget(item);
         Vec3 globalFrom = SableCompanion.INSTANCE.projectOutOfSubLevel(level, source);
-        Vec3 globalTo = SableCompanion.INSTANCE.projectOutOfSubLevel(level, FerrousMagnetRules.itemPullTarget(item));
+        Vec3 globalTo = SableCompanion.INSTANCE.projectOutOfSubLevel(level, itemTarget);
 
-        for (SubLevelAccess subLevel : candidateSubLevels(level, source, FerrousMagnetRules.itemPullTarget(item))) {
+        for (SubLevelAccess subLevel : candidateSubLevels(level, source, itemTarget)) {
             Vec3 localFrom = subLevel.logicalPose().transformPositionInverse(globalFrom);
             Vec3 localTo = subLevel.logicalPose().transformPositionInverse(globalTo);
             for (FerrousRegion region : ClientFerrousRegionStore.regions()) {
-                if (region.belongsToSubLevel(subLevel.getUniqueId()) && region.blocksItemPull(localFrom, localTo, item.getItem())) {
+                if (region.belongsToSubLevel(subLevel.getUniqueId()) && region.blocksItemPull(level, localFrom, localTo, item.getItem())) {
                     return true;
                 }
             }
