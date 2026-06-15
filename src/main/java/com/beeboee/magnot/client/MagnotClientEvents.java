@@ -11,10 +11,13 @@ import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.registry.MagnotItems;
 import net.createmod.catnip.outliner.Outliner;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
@@ -38,10 +41,12 @@ public final class MagnotClientEvents {
     private static final Object SELECTION_OUTLINE_SLOT = new Object();
     private static final int FERROUS_RED = 0xBD2537;
     private static final int LIMIT_YELLOW = 0xFFD43B;
+    private static final int FILTER_PREVIEW_ENTITY_ID = -20_250_101;
     private static final double REGION_REVEAL_RADIUS = 25.0D;
     private static final double REGION_REVEAL_RADIUS_SQR = REGION_REVEAL_RADIUS * REGION_REVEAL_RADIUS;
     private static long nextRegionRemovalTick = 0L;
     private static long nextRegionFilterTick = 0L;
+    private static ArmorStand filterPreviewStand;
 
     private MagnotClientEvents() {
     }
@@ -126,6 +131,7 @@ public final class MagnotClientEvents {
 
         ItemStack held = player.getMainHandItem();
         if (!held.is(MagnotItems.FERROUS_TUBE.get())) {
+            hideFilterPreview(minecraft.level);
             return;
         }
 
@@ -155,10 +161,15 @@ public final class MagnotClientEvents {
 
         var firstCorner = FerrousTubeItem.getFirstCorner(held);
         if (firstCorner.isEmpty()) {
-            selectedRegion.filter(FerrousRegion::hasFilter).ifPresent(region -> handleSelectedFilteredRegion(player, region));
+            if (selectedRegion.filter(FerrousRegion::hasFilter).isPresent()) {
+                handleSelectedFilteredRegion(player, minecraft.level, selectedRegion.get());
+            } else {
+                hideFilterPreview(minecraft.level);
+            }
             return;
         }
 
+        hideFilterPreview(minecraft.level);
         HitResult hitResult = minecraft.hitResult;
         if (!(hitResult instanceof BlockHitResult blockHitResult) || hitResult.getType() != HitResult.Type.BLOCK) {
             return;
@@ -183,8 +194,9 @@ public final class MagnotClientEvents {
                 .lineWidth(1.0F / 16.0F);
     }
 
-    private static void handleSelectedFilteredRegion(LocalPlayer player, FerrousRegion region) {
+    private static void handleSelectedFilteredRegion(LocalPlayer player, ClientLevel level, FerrousRegion region) {
         if (player.getOffhandItem().isEmpty()) {
+            hideFilterPreview(level);
             long gameTime = player.level().getGameTime();
             if (gameTime >= nextRegionFilterTick) {
                 nextRegionFilterTick = gameTime + 5L;
@@ -193,7 +205,38 @@ public final class MagnotClientEvents {
             return;
         }
 
+        showFilterPreview(level, region);
         player.displayClientMessage(filterMessage(region), true);
+    }
+
+    private static void showFilterPreview(ClientLevel level, FerrousRegion region) {
+        AABB displayBounds = ModList.get().isLoaded("sable")
+                ? MagnotSableClientCompat.displayBounds(level, region)
+                : region.bounds();
+        Vec3 position = displayBounds.getCenter().add(0.0D, displayBounds.getYsize() * 0.5D + 0.75D, 0.0D);
+
+        if (filterPreviewStand == null || filterPreviewStand.level() != level) {
+            hideFilterPreview(level);
+            filterPreviewStand = new ArmorStand(level, position.x, position.y, position.z);
+            filterPreviewStand.setId(FILTER_PREVIEW_ENTITY_ID);
+            filterPreviewStand.setInvisible(true);
+            filterPreviewStand.setNoGravity(true);
+            filterPreviewStand.setMarker(true);
+            level.putNonPlayerEntity(FILTER_PREVIEW_ENTITY_ID, filterPreviewStand);
+        }
+
+        filterPreviewStand.setPos(position.x, position.y, position.z);
+        filterPreviewStand.setCustomName(filterMessage(region));
+        filterPreviewStand.setCustomNameVisible(true);
+    }
+
+    private static void hideFilterPreview(ClientLevel level) {
+        if (filterPreviewStand == null) {
+            return;
+        }
+
+        level.removeEntity(filterPreviewStand.getId(), Entity.RemovalReason.DISCARDED);
+        filterPreviewStand = null;
     }
 
     private static Component filterMessage(FerrousRegion region) {
