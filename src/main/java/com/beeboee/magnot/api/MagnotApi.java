@@ -23,7 +23,7 @@ public final class MagnotApi {
      *
      * <p>This is intended for simple feature gates if the API grows later.</p>
      */
-    public static final int API_VERSION = 1;
+    public static final int API_VERSION = 2;
 
     private MagnotApi() {
     }
@@ -45,9 +45,25 @@ public final class MagnotApi {
     }
 
     /**
+     * Returns true when Magnot should block a player magnet/vacuum effect from
+     * pulling the given {@code item} to {@code player}.
+     */
+    public static boolean blocksPlayerItemPull(Player player, ItemEntity item) {
+        return player.level() instanceof ServerLevel serverLevel && blocksPlayerItemPull(serverLevel, player, item);
+    }
+
+    /**
+     * Returns true when Magnot should block a player magnet/vacuum effect from
+     * pulling the given {@code item} to {@code player}.
+     */
+    public static boolean blocksPlayerItemPull(ServerLevel level, Player player, ItemEntity item) {
+        return FerrousMagnetRules.blocksPlayerItemPull(level, player, item);
+    }
+
+    /**
      * Returns true when Magnot should block a remote pull from {@code source} to
      * {@code target}. Prefer {@link #blocksItemPull(Level, Vec3, ItemEntity)} for
-     * dropped items so the item's center point is used consistently.
+     * dropped items so Magnot can inspect the item entity.
      */
     public static boolean blocksPull(Level level, Vec3 source, Vec3 target) {
         return level instanceof ServerLevel serverLevel && blocksPull(serverLevel, source, target);
@@ -56,7 +72,7 @@ public final class MagnotApi {
     /**
      * Returns true when Magnot should block a remote pull from {@code source} to
      * {@code target}. Prefer {@link #blocksItemPull(ServerLevel, Vec3, ItemEntity)}
-     * for dropped items so the item's center point is used consistently.
+     * for dropped items so Magnot can inspect the item entity.
      */
     public static boolean blocksPull(ServerLevel level, Vec3 source, Vec3 target) {
         return FerrousMagnetRules.blocksMagnet(level, source, target);
@@ -65,7 +81,10 @@ public final class MagnotApi {
     /**
      * Returns true when Magnot should block a player magnet/vacuum effect from
      * pulling an item-like target to {@code player}.
+     *
+     * @deprecated Prefer {@link #blocksPlayerItemPull(Player, ItemEntity)} for dropped items.
      */
+    @Deprecated(forRemoval = false)
     public static boolean blocksPlayerPull(Player player, Vec3 target) {
         return player.level() instanceof ServerLevel serverLevel && blocksPlayerPull(serverLevel, player, target);
     }
@@ -73,7 +92,10 @@ public final class MagnotApi {
     /**
      * Returns true when Magnot should block a player magnet/vacuum effect from
      * pulling an item-like target to {@code player}.
+     *
+     * @deprecated Prefer {@link #blocksPlayerItemPull(ServerLevel, Player, ItemEntity)} for dropped items.
      */
+    @Deprecated(forRemoval = false)
     public static boolean blocksPlayerPull(ServerLevel level, Player player, Vec3 target) {
         return FerrousMagnetRules.blocksPlayerMagnet(level, player, target);
     }
