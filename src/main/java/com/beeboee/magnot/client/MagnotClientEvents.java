@@ -101,9 +101,9 @@ public final class MagnotClientEvents {
         nextRegionFilterTick = gameTime + 5L;
 
         ItemStack filterStack = player.getOffhandItem();
-        boolean toggleMode = player.isShiftKeyDown();
-        boolean clear = !toggleMode && filterStack.isEmpty();
-        PacketDistributor.sendToServer(new ConfigureFerrousRegionFilterPayload(selectedRegion.get().id(), filterStack, clear, toggleMode));
+        boolean clear = filterStack.isEmpty();
+        boolean whitelistMode = player.isShiftKeyDown();
+        PacketDistributor.sendToServer(new ConfigureFerrousRegionFilterPayload(selectedRegion.get().id(), filterStack, clear, whitelistMode));
     }
 
     @SubscribeEvent
@@ -145,7 +145,7 @@ public final class MagnotClientEvents {
 
         var firstCorner = FerrousTubeItem.getFirstCorner(held);
         if (firstCorner.isEmpty()) {
-            selectedRegion.filter(FerrousRegion::hasFilter).ifPresent(region -> player.displayClientMessage(filterMessage(region), true));
+            selectedRegion.filter(FerrousRegion::hasFilter).ifPresent(region -> handleSelectedFilteredRegion(player, region));
             return;
         }
 
@@ -173,11 +173,21 @@ public final class MagnotClientEvents {
                 .lineWidth(1.0F / 16.0F);
     }
 
+    private static void handleSelectedFilteredRegion(LocalPlayer player, FerrousRegion region) {
+        if (player.getOffhandItem().isEmpty()) {
+            long gameTime = player.level().getGameTime();
+            if (gameTime >= nextRegionFilterTick) {
+                nextRegionFilterTick = gameTime + 5L;
+                PacketDistributor.sendToServer(new ConfigureFerrousRegionFilterPayload(region.id(), ItemStack.EMPTY, true, false));
+            }
+            return;
+        }
+
+        player.displayClientMessage(filterMessage(region), true);
+    }
+
     private static Component filterMessage(FerrousRegion region) {
-        return Component.translatable(
-                region.whitelistMode() ? "message.magnot.filter_preview_whitelist" : "message.magnot.filter_preview_blacklist",
-                region.filterStack().getHoverName()
-        );
+        return Component.translatable(region.whitelistMode() ? "message.magnot.filter_mode_whitelist" : "message.magnot.filter_mode_blacklist");
     }
 
     private static boolean renderRegion(LocalPlayer player, net.minecraft.world.level.Level level, FerrousRegion region, Optional<FerrousRegion> selectedRegion, Object renderSlot) {
