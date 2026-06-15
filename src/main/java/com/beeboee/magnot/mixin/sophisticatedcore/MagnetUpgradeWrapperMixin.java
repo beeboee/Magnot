@@ -44,14 +44,14 @@ public abstract class MagnetUpgradeWrapperMixin {
 
         Player playerSource = magnot$playerMagnetSource == null ? player : magnot$playerMagnetSource;
         if (playerSource != null) {
-            if (FerrousMagnetRules.blocksPlayerMagnet(serverLevel, playerSource, itemEntity.position())) {
+            if (FerrousMagnetRules.blocksPlayerItemPull(serverLevel, playerSource, itemEntity)) {
                 cir.setReturnValue(false);
             }
             return;
         }
 
         Vec3 source = magnot$magnetSource == null ? itemEntity.position() : magnot$magnetSource;
-        if (FerrousMagnetRules.blocksMagnet(serverLevel, source, itemEntity.position())) {
+        if (FerrousMagnetRules.blocksItemPull(serverLevel, source, itemEntity)) {
             cir.setReturnValue(false);
         }
     }
