@@ -42,12 +42,14 @@ public final class MagnotClientEvents {
     private static final Object SELECTION_OUTLINE_SLOT = new Object();
     private static final int FERROUS_RED = 0xBD2537;
     private static final int LIMIT_YELLOW = 0xFFD43B;
-    private static final int FILTER_PREVIEW_ENTITY_ID = -20_250_101;
+    private static final int FILTER_PREVIEW_TEXT_ENTITY_ID = -20_250_101;
+    private static final int FILTER_PREVIEW_ITEM_ENTITY_ID = -20_250_102;
     private static final double REGION_REVEAL_RADIUS = 25.0D;
     private static final double REGION_REVEAL_RADIUS_SQR = REGION_REVEAL_RADIUS * REGION_REVEAL_RADIUS;
     private static long nextRegionRemovalTick = 0L;
     private static long nextRegionFilterTick = 0L;
     private static Display.TextDisplay filterPreviewText;
+    private static Display.ItemDisplay filterPreviewItem;
 
     private MagnotClientEvents() {
     }
@@ -204,27 +206,41 @@ public final class MagnotClientEvents {
         AABB displayBounds = ModList.get().isLoaded("sable")
                 ? MagnotSableClientCompat.displayBounds(level, region)
                 : region.bounds();
-        Vec3 position = displayBounds.getCenter().add(0.0D, displayBounds.getYsize() * 0.5D + 0.75D, 0.0D);
+        Vec3 basePosition = displayBounds.getCenter().add(0.0D, displayBounds.getYsize() * 0.5D + 0.75D, 0.0D);
+        Vec3 itemPosition = basePosition.add(0.0D, 0.35D, 0.0D);
+        Vec3 textPosition = basePosition.add(0.0D, -0.25D, 0.0D);
+
+        if (filterPreviewItem == null || filterPreviewItem.level() != level) {
+            hideFilterPreview(level);
+            filterPreviewItem = new Display.ItemDisplay(EntityType.ITEM_DISPLAY, level);
+            filterPreviewItem.setId(FILTER_PREVIEW_ITEM_ENTITY_ID);
+            filterPreviewItem.setNoGravity(true);
+            level.addFreshEntity(filterPreviewItem);
+        }
 
         if (filterPreviewText == null || filterPreviewText.level() != level) {
             hideFilterPreview(level);
             filterPreviewText = new Display.TextDisplay(EntityType.TEXT_DISPLAY, level);
-            filterPreviewText.setId(FILTER_PREVIEW_ENTITY_ID);
+            filterPreviewText.setId(FILTER_PREVIEW_TEXT_ENTITY_ID);
             filterPreviewText.setNoGravity(true);
             level.addFreshEntity(filterPreviewText);
         }
 
-        filterPreviewText.setPos(position.x, position.y, position.z);
+        filterPreviewItem.setPos(itemPosition.x, itemPosition.y, itemPosition.z);
+        filterPreviewItem.setItemStack(region.filterStack());
+        filterPreviewText.setPos(textPosition.x, textPosition.y, textPosition.z);
         filterPreviewText.setText(filterMessage(region));
     }
 
     private static void hideFilterPreview(ClientLevel level) {
-        if (filterPreviewText == null) {
-            return;
+        if (filterPreviewItem != null) {
+            level.removeEntity(filterPreviewItem.getId(), Entity.RemovalReason.DISCARDED);
+            filterPreviewItem = null;
         }
-
-        level.removeEntity(filterPreviewText.getId(), Entity.RemovalReason.DISCARDED);
-        filterPreviewText = null;
+        if (filterPreviewText != null) {
+            level.removeEntity(filterPreviewText.getId(), Entity.RemovalReason.DISCARDED);
+            filterPreviewText = null;
+        }
     }
 
     private static Component filterMessage(FerrousRegion region) {
