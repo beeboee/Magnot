@@ -9,6 +9,7 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.phys.Vec3;
 
@@ -36,7 +37,7 @@ public class FerrousRegionSavedData extends SavedData {
         FerrousRegionSavedData data = new FerrousRegionSavedData();
         ListTag list = tag.getList("Regions", Tag.TAG_COMPOUND);
         for (int i = 0; i < list.size(); i++) {
-            data.regions.add(FerrousRegion.load(list.getCompound(i)));
+            data.regions.add(FerrousRegion.load(list.getCompound(i), registries));
         }
         return data;
     }
@@ -45,7 +46,7 @@ public class FerrousRegionSavedData extends SavedData {
     public CompoundTag save(CompoundTag tag, HolderLookup.Provider registries) {
         ListTag list = new ListTag();
         for (FerrousRegion region : regions) {
-            list.add(region.save());
+            list.add(region.save(registries));
         }
         tag.put("Regions", list);
         return tag;
@@ -229,24 +230,24 @@ public class FerrousRegionSavedData extends SavedData {
         return index().blocksSubLevelMagnet(subLevelId, source, itemPos);
     }
 
-    public boolean blocksItemPull(Vec3 source, ItemEntity item) {
-        return index().blocksAnyItemPull(source, item);
+    public boolean blocksItemPull(Level level, Vec3 source, ItemEntity item) {
+        return index().blocksAnyItemPull(level, source, item);
     }
 
-    public boolean blocksWorldItemPull(Vec3 source, ItemEntity item) {
-        return index().blocksWorldItemPull(source, item);
+    public boolean blocksWorldItemPull(Level level, Vec3 source, ItemEntity item) {
+        return index().blocksWorldItemPull(level, source, item);
     }
 
-    public boolean blocksSubLevelItemPull(UUID subLevelId, Vec3 source, ItemEntity item) {
-        return index().blocksSubLevelItemPull(subLevelId, source, item);
+    public boolean blocksSubLevelItemPull(Level level, UUID subLevelId, Vec3 source, ItemEntity item) {
+        return index().blocksSubLevelItemPull(level, subLevelId, source, item);
     }
 
-    public boolean blocksWorldItemPull(Vec3 source, Vec3 itemPosition, ItemStack itemStack) {
-        return index().blocksWorldItemPull(source, itemPosition, itemStack);
+    public boolean blocksWorldItemPull(Level level, Vec3 source, Vec3 itemPosition, ItemStack itemStack) {
+        return index().blocksWorldItemPull(level, source, itemPosition, itemStack);
     }
 
-    public boolean blocksSubLevelItemPull(UUID subLevelId, Vec3 source, Vec3 itemPosition, ItemStack itemStack) {
-        return index().blocksSubLevelItemPull(subLevelId, source, itemPosition, itemStack);
+    public boolean blocksSubLevelItemPull(Level level, UUID subLevelId, Vec3 source, Vec3 itemPosition, ItemStack itemStack) {
+        return index().blocksSubLevelItemPull(level, subLevelId, source, itemPosition, itemStack);
     }
 
     private FerrousRegionIndex index() {
