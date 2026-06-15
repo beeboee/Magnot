@@ -2,6 +2,7 @@ package com.beeboee.magnot.region;
 
 import com.beeboee.magnot.compat.sable.MagnotSableCompat;
 import com.beeboee.magnot.debug.MagnotDebug;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -21,6 +22,7 @@ import java.util.UUID;
  */
 public final class FerrousMagnetRules {
     private static final double CACHE_SCALE = 64.0D;
+    private static final int NO_ITEM = -1;
     private static final Map<MagnetCheckKey, Boolean> CHECK_CACHE = new HashMap<>();
     private static final Map<SourceCheckKey, Boolean> SOURCE_CACHE = new HashMap<>();
     private static long cacheTick = Long.MIN_VALUE;
@@ -55,7 +57,29 @@ public final class FerrousMagnetRules {
     }
 
     public static boolean blocksItemPull(ServerLevel level, Vec3 magnetSource, ItemEntity item) {
-        return blocksMagnet(level, magnetSource, itemPullTarget(item));
+        if (sourceBlocked(level, magnetSource)) {
+            return true;
+        }
+
+        Vec3 target = itemPullTarget(item);
+        MagnetCheckKey cacheKey = MagnetCheckKey.sourceItem(magnetSource, target, item);
+        Boolean cached = getCached(level, cacheKey);
+        if (cached != null) {
+            MagnotDebug.recordCacheHit(level, false);
+            return cached;
+        }
+
+        boolean blocked;
+        if (ModList.get().isLoaded("sable")) {
+            blocked = MagnotSableCompat.blocksItemPull(level, magnetSource, item);
+            MagnotDebug.recordFallbackCheck(level, "sable-item", blocked);
+        } else {
+            blocked = FerrousRegionSavedData.get(level).blocksItemPull(magnetSource, item);
+            MagnotDebug.recordFallbackCheck(level, "saved-data-item", blocked);
+        }
+
+        putCached(level, cacheKey, blocked);
+        return blocked;
     }
 
     public static Vec3 itemPullTarget(ItemEntity item) {
@@ -63,7 +87,39 @@ public final class FerrousMagnetRules {
     }
 
     public static boolean blocksPlayerItemPull(ServerLevel level, Player player, ItemEntity item) {
-        return blocksPlayerMagnet(level, player, itemPullTarget(item));
+        if (playerSourceBlocked(level, player)) {
+            return true;
+        }
+
+        Vec3 target = itemPullTarget(item);
+        MagnetCheckKey cacheKey = MagnetCheckKey.playerItem(player, target, item);
+        Boolean cached = getCached(level, cacheKey);
+        if (cached != null) {
+            MagnotDebug.recordCacheHit(level, true);
+            return cached;
+        }
+
+        AABB body = player.getBoundingBox();
+        Vec3 feet = player.position();
+        Vec3 bodyCenter = body.getCenter();
+        Vec3 eye = player.getEyePosition();
+
+        boolean blocked;
+        if (ModList.get().isLoaded("sable")) {
+            blocked = MagnotSableCompat.blocksItemPull(level, feet, item)
+                    || MagnotSableCompat.blocksItemPull(level, bodyCenter, item)
+                    || MagnotSableCompat.blocksItemPull(level, eye, item);
+            MagnotDebug.recordFallbackCheck(level, "sable-player-item", blocked);
+        } else {
+            FerrousRegionSavedData data = FerrousRegionSavedData.get(level);
+            blocked = data.blocksItemPull(feet, item)
+                    || data.blocksItemPull(bodyCenter, item)
+                    || data.blocksItemPull(eye, item);
+            MagnotDebug.recordFallbackCheck(level, "saved-data-player-item", blocked);
+        }
+
+        putCached(level, cacheKey, blocked);
+        return blocked;
     }
 
     public static boolean blocksPlayerMagnet(ServerLevel level, Player player, Vec3 targetPosition) {
@@ -182,9 +238,18 @@ public final class FerrousMagnetRules {
             int sourceZ,
             int targetX,
             int targetY,
-            int targetZ
+            int targetZ,
+            int itemId
     ) {
         private static MagnetCheckKey source(Vec3 source, Vec3 target) {
+            return source(source, target, NO_ITEM);
+        }
+
+        private static MagnetCheckKey sourceItem(Vec3 source, Vec3 target, ItemEntity item) {
+            return source(source, target, itemId(item));
+        }
+
+        private static MagnetCheckKey source(Vec3 source, Vec3 target, int itemId) {
             return new MagnetCheckKey(
                     false,
                     0L,
@@ -194,11 +259,20 @@ public final class FerrousMagnetRules {
                     bucket(source.z),
                     bucket(target.x),
                     bucket(target.y),
-                    bucket(target.z)
+                    bucket(target.z),
+                    itemId
             );
         }
 
         private static MagnetCheckKey player(Player player, Vec3 target) {
+            return player(player, target, NO_ITEM);
+        }
+
+        private static MagnetCheckKey playerItem(Player player, Vec3 target, ItemEntity item) {
+            return player(player, target, itemId(item));
+        }
+
+        private static MagnetCheckKey player(Player player, Vec3 target, int itemId) {
             UUID uuid = player.getUUID();
             Vec3 source = player.position();
             return new MagnetCheckKey(
@@ -210,12 +284,17 @@ public final class FerrousMagnetRules {
                     bucket(source.z),
                     bucket(target.x),
                     bucket(target.y),
-                    bucket(target.z)
+                    bucket(target.z),
+                    itemId
             );
         }
 
         private static int bucket(double value) {
             return (int) Math.floor(value * CACHE_SCALE);
+        }
+
+        private static int itemId(ItemEntity item) {
+            return BuiltInRegistries.ITEM.getId(item.getItem().getItem());
         }
     }
 
