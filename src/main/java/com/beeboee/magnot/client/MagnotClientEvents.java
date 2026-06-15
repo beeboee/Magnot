@@ -9,14 +9,18 @@ import com.beeboee.magnot.network.ToggleFerrousTubeFilterModePayload;
 import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.registry.MagnotItems;
 import com.simibubi.create.content.logistics.filter.FilterItem;
+import com.simibubi.create.content.logistics.filter.FilterItemStack;
 import net.createmod.catnip.outliner.Outliner;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
@@ -45,11 +49,17 @@ public final class MagnotClientEvents {
     private static final int HUD_PADDING = 3;
     private static final int HUD_CELL_SIZE = 18;
     private static final int HUD_MAX_COLUMNS = 9;
+    private static final int HUD_MAX_ROWS = 2;
+    private static final int HUD_MAX_VISIBLE_ITEMS = HUD_MAX_COLUMNS * HUD_MAX_ROWS;
+    private static final int HUD_MAX_EXPANDED_MATCHES = 180;
+    private static final int HUD_CYCLE_TICKS = 20;
     private static final double REGION_REVEAL_RADIUS = 25.0D;
     private static final double REGION_REVEAL_RADIUS_SQR = REGION_REVEAL_RADIUS * REGION_REVEAL_RADIUS;
     private static long nextRegionRemovalTick = 0L;
     private static long nextRegionFilterTick = 0L;
     private static FerrousRegion filterPreviewRegion;
+    private static ItemStack cachedPreviewFilterStack = ItemStack.EMPTY;
+    private static List<ItemStack> cachedPreviewStacks = List.of();
 
     private MagnotClientEvents() {
     }
@@ -187,7 +197,7 @@ public final class MagnotClientEvents {
             return;
         }
 
-        List<ItemStack> previewStacks = filterPreviewStacks(filterStack);
+        List<ItemStack> previewStacks = visiblePreviewStacks(filterPreviewStacks(minecraft.level, filterStack), minecraft.level == null ? 0L : minecraft.level.getGameTime());
         if (previewStacks.isEmpty()) {
             return;
         }
@@ -223,7 +233,18 @@ public final class MagnotClientEvents {
         graphics.drawString(minecraft.font, text, textX, textY, HUD_TEXT, true);
     }
 
-    private static List<ItemStack> filterPreviewStacks(ItemStack filterStack) {
+    private static List<ItemStack> filterPreviewStacks(Level level, ItemStack filterStack) {
+        if (ItemStack.isSameItemSameComponents(cachedPreviewFilterStack, filterStack)) {
+            return cachedPreviewStacks;
+        }
+
+        List<ItemStack> stacks = expandedFilterPreviewStacks(level, filterStack);
+        cachedPreviewFilterStack = filterStack.copyWithCount(1);
+        cachedPreviewStacks = List.copyOf(stacks);
+        return cachedPreviewStacks;
+    }
+
+    private static List<ItemStack> expandedFilterPreviewStacks(Level level, ItemStack filterStack) {
         if (filterStack.getItem() instanceof FilterItem filterItem) {
             try {
                 ItemStack[] filterItems = filterItem.getFilterItems(filterStack);
@@ -238,9 +259,60 @@ public final class MagnotClientEvents {
                 }
             } catch (RuntimeException ignored) {
             }
+
+            List<ItemStack> matchingStacks = expandMatchingFilterStacks(level, filterStack);
+            if (!matchingStacks.isEmpty()) {
+                return matchingStacks;
+            }
         }
 
         return List.of(filterStack.copyWithCount(1));
+    }
+
+    private static List<ItemStack> expandMatchingFilterStacks(Level level, ItemStack filterStack) {
+        if (level == null) {
+            return List.of();
+        }
+
+        FilterItemStack wrappedFilter;
+        try {
+            wrappedFilter = FilterItemStack.of(filterStack.copy());
+        } catch (RuntimeException ignored) {
+            return List.of();
+        }
+
+        List<ItemStack> stacks = new ArrayList<>();
+        for (Item item : BuiltInRegistries.ITEM) {
+            ItemStack candidate = item.getDefaultInstance();
+            if (candidate.isEmpty()) {
+                continue;
+            }
+
+            try {
+                if (wrappedFilter.test(level, candidate)) {
+                    stacks.add(candidate.copyWithCount(1));
+                    if (stacks.size() >= HUD_MAX_EXPANDED_MATCHES) {
+                        break;
+                    }
+                }
+            } catch (RuntimeException ignored) {
+                return List.of();
+            }
+        }
+        return stacks;
+    }
+
+    private static List<ItemStack> visiblePreviewStacks(List<ItemStack> stacks, long gameTime) {
+        if (stacks.size() <= HUD_MAX_VISIBLE_ITEMS) {
+            return stacks;
+        }
+
+        List<ItemStack> visible = new ArrayList<>(HUD_MAX_VISIBLE_ITEMS);
+        int offset = (int) ((gameTime / HUD_CYCLE_TICKS) % stacks.size());
+        for (int i = 0; i < HUD_MAX_VISIBLE_ITEMS; i++) {
+            visible.add(stacks.get((offset + i) % stacks.size()));
+        }
+        return visible;
     }
 
     private static String filterPreviewMode(FerrousRegion region) {
