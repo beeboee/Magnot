@@ -1,12 +1,16 @@
 package com.beeboee.magnot.region;
 
+import com.simibubi.create.content.logistics.filter.FilterItemStack;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
@@ -14,6 +18,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public record FerrousRegion(UUID id, UUID groupId, BlockPos min, BlockPos max, UUID subLevelId, ItemStack filterStack, boolean whitelistMode) {
+    private static final String FILTER_STACK = "FilterStack";
     private static final String FILTER_ITEM = "FilterItem";
     private static final String WHITELIST_MODE = "WhitelistMode";
 
@@ -138,20 +143,32 @@ public record FerrousRegion(UUID id, UUID groupId, BlockPos min, BlockPos max, U
         return clip(from, to).isPresent();
     }
 
-    public boolean blocksItemPull(Vec3 from, Vec3 to, ItemStack pulledStack) {
+    public boolean blocksItemPull(Level level, Vec3 from, Vec3 to, ItemStack pulledStack) {
         if (!contains(from) && !contains(to) && !intersectsSegment(from, to)) {
             return false;
         }
-        return blocksStack(pulledStack);
+        return blocksStack(level, pulledStack);
     }
 
-    public boolean blocksStack(ItemStack pulledStack) {
+    public boolean blocksStack(Level level, ItemStack pulledStack) {
         if (filterStack.isEmpty()) {
             return true;
         }
 
-        boolean matches = pulledStack != null && !pulledStack.isEmpty() && pulledStack.is(filterStack.getItem());
+        boolean matches = pulledStack != null && !pulledStack.isEmpty() && matchesFilter(level, pulledStack);
         return whitelistMode ? !matches : matches;
+    }
+
+    private boolean matchesFilter(Level level, ItemStack pulledStack) {
+        if (level == null) {
+            return pulledStack.is(filterStack.getItem());
+        }
+
+        try {
+            return FilterItemStack.of(filterStack.copy()).test(level, pulledStack);
+        } catch (RuntimeException ignored) {
+            return pulledStack.is(filterStack.getItem());
+        }
     }
 
     public boolean sameShapeAndSpace(FerrousRegion other) {
@@ -162,7 +179,7 @@ public record FerrousRegion(UUID id, UUID groupId, BlockPos min, BlockPos max, U
                 && java.util.Objects.equals(subLevelId, other.subLevelId);
     }
 
-    public CompoundTag save() {
+    public CompoundTag save(HolderLookup.Provider registries) {
         CompoundTag tag = new CompoundTag();
         tag.putUUID("Id", id);
         tag.putUUID("GroupId", groupId);
@@ -176,24 +193,28 @@ public record FerrousRegion(UUID id, UUID groupId, BlockPos min, BlockPos max, U
             tag.putUUID("SubLevelId", subLevelId);
         }
         if (!filterStack.isEmpty()) {
-            tag.putString(FILTER_ITEM, BuiltInRegistries.ITEM.getKey(filterStack.getItem()).toString());
+            tag.put(FILTER_STACK, filterStack.saveOptional(registries));
             tag.putBoolean(WHITELIST_MODE, whitelistMode);
         }
         return tag;
     }
 
-    public static FerrousRegion load(CompoundTag tag) {
+    public static FerrousRegion load(CompoundTag tag, HolderLookup.Provider registries) {
         UUID id = tag.hasUUID("Id") ? tag.getUUID("Id") : UUID.randomUUID();
         UUID groupId = tag.hasUUID("GroupId") ? tag.getUUID("GroupId") : id;
         BlockPos min = new BlockPos(tag.getInt("MinX"), tag.getInt("MinY"), tag.getInt("MinZ"));
         BlockPos max = new BlockPos(tag.getInt("MaxX"), tag.getInt("MaxY"), tag.getInt("MaxZ"));
         UUID subLevelId = tag.hasUUID("SubLevelId") ? tag.getUUID("SubLevelId") : null;
-        ItemStack filterStack = loadFilterStack(tag);
+        ItemStack filterStack = loadFilterStack(tag, registries);
         boolean whitelistMode = !filterStack.isEmpty() && tag.getBoolean(WHITELIST_MODE);
         return new FerrousRegion(id, groupId, min, max, subLevelId, filterStack, whitelistMode);
     }
 
-    private static ItemStack loadFilterStack(CompoundTag tag) {
+    private static ItemStack loadFilterStack(CompoundTag tag, HolderLookup.Provider registries) {
+        if (tag.contains(FILTER_STACK, Tag.TAG_COMPOUND)) {
+            return ItemStack.parseOptional(registries, tag.getCompound(FILTER_STACK));
+        }
+
         if (!tag.contains(FILTER_ITEM)) {
             return ItemStack.EMPTY;
         }
