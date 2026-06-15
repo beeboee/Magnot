@@ -2,9 +2,11 @@ package com.beeboee.magnot.server;
 
 import com.beeboee.magnot.compat.sable.MagnotSableCompat;
 import com.beeboee.magnot.entity.FerrousRegionEntities;
+import com.beeboee.magnot.item.FerrousTubeItem;
 import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.region.FerrousRegionSavedData;
+import com.beeboee.magnot.registry.MagnotItems;
 import com.simibubi.create.AllSoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -59,22 +61,40 @@ public final class FerrousRegionActions {
         }
 
         boolean changed;
+        Component feedback = null;
         if (clear || filterStack.isEmpty()) {
             changed = data.clearRegionFilter(selectedRegionId);
         } else if (toggleMode && region.get().hasFilter()) {
             changed = data.toggleRegionFilterMode(selectedRegionId);
+            feedback = data.findById(selectedRegionId).map(FerrousRegionActions::filterStateMessage).orElse(null);
         } else {
-            boolean mode = region.get().hasFilter() && region.get().whitelistMode();
-            changed = data.setRegionFilter(selectedRegionId, filterStack, mode);
+            boolean whitelistMode = FerrousTubeItem.isFilterWhitelistMode(player.getMainHandItem());
+            changed = data.setRegionFilter(selectedRegionId, filterStack, whitelistMode);
+            feedback = Component.translatable("message.magnot.filter_applied");
         }
 
         if (!changed) {
             return false;
         }
 
-        data.findById(selectedRegionId).ifPresent(updated -> player.displayClientMessage(filterStateMessage(updated), true));
+        if (feedback != null) {
+            player.displayClientMessage(feedback, true);
+        }
         FerrousParticles.spawnRedstoneBlockEdges(serverLevel, region.get());
         MagnotNetwork.syncToPlayersInDimension(serverLevel);
+        return true;
+    }
+
+    public static boolean toggleHeldTubeFilterMode(ServerPlayer player) {
+        ItemStack stack = player.getMainHandItem();
+        if (!stack.is(MagnotItems.FERROUS_TUBE.get())
+                || player.getOffhandItem().isEmpty()
+                || FerrousTubeItem.getFirstCorner(stack).isPresent()) {
+            return false;
+        }
+
+        FerrousTubeItem.toggleFilterMode(stack);
+        player.displayClientMessage(FerrousTubeItem.filterModeMessage(stack), true);
         return true;
     }
 
