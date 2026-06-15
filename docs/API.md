@@ -36,7 +36,7 @@ public final class MagnotCompat {
 }
 ```
 
-## Player magnet check
+## Player item pull check
 
 Use this for player-held magnets, curio/trinket magnets, armor modules, backpack magnets, or player-centered vacuum effects.
 
@@ -49,8 +49,8 @@ public final class MagnotCompat {
     private MagnotCompat() {
     }
 
-    public static boolean blocksPlayerPull(Player player, ItemEntity item) {
-        return MagnotApi.blocksPlayerPull(player, MagnotApi.itemPullTarget(item));
+    public static boolean blocksPlayerItemPull(Player player, ItemEntity item) {
+        return MagnotApi.blocksPlayerItemPull(player, item);
     }
 }
 ```
@@ -63,7 +63,7 @@ Use this only when you are not moving an `ItemEntity`, or when you already have 
 boolean blocked = MagnotApi.blocksPull(level, sourcePosition, targetPosition);
 ```
 
-For dropped items, prefer `blocksItemPull(...)` so Magnot can use a consistent item center target.
+For dropped items, prefer `blocksItemPull(...)` or `blocksPlayerItemPull(...)` so Magnot can inspect the item entity. Item-aware calls are required for filtered ferrous regions.
 
 ## Client behavior
 
@@ -73,6 +73,6 @@ If your magnet performs client-side prediction, suppress that prediction or mirr
 
 ## Stability
 
-`MagnotApi.API_VERSION` starts at `1`.
+`MagnotApi.API_VERSION` is currently `2`.
 
 The API should remain source-compatible within a Minecraft target line when possible. If Magnot needs to replace a public method, the old method should be deprecated before removal.
