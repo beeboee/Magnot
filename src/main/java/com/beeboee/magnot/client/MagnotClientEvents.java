@@ -36,9 +36,10 @@ public final class MagnotClientEvents {
     private static final Object SELECTION_OUTLINE_SLOT = new Object();
     private static final int FERROUS_RED = 0xBD2537;
     private static final int LIMIT_YELLOW = 0xFFD43B;
-    private static final int HUD_BACKGROUND = 0xA0000000;
-    private static final int HUD_BORDER = 0xCCBD2537;
+    private static final int HUD_BACKGROUND = 0xE8000000;
+    private static final int HUD_BORDER = 0xFFBD2537;
     private static final int HUD_TEXT = 0xFFFFFFFF;
+    private static final int HUD_MAX_ITEM_NAME_LENGTH = 18;
     private static final double REGION_REVEAL_RADIUS = 25.0D;
     private static final double REGION_REVEAL_RADIUS_SQR = REGION_REVEAL_RADIUS * REGION_REVEAL_RADIUS;
     private static long nextRegionRemovalTick = 0L;
@@ -182,24 +183,29 @@ public final class MagnotClientEvents {
         }
 
         GuiGraphics graphics = event.getGuiGraphics();
-        Component mode = filterMessage(filterPreviewRegion);
-        int textWidth = minecraft.font.width(mode);
-        int width = Math.max(48, textWidth + 30);
-        int height = 24;
+        String text = filterPreviewText(filterPreviewRegion, filterStack);
+        int textWidth = minecraft.font.width(text);
+        int width = textWidth + 25;
+        int height = 19;
         int x = (minecraft.getWindow().getGuiScaledWidth() - width) / 2;
-        int y = minecraft.getWindow().getGuiScaledHeight() / 2 + 14;
+        int y = minecraft.getWindow().getGuiScaledHeight() / 2 + 13;
 
         graphics.fill(x, y, x + width, y + height, HUD_BACKGROUND);
         graphics.fill(x, y, x + width, y + 1, HUD_BORDER);
         graphics.fill(x, y + height - 1, x + width, y + height, HUD_BORDER);
         graphics.fill(x, y, x + 1, y + height, HUD_BORDER);
         graphics.fill(x + width - 1, y, x + width, y + height, HUD_BORDER);
-        graphics.renderItem(filterStack, x + 4, y + 4);
-        graphics.drawString(minecraft.font, mode, x + 24, y + 8, HUD_TEXT, true);
+        graphics.renderItem(filterStack, x + 2, y + 2);
+        graphics.drawString(minecraft.font, text, x + 21, y + 5, HUD_TEXT, true);
     }
 
-    private static Component filterMessage(FerrousRegion region) {
-        return Component.translatable(region.whitelistMode() ? "message.magnot.filter_mode_whitelist" : "message.magnot.filter_mode_blacklist");
+    private static String filterPreviewText(FerrousRegion region, ItemStack filterStack) {
+        String mode = region.whitelistMode() ? "Allow" : "Block";
+        String name = filterStack.getHoverName().getString();
+        if (name.length() > HUD_MAX_ITEM_NAME_LENGTH) {
+            name = name.substring(0, HUD_MAX_ITEM_NAME_LENGTH - 1) + "…";
+        }
+        return mode + ": " + name;
     }
 
     private static boolean renderRegion(LocalPlayer player, net.minecraft.world.level.Level level, FerrousRegion region, Optional<FerrousRegion> selectedRegion, Object renderSlot) {
