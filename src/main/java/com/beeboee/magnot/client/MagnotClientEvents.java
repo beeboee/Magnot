@@ -316,7 +316,7 @@ public final class MagnotClientEvents {
     }
 
     private static String filterPreviewMode(FerrousRegion region) {
-        return region.whitelistMode() ? "Allow" : "Block";
+        return region.whitelistMode() ? "Allow list" : "Block list";
     }
 
     private static boolean renderRegion(LocalPlayer player, net.minecraft.world.level.Level level, FerrousRegion region, Optional<FerrousRegion> selectedRegion, Object renderSlot) {
