@@ -1,7 +1,6 @@
 package com.beeboee.magnot.compat.sable;
 
 import com.beeboee.magnot.debug.MagnotDebug;
-import com.beeboee.magnot.entity.FerrousRegionEntities;
 import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.region.FerrousRegionSavedData;
@@ -30,7 +29,6 @@ public final class MagnotSableRegionExit {
 
             if (data.removeRegion(region.id())) {
                 data.addRegion(worldRegion);
-                FerrousRegionEntities.replace(level, region, worldRegion);
             }
         }
 
