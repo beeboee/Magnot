@@ -44,7 +44,7 @@ public abstract class ItemInfinityBackpackMixin {
 
     private static boolean magnot$isProtected(ServerLevel level, Entity entity, ItemEntity item) {
         if (entity instanceof Player player) {
-            return FerrousMagnetRules.blocksPlayerMagnet(level, player, FerrousMagnetRules.itemPullTarget(item));
+            return FerrousMagnetRules.blocksPlayerItemPull(level, player, item);
         }
         return FerrousMagnetRules.blocksItemPull(level, entity.position(), item);
     }
