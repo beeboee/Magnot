@@ -8,6 +8,7 @@ import com.beeboee.magnot.network.RemoveClosestFerrousRegionPayload;
 import com.beeboee.magnot.network.ToggleFerrousTubeFilterModePayload;
 import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.registry.MagnotItems;
+import com.simibubi.create.content.logistics.filter.FilterItem;
 import net.createmod.catnip.outliner.Outliner;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -29,6 +30,8 @@ import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.client.event.RenderGuiEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @EventBusSubscriber(modid = Magnot.MOD_ID, value = Dist.CLIENT)
@@ -39,6 +42,9 @@ public final class MagnotClientEvents {
     private static final int HUD_BACKGROUND = 0xA0000000;
     private static final int HUD_BORDER = 0xCCBD2537;
     private static final int HUD_TEXT = 0xFFFFFFFF;
+    private static final int HUD_PADDING = 3;
+    private static final int HUD_CELL_SIZE = 18;
+    private static final int HUD_MAX_COLUMNS = 9;
     private static final double REGION_REVEAL_RADIUS = 25.0D;
     private static final double REGION_REVEAL_RADIUS_SQR = REGION_REVEAL_RADIUS * REGION_REVEAL_RADIUS;
     private static long nextRegionRemovalTick = 0L;
@@ -181,21 +187,60 @@ public final class MagnotClientEvents {
             return;
         }
 
+        List<ItemStack> previewStacks = filterPreviewStacks(filterStack);
+        if (previewStacks.isEmpty()) {
+            return;
+        }
+
         GuiGraphics graphics = event.getGuiGraphics();
         String text = filterPreviewMode(filterPreviewRegion);
+        int columns = Math.min(HUD_MAX_COLUMNS, previewStacks.size());
+        int rows = (previewStacks.size() + HUD_MAX_COLUMNS - 1) / HUD_MAX_COLUMNS;
+        int gridWidth = columns * HUD_CELL_SIZE;
+        int gridHeight = rows * HUD_CELL_SIZE;
         int textWidth = minecraft.font.width(text);
-        int width = textWidth + 25;
-        int height = 19;
+        int width = Math.max(gridWidth, textWidth) + HUD_PADDING * 2;
+        int height = HUD_PADDING + gridHeight + 2 + minecraft.font.lineHeight + HUD_PADDING;
         int x = (minecraft.getWindow().getGuiScaledWidth() - width) / 2;
         int y = minecraft.getWindow().getGuiScaledHeight() / 2 + 13;
+        int gridX = x + (width - gridWidth) / 2;
+        int gridY = y + HUD_PADDING;
+        int textX = x + (width - textWidth) / 2;
+        int textY = gridY + gridHeight + 2;
 
         graphics.fill(x, y, x + width, y + height, HUD_BACKGROUND);
         graphics.fill(x, y, x + width, y + 1, HUD_BORDER);
         graphics.fill(x, y + height - 1, x + width, y + height, HUD_BORDER);
         graphics.fill(x, y, x + 1, y + height, HUD_BORDER);
         graphics.fill(x + width - 1, y, x + width, y + height, HUD_BORDER);
-        graphics.renderItem(filterStack, x + 2, y + 2);
-        graphics.drawString(minecraft.font, text, x + 21, y + 5, HUD_TEXT, true);
+
+        for (int i = 0; i < previewStacks.size(); i++) {
+            int column = i % HUD_MAX_COLUMNS;
+            int row = i / HUD_MAX_COLUMNS;
+            graphics.renderItem(previewStacks.get(i), gridX + column * HUD_CELL_SIZE + 1, gridY + row * HUD_CELL_SIZE + 1);
+        }
+
+        graphics.drawString(minecraft.font, text, textX, textY, HUD_TEXT, true);
+    }
+
+    private static List<ItemStack> filterPreviewStacks(ItemStack filterStack) {
+        if (filterStack.getItem() instanceof FilterItem filterItem) {
+            try {
+                ItemStack[] filterItems = filterItem.getFilterItems(filterStack);
+                List<ItemStack> stacks = new ArrayList<>(filterItems.length);
+                for (ItemStack stack : filterItems) {
+                    if (!stack.isEmpty()) {
+                        stacks.add(stack.copyWithCount(1));
+                    }
+                }
+                if (!stacks.isEmpty()) {
+                    return stacks;
+                }
+            } catch (RuntimeException ignored) {
+            }
+        }
+
+        return List.of(filterStack.copyWithCount(1));
     }
 
     private static String filterPreviewMode(FerrousRegion region) {
