@@ -15,9 +15,10 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Display;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
@@ -46,7 +47,7 @@ public final class MagnotClientEvents {
     private static final double REGION_REVEAL_RADIUS_SQR = REGION_REVEAL_RADIUS * REGION_REVEAL_RADIUS;
     private static long nextRegionRemovalTick = 0L;
     private static long nextRegionFilterTick = 0L;
-    private static ArmorStand filterPreviewStand;
+    private static Display.TextDisplay filterPreviewText;
 
     private MagnotClientEvents() {
     }
@@ -205,27 +206,25 @@ public final class MagnotClientEvents {
                 : region.bounds();
         Vec3 position = displayBounds.getCenter().add(0.0D, displayBounds.getYsize() * 0.5D + 0.75D, 0.0D);
 
-        if (filterPreviewStand == null || filterPreviewStand.level() != level) {
+        if (filterPreviewText == null || filterPreviewText.level() != level) {
             hideFilterPreview(level);
-            filterPreviewStand = new ArmorStand(level, position.x, position.y, position.z);
-            filterPreviewStand.setId(FILTER_PREVIEW_ENTITY_ID);
-            filterPreviewStand.setInvisible(true);
-            filterPreviewStand.setNoGravity(true);
-            level.addFreshEntity(filterPreviewStand);
+            filterPreviewText = new Display.TextDisplay(EntityType.TEXT_DISPLAY, level);
+            filterPreviewText.setId(FILTER_PREVIEW_ENTITY_ID);
+            filterPreviewText.setNoGravity(true);
+            level.addFreshEntity(filterPreviewText);
         }
 
-        filterPreviewStand.setPos(position.x, position.y, position.z);
-        filterPreviewStand.setCustomName(filterMessage(region));
-        filterPreviewStand.setCustomNameVisible(true);
+        filterPreviewText.setPos(position.x, position.y, position.z);
+        filterPreviewText.setText(filterMessage(region));
     }
 
     private static void hideFilterPreview(ClientLevel level) {
-        if (filterPreviewStand == null) {
+        if (filterPreviewText == null) {
             return;
         }
 
-        level.removeEntity(filterPreviewStand.getId(), Entity.RemovalReason.DISCARDED);
-        filterPreviewStand = null;
+        level.removeEntity(filterPreviewText.getId(), Entity.RemovalReason.DISCARDED);
+        filterPreviewText = null;
     }
 
     private static Component filterMessage(FerrousRegion region) {
