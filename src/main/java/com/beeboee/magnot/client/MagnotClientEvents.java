@@ -4,6 +4,7 @@ import com.beeboee.magnot.Magnot;
 import com.beeboee.magnot.compat.sable.MagnotSableClientCompat;
 import com.beeboee.magnot.entity.FerrousRegionEntity;
 import com.beeboee.magnot.item.FerrousTubeItem;
+import com.beeboee.magnot.network.ConfigureFerrousRegionFilterPayload;
 import com.beeboee.magnot.network.RemoveClosestFerrousRegionPayload;
 import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.registry.MagnotItems;
@@ -39,18 +40,40 @@ public final class MagnotClientEvents {
     private static final double REGION_REVEAL_RADIUS = 25.0D;
     private static final double REGION_REVEAL_RADIUS_SQR = REGION_REVEAL_RADIUS * REGION_REVEAL_RADIUS;
     private static long nextRegionRemovalTick = 0L;
+    private static long nextRegionFilterTick = 0L;
 
     private MagnotClientEvents() {
     }
 
     @SubscribeEvent
     public static void onInteractionKeyMappingTriggered(InputEvent.InteractionKeyMappingTriggered event) {
-        if (!event.isAttack() || !holdingFerrousTube()) {
+        if (!holdingFerrousTube()) {
             return;
         }
 
-        event.setCanceled(true);
-        event.setSwingHand(true);
+        if (event.isAttack()) {
+            event.setCanceled(true);
+            event.setSwingHand(true);
+
+            Minecraft minecraft = Minecraft.getInstance();
+            LocalPlayer player = minecraft.player;
+            if (player == null || minecraft.level == null) {
+                return;
+            }
+
+            long gameTime = player.level().getGameTime();
+            if (gameTime < nextRegionRemovalTick) {
+                return;
+            }
+            nextRegionRemovalTick = gameTime + 5L;
+
+            selectedRegion(player).ifPresent(region -> PacketDistributor.sendToServer(new RemoveClosestFerrousRegionPayload(region.id())));
+            return;
+        }
+
+        if (!event.isUseItem()) {
+            return;
+        }
 
         Minecraft minecraft = Minecraft.getInstance();
         LocalPlayer player = minecraft.player;
@@ -58,13 +81,29 @@ public final class MagnotClientEvents {
             return;
         }
 
-        long gameTime = player.level().getGameTime();
-        if (gameTime < nextRegionRemovalTick) {
+        ItemStack held = player.getMainHandItem();
+        if (FerrousTubeItem.getFirstCorner(held).isPresent()) {
             return;
         }
-        nextRegionRemovalTick = gameTime + 5L;
 
-        selectedRegion(player).ifPresent(region -> PacketDistributor.sendToServer(new RemoveClosestFerrousRegionPayload(region.id())));
+        Optional<FerrousRegion> selectedRegion = selectedRegion(player);
+        if (selectedRegion.isEmpty()) {
+            return;
+        }
+
+        event.setCanceled(true);
+        event.setSwingHand(true);
+
+        long gameTime = player.level().getGameTime();
+        if (gameTime < nextRegionFilterTick) {
+            return;
+        }
+        nextRegionFilterTick = gameTime + 5L;
+
+        ItemStack filterStack = player.getOffhandItem();
+        boolean toggleMode = player.isShiftKeyDown();
+        boolean clear = !toggleMode && filterStack.isEmpty();
+        PacketDistributor.sendToServer(new ConfigureFerrousRegionFilterPayload(selectedRegion.get().id(), filterStack, clear, toggleMode));
     }
 
     @SubscribeEvent
@@ -87,7 +126,7 @@ public final class MagnotClientEvents {
         for (FerrousRegionEntity entity : minecraft.level.getEntitiesOfClass(FerrousRegionEntity.class, entitySearch)) {
             FerrousRegion entityRegion = entity.asRegion();
             Optional<FerrousRegion> syncedRegion = ClientFerrousRegionStore.byId(entityRegion.id());
-            if (syncedRegion.isEmpty() || !syncedRegion.get().equals(entityRegion)) {
+            if (syncedRegion.isEmpty() || !syncedRegion.get().sameShapeAndSpace(entityRegion)) {
                 continue;
             }
 
@@ -106,6 +145,7 @@ public final class MagnotClientEvents {
 
         var firstCorner = FerrousTubeItem.getFirstCorner(held);
         if (firstCorner.isEmpty()) {
+            selectedRegion.filter(FerrousRegion::hasFilter).ifPresent(region -> player.displayClientMessage(filterMessage(region), true));
             return;
         }
 
@@ -131,6 +171,11 @@ public final class MagnotClientEvents {
                 .withFaceTextures(MagnotSpecialTextures.FERROUS_REGION, MagnotSpecialTextures.FERROUS_REGION)
                 .disableLineNormals()
                 .lineWidth(1.0F / 16.0F);
+    }
+
+    private static Component filterMessage(FerrousRegion region) {
+        Component mode = Component.translatable(region.whitelistMode() ? "message.magnot.filter_mode_whitelist" : "message.magnot.filter_mode_blacklist");
+        return Component.translatable("message.magnot.filter_preview", mode, region.filterStack().getHoverName());
     }
 
     private static boolean renderRegion(LocalPlayer player, net.minecraft.world.level.Level level, FerrousRegion region, Optional<FerrousRegion> selectedRegion, Object renderSlot) {
