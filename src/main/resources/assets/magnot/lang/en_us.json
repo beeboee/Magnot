@@ -6,9 +6,10 @@
   "message.magnot.selection_cleared": "Selection discarded",
   "message.magnot.region_created": "Applying Paste...",
   "message.magnot.region_removed": "Region removed",
-  "message.magnot.filter_set": "Filter set: %s",
-  "message.magnot.filter_cleared": "Filter cleared",
-  "message.magnot.filter_mode_blacklist": "Blacklist",
-  "message.magnot.filter_mode_whitelist": "Whitelist",
-  "message.magnot.filter_preview": "%s: %s"
+  "message.magnot.filter_cleared": "Default mode: all supported remote pulls blocked",
+  "message.magnot.filter_toggle_needs_filter": "Add an offhand item first, then sneak + right-click to switch modes",
+  "message.magnot.filter_mode_blacklist": "Blacklist mode",
+  "message.magnot.filter_mode_whitelist": "Whitelist mode",
+  "message.magnot.filter_preview_blacklist": "Blacklist mode: blocking %s; other items allowed",
+  "message.magnot.filter_preview_whitelist": "Whitelist mode: allowing %s; other items blocked"
 }
