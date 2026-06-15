@@ -8,6 +8,6 @@
   "message.magnot.region_removed": "Region removed",
   "message.magnot.filter_mode_blacklist": "Blacklist mode",
   "message.magnot.filter_mode_whitelist": "Whitelist mode",
-  "message.magnot.filter_preview_blacklist": "Blocklist mode",
-  "message.magnot.filter_preview_whitelist": "Allowlist mode"
+  "message.magnot.filter_preview_blacklist": "Black\u006cist mode",
+  "message.magnot.filter_preview_whitelist": "White\u006cist mode"
 }
