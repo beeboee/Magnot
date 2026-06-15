@@ -1,6 +1,13 @@
 package com.beeboee.magnot.region;
 
+import com.simibubi.create.AllDataComponents;
+import com.simibubi.create.content.logistics.filter.AttributeFilterItem;
+import com.simibubi.create.content.logistics.filter.AttributeFilterWhitelistMode;
+import com.simibubi.create.content.logistics.filter.FilterItem;
 import com.simibubi.create.content.logistics.filter.FilterItemStack;
+import com.simibubi.create.content.logistics.filter.ListFilterItem;
+import com.simibubi.create.content.logistics.item.filter.attribute.ItemAttribute;
+import com.simibubi.create.content.logistics.item.filter.attribute.ItemAttribute.ItemAttributeEntry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -13,7 +20,9 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -160,15 +169,94 @@ public record FerrousRegion(UUID id, UUID groupId, BlockPos min, BlockPos max, U
     }
 
     private boolean matchesFilter(Level level, ItemStack pulledStack) {
-        if (level == null) {
-            return pulledStack.is(filterStack.getItem());
+        return matchesFilterStack(level, filterStack, pulledStack);
+    }
+
+    public static boolean matchesFilterStack(Level level, ItemStack filterStack, ItemStack pulledStack) {
+        if (filterStack == null || filterStack.isEmpty() || pulledStack == null || pulledStack.isEmpty()) {
+            return false;
         }
 
-        try {
-            return FilterItemStack.of(filterStack.copy()).test(level, pulledStack);
-        } catch (RuntimeException ignored) {
-            return pulledStack.is(filterStack.getItem());
+        if (filterStack.getItem() instanceof ListFilterItem listFilterItem) {
+            return matchesListFilter(level, listFilterItem, filterStack, pulledStack);
         }
+
+        if (filterStack.getItem() instanceof AttributeFilterItem) {
+            return matchesAttributeFilter(level, filterStack, pulledStack);
+        }
+
+        if (filterStack.getItem() instanceof FilterItem) {
+            if (level == null) {
+                return false;
+            }
+            try {
+                return FilterItemStack.of(filterStack.copy()).test(level, pulledStack);
+            } catch (RuntimeException ignored) {
+                return false;
+            }
+        }
+
+        return FilterItem.testDirect(filterStack, pulledStack, false);
+    }
+
+    private static boolean matchesListFilter(Level level, ListFilterItem filterItem, ItemStack filterStack, ItemStack pulledStack) {
+        ItemStackHandler items = filterItem.getFilterItemHandler(filterStack);
+        boolean respectNbt = filterStack.getOrDefault(AllDataComponents.FILTER_ITEMS_RESPECT_NBT, false);
+
+        for (int i = 0; i < items.getSlots(); i++) {
+            ItemStack entry = items.getStackInSlot(i);
+            if (entry.isEmpty()) {
+                continue;
+            }
+
+            boolean matches = entry.getItem() instanceof FilterItem
+                    ? matchesFilterStack(level, entry, pulledStack)
+                    : FilterItem.testDirect(entry, pulledStack, respectNbt);
+            if (matches) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private static boolean matchesAttributeFilter(Level level, ItemStack filterStack, ItemStack pulledStack) {
+        if (level == null) {
+            return false;
+        }
+
+        List<ItemAttributeEntry> attributes = filterStack.getOrDefault(AllDataComponents.ATTRIBUTE_FILTER_MATCHED_ATTRIBUTES, List.of());
+        if (attributes.isEmpty()) {
+            return false;
+        }
+
+        AttributeFilterWhitelistMode mode = filterStack.getOrDefault(AllDataComponents.ATTRIBUTE_FILTER_WHITELIST_MODE, AttributeFilterWhitelistMode.WHITELIST_DISJ);
+        boolean requireAll = mode == AttributeFilterWhitelistMode.WHITELIST_CONJ;
+        boolean sawAttribute = false;
+
+        for (ItemAttributeEntry entry : attributes) {
+            ItemAttribute attribute = entry.attribute();
+            if (attribute == null) {
+                continue;
+            }
+
+            sawAttribute = true;
+            boolean matches;
+            try {
+                matches = attribute.appliesTo(pulledStack, level) != entry.inverted();
+            } catch (RuntimeException ignored) {
+                return false;
+            }
+
+            if (requireAll && !matches) {
+                return false;
+            }
+            if (!requireAll && matches) {
+                return true;
+            }
+        }
+
+        return requireAll && sawAttribute;
     }
 
     public boolean sameShapeAndSpace(FerrousRegion other) {
