@@ -1,7 +1,6 @@
 package com.beeboee.magnot.server;
 
 import com.beeboee.magnot.compat.sable.MagnotSableCompat;
-import com.beeboee.magnot.entity.FerrousRegionEntities;
 import com.beeboee.magnot.item.FerrousTubeItem;
 import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.region.FerrousRegion;
@@ -122,7 +121,6 @@ public final class FerrousRegionActions {
     }
 
     private static void playRemovalEffects(ServerPlayer player, ServerLevel serverLevel, FerrousRegion removed) {
-        FerrousRegionEntities.discard(serverLevel, removed);
         BlockPos soundPos = BlockPos.containing(removed.bounds().getCenter());
         AllSoundEvents.SLIME_ADDED.play(serverLevel, null, soundPos, 0.5F, 0.5F);
         FerrousParticles.spawnRedstoneBlockEdges(serverLevel, removed);
