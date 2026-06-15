@@ -4,6 +4,8 @@ import com.beeboee.magnot.Magnot;
 import com.beeboee.magnot.compat.sable.MagnotSableClientCompat;
 import com.beeboee.magnot.entity.FerrousRegionEntity;
 import com.beeboee.magnot.item.FerrousTubeItem;
+import com.beeboee.magnot.mixin.client.ItemDisplayAccessor;
+import com.beeboee.magnot.mixin.client.TextDisplayAccessor;
 import com.beeboee.magnot.network.ConfigureFerrousRegionFilterPayload;
 import com.beeboee.magnot.network.RemoveClosestFerrousRegionPayload;
 import com.beeboee.magnot.network.ToggleFerrousTubeFilterModePayload;
@@ -227,9 +229,9 @@ public final class MagnotClientEvents {
         }
 
         filterPreviewItem.setPos(itemPosition.x, itemPosition.y, itemPosition.z);
-        filterPreviewItem.setItemStack(region.filterStack());
+        ((ItemDisplayAccessor) filterPreviewItem).magnot$setItemStack(region.filterStack());
         filterPreviewText.setPos(textPosition.x, textPosition.y, textPosition.z);
-        filterPreviewText.setText(filterMessage(region));
+        ((TextDisplayAccessor) filterPreviewText).magnot$setText(filterMessage(region));
     }
 
     private static void hideFilterPreview(ClientLevel level) {
