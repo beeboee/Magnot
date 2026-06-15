@@ -174,8 +174,10 @@ public final class MagnotClientEvents {
     }
 
     private static Component filterMessage(FerrousRegion region) {
-        Component mode = Component.translatable(region.whitelistMode() ? "message.magnot.filter_mode_whitelist" : "message.magnot.filter_mode_blacklist");
-        return Component.translatable("message.magnot.filter_preview", mode, region.filterStack().getHoverName());
+        return Component.translatable(
+                region.whitelistMode() ? "message.magnot.filter_preview_whitelist" : "message.magnot.filter_preview_blacklist",
+                region.filterStack().getHoverName()
+        );
     }
 
     private static boolean renderRegion(LocalPlayer player, net.minecraft.world.level.Level level, FerrousRegion region, Optional<FerrousRegion> selectedRegion, Object renderSlot) {
