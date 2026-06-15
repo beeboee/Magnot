@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
 import java.util.ArrayList;
@@ -32,7 +33,9 @@ public record SyncFerrousRegionsPayload(List<FerrousRegion> regions) implements 
             BlockPos min = buf.readBlockPos();
             BlockPos max = buf.readBlockPos();
             UUID subLevelId = buf.readBoolean() ? buf.readUUID() : null;
-            regions.add(new FerrousRegion(id, groupId, min, max, subLevelId));
+            ItemStack filterStack = buf.readItem();
+            boolean whitelistMode = buf.readBoolean();
+            regions.add(new FerrousRegion(id, groupId, min, max, subLevelId, filterStack, whitelistMode));
         }
 
         return new SyncFerrousRegionsPayload(regions);
@@ -49,6 +52,8 @@ public record SyncFerrousRegionsPayload(List<FerrousRegion> regions) implements 
             if (region.subLevelId() != null) {
                 buf.writeUUID(region.subLevelId());
             }
+            buf.writeItem(region.filterStack());
+            buf.writeBoolean(region.whitelistMode());
         }
     }
 
