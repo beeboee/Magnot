@@ -3,9 +3,6 @@ package com.beeboee.magnot.client;
 import com.beeboee.magnot.Magnot;
 import com.beeboee.magnot.compat.sable.MagnotSableClientCompat;
 import com.beeboee.magnot.item.FerrousTubeItem;
-import com.beeboee.magnot.mixin.display.DisplayAccessor;
-import com.beeboee.magnot.mixin.display.ItemDisplayAccessor;
-import com.beeboee.magnot.mixin.display.TextDisplayAccessor;
 import com.beeboee.magnot.network.ConfigureFerrousRegionFilterPayload;
 import com.beeboee.magnot.network.RemoveClosestFerrousRegionPayload;
 import com.beeboee.magnot.network.ToggleFerrousTubeFilterModePayload;
@@ -13,15 +10,11 @@ import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.registry.MagnotItems;
 import net.createmod.catnip.outliner.Outliner;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.Display;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
@@ -33,24 +26,24 @@ import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.InputEvent;
+import net.neoforged.neoforge.client.event.RenderGuiEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @EventBusSubscriber(modid = Magnot.MOD_ID, value = Dist.CLIENT)
 public final class MagnotClientEvents {
     private static final Object SELECTION_OUTLINE_SLOT = new Object();
     private static final int FERROUS_RED = 0xBD2537;
     private static final int LIMIT_YELLOW = 0xFFD43B;
-    private static final int FILTER_PREVIEW_TEXT_ENTITY_ID = -20_250_101;
-    private static final int FILTER_PREVIEW_ITEM_ENTITY_ID = -20_250_102;
+    private static final int HUD_BACKGROUND = 0xA0000000;
+    private static final int HUD_BORDER = 0xCCBD2537;
+    private static final int HUD_TEXT = 0xFFFFFFFF;
     private static final double REGION_REVEAL_RADIUS = 25.0D;
     private static final double REGION_REVEAL_RADIUS_SQR = REGION_REVEAL_RADIUS * REGION_REVEAL_RADIUS;
     private static long nextRegionRemovalTick = 0L;
     private static long nextRegionFilterTick = 0L;
-    private static Display.TextDisplay filterPreviewText;
-    private static Display.ItemDisplay filterPreviewItem;
+    private static FerrousRegion filterPreviewRegion;
 
     private MagnotClientEvents() {
     }
@@ -130,12 +123,13 @@ public final class MagnotClientEvents {
         Minecraft minecraft = Minecraft.getInstance();
         LocalPlayer player = minecraft.player;
         if (player == null || minecraft.level == null) {
+            filterPreviewRegion = null;
             return;
         }
 
         ItemStack held = player.getMainHandItem();
         if (!held.is(MagnotItems.FERROUS_TUBE.get())) {
-            hideFilterPreview(minecraft.level);
+            filterPreviewRegion = null;
             return;
         }
 
@@ -146,15 +140,11 @@ public final class MagnotClientEvents {
 
         var firstCorner = FerrousTubeItem.getFirstCorner(held);
         if (firstCorner.isEmpty()) {
-            if (selectedRegion.filter(FerrousRegion::hasFilter).isPresent()) {
-                showFilterPreview(minecraft.level, selectedRegion.get());
-            } else {
-                hideFilterPreview(minecraft.level);
-            }
+            filterPreviewRegion = selectedRegion.filter(FerrousRegion::hasFilter).orElse(null);
             return;
         }
 
-        hideFilterPreview(minecraft.level);
+        filterPreviewRegion = null;
         HitResult hitResult = minecraft.hitResult;
         if (!(hitResult instanceof BlockHitResult blockHitResult) || hitResult.getType() != HitResult.Type.BLOCK) {
             return;
@@ -179,68 +169,33 @@ public final class MagnotClientEvents {
                 .lineWidth(1.0F / 16.0F);
     }
 
-    private static void showFilterPreview(ClientLevel level, FerrousRegion region) {
-        AABB displayBounds = ModList.get().isLoaded("sable")
-                ? MagnotSableClientCompat.displayBounds(level, region)
-                : region.bounds();
-        Vec3 basePosition = displayBounds.getCenter().add(0.0D, displayBounds.getYsize() * 0.5D + 0.75D, 0.0D);
-        Vec3 itemPosition = basePosition.add(0.0D, 0.35D, 0.0D);
-        Vec3 textPosition = basePosition.add(0.0D, -0.25D, 0.0D);
-
-        if (filterPreviewItem == null || filterPreviewItem.level() != level) {
-            hideFilterPreview(level);
-            filterPreviewItem = EntityType.ITEM_DISPLAY.create(level);
-            if (filterPreviewItem == null) {
-                return;
-            }
-            filterPreviewItem.setId(FILTER_PREVIEW_ITEM_ENTITY_ID);
-            filterPreviewItem.setNoGravity(true);
-            filterPreviewItem.setPos(itemPosition.x, itemPosition.y, itemPosition.z);
-            level.addFreshEntity(filterPreviewItem);
+    @SubscribeEvent
+    public static void onRenderGui(RenderGuiEvent.Post event) {
+        Minecraft minecraft = Minecraft.getInstance();
+        if (minecraft.player == null || minecraft.options.hideGui || filterPreviewRegion == null || !holdingFerrousTube()) {
+            return;
         }
 
-        if (filterPreviewText == null || filterPreviewText.level() != level) {
-            filterPreviewText = EntityType.TEXT_DISPLAY.create(level);
-            if (filterPreviewText == null) {
-                hideFilterPreview(level);
-                return;
-            }
-            filterPreviewText.setId(FILTER_PREVIEW_TEXT_ENTITY_ID);
-            filterPreviewText.setNoGravity(true);
-            filterPreviewText.setPos(textPosition.x, textPosition.y, textPosition.z);
-            level.addFreshEntity(filterPreviewText);
+        ItemStack filterStack = filterPreviewRegion.filterStack();
+        if (filterStack.isEmpty()) {
+            return;
         }
 
-        configureItemDisplay(filterPreviewItem, region.filterStack());
-        configureTextDisplay(filterPreviewText, region);
+        GuiGraphics graphics = event.getGuiGraphics();
+        Component mode = filterMessage(filterPreviewRegion);
+        int textWidth = minecraft.font.width(mode);
+        int width = Math.max(48, textWidth + 30);
+        int height = 24;
+        int x = (minecraft.getWindow().getGuiScaledWidth() - width) / 2;
+        int y = minecraft.getWindow().getGuiScaledHeight() / 2 + 14;
 
-        filterPreviewItem.setNoGravity(true);
-        filterPreviewItem.setPos(itemPosition.x, itemPosition.y, itemPosition.z);
-        filterPreviewText.setNoGravity(true);
-        filterPreviewText.setPos(textPosition.x, textPosition.y, textPosition.z);
-    }
-
-    private static void configureItemDisplay(Display.ItemDisplay display, ItemStack stack) {
-        ((DisplayAccessor) display).magnot$setBillboardConstraints(Display.BillboardConstraints.CENTER);
-        ((ItemDisplayAccessor) display).magnot$setItemTransform(ItemDisplayContext.GUI);
-        ((ItemDisplayAccessor) display).magnot$setItemStack(stack.copy());
-    }
-
-    private static void configureTextDisplay(Display.TextDisplay display, FerrousRegion region) {
-        ((DisplayAccessor) display).magnot$setBillboardConstraints(Display.BillboardConstraints.CENTER);
-        ((TextDisplayAccessor) display).magnot$setLineWidth(200);
-        ((TextDisplayAccessor) display).magnot$setText(filterMessage(region));
-    }
-
-    private static void hideFilterPreview(ClientLevel level) {
-        if (filterPreviewItem != null) {
-            level.removeEntity(filterPreviewItem.getId(), Entity.RemovalReason.DISCARDED);
-            filterPreviewItem = null;
-        }
-        if (filterPreviewText != null) {
-            level.removeEntity(filterPreviewText.getId(), Entity.RemovalReason.DISCARDED);
-            filterPreviewText = null;
-        }
+        graphics.fill(x, y, x + width, y + height, HUD_BACKGROUND);
+        graphics.fill(x, y, x + width, y + 1, HUD_BORDER);
+        graphics.fill(x, y + height - 1, x + width, y + height, HUD_BORDER);
+        graphics.fill(x, y, x + 1, y + height, HUD_BORDER);
+        graphics.fill(x + width - 1, y, x + width, y + height, HUD_BORDER);
+        graphics.renderItem(filterStack, x + 4, y + 4);
+        graphics.drawString(minecraft.font, mode, x + 24, y + 8, HUD_TEXT, true);
     }
 
     private static Component filterMessage(FerrousRegion region) {
