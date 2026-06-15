@@ -195,16 +195,6 @@ public final class MagnotClientEvents {
     }
 
     private static void handleSelectedFilteredRegion(LocalPlayer player, ClientLevel level, FerrousRegion region) {
-        if (player.getOffhandItem().isEmpty()) {
-            hideFilterPreview(level);
-            long gameTime = player.level().getGameTime();
-            if (gameTime >= nextRegionFilterTick) {
-                nextRegionFilterTick = gameTime + 5L;
-                PacketDistributor.sendToServer(new ConfigureFerrousRegionFilterPayload(region.id(), ItemStack.EMPTY, true, false));
-            }
-            return;
-        }
-
         showFilterPreview(level, region);
         player.displayClientMessage(filterMessage(region), true);
     }
