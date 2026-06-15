@@ -2,10 +2,10 @@ package com.beeboee.magnot.region;
 
 import com.beeboee.magnot.compat.sable.MagnotSableCompat;
 import com.beeboee.magnot.debug.MagnotDebug;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.fml.ModList;
@@ -286,7 +286,7 @@ public final class FerrousMagnetRules {
         }
 
         private static int itemId(ItemEntity item) {
-            return BuiltInRegistries.ITEM.getId(item.getItem().getItem());
+            return ItemStack.hashItemAndComponents(item.getItem());
         }
     }
 
