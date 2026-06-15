@@ -4,8 +4,6 @@
   "package": "com.beeboee.magnot.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "client.ItemDisplayAccessor",
-    "client.TextDisplayAccessor",
     "sophisticatedcore.MagnetUpgradeWrapperMixin",
     "ae2wtlib.MagnetHandlerMixin",
     "projecte.BlackHoleBandMixin",
