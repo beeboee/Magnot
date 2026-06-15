@@ -6,6 +6,7 @@ import com.beeboee.magnot.entity.FerrousRegionEntity;
 import com.beeboee.magnot.item.FerrousTubeItem;
 import com.beeboee.magnot.network.ConfigureFerrousRegionFilterPayload;
 import com.beeboee.magnot.network.RemoveClosestFerrousRegionPayload;
+import com.beeboee.magnot.network.ToggleFerrousTubeFilterModePayload;
 import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.registry.MagnotItems;
 import net.createmod.catnip.outliner.Outliner;
@@ -86,6 +87,18 @@ public final class MagnotClientEvents {
             return;
         }
 
+        ItemStack filterStack = player.getOffhandItem();
+        long gameTime = player.level().getGameTime();
+        if (player.isShiftKeyDown() && !filterStack.isEmpty()) {
+            event.setCanceled(true);
+            event.setSwingHand(true);
+            if (gameTime >= nextRegionFilterTick) {
+                nextRegionFilterTick = gameTime + 5L;
+                PacketDistributor.sendToServer(new ToggleFerrousTubeFilterModePayload());
+            }
+            return;
+        }
+
         Optional<FerrousRegion> selectedRegion = selectedRegion(player);
         if (selectedRegion.isEmpty()) {
             return;
@@ -94,16 +107,13 @@ public final class MagnotClientEvents {
         event.setCanceled(true);
         event.setSwingHand(true);
 
-        long gameTime = player.level().getGameTime();
         if (gameTime < nextRegionFilterTick) {
             return;
         }
         nextRegionFilterTick = gameTime + 5L;
 
-        ItemStack filterStack = player.getOffhandItem();
         boolean clear = filterStack.isEmpty();
-        boolean whitelistMode = player.isShiftKeyDown();
-        PacketDistributor.sendToServer(new ConfigureFerrousRegionFilterPayload(selectedRegion.get().id(), filterStack, clear, whitelistMode));
+        PacketDistributor.sendToServer(new ConfigureFerrousRegionFilterPayload(selectedRegion.get().id(), filterStack, clear, false));
     }
 
     @SubscribeEvent
