@@ -211,8 +211,7 @@ public final class MagnotClientEvents {
             filterPreviewStand.setId(FILTER_PREVIEW_ENTITY_ID);
             filterPreviewStand.setInvisible(true);
             filterPreviewStand.setNoGravity(true);
-            filterPreviewStand.setMarker(true);
-            level.putNonPlayerEntity(FILTER_PREVIEW_ENTITY_ID, filterPreviewStand);
+            level.addFreshEntity(filterPreviewStand);
         }
 
         filterPreviewStand.setPos(position.x, position.y, position.z);
