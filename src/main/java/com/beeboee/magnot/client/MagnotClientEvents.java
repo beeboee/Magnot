@@ -4,8 +4,6 @@ import com.beeboee.magnot.Magnot;
 import com.beeboee.magnot.compat.sable.MagnotSableClientCompat;
 import com.beeboee.magnot.entity.FerrousRegionEntity;
 import com.beeboee.magnot.item.FerrousTubeItem;
-import com.beeboee.magnot.mixin.client.ItemDisplayAccessor;
-import com.beeboee.magnot.mixin.client.TextDisplayAccessor;
 import com.beeboee.magnot.network.ConfigureFerrousRegionFilterPayload;
 import com.beeboee.magnot.network.RemoveClosestFerrousRegionPayload;
 import com.beeboee.magnot.network.ToggleFerrousTubeFilterModePayload;
@@ -17,10 +15,10 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.Display;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.decoration.ArmorStand;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
@@ -50,8 +48,8 @@ public final class MagnotClientEvents {
     private static final double REGION_REVEAL_RADIUS_SQR = REGION_REVEAL_RADIUS * REGION_REVEAL_RADIUS;
     private static long nextRegionRemovalTick = 0L;
     private static long nextRegionFilterTick = 0L;
-    private static Display.TextDisplay filterPreviewText;
-    private static Display.ItemDisplay filterPreviewItem;
+    private static ArmorStand filterPreviewText;
+    private static ItemEntity filterPreviewItem;
 
     private MagnotClientEvents() {
     }
@@ -214,24 +212,26 @@ public final class MagnotClientEvents {
 
         if (filterPreviewItem == null || filterPreviewItem.level() != level) {
             hideFilterPreview(level);
-            filterPreviewItem = new Display.ItemDisplay(EntityType.ITEM_DISPLAY, level);
+            filterPreviewItem = new ItemEntity(level, itemPosition.x, itemPosition.y, itemPosition.z, region.filterStack().copy());
             filterPreviewItem.setId(FILTER_PREVIEW_ITEM_ENTITY_ID);
             filterPreviewItem.setNoGravity(true);
+            filterPreviewItem.setPickUpDelay(32767);
             level.addFreshEntity(filterPreviewItem);
         }
 
         if (filterPreviewText == null || filterPreviewText.level() != level) {
-            hideFilterPreview(level);
-            filterPreviewText = new Display.TextDisplay(EntityType.TEXT_DISPLAY, level);
+            filterPreviewText = new ArmorStand(level, textPosition.x, textPosition.y, textPosition.z);
             filterPreviewText.setId(FILTER_PREVIEW_TEXT_ENTITY_ID);
+            filterPreviewText.setInvisible(true);
             filterPreviewText.setNoGravity(true);
+            filterPreviewText.setCustomNameVisible(true);
             level.addFreshEntity(filterPreviewText);
         }
 
         filterPreviewItem.setPos(itemPosition.x, itemPosition.y, itemPosition.z);
-        ((ItemDisplayAccessor) filterPreviewItem).magnot$setItemStack(region.filterStack());
+        filterPreviewItem.setItem(region.filterStack().copy());
         filterPreviewText.setPos(textPosition.x, textPosition.y, textPosition.z);
-        ((TextDisplayAccessor) filterPreviewText).magnot$setText(filterMessage(region));
+        filterPreviewText.setCustomName(filterMessage(region));
     }
 
     private static void hideFilterPreview(ClientLevel level) {
