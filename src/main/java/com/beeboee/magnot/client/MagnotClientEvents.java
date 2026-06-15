@@ -13,11 +13,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Display;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.decoration.ArmorStand;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
@@ -45,8 +46,8 @@ public final class MagnotClientEvents {
     private static final double REGION_REVEAL_RADIUS_SQR = REGION_REVEAL_RADIUS * REGION_REVEAL_RADIUS;
     private static long nextRegionRemovalTick = 0L;
     private static long nextRegionFilterTick = 0L;
-    private static ArmorStand filterPreviewText;
-    private static ItemEntity filterPreviewItem;
+    private static Display.TextDisplay filterPreviewText;
+    private static Display.ItemDisplay filterPreviewItem;
 
     private MagnotClientEvents() {
     }
@@ -185,26 +186,57 @@ public final class MagnotClientEvents {
 
         if (filterPreviewItem == null || filterPreviewItem.level() != level) {
             hideFilterPreview(level);
-            filterPreviewItem = new ItemEntity(level, itemPosition.x, itemPosition.y, itemPosition.z, region.filterStack().copy());
-            filterPreviewItem.setId(FILTER_PREVIEW_ITEM_ENTITY_ID);
-            filterPreviewItem.setNoGravity(true);
-            filterPreviewItem.setPickUpDelay(32767);
+            filterPreviewItem = EntityType.ITEM_DISPLAY.create(level);
+            if (filterPreviewItem == null) {
+                return;
+            }
             level.addFreshEntity(filterPreviewItem);
         }
 
         if (filterPreviewText == null || filterPreviewText.level() != level) {
-            filterPreviewText = new ArmorStand(level, textPosition.x, textPosition.y, textPosition.z);
-            filterPreviewText.setId(FILTER_PREVIEW_TEXT_ENTITY_ID);
-            filterPreviewText.setInvisible(true);
-            filterPreviewText.setNoGravity(true);
-            filterPreviewText.setCustomNameVisible(true);
+            filterPreviewText = EntityType.TEXT_DISPLAY.create(level);
+            if (filterPreviewText == null) {
+                hideFilterPreview(level);
+                return;
+            }
             level.addFreshEntity(filterPreviewText);
         }
 
+        configureItemDisplay(level, filterPreviewItem, region.filterStack());
+        configureTextDisplay(filterPreviewText, region);
+
+        filterPreviewItem.setId(FILTER_PREVIEW_ITEM_ENTITY_ID);
+        filterPreviewItem.setNoGravity(true);
         filterPreviewItem.setPos(itemPosition.x, itemPosition.y, itemPosition.z);
-        filterPreviewItem.setItem(region.filterStack().copy());
+
+        filterPreviewText.setId(FILTER_PREVIEW_TEXT_ENTITY_ID);
+        filterPreviewText.setNoGravity(true);
         filterPreviewText.setPos(textPosition.x, textPosition.y, textPosition.z);
-        filterPreviewText.setCustomName(filterMessage(region));
+    }
+
+    private static void configureItemDisplay(ClientLevel level, Display.ItemDisplay display, ItemStack stack) {
+        CompoundTag tag = baseDisplayTag();
+        tag.putString("item_display", "gui");
+        tag.put("item", stack.copy().save(level.registryAccess()));
+        display.load(tag);
+    }
+
+    private static void configureTextDisplay(Display.TextDisplay display, FerrousRegion region) {
+        CompoundTag tag = baseDisplayTag();
+        tag.putString("text", filterMessageJson(region));
+        tag.putInt("line_width", 200);
+        tag.putInt("background", 0x00000000);
+        tag.putBoolean("default_background", false);
+        tag.putString("alignment", "center");
+        display.load(tag);
+    }
+
+    private static CompoundTag baseDisplayTag() {
+        CompoundTag tag = new CompoundTag();
+        tag.putString("billboard", "center");
+        tag.putFloat("shadow_radius", 0.0F);
+        tag.putFloat("shadow_strength", 0.0F);
+        return tag;
     }
 
     private static void hideFilterPreview(ClientLevel level) {
@@ -220,6 +252,12 @@ public final class MagnotClientEvents {
 
     private static Component filterMessage(FerrousRegion region) {
         return Component.translatable(region.whitelistMode() ? "message.magnot.filter_mode_whitelist" : "message.magnot.filter_mode_blacklist");
+    }
+
+    private static String filterMessageJson(FerrousRegion region) {
+        return region.whitelistMode()
+                ? "{\"translate\":\"message.magnot.filter_mode_whitelist\"}"
+                : "{\"translate\":\"message.magnot.filter_mode_blacklist\"}";
     }
 
     private static boolean renderRegion(LocalPlayer player, net.minecraft.world.level.Level level, FerrousRegion region, Optional<FerrousRegion> selectedRegion, Object renderSlot) {
