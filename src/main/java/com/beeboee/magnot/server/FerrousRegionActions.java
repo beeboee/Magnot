@@ -64,6 +64,7 @@ public final class FerrousRegionActions {
         Component feedback = null;
         if (clear || filterStack.isEmpty()) {
             changed = data.clearRegionFilter(selectedRegionId);
+            feedback = Component.translatable("message.magnot.filter_mode_blacklist");
         } else if (toggleMode && region.get().hasFilter()) {
             changed = data.toggleRegionFilterMode(selectedRegionId);
             feedback = data.findById(selectedRegionId).map(FerrousRegionActions::filterStateMessage).orElse(null);
