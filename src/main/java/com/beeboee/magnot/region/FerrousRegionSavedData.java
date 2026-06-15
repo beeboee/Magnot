@@ -7,6 +7,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.phys.Vec3;
 
@@ -74,6 +76,36 @@ public class FerrousRegionSavedData extends SavedData {
         regions.add(region);
         invalidateIndex();
         setDirty();
+    }
+
+    public boolean replaceRegion(FerrousRegion replacement) {
+        for (int i = 0; i < regions.size(); i++) {
+            FerrousRegion region = regions.get(i);
+            if (!region.id().equals(replacement.id())) {
+                continue;
+            }
+
+            regions.set(i, replacement);
+            invalidateIndex();
+            setDirty();
+            return true;
+        }
+        return false;
+    }
+
+    public boolean setRegionFilter(UUID id, ItemStack filterStack, boolean whitelistMode) {
+        Optional<FerrousRegion> region = findById(id);
+        return region.isPresent() && replaceRegion(region.get().withFilter(filterStack, whitelistMode));
+    }
+
+    public boolean clearRegionFilter(UUID id) {
+        Optional<FerrousRegion> region = findById(id);
+        return region.isPresent() && replaceRegion(region.get().withoutFilter());
+    }
+
+    public boolean toggleRegionFilterMode(UUID id) {
+        Optional<FerrousRegion> region = findById(id);
+        return region.isPresent() && region.get().hasFilter() && replaceRegion(region.get().toggledFilterMode());
     }
 
     public boolean removeRegion(UUID id) {
@@ -195,6 +227,26 @@ public class FerrousRegionSavedData extends SavedData {
 
     public boolean blocksSubLevelMagnet(UUID subLevelId, Vec3 source, Vec3 itemPos) {
         return index().blocksSubLevelMagnet(subLevelId, source, itemPos);
+    }
+
+    public boolean blocksItemPull(Vec3 source, ItemEntity item) {
+        return index().blocksAnyItemPull(source, item);
+    }
+
+    public boolean blocksWorldItemPull(Vec3 source, ItemEntity item) {
+        return index().blocksWorldItemPull(source, item);
+    }
+
+    public boolean blocksSubLevelItemPull(UUID subLevelId, Vec3 source, ItemEntity item) {
+        return index().blocksSubLevelItemPull(subLevelId, source, item);
+    }
+
+    public boolean blocksWorldItemPull(Vec3 source, Vec3 itemPosition, ItemStack itemStack) {
+        return index().blocksWorldItemPull(source, itemPosition, itemStack);
+    }
+
+    public boolean blocksSubLevelItemPull(UUID subLevelId, Vec3 source, Vec3 itemPosition, ItemStack itemStack) {
+        return index().blocksSubLevelItemPull(subLevelId, source, itemPosition, itemStack);
     }
 
     private FerrousRegionIndex index() {
