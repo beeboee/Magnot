@@ -21,7 +21,7 @@ public abstract class MagnetHandlerMixin {
     )
     private static void magnot$blockFerrousRegionPickup(ItemEntity itemEntity, Player player) {
         if (itemEntity.level() instanceof ServerLevel serverLevel
-                && FerrousMagnetRules.blocksPlayerMagnet(serverLevel, player, itemEntity.position())) {
+                && FerrousMagnetRules.blocksPlayerItemPull(serverLevel, player, itemEntity)) {
             return;
         }
 
