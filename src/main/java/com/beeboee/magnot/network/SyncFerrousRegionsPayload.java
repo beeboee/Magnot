@@ -4,13 +4,10 @@ import com.beeboee.magnot.Magnot;
 import com.beeboee.magnot.client.ClientFerrousRegionStore;
 import com.beeboee.magnot.region.FerrousRegion;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
 import java.util.ArrayList;
@@ -26,7 +23,7 @@ public record SyncFerrousRegionsPayload(List<FerrousRegion> regions) implements 
         regions = List.copyOf(regions);
     }
 
-    public static SyncFerrousRegionsPayload decode(FriendlyByteBuf buf) {
+    public static SyncFerrousRegionsPayload decode(RegistryFriendlyByteBuf buf) {
         int count = buf.readVarInt();
         List<FerrousRegion> regions = new ArrayList<>(count);
 
@@ -36,7 +33,7 @@ public record SyncFerrousRegionsPayload(List<FerrousRegion> regions) implements 
             BlockPos min = buf.readBlockPos();
             BlockPos max = buf.readBlockPos();
             UUID subLevelId = buf.readBoolean() ? buf.readUUID() : null;
-            ItemStack filterStack = readFilterStack(buf);
+            ItemStack filterStack = ItemStack.OPTIONAL_STREAM_CODEC.decode(buf);
             boolean whitelistMode = buf.readBoolean();
             regions.add(new FerrousRegion(id, groupId, min, max, subLevelId, filterStack, whitelistMode));
         }
@@ -44,7 +41,7 @@ public record SyncFerrousRegionsPayload(List<FerrousRegion> regions) implements 
         return new SyncFerrousRegionsPayload(regions);
     }
 
-    public void write(FriendlyByteBuf buf) {
+    public void write(RegistryFriendlyByteBuf buf) {
         buf.writeVarInt(regions.size());
         for (FerrousRegion region : regions) {
             buf.writeUUID(region.id());
@@ -55,34 +52,13 @@ public record SyncFerrousRegionsPayload(List<FerrousRegion> regions) implements 
             if (region.subLevelId() != null) {
                 buf.writeUUID(region.subLevelId());
             }
-            writeFilterStack(buf, region.filterStack());
+            ItemStack.OPTIONAL_STREAM_CODEC.encode(buf, region.filterStack());
             buf.writeBoolean(region.whitelistMode());
         }
     }
 
     public static void handle(SyncFerrousRegionsPayload payload, IPayloadContext context) {
         ClientFerrousRegionStore.setRegions(payload.regions());
-    }
-
-    private static void writeFilterStack(FriendlyByteBuf buf, ItemStack stack) {
-        buf.writeBoolean(!stack.isEmpty());
-        if (!stack.isEmpty()) {
-            buf.writeUtf(BuiltInRegistries.ITEM.getKey(stack.getItem()).toString());
-        }
-    }
-
-    private static ItemStack readFilterStack(FriendlyByteBuf buf) {
-        if (!buf.readBoolean()) {
-            return ItemStack.EMPTY;
-        }
-
-        ResourceLocation itemId = ResourceLocation.tryParse(buf.readUtf());
-        if (itemId == null) {
-            return ItemStack.EMPTY;
-        }
-
-        Item item = BuiltInRegistries.ITEM.get(itemId);
-        return item == Items.AIR ? ItemStack.EMPTY : new ItemStack(item);
     }
 
     @Override
