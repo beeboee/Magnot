@@ -59,27 +59,19 @@ public final class FerrousRegionActions {
         }
 
         boolean changed;
-        if (toggleMode) {
-            if (!region.get().hasFilter()) {
-                player.displayClientMessage(Component.translatable("message.magnot.filter_toggle_needs_filter"), true);
-                return false;
-            }
+        if (toggleMode && region.get().hasFilter()) {
             changed = data.toggleRegionFilterMode(selectedRegionId);
-            data.findById(selectedRegionId).ifPresent(updated -> player.displayClientMessage(filterStateMessage(updated), true));
         } else if (clear || filterStack.isEmpty()) {
             changed = data.clearRegionFilter(selectedRegionId);
-            if (changed) {
-                player.displayClientMessage(Component.translatable("message.magnot.filter_cleared"), true);
-            }
         } else {
             changed = data.setRegionFilter(selectedRegionId, filterStack, false);
-            data.findById(selectedRegionId).ifPresent(updated -> player.displayClientMessage(filterStateMessage(updated), true));
         }
 
         if (!changed) {
             return false;
         }
 
+        data.findById(selectedRegionId).ifPresent(updated -> player.displayClientMessage(filterStateMessage(updated), true));
         FerrousParticles.spawnRedstoneBlockEdges(serverLevel, region.get());
         MagnotNetwork.syncToPlayersInDimension(serverLevel);
         return true;
@@ -104,10 +96,7 @@ public final class FerrousRegionActions {
     }
 
     private static Component filterStateMessage(FerrousRegion region) {
-        return Component.translatable(
-                region.whitelistMode() ? "message.magnot.filter_preview_whitelist" : "message.magnot.filter_preview_blacklist",
-                region.filterStack().getHoverName()
-        );
+        return Component.translatable(region.whitelistMode() ? "message.magnot.filter_mode_whitelist" : "message.magnot.filter_mode_blacklist");
     }
 
     private static void playRemovalEffects(ServerPlayer player, ServerLevel serverLevel, FerrousRegion removed) {
