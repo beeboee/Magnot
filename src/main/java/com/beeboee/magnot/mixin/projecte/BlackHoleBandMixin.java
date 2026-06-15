@@ -61,7 +61,7 @@ public abstract class BlackHoleBandMixin {
 
         boolean worldBlocked = ClientFerrousRegionStore.regions().stream()
                 .filter(FerrousRegion::isWorldRegion)
-                .anyMatch(region -> region.blocksItemPull(target, itemTarget, item.getItem()));
+                .anyMatch(region -> region.blocksItemPull(item.level(), target, itemTarget, item.getItem()));
         if (worldBlocked) {
             return true;
         }
