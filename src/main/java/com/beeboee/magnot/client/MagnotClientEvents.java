@@ -2,7 +2,6 @@ package com.beeboee.magnot.client;
 
 import com.beeboee.magnot.Magnot;
 import com.beeboee.magnot.compat.sable.MagnotSableClientCompat;
-import com.beeboee.magnot.entity.FerrousRegionEntity;
 import com.beeboee.magnot.item.FerrousTubeItem;
 import com.beeboee.magnot.network.ConfigureFerrousRegionFilterPayload;
 import com.beeboee.magnot.network.RemoveClosestFerrousRegionPayload;
@@ -32,9 +31,7 @@ import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 
-import java.util.HashSet;
 import java.util.Optional;
-import java.util.Set;
 import java.util.UUID;
 
 @EventBusSubscriber(modid = Magnot.MOD_ID, value = Dist.CLIENT)
@@ -139,26 +136,7 @@ public final class MagnotClientEvents {
         }
 
         Optional<FerrousRegion> selectedRegion = selectedRegion(player);
-        Set<UUID> entityRenderedRegionIds = new HashSet<>();
-
-        AABB entitySearch = player.getBoundingBox().inflate(REGION_REVEAL_RADIUS);
-        for (FerrousRegionEntity entity : minecraft.level.getEntitiesOfClass(FerrousRegionEntity.class, entitySearch)) {
-            FerrousRegion entityRegion = entity.asRegion();
-            Optional<FerrousRegion> syncedRegion = ClientFerrousRegionStore.byId(entityRegion.id());
-            if (syncedRegion.isEmpty() || !syncedRegion.get().sameShapeAndSpace(entityRegion)) {
-                continue;
-            }
-
-            if (renderRegion(player, minecraft.level, syncedRegion.get(), selectedRegion, entity.getUUID())) {
-                entityRenderedRegionIds.add(entityRegion.id());
-            }
-        }
-
         for (FerrousRegion region : ClientFerrousRegionStore.regions()) {
-            if (entityRenderedRegionIds.contains(region.id())) {
-                continue;
-            }
-
             renderRegion(player, minecraft.level, region, selectedRegion, region.id());
         }
 
