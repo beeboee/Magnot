@@ -214,6 +214,6 @@ public final class MagnotSableCompat {
                 }
             }
         }
-        return transformed == null ? bounds;
+        return transformed == null ? bounds : transformed;
     }
 }
