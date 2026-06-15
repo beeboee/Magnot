@@ -57,10 +57,6 @@ public final class FerrousMagnetRules {
     }
 
     public static boolean blocksItemPull(ServerLevel level, Vec3 magnetSource, ItemEntity item) {
-        if (sourceBlocked(level, magnetSource)) {
-            return true;
-        }
-
         Vec3 target = itemPullTarget(item);
         MagnetCheckKey cacheKey = MagnetCheckKey.sourceItem(magnetSource, target, item);
         Boolean cached = getCached(level, cacheKey);
@@ -87,10 +83,6 @@ public final class FerrousMagnetRules {
     }
 
     public static boolean blocksPlayerItemPull(ServerLevel level, Player player, ItemEntity item) {
-        if (playerSourceBlocked(level, player)) {
-            return true;
-        }
-
         Vec3 target = itemPullTarget(item);
         MagnetCheckKey cacheKey = MagnetCheckKey.playerItem(player, target, item);
         Boolean cached = getCached(level, cacheKey);
