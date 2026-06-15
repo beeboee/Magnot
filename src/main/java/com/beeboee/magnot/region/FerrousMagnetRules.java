@@ -70,7 +70,7 @@ public final class FerrousMagnetRules {
             blocked = MagnotSableCompat.blocksItemPull(level, magnetSource, item);
             MagnotDebug.recordFallbackCheck(level, "sable-item", blocked);
         } else {
-            blocked = FerrousRegionSavedData.get(level).blocksItemPull(magnetSource, item);
+            blocked = FerrousRegionSavedData.get(level).blocksItemPull(level, magnetSource, item);
             MagnotDebug.recordFallbackCheck(level, "saved-data-item", blocked);
         }
 
@@ -104,9 +104,9 @@ public final class FerrousMagnetRules {
             MagnotDebug.recordFallbackCheck(level, "sable-player-item", blocked);
         } else {
             FerrousRegionSavedData data = FerrousRegionSavedData.get(level);
-            blocked = data.blocksItemPull(feet, item)
-                    || data.blocksItemPull(bodyCenter, item)
-                    || data.blocksItemPull(eye, item);
+            blocked = data.blocksItemPull(level, feet, item)
+                    || data.blocksItemPull(level, bodyCenter, item)
+                    || data.blocksItemPull(level, eye, item);
             MagnotDebug.recordFallbackCheck(level, "saved-data-player-item", blocked);
         }
 
