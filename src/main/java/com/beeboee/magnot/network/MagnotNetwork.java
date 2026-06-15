@@ -39,6 +39,14 @@ public final class MagnotNetwork {
                 ),
                 ConfigureFerrousRegionFilterPayload::handle
         );
+        registrar.playToServer(
+                ToggleFerrousTubeFilterModePayload.TYPE,
+                StreamCodec.of(
+                        (RegistryFriendlyByteBuf buf, ToggleFerrousTubeFilterModePayload payload) -> payload.write(buf),
+                        ToggleFerrousTubeFilterModePayload::decode
+                ),
+                ToggleFerrousTubeFilterModePayload::handle
+        );
     }
 
     public static void syncTo(ServerPlayer player) {
