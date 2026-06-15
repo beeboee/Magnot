@@ -3,6 +3,9 @@ package com.beeboee.magnot.client;
 import com.beeboee.magnot.Magnot;
 import com.beeboee.magnot.compat.sable.MagnotSableClientCompat;
 import com.beeboee.magnot.item.FerrousTubeItem;
+import com.beeboee.magnot.mixin.display.DisplayAccessor;
+import com.beeboee.magnot.mixin.display.ItemDisplayAccessor;
+import com.beeboee.magnot.mixin.display.TextDisplayAccessor;
 import com.beeboee.magnot.network.ConfigureFerrousRegionFilterPayload;
 import com.beeboee.magnot.network.RemoveClosestFerrousRegionPayload;
 import com.beeboee.magnot.network.ToggleFerrousTubeFilterModePayload;
@@ -13,12 +16,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Display;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
@@ -190,7 +193,6 @@ public final class MagnotClientEvents {
             if (filterPreviewItem == null) {
                 return;
             }
-            configureItemDisplay(level, filterPreviewItem, region.filterStack());
             filterPreviewItem.setId(FILTER_PREVIEW_ITEM_ENTITY_ID);
             filterPreviewItem.setNoGravity(true);
             filterPreviewItem.setPos(itemPosition.x, itemPosition.y, itemPosition.z);
@@ -203,48 +205,31 @@ public final class MagnotClientEvents {
                 hideFilterPreview(level);
                 return;
             }
-            configureTextDisplay(filterPreviewText, region);
             filterPreviewText.setId(FILTER_PREVIEW_TEXT_ENTITY_ID);
             filterPreviewText.setNoGravity(true);
             filterPreviewText.setPos(textPosition.x, textPosition.y, textPosition.z);
             level.addFreshEntity(filterPreviewText);
         }
 
-        configureItemDisplay(level, filterPreviewItem, region.filterStack());
+        configureItemDisplay(filterPreviewItem, region.filterStack());
         configureTextDisplay(filterPreviewText, region);
 
-        filterPreviewItem.setId(FILTER_PREVIEW_ITEM_ENTITY_ID);
         filterPreviewItem.setNoGravity(true);
         filterPreviewItem.setPos(itemPosition.x, itemPosition.y, itemPosition.z);
-
-        filterPreviewText.setId(FILTER_PREVIEW_TEXT_ENTITY_ID);
         filterPreviewText.setNoGravity(true);
         filterPreviewText.setPos(textPosition.x, textPosition.y, textPosition.z);
     }
 
-    private static void configureItemDisplay(ClientLevel level, Display.ItemDisplay display, ItemStack stack) {
-        CompoundTag tag = baseDisplayTag();
-        tag.putString("item_display", "gui");
-        tag.put("item", stack.copy().save(level.registryAccess()));
-        display.load(tag);
+    private static void configureItemDisplay(Display.ItemDisplay display, ItemStack stack) {
+        ((DisplayAccessor) display).magnot$setBillboardConstraints(Display.BillboardConstraints.CENTER);
+        ((ItemDisplayAccessor) display).magnot$setItemTransform(ItemDisplayContext.GUI);
+        ((ItemDisplayAccessor) display).magnot$setItemStack(stack.copy());
     }
 
     private static void configureTextDisplay(Display.TextDisplay display, FerrousRegion region) {
-        CompoundTag tag = baseDisplayTag();
-        tag.putString("text", filterMessageJson(region));
-        tag.putInt("line_width", 200);
-        tag.putInt("background", 0x00000000);
-        tag.putBoolean("default_background", false);
-        tag.putString("alignment", "center");
-        display.load(tag);
-    }
-
-    private static CompoundTag baseDisplayTag() {
-        CompoundTag tag = new CompoundTag();
-        tag.putString("billboard", "center");
-        tag.putFloat("shadow_radius", 0.0F);
-        tag.putFloat("shadow_strength", 0.0F);
-        return tag;
+        ((DisplayAccessor) display).magnot$setBillboardConstraints(Display.BillboardConstraints.CENTER);
+        ((TextDisplayAccessor) display).magnot$setLineWidth(200);
+        ((TextDisplayAccessor) display).magnot$setText(filterMessage(region));
     }
 
     private static void hideFilterPreview(ClientLevel level) {
@@ -260,12 +245,6 @@ public final class MagnotClientEvents {
 
     private static Component filterMessage(FerrousRegion region) {
         return Component.translatable(region.whitelistMode() ? "message.magnot.filter_mode_whitelist" : "message.magnot.filter_mode_blacklist");
-    }
-
-    private static String filterMessageJson(FerrousRegion region) {
-        return region.whitelistMode()
-                ? "{\"translate\":\"message.magnot.filter_mode_whitelist\"}"
-                : "{\"translate\":\"message.magnot.filter_mode_blacklist\"}";
     }
 
     private static boolean renderRegion(LocalPlayer player, net.minecraft.world.level.Level level, FerrousRegion region, Optional<FerrousRegion> selectedRegion, Object renderSlot) {
