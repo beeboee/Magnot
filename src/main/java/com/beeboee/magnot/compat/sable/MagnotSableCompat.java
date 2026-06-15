@@ -76,7 +76,7 @@ public final class MagnotSableCompat {
         Vec3 globalSource = SableCompanion.INSTANCE.projectOutOfSubLevel(level, source);
         Vec3 globalItemPosition = SableCompanion.INSTANCE.projectOutOfSubLevel(level, itemPosition);
 
-        if (data.blocksWorldItemPull(globalSource, globalItemPosition, itemStack)) {
+        if (data.blocksWorldItemPull(level, globalSource, globalItemPosition, itemStack)) {
             return true;
         }
 
@@ -84,7 +84,7 @@ public final class MagnotSableCompat {
             Vec3 localSource = subLevel.logicalPose().transformPositionInverse(globalSource);
             Vec3 localItemPosition = subLevel.logicalPose().transformPositionInverse(globalItemPosition);
 
-            if (data.blocksSubLevelItemPull(subLevel.getUniqueId(), localSource, localItemPosition, itemStack)) {
+            if (data.blocksSubLevelItemPull(level, subLevel.getUniqueId(), localSource, localItemPosition, itemStack)) {
                 return true;
             }
         }
@@ -214,6 +214,6 @@ public final class MagnotSableCompat {
                 }
             }
         }
-        return transformed == null ? bounds : transformed;
+        return transformed == null ? bounds;
     }
 }
