@@ -1,6 +1,7 @@
 package com.beeboee.magnot.compat.sable;
 
 import com.beeboee.magnot.client.ClientFerrousRegionStore;
+import com.beeboee.magnot.region.FerrousMagnetRules;
 import com.beeboee.magnot.region.FerrousRegion;
 import dev.ryanhcode.sable.api.sublevel.SubLevelContainer;
 import dev.ryanhcode.sable.companion.SableCompanion;
@@ -8,6 +9,7 @@ import dev.ryanhcode.sable.companion.SubLevelAccess;
 import dev.ryanhcode.sable.neoforge.mixinhelper.compatibility.create.renderers.AABBOutlineRenderingOptions;
 import net.createmod.catnip.outliner.Outliner;
 import net.createmod.catnip.render.BindableTexture;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -21,6 +23,23 @@ public final class MagnotSableClientCompat {
 
     public static boolean blocksMagnet(Level level, Vec3 source, Vec3 itemPosition) {
         return closestIntersecting(level, source, itemPosition).isPresent();
+    }
+
+    public static boolean blocksItemPull(Level level, Vec3 source, ItemEntity item) {
+        Vec3 globalFrom = SableCompanion.INSTANCE.projectOutOfSubLevel(level, source);
+        Vec3 globalTo = SableCompanion.INSTANCE.projectOutOfSubLevel(level, FerrousMagnetRules.itemPullTarget(item));
+
+        for (SubLevelAccess subLevel : candidateSubLevels(level, source, FerrousMagnetRules.itemPullTarget(item))) {
+            Vec3 localFrom = subLevel.logicalPose().transformPositionInverse(globalFrom);
+            Vec3 localTo = subLevel.logicalPose().transformPositionInverse(globalTo);
+            for (FerrousRegion region : ClientFerrousRegionStore.regions()) {
+                if (region.belongsToSubLevel(subLevel.getUniqueId()) && region.blocksItemPull(localFrom, localTo, item.getItem())) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     public static Optional<FerrousRegion> closestIntersecting(Level level, Vec3 from, Vec3 to) {
