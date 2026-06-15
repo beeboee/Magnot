@@ -1,7 +1,6 @@
 package com.beeboee.magnot.compat.sable;
 
 import com.beeboee.magnot.debug.MagnotDebug;
-import com.beeboee.magnot.entity.FerrousRegionEntities;
 import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.region.FerrousRegionSavedData;
@@ -142,7 +141,6 @@ public final class MagnotSableCompat {
             }
 
             data.addRegion(transformed);
-            FerrousRegionEntities.replace(level, region, transformed);
         }
 
         MagnotNetwork.syncToPlayersInDimension(level);
