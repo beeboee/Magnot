@@ -11,6 +11,8 @@ import dev.ryanhcode.sable.companion.SableCompanion;
 import dev.ryanhcode.sable.companion.SubLevelAccess;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
@@ -61,6 +63,29 @@ public final class MagnotSableCompat {
             Vec3 localItemPosition = subLevel.logicalPose().transformPositionInverse(globalItemPosition);
 
             if (data.blocksSubLevelMagnet(subLevel.getUniqueId(), localSource, localItemPosition)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean blocksItemPull(ServerLevel level, Vec3 source, ItemEntity item) {
+        FerrousRegionSavedData data = FerrousRegionSavedData.get(level);
+        Vec3 itemPosition = item.position().add(0.0D, item.getBbHeight() / 2.0D, 0.0D);
+        ItemStack itemStack = item.getItem();
+        Vec3 globalSource = SableCompanion.INSTANCE.projectOutOfSubLevel(level, source);
+        Vec3 globalItemPosition = SableCompanion.INSTANCE.projectOutOfSubLevel(level, itemPosition);
+
+        if (data.blocksWorldItemPull(globalSource, globalItemPosition, itemStack)) {
+            return true;
+        }
+
+        for (SubLevelAccess subLevel : candidateSubLevels(level, source, itemPosition)) {
+            Vec3 localSource = subLevel.logicalPose().transformPositionInverse(globalSource);
+            Vec3 localItemPosition = subLevel.logicalPose().transformPositionInverse(globalItemPosition);
+
+            if (data.blocksSubLevelItemPull(subLevel.getUniqueId(), localSource, localItemPosition, itemStack)) {
                 return true;
             }
         }
@@ -177,7 +202,7 @@ public final class MagnotSableCompat {
         AABB bounds = transformBounds(region.bounds(), transform);
         BlockPos min = BlockPos.containing(bounds.minX, bounds.minY, bounds.minZ);
         BlockPos max = BlockPos.containing(bounds.maxX - 1.0E-6D, bounds.maxY - 1.0E-6D, bounds.maxZ - 1.0E-6D);
-        return FerrousRegion.fromCorners(region.id(), region.groupId(), min, max, targetSubLevelId);
+        return FerrousRegion.fromCorners(region.id(), region.groupId(), min, max, targetSubLevelId, region.filterStack(), region.whitelistMode());
     }
 
     private static AABB transformBounds(AABB bounds, SubLevelAssemblyHelper.AssemblyTransform transform) {
