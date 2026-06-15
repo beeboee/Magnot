@@ -36,10 +36,9 @@ public final class MagnotClientEvents {
     private static final Object SELECTION_OUTLINE_SLOT = new Object();
     private static final int FERROUS_RED = 0xBD2537;
     private static final int LIMIT_YELLOW = 0xFFD43B;
-    private static final int HUD_BACKGROUND = 0xE8000000;
-    private static final int HUD_BORDER = 0xFFBD2537;
+    private static final int HUD_BACKGROUND = 0xA0000000;
+    private static final int HUD_BORDER = 0xCCBD2537;
     private static final int HUD_TEXT = 0xFFFFFFFF;
-    private static final int HUD_MAX_ITEM_NAME_LENGTH = 18;
     private static final double REGION_REVEAL_RADIUS = 25.0D;
     private static final double REGION_REVEAL_RADIUS_SQR = REGION_REVEAL_RADIUS * REGION_REVEAL_RADIUS;
     private static long nextRegionRemovalTick = 0L;
@@ -171,7 +170,7 @@ public final class MagnotClientEvents {
     }
 
     @SubscribeEvent
-    public static void onRenderGui(RenderGuiEvent.Post event) {
+    public static void onRenderGui(RenderGuiEvent.Pre event) {
         Minecraft minecraft = Minecraft.getInstance();
         if (minecraft.player == null || minecraft.options.hideGui || filterPreviewRegion == null || !holdingFerrousTube()) {
             return;
@@ -183,7 +182,7 @@ public final class MagnotClientEvents {
         }
 
         GuiGraphics graphics = event.getGuiGraphics();
-        String text = filterPreviewText(filterPreviewRegion, filterStack);
+        String text = filterPreviewMode(filterPreviewRegion);
         int textWidth = minecraft.font.width(text);
         int width = textWidth + 25;
         int height = 19;
@@ -199,13 +198,8 @@ public final class MagnotClientEvents {
         graphics.drawString(minecraft.font, text, x + 21, y + 5, HUD_TEXT, true);
     }
 
-    private static String filterPreviewText(FerrousRegion region, ItemStack filterStack) {
-        String mode = region.whitelistMode() ? "Allow" : "Block";
-        String name = filterStack.getHoverName().getString();
-        if (name.length() > HUD_MAX_ITEM_NAME_LENGTH) {
-            name = name.substring(0, HUD_MAX_ITEM_NAME_LENGTH - 1) + "…";
-        }
-        return mode + ": " + name;
+    private static String filterPreviewMode(FerrousRegion region) {
+        return region.whitelistMode() ? "Allow" : "Block";
     }
 
     private static boolean renderRegion(LocalPlayer player, net.minecraft.world.level.Level level, FerrousRegion region, Optional<FerrousRegion> selectedRegion, Object renderSlot) {
