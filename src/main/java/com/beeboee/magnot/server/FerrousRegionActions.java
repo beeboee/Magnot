@@ -63,7 +63,7 @@ public final class FerrousRegionActions {
         Component feedback = null;
         if (clear || filterStack.isEmpty()) {
             changed = data.clearRegionFilter(selectedRegionId);
-            feedback = Component.translatable("message.magnot.filter_mode_blacklist");
+            feedback = Component.translatable("message.magnot.filter_cleared");
         } else if (toggleMode && region.get().hasFilter()) {
             changed = data.toggleRegionFilterMode(selectedRegionId);
             feedback = data.findById(selectedRegionId).map(FerrousRegionActions::filterStateMessage).orElse(null);
@@ -117,7 +117,7 @@ public final class FerrousRegionActions {
     }
 
     private static Component filterStateMessage(FerrousRegion region) {
-        return Component.translatable(region.whitelistMode() ? "message.magnot.filter_mode_whitelist" : "message.magnot.filter_mode_blacklist");
+        return Component.translatable(region.whitelistMode() ? "message.magnot.filter_mode_allow" : "message.magnot.filter_mode_block");
     }
 
     private static void playRemovalEffects(ServerPlayer player, ServerLevel serverLevel, FerrousRegion removed) {
