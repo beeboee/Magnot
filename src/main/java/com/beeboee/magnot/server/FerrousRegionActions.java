@@ -47,7 +47,7 @@ public final class FerrousRegionActions {
         return true;
     }
 
-    public static boolean configureSelectedRegionFilter(ServerPlayer player, UUID selectedRegionId, ItemStack filterStack, boolean clear, boolean whitelistMode) {
+    public static boolean configureSelectedRegionFilter(ServerPlayer player, UUID selectedRegionId, ItemStack filterStack, boolean clear, boolean toggleMode) {
         if (!(player.level() instanceof ServerLevel serverLevel)) {
             return false;
         }
@@ -58,9 +58,15 @@ public final class FerrousRegionActions {
             return false;
         }
 
-        boolean changed = clear || filterStack.isEmpty()
-                ? data.clearRegionFilter(selectedRegionId)
-                : data.setRegionFilter(selectedRegionId, filterStack, whitelistMode);
+        boolean changed;
+        if (clear || filterStack.isEmpty()) {
+            changed = data.clearRegionFilter(selectedRegionId);
+        } else if (toggleMode && region.get().hasFilter()) {
+            changed = data.toggleRegionFilterMode(selectedRegionId);
+        } else {
+            boolean mode = region.get().hasFilter() && region.get().whitelistMode();
+            changed = data.setRegionFilter(selectedRegionId, filterStack, mode);
+        }
 
         if (!changed) {
             return false;
