@@ -14,10 +14,11 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Display;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.decoration.ArmorStand;
-import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
@@ -45,8 +46,8 @@ public final class MagnotClientEvents {
     private static final double REGION_REVEAL_RADIUS_SQR = REGION_REVEAL_RADIUS * REGION_REVEAL_RADIUS;
     private static long nextRegionRemovalTick = 0L;
     private static long nextRegionFilterTick = 0L;
-    private static ArmorStand filterPreviewText;
-    private static ItemEntity filterPreviewItem;
+    private static Display.TextDisplay filterPreviewText;
+    private static Display.ItemDisplay filterPreviewItem;
 
     private MagnotClientEvents() {
     }
@@ -185,26 +186,35 @@ public final class MagnotClientEvents {
 
         if (filterPreviewItem == null || filterPreviewItem.level() != level) {
             hideFilterPreview(level);
-            filterPreviewItem = new ItemEntity(level, itemPosition.x, itemPosition.y, itemPosition.z, region.filterStack().copy());
+            filterPreviewItem = EntityType.ITEM_DISPLAY.create(level);
+            if (filterPreviewItem == null) {
+                return;
+            }
             filterPreviewItem.setId(FILTER_PREVIEW_ITEM_ENTITY_ID);
             filterPreviewItem.setNoGravity(true);
-            filterPreviewItem.setPickUpDelay(32767);
+            filterPreviewItem.setBillboardConstraints(Display.BillboardConstraints.CENTER);
+            filterPreviewItem.setItemTransform(ItemDisplayContext.GUI);
             level.addFreshEntity(filterPreviewItem);
         }
 
         if (filterPreviewText == null || filterPreviewText.level() != level) {
-            filterPreviewText = new ArmorStand(level, textPosition.x, textPosition.y, textPosition.z);
+            filterPreviewText = EntityType.TEXT_DISPLAY.create(level);
+            if (filterPreviewText == null) {
+                hideFilterPreview(level);
+                return;
+            }
             filterPreviewText.setId(FILTER_PREVIEW_TEXT_ENTITY_ID);
-            filterPreviewText.setInvisible(true);
             filterPreviewText.setNoGravity(true);
-            filterPreviewText.setCustomNameVisible(true);
+            filterPreviewText.setBillboardConstraints(Display.BillboardConstraints.CENTER);
+            filterPreviewText.setLineWidth(200);
+            filterPreviewText.setDefaultBackground(false);
             level.addFreshEntity(filterPreviewText);
         }
 
         filterPreviewItem.setPos(itemPosition.x, itemPosition.y, itemPosition.z);
-        filterPreviewItem.setItem(region.filterStack().copy());
+        filterPreviewItem.setItemStack(region.filterStack().copy());
         filterPreviewText.setPos(textPosition.x, textPosition.y, textPosition.z);
-        filterPreviewText.setCustomName(filterMessage(region));
+        filterPreviewText.setText(filterMessage(region));
     }
 
     private static void hideFilterPreview(ClientLevel level) {
