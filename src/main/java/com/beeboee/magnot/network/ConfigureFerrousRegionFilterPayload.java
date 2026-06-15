@@ -14,7 +14,7 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 
 import java.util.UUID;
 
-public record ConfigureFerrousRegionFilterPayload(UUID selectedRegionId, ItemStack filterStack, boolean clear, boolean toggleMode) implements CustomPacketPayload {
+public record ConfigureFerrousRegionFilterPayload(UUID selectedRegionId, ItemStack filterStack, boolean clear, boolean whitelistMode) implements CustomPacketPayload {
     public static final Type<ConfigureFerrousRegionFilterPayload> TYPE = new Type<>(
             ResourceLocation.fromNamespaceAndPath(Magnot.MOD_ID, "configure_ferrous_region_filter")
     );
@@ -27,15 +27,15 @@ public record ConfigureFerrousRegionFilterPayload(UUID selectedRegionId, ItemSta
         UUID selectedRegionId = buf.readUUID();
         ItemStack filterStack = readFilterStack(buf);
         boolean clear = buf.readBoolean();
-        boolean toggleMode = buf.readBoolean();
-        return new ConfigureFerrousRegionFilterPayload(selectedRegionId, filterStack, clear, toggleMode);
+        boolean whitelistMode = buf.readBoolean();
+        return new ConfigureFerrousRegionFilterPayload(selectedRegionId, filterStack, clear, whitelistMode);
     }
 
     public void write(FriendlyByteBuf buf) {
         buf.writeUUID(selectedRegionId);
         writeFilterStack(buf, filterStack);
         buf.writeBoolean(clear);
-        buf.writeBoolean(toggleMode);
+        buf.writeBoolean(whitelistMode);
     }
 
     public static void handle(ConfigureFerrousRegionFilterPayload payload, IPayloadContext context) {
@@ -45,7 +45,7 @@ public record ConfigureFerrousRegionFilterPayload(UUID selectedRegionId, ItemSta
                     payload.selectedRegionId(),
                     payload.filterStack(),
                     payload.clear(),
-                    payload.toggleMode()
+                    payload.whitelistMode()
             );
         }
     }
