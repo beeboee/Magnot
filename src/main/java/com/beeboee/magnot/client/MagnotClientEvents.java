@@ -194,7 +194,7 @@ public final class MagnotClientEvents {
             filterPreviewItem.setId(FILTER_PREVIEW_ITEM_ENTITY_ID);
             filterPreviewItem.setNoGravity(true);
             filterPreviewItem.setPos(itemPosition.x, itemPosition.y, itemPosition.z);
-            level.putNonPlayerEntity(FILTER_PREVIEW_ITEM_ENTITY_ID, filterPreviewItem);
+            level.addFreshEntity(filterPreviewItem);
         }
 
         if (filterPreviewText == null || filterPreviewText.level() != level) {
@@ -207,7 +207,7 @@ public final class MagnotClientEvents {
             filterPreviewText.setId(FILTER_PREVIEW_TEXT_ENTITY_ID);
             filterPreviewText.setNoGravity(true);
             filterPreviewText.setPos(textPosition.x, textPosition.y, textPosition.z);
-            level.putNonPlayerEntity(FILTER_PREVIEW_TEXT_ENTITY_ID, filterPreviewText);
+            level.addFreshEntity(filterPreviewText);
         }
 
         configureItemDisplay(level, filterPreviewItem, region.filterStack());
