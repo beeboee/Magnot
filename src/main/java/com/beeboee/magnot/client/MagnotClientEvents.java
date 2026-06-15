@@ -143,7 +143,7 @@ public final class MagnotClientEvents {
         var firstCorner = FerrousTubeItem.getFirstCorner(held);
         if (firstCorner.isEmpty()) {
             if (selectedRegion.filter(FerrousRegion::hasFilter).isPresent()) {
-                handleSelectedFilteredRegion(player, minecraft.level, selectedRegion.get());
+                showFilterPreview(minecraft.level, selectedRegion.get());
             } else {
                 hideFilterPreview(minecraft.level);
             }
@@ -173,11 +173,6 @@ public final class MagnotClientEvents {
                 .withFaceTextures(MagnotSpecialTextures.FERROUS_REGION, MagnotSpecialTextures.FERROUS_REGION)
                 .disableLineNormals()
                 .lineWidth(1.0F / 16.0F);
-    }
-
-    private static void handleSelectedFilteredRegion(LocalPlayer player, ClientLevel level, FerrousRegion region) {
-        showFilterPreview(level, region);
-        player.displayClientMessage(filterMessage(region), true);
     }
 
     private static void showFilterPreview(ClientLevel level, FerrousRegion region) {
