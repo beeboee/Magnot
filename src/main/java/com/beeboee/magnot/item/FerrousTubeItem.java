@@ -155,7 +155,7 @@ public class FerrousTubeItem extends Item {
     }
 
     public static Component filterModeMessage(ItemStack stack) {
-        return Component.translatable(isFilterWhitelistMode(stack) ? "message.magnot.filter_mode_whitelist" : "message.magnot.filter_mode_blacklist");
+        return Component.translatable(isFilterWhitelistMode(stack) ? "message.magnot.filter_mode_allow" : "message.magnot.filter_mode_block");
     }
 
     public static BlockPos clampToRegionLimit(BlockPos first, BlockPos second) {
@@ -190,7 +190,6 @@ public class FerrousTubeItem extends Item {
         if (player.getAbilities().instabuild) {
             return;
         }
-
         stack.hurtAndBreak(REGION_PLACEMENT_DAMAGE, player, LivingEntity.getSlotForHand(hand));
     }
 
