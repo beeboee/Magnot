@@ -2,14 +2,11 @@ package com.beeboee.magnot.network;
 
 import com.beeboee.magnot.Magnot;
 import com.beeboee.magnot.server.FerrousRegionActions;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
 import java.util.UUID;
@@ -23,17 +20,17 @@ public record ConfigureFerrousRegionFilterPayload(UUID selectedRegionId, ItemSta
         filterStack = filterStack == null ? ItemStack.EMPTY : filterStack.copyWithCount(1);
     }
 
-    public static ConfigureFerrousRegionFilterPayload decode(FriendlyByteBuf buf) {
+    public static ConfigureFerrousRegionFilterPayload decode(RegistryFriendlyByteBuf buf) {
         UUID selectedRegionId = buf.readUUID();
-        ItemStack filterStack = readFilterStack(buf);
+        ItemStack filterStack = ItemStack.OPTIONAL_STREAM_CODEC.decode(buf);
         boolean clear = buf.readBoolean();
         boolean toggleMode = buf.readBoolean();
         return new ConfigureFerrousRegionFilterPayload(selectedRegionId, filterStack, clear, toggleMode);
     }
 
-    public void write(FriendlyByteBuf buf) {
+    public void write(RegistryFriendlyByteBuf buf) {
         buf.writeUUID(selectedRegionId);
-        writeFilterStack(buf, filterStack);
+        ItemStack.OPTIONAL_STREAM_CODEC.encode(buf, filterStack);
         buf.writeBoolean(clear);
         buf.writeBoolean(toggleMode);
     }
@@ -48,27 +45,6 @@ public record ConfigureFerrousRegionFilterPayload(UUID selectedRegionId, ItemSta
                     payload.toggleMode()
             );
         }
-    }
-
-    private static void writeFilterStack(FriendlyByteBuf buf, ItemStack stack) {
-        buf.writeBoolean(!stack.isEmpty());
-        if (!stack.isEmpty()) {
-            buf.writeUtf(BuiltInRegistries.ITEM.getKey(stack.getItem()).toString());
-        }
-    }
-
-    private static ItemStack readFilterStack(FriendlyByteBuf buf) {
-        if (!buf.readBoolean()) {
-            return ItemStack.EMPTY;
-        }
-
-        ResourceLocation itemId = ResourceLocation.tryParse(buf.readUtf());
-        if (itemId == null) {
-            return ItemStack.EMPTY;
-        }
-
-        Item item = BuiltInRegistries.ITEM.get(itemId);
-        return item == Items.AIR ? ItemStack.EMPTY : new ItemStack(item);
     }
 
     @Override
