@@ -9,7 +9,6 @@ import com.beeboee.magnot.network.ToggleFerrousTubeFilterModePayload;
 import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.registry.MagnotItems;
 import com.simibubi.create.content.logistics.filter.FilterItem;
-import com.simibubi.create.content.logistics.filter.FilterItemStack;
 import net.createmod.catnip.outliner.Outliner;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -274,13 +273,6 @@ public final class MagnotClientEvents {
             return List.of();
         }
 
-        FilterItemStack wrappedFilter;
-        try {
-            wrappedFilter = FilterItemStack.of(filterStack.copy());
-        } catch (RuntimeException ignored) {
-            return List.of();
-        }
-
         List<ItemStack> stacks = new ArrayList<>();
         for (Item item : BuiltInRegistries.ITEM) {
             ItemStack candidate = item.getDefaultInstance();
@@ -289,7 +281,7 @@ public final class MagnotClientEvents {
             }
 
             try {
-                if (wrappedFilter.test(level, candidate)) {
+                if (FerrousRegion.matchesFilterStack(level, filterStack, candidate)) {
                     stacks.add(candidate.copyWithCount(1));
                     if (stacks.size() >= HUD_MAX_EXPANDED_MATCHES) {
                         break;
