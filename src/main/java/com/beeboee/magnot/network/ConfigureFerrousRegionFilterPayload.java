@@ -2,11 +2,14 @@ package com.beeboee.magnot.network;
 
 import com.beeboee.magnot.Magnot;
 import com.beeboee.magnot.server.FerrousRegionActions;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
 import java.util.UUID;
@@ -22,7 +25,7 @@ public record ConfigureFerrousRegionFilterPayload(UUID selectedRegionId, ItemSta
 
     public static ConfigureFerrousRegionFilterPayload decode(FriendlyByteBuf buf) {
         UUID selectedRegionId = buf.readUUID();
-        ItemStack filterStack = buf.readItem();
+        ItemStack filterStack = readFilterStack(buf);
         boolean clear = buf.readBoolean();
         boolean toggleMode = buf.readBoolean();
         return new ConfigureFerrousRegionFilterPayload(selectedRegionId, filterStack, clear, toggleMode);
@@ -30,7 +33,7 @@ public record ConfigureFerrousRegionFilterPayload(UUID selectedRegionId, ItemSta
 
     public void write(FriendlyByteBuf buf) {
         buf.writeUUID(selectedRegionId);
-        buf.writeItem(filterStack);
+        writeFilterStack(buf, filterStack);
         buf.writeBoolean(clear);
         buf.writeBoolean(toggleMode);
     }
@@ -45,6 +48,27 @@ public record ConfigureFerrousRegionFilterPayload(UUID selectedRegionId, ItemSta
                     payload.toggleMode()
             );
         }
+    }
+
+    private static void writeFilterStack(FriendlyByteBuf buf, ItemStack stack) {
+        buf.writeBoolean(!stack.isEmpty());
+        if (!stack.isEmpty()) {
+            buf.writeUtf(BuiltInRegistries.ITEM.getKey(stack.getItem()).toString());
+        }
+    }
+
+    private static ItemStack readFilterStack(FriendlyByteBuf buf) {
+        if (!buf.readBoolean()) {
+            return ItemStack.EMPTY;
+        }
+
+        ResourceLocation itemId = ResourceLocation.tryParse(buf.readUtf());
+        if (itemId == null) {
+            return ItemStack.EMPTY;
+        }
+
+        Item item = BuiltInRegistries.ITEM.get(itemId);
+        return item == Items.AIR ? ItemStack.EMPTY : new ItemStack(item);
     }
 
     @Override
