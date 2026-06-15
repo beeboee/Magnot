@@ -5,5 +5,10 @@
   "message.magnot.click_to_confirm": "Click again to confirm",
   "message.magnot.selection_cleared": "Selection discarded",
   "message.magnot.region_created": "Applying Paste...",
-  "message.magnot.region_removed": "Region removed"
+  "message.magnot.region_removed": "Region removed",
+  "message.magnot.filter_set": "Filter set: %s",
+  "message.magnot.filter_cleared": "Filter cleared",
+  "message.magnot.filter_mode_blacklist": "Blacklist",
+  "message.magnot.filter_mode_whitelist": "Whitelist",
+  "message.magnot.filter_preview": "%s: %s"
 }
