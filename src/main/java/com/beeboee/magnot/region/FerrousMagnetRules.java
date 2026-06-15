@@ -62,6 +62,10 @@ public final class FerrousMagnetRules {
         return item.position().add(0.0D, item.getBbHeight() / 2.0D, 0.0D);
     }
 
+    public static boolean blocksPlayerItemPull(ServerLevel level, Player player, ItemEntity item) {
+        return blocksPlayerMagnet(level, player, itemPullTarget(item));
+    }
+
     public static boolean blocksPlayerMagnet(ServerLevel level, Player player, Vec3 targetPosition) {
         if (playerSourceBlocked(level, player)) {
             return true;
