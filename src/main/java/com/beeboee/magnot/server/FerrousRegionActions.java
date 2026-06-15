@@ -59,26 +59,21 @@ public final class FerrousRegionActions {
         }
 
         boolean changed;
-        if (clear || filterStack.isEmpty()) {
+        if (toggleMode) {
+            if (!region.get().hasFilter()) {
+                player.displayClientMessage(Component.translatable("message.magnot.filter_toggle_needs_filter"), true);
+                return false;
+            }
+            changed = data.toggleRegionFilterMode(selectedRegionId);
+            data.findById(selectedRegionId).ifPresent(updated -> player.displayClientMessage(filterStateMessage(updated), true));
+        } else if (clear || filterStack.isEmpty()) {
             changed = data.clearRegionFilter(selectedRegionId);
             if (changed) {
                 player.displayClientMessage(Component.translatable("message.magnot.filter_cleared"), true);
             }
-        } else if (toggleMode) {
-            changed = data.toggleRegionFilterMode(selectedRegionId);
-            if (changed) {
-                String modeKey = data.findById(selectedRegionId)
-                        .map(FerrousRegion::whitelistMode)
-                        .orElse(false)
-                        ? "message.magnot.filter_mode_whitelist"
-                        : "message.magnot.filter_mode_blacklist";
-                player.displayClientMessage(Component.translatable(modeKey), true);
-            }
         } else {
             changed = data.setRegionFilter(selectedRegionId, filterStack, false);
-            if (changed) {
-                player.displayClientMessage(Component.translatable("message.magnot.filter_set", filterStack.getHoverName()), true);
-            }
+            data.findById(selectedRegionId).ifPresent(updated -> player.displayClientMessage(filterStateMessage(updated), true));
         }
 
         if (!changed) {
@@ -106,6 +101,13 @@ public final class FerrousRegionActions {
 
         playRemovalEffects(player, serverLevel, removed.get());
         return true;
+    }
+
+    private static Component filterStateMessage(FerrousRegion region) {
+        return Component.translatable(
+                region.whitelistMode() ? "message.magnot.filter_preview_whitelist" : "message.magnot.filter_preview_blacklist",
+                region.filterStack().getHoverName()
+        );
     }
 
     private static void playRemovalEffects(ServerPlayer player, ServerLevel serverLevel, FerrousRegion removed) {
