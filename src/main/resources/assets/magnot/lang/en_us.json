@@ -7,5 +7,7 @@
   "message.magnot.region_created": "Applying Paste...",
   "message.magnot.region_removed": "Region removed",
   "message.magnot.filter_mode_blacklist": "Blacklist mode",
-  "message.magnot.filter_mode_whitelist": "Whitelist mode"
+  "message.magnot.filter_mode_whitelist": "Whitelist mode",
+  "message.magnot.filter_preview_blacklist": "Blocklist mode",
+  "message.magnot.filter_preview_whitelist": "Allowlist mode"
 }
