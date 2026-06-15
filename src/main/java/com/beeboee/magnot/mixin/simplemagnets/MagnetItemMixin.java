@@ -39,7 +39,7 @@ public abstract class MagnetItemMixin {
 
         return candidates.stream()
                 .filter(candidate -> !(candidate instanceof ItemEntity item)
-                        || !FerrousMagnetRules.blocksPlayerMagnet(serverLevel, player, FerrousMagnetRules.itemPullTarget(item)))
+                        || !FerrousMagnetRules.blocksPlayerItemPull(serverLevel, player, item))
                 .toList();
     }
 }
