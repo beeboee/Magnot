@@ -41,7 +41,7 @@ public abstract class FortuneCoinItemMixin {
 
         return candidates.stream()
                 .filter(candidate -> !(candidate instanceof ItemEntity item)
-                        || !FerrousMagnetRules.blocksPlayerMagnet(serverLevel, player, FerrousMagnetRules.itemPullTarget(item)))
+                        || !FerrousMagnetRules.blocksPlayerItemPull(serverLevel, player, item))
                 .toList();
     }
 
@@ -58,7 +58,7 @@ public abstract class FortuneCoinItemMixin {
         }
         if (entity instanceof ItemEntity item
                 && player.level() instanceof ServerLevel serverLevel
-                && FerrousMagnetRules.blocksPlayerMagnet(serverLevel, player, FerrousMagnetRules.itemPullTarget(item))) {
+                && FerrousMagnetRules.blocksPlayerItemPull(serverLevel, player, item)) {
             ci.cancel();
         }
     }

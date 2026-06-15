@@ -100,13 +100,12 @@ public abstract class MagnetismMobEffectMixin {
     }
 
     private boolean magnot$blocksArtifactsPull(ServerLevel level, LivingEntity entity, Vec3 source, ItemEntity itemEntity) {
-        Vec3 target = FerrousMagnetRules.itemPullTarget(itemEntity);
         boolean blocked;
 
         if (entity instanceof Player player) {
-            blocked = FerrousMagnetRules.blocksPlayerMagnet(level, player, target);
+            blocked = FerrousMagnetRules.blocksPlayerItemPull(level, player, itemEntity);
         } else {
-            blocked = FerrousMagnetRules.blocksMagnet(level, source, target);
+            blocked = FerrousMagnetRules.blocksItemPull(level, source, itemEntity);
         }
 
         if (!blocked) {
@@ -114,9 +113,9 @@ public abstract class MagnetismMobEffectMixin {
         }
 
         if (entity instanceof Player player) {
-            MagnotDebug.log("artifacts-filter player={} item={} source={} target={}", player.getName().getString(), itemEntity.getId(), source, target);
+            MagnotDebug.log("artifacts-filter player={} item={} source={} target={}", player.getName().getString(), itemEntity.getId(), source, FerrousMagnetRules.itemPullTarget(itemEntity));
         } else {
-            MagnotDebug.log("artifacts-filter source={} item={} sourcePos={} target={}", entity.getId(), itemEntity.getId(), source, target);
+            MagnotDebug.log("artifacts-filter source={} item={} sourcePos={} target={}", entity.getId(), itemEntity.getId(), source, FerrousMagnetRules.itemPullTarget(itemEntity));
         }
         return true;
     }

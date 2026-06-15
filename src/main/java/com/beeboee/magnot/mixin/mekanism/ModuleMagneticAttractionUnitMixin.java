@@ -16,7 +16,7 @@ public abstract class ModuleMagneticAttractionUnitMixin {
     @Inject(method = "pullItem", at = @At("HEAD"), cancellable = true, require = 0)
     private void magnot$blockFerrousRegionPull(Player player, ItemEntity item, CallbackInfo ci) {
         if (item.level() instanceof ServerLevel serverLevel
-                && FerrousMagnetRules.blocksPlayerMagnet(serverLevel, player, item.position())) {
+                && FerrousMagnetRules.blocksPlayerItemPull(serverLevel, player, item)) {
             ci.cancel();
         }
     }

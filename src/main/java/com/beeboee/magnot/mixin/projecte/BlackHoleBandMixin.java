@@ -6,6 +6,7 @@ import com.beeboee.magnot.region.FerrousMagnetRules;
 import moze_intel.projecte.utils.WorldHelper;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.fml.ModList;
 import org.spongepowered.asm.mixin.Mixin;
@@ -32,7 +33,10 @@ public abstract class BlackHoleBandMixin {
         Vec3 itemPosition = entity.position();
 
         if (entity.level() instanceof ServerLevel serverLevel) {
-            if (FerrousMagnetRules.blocksMagnet(serverLevel, target, itemPosition)) {
+            boolean blocked = entity instanceof ItemEntity item
+                    ? FerrousMagnetRules.blocksItemPull(serverLevel, target, item)
+                    : FerrousMagnetRules.blocksMagnet(serverLevel, target, itemPosition);
+            if (blocked) {
                 return;
             }
 

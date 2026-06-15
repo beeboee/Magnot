@@ -120,7 +120,7 @@ public class FerrousRegionEntity extends Entity implements IEntityWithComplexSpa
 
     private boolean isStale(ServerLevel level) {
         Optional<FerrousRegion> savedRegion = FerrousRegionSavedData.get(level).findById(regionId);
-        return savedRegion.isEmpty() || !savedRegion.get().equals(asRegion());
+        return savedRegion.isEmpty() || !savedRegion.get().sameShapeAndSpace(asRegion());
     }
 
     @Override

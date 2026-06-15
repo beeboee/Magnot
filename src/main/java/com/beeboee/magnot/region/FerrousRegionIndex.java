@@ -1,5 +1,7 @@
 package com.beeboee.magnot.region;
 
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.HashMap;
@@ -49,15 +51,35 @@ final class FerrousRegionIndex {
     }
 
     boolean blocksAnyMagnet(Vec3 source, Vec3 target) {
-        return blocksMagnet(null, source, target, true);
+        return blocksMagnet(null, source, target, ItemStack.EMPTY, false, true);
     }
 
     boolean blocksWorldMagnet(Vec3 source, Vec3 target) {
-        return blocksMagnet(null, source, target, false);
+        return blocksMagnet(null, source, target, ItemStack.EMPTY, false, false);
     }
 
     boolean blocksSubLevelMagnet(UUID subLevelId, Vec3 source, Vec3 target) {
-        return blocksMagnet(subLevelId, source, target, false);
+        return blocksMagnet(subLevelId, source, target, ItemStack.EMPTY, false, false);
+    }
+
+    boolean blocksAnyItemPull(Vec3 source, ItemEntity item) {
+        return blocksMagnet(null, source, itemTarget(item), item.getItem(), true, true);
+    }
+
+    boolean blocksWorldItemPull(Vec3 source, ItemEntity item) {
+        return blocksMagnet(null, source, itemTarget(item), item.getItem(), true, false);
+    }
+
+    boolean blocksSubLevelItemPull(UUID subLevelId, Vec3 source, ItemEntity item) {
+        return blocksMagnet(subLevelId, source, itemTarget(item), item.getItem(), true, false);
+    }
+
+    boolean blocksSubLevelItemPull(UUID subLevelId, Vec3 source, Vec3 itemPosition, ItemStack itemStack) {
+        return blocksMagnet(subLevelId, source, itemPosition, itemStack, true, false);
+    }
+
+    boolean blocksWorldItemPull(Vec3 source, Vec3 itemPosition, ItemStack itemStack) {
+        return blocksMagnet(null, source, itemPosition, itemStack, true, false);
     }
 
     private void add(FerrousRegion region) {
@@ -78,7 +100,7 @@ final class FerrousRegionIndex {
         }
     }
 
-    private boolean blocksMagnet(UUID owner, Vec3 source, Vec3 target, boolean anyOwner) {
+    private boolean blocksMagnet(UUID owner, Vec3 source, Vec3 target, ItemStack itemStack, boolean itemAware, boolean anyOwner) {
         if (sectionsByOwner.isEmpty()) {
             return false;
         }
@@ -93,7 +115,7 @@ final class FerrousRegionIndex {
         if (anyOwner) {
             Set<FerrousRegion> visited = null;
             for (Map<Long, List<FerrousRegion>> sections : sectionsByOwner.values()) {
-                TestResult result = testSections(sections, visited, source, target, minSectionX, minSectionY, minSectionZ, maxSectionX, maxSectionY, maxSectionZ);
+                TestResult result = testSections(sections, visited, source, target, itemStack, itemAware, minSectionX, minSectionY, minSectionZ, maxSectionX, maxSectionY, maxSectionZ);
                 if (result.blocked()) {
                     return true;
                 }
@@ -103,10 +125,10 @@ final class FerrousRegionIndex {
         }
 
         Map<Long, List<FerrousRegion>> sections = sectionsByOwner.get(owner);
-        return sections != null && testSections(sections, null, source, target, minSectionX, minSectionY, minSectionZ, maxSectionX, maxSectionY, maxSectionZ).blocked();
+        return sections != null && testSections(sections, null, source, target, itemStack, itemAware, minSectionX, minSectionY, minSectionZ, maxSectionX, maxSectionY, maxSectionZ).blocked();
     }
 
-    private static TestResult testSections(Map<Long, List<FerrousRegion>> sections, Set<FerrousRegion> visited, Vec3 source, Vec3 target, int minSectionX, int minSectionY, int minSectionZ, int maxSectionX, int maxSectionY, int maxSectionZ) {
+    private static TestResult testSections(Map<Long, List<FerrousRegion>> sections, Set<FerrousRegion> visited, Vec3 source, Vec3 target, ItemStack itemStack, boolean itemAware, int minSectionX, int minSectionY, int minSectionZ, int maxSectionX, int maxSectionY, int maxSectionZ) {
         for (int sectionX = minSectionX; sectionX <= maxSectionX; sectionX++) {
             for (int sectionY = minSectionY; sectionY <= maxSectionY; sectionY++) {
                 for (int sectionZ = minSectionZ; sectionZ <= maxSectionZ; sectionZ++) {
@@ -122,7 +144,10 @@ final class FerrousRegionIndex {
                         if (!visited.add(region)) {
                             continue;
                         }
-                        if (region.contains(source) || region.contains(target) || region.intersectsSegment(source, target)) {
+                        boolean blocked = itemAware
+                                ? region.blocksItemPull(source, target, itemStack)
+                                : region.contains(source) || region.contains(target) || region.intersectsSegment(source, target);
+                        if (blocked) {
                             return new TestResult(true, visited);
                         }
                     }
@@ -147,6 +172,10 @@ final class FerrousRegionIndex {
 
     private Map<Long, List<FerrousRegion>> writableSections(UUID owner) {
         return sectionsByOwner.computeIfAbsent(owner, key -> new HashMap<>());
+    }
+
+    private static Vec3 itemTarget(ItemEntity item) {
+        return item.position().add(0.0D, item.getBbHeight() / 2.0D, 0.0D);
     }
 
     private static long sectionKey(Vec3 point) {

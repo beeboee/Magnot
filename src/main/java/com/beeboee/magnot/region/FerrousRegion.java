@@ -1,14 +1,33 @@
 package com.beeboee.magnot.region;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.Optional;
 import java.util.UUID;
 
-public record FerrousRegion(UUID id, UUID groupId, BlockPos min, BlockPos max, UUID subLevelId) {
+public record FerrousRegion(UUID id, UUID groupId, BlockPos min, BlockPos max, UUID subLevelId, ItemStack filterStack, boolean whitelistMode) {
+    private static final String FILTER_ITEM = "FilterItem";
+    private static final String WHITELIST_MODE = "WhitelistMode";
+
+    public FerrousRegion {
+        filterStack = filterStack == null ? ItemStack.EMPTY : filterStack.copyWithCount(1);
+        if (filterStack.isEmpty()) {
+            whitelistMode = false;
+        }
+    }
+
+    public FerrousRegion(UUID id, UUID groupId, BlockPos min, BlockPos max, UUID subLevelId) {
+        this(id, groupId, min, max, subLevelId, ItemStack.EMPTY, false);
+    }
+
     public FerrousRegion(UUID id, BlockPos min, BlockPos max) {
         this(id, id, min, max, null);
     }
@@ -30,6 +49,10 @@ public record FerrousRegion(UUID id, UUID groupId, BlockPos min, BlockPos max, U
     }
 
     public static FerrousRegion fromCorners(UUID id, UUID groupId, BlockPos first, BlockPos second, UUID subLevelId) {
+        return fromCorners(id, groupId, first, second, subLevelId, ItemStack.EMPTY, false);
+    }
+
+    public static FerrousRegion fromCorners(UUID id, UUID groupId, BlockPos first, BlockPos second, UUID subLevelId, ItemStack filterStack, boolean whitelistMode) {
         BlockPos min = new BlockPos(
                 Math.min(first.getX(), second.getX()),
                 Math.min(first.getY(), second.getY()),
@@ -40,7 +63,7 @@ public record FerrousRegion(UUID id, UUID groupId, BlockPos min, BlockPos max, U
                 Math.max(first.getY(), second.getY()),
                 Math.max(first.getZ(), second.getZ())
         );
-        return new FerrousRegion(id, groupId, min, max, subLevelId);
+        return new FerrousRegion(id, groupId, min, max, subLevelId, filterStack, whitelistMode);
     }
 
     public boolean isWorldRegion() {
@@ -56,11 +79,30 @@ public record FerrousRegion(UUID id, UUID groupId, BlockPos min, BlockPos max, U
     }
 
     public FerrousRegion inSubLevel(UUID id) {
-        return new FerrousRegion(this.id, this.groupId, this.min, this.max, id);
+        return new FerrousRegion(this.id, this.groupId, this.min, this.max, id, this.filterStack, this.whitelistMode);
     }
 
     public FerrousRegion inWorld() {
-        return new FerrousRegion(this.id, this.groupId, this.min, this.max, null);
+        return new FerrousRegion(this.id, this.groupId, this.min, this.max, null, this.filterStack, this.whitelistMode);
+    }
+
+    public FerrousRegion withFilter(ItemStack filterStack, boolean whitelistMode) {
+        return new FerrousRegion(this.id, this.groupId, this.min, this.max, this.subLevelId, filterStack, whitelistMode);
+    }
+
+    public FerrousRegion withoutFilter() {
+        return withFilter(ItemStack.EMPTY, false);
+    }
+
+    public FerrousRegion toggledFilterMode() {
+        if (filterStack.isEmpty()) {
+            return this;
+        }
+        return withFilter(filterStack, !whitelistMode);
+    }
+
+    public boolean hasFilter() {
+        return !filterStack.isEmpty();
     }
 
     public AABB bounds() {
@@ -96,6 +138,30 @@ public record FerrousRegion(UUID id, UUID groupId, BlockPos min, BlockPos max, U
         return clip(from, to).isPresent();
     }
 
+    public boolean blocksItemPull(Vec3 from, Vec3 to, ItemStack pulledStack) {
+        if (!contains(from) && !contains(to) && !intersectsSegment(from, to)) {
+            return false;
+        }
+        return blocksStack(pulledStack);
+    }
+
+    public boolean blocksStack(ItemStack pulledStack) {
+        if (filterStack.isEmpty()) {
+            return true;
+        }
+
+        boolean matches = pulledStack != null && !pulledStack.isEmpty() && pulledStack.is(filterStack.getItem());
+        return whitelistMode ? !matches : matches;
+    }
+
+    public boolean sameShapeAndSpace(FerrousRegion other) {
+        return id.equals(other.id)
+                && groupId.equals(other.groupId)
+                && min.equals(other.min)
+                && max.equals(other.max)
+                && java.util.Objects.equals(subLevelId, other.subLevelId);
+    }
+
     public CompoundTag save() {
         CompoundTag tag = new CompoundTag();
         tag.putUUID("Id", id);
@@ -109,6 +175,10 @@ public record FerrousRegion(UUID id, UUID groupId, BlockPos min, BlockPos max, U
         if (subLevelId != null) {
             tag.putUUID("SubLevelId", subLevelId);
         }
+        if (!filterStack.isEmpty()) {
+            tag.putString(FILTER_ITEM, BuiltInRegistries.ITEM.getKey(filterStack.getItem()).toString());
+            tag.putBoolean(WHITELIST_MODE, whitelistMode);
+        }
         return tag;
     }
 
@@ -118,6 +188,22 @@ public record FerrousRegion(UUID id, UUID groupId, BlockPos min, BlockPos max, U
         BlockPos min = new BlockPos(tag.getInt("MinX"), tag.getInt("MinY"), tag.getInt("MinZ"));
         BlockPos max = new BlockPos(tag.getInt("MaxX"), tag.getInt("MaxY"), tag.getInt("MaxZ"));
         UUID subLevelId = tag.hasUUID("SubLevelId") ? tag.getUUID("SubLevelId") : null;
-        return new FerrousRegion(id, groupId, min, max, subLevelId);
+        ItemStack filterStack = loadFilterStack(tag);
+        boolean whitelistMode = !filterStack.isEmpty() && tag.getBoolean(WHITELIST_MODE);
+        return new FerrousRegion(id, groupId, min, max, subLevelId, filterStack, whitelistMode);
+    }
+
+    private static ItemStack loadFilterStack(CompoundTag tag) {
+        if (!tag.contains(FILTER_ITEM)) {
+            return ItemStack.EMPTY;
+        }
+
+        ResourceLocation id = ResourceLocation.tryParse(tag.getString(FILTER_ITEM));
+        if (id == null) {
+            return ItemStack.EMPTY;
+        }
+
+        Item item = BuiltInRegistries.ITEM.get(id);
+        return item == Items.AIR ? ItemStack.EMPTY : new ItemStack(item);
     }
 }

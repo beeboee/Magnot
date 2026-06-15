@@ -11,6 +11,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.fml.ModList;
 
@@ -43,6 +44,49 @@ public final class FerrousRegionActions {
         }
 
         playRemovalEffects(player, serverLevel, removed.get());
+        return true;
+    }
+
+    public static boolean configureSelectedRegionFilter(ServerPlayer player, UUID selectedRegionId, ItemStack filterStack, boolean clear, boolean toggleMode) {
+        if (!(player.level() instanceof ServerLevel serverLevel)) {
+            return false;
+        }
+
+        FerrousRegionSavedData data = FerrousRegionSavedData.get(serverLevel);
+        Optional<FerrousRegion> region = data.findById(selectedRegionId);
+        if (region.isEmpty()) {
+            return false;
+        }
+
+        boolean changed;
+        if (clear || filterStack.isEmpty()) {
+            changed = data.clearRegionFilter(selectedRegionId);
+            if (changed) {
+                player.displayClientMessage(Component.translatable("message.magnot.filter_cleared"), true);
+            }
+        } else if (toggleMode) {
+            changed = data.toggleRegionFilterMode(selectedRegionId);
+            if (changed) {
+                String modeKey = data.findById(selectedRegionId)
+                        .map(FerrousRegion::whitelistMode)
+                        .orElse(false)
+                        ? "message.magnot.filter_mode_whitelist"
+                        : "message.magnot.filter_mode_blacklist";
+                player.displayClientMessage(Component.translatable(modeKey), true);
+            }
+        } else {
+            changed = data.setRegionFilter(selectedRegionId, filterStack, false);
+            if (changed) {
+                player.displayClientMessage(Component.translatable("message.magnot.filter_set", filterStack.getHoverName()), true);
+            }
+        }
+
+        if (!changed) {
+            return false;
+        }
+
+        FerrousParticles.spawnRedstoneBlockEdges(serverLevel, region.get());
+        MagnotNetwork.syncToPlayersInDimension(serverLevel);
         return true;
     }
 
