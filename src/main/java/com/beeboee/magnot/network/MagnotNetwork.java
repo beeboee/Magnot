@@ -31,6 +31,14 @@ public final class MagnotNetwork {
                 ),
                 RemoveClosestFerrousRegionPayload::handle
         );
+        registrar.playToServer(
+                ConfigureFerrousRegionFilterPayload.TYPE,
+                StreamCodec.of(
+                        (RegistryFriendlyByteBuf buf, ConfigureFerrousRegionFilterPayload payload) -> payload.write(buf),
+                        ConfigureFerrousRegionFilterPayload::decode
+                ),
+                ConfigureFerrousRegionFilterPayload::handle
+        );
     }
 
     public static void syncTo(ServerPlayer player) {
