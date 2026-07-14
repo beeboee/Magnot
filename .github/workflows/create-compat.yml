@@ -49,12 +49,14 @@ jobs:
 
           if [[ "${{ matrix.target }}" == "pinned" ]]; then
             version="$(sed -n 's/^create_version=//p' gradle.properties | head -n 1)"
+            classifier='slim'
           else
             metadata="$(curl --fail --silent --show-error --location \
               'https://maven.createmod.net/com/simibubi/create/create-1.21.1/maven-metadata.xml')"
             version="$(printf '%s' "$metadata" \
               | sed -n 's:.*<version>\(6\.0\.[^<]*\)</version>.*:\1:p' \
               | tail -n 1)"
+            classifier=''
           fi
 
           if [[ -z "$version" ]]; then
@@ -63,7 +65,8 @@ jobs:
           fi
 
           echo "version=$version" >> "$GITHUB_OUTPUT"
-          echo "Testing Create $version"
+          echo "classifier=$classifier" >> "$GITHUB_OUTPUT"
+          echo "Testing Create $version${classifier:+ with classifier $classifier}"
 
       - name: Build against Create
         id: build
@@ -71,7 +74,10 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          gradle build --stacktrace -Pcreate_version='${{ steps.create.outputs.version }}' 2>&1 | tee build.log
+          gradle build --stacktrace \
+            -Pcreate_version='${{ steps.create.outputs.version }}' \
+            -Pcreate_classifier='${{ steps.create.outputs.classifier }}' \
+            2>&1 | tee build.log
 
       - name: Report compatibility failure
         if: steps.build.outcome == 'failure' && github.event_name == 'pull_request'
