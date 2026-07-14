@@ -1,42 +1,24 @@
-# Magnot
+# Magnot — Forge 1.20.1
 
-Magnot lets ferrous paste act as a boundary for item magnets and vacuum blocks.
-
-Items can sit behind a protected wall without being pulled through it by backpacks, rings, modules, hoppers, or other remote pickup effects. Magnets still work. They just have to mind the walls.
+This branch ports Magnot's core ferrous-region behavior to Minecraft 1.20.1 Forge.
 
 ## Requirements
 
-- Minecraft 1.21.1
-- NeoForge 21.1.230 or newer
-- Create 6.0.10 or newer, below Create 6.1
+- Minecraft 1.20.1
+- Forge 47.1.33 or newer
+- Create 0.5.1 or newer
+- Java 17
 
-## What it does
+## Included
 
-Magnot blocks supported remote item pulls when the pull path crosses a protected ferrous region.
+- Ferrous paste regions created with the ferrous tube
+- Persistent server-side region data
+- Public item-pull compatibility API (`MagnotApi.API_VERSION == 2`)
+- Visible region outlines while a player holds the tube
+- Optional mixin compatibility for Simple Magnets, Item Collectors, and Sophisticated Core
 
-It does not delete items, disable magnets globally, or change normal vanilla item pickup. If a pull is not crossing a protected region, it should behave normally.
+## Port status
 
-## Basic use
+This is a functional core port, not a claim of full parity with the 1.21.1 NeoForge branch. Sable, moving sub-levels, filtered-region v2 behavior, custom region entities, and the full 1.21.1 compatibility matrix are not included yet.
 
-1. Mark the area you want to protect with ferrous paste.
-2. Use magnets or vacuum blocks nearby as normal.
-3. Supported item pulls that cross the protected region are blocked.
-
-## Compatibility
-
-Magnot supports a growing set of magnet and vacuum mods. Compatibility depends on the exact mod and version, so the detailed list lives in [magnet and vacuum compatibility](docs/COMPATIBILITY.md).
-
-If a magnet or vacuum still pulls through a protected region, please report:
-
-- the mod name and version
-- the item or block used
-- whether the pull came from a player or a block
-- what was between the pull source and the item
-
-## For mod authors
-
-Mods with magnets, vacuums, remote item collectors, absorption hoppers, item teleporters, or similar item-moving behavior can support Magnot directly through the [public compatibility API](docs/API.md).
-
-## License
-
-MIT
+Use crouch + right-click to clear a pending corner. With no pending corner, crouch + right-click inside a region removes it.

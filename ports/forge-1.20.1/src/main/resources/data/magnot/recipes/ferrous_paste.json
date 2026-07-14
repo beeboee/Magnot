@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "magnot:iron_dust" },
+    { "item": "minecraft:slime_ball" }
+  ],
+  "result": {
+    "item": "magnot:ferrous_paste",
+    "count": 1
+  }
+}

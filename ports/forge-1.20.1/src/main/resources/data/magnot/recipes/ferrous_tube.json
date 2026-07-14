@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PS",
+    "NP"
+  ],
+  "key": {
+    "P": { "item": "magnot:ferrous_paste" },
+    "S": { "tag": "forge:plates/iron" },
+    "N": { "tag": "forge:nuggets/iron" }
+  },
+  "result": {
+    "item": "magnot:ferrous_tube",
+    "count": 1
+  }
+}
