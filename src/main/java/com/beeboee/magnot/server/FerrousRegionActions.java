@@ -1,7 +1,7 @@
 package com.beeboee.magnot.server;
 
 import com.beeboee.magnot.compat.sable.MagnotSableCompat;
-import com.beeboee.magnot.item.FerrousTubeItem;
+import com.beeboee.magnot.item.FieldAugmenterItem;
 import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.region.FerrousRegionSavedData;
@@ -48,8 +48,19 @@ public final class FerrousRegionActions {
         return true;
     }
 
-    public static boolean configureSelectedRegionFilter(ServerPlayer player, UUID selectedRegionId, ItemStack filterStack, boolean clear, boolean toggleMode) {
+    public static boolean configureSelectedRegionFilter(
+            ServerPlayer player,
+            UUID selectedRegionId,
+            ItemStack ignoredClientFilter,
+            boolean ignoredClear,
+            boolean ignoredToggleMode
+    ) {
         if (!(player.level() instanceof ServerLevel serverLevel)) {
+            return false;
+        }
+
+        ItemStack augmenter = player.getMainHandItem();
+        if (!augmenter.is(MagnotItems.FIELD_AUGMENTER.get())) {
             return false;
         }
 
@@ -59,17 +70,19 @@ public final class FerrousRegionActions {
             return false;
         }
 
+        ItemStack storedFilter = FieldAugmenterItem.getStoredItem(augmenter, serverLevel.registryAccess());
         boolean changed;
-        Component feedback = null;
-        if (clear || filterStack.isEmpty()) {
+        Component feedback;
+
+        if (storedFilter.isEmpty()) {
             changed = data.clearRegionFilter(selectedRegionId);
             feedback = Component.translatable("message.magnot.filter_cleared");
-        } else if (toggleMode && region.get().hasFilter()) {
-            changed = data.toggleRegionFilterMode(selectedRegionId);
-            feedback = data.findById(selectedRegionId).map(FerrousRegionActions::filterStateMessage).orElse(null);
         } else {
-            boolean whitelistMode = FerrousTubeItem.isFilterWhitelistMode(player.getMainHandItem());
-            changed = data.setRegionFilter(selectedRegionId, filterStack, whitelistMode);
+            changed = data.setRegionFilter(
+                    selectedRegionId,
+                    storedFilter,
+                    FieldAugmenterItem.isWhitelistMode(augmenter)
+            );
             feedback = Component.translatable("message.magnot.filter_applied");
         }
 
@@ -77,24 +90,21 @@ public final class FerrousRegionActions {
             return false;
         }
 
-        if (feedback != null) {
-            player.displayClientMessage(feedback, true);
-        }
+        player.displayClientMessage(feedback, true);
         FerrousParticles.spawnRedstoneBlockEdges(serverLevel, region.get());
         MagnotNetwork.syncToPlayersInDimension(serverLevel);
         return true;
     }
 
-    public static boolean toggleHeldTubeFilterMode(ServerPlayer player) {
-        ItemStack stack = player.getMainHandItem();
-        if (!stack.is(MagnotItems.FERROUS_TUBE.get())
-                || player.getOffhandItem().isEmpty()
-                || FerrousTubeItem.getFirstCorner(stack).isPresent()) {
+    public static boolean toggleHeldFieldAugmenterMode(ServerPlayer player) {
+        ItemStack augmenter = player.getMainHandItem();
+        if (!augmenter.is(MagnotItems.FIELD_AUGMENTER.get())
+                || !FieldAugmenterItem.hasStoredItem(augmenter, player.level().registryAccess())) {
             return false;
         }
 
-        FerrousTubeItem.toggleFilterMode(stack);
-        player.displayClientMessage(FerrousTubeItem.filterModeMessage(stack), true);
+        FieldAugmenterItem.toggleMode(augmenter);
+        player.displayClientMessage(FieldAugmenterItem.modeMessage(augmenter), true);
         return true;
     }
 
@@ -114,10 +124,6 @@ public final class FerrousRegionActions {
 
         playRemovalEffects(player, serverLevel, removed.get());
         return true;
-    }
-
-    private static Component filterStateMessage(FerrousRegion region) {
-        return Component.translatable(region.whitelistMode() ? "message.magnot.filter_mode_allow" : "message.magnot.filter_mode_block");
     }
 
     private static void playRemovalEffects(ServerPlayer player, ServerLevel serverLevel, FerrousRegion removed) {
