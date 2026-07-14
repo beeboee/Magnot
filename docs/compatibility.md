@@ -1,45 +1,60 @@
-# Magnot compatibility
+# Magnet and vacuum compatibility
 
-Magnot blocks supported magnet-style item movement when the source-to-item path crosses a ferrous region.
+This page tracks exact compatibility status. The README should stay broad; only claim specific mod support publicly after it has been tested against the current Magnot target.
 
-## Supported in code
+Magnot support is optional. Compat code should be safe when a target mod is missing and should not add hard runtime dependencies to the published mod.
 
-| Mod | Status | Notes |
-| --- | --- | --- |
-| Sophisticated Core / Backpacks / Storage | Implemented, tested in dev | Hooks `MagnetUpgradeWrapper`; backpacks and storage share the same compatibility path. Storage false alarm was caused by copied NBT from a barrel placed inside a region. |
-| AE2WTLib | Implemented, tested in dev | Hooks the wireless terminal magnet card pickup path. |
-| ProjectE | Implemented, tested in dev | Hooks Black Hole Band-style gravitation from inventory, pedestal, alchemical chest, and alchemical bag contexts. Client-side gravitation checks synced client regions so visual pull behavior matches server-side blocking. |
-| Sable / Create: Aeronautics | Fourth-pass implemented, needs dev testing | Ferrous regions track whether they are world-space or owned by a Sable sub-level. Magnet checks now test all loaded sub-levels, not only sub-levels intersecting the source/item path bounds, because testing showed ground-to-ground pulls ignored contraption regions. |
+Mods that move dropped items can also support Magnot directly through the public compatibility API in [API.md](API.md).
 
-## Sable / Create: Aeronautics test matrix
+## Current target
 
-| Scenario | Status | Notes |
-| --- | --- | --- |
-| Static world regions before assembly | Needs retest | Regions move during Sable assembly when the moved block set intersects a world-space saved region, then get tagged with the target sub-level UUID. |
-| Regions created on an assembled contraption | Needs retest | First click now stores the clicked Sable sub-level UUID and second click creates a sub-level-owned region when possible. |
-| Removing contraptionized regions | Needs retest | Client selects transformed regions; server removes the selected region by transforming the removal ray into sub-level coordinates and matching the region's sub-level UUID. |
-| Magnets across contraptionized regions | Needs retest | Server and client checks now try all loaded Sable sub-levels, which should cover ground-to-ground pulls through a contraptionized region. |
-| Disassembly | Needs retest | Sable block moves still transform regions source-to-target. A backup sub-level removal hook projects any remaining sub-level-owned regions back into world-space before the sub-level disappears. |
-| Region outline on contraptions | Approximate | Sable's own super-glue selection projects bounding boxes outward; Magnot currently does the same AABB-style approximation. True rotated boxes need custom oriented rendering or inward ray transforms. |
-| Normal item transport | Intentionally unaffected | Hoppers, water streams, belts, pipes, and normal item physics should not be blocked. Magnot only targets supported magnet pulls. |
+- Minecraft 1.21.1
+- NeoForge 21.1.230+
+- Create 6.0.10+, below Create 6.1
 
-## Planned magnet targets
+## Confirmed in current testing
 
-| Mod | Priority | Notes |
-| --- | --- | --- |
-| Simple Magnets | High | Dedicated magnet mod. Needs source or decompiled runtime inspection for the current NeoForge class/method hook. |
-| Actually Additions | High | Check current Ring of Magnetizing behavior before hooking. |
-| Mekanism | Medium/high | Needs verification of current item pickup source. Do not mix in blindly. |
-| Reliquary | Medium | Check Coin of Fortune or equivalent pickup behavior. |
-| Draconic Evolution | Medium | Verify current 1.21.1 utility item behavior before adding. |
+These have been tested against the current Magnot dev target:
+
+- Sophisticated Backpacks / Sophisticated Storage: magnet upgrades.
+- Applied Energistics 2 Wireless Terminals: wireless magnet behavior through AE2WTLib.
+- ProjectE: Black Hole Band.
+- Artifacts: Magnetism effect.
+- Mekanism: Magnetic Attraction Unit.
+- Draconic Evolution: Magnet / Advanced Magnet.
+- Reliquary Reincarnations: Fortune Coin, including normal use, long-range vacuum use, and pedestal item pickup.
+- Actually Additions: magnet behavior.
+- Mob Grinding Utils: Absorption Hopper item pickup.
+- Item Collectors by SuperMartijn642: Basic Item Collector and Advanced Item Collector item pickup.
+- Simple Magnets by SuperMartijn642: Basic Magnet and Advanced Magnet item movement.
+- Modular Routers: Vacuum Module item pickup.
+- Ender IO: Electromagnet item movement and Vacuum Chest item pickup.
+
+## Experimental compat layers
+
+No active experimental compat layers are currently listed as supported. New compat layers should be tested before being listed as confirmed support on a release page.
+
+## Dev test downloads
+
+The `downloadCompatTestMods` Gradle task attempts to download the newest Minecraft 1.21.1 NeoForge Modrinth build for these projects into `run/mods`:
+
+- Mob Grinding Utils
+- Item Collectors by SuperMartijn642
+- Simple Magnets by SuperMartijn642
+- Modular Routers
+- Industrial Foregoing
+- Ender IO
+
+This task is only for local testing. Downloaded jars should not be committed.
+
+## Planned or future work
+
+- Simple Magnets / Magnets by LPSMods: magnet items and magnet blocks.
+- Industrial Foregoing: inspect for a current loose-item vacuum or remote item collection path.
+- Botania: revisit when Magnot targets a compatible version with Ring of Magnetization available.
+- Cyclic: revisit when Magnot targets a compatible version with magnet or vacuum behavior available.
+- Other current NeoForge mods that directly move, teleport, or collect dropped items from a distance.
 
 ## Compatibility rule
 
-For each integration, prefer the narrowest hook around the final magnet action:
-
-1. identify the magnet source position;
-2. identify the item entity position;
-3. call `FerrousMagnetRules.blocksMagnet(level, source, item.position())`;
-4. skip only that magnet pull when blocked.
-
-Do not block normal item entity ticks, water movement, hoppers, belts, pipes, or mechanical transport.
+Prefer filtering candidate item entities before a target mod mutates them. Use head-cancel hooks for one-shot movement paths. Avoid intercepting final movement calls unless no earlier stable hook is available.
