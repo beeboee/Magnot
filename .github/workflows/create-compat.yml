@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   build:
@@ -65,4 +66,30 @@ jobs:
           echo "Testing Create $version"
 
       - name: Build against Create
-        run: gradle build --stacktrace -Pcreate_version='${{ steps.create.outputs.version }}'
+        id: build
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          gradle build --stacktrace -Pcreate_version='${{ steps.create.outputs.version }}' 2>&1 | tee build.log
+
+      - name: Report compatibility failure
+        if: steps.build.outcome == 'failure' && github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          {
+            echo "### Create compatibility failed: ${{ matrix.target }}"
+            echo
+            echo "Create version: \`${{ steps.create.outputs.version }}\`"
+            echo
+            echo '```text'
+            grep -nE -B 5 -A 15 '(error:|What went wrong:|Caused by:|Could not|Exception|FAILURE:)' build.log | tail -n 220 || tail -n 220 build.log
+            echo '```'
+          } > build-comment.md
+          gh pr comment '${{ github.event.pull_request.number }}' --body-file build-comment.md
+
+      - name: Fail job when build failed
+        if: steps.build.outcome == 'failure'
+        run: exit 1
