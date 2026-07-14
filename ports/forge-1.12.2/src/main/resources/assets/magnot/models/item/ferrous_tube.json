@@ -1,4 +1,4 @@
 {
   "parent": "item/generated",
-  "textures": { "layer0": "magnot:items/ferrous_tube" }
+  "textures": { "layer0": "magnot:item/ferrous_tube" }
 }
