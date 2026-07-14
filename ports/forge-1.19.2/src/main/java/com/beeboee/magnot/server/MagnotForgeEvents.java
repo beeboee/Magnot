@@ -19,7 +19,7 @@ public final class MagnotForgeEvents {
         if (event.phase != TickEvent.Phase.END || !(event.player instanceof ServerPlayer) || event.player.tickCount % 20 != 0) return;
         ServerPlayer player = (ServerPlayer) event.player;
         if (!player.getMainHandItem().is(MagnotItems.FERROUS_TUBE.get()) && !player.getOffhandItem().is(MagnotItems.FERROUS_TUBE.get())) return;
-        ServerLevel level = player.serverLevel();
+        ServerLevel level = (ServerLevel) player.level;
         Vec3 playerPos = player.position();
         for (FerrousRegion region : FerrousRegionSavedData.get(level).regions()) {
             if (region.bounds().getCenter().distanceToSqr(playerPos) <= 9216.0D) spawnOutline(level, region);
