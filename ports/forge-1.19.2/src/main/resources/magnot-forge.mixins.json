@@ -1,0 +1,9 @@
+{
+  "required": false,
+  "minVersion": "0.8",
+  "package": "com.beeboee.magnot.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "magnot.refmap.json",
+  "mixins": ["simplemagnets.MagnetItemMixin", "itemcollectors.CollectorBlockEntityMixin"],
+  "injectors": { "defaultRequire": 0 }
+}

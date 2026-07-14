@@ -1,0 +1,30 @@
+package com.beeboee.magnot.api;
+
+import com.beeboee.magnot.region.FerrousMagnetRules;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
+
+public final class MagnotApi {
+    public static final int API_VERSION = 2;
+    private MagnotApi() {}
+
+    public static boolean blocksItemPull(Level level, Vec3 source, ItemEntity item) {
+        return level instanceof ServerLevel && FerrousMagnetRules.blocksItemPull((ServerLevel) level, source, item);
+    }
+
+    public static boolean blocksPlayerItemPull(Player player, ItemEntity item) {
+        return player.level instanceof ServerLevel && FerrousMagnetRules.blocksPlayerItemPull((ServerLevel) player.level, player, item);
+    }
+
+    public static boolean blocksPull(Level level, Vec3 source, Vec3 target) {
+        return level instanceof ServerLevel && FerrousMagnetRules.blocksMagnet((ServerLevel) level, source, target);
+    }
+
+    public static boolean blocksItemPull(ServerLevel level, Vec3 source, ItemEntity item) { return FerrousMagnetRules.blocksItemPull(level, source, item); }
+    public static boolean blocksPlayerItemPull(ServerLevel level, Player player, ItemEntity item) { return FerrousMagnetRules.blocksPlayerItemPull(level, player, item); }
+    public static boolean blocksPull(ServerLevel level, Vec3 source, Vec3 target) { return FerrousMagnetRules.blocksMagnet(level, source, target); }
+    public static Vec3 itemPullTarget(ItemEntity item) { return FerrousMagnetRules.itemPullTarget(item); }
+}

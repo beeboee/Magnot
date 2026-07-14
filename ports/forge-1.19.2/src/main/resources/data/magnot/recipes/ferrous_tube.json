@@ -1,0 +1,6 @@
+{
+  "type":"minecraft:crafting_shaped",
+  "pattern":["PS","NP"],
+  "key":{"P":{"item":"magnot:ferrous_paste"},"S":{"item":"create:iron_sheet"},"N":{"item":"minecraft:iron_nugget"}},
+  "result":{"item":"magnot:ferrous_tube","count":1}
+}
