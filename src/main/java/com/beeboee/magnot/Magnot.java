@@ -33,6 +33,7 @@ public final class Magnot {
 
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(MagnotItems.FERROUS_TUBE.get());
+            event.accept(MagnotItems.FIELD_AUGMENTER.get());
         }
     }
 }
