@@ -1,0 +1,7 @@
+item.magnot.iron_dust.name=Iron Dust
+item.magnot.ferrous_paste.name=Ferrous Paste
+item.magnot.ferrous_tube.name=Ferrous Tube
+message.magnot.first_corner=First corner selected
+message.magnot.selection_cleared=Selection discarded
+message.magnot.region_created=Applying Paste...
+message.magnot.region_removed=Region removed
