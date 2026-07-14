@@ -1,6 +1,0 @@
-workflow=Publish Magnot 1.0.1 to CurseForge
-run_id=29370592209
-status=completed
-conclusion=success
-url=https://github.com/beeboee/Magnot/actions/runs/29370592209
-checked_at=2026-07-14T21:46:46Z
