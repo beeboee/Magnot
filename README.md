@@ -7,7 +7,7 @@ This branch ports Magnot's core ferrous-region behavior to Minecraft 1.20.1 Fabr
 - Minecraft 1.20.1
 - Fabric Loader 0.17.2 or newer
 - Fabric API 0.92.6 or newer for 1.20.1
-- Create Fabric 0.5.1 or newer
+- Create Fabric port 0.5.1 or newer
 - Java 17
 
 ## Included
