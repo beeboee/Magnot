@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[43,)"
+loaderVersion="[40,)"
 license="MIT"
 
 [[mods]]
@@ -12,13 +12,13 @@ description='''Ferrous regions that block supported remote item pulls.'''
 [[dependencies.magnot]]
 modId="forge"
 mandatory=true
-versionRange="[43.2.14,)"
+versionRange="[40.2.4,)"
 ordering="NONE"
 side="BOTH"
 [[dependencies.magnot]]
 modId="minecraft"
 mandatory=true
-versionRange="[1.19.2,1.19.3)"
+versionRange="[1.18.2,1.18.3)"
 ordering="NONE"
 side="BOTH"
 [[dependencies.magnot]]

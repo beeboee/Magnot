@@ -5,7 +5,7 @@ import com.beeboee.magnot.region.FerrousRegionSavedData;
 import com.beeboee.magnot.server.MagnotForgeEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -44,9 +44,9 @@ public final class FerrousTubeItem extends Item {
         if (player.isShiftKeyDown()) {
             if (getFirstCorner(stack).isPresent()) {
                 clear(stack);
-                player.displayClientMessage(Component.translatable("message.magnot.selection_cleared"), true);
+                player.displayClientMessage(new TranslatableComponent("message.magnot.selection_cleared"), true);
             } else if (FerrousRegionSavedData.get(serverLevel).removeRegionContaining(clicked)) {
-                player.displayClientMessage(Component.translatable("message.magnot.region_removed"), true);
+                player.displayClientMessage(new TranslatableComponent("message.magnot.region_removed"), true);
             }
             return InteractionResult.SUCCESS;
         }
@@ -55,7 +55,7 @@ public final class FerrousTubeItem extends Item {
         String dimension = serverLevel.dimension().location().toString();
         if (first.isEmpty() || !dimension.equals(getDimension(stack))) {
             setFirst(stack, clicked, dimension);
-            player.displayClientMessage(Component.translatable("message.magnot.first_corner"), true);
+            player.displayClientMessage(new TranslatableComponent("message.magnot.first_corner"), true);
             serverLevel.playSound(null, clicked, SoundEvents.SLIME_BLOCK_PLACE, SoundSource.PLAYERS, 0.55F, 0.85F);
             return InteractionResult.SUCCESS;
         }
@@ -67,7 +67,7 @@ public final class FerrousTubeItem extends Item {
         );
         FerrousRegion region = FerrousRegionSavedData.get(serverLevel).addRegion(first.get(), second);
         clear(stack);
-        player.displayClientMessage(Component.translatable("message.magnot.region_created"), true);
+        player.displayClientMessage(new TranslatableComponent("message.magnot.region_created"), true);
         MagnotForgeEvents.spawnOutline(serverLevel, region);
         if (!player.getAbilities().instabuild) stack.hurtAndBreak(2, player, broken -> broken.broadcastBreakEvent(context.getHand()));
         return InteractionResult.SUCCESS;
