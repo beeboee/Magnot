@@ -15,7 +15,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -38,28 +37,10 @@ public class FerrousTubeItem extends Item {
     private static final String FIRST_Y = "MagnotFirstY";
     private static final String FIRST_Z = "MagnotFirstZ";
     private static final String FIRST_SUB_LEVEL_ID = "MagnotFirstSubLevelId";
-    private static final String FILTER_WHITELIST_MODE = "MagnotFilterWhitelistMode";
+    private static final String LEGACY_FILTER_WHITELIST_MODE = "MagnotFilterWhitelistMode";
 
     public FerrousTubeItem(Properties properties) {
         super(properties);
-    }
-
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        ItemStack stack = player.getItemInHand(hand);
-        if (hand != InteractionHand.MAIN_HAND
-                || !player.isShiftKeyDown()
-                || getFirstCorner(stack).isPresent()
-                || player.getOffhandItem().isEmpty()) {
-            return InteractionResultHolder.pass(stack);
-        }
-
-        if (!level.isClientSide()) {
-            toggleFilterMode(stack);
-            player.displayClientMessage(filterModeMessage(stack), true);
-        }
-
-        return InteractionResultHolder.sidedSuccess(stack, level.isClientSide());
     }
 
     @Override
@@ -84,9 +65,6 @@ public class FerrousTubeItem extends Item {
             if (getFirstCorner(stack).isPresent()) {
                 clearFirstCorner(stack);
                 player.displayClientMessage(Component.translatable("message.magnot.selection_cleared"), true);
-            } else if (!player.getOffhandItem().isEmpty()) {
-                toggleFilterMode(stack);
-                player.displayClientMessage(filterModeMessage(stack), true);
             }
             return InteractionResult.SUCCESS;
         }
@@ -105,9 +83,15 @@ public class FerrousTubeItem extends Item {
 
         BlockPos clampedSecondCorner = clampToRegionLimit(firstCorner.get(), clicked);
         UUID subLevelId = getFirstSubLevelId(stack).orElseGet(() -> getClickedSubLevel(serverLevel, clicked));
-        ItemStack filterStack = player.getOffhandItem();
-        boolean whitelistMode = !filterStack.isEmpty() && isFilterWhitelistMode(stack);
-        FerrousRegion region = FerrousRegion.fromCorners(UUID.randomUUID(), UUID.randomUUID(), firstCorner.get(), clampedSecondCorner, subLevelId, filterStack, whitelistMode);
+        FerrousRegion region = FerrousRegion.fromCorners(
+                UUID.randomUUID(),
+                UUID.randomUUID(),
+                firstCorner.get(),
+                clampedSecondCorner,
+                subLevelId,
+                ItemStack.EMPTY,
+                false
+        );
         MagnotDebug.log("second-corner first={} clicked={} clamped={} sub={}", firstCorner.get(), clicked, clampedSecondCorner, MagnotDebug.shortId(subLevelId));
         MagnotDebug.region("create", region);
         FerrousRegionSavedData.get(serverLevel).addRegion(region);
@@ -142,18 +126,20 @@ public class FerrousTubeItem extends Item {
         return Optional.of(new BlockPos(tag.getInt(FIRST_X), tag.getInt(FIRST_Y), tag.getInt(FIRST_Z)));
     }
 
+    @Deprecated(forRemoval = true)
     public static boolean isFilterWhitelistMode(ItemStack stack) {
         CustomData data = stack.get(DataComponents.CUSTOM_DATA);
-        if (data == null || !data.contains(FILTER_WHITELIST_MODE)) {
-            return false;
-        }
-        return data.copyTag().getBoolean(FILTER_WHITELIST_MODE);
+        return data != null && data.copyTag().getBoolean(LEGACY_FILTER_WHITELIST_MODE);
     }
 
+    @Deprecated(forRemoval = true)
     public static void toggleFilterMode(ItemStack stack) {
-        setFilterWhitelistMode(stack, !isFilterWhitelistMode(stack));
+        CompoundTag tag = copyCustomData(stack);
+        tag.putBoolean(LEGACY_FILTER_WHITELIST_MODE, !tag.getBoolean(LEGACY_FILTER_WHITELIST_MODE));
+        CustomData.set(DataComponents.CUSTOM_DATA, stack, tag);
     }
 
+    @Deprecated(forRemoval = true)
     public static Component filterModeMessage(ItemStack stack) {
         return Component.translatable(isFilterWhitelistMode(stack) ? "message.magnot.filter_mode_allow" : "message.magnot.filter_mode_block");
     }
@@ -214,12 +200,6 @@ public class FerrousTubeItem extends Item {
         tag.remove(FIRST_Y);
         tag.remove(FIRST_Z);
         tag.remove(FIRST_SUB_LEVEL_ID);
-        CustomData.set(DataComponents.CUSTOM_DATA, stack, tag);
-    }
-
-    private static void setFilterWhitelistMode(ItemStack stack, boolean whitelistMode) {
-        CompoundTag tag = copyCustomData(stack);
-        tag.putBoolean(FILTER_WHITELIST_MODE, whitelistMode);
         CustomData.set(DataComponents.CUSTOM_DATA, stack, tag);
     }
 
