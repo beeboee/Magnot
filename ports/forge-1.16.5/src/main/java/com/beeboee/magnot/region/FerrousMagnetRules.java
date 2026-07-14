@@ -14,6 +14,8 @@ public final class FerrousMagnetRules {
     public static boolean blocksPlayerItemPull(ServerWorld level, PlayerEntity player, ItemEntity item) { return blocksPlayerMagnet(level, player, itemPullTarget(item)); }
     public static boolean blocksPlayerMagnet(ServerWorld level, PlayerEntity player, Vector3d target) {
         AxisAlignedBB body = player.getBoundingBox();
-        return blocksMagnet(level, player.position(), target) || blocksMagnet(level, body.getCenter(), target) || blocksMagnet(level, player.getEyePosition(), target);
+        return blocksMagnet(level, player.position(), target)
+                || blocksMagnet(level, body.getCenter(), target)
+                || blocksMagnet(level, player.getEyePosition(1.0F), target);
     }
 }
