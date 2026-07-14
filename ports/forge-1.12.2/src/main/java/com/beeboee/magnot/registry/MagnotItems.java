@@ -12,17 +12,17 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public final class MagnotItems {
     public static final Item IRON_DUST = new Item()
             .setRegistryName(Magnot.MOD_ID, "iron_dust")
-            .setTranslationKey(Magnot.MOD_ID + ".iron_dust")
+            .setUnlocalizedName(Magnot.MOD_ID + ".iron_dust")
             .setCreativeTab(CreativeTabs.MATERIALS);
 
     public static final Item FERROUS_PASTE = new Item()
             .setRegistryName(Magnot.MOD_ID, "ferrous_paste")
-            .setTranslationKey(Magnot.MOD_ID + ".ferrous_paste")
+            .setUnlocalizedName(Magnot.MOD_ID + ".ferrous_paste")
             .setCreativeTab(CreativeTabs.MATERIALS);
 
     public static final FerrousTubeItem FERROUS_TUBE = (FerrousTubeItem) new FerrousTubeItem()
             .setRegistryName(Magnot.MOD_ID, "ferrous_tube")
-            .setTranslationKey(Magnot.MOD_ID + ".ferrous_tube")
+            .setUnlocalizedName(Magnot.MOD_ID + ".ferrous_tube")
             .setCreativeTab(CreativeTabs.TOOLS);
 
     private MagnotItems() {
