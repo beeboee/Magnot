@@ -2,6 +2,7 @@
   "item.magnot.iron_dust": "Iron Dust",
   "item.magnot.ferrous_paste": "Ferrous Paste",
   "item.magnot.ferrous_tube": "Ferrous Tube",
+  "item.magnot.field_augmenter": "Field Augmenter",
   "message.magnot.click_to_confirm": "Click again to confirm",
   "message.magnot.selection_cleared": "Selection discarded",
   "message.magnot.region_created": "Applying Paste...",
