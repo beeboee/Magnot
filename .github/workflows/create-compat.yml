@@ -1,0 +1,68 @@
+name: Create compatibility
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  schedule:
+    - cron: '17 10 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: ${{ matrix.target }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          - pinned
+          - latest-6.0
+
+    steps:
+      - name: Check out Magnot
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.8'
+
+      - name: Resolve Create version
+        id: create
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ "${{ matrix.target }}" == "pinned" ]]; then
+            version="$(sed -n 's/^create_version=//p' gradle.properties | head -n 1)"
+          else
+            metadata="$(curl --fail --silent --show-error --location \
+              'https://maven.createmod.net/com/simibubi/create/create-1.21.1/maven-metadata.xml')"
+            version="$(printf '%s' "$metadata" \
+              | sed -n 's:.*<version>\(6\.0\.[^<]*\)</version>.*:\1:p' \
+              | tail -n 1)"
+          fi
+
+          if [[ -z "$version" ]]; then
+            echo 'Could not resolve a Create version.' >&2
+            exit 1
+          fi
+
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Testing Create $version"
+
+      - name: Build against Create
+        run: gradle build --stacktrace -Pcreate_version='${{ steps.create.outputs.version }}'
