@@ -2,6 +2,7 @@ package com.beeboee.magnot.registry;
 
 import com.beeboee.magnot.Magnot;
 import com.beeboee.magnot.item.FerrousTubeItem;
+import com.beeboee.magnot.item.FieldAugmenterItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -16,6 +17,11 @@ public final class MagnotItems {
             "ferrous_tube",
             FerrousTubeItem::new,
             new Item.Properties().stacksTo(1).durability(99)
+    );
+    public static final DeferredItem<FieldAugmenterItem> FIELD_AUGMENTER = ITEMS.registerItem(
+            "field_augmenter",
+            FieldAugmenterItem::new,
+            new Item.Properties().stacksTo(1)
     );
 
     private MagnotItems() {
