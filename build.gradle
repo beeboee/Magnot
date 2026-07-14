@@ -207,8 +207,14 @@ tasks.matching { it.name in ['runClient', 'runServer'] }.configureEach {
     dependsOn tasks.named('downloadCompatTestMods')
 }
 
+def createClassifier = (findProperty('create_classifier') ?: 'slim').toString().trim()
+def createCoordinates = "com.simibubi.create:create-${minecraft_version}:${create_version}"
+if (!createClassifier.isEmpty()) {
+    createCoordinates += ":${createClassifier}"
+}
+
 dependencies {
-    implementation("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
+    implementation(createCoordinates) { transitive = false }
     implementation("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
     compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")
     runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
