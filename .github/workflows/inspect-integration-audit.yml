@@ -22,7 +22,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p _audit
-          target_sha='3e977c08390bce947f6292a7f08385974867ce69'
+          target_sha='af713c5c211f4b64d70b8319b2041ecccc6c8833'
           run_id=''
           for attempt in $(seq 1 40); do
             run_id="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/workflows/audit-integration-targets.yml/runs?per_page=100" --jq ".workflow_runs[] | select(.head_sha == \"${target_sha}\") | .id" | head -n1)"
@@ -30,7 +30,7 @@ jobs:
             sleep 3
           done
           [[ -n "$run_id" ]]
-          for attempt in $(seq 1 100); do
+          for attempt in $(seq 1 120); do
             status="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.status')"
             [[ "$status" == completed ]] && break
             sleep 5
