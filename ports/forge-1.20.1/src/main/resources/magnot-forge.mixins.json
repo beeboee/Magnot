@@ -9,14 +9,13 @@
     "itemcollectors.CollectorBlockEntityMixin",
     "sophisticatedcore.MagnetUpgradeWrapperMixin",
     "portcompat.Ae2wtlibMagnetHandlerMixin",
-    "portcompat.ArtifactsMagnetismMixin",
     "portcompat.MekanismMagneticAttractionMixin",
     "portcompat.DraconicEvolutionMagnetMixin",
     "portcompat.ReliquaryFortuneCoinMixin",
-    "portcompat.MobGrindingUtilsAbsorptionHopperMixin",
     "portcompat.ModularRoutersVacuumMixin",
-    "portcompat.EnderIoElectromagnetMixin",
-    "portcompat.EnderIoVacuumMixin"
+    "enderio.ElectromagnetItemMixin",
+    "enderio.VacuumMachineBlockEntityMixin",
+    "industrialforegoing.ItemInfinityBackpackMixin"
   ],
   "injectors": {
     "defaultRequire": 0
