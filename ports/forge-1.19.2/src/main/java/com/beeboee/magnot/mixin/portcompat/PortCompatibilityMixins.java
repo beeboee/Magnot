@@ -4,7 +4,6 @@ import com.beeboee.magnot.region.FerrousMagnetRules;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -22,6 +21,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.lang.reflect.Method;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -29,7 +29,15 @@ import java.util.stream.Collectors;
 @Pseudo
 @Mixin(targets = "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler", remap = false)
 abstract class Ae2wtlibMagnetHandlerMixin {
-    @Redirect(method = "handleMagnet(Lnet/minecraft/world/entity/player/Player;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/item/ItemEntity;playerTouch(Lnet/minecraft/world/entity/player/Player;)V"), require = 0)
+    @Redirect(
+            method = "handleMagnet(Lnet/minecraft/world/entity/player/Player;)V",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/item/ItemEntity;playerTouch(Lnet/minecraft/world/entity/player/Player;)V",
+                    remap = true
+            ),
+            require = 0
+    )
     private static void magnot$filterAe2wtlibPickup(ItemEntity item, Player player) {
         if (item.level instanceof ServerLevel
                 && FerrousMagnetRules.blocksPlayerItemPull((ServerLevel) item.level, player, item)) {
@@ -40,21 +48,48 @@ abstract class Ae2wtlibMagnetHandlerMixin {
 }
 
 @Pseudo
-@Mixin(targets = "artifacts.effect.MagnetismMobEffect", remap = false)
-abstract class ArtifactsMagnetismMixin {
-    @Redirect(method = "applyEffectTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;"), require = 0)
-    private List<ItemEntity> magnot$filterArtifactsItems(Level level, Class<ItemEntity> type, AABB box, LivingEntity source, int amplifier) {
-        List<ItemEntity> candidates = level.getEntitiesOfClass(type, box);
-        if (!(level instanceof ServerLevel)) {
+@Mixin(targets = "artifacts.common.item.curio.belt.UniversalAttractorItem", remap = false)
+abstract class ArtifactsUniversalAttractorMixin {
+    @Redirect(
+            method = "curioTick",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;",
+                    remap = true
+            ),
+            require = 0
+    )
+    private <T extends Entity> List<T> magnot$filterArtifactsItems(
+            Level level,
+            Class<T> type,
+            AABB box,
+            @Coerce Object slotContext,
+            ItemStack stack
+    ) {
+        List<T> candidates = level.getEntitiesOfClass(type, box);
+        if (!(level instanceof ServerLevel) || !ItemEntity.class.isAssignableFrom(type)) {
             return candidates;
         }
         ServerLevel serverLevel = (ServerLevel) level;
-        Vec3 sourcePos = source.position().add(0.0D, 0.75D, 0.0D);
+        Player player = magnot$getPlayer(slotContext);
+        Vec3 source = box.getCenter();
         return candidates.stream()
-                .filter(item -> source instanceof Player
-                        ? !FerrousMagnetRules.blocksPlayerItemPull(serverLevel, (Player) source, item)
-                        : !FerrousMagnetRules.blocksItemPull(serverLevel, sourcePos, item))
+                .filter(candidate -> !(candidate instanceof ItemEntity)
+                        || (player != null
+                        ? !FerrousMagnetRules.blocksPlayerItemPull(serverLevel, player, (ItemEntity) candidate)
+                        : !FerrousMagnetRules.blocksItemPull(serverLevel, source, (ItemEntity) candidate)))
                 .collect(Collectors.toList());
+    }
+
+    @Unique
+    private static Player magnot$getPlayer(Object slotContext) {
+        try {
+            Method entityMethod = slotContext.getClass().getMethod("entity");
+            Object entity = entityMethod.invoke(slotContext);
+            return entity instanceof Player ? (Player) entity : null;
+        } catch (ReflectiveOperationException ignored) {
+            return null;
+        }
     }
 }
 
@@ -71,28 +106,25 @@ abstract class MekanismMagneticAttractionMixin {
 }
 
 @Pseudo
-@Mixin(targets = "com.brandon3055.draconicevolution.items.tools.Magnet", remap = false)
-abstract class DraconicEvolutionMagnetMixin {
-    @Redirect(method = "updateMagnet", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;"), require = 0)
-    private <T extends Entity> List<T> magnot$filterDraconicItems(Level level, Class<T> type, AABB box, ItemStack stack, Entity source) {
-        List<T> candidates = level.getEntitiesOfClass(type, box);
-        if (!(level instanceof ServerLevel) || !(source instanceof Player) || !ItemEntity.class.isAssignableFrom(type)) {
-            return candidates;
-        }
-        ServerLevel serverLevel = (ServerLevel) level;
-        Player player = (Player) source;
-        return candidates.stream()
-                .filter(candidate -> !(candidate instanceof ItemEntity)
-                        || !FerrousMagnetRules.blocksPlayerItemPull(serverLevel, player, (ItemEntity) candidate))
-                .collect(Collectors.toList());
-    }
-}
-
-@Pseudo
-@Mixin(targets = "reliquary.item.FortuneCoinItem", remap = false)
+@Mixin(targets = "reliquary.items.FortuneCoinItem", remap = false)
 abstract class ReliquaryFortuneCoinMixin {
-    @Redirect(method = "scanForEntitiesInRange", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;"), require = 0)
-    private <T extends Entity> List<T> magnot$filterReliquaryPlayerItems(Level level, Class<T> type, AABB box, Level originalLevel, Player player, double distance) {
+    @Redirect(
+            method = "scanForEntitiesInRange",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;",
+                    remap = true
+            ),
+            require = 0
+    )
+    private <T extends Entity> List<T> magnot$filterReliquaryPlayerItems(
+            Level level,
+            Class<T> type,
+            AABB box,
+            Level originalLevel,
+            Player player,
+            double distance
+    ) {
         List<T> candidates = level.getEntitiesOfClass(type, box);
         if (!(level instanceof ServerLevel) || !ItemEntity.class.isAssignableFrom(type)) {
             return candidates;
@@ -112,8 +144,23 @@ abstract class ReliquaryFortuneCoinMixin {
         }
     }
 
-    @Redirect(method = "pickupItems", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;"), require = 0)
-    private <T extends Entity> List<T> magnot$filterReliquaryPedestalItems(Level level, Class<T> type, AABB box, @Coerce Object pedestal, Level originalLevel, BlockPos pos) {
+    @Redirect(
+            method = "pickupItems",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;",
+                    remap = true
+            ),
+            require = 0
+    )
+    private <T extends Entity> List<T> magnot$filterReliquaryPedestalItems(
+            Level level,
+            Class<T> type,
+            AABB box,
+            @Coerce Object pedestal,
+            Level originalLevel,
+            BlockPos pos
+    ) {
         List<T> candidates = level.getEntitiesOfClass(type, box);
         if (!(level instanceof ServerLevel) || !ItemEntity.class.isAssignableFrom(type)) {
             return candidates;
@@ -130,8 +177,21 @@ abstract class ReliquaryFortuneCoinMixin {
 @Pseudo
 @Mixin(targets = "mob_grinding_utils.tile.TileEntityAbsorptionHopper", remap = false)
 abstract class MobGrindingUtilsAbsorptionHopperMixin {
-    @Redirect(method = "getCaptureItems", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;"), require = 0)
-    private <T extends Entity> List<T> magnot$filterAbsorptionHopperItems(Level level, Class<T> type, AABB box, Predicate<? super T> predicate) {
+    @Redirect(
+            method = "getCaptureItems",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;",
+                    remap = true
+            ),
+            require = 0
+    )
+    private <T extends Entity> List<T> magnot$filterAbsorptionHopperItems(
+            Level level,
+            Class<T> type,
+            AABB box,
+            Predicate<? super T> predicate
+    ) {
         List<T> candidates = level.getEntitiesOfClass(type, box, predicate);
         if (!(level instanceof ServerLevel) || !ItemEntity.class.isAssignableFrom(type)) {
             return candidates;
@@ -148,8 +208,21 @@ abstract class MobGrindingUtilsAbsorptionHopperMixin {
 @Pseudo
 @Mixin(targets = "me.desht.modularrouters.logic.compiled.CompiledVacuumModule", remap = false)
 abstract class ModularRoutersVacuumMixin {
-    @Redirect(method = "handleItemMode", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;"), require = 0)
-    private <T extends Entity> List<T> magnot$filterModularRouterItems(Level level, Class<T> type, AABB box, @Coerce Object router) {
+    @Redirect(
+            method = "handleItemMode",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;",
+                    remap = true
+            ),
+            require = 0
+    )
+    private <T extends Entity> List<T> magnot$filterModularRouterItems(
+            Level level,
+            Class<T> type,
+            AABB box,
+            @Coerce Object router
+    ) {
         List<T> candidates = level.getEntitiesOfClass(type, box);
         if (!(level instanceof ServerLevel) || !ItemEntity.class.isAssignableFrom(type)) {
             return candidates;
