@@ -27,7 +27,7 @@ jobs:
           token=os.environ['CURSEFORGE_TOKEN']
           result={}
           for game in ['1.19.2','1.18.2','1.16.5']:
-            q=urllib.parse.urlencode({'gameVersion':game,'pageSize':100})
+            q=urllib.parse.urlencode({'gameVersion':game,'pageSize':50})
             req=urllib.request.Request('https://api.curseforge.com/v1/mods/328085/files?'+q,headers={'x-api-key':token,'User-Agent':'Magnot Create artifact resolver'})
             with urllib.request.urlopen(req,timeout=60) as response:
               files=json.load(response).get('data',[])
