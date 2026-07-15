@@ -1,0 +1,74 @@
+name: Inspect audited compatibility builds
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  inspect:
+    if: github.event.head_commit.message == 'Inspect audited compatibility builds'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Wait for build matrix and capture results
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          target_sha='1c4428655226ea7c679e59be0a0c786f203949a4'
+          run_id=''
+          for attempt in $(seq 1 30); do
+            run_id="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/workflows/build-audited-compat-branches.yml/runs?per_page=50" --jq ".workflow_runs[] | select(.head_sha == \"${target_sha}\") | .id" | head -n1)"
+            [[ -n "$run_id" ]] && break
+            sleep 3
+          done
+          [[ -n "$run_id" ]]
+          for attempt in $(seq 1 120); do
+            status="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.status')"
+            [[ "$status" == completed ]] && break
+            sleep 10
+          done
+          mkdir -p _audit/build-results
+          {
+            echo '# Audited compatibility build matrix'
+            echo
+            echo "Run: ${run_id}"
+            echo
+            echo '| Job | Status | Conclusion |'
+            echo '|---|---|---|'
+            gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/jobs?per_page=100" --jq '.jobs[] | "| " + .name + " | " + .status + " | " + (.conclusion // "") + " |"'
+          } > _audit/build-results/audited-build-matrix.md
+          gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/jobs?per_page=100" > /tmp/jobs.json
+          python3 - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+          jobs=json.load(open('/tmp/jobs.json'))['jobs']
+          out=Path('_audit/build-results/failures')
+          out.mkdir(parents=True,exist_ok=True)
+          for job in jobs:
+              if job.get('conclusion') == 'success':
+                  continue
+              job_id=job['id']
+              name=job['name'].replace('/','-')
+              p=subprocess.run(['gh','api',f'/repos/{os.environ["GITHUB_REPOSITORY"]}/actions/jobs/{job_id}/logs'],stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+              text=p.stdout.decode('utf-8','replace').splitlines()
+              (out/(name+'.txt')).write_text('\n'.join(text[-260:])+'\n')
+          PY
+      - name: Commit results
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add _audit/build-results
+          git commit -m 'Record audited compatibility builds'
+          git pull --rebase origin main
+          git push origin HEAD:main
