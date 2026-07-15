@@ -23,6 +23,7 @@ import java.util.Map;
  * It intentionally uses only Magnot artwork and Minecraft rendering APIs.
  */
 public final class NativeFerrousSelectionBackend implements FerrousSelectionBackend {
+    private static final double MIN_FACE_EDGE = 1.0E-6D;
     private static final int[][] EDGES = {
             {0, 1}, {1, 2}, {2, 3}, {3, 0},
             {4, 5}, {5, 6}, {6, 7}, {7, 4},
@@ -85,16 +86,54 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
         int blue = outline.blue();
 
         for (int[] face : FACES) {
-            Vec3 a = outline.corners()[face[0]];
-            Vec3 b = outline.corners()[face[1]];
-            Vec3 c = outline.corners()[face[2]];
-            Vec3 normal = b.subtract(a).cross(c.subtract(a)).normalize();
-            addFaceVertex(consumer, matrix, a, 0.0F, 0.0F, red, green, blue, normal);
-            addFaceVertex(consumer, matrix, b, 0.0F, 1.0F, red, green, blue, normal);
-            addFaceVertex(consumer, matrix, c, 1.0F, 1.0F, red, green, blue, normal);
-            addFaceVertex(consumer, matrix, outline.corners()[face[3]], 1.0F, 0.0F, red, green, blue, normal);
+            renderTiledFace(consumer, matrix, outline.corners(), face, red, green, blue);
         }
         buffers.endBatch(renderType);
+    }
+
+    private static void renderTiledFace(VertexConsumer consumer, Matrix4f matrix, Vec3[] corners, int[] face,
+                                        int red, int green, int blue) {
+        Vec3 origin = corners[face[0]];
+        Vec3 vEdge = corners[face[1]].subtract(origin);
+        Vec3 diagonal = corners[face[2]].subtract(origin);
+        Vec3 uEdge = corners[face[3]].subtract(origin);
+        double uLength = uEdge.length();
+        double vLength = vEdge.length();
+        if (uLength < MIN_FACE_EDGE || vLength < MIN_FACE_EDGE) {
+            return;
+        }
+
+        Vec3 uDirection = uEdge.scale(1.0D / uLength);
+        Vec3 vDirection = vEdge.scale(1.0D / vLength);
+        Vec3 normal = vEdge.cross(diagonal).normalize();
+        int uTiles = Math.max(1, (int) Math.ceil(uLength - MIN_FACE_EDGE));
+        int vTiles = Math.max(1, (int) Math.ceil(vLength - MIN_FACE_EDGE));
+
+        for (int uTile = 0; uTile < uTiles; uTile++) {
+            double uStart = uTile;
+            double uEnd = Math.min(uTile + 1.0D, uLength);
+            float tileU = (float) (uEnd - uStart);
+
+            for (int vTile = 0; vTile < vTiles; vTile++) {
+                double vStart = vTile;
+                double vEnd = Math.min(vTile + 1.0D, vLength);
+                float tileV = (float) (vEnd - vStart);
+
+                Vec3 a = pointOnFace(origin, uDirection, vDirection, uStart, vStart);
+                Vec3 b = pointOnFace(origin, uDirection, vDirection, uStart, vEnd);
+                Vec3 c = pointOnFace(origin, uDirection, vDirection, uEnd, vEnd);
+                Vec3 d = pointOnFace(origin, uDirection, vDirection, uEnd, vStart);
+
+                addFaceVertex(consumer, matrix, a, 0.0F, 0.0F, red, green, blue, normal);
+                addFaceVertex(consumer, matrix, b, 0.0F, tileV, red, green, blue, normal);
+                addFaceVertex(consumer, matrix, c, tileU, tileV, red, green, blue, normal);
+                addFaceVertex(consumer, matrix, d, tileU, 0.0F, red, green, blue, normal);
+            }
+        }
+    }
+
+    private static Vec3 pointOnFace(Vec3 origin, Vec3 uDirection, Vec3 vDirection, double u, double v) {
+        return origin.add(uDirection.scale(u)).add(vDirection.scale(v));
     }
 
     private static void addFaceVertex(VertexConsumer consumer, Matrix4f matrix, Vec3 point, float u, float v, int red, int green, int blue, Vec3 normal) {
