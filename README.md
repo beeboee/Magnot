@@ -7,8 +7,10 @@ This branch ports Magnot's core ferrous-region behavior to Minecraft 1.20.1 Fabr
 - Minecraft 1.20.1
 - Fabric Loader 0.17.2 or newer
 - Fabric API 0.92.6 or newer for 1.20.1
-- Create Fabric port 0.5.1 or newer
+- Create Fabric 6.0.8 or newer within the 6.0 line
 - Java 17
+
+The build resolves the current Create Fabric artifact `6.0.8.1+build.1744-mc1.20.1` as part of verification.
 
 ## Included
 
@@ -19,12 +21,15 @@ This branch ports Magnot's core ferrous-region behavior to Minecraft 1.20.1 Fabr
 
 ## Alpha integration coverage
 
-- Simple Magnets `1.1.12-fabric-mc1.20.1`
-- Item Collectors `1.1.12` Fabric 1.20.x builds
-- Artifacts `9.5.17`
-- AE2 Wireless Terminals where the target magnet handler matches the 1.20.1 Fabric build
+Active optional hooks whose classes and methods were found in current matching Fabric jars:
 
-The integrations are optional. Simple Magnets and Item Collectors have existing port coverage; Artifacts and AE2 Wireless Terminals are experimental until runtime-tested.
+- Simple Magnets `1.1.12-fabric-mc1.20.1`
+- Item Collectors Fabric 1.20.x builds
+- AE2 Wireless Terminals `15.2.1-fabric`
+
+The previously copied Artifacts hook was removed from the active mixin configuration because the 1.20.1 Fabric jar does not contain the main-branch `MagnetismMobEffect` target. Leaving it enabled would have advertised support while silently doing nothing.
+
+These integrations remain optional. The target audit and exact Create dependency resolution improve confidence, but full in-game interaction tests are still needed before promoting this port from alpha.
 
 ## Port status
 

@@ -6,8 +6,7 @@
   "mixins": [
     "simplemagnets.MagnetItemMixin",
     "itemcollectors.CollectorBlockEntityMixin",
-    "portcompat.Ae2wtlibMagnetHandlerMixin",
-    "portcompat.ArtifactsMagnetismMixin"
+    "portcompat.Ae2wtlibMagnetHandlerMixin"
   ],
   "injectors": {
     "defaultRequire": 0
