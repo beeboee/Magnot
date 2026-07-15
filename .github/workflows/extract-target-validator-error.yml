@@ -1,0 +1,35 @@
+name: Extract target validator error
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  extract:
+    if: github.event.head_commit.message == 'Extract target validator error'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Extract errors
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _audit/final-validation
+          gh api "/repos/${GITHUB_REPOSITORY}/actions/jobs/87260298556/logs" > /tmp/job.log
+          grep -n -B 12 -A 30 -E 'Traceback|Error|Exception|FAILED|No such file|rejected|CONFLICT' /tmp/job.log > _audit/final-validation/validator-error.txt || true
+      - name: Commit error
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add _audit/final-validation/validator-error.txt
+          git commit -m 'Record target validator error'
+          git pull --rebase origin main
+          git push origin HEAD:main
