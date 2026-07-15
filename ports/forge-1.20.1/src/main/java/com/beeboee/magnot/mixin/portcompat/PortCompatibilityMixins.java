@@ -29,7 +29,11 @@ import java.util.stream.Collectors;
 abstract class Ae2wtlibMagnetHandlerMixin {
     @Redirect(
             method = "handleMagnet(Lnet/minecraft/world/entity/player/Player;)V",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/item/ItemEntity;playerTouch(Lnet/minecraft/world/entity/player/Player;)V"),
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/item/ItemEntity;playerTouch(Lnet/minecraft/world/entity/player/Player;)V",
+                    remap = true
+            ),
             require = 0
     )
     private static void magnot$filterAe2wtlibPickup(ItemEntity item, Player player) {
@@ -42,23 +46,34 @@ abstract class Ae2wtlibMagnetHandlerMixin {
 }
 
 @Pseudo
-@Mixin(targets = "artifacts.effect.MagnetismMobEffect", remap = false)
-abstract class ArtifactsMagnetismMixin {
+@Mixin(targets = "artifacts.item.wearable.belt.UniversalAttractorItem", remap = false)
+abstract class ArtifactsUniversalAttractorMixin {
     @Redirect(
-            method = "applyEffectTick",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;"),
+            method = "wornTick",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;",
+                    remap = true
+            ),
             require = 0
     )
-    private List<ItemEntity> magnot$filterArtifactsItems(Level level, Class<ItemEntity> type, AABB box, LivingEntity source, int amplifier) {
-        List<ItemEntity> candidates = level.getEntitiesOfClass(type, box);
-        if (!(level instanceof ServerLevel serverLevel)) {
+    private <T extends Entity> List<T> magnot$filterArtifactsItems(
+            Level level,
+            Class<T> type,
+            AABB box,
+            LivingEntity wearer,
+            ItemStack stack
+    ) {
+        List<T> candidates = level.getEntitiesOfClass(type, box);
+        if (!(level instanceof ServerLevel serverLevel) || !ItemEntity.class.isAssignableFrom(type)) {
             return candidates;
         }
-        Vec3 sourcePos = source.position().add(0.0D, 0.75D, 0.0D);
+        Vec3 source = wearer.position().add(0.0D, 0.75D, 0.0D);
         return candidates.stream()
-                .filter(item -> source instanceof Player player
+                .filter(candidate -> !(candidate instanceof ItemEntity item)
+                        || (wearer instanceof Player player
                         ? !FerrousMagnetRules.blocksPlayerItemPull(serverLevel, player, item)
-                        : !FerrousMagnetRules.blocksItemPull(serverLevel, sourcePos, item))
+                        : !FerrousMagnetRules.blocksItemPull(serverLevel, source, item)))
                 .collect(Collectors.toList());
     }
 }
@@ -80,10 +95,20 @@ abstract class MekanismMagneticAttractionMixin {
 abstract class DraconicEvolutionMagnetMixin {
     @Redirect(
             method = "updateMagnet",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;"),
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;",
+                    remap = true
+            ),
             require = 0
     )
-    private <T extends Entity> List<T> magnot$filterDraconicItems(Level level, Class<T> type, AABB box, ItemStack stack, Entity source) {
+    private <T extends Entity> List<T> magnot$filterDraconicItems(
+            Level level,
+            Class<T> type,
+            AABB box,
+            ItemStack stack,
+            Entity source
+    ) {
         List<T> candidates = level.getEntitiesOfClass(type, box);
         if (!(level instanceof ServerLevel serverLevel)
                 || !(source instanceof Player player)
@@ -102,10 +127,21 @@ abstract class DraconicEvolutionMagnetMixin {
 abstract class ReliquaryFortuneCoinMixin {
     @Redirect(
             method = "scanForEntitiesInRange",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;"),
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;",
+                    remap = true
+            ),
             require = 0
     )
-    private <T extends Entity> List<T> magnot$filterReliquaryPlayerItems(Level level, Class<T> type, AABB box, Level originalLevel, Player player, double distance) {
+    private <T extends Entity> List<T> magnot$filterReliquaryPlayerItems(
+            Level level,
+            Class<T> type,
+            AABB box,
+            Level originalLevel,
+            Player player,
+            double distance
+    ) {
         List<T> candidates = level.getEntitiesOfClass(type, box);
         if (!(level instanceof ServerLevel serverLevel) || !ItemEntity.class.isAssignableFrom(type)) {
             return candidates;
@@ -127,10 +163,21 @@ abstract class ReliquaryFortuneCoinMixin {
 
     @Redirect(
             method = "pickupItems",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;"),
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;",
+                    remap = true
+            ),
             require = 0
     )
-    private <T extends Entity> List<T> magnot$filterReliquaryPedestalItems(Level level, Class<T> type, AABB box, @Coerce Object pedestal, Level originalLevel, BlockPos pos) {
+    private <T extends Entity> List<T> magnot$filterReliquaryPedestalItems(
+            Level level,
+            Class<T> type,
+            AABB box,
+            @Coerce Object pedestal,
+            Level originalLevel,
+            BlockPos pos
+    ) {
         List<T> candidates = level.getEntitiesOfClass(type, box);
         if (!(level instanceof ServerLevel serverLevel) || !ItemEntity.class.isAssignableFrom(type)) {
             return candidates;
@@ -148,10 +195,19 @@ abstract class ReliquaryFortuneCoinMixin {
 abstract class MobGrindingUtilsAbsorptionHopperMixin {
     @Redirect(
             method = "getCaptureItems",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;"),
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;",
+                    remap = true
+            ),
             require = 0
     )
-    private <T extends Entity> List<T> magnot$filterAbsorptionHopperItems(Level level, Class<T> type, AABB box, Predicate<? super T> predicate) {
+    private <T extends Entity> List<T> magnot$filterAbsorptionHopperItems(
+            Level level,
+            Class<T> type,
+            AABB box,
+            Predicate<? super T> predicate
+    ) {
         List<T> candidates = level.getEntitiesOfClass(type, box, predicate);
         if (!(level instanceof ServerLevel serverLevel) || !ItemEntity.class.isAssignableFrom(type)) {
             return candidates;
@@ -170,10 +226,19 @@ abstract class MobGrindingUtilsAbsorptionHopperMixin {
 abstract class ModularRoutersVacuumMixin {
     @Redirect(
             method = "handleItemMode",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;"),
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;",
+                    remap = true
+            ),
             require = 0
     )
-    private <T extends Entity> List<T> magnot$filterModularRouterItems(Level level, Class<T> type, AABB box, @Coerce Object router) {
+    private <T extends Entity> List<T> magnot$filterModularRouterItems(
+            Level level,
+            Class<T> type,
+            AABB box,
+            @Coerce Object router
+    ) {
         List<T> candidates = level.getEntitiesOfClass(type, box);
         if (!(level instanceof ServerLevel serverLevel) || !ItemEntity.class.isAssignableFrom(type)) {
             return candidates;
@@ -187,14 +252,29 @@ abstract class ModularRoutersVacuumMixin {
 }
 
 @Pseudo
-@Mixin(targets = "com.enderio.enderio.content.tools.ElectromagnetItem", remap = false)
+@Mixin(targets = "com.enderio.base.common.item.tool.ElectromagnetItem", remap = false)
 abstract class EnderIoElectromagnetMixin {
     @Redirect(
             method = "onTickWhenActive",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getEntities(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;"),
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/Level;getEntities(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;",
+                    remap = true
+            ),
             require = 0
     )
-    private List<Entity> magnot$filterEnderIoElectromagnet(Level level, Entity excluded, AABB box, Predicate<? super Entity> predicate, Player player, ItemStack stack, Level originalLevel, Entity entity, int slot, boolean selected) {
+    private List<Entity> magnot$filterEnderIoElectromagnet(
+            Level level,
+            Entity excluded,
+            AABB box,
+            Predicate<? super Entity> predicate,
+            Player player,
+            ItemStack stack,
+            Level originalLevel,
+            Entity entity,
+            int slot,
+            boolean selected
+    ) {
         List<Entity> candidates = level.getEntities(excluded, box, predicate);
         if (!(level instanceof ServerLevel serverLevel)) {
             return candidates;
@@ -207,14 +287,27 @@ abstract class EnderIoElectromagnetMixin {
 }
 
 @Pseudo
-@Mixin(targets = "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity", remap = false)
+@Mixin(targets = "com.enderio.machines.common.blockentity.base.VacuumMachineBlockEntity", remap = false)
 abstract class EnderIoVacuumMixin {
     @Redirect(
             method = "getEntities",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;"),
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;",
+                    remap = true
+            ),
             require = 0
     )
-    private <T extends Entity> List<T> magnot$filterEnderIoVacuum(Level level, Class<T> type, AABB box, Predicate<? super T> predicate, Level originalLevel, BlockPos pos, int range, Predicate<T> filter) {
+    private <T extends Entity> List<T> magnot$filterEnderIoVacuum(
+            Level level,
+            Class<T> type,
+            AABB box,
+            Predicate<? super T> predicate,
+            Level originalLevel,
+            BlockPos pos,
+            int range,
+            Predicate<T> filter
+    ) {
         List<T> candidates = level.getEntitiesOfClass(type, box, predicate);
         if (!(level instanceof ServerLevel serverLevel) || !ItemEntity.class.isAssignableFrom(type)) {
             return candidates;
