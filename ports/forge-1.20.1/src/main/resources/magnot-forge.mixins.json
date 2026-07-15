@@ -8,6 +8,7 @@
     "simplemagnets.MagnetItemMixin",
     "itemcollectors.CollectorBlockEntityMixin",
     "sophisticatedcore.MagnetUpgradeWrapperMixin",
+    "artifacts.UniversalAttractorItemMixin",
     "portcompat.Ae2wtlibMagnetHandlerMixin",
     "portcompat.MekanismMagneticAttractionMixin",
     "portcompat.DraconicEvolutionMagnetMixin",
