@@ -17,41 +17,26 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Wait for retry and collect result
+      - name: Collect exact retry result
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p _release
-
-          run_id=''
-          for attempt in $(seq 1 30); do
-            run_id="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/workflows/retry-curseforge-1.0.1.yml/runs?per_page=5" --jq '.workflow_runs[0].id // empty')"
-            if [[ -n "$run_id" ]]; then
-              break
-            fi
-            sleep 5
-          done
+          target_sha='ed5dd4fb7f1e3f49441436c9a5acb8b9940b0479'
+          run_id="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/workflows/retry-curseforge-1.0.1.yml/runs?per_page=100" --jq ".workflow_runs[] | select(.head_sha == \"${target_sha}\") | .id" | head -n 1)"
 
           if [[ -z "$run_id" ]]; then
             echo 'retry_run=not_found' > _release/curseforge-1.0.1-diagnostic.txt
           else
-            status=''
-            conclusion=''
-            for attempt in $(seq 1 60); do
-              status="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.status')"
-              conclusion="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.conclusion // empty')"
-              if [[ "$status" == 'completed' ]]; then
-                break
-              fi
-              sleep 5
-            done
-
+            status="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.status')"
+            conclusion="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.conclusion // empty')"
             jobs_json="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/jobs")"
             job_id="$(jq -r '.jobs[0].id // empty' <<< "$jobs_json")"
             {
               echo "retry_run_id=$run_id"
+              echo "head_sha=$target_sha"
               echo "status=$status"
               echo "conclusion=$conclusion"
               echo "job_id=$job_id"
@@ -61,7 +46,7 @@ jobs:
 
             if [[ -n "$job_id" ]]; then
               gh api "/repos/${GITHUB_REPOSITORY}/actions/jobs/${job_id}/logs" > /tmp/retry.log || true
-              grep -iE 'curseforge|token|upload|error|warning|response|file_id|file id|http|curl|accepted|forbidden|unauthorized|bad request' /tmp/retry.log | tail -n 120 >> _release/curseforge-1.0.1-diagnostic.txt || true
+              grep -iE 'curseforge|token|upload|error|warning|response|file_id|file id|http|curl|accepted|forbidden|unauthorized|bad request|metadata|gameversion' /tmp/retry.log | tail -n 180 >> _release/curseforge-1.0.1-diagnostic.txt || true
             fi
           fi
 
@@ -72,5 +57,5 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add _release/curseforge-1.0.1-diagnostic.txt
-          git commit -m 'Record CurseForge 1.0.1 retry result'
+          git commit -m 'Record exact CurseForge 1.0.1 retry result'
           git push
