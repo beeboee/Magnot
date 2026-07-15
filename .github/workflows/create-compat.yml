@@ -23,6 +23,7 @@ jobs:
       fail-fast: false
       matrix:
         target:
+          - minimum-6.0.10
           - pinned
           - latest-6.0
 
@@ -47,17 +48,24 @@ jobs:
         run: |
           set -euo pipefail
 
-          if [[ "${{ matrix.target }}" == "pinned" ]]; then
-            version="$(sed -n 's/^create_version=//p' gradle.properties | head -n 1)"
-            classifier="$(sed -n 's/^create_classifier=//p' gradle.properties | head -n 1)"
-          else
-            metadata="$(curl --fail --silent --show-error --location \
-              'https://maven.createmod.net/com/simibubi/create/create-1.21.1/maven-metadata.xml')"
-            version="$(printf '%s' "$metadata" \
-              | sed -n 's:.*<version>\(6\.0\.[^<]*\)</version>.*:\1:p' \
-              | tail -n 1)"
-            classifier=''
-          fi
+          case "${{ matrix.target }}" in
+            minimum-6.0.10)
+              version='6.0.10-280'
+              classifier='slim'
+              ;;
+            pinned)
+              version="$(sed -n 's/^create_version=//p' gradle.properties | head -n 1)"
+              classifier=''
+              ;;
+            latest-6.0)
+              metadata="$(curl --fail --silent --show-error --location \
+                'https://maven.createmod.net/com/simibubi/create/create-1.21.1/maven-metadata.xml')"
+              version="$(printf '%s' "$metadata" \
+                | sed -n 's:.*<version>\(6\.0\.[^<]*\)</version>.*:\1:p' \
+                | tail -n 1)"
+              classifier=''
+              ;;
+          esac
 
           if [[ -z "$version" ]]; then
             echo 'Could not resolve a Create version.' >&2

@@ -10,7 +10,8 @@ Mods that move dropped items can also support Magnot directly through the public
 
 - Minecraft 1.21.1
 - NeoForge 21.1.230+
-- Create 6.0.11+, below Create 6.1
+- Default development target: Create 6.0.11
+- Supported and CI-tested Create range: 6.0.10 through the 6.0.x line
 
 ## Confirmed in current testing
 
@@ -29,10 +30,15 @@ These have active compatibility hooks whose current upstream target classes and 
 - Modular Routers: Vacuum Module item pickup.
 - Ender IO: Electromagnet item movement and Vacuum Chest item pickup.
 
-## Experimental compat layers
+## Source and bytecode verified
 
-- Industrial Foregoing: Infinity Backpack magnet behavior. The target exists in the current upstream jar, but broader in-game coverage is still needed.
+These hooks match the selected published classes and methods but still need a focused in-game regression test before being described as fully confirmed in release notes:
+
+- Actually Additions: Ring of Magnetizing candidate-item query in `ItemMagnetRing.inventoryTick`.
+- Industrial Foregoing: Infinity Backpack loose-item collection.
 - Sable / Create Aeronautics moving-level integration remains version-sensitive and should be tested with the exact Create and Sable builds used by a pack.
+
+The Actually Additions hook is registered in Magnot 1.0.2. Earlier releases included the mod in the development runtime without actually registering a compatibility mixin.
 
 ## Dev test downloads
 
@@ -49,7 +55,6 @@ This task is only for local testing. Downloaded jars should not be committed.
 
 ## Planned or future work
 
-- Actually Additions: identify and test the current magnet implementation. The mod is available in the dev runtime, but Magnot does not currently register an Actually Additions compatibility hook.
 - Simple Magnets / Magnets by LPSMods: magnet items and magnet blocks.
 - Botania: revisit when Magnot targets a compatible version with Ring of Magnetization available.
 - Cyclic: revisit when Magnot targets a compatible version with magnet or vacuum behavior available.

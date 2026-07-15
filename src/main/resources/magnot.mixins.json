@@ -9,6 +9,7 @@
     "projecte.BlackHoleBandMixin",
     "artifacts.MagnetismMobEffectMixin",
     "mekanism.ModuleMagneticAttractionUnitMixin",
+    "actuallyadditions.ItemMagnetRingMixin",
     "draconicevolution.MagnetMixin",
     "reliquary.FortuneCoinItemMixin",
     "mobgrindingutils.AbsorptionHopperMixin",
