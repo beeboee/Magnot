@@ -1,0 +1,10 @@
+target_sha=87c0f19288e6e790c92c2c2cb3ee9d8e5c14c6ae
+run_id=29380568118
+status=queued
+conclusion=
+87243102704	publish (fabric-1.20.1, 1.20.1-fabric, 17, 8.8, fabric, 1.20.1, create-fabric(required), Simple M...	queued	
+87243102710	publish (forge-1.16.5, 1.16.5-forge, 17, 8.8, forge, 1.16.5, create(required), Simple Magnets, It...	queued	
+87243102715	publish (forge-1.19.2, 1.19.2-forge, 17, 8.8, forge, 1.19.2, create(required), Simple Magnets, It...	queued	
+87243102725	publish (forge-1.12.2, 1.12.2-forge-legacy, 8, 4.10.3, forge, 1.12.2, Legacy core and public comp...	queued	
+87243102734	publish (forge-1.20.1, 1.20.1-forge, 17, 8.8, forge, 1.20.1, create(required), Simple Magnets, It...	in_progress	
+87243102746	publish (forge-1.18.2, 1.18.2-forge, 17, 7.6.4, forge, 1.18.2, create(required), Simple Magnets, ...	queued	
