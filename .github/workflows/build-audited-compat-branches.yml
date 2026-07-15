@@ -1,0 +1,59 @@
+name: Build audited compatibility branches
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    if: github.event.head_commit.message == 'Build audited compatibility branches'
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - key: main-1.21.1
+            branch: audit/main-create-compat
+            java: '21'
+            gradle: '8.8'
+          - key: forge-1.20.1
+            branch: audit/1.20.1-forge-compat
+            java: '17'
+            gradle: '8.8'
+          - key: fabric-1.20.1
+            branch: audit/1.20.1-fabric-compat
+            java: '17'
+            gradle: '8.12'
+          - key: forge-1.19.2
+            branch: audit/1.19.2-forge-compat
+            java: '17'
+            gradle: '7.6.4'
+          - key: forge-1.18.2
+            branch: audit/1.18.2-forge-compat
+            java: '17'
+            gradle: '7.6.4'
+          - key: forge-1.16.5
+            branch: audit/1.16.5-forge-compat
+            java: '17'
+            gradle: '8.8'
+          - key: forge-1.12.2
+            branch: audit/1.12.2-forge-compat
+            java: '8'
+            gradle: '4.10.3'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.branch }}
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java }}
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: ${{ matrix.gradle }}
+      - name: Build ${{ matrix.key }}
+        run: gradle build --stacktrace
