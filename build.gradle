@@ -20,6 +20,7 @@ sourceSets.main.resources.srcDirs = ['ports/fabric-1.20.1/src/main/resources']
 
 repositories {
     mavenCentral()
+    maven { url = 'https://api.modrinth.com/maven' }
 }
 
 dependencies {
@@ -27,6 +28,7 @@ dependencies {
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+    modImplementation "maven.modrinth:create-fabric:${create_fabric_version}"
 }
 
 tasks.named('processResources', ProcessResources).configure {
