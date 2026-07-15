@@ -21,7 +21,7 @@ import java.util.function.Predicate;
 @Mixin(targets = "com.supermartijn642.simplemagnets.MagnetItem", remap = false)
 public abstract class MagnetItemMixin {
     @Redirect(
-            method = {"inventoryTick", "inventoryUpdate"},
+            method = "inventoryUpdate",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/level/Level;getEntities(Lnet/minecraft/world/level/entity/EntityTypeTest;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;"
