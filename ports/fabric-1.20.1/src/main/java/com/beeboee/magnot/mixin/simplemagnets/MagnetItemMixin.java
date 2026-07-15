@@ -24,13 +24,14 @@ public abstract class MagnetItemMixin {
             method = {"inventoryTick", "inventoryUpdate"},
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/level/Level;getEntities(Lnet/minecraft/world/level/entity/EntityTypeTest;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;"
+                    target = "Lnet/minecraft/world/level/Level;getEntities(Lnet/minecraft/world/level/entity/EntityTypeTest;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;",
+                    remap = true
             ),
             require = 0
     )
     private <T extends Entity> List<T> magnot$filterItems(Level level, EntityTypeTest<Entity, T> type, AABB box,
-                                                          Predicate<? super T> predicate, ItemStack stack,
-                                                          Level originalLevel, Entity source, int slot, boolean selected) {
+                                                           Predicate<? super T> predicate, ItemStack stack,
+                                                           Level originalLevel, Entity source, int slot, boolean selected) {
         List<T> candidates = level.getEntities(type, box, predicate);
         if (!(level instanceof ServerLevel serverLevel) || !(source instanceof Player player)) {
             return candidates;
