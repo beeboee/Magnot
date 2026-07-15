@@ -1,0 +1,38 @@
+name: Apply v1.1.0 implementation
+
+on:
+  push:
+    branches: [v1.1.0]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: v1.1.0
+      - name: Apply implementation bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .v110/part* | tr -d '\r\n' | base64 -d > /tmp/v110.tar.gz
+          tar -xzf /tmp/v110.tar.gz
+          rm -f \
+            .github/workflows/create-compat.yml \
+            .github/workflows/source-snapshot.yml \
+            src/main/java/com/beeboee/magnot/client/MagnotClientEvents.java \
+            src/main/java/com/beeboee/magnot/client/MagnotSpecialTextures.java \
+            src/main/java/com/beeboee/magnot/compat/sable/MagnotSableClientCompat.java \
+            src/main/resources/data/magnot/recipe/ferrous_paste.json \
+            src/main/resources/data/magnot/recipe/iron_dust_from_crushing.json \
+            src/main/resources/data/magnot/recipe/ferrous_tube.json
+          rm -rf .v110 .github/workflows/apply-v110.yml
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          git commit -m 'Implement adaptive v1.1.0 architecture'
+          git push origin HEAD:v1.1.0
