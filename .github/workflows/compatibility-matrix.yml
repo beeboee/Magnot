@@ -1,0 +1,173 @@
+name: v1.1 compatibility matrix
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main, v1.1.0]
+  workflow_dispatch:
+  schedule:
+    - cron: '17 10 * * 1'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v110-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static-contracts:
+    name: Static architecture and recipe contracts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Verify adaptive recipe truth table
+        run: python tools/verify_adaptive_recipes.py
+      - name: Verify optional reference isolation
+        shell: bash
+        run: |
+          set -euo pipefail
+          create_refs="$(grep -RIlE '^import (com\.simibubi\.create|net\.createmod)' src/main/java || true)"
+          if [[ -n "$create_refs" ]] && grep -v '^src/main/java/com/beeboee/magnot/compat/create/' <<< "$create_refs"; then
+            echo 'Direct Create references escaped compat/create.' >&2
+            exit 1
+          fi
+          jei_refs="$(grep -RIl '^import mezz\.jei' src/main/java || true)"
+          if [[ -n "$jei_refs" ]] && grep -v '^src/main/java/com/beeboee/magnot/compat/jei/' <<< "$jei_refs"; then
+            echo 'Direct JEI references escaped compat/jei.' >&2
+            exit 1
+          fi
+          emi_refs="$(grep -RIl '^import dev\.emi\.emi' src/main/java || true)"
+          if [[ -n "$emi_refs" ]] && grep -v '^src/main/java/com/beeboee/magnot/compat/emi/' <<< "$emi_refs"; then
+            echo 'Direct EMI references escaped compat/emi.' >&2
+            exit 1
+          fi
+      - name: Verify no Create assets were copied
+        shell: bash
+        run: |
+          set -euo pipefail
+          if find src/main/resources/assets/magnot -type f | grep -Ei '(super[_-]?glue|create)' ; then
+            echo 'Potential copied Create asset found.' >&2
+            exit 1
+          fi
+
+  build:
+    name: Build - ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Magnot only
+            flags: ''
+          - name: Create 6.0.10 minimum
+            flags: -Pwith_create=true -Pcreate_version=6.0.10-280 -Pcreate_classifier=slim
+          - name: Create pinned
+            flags: -Pwith_create=true
+          - name: Create latest 6.0.x
+            flags: -Pwith_create=true
+            latest_create: true
+          - name: Sable
+            flags: -Pwith_sable=true
+          - name: Create and Sable
+            flags: -Pwith_create=true -Pwith_sable=true
+          - name: JEI
+            flags: -Pwith_jei=true
+          - name: EMI
+            flags: -Pwith_emi=true
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.8'
+      - name: Resolve latest Create 6.0.x
+        if: matrix.latest_create
+        id: latest-create
+        shell: bash
+        run: |
+          set -euo pipefail
+          metadata="$(curl --fail --silent --show-error --location \
+            'https://maven.createmod.net/com/simibubi/create/create-1.21.1/maven-metadata.xml')"
+          version="$(printf '%s' "$metadata" | sed -n 's:.*<version>\(6\.0\.[^<]*\)</version>.*:\1:p' | tail -n 1)"
+          test -n "$version"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+      - name: Build and test
+        env:
+          BASE_FLAGS: ${{ matrix.flags }}
+          LATEST_CREATE: ${{ steps.latest-create.outputs.version }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          read -r -a flags <<< "$BASE_FLAGS"
+          if [[ -n "${LATEST_CREATE:-}" ]]; then
+            flags+=("-Pcreate_version=$LATEST_CREATE")
+          fi
+          gradle build --stacktrace "${flags[@]}"
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-${{ strategy.job-index }}
+          path: build/reports/tests/test
+          if-no-files-found: ignore
+          retention-days: 7
+
+  server-smoke:
+    name: Dedicated server startup - ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Magnot only
+            flags: ''
+          - name: Create
+            flags: -Pwith_create=true
+          - name: Sable
+            flags: -Pwith_sable=true
+          - name: Create and Sable
+            flags: -Pwith_create=true -Pwith_sable=true
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.8'
+      - name: Launch dedicated server through startup
+        env:
+          BASE_FLAGS: ${{ matrix.flags }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p run
+          printf 'eula=true\n' > run/eula.txt
+          read -r -a flags <<< "$BASE_FLAGS"
+          set +e
+          timeout --signal=INT 240s gradle runServer --stacktrace "${flags[@]}" > server.log 2>&1
+          status=$?
+          set -e
+          if ! grep -qE 'Done \([0-9.]+s\)!|For help, type "help"' server.log; then
+            tail -n 240 server.log
+            echo "Server did not reach ready state (exit $status)." >&2
+            exit 1
+          fi
+          tail -n 80 server.log
+      - name: Upload server log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: server-log-${{ strategy.job-index }}
+          path: server.log
+          if-no-files-found: ignore
+          retention-days: 7
