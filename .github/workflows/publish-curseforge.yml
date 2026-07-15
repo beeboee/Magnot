@@ -31,6 +31,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Verify CurseForge token is available
+        env:
+          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${CURSEFORGE_TOKEN:-}" ]]; then
+            echo '::error::Repository secret CURSEFORGE_TOKEN is missing or unavailable to this workflow.'
+            exit 1
+          fi
+
       - name: Check out Magnot
         uses: actions/checkout@v4
 
@@ -65,9 +76,19 @@ jobs:
           echo "version=$project_version" >> "$GITHUB_OUTPUT"
 
       - name: Build release jar
-        run: gradle build --stacktrace
+        shell: bash
+        run: |
+          set -euo pipefail
+          gradle build --stacktrace
+          jar="build/libs/magnot-${{ steps.version.outputs.version }}.jar"
+          if [[ ! -s "$jar" ]]; then
+            echo "::error::Expected release jar was not created: $jar"
+            ls -la build/libs || true
+            exit 1
+          fi
 
       - name: Publish release
+        id: publish
         uses: Kir-Antipov/mc-publish@v3.3
         with:
           curseforge-id: 1609524
@@ -84,3 +105,24 @@ jobs:
           game-version-filter: none
           java: 21
           fail-mode: fail
+
+      - name: Verify CurseForge accepted the upload
+        env:
+          CURSEFORGE_FILE_ID: ${{ steps.publish.outputs['curseforge-version'] }}
+          CURSEFORGE_FILE_URL: ${{ steps.publish.outputs['curseforge-url'] }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${CURSEFORGE_FILE_ID:-}" || -z "${CURSEFORGE_FILE_URL:-}" ]]; then
+            echo '::error::The publishing action did not return a CurseForge file ID and URL.'
+            exit 1
+          fi
+
+          echo "CurseForge accepted file ID: $CURSEFORGE_FILE_ID"
+          echo "CurseForge file URL: $CURSEFORGE_FILE_URL"
+          {
+            echo '## CurseForge publication accepted'
+            echo
+            echo "- File ID: \`$CURSEFORGE_FILE_ID\`"
+            echo "- URL: $CURSEFORGE_FILE_URL"
+          } >> "$GITHUB_STEP_SUMMARY"
