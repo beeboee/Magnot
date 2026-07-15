@@ -1,0 +1,38 @@
+name: Prepare audited compatibility branches
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+    if: github.event.head_commit.message == 'Prepare audited compatibility branches'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Configure git
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+      - name: Create repair branches
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS='|' read -r base branch; do
+            git fetch origin "$base"
+            git checkout -B "$branch" "origin/$base"
+            git push --force-with-lease origin "$branch"
+          done <<'EOF'
+          main|audit/main-create-compat
+          1.20.1-forge|audit/1.20.1-forge-compat
+          1.20.1-fabric|audit/1.20.1-fabric-compat
+          1.19.2-forge|audit/1.19.2-forge-compat
+          1.18.2-forge|audit/1.18.2-forge-compat
+          1.16.5-forge|audit/1.16.5-forge-compat
+          1.12.2-forge-legacy|audit/1.12.2-forge-compat
+          EOF
