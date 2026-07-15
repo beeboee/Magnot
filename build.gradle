@@ -41,6 +41,35 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
+tasks.register('validateCreateVersion') {
+    group = 'verification'
+    description = 'Checks the maintained Create 1.16 branch still identifies 0.3.2g as its final version.'
+    doLast {
+        String ref = java.net.URLEncoder.encode(create_source_ref.toString(), 'UTF-8')
+        URL url = new URL("https://api.github.com/repos/Creators-of-Create/Create/contents/gradle.properties?ref=${ref}")
+        def connection = url.openConnection()
+        connection.setRequestProperty('User-Agent', 'Magnot Create 1.16 compatibility validation')
+        def response = connection.inputStream.withCloseable { input ->
+            new groovy.json.JsonSlurper().parse(input)
+        }
+        String encoded = response.content.toString().replaceAll('\\s', '')
+        String propertiesText = new String(java.util.Base64.decoder.decode(encoded), java.nio.charset.StandardCharsets.UTF_8)
+        def match = propertiesText =~ /(?m)^mod_version\s*=\s*(\S+)\s*$/
+        if (!match.find()) {
+            throw new GradleException('Could not read Create mod_version from the official 1.16 branch.')
+        }
+        String upstream = match.group(1)
+        if (upstream != create_version.toString()) {
+            throw new GradleException("Expected final Create ${create_version}, but official ${create_source_ref} reports ${upstream}.")
+        }
+        println "Validated official Create ${upstream} source for Minecraft ${minecraft_version}."
+    }
+}
+
+tasks.named('build').configure {
+    dependsOn tasks.named('validateCreateVersion')
+}
+
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
