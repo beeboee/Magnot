@@ -1,0 +1,99 @@
+Compiled from "ContainerVacuumChestProxy$doOpenFilterGui.java"
+public final class crazypants.enderio.machines.machine.vacuum.chest.ContainerVacuumChestProxy$doOpenFilterGui extends net.minecraftforge.registries.IForgeRegistryEntry$Impl<crazypants.enderio.base.network.ExecPacket$IServerExec> implements crazypants.enderio.base.network.ExecPacket$IServerExec {
+  public static final crazypants.enderio.base.network.ExecPacket$IServerExec INSTANCE;
+    descriptor: Lcrazypants/enderio/base/network/ExecPacket$IServerExec;
+
+  public crazypants.enderio.machines.machine.vacuum.chest.ContainerVacuumChestProxy$doOpenFilterGui();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #38                 // Method net/minecraftforge/registries/IForgeRegistryEntry$Impl."<init>":()V
+       4: return
+
+  public static void register(net.minecraftforge.event.RegistryEvent$Register<crazypants.enderio.base.network.ExecPacket$IServerExec>);
+    descriptor: (Lnet/minecraftforge/event/RegistryEvent$Register;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #47                 // Method net/minecraftforge/event/RegistryEvent$Register.getRegistry:()Lnet/minecraftforge/registries/IForgeRegistry;
+       4: getstatic     #49                 // Field INSTANCE:Lcrazypants/enderio/base/network/ExecPacket$IServerExec;
+       7: invokeinterface #54,  2           // InterfaceMethod net/minecraftforge/registries/IForgeRegistry.register:(Lnet/minecraftforge/registries/IForgeRegistryEntry;)V
+      12: return
+
+  public static java.util.function.Consumer<io.netty.buffer.ByteBuf> makeWriter(int);
+    descriptor: (I)Ljava/util/function/Consumer;
+    Code:
+       0: iload_0
+       1: invokedynamic #78,  0             // InvokeDynamic #0:accept:(I)Ljava/util/function/Consumer;
+       6: areturn
+
+  public java.util.function.Consumer<net.minecraft.entity.player.EntityPlayerMP> apply(io.netty.buffer.ByteBuf);
+    descriptor: (Lio/netty/buffer/ByteBuf;)Ljava/util/function/Consumer;
+    Code:
+       0: aload_1
+       1: invokevirtual #88                 // Method io/netty/buffer/ByteBuf.readInt:()I
+       4: istore_2
+       5: aload_1
+       6: invokevirtual #88                 // Method io/netty/buffer/ByteBuf.readInt:()I
+       9: istore_3
+      10: iload_2
+      11: iload_3
+      12: invokedynamic #98,  0             // InvokeDynamic #1:accept:(II)Ljava/util/function/Consumer;
+      17: areturn
+
+  public java.lang.Object apply(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: checkcast     #84                 // class io/netty/buffer/ByteBuf
+       5: invokevirtual #104                // Method apply:(Lio/netty/buffer/ByteBuf;)Ljava/util/function/Consumer;
+       8: areturn
+
+  private static void lambda$apply$1(int, int, net.minecraft.entity.player.EntityPlayerMP);
+    descriptor: (IILnet/minecraft/entity/player/EntityPlayerMP;)V
+    Code:
+       0: aload_2
+       1: getfield      #110                // Field net/minecraft/entity/player/EntityPlayerMP.field_71070_bA:Lnet/minecraft/inventory/Container;
+       4: instanceof    #112                // class crazypants/enderio/machines/machine/vacuum/chest/ContainerVacuumChest
+       7: ifeq          32
+      10: aload_2
+      11: getfield      #110                // Field net/minecraft/entity/player/EntityPlayerMP.field_71070_bA:Lnet/minecraft/inventory/Container;
+      14: getfield      #117                // Field net/minecraft/inventory/Container.field_75152_c:I
+      17: iload_0
+      18: if_icmpne     32
+      21: aload_2
+      22: getfield      #110                // Field net/minecraft/entity/player/EntityPlayerMP.field_71070_bA:Lnet/minecraft/inventory/Container;
+      25: checkcast     #112                // class crazypants/enderio/machines/machine/vacuum/chest/ContainerVacuumChest
+      28: iload_1
+      29: invokevirtual #121                // Method crazypants/enderio/machines/machine/vacuum/chest/ContainerVacuumChest.doOpenFilterGui:(I)V
+      32: return
+
+  private static void lambda$makeWriter$0(int, io.netty.buffer.ByteBuf);
+    descriptor: (ILio/netty/buffer/ByteBuf;)V
+    Code:
+       0: aload_1
+       1: invokestatic  #129                // Method net/minecraft/client/Minecraft.func_71410_x:()Lnet/minecraft/client/Minecraft;
+       4: getfield      #133                // Field net/minecraft/client/Minecraft.field_71439_g:Lnet/minecraft/client/entity/EntityPlayerSP;
+       7: getfield      #136                // Field net/minecraft/client/entity/EntityPlayerSP.field_71070_bA:Lnet/minecraft/inventory/Container;
+      10: getfield      #117                // Field net/minecraft/inventory/Container.field_75152_c:I
+      13: invokevirtual #140                // Method io/netty/buffer/ByteBuf.writeInt:(I)Lio/netty/buffer/ByteBuf;
+      16: pop
+      17: aload_1
+      18: iload_0
+      19: invokevirtual #140                // Method io/netty/buffer/ByteBuf.writeInt:(I)Lio/netty/buffer/ByteBuf;
+      22: pop
+      23: return
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: new           #2                  // class crazypants/enderio/machines/machine/vacuum/chest/ContainerVacuumChestProxy$doOpenFilterGui
+       3: dup
+       4: invokespecial #142                // Method "<init>":()V
+       7: ldc           #143                // String enderiomachines
+       9: ldc           #145                // String containervacuumchest_doopenfiltergui
+      11: invokevirtual #149                // Method setRegistryName:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      14: checkcast     #7                  // class crazypants/enderio/base/network/ExecPacket$IServerExec
+      17: putstatic     #49                 // Field INSTANCE:Lcrazypants/enderio/base/network/ExecPacket$IServerExec;
+      20: return
+}

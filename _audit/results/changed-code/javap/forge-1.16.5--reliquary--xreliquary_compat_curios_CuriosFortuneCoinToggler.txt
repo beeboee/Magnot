@@ -1,0 +1,96 @@
+Compiled from "CuriosFortuneCoinToggler.java"
+class xreliquary.compat.curios.CuriosFortuneCoinToggler extends xreliquary.items.FortuneCoinToggler {
+  xreliquary.compat.curios.CuriosFortuneCoinToggler();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #28                 // Method xreliquary/items/FortuneCoinToggler."<init>":()V
+       4: return
+
+  public boolean findAndToggle();
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: invokespecial #34                 // Method xreliquary/items/FortuneCoinToggler.findAndToggle:()Z
+       4: ifeq          9
+       7: iconst_1
+       8: ireturn
+       9: invokestatic  #40                 // Method top/theillusivec4/curios/api/CuriosApi.getCuriosHelper:()Ltop/theillusivec4/curios/api/type/util/ICuriosHelper;
+      12: invokestatic  #46                 // Method net/minecraft/client/Minecraft.func_71410_x:()Lnet/minecraft/client/Minecraft;
+      15: getfield      #50                 // Field net/minecraft/client/Minecraft.field_71439_g:Lnet/minecraft/client/entity/player/ClientPlayerEntity;
+      18: invokeinterface #56,  2           // InterfaceMethod top/theillusivec4/curios/api/type/util/ICuriosHelper.getCuriosHandler:(Lnet/minecraft/entity/LivingEntity;)Lnet/minecraftforge/common/util/LazyOptional;
+      23: invokedynamic #75,  0             // InvokeDynamic #0:apply:()Lnet/minecraftforge/common/util/NonNullFunction;
+      28: invokevirtual #81                 // Method net/minecraftforge/common/util/LazyOptional.map:(Lnet/minecraftforge/common/util/NonNullFunction;)Ljava/util/Optional;
+      31: iconst_0
+      32: invokestatic  #87                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      35: invokevirtual #92                 // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      38: checkcast     #83                 // class java/lang/Boolean
+      41: invokevirtual #95                 // Method java/lang/Boolean.booleanValue:()Z
+      44: ireturn
+
+  public void registerSelf();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokestatic  #100                // Method xreliquary/items/FortuneCoinToggler.setCoinToggler:(Lxreliquary/items/FortuneCoinToggler;)V
+       4: return
+
+  private static java.lang.Boolean lambda$findAndToggle$1(top.theillusivec4.curios.api.type.capability.ICuriosItemHandler);
+    descriptor: (Ltop/theillusivec4/curios/api/type/capability/ICuriosItemHandler;)Ljava/lang/Boolean;
+    Code:
+       0: aload_0
+       1: getstatic     #104                // Field xreliquary/items/util/IBaubleItem$Type.NECKLACE:Lxreliquary/items/util/IBaubleItem$Type;
+       4: invokevirtual #108                // Method xreliquary/items/util/IBaubleItem$Type.getIdentifier:()Ljava/lang/String;
+       7: invokeinterface #114,  2          // InterfaceMethod top/theillusivec4/curios/api/type/capability/ICuriosItemHandler.getStacksHandler:(Ljava/lang/String;)Ljava/util/Optional;
+      12: invokedynamic #123,  0            // InvokeDynamic #1:apply:()Ljava/util/function/Function;
+      17: invokevirtual #126                // Method java/util/Optional.map:(Ljava/util/function/Function;)Ljava/util/Optional;
+      20: iconst_0
+      21: invokestatic  #87                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      24: invokevirtual #92                 // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      27: checkcast     #83                 // class java/lang/Boolean
+      30: areturn
+
+  private static java.lang.Boolean lambda$findAndToggle$0(top.theillusivec4.curios.api.type.inventory.ICurioStacksHandler);
+    descriptor: (Ltop/theillusivec4/curios/api/type/inventory/ICurioStacksHandler;)Ljava/lang/Boolean;
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iload_1
+       3: aload_0
+       4: invokeinterface #134,  1          // InterfaceMethod top/theillusivec4/curios/api/type/inventory/ICurioStacksHandler.getSlots:()I
+       9: if_icmpge     89
+      12: aload_0
+      13: invokeinterface #138,  1          // InterfaceMethod top/theillusivec4/curios/api/type/inventory/ICurioStacksHandler.getStacks:()Ltop/theillusivec4/curios/api/type/inventory/IDynamicStackHandler;
+      18: iload_1
+      19: invokeinterface #144,  2          // InterfaceMethod top/theillusivec4/curios/api/type/inventory/IDynamicStackHandler.getStackInSlot:(I)Lnet/minecraft/item/ItemStack;
+      24: astore_2
+      25: aload_2
+      26: invokevirtual #150                // Method net/minecraft/item/ItemStack.func_77973_b:()Lnet/minecraft/item/Item;
+      29: getstatic     #156                // Field xreliquary/init/ModItems.FORTUNE_COIN:Lnet/minecraftforge/fml/RegistryObject;
+      32: invokevirtual #162                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      35: if_acmpne     83
+      38: getstatic     #156                // Field xreliquary/init/ModItems.FORTUNE_COIN:Lnet/minecraftforge/fml/RegistryObject;
+      41: invokevirtual #162                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      44: checkcast     #164                // class xreliquary/items/FortuneCoinItem
+      47: aload_2
+      48: invokevirtual #168                // Method xreliquary/items/FortuneCoinItem.toggle:(Lnet/minecraft/item/ItemStack;)V
+      51: aload_0
+      52: invokeinterface #138,  1          // InterfaceMethod top/theillusivec4/curios/api/type/inventory/ICurioStacksHandler.getStacks:()Ltop/theillusivec4/curios/api/type/inventory/IDynamicStackHandler;
+      57: iload_1
+      58: aload_2
+      59: invokeinterface #172,  3          // InterfaceMethod top/theillusivec4/curios/api/type/inventory/IDynamicStackHandler.setStackInSlot:(ILnet/minecraft/item/ItemStack;)V
+      64: new           #18                 // class xreliquary/network/PacketFortuneCoinTogglePressed
+      67: dup
+      68: getstatic     #176                // Field xreliquary/network/PacketFortuneCoinTogglePressed$InventoryType.CURIOS:Lxreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+      71: iload_1
+      72: invokespecial #179                // Method xreliquary/network/PacketFortuneCoinTogglePressed."<init>":(Lxreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;I)V
+      75: invokestatic  #185                // Method xreliquary/network/PacketHandler.sendToServer:(Ljava/lang/Object;)V
+      78: iconst_1
+      79: invokestatic  #87                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      82: areturn
+      83: iinc          1, 1
+      86: goto          2
+      89: iconst_0
+      90: invokestatic  #87                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      93: areturn
+}

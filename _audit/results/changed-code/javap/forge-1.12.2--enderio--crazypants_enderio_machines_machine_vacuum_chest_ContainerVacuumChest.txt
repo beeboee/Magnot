@@ -1,0 +1,175 @@
+Compiled from "ContainerVacuumChest.java"
+public class crazypants.enderio.machines.machine.vacuum.chest.ContainerVacuumChest extends com.enderio.core.common.ContainerEnderCap<com.enderio.core.common.inventory.EnderInventory, crazypants.enderio.machines.machine.vacuum.chest.TileVacuumChest> implements crazypants.enderio.base.filter.IFilterContainer<crazypants.enderio.base.filter.item.IItemFilter> {
+  private net.minecraft.inventory.Slot filterSlot;
+    descriptor: Lnet/minecraft/inventory/Slot;
+
+  private java.lang.Runnable filterChangedCB;
+    descriptor: Ljava/lang/Runnable;
+
+  private net.minecraft.entity.player.EntityPlayer player;
+    descriptor: Lnet/minecraft/entity/player/EntityPlayer;
+
+  public crazypants.enderio.machines.machine.vacuum.chest.ContainerVacuumChest(net.minecraft.entity.player.InventoryPlayer, crazypants.enderio.machines.machine.vacuum.chest.TileVacuumChest);
+    descriptor: (Lnet/minecraft/entity/player/InventoryPlayer;Lcrazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokevirtual #33                 // Method crazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest.getInventory:()Lcom/enderio/core/common/inventory/EnderInventory;
+       6: aload_2
+       7: invokespecial #36                 // Method com/enderio/core/common/ContainerEnderCap."<init>":(Lnet/minecraft/entity/player/InventoryPlayer;Lnet/minecraftforge/items/IItemHandler;Lnet/minecraft/tileentity/TileEntity;)V
+      10: aload_0
+      11: aload_1
+      12: getfield      #41                 // Field net/minecraft/entity/player/InventoryPlayer.field_70458_d:Lnet/minecraft/entity/player/EntityPlayer;
+      15: putfield      #43                 // Field player:Lnet/minecraft/entity/player/EntityPlayer;
+      18: return
+
+  protected void addSlots();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: aload_0
+       2: new           #10                 // class crazypants/enderio/machines/machine/vacuum/chest/ContainerVacuumChest$1
+       5: dup
+       6: aload_0
+       7: aload_0
+       8: invokevirtual #55                 // Method getItemHandler:()Lnet/minecraftforge/items/IItemHandler;
+      11: checkcast     #14                 // class com/enderio/core/common/inventory/EnderInventory
+      14: getstatic     #59                 // Field com/enderio/core/common/inventory/EnderInventory$Type.UPGRADE:Lcom/enderio/core/common/inventory/EnderInventory$Type;
+      17: invokevirtual #63                 // Method com/enderio/core/common/inventory/EnderInventory.getView:(Lcom/enderio/core/common/inventory/EnderInventory$Type;)Lcom/enderio/core/common/inventory/EnderInventory$View;
+      20: ldc           #65                 // String filter
+      22: bipush        8
+      24: bipush        86
+      26: invokespecial #68                 // Method crazypants/enderio/machines/machine/vacuum/chest/ContainerVacuumChest$1."<init>":(Lcrazypants/enderio/machines/machine/vacuum/chest/ContainerVacuumChest;Lcom/enderio/core/common/inventory/EnderInventory$View;Ljava/lang/String;II)V
+      29: dup_x1
+      30: putfield      #70                 // Field filterSlot:Lnet/minecraft/inventory/Slot;
+      33: invokevirtual #74                 // Method func_75146_a:(Lnet/minecraft/inventory/Slot;)Lnet/minecraft/inventory/Slot;
+      36: pop
+      37: bipush        8
+      39: istore_1
+      40: bipush        18
+      42: istore_2
+      43: aload_0
+      44: invokevirtual #55                 // Method getItemHandler:()Lnet/minecraftforge/items/IItemHandler;
+      47: checkcast     #14                 // class com/enderio/core/common/inventory/EnderInventory
+      50: getstatic     #77                 // Field com/enderio/core/common/inventory/EnderInventory$Type.OUTPUT:Lcom/enderio/core/common/inventory/EnderInventory$Type;
+      53: iload_1
+      54: iload_2
+      55: bipush        9
+      57: iconst_3
+      58: invokestatic  #83                 // Method com/enderio/core/common/inventory/EnderSlot.create:(Lcom/enderio/core/common/inventory/EnderInventory;Lcom/enderio/core/common/inventory/EnderInventory$Type;IIII)Ljava/util/List;
+      61: invokeinterface #89,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      66: astore_3
+      67: aload_3
+      68: invokeinterface #95,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+      73: ifeq          102
+      76: aload_3
+      77: invokeinterface #99,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      82: checkcast     #79                 // class com/enderio/core/common/inventory/EnderSlot
+      85: astore        4
+      87: aload         4
+      89: ifnull        99
+      92: aload_0
+      93: aload         4
+      95: invokevirtual #74                 // Method func_75146_a:(Lnet/minecraft/inventory/Slot;)Lnet/minecraft/inventory/Slot;
+      98: pop
+      99: goto          67
+     102: return
+
+  public void createGhostSlots(java.util.List<com.enderio.core.client.gui.widget.GhostSlot>);
+    descriptor: (Ljava/util/List;)V
+    Code:
+       0: aload_1
+       1: new           #108                // class com/enderio/core/client/gui/widget/GhostBackgroundItemSlot
+       4: dup
+       5: getstatic     #114                // Field crazypants/enderio/base/filter/item/items/BasicFilterTypes.filterUpgradeBasic:Lcrazypants/enderio/base/filter/item/items/BasicFilterTypes;
+       8: invokevirtual #118                // Method crazypants/enderio/base/filter/item/items/BasicFilterTypes.getBasicFilterStack:()Lnet/minecraft/item/ItemStack;
+      11: aload_0
+      12: getfield      #70                 // Field filterSlot:Lnet/minecraft/inventory/Slot;
+      15: ldc           #120                // String slot awol
+      17: invokestatic  #126                // Method com/enderio/core/common/util/NullHelper.notnull:(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+      20: checkcast     #128                // class net/minecraft/inventory/Slot
+      23: invokespecial #131                // Method com/enderio/core/client/gui/widget/GhostBackgroundItemSlot."<init>":(Lnet/minecraft/item/ItemStack;Lnet/minecraft/inventory/Slot;)V
+      26: invokeinterface #135,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      31: pop
+      32: return
+
+  public java.awt.Point getPlayerInventoryOffset();
+    descriptor: ()Ljava/awt/Point;
+    Code:
+       0: aload_0
+       1: invokespecial #142                // Method com/enderio/core/common/ContainerEnderCap.getPlayerInventoryOffset:()Ljava/awt/Point;
+       4: astore_1
+       5: aload_1
+       6: bipush        8
+       8: bipush        70
+      10: invokevirtual #148                // Method java/awt/Point.translate:(II)V
+      13: aload_1
+      14: areturn
+
+  void setFilterChangedCB(java.lang.Runnable);
+    descriptor: (Ljava/lang/Runnable;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #154                // Field filterChangedCB:Ljava/lang/Runnable;
+       5: return
+
+  void filterChanged();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: getfield      #154                // Field filterChangedCB:Ljava/lang/Runnable;
+       4: ifnull        16
+       7: aload_0
+       8: getfield      #154                // Field filterChangedCB:Ljava/lang/Runnable;
+      11: invokeinterface #160,  1          // InterfaceMethod java/lang/Runnable.run:()V
+      16: return
+
+  public void doOpenFilterGui(int);
+    descriptor: (I)V
+    Code:
+       0: aload_0
+       1: invokevirtual #166                // Method getTileEntity:()Lnet/minecraft/tileentity/TileEntity;
+       4: checkcast     #29                 // class crazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest
+       7: astore_2
+       8: aload_2
+       9: ifnull        44
+      12: iload_1
+      13: ifne          44
+      16: aload_2
+      17: invokevirtual #170                // Method crazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest.getItemFilter:()Lcrazypants/enderio/base/filter/item/IItemFilter;
+      20: aload_0
+      21: getfield      #43                 // Field player:Lnet/minecraft/entity/player/EntityPlayer;
+      24: aload_0
+      25: getfield      #70                 // Field filterSlot:Lnet/minecraft/inventory/Slot;
+      28: invokevirtual #173                // Method net/minecraft/inventory/Slot.func_75211_c:()Lnet/minecraft/item/ItemStack;
+      31: aload_2
+      32: invokevirtual #177                // Method crazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest.func_145831_w:()Lnet/minecraft/world/World;
+      35: aload_2
+      36: invokevirtual #181                // Method crazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest.func_174877_v:()Lnet/minecraft/util/math/BlockPos;
+      39: invokeinterface #187,  5          // InterfaceMethod crazypants/enderio/base/filter/item/IItemFilter.openGui:(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)V
+      44: return
+
+  public crazypants.enderio.base.filter.item.IItemFilter getFilter(int);
+    descriptor: (I)Lcrazypants/enderio/base/filter/item/IItemFilter;
+    Code:
+       0: aload_0
+       1: invokevirtual #166                // Method getTileEntity:()Lnet/minecraft/tileentity/TileEntity;
+       4: ldc           #192                // String te-less container
+       6: invokestatic  #126                // Method com/enderio/core/common/util/NullHelper.notnull:(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+       9: checkcast     #29                 // class crazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest
+      12: invokevirtual #170                // Method crazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest.getItemFilter:()Lcrazypants/enderio/base/filter/item/IItemFilter;
+      15: ldc           #194                // String logic error in filter access
+      17: invokestatic  #126                // Method com/enderio/core/common/util/NullHelper.notnull:(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+      20: checkcast     #183                // class crazypants/enderio/base/filter/item/IItemFilter
+      23: areturn
+
+  public crazypants.enderio.base.filter.IFilter getFilter(int);
+    descriptor: (I)Lcrazypants/enderio/base/filter/IFilter;
+    Code:
+       0: aload_0
+       1: iload_1
+       2: invokevirtual #198                // Method getFilter:(I)Lcrazypants/enderio/base/filter/item/IItemFilter;
+       5: areturn
+}

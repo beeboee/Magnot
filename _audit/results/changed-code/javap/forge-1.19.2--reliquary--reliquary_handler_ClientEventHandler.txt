@@ -1,0 +1,1870 @@
+Compiled from "ClientEventHandler.java"
+public class reliquary.handler.ClientEventHandler {
+  private static final int KEY_UNKNOWN;
+    descriptor: I
+
+  public static final net.minecraft.client.KeyMapping FORTUNE_COIN_TOGGLE_KEYBIND;
+    descriptor: Lnet/minecraft/client/KeyMapping;
+
+  private static final java.lang.String VOID_TEAR_MODE_TRANSLATION;
+    descriptor: Ljava/lang/String;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation WITCH_HAT_LAYER;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation MOB_CHARM_BELT_LAYER;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  private static final java.util.List<net.minecraft.util.Tuple<reliquary.client.gui.components.Component, reliquary.client.gui.hud.HUDPosition>> hudComponents;
+    descriptor: Ljava/util/List;
+
+  private reliquary.handler.ClientEventHandler();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #133                // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void registerHandlers();
+    descriptor: ()V
+    Code:
+       0: invokestatic  #142                // Method net/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext.get:()Lnet/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext;
+       3: invokevirtual #146                // Method net/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext.getModEventBus:()Lnet/minecraftforge/eventbus/api/IEventBus;
+       6: astore_0
+       7: aload_0
+       8: invokedynamic #165,  0            // InvokeDynamic #0:accept:()Ljava/util/function/Consumer;
+      13: invokeinterface #171,  2          // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+      18: aload_0
+      19: invokedynamic #178,  0            // InvokeDynamic #1:accept:()Ljava/util/function/Consumer;
+      24: invokeinterface #171,  2          // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+      29: aload_0
+      30: invokedynamic #185,  0            // InvokeDynamic #2:accept:()Ljava/util/function/Consumer;
+      35: invokeinterface #171,  2          // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+      40: aload_0
+      41: invokedynamic #192,  0            // InvokeDynamic #3:accept:()Ljava/util/function/Consumer;
+      46: invokeinterface #171,  2          // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+      51: aload_0
+      52: invokedynamic #199,  0            // InvokeDynamic #4:accept:()Ljava/util/function/Consumer;
+      57: invokeinterface #171,  2          // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+      62: aload_0
+      63: invokedynamic #208,  0            // InvokeDynamic #5:accept:()Ljava/util/function/Consumer;
+      68: invokeinterface #171,  2          // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+      73: aload_0
+      74: invokedynamic #215,  0            // InvokeDynamic #6:accept:()Ljava/util/function/Consumer;
+      79: invokeinterface #171,  2          // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+      84: aload_0
+      85: invokedynamic #224,  0            // InvokeDynamic #7:accept:()Ljava/util/function/Consumer;
+      90: invokeinterface #171,  2          // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+      95: aload_0
+      96: invokedynamic #233,  0            // InvokeDynamic #8:accept:()Ljava/util/function/Consumer;
+     101: invokeinterface #171,  2          // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+     106: aload_0
+     107: invokedynamic #240,  0            // InvokeDynamic #9:accept:()Ljava/util/function/Consumer;
+     112: invokeinterface #171,  2          // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+     117: getstatic     #246                // Field net/minecraftforge/common/MinecraftForge.EVENT_BUS:Lnet/minecraftforge/eventbus/api/IEventBus;
+     120: astore_1
+     121: aload_1
+     122: invokedynamic #253,  0            // InvokeDynamic #10:accept:()Ljava/util/function/Consumer;
+     127: invokeinterface #171,  2          // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+     132: aload_1
+     133: invokedynamic #260,  0            // InvokeDynamic #11:accept:()Ljava/util/function/Consumer;
+     138: invokeinterface #171,  2          // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+     143: return
+
+  private static void onRenderLiving(net.minecraftforge.client.event.RenderLivingEvent$Pre<net.minecraft.world.entity.player.Player, net.minecraft.client.model.PlayerModel<net.minecraft.world.entity.player.Player>>);
+    descriptor: (Lnet/minecraftforge/client/event/RenderLivingEvent$Pre;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #267                // Method net/minecraftforge/client/event/RenderLivingEvent$Pre.getEntity:()Lnet/minecraft/world/entity/LivingEntity;
+       4: astore_2
+       5: aload_2
+       6: instanceof    #269                // class net/minecraft/world/entity/player/Player
+       9: ifeq          82
+      12: aload_2
+      13: checkcast     #269                // class net/minecraft/world/entity/player/Player
+      16: astore_1
+      17: aload_1
+      18: getstatic     #275                // Field net/minecraft/world/InteractionHand.OFF_HAND:Lnet/minecraft/world/InteractionHand;
+      21: invokevirtual #279                // Method net/minecraft/world/entity/player/Player.m_21120_:(Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/item/ItemStack;
+      24: invokevirtual #285                // Method net/minecraft/world/item/ItemStack.m_41720_:()Lnet/minecraft/world/item/Item;
+      27: getstatic     #291                // Field reliquary/init/ModItems.HANDGUN:Lnet/minecraftforge/registries/RegistryObject;
+      30: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      33: if_acmpne     40
+      36: iconst_1
+      37: goto          41
+      40: iconst_0
+      41: istore_2
+      42: aload_1
+      43: getstatic     #299                // Field net/minecraft/world/InteractionHand.MAIN_HAND:Lnet/minecraft/world/InteractionHand;
+      46: invokevirtual #279                // Method net/minecraft/world/entity/player/Player.m_21120_:(Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/item/ItemStack;
+      49: invokevirtual #285                // Method net/minecraft/world/item/ItemStack.m_41720_:()Lnet/minecraft/world/item/Item;
+      52: getstatic     #291                // Field reliquary/init/ModItems.HANDGUN:Lnet/minecraftforge/registries/RegistryObject;
+      55: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      58: if_acmpne     65
+      61: iconst_1
+      62: goto          66
+      65: iconst_0
+      66: istore_3
+      67: iload_2
+      68: ifne          75
+      71: iload_3
+      72: ifeq          82
+      75: aload_0
+      76: aload_1
+      77: iload_2
+      78: iload_3
+      79: invokestatic  #303                // Method setHandgunArmPoses:(Lnet/minecraftforge/client/event/RenderLivingEvent$Pre;Lnet/minecraft/world/entity/player/Player;ZZ)V
+      82: return
+
+  private static void registerLayer(net.minecraftforge.client.event.EntityRenderersEvent$RegisterLayerDefinitions);
+    descriptor: (Lnet/minecraftforge/client/event/EntityRenderersEvent$RegisterLayerDefinitions;)V
+    Code:
+       0: aload_0
+       1: getstatic     #313                // Field WITCH_HAT_LAYER:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+       4: invokedynamic #325,  0            // InvokeDynamic #12:get:()Ljava/util/function/Supplier;
+       9: invokevirtual #329                // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterLayerDefinitions.registerLayerDefinition:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+      12: aload_0
+      13: getstatic     #331                // Field MOB_CHARM_BELT_LAYER:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      16: invokedynamic #336,  0            // InvokeDynamic #13:get:()Ljava/util/function/Supplier;
+      21: invokevirtual #329                // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterLayerDefinitions.registerLayerDefinition:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+      24: return
+
+  private static void setHandgunArmPoses(net.minecraftforge.client.event.RenderLivingEvent$Pre<net.minecraft.world.entity.player.Player, net.minecraft.client.model.PlayerModel<net.minecraft.world.entity.player.Player>>, net.minecraft.world.entity.player.Player, boolean, boolean);
+    descriptor: (Lnet/minecraftforge/client/event/RenderLivingEvent$Pre;Lnet/minecraft/world/entity/player/Player;ZZ)V
+    Code:
+       0: aload_0
+       1: invokevirtual #342                // Method net/minecraftforge/client/event/RenderLivingEvent$Pre.getRenderer:()Lnet/minecraft/client/renderer/entity/LivingEntityRenderer;
+       4: invokevirtual #348                // Method net/minecraft/client/renderer/entity/LivingEntityRenderer.m_7200_:()Lnet/minecraft/client/model/EntityModel;
+       7: checkcast     #350                // class net/minecraft/client/model/PlayerModel
+      10: astore        4
+      12: aload_1
+      13: iload_3
+      14: iload_2
+      15: invokestatic  #354                // Method isHandgunActive:(Lnet/minecraft/world/entity/player/Player;ZZ)Z
+      18: ifeq          143
+      21: aload_1
+      22: iload_3
+      23: iload_2
+      24: invokestatic  #358                // Method getActiveHandgunHand:(Lnet/minecraft/world/entity/player/Player;ZZ)Lnet/minecraft/world/InteractionHand;
+      27: astore        5
+      29: aload_1
+      30: invokevirtual #362                // Method net/minecraft/world/entity/player/Player.m_5737_:()Lnet/minecraft/world/entity/HumanoidArm;
+      33: astore        6
+      35: aload         5
+      37: getstatic     #299                // Field net/minecraft/world/InteractionHand.MAIN_HAND:Lnet/minecraft/world/InteractionHand;
+      40: if_acmpne     51
+      43: aload         6
+      45: getstatic     #368                // Field net/minecraft/world/entity/HumanoidArm.RIGHT:Lnet/minecraft/world/entity/HumanoidArm;
+      48: if_acmpeq     67
+      51: aload         5
+      53: getstatic     #275                // Field net/minecraft/world/InteractionHand.OFF_HAND:Lnet/minecraft/world/InteractionHand;
+      56: if_acmpne     89
+      59: aload         6
+      61: getstatic     #371                // Field net/minecraft/world/entity/HumanoidArm.LEFT:Lnet/minecraft/world/entity/HumanoidArm;
+      64: if_acmpne     89
+      67: aload         4
+      69: getfield      #375                // Field net/minecraft/client/model/PlayerModel.f_102816_:Lnet/minecraft/client/model/HumanoidModel$ArmPose;
+      72: getstatic     #378                // Field net/minecraft/client/model/HumanoidModel$ArmPose.BOW_AND_ARROW:Lnet/minecraft/client/model/HumanoidModel$ArmPose;
+      75: if_acmpeq     89
+      78: aload         4
+      80: getstatic     #378                // Field net/minecraft/client/model/HumanoidModel$ArmPose.BOW_AND_ARROW:Lnet/minecraft/client/model/HumanoidModel$ArmPose;
+      83: putfield      #375                // Field net/minecraft/client/model/PlayerModel.f_102816_:Lnet/minecraft/client/model/HumanoidModel$ArmPose;
+      86: goto          140
+      89: aload         5
+      91: getstatic     #275                // Field net/minecraft/world/InteractionHand.OFF_HAND:Lnet/minecraft/world/InteractionHand;
+      94: if_acmpne     105
+      97: aload         6
+      99: getstatic     #368                // Field net/minecraft/world/entity/HumanoidArm.RIGHT:Lnet/minecraft/world/entity/HumanoidArm;
+     102: if_acmpeq     121
+     105: aload         5
+     107: getstatic     #299                // Field net/minecraft/world/InteractionHand.MAIN_HAND:Lnet/minecraft/world/InteractionHand;
+     110: if_acmpne     140
+     113: aload         6
+     115: getstatic     #371                // Field net/minecraft/world/entity/HumanoidArm.LEFT:Lnet/minecraft/world/entity/HumanoidArm;
+     118: if_acmpne     140
+     121: aload         4
+     123: getfield      #381                // Field net/minecraft/client/model/PlayerModel.f_102815_:Lnet/minecraft/client/model/HumanoidModel$ArmPose;
+     126: getstatic     #378                // Field net/minecraft/client/model/HumanoidModel$ArmPose.BOW_AND_ARROW:Lnet/minecraft/client/model/HumanoidModel$ArmPose;
+     129: if_acmpeq     140
+     132: aload         4
+     134: getstatic     #378                // Field net/minecraft/client/model/HumanoidModel$ArmPose.BOW_AND_ARROW:Lnet/minecraft/client/model/HumanoidModel$ArmPose;
+     137: putfield      #381                // Field net/minecraft/client/model/PlayerModel.f_102815_:Lnet/minecraft/client/model/HumanoidModel$ArmPose;
+     140: goto          181
+     143: aload         4
+     145: getfield      #375                // Field net/minecraft/client/model/PlayerModel.f_102816_:Lnet/minecraft/client/model/HumanoidModel$ArmPose;
+     148: getstatic     #378                // Field net/minecraft/client/model/HumanoidModel$ArmPose.BOW_AND_ARROW:Lnet/minecraft/client/model/HumanoidModel$ArmPose;
+     151: if_acmpne     162
+     154: aload         4
+     156: getstatic     #384                // Field net/minecraft/client/model/HumanoidModel$ArmPose.ITEM:Lnet/minecraft/client/model/HumanoidModel$ArmPose;
+     159: putfield      #375                // Field net/minecraft/client/model/PlayerModel.f_102816_:Lnet/minecraft/client/model/HumanoidModel$ArmPose;
+     162: aload         4
+     164: getfield      #381                // Field net/minecraft/client/model/PlayerModel.f_102815_:Lnet/minecraft/client/model/HumanoidModel$ArmPose;
+     167: getstatic     #378                // Field net/minecraft/client/model/HumanoidModel$ArmPose.BOW_AND_ARROW:Lnet/minecraft/client/model/HumanoidModel$ArmPose;
+     170: if_acmpne     181
+     173: aload         4
+     175: getstatic     #384                // Field net/minecraft/client/model/HumanoidModel$ArmPose.ITEM:Lnet/minecraft/client/model/HumanoidModel$ArmPose;
+     178: putfield      #381                // Field net/minecraft/client/model/PlayerModel.f_102815_:Lnet/minecraft/client/model/HumanoidModel$ArmPose;
+     181: return
+
+  private static net.minecraft.world.InteractionHand getActiveHandgunHand(net.minecraft.world.entity.player.Player, boolean, boolean);
+    descriptor: (Lnet/minecraft/world/entity/player/Player;ZZ)Lnet/minecraft/world/InteractionHand;
+    Code:
+       0: iload_1
+       1: iload_2
+       2: if_icmpeq     19
+       5: iload_1
+       6: ifeq          15
+       9: getstatic     #299                // Field net/minecraft/world/InteractionHand.MAIN_HAND:Lnet/minecraft/world/InteractionHand;
+      12: goto          18
+      15: getstatic     #275                // Field net/minecraft/world/InteractionHand.OFF_HAND:Lnet/minecraft/world/InteractionHand;
+      18: areturn
+      19: aload_0
+      20: getfield      #393                // Field net/minecraft/world/entity/player/Player.f_19853_:Lnet/minecraft/world/level/Level;
+      23: aload_0
+      24: invokevirtual #397                // Method net/minecraft/world/entity/player/Player.m_21205_:()Lnet/minecraft/world/item/ItemStack;
+      27: invokestatic  #401                // Method isValidTimeFrame:(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/item/ItemStack;)Z
+      30: istore_3
+      31: aload_0
+      32: getfield      #393                // Field net/minecraft/world/entity/player/Player.f_19853_:Lnet/minecraft/world/level/Level;
+      35: aload_0
+      36: invokevirtual #404                // Method net/minecraft/world/entity/player/Player.m_21206_:()Lnet/minecraft/world/item/ItemStack;
+      39: invokestatic  #401                // Method isValidTimeFrame:(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/item/ItemStack;)Z
+      42: istore        4
+      44: iload_3
+      45: iload         4
+      47: if_icmpeq     64
+      50: iload_3
+      51: ifeq          60
+      54: getstatic     #299                // Field net/minecraft/world/InteractionHand.MAIN_HAND:Lnet/minecraft/world/InteractionHand;
+      57: goto          63
+      60: getstatic     #275                // Field net/minecraft/world/InteractionHand.OFF_HAND:Lnet/minecraft/world/InteractionHand;
+      63: areturn
+      64: getstatic     #291                // Field reliquary/init/ModItems.HANDGUN:Lnet/minecraftforge/registries/RegistryObject;
+      67: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      70: checkcast     #406                // class reliquary/items/HandgunItem
+      73: aload_0
+      74: invokevirtual #397                // Method net/minecraft/world/entity/player/Player.m_21205_:()Lnet/minecraft/world/item/ItemStack;
+      77: invokevirtual #410                // Method reliquary/items/HandgunItem.getCooldown:(Lnet/minecraft/world/item/ItemStack;)J
+      80: getstatic     #291                // Field reliquary/init/ModItems.HANDGUN:Lnet/minecraftforge/registries/RegistryObject;
+      83: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      86: checkcast     #406                // class reliquary/items/HandgunItem
+      89: aload_0
+      90: invokevirtual #404                // Method net/minecraft/world/entity/player/Player.m_21206_:()Lnet/minecraft/world/item/ItemStack;
+      93: invokevirtual #410                // Method reliquary/items/HandgunItem.getCooldown:(Lnet/minecraft/world/item/ItemStack;)J
+      96: lcmp
+      97: ifge          106
+     100: getstatic     #299                // Field net/minecraft/world/InteractionHand.MAIN_HAND:Lnet/minecraft/world/InteractionHand;
+     103: goto          109
+     106: getstatic     #275                // Field net/minecraft/world/InteractionHand.OFF_HAND:Lnet/minecraft/world/InteractionHand;
+     109: areturn
+
+  private static boolean isHandgunActive(net.minecraft.world.entity.player.Player, boolean, boolean);
+    descriptor: (Lnet/minecraft/world/entity/player/Player;ZZ)Z
+    Code:
+       0: iload_1
+       1: ifeq          18
+       4: aload_0
+       5: getfield      #393                // Field net/minecraft/world/entity/player/Player.f_19853_:Lnet/minecraft/world/level/Level;
+       8: aload_0
+       9: invokevirtual #397                // Method net/minecraft/world/entity/player/Player.m_21205_:()Lnet/minecraft/world/item/ItemStack;
+      12: invokestatic  #401                // Method isValidTimeFrame:(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/item/ItemStack;)Z
+      15: ifne          36
+      18: iload_2
+      19: ifeq          40
+      22: aload_0
+      23: getfield      #393                // Field net/minecraft/world/entity/player/Player.f_19853_:Lnet/minecraft/world/level/Level;
+      26: aload_0
+      27: invokevirtual #404                // Method net/minecraft/world/entity/player/Player.m_21206_:()Lnet/minecraft/world/item/ItemStack;
+      30: invokestatic  #401                // Method isValidTimeFrame:(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/item/ItemStack;)Z
+      33: ifeq          40
+      36: iconst_1
+      37: goto          41
+      40: iconst_0
+      41: ireturn
+
+  private static boolean isValidTimeFrame(net.minecraft.world.level.Level, net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/item/ItemStack;)Z
+    Code:
+       0: getstatic     #291                // Field reliquary/init/ModItems.HANDGUN:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       6: checkcast     #406                // class reliquary/items/HandgunItem
+       9: aload_1
+      10: invokevirtual #410                // Method reliquary/items/HandgunItem.getCooldown:(Lnet/minecraft/world/item/ItemStack;)J
+      13: ldc2_w        #413                // long 5l
+      16: ladd
+      17: lstore_2
+      18: lload_2
+      19: aload_0
+      20: invokevirtual #420                // Method net/minecraft/world/level/Level.m_46467_:()J
+      23: lsub
+      24: getstatic     #291                // Field reliquary/init/ModItems.HANDGUN:Lnet/minecraftforge/registries/RegistryObject;
+      27: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      30: checkcast     #406                // class reliquary/items/HandgunItem
+      33: aload_1
+      34: invokevirtual #424                // Method reliquary/items/HandgunItem.m_8105_:(Lnet/minecraft/world/item/ItemStack;)I
+      37: i2l
+      38: lcmp
+      39: ifgt          55
+      42: lload_2
+      43: aload_0
+      44: invokevirtual #420                // Method net/minecraft/world/level/Level.m_46467_:()J
+      47: lcmp
+      48: iflt          55
+      51: iconst_1
+      52: goto          56
+      55: iconst_0
+      56: ireturn
+
+  private static void registerOverlay(net.minecraftforge.client.event.RegisterGuiOverlaysEvent);
+    descriptor: (Lnet/minecraftforge/client/event/RegisterGuiOverlaysEvent;)V
+    Code:
+       0: aload_0
+       1: getstatic     #435                // Field net/minecraftforge/client/gui/overlay/VanillaGuiOverlay.HOTBAR:Lnet/minecraftforge/client/gui/overlay/VanillaGuiOverlay;
+       4: invokevirtual #439                // Method net/minecraftforge/client/gui/overlay/VanillaGuiOverlay.id:()Lnet/minecraft/resources/ResourceLocation;
+       7: ldc_w         #441                // String reliquary_hud
+      10: invokedynamic #451,  0            // InvokeDynamic #14:render:()Lnet/minecraftforge/client/gui/overlay/IGuiOverlay;
+      15: invokevirtual #457                // Method net/minecraftforge/client/event/RegisterGuiOverlaysEvent.registerAbove:(Lnet/minecraft/resources/ResourceLocation;Ljava/lang/String;Lnet/minecraftforge/client/gui/overlay/IGuiOverlay;)V
+      18: return
+
+  private static void onMouseScrolled(net.minecraftforge.client.event.InputEvent$MouseScrollingEvent);
+    descriptor: (Lnet/minecraftforge/client/event/InputEvent$MouseScrollingEvent;)V
+    Code:
+       0: invokestatic  #464                // Method net/minecraft/client/Minecraft.m_91087_:()Lnet/minecraft/client/Minecraft;
+       3: astore_1
+       4: aload_1
+       5: getfield      #468                // Field net/minecraft/client/Minecraft.f_91080_:Lnet/minecraft/client/gui/screens/Screen;
+       8: ifnonnull     17
+      11: invokestatic  #474                // Method net/minecraft/client/gui/screens/Screen.m_96638_:()Z
+      14: ifne          18
+      17: return
+      18: aload_1
+      19: getfield      #478                // Field net/minecraft/client/Minecraft.f_91074_:Lnet/minecraft/client/player/LocalPlayer;
+      22: astore_2
+      23: aload_2
+      24: ifnonnull     28
+      27: return
+      28: aload_2
+      29: invokevirtual #481                // Method net/minecraft/client/player/LocalPlayer.m_21205_:()Lnet/minecraft/world/item/ItemStack;
+      32: astore_3
+      33: aload_0
+      34: invokevirtual #485                // Method net/minecraftforge/client/event/InputEvent$MouseScrollingEvent.getScrollDelta:()D
+      37: dstore        4
+      39: aload_3
+      40: invokevirtual #285                // Method net/minecraft/world/item/ItemStack.m_41720_:()Lnet/minecraft/world/item/Item;
+      43: astore        7
+      45: aload         7
+      47: instanceof    #487                // class reliquary/items/util/IScrollableItem
+      50: ifeq          94
+      53: aload         7
+      55: checkcast     #487                // class reliquary/items/util/IScrollableItem
+      58: astore        6
+      60: aload         6
+      62: aload_3
+      63: aload_2
+      64: dload         4
+      66: invokeinterface #490,  5          // InterfaceMethod reliquary/items/util/IScrollableItem.onMouseScrolled:(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/player/Player;D)Lnet/minecraft/world/InteractionResult;
+      71: getstatic     #496                // Field net/minecraft/world/InteractionResult.PASS:Lnet/minecraft/world/InteractionResult;
+      74: if_acmpne     94
+      77: new           #498                // class reliquary/network/ScrolledItemPacket
+      80: dup
+      81: dload         4
+      83: invokespecial #501                // Method reliquary/network/ScrolledItemPacket."<init>":(D)V
+      86: invokestatic  #506                // Method reliquary/network/PacketHandler.sendToServer:(Ljava/lang/Object;)V
+      89: aload_0
+      90: iconst_1
+      91: invokevirtual #510                // Method net/minecraftforge/client/event/InputEvent$MouseScrollingEvent.setCanceled:(Z)V
+      94: return
+
+  private static void renderHUDComponents(com.mojang.blaze3d.vertex.PoseStack);
+    descriptor: (Lcom/mojang/blaze3d/vertex/PoseStack;)V
+    Code:
+       0: getstatic     #523                // Field hudComponents:Ljava/util/List;
+       3: invokeinterface #529,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+       8: astore_1
+       9: aload_1
+      10: invokeinterface #534,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      15: ifeq          49
+      18: aload_1
+      19: invokeinterface #537,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      24: checkcast     #539                // class net/minecraft/util/Tuple
+      27: astore_2
+      28: aload_0
+      29: aload_2
+      30: invokevirtual #542                // Method net/minecraft/util/Tuple.m_14418_:()Ljava/lang/Object;
+      33: checkcast     #544                // class reliquary/client/gui/components/Component
+      36: aload_2
+      37: invokevirtual #547                // Method net/minecraft/util/Tuple.m_14419_:()Ljava/lang/Object;
+      40: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+      43: invokestatic  #554                // Method reliquary/client/gui/hud/HUDRenderrer.render:(Lcom/mojang/blaze3d/vertex/PoseStack;Lreliquary/client/gui/components/Component;Lreliquary/client/gui/hud/HUDPosition;)V
+      46: goto          9
+      49: return
+
+  private static void initHUDComponents();
+    descriptor: ()V
+    Code:
+       0: getstatic     #523                // Field hudComponents:Ljava/util/List;
+       3: new           #539                // class net/minecraft/util/Tuple
+       6: dup
+       7: new           #562                // class reliquary/client/gui/hud/ChargeableItemInfoPane
+      10: dup
+      11: getstatic     #565                // Field reliquary/init/ModItems.ALKAHESTRY_TOME:Lnet/minecraftforge/registries/RegistryObject;
+      14: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      17: checkcast     #567                // class net/minecraft/world/item/Item
+      20: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+      23: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+      26: getfield      #579                // Field reliquary/reference/Settings$Client$HudPos.alkahestryTome:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+      29: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+      32: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+      35: new           #281                // class net/minecraft/world/item/ItemStack
+      38: dup
+      39: getstatic     #586                // Field net/minecraft/world/item/Items.f_42451_:Lnet/minecraft/world/item/Item;
+      42: invokespecial #589                // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+      45: invokedynamic #601,  0            // InvokeDynamic #15:apply:()Ljava/util/function/Function;
+      50: invokespecial #604                // Method reliquary/client/gui/hud/ChargeableItemInfoPane."<init>":(Lnet/minecraft/world/item/Item;Lreliquary/client/gui/hud/HUDPosition;Lnet/minecraft/world/item/ItemStack;Ljava/util/function/Function;)V
+      53: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+      56: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+      59: getfield      #579                // Field reliquary/reference/Settings$Client$HudPos.alkahestryTome:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+      62: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+      65: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+      68: invokespecial #607                // Method net/minecraft/util/Tuple."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+      71: invokeinterface #611,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      76: pop
+      77: getstatic     #523                // Field hudComponents:Ljava/util/List;
+      80: new           #539                // class net/minecraft/util/Tuple
+      83: dup
+      84: new           #562                // class reliquary/client/gui/hud/ChargeableItemInfoPane
+      87: dup
+      88: getstatic     #614                // Field reliquary/init/ModItems.DESTRUCTION_CATALYST:Lnet/minecraftforge/registries/RegistryObject;
+      91: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      94: checkcast     #567                // class net/minecraft/world/item/Item
+      97: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+     100: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+     103: getfield      #617                // Field reliquary/reference/Settings$Client$HudPos.destructionCatalyst:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+     106: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+     109: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+     112: new           #281                // class net/minecraft/world/item/ItemStack
+     115: dup
+     116: getstatic     #620                // Field net/minecraft/world/item/Items.f_42403_:Lnet/minecraft/world/item/Item;
+     119: invokespecial #589                // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+     122: invokedynamic #625,  0            // InvokeDynamic #16:apply:()Ljava/util/function/Function;
+     127: invokespecial #604                // Method reliquary/client/gui/hud/ChargeableItemInfoPane."<init>":(Lnet/minecraft/world/item/Item;Lreliquary/client/gui/hud/HUDPosition;Lnet/minecraft/world/item/ItemStack;Ljava/util/function/Function;)V
+     130: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+     133: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+     136: getfield      #617                // Field reliquary/reference/Settings$Client$HudPos.destructionCatalyst:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+     139: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+     142: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+     145: invokespecial #607                // Method net/minecraft/util/Tuple."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+     148: invokeinterface #611,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     153: pop
+     154: getstatic     #523                // Field hudComponents:Ljava/util/List;
+     157: new           #539                // class net/minecraft/util/Tuple
+     160: dup
+     161: new           #562                // class reliquary/client/gui/hud/ChargeableItemInfoPane
+     164: dup
+     165: getstatic     #628                // Field reliquary/init/ModItems.MIDAS_TOUCHSTONE:Lnet/minecraftforge/registries/RegistryObject;
+     168: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     171: checkcast     #567                // class net/minecraft/world/item/Item
+     174: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+     177: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+     180: getfield      #631                // Field reliquary/reference/Settings$Client$HudPos.midasTouchstone:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+     183: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+     186: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+     189: new           #281                // class net/minecraft/world/item/ItemStack
+     192: dup
+     193: getstatic     #634                // Field net/minecraft/world/item/Items.f_42525_:Lnet/minecraft/world/item/Item;
+     196: invokespecial #589                // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+     199: invokedynamic #639,  0            // InvokeDynamic #17:apply:()Ljava/util/function/Function;
+     204: invokespecial #604                // Method reliquary/client/gui/hud/ChargeableItemInfoPane."<init>":(Lnet/minecraft/world/item/Item;Lreliquary/client/gui/hud/HUDPosition;Lnet/minecraft/world/item/ItemStack;Ljava/util/function/Function;)V
+     207: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+     210: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+     213: getfield      #631                // Field reliquary/reference/Settings$Client$HudPos.midasTouchstone:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+     216: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+     219: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+     222: invokespecial #607                // Method net/minecraft/util/Tuple."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+     225: invokeinterface #611,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     230: pop
+     231: getstatic     #523                // Field hudComponents:Ljava/util/List;
+     234: new           #539                // class net/minecraft/util/Tuple
+     237: dup
+     238: new           #562                // class reliquary/client/gui/hud/ChargeableItemInfoPane
+     241: dup
+     242: getstatic     #642                // Field reliquary/init/ModItems.INFERNAL_CHALICE:Lnet/minecraftforge/registries/RegistryObject;
+     245: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     248: checkcast     #567                // class net/minecraft/world/item/Item
+     251: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+     254: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+     257: getfield      #645                // Field reliquary/reference/Settings$Client$HudPos.infernalChalice:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+     260: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+     263: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+     266: new           #281                // class net/minecraft/world/item/ItemStack
+     269: dup
+     270: getstatic     #648                // Field net/minecraft/world/item/Items.f_42448_:Lnet/minecraft/world/item/Item;
+     273: invokespecial #589                // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+     276: invokedynamic #653,  0            // InvokeDynamic #18:apply:()Ljava/util/function/Function;
+     281: ldc_w         #655                // String CC3024
+     284: invokestatic  #660                // Method reliquary/reference/Colors.get:(Ljava/lang/String;)I
+     287: invokespecial #663                // Method reliquary/client/gui/hud/ChargeableItemInfoPane."<init>":(Lnet/minecraft/world/item/Item;Lreliquary/client/gui/hud/HUDPosition;Lnet/minecraft/world/item/ItemStack;Ljava/util/function/Function;I)V
+     290: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+     293: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+     296: getfield      #645                // Field reliquary/reference/Settings$Client$HudPos.infernalChalice:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+     299: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+     302: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+     305: invokespecial #607                // Method net/minecraft/util/Tuple."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+     308: invokeinterface #611,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     313: pop
+     314: getstatic     #523                // Field hudComponents:Ljava/util/List;
+     317: new           #539                // class net/minecraft/util/Tuple
+     320: dup
+     321: new           #562                // class reliquary/client/gui/hud/ChargeableItemInfoPane
+     324: dup
+     325: getstatic     #666                // Field reliquary/init/ModItems.ICE_MAGUS_ROD:Lnet/minecraftforge/registries/RegistryObject;
+     328: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     331: checkcast     #567                // class net/minecraft/world/item/Item
+     334: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+     337: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+     340: getfield      #669                // Field reliquary/reference/Settings$Client$HudPos.iceMagusRod:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+     343: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+     346: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+     349: new           #281                // class net/minecraft/world/item/ItemStack
+     352: dup
+     353: getstatic     #672                // Field net/minecraft/world/item/Items.f_42452_:Lnet/minecraft/world/item/Item;
+     356: invokespecial #589                // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+     359: invokedynamic #677,  0            // InvokeDynamic #19:apply:()Ljava/util/function/Function;
+     364: invokespecial #604                // Method reliquary/client/gui/hud/ChargeableItemInfoPane."<init>":(Lnet/minecraft/world/item/Item;Lreliquary/client/gui/hud/HUDPosition;Lnet/minecraft/world/item/ItemStack;Ljava/util/function/Function;)V
+     367: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+     370: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+     373: getfield      #669                // Field reliquary/reference/Settings$Client$HudPos.iceMagusRod:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+     376: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+     379: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+     382: invokespecial #607                // Method net/minecraft/util/Tuple."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+     385: invokeinterface #611,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     390: pop
+     391: getstatic     #523                // Field hudComponents:Ljava/util/List;
+     394: new           #539                // class net/minecraft/util/Tuple
+     397: dup
+     398: new           #562                // class reliquary/client/gui/hud/ChargeableItemInfoPane
+     401: dup
+     402: getstatic     #680                // Field reliquary/init/ModItems.GLACIAL_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+     405: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     408: checkcast     #567                // class net/minecraft/world/item/Item
+     411: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+     414: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+     417: getfield      #683                // Field reliquary/reference/Settings$Client$HudPos.glacialStaff:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+     420: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+     423: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+     426: new           #281                // class net/minecraft/world/item/ItemStack
+     429: dup
+     430: getstatic     #672                // Field net/minecraft/world/item/Items.f_42452_:Lnet/minecraft/world/item/Item;
+     433: invokespecial #589                // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+     436: invokedynamic #688,  0            // InvokeDynamic #20:apply:()Ljava/util/function/Function;
+     441: invokespecial #604                // Method reliquary/client/gui/hud/ChargeableItemInfoPane."<init>":(Lnet/minecraft/world/item/Item;Lreliquary/client/gui/hud/HUDPosition;Lnet/minecraft/world/item/ItemStack;Ljava/util/function/Function;)V
+     444: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+     447: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+     450: getfield      #683                // Field reliquary/reference/Settings$Client$HudPos.glacialStaff:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+     453: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+     456: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+     459: invokespecial #607                // Method net/minecraft/util/Tuple."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+     462: invokeinterface #611,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     467: pop
+     468: getstatic     #523                // Field hudComponents:Ljava/util/List;
+     471: new           #539                // class net/minecraft/util/Tuple
+     474: dup
+     475: new           #562                // class reliquary/client/gui/hud/ChargeableItemInfoPane
+     478: dup
+     479: getstatic     #691                // Field reliquary/init/ModItems.ENDER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+     482: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     485: checkcast     #567                // class net/minecraft/world/item/Item
+     488: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+     491: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+     494: getfield      #694                // Field reliquary/reference/Settings$Client$HudPos.enderStaff:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+     497: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+     500: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+     503: invokedynamic #701,  0            // InvokeDynamic #21:apply:()Ljava/util/function/Function;
+     508: getstatic     #705                // Field reliquary/items/EnderStaffItem$Mode.CAST:Lreliquary/items/EnderStaffItem$Mode;
+     511: invokevirtual #709                // Method reliquary/items/EnderStaffItem$Mode.m_7912_:()Ljava/lang/String;
+     514: new           #711                // class reliquary/client/gui/hud/ChargePane
+     517: dup
+     518: getstatic     #691                // Field reliquary/init/ModItems.ENDER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+     521: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     524: checkcast     #567                // class net/minecraft/world/item/Item
+     527: new           #281                // class net/minecraft/world/item/ItemStack
+     530: dup
+     531: getstatic     #714                // Field net/minecraft/world/item/Items.f_42584_:Lnet/minecraft/world/item/Item;
+     534: invokespecial #589                // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+     537: invokedynamic #719,  0            // InvokeDynamic #22:apply:()Ljava/util/function/Function;
+     542: invokespecial #722                // Method reliquary/client/gui/hud/ChargePane."<init>":(Lnet/minecraft/world/item/Item;Lnet/minecraft/world/item/ItemStack;Ljava/util/function/Function;)V
+     545: getstatic     #725                // Field reliquary/items/EnderStaffItem$Mode.NODE_WARP:Lreliquary/items/EnderStaffItem$Mode;
+     548: invokevirtual #709                // Method reliquary/items/EnderStaffItem$Mode.m_7912_:()Ljava/lang/String;
+     551: new           #711                // class reliquary/client/gui/hud/ChargePane
+     554: dup
+     555: getstatic     #691                // Field reliquary/init/ModItems.ENDER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+     558: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     561: checkcast     #567                // class net/minecraft/world/item/Item
+     564: new           #281                // class net/minecraft/world/item/ItemStack
+     567: dup
+     568: getstatic     #730                // Field reliquary/init/ModBlocks.WRAITH_NODE:Lnet/minecraftforge/registries/RegistryObject;
+     571: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     574: checkcast     #732                // class net/minecraft/world/level/ItemLike
+     577: invokespecial #589                // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+     580: invokedynamic #737,  0            // InvokeDynamic #23:apply:()Ljava/util/function/Function;
+     585: invokespecial #722                // Method reliquary/client/gui/hud/ChargePane."<init>":(Lnet/minecraft/world/item/Item;Lnet/minecraft/world/item/ItemStack;Ljava/util/function/Function;)V
+     588: getstatic     #740                // Field reliquary/items/EnderStaffItem$Mode.LONG_CAST:Lreliquary/items/EnderStaffItem$Mode;
+     591: invokevirtual #709                // Method reliquary/items/EnderStaffItem$Mode.m_7912_:()Ljava/lang/String;
+     594: new           #711                // class reliquary/client/gui/hud/ChargePane
+     597: dup
+     598: getstatic     #691                // Field reliquary/init/ModItems.ENDER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+     601: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     604: checkcast     #567                // class net/minecraft/world/item/Item
+     607: new           #281                // class net/minecraft/world/item/ItemStack
+     610: dup
+     611: getstatic     #743                // Field net/minecraft/world/item/Items.f_42545_:Lnet/minecraft/world/item/Item;
+     614: invokespecial #589                // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+     617: invokedynamic #748,  0            // InvokeDynamic #24:apply:()Ljava/util/function/Function;
+     622: invokespecial #722                // Method reliquary/client/gui/hud/ChargePane."<init>":(Lnet/minecraft/world/item/Item;Lnet/minecraft/world/item/ItemStack;Ljava/util/function/Function;)V
+     625: invokestatic  #754                // InterfaceMethod java/util/Map.of:(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
+     628: invokespecial #757                // Method reliquary/client/gui/hud/ChargeableItemInfoPane."<init>":(Lnet/minecraft/world/item/Item;Lreliquary/client/gui/hud/HUDPosition;Ljava/util/function/Function;Ljava/util/Map;)V
+     631: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+     634: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+     637: getfield      #694                // Field reliquary/reference/Settings$Client$HudPos.enderStaff:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+     640: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+     643: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+     646: invokespecial #607                // Method net/minecraft/util/Tuple."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+     649: invokeinterface #611,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     654: pop
+     655: getstatic     #523                // Field hudComponents:Ljava/util/List;
+     658: new           #539                // class net/minecraft/util/Tuple
+     661: dup
+     662: new           #562                // class reliquary/client/gui/hud/ChargeableItemInfoPane
+     665: dup
+     666: getstatic     #760                // Field reliquary/init/ModItems.PYROMANCER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+     669: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     672: checkcast     #567                // class net/minecraft/world/item/Item
+     675: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+     678: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+     681: getfield      #763                // Field reliquary/reference/Settings$Client$HudPos.pyromancerStaff:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+     684: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+     687: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+     690: invokedynamic #768,  0            // InvokeDynamic #25:apply:()Ljava/util/function/Function;
+     695: getstatic     #772                // Field reliquary/items/PyromancerStaffItem$Mode.BLAZE:Lreliquary/items/PyromancerStaffItem$Mode;
+     698: invokevirtual #773                // Method reliquary/items/PyromancerStaffItem$Mode.m_7912_:()Ljava/lang/String;
+     701: new           #711                // class reliquary/client/gui/hud/ChargePane
+     704: dup
+     705: getstatic     #760                // Field reliquary/init/ModItems.PYROMANCER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+     708: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     711: checkcast     #567                // class net/minecraft/world/item/Item
+     714: new           #281                // class net/minecraft/world/item/ItemStack
+     717: dup
+     718: getstatic     #776                // Field net/minecraft/world/item/Items.f_42593_:Lnet/minecraft/world/item/Item;
+     721: invokespecial #589                // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+     724: invokedynamic #781,  0            // InvokeDynamic #26:apply:()Ljava/util/function/Function;
+     729: invokespecial #722                // Method reliquary/client/gui/hud/ChargePane."<init>":(Lnet/minecraft/world/item/Item;Lnet/minecraft/world/item/ItemStack;Ljava/util/function/Function;)V
+     732: getstatic     #784                // Field reliquary/items/PyromancerStaffItem$Mode.FIRE_CHARGE:Lreliquary/items/PyromancerStaffItem$Mode;
+     735: invokevirtual #773                // Method reliquary/items/PyromancerStaffItem$Mode.m_7912_:()Ljava/lang/String;
+     738: new           #711                // class reliquary/client/gui/hud/ChargePane
+     741: dup
+     742: getstatic     #760                // Field reliquary/init/ModItems.PYROMANCER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+     745: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     748: checkcast     #567                // class net/minecraft/world/item/Item
+     751: new           #281                // class net/minecraft/world/item/ItemStack
+     754: dup
+     755: getstatic     #787                // Field net/minecraft/world/item/Items.f_42613_:Lnet/minecraft/world/item/Item;
+     758: invokespecial #589                // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+     761: invokedynamic #792,  0            // InvokeDynamic #27:apply:()Ljava/util/function/Function;
+     766: invokespecial #722                // Method reliquary/client/gui/hud/ChargePane."<init>":(Lnet/minecraft/world/item/Item;Lnet/minecraft/world/item/ItemStack;Ljava/util/function/Function;)V
+     769: getstatic     #795                // Field reliquary/items/PyromancerStaffItem$Mode.ERUPTION:Lreliquary/items/PyromancerStaffItem$Mode;
+     772: invokevirtual #773                // Method reliquary/items/PyromancerStaffItem$Mode.m_7912_:()Ljava/lang/String;
+     775: getstatic     #798                // Field reliquary/client/gui/components/Box$Alignment.RIGHT:Lreliquary/client/gui/components/Box$Alignment;
+     778: iconst_2
+     779: anewarray     #544                // class reliquary/client/gui/components/Component
+     782: dup
+     783: iconst_0
+     784: new           #800                // class reliquary/client/gui/components/TextPane
+     787: dup
+     788: ldc_w         #802                // String ERUPT
+     791: invokespecial #805                // Method reliquary/client/gui/components/TextPane."<init>":(Ljava/lang/String;)V
+     794: aastore
+     795: dup
+     796: iconst_1
+     797: new           #711                // class reliquary/client/gui/hud/ChargePane
+     800: dup
+     801: getstatic     #760                // Field reliquary/init/ModItems.PYROMANCER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+     804: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     807: checkcast     #567                // class net/minecraft/world/item/Item
+     810: new           #281                // class net/minecraft/world/item/ItemStack
+     813: dup
+     814: getstatic     #776                // Field net/minecraft/world/item/Items.f_42593_:Lnet/minecraft/world/item/Item;
+     817: invokespecial #589                // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+     820: invokedynamic #810,  0            // InvokeDynamic #28:apply:()Ljava/util/function/Function;
+     825: invokespecial #722                // Method reliquary/client/gui/hud/ChargePane."<init>":(Lnet/minecraft/world/item/Item;Lnet/minecraft/world/item/ItemStack;Ljava/util/function/Function;)V
+     828: aastore
+     829: invokestatic  #814                // Method reliquary/client/gui/components/Box.createVertical:(Lreliquary/client/gui/components/Box$Alignment;[Lreliquary/client/gui/components/Component;)Lreliquary/client/gui/components/Box;
+     832: getstatic     #817                // Field reliquary/items/PyromancerStaffItem$Mode.FLINT_AND_STEEL:Lreliquary/items/PyromancerStaffItem$Mode;
+     835: invokevirtual #773                // Method reliquary/items/PyromancerStaffItem$Mode.m_7912_:()Ljava/lang/String;
+     838: new           #819                // class reliquary/client/gui/components/ItemStackPane
+     841: dup
+     842: getstatic     #822                // Field net/minecraft/world/item/Items.f_42409_:Lnet/minecraft/world/item/Item;
+     845: invokespecial #825                // Method reliquary/client/gui/components/ItemStackPane."<init>":(Lnet/minecraft/world/item/Item;)V
+     848: invokestatic  #828                // InterfaceMethod java/util/Map.of:(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
+     851: invokespecial #757                // Method reliquary/client/gui/hud/ChargeableItemInfoPane."<init>":(Lnet/minecraft/world/item/Item;Lreliquary/client/gui/hud/HUDPosition;Ljava/util/function/Function;Ljava/util/Map;)V
+     854: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+     857: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+     860: getfield      #763                // Field reliquary/reference/Settings$Client$HudPos.pyromancerStaff:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+     863: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+     866: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+     869: invokespecial #607                // Method net/minecraft/util/Tuple."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+     872: invokeinterface #611,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     877: pop
+     878: new           #711                // class reliquary/client/gui/hud/ChargePane
+     881: dup
+     882: getstatic     #831                // Field reliquary/init/ModItems.RENDING_GALE:Lnet/minecraftforge/registries/RegistryObject;
+     885: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     888: checkcast     #567                // class net/minecraft/world/item/Item
+     891: new           #281                // class net/minecraft/world/item/ItemStack
+     894: dup
+     895: getstatic     #834                // Field net/minecraft/world/item/Items.f_42402_:Lnet/minecraft/world/item/Item;
+     898: invokespecial #589                // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+     901: invokedynamic #839,  0            // InvokeDynamic #29:apply:()Ljava/util/function/Function;
+     906: invokespecial #722                // Method reliquary/client/gui/hud/ChargePane."<init>":(Lnet/minecraft/world/item/Item;Lnet/minecraft/world/item/ItemStack;Ljava/util/function/Function;)V
+     909: astore_0
+     910: getstatic     #523                // Field hudComponents:Ljava/util/List;
+     913: new           #539                // class net/minecraft/util/Tuple
+     916: dup
+     917: new           #562                // class reliquary/client/gui/hud/ChargeableItemInfoPane
+     920: dup
+     921: getstatic     #831                // Field reliquary/init/ModItems.RENDING_GALE:Lnet/minecraftforge/registries/RegistryObject;
+     924: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     927: checkcast     #567                // class net/minecraft/world/item/Item
+     930: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+     933: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+     936: getfield      #842                // Field reliquary/reference/Settings$Client$HudPos.rendingGale:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+     939: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+     942: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+     945: invokedynamic #847,  0            // InvokeDynamic #30:apply:()Ljava/util/function/Function;
+     950: getstatic     #851                // Field reliquary/items/RendingGaleItem$Mode.PUSH:Lreliquary/items/RendingGaleItem$Mode;
+     953: invokevirtual #852                // Method reliquary/items/RendingGaleItem$Mode.m_7912_:()Ljava/lang/String;
+     956: getstatic     #798                // Field reliquary/client/gui/components/Box$Alignment.RIGHT:Lreliquary/client/gui/components/Box$Alignment;
+     959: iconst_2
+     960: anewarray     #544                // class reliquary/client/gui/components/Component
+     963: dup
+     964: iconst_0
+     965: new           #800                // class reliquary/client/gui/components/TextPane
+     968: dup
+     969: ldc_w         #853                // String PUSH
+     972: invokespecial #805                // Method reliquary/client/gui/components/TextPane."<init>":(Ljava/lang/String;)V
+     975: aastore
+     976: dup
+     977: iconst_1
+     978: aload_0
+     979: aastore
+     980: invokestatic  #814                // Method reliquary/client/gui/components/Box.createVertical:(Lreliquary/client/gui/components/Box$Alignment;[Lreliquary/client/gui/components/Component;)Lreliquary/client/gui/components/Box;
+     983: getstatic     #856                // Field reliquary/items/RendingGaleItem$Mode.PULL:Lreliquary/items/RendingGaleItem$Mode;
+     986: invokevirtual #852                // Method reliquary/items/RendingGaleItem$Mode.m_7912_:()Ljava/lang/String;
+     989: getstatic     #798                // Field reliquary/client/gui/components/Box$Alignment.RIGHT:Lreliquary/client/gui/components/Box$Alignment;
+     992: iconst_2
+     993: anewarray     #544                // class reliquary/client/gui/components/Component
+     996: dup
+     997: iconst_0
+     998: new           #800                // class reliquary/client/gui/components/TextPane
+    1001: dup
+    1002: ldc_w         #857                // String PULL
+    1005: invokespecial #805                // Method reliquary/client/gui/components/TextPane."<init>":(Ljava/lang/String;)V
+    1008: aastore
+    1009: dup
+    1010: iconst_1
+    1011: aload_0
+    1012: aastore
+    1013: invokestatic  #814                // Method reliquary/client/gui/components/Box.createVertical:(Lreliquary/client/gui/components/Box$Alignment;[Lreliquary/client/gui/components/Component;)Lreliquary/client/gui/components/Box;
+    1016: getstatic     #860                // Field reliquary/items/RendingGaleItem$Mode.BOLT:Lreliquary/items/RendingGaleItem$Mode;
+    1019: invokevirtual #852                // Method reliquary/items/RendingGaleItem$Mode.m_7912_:()Ljava/lang/String;
+    1022: getstatic     #798                // Field reliquary/client/gui/components/Box$Alignment.RIGHT:Lreliquary/client/gui/components/Box$Alignment;
+    1025: iconst_2
+    1026: anewarray     #544                // class reliquary/client/gui/components/Component
+    1029: dup
+    1030: iconst_0
+    1031: new           #800                // class reliquary/client/gui/components/TextPane
+    1034: dup
+    1035: ldc_w         #861                // String BOLT
+    1038: invokespecial #805                // Method reliquary/client/gui/components/TextPane."<init>":(Ljava/lang/String;)V
+    1041: aastore
+    1042: dup
+    1043: iconst_1
+    1044: aload_0
+    1045: aastore
+    1046: invokestatic  #814                // Method reliquary/client/gui/components/Box.createVertical:(Lreliquary/client/gui/components/Box$Alignment;[Lreliquary/client/gui/components/Component;)Lreliquary/client/gui/components/Box;
+    1049: getstatic     #864                // Field reliquary/items/RendingGaleItem$Mode.FLIGHT:Lreliquary/items/RendingGaleItem$Mode;
+    1052: invokevirtual #852                // Method reliquary/items/RendingGaleItem$Mode.m_7912_:()Ljava/lang/String;
+    1055: getstatic     #798                // Field reliquary/client/gui/components/Box$Alignment.RIGHT:Lreliquary/client/gui/components/Box$Alignment;
+    1058: iconst_2
+    1059: anewarray     #544                // class reliquary/client/gui/components/Component
+    1062: dup
+    1063: iconst_0
+    1064: new           #800                // class reliquary/client/gui/components/TextPane
+    1067: dup
+    1068: ldc_w         #865                // String FLIGHT
+    1071: invokespecial #805                // Method reliquary/client/gui/components/TextPane."<init>":(Ljava/lang/String;)V
+    1074: aastore
+    1075: dup
+    1076: iconst_1
+    1077: aload_0
+    1078: aastore
+    1079: invokestatic  #814                // Method reliquary/client/gui/components/Box.createVertical:(Lreliquary/client/gui/components/Box$Alignment;[Lreliquary/client/gui/components/Component;)Lreliquary/client/gui/components/Box;
+    1082: invokestatic  #828                // InterfaceMethod java/util/Map.of:(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
+    1085: invokespecial #757                // Method reliquary/client/gui/hud/ChargeableItemInfoPane."<init>":(Lnet/minecraft/world/item/Item;Lreliquary/client/gui/hud/HUDPosition;Ljava/util/function/Function;Ljava/util/Map;)V
+    1088: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+    1091: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+    1094: getfield      #842                // Field reliquary/reference/Settings$Client$HudPos.rendingGale:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+    1097: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+    1100: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+    1103: invokespecial #607                // Method net/minecraft/util/Tuple."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+    1106: invokeinterface #611,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1111: pop
+    1112: new           #867                // class reliquary/client/gui/hud/DynamicChargePane
+    1115: dup
+    1116: getstatic     #870                // Field reliquary/init/ModItems.VOID_TEAR:Lnet/minecraftforge/registries/RegistryObject;
+    1119: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+    1122: checkcast     #567                // class net/minecraft/world/item/Item
+    1125: invokedynamic #879,  0            // InvokeDynamic #31:apply:()Ljava/util/function/UnaryOperator;
+    1130: invokedynamic #884,  0            // InvokeDynamic #32:apply:()Ljava/util/function/Function;
+    1135: invokespecial #887                // Method reliquary/client/gui/hud/DynamicChargePane."<init>":(Lnet/minecraft/world/item/Item;Ljava/util/function/UnaryOperator;Ljava/util/function/Function;)V
+    1138: astore_1
+    1139: getstatic     #523                // Field hudComponents:Ljava/util/List;
+    1142: new           #539                // class net/minecraft/util/Tuple
+    1145: dup
+    1146: new           #7                  // class reliquary/handler/ClientEventHandler$1
+    1149: dup
+    1150: getstatic     #870                // Field reliquary/init/ModItems.VOID_TEAR:Lnet/minecraftforge/registries/RegistryObject;
+    1153: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+    1156: checkcast     #567                // class net/minecraft/world/item/Item
+    1159: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+    1162: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+    1165: getfield      #890                // Field reliquary/reference/Settings$Client$HudPos.voidTear:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+    1168: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+    1171: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+    1174: invokedynamic #895,  0            // InvokeDynamic #33:apply:()Ljava/util/function/Function;
+    1179: getstatic     #899                // Field reliquary/items/VoidTearItem$Mode.FULL_INVENTORY:Lreliquary/items/VoidTearItem$Mode;
+    1182: invokevirtual #900                // Method reliquary/items/VoidTearItem$Mode.m_7912_:()Ljava/lang/String;
+    1185: getstatic     #798                // Field reliquary/client/gui/components/Box$Alignment.RIGHT:Lreliquary/client/gui/components/Box$Alignment;
+    1188: iconst_2
+    1189: anewarray     #544                // class reliquary/client/gui/components/Component
+    1192: dup
+    1193: iconst_0
+    1194: new           #800                // class reliquary/client/gui/components/TextPane
+    1197: dup
+    1198: invokestatic  #906                // Method net/minecraft/locale/Language.m_128107_:()Lnet/minecraft/locale/Language;
+    1201: getstatic     #899                // Field reliquary/items/VoidTearItem$Mode.FULL_INVENTORY:Lreliquary/items/VoidTearItem$Mode;
+    1204: invokevirtual #900                // Method reliquary/items/VoidTearItem$Mode.m_7912_:()Ljava/lang/String;
+    1207: invokevirtual #911                // Method java/lang/String.toLowerCase:()Ljava/lang/String;
+    1210: invokedynamic #923,  0            // InvokeDynamic #34:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+    1215: invokevirtual #926                // Method net/minecraft/locale/Language.m_6834_:(Ljava/lang/String;)Ljava/lang/String;
+    1218: invokespecial #805                // Method reliquary/client/gui/components/TextPane."<init>":(Ljava/lang/String;)V
+    1221: aastore
+    1222: dup
+    1223: iconst_1
+    1224: aload_1
+    1225: aastore
+    1226: invokestatic  #814                // Method reliquary/client/gui/components/Box.createVertical:(Lreliquary/client/gui/components/Box$Alignment;[Lreliquary/client/gui/components/Component;)Lreliquary/client/gui/components/Box;
+    1229: getstatic     #929                // Field reliquary/items/VoidTearItem$Mode.NO_REFILL:Lreliquary/items/VoidTearItem$Mode;
+    1232: invokevirtual #900                // Method reliquary/items/VoidTearItem$Mode.m_7912_:()Ljava/lang/String;
+    1235: getstatic     #798                // Field reliquary/client/gui/components/Box$Alignment.RIGHT:Lreliquary/client/gui/components/Box$Alignment;
+    1238: iconst_2
+    1239: anewarray     #544                // class reliquary/client/gui/components/Component
+    1242: dup
+    1243: iconst_0
+    1244: new           #800                // class reliquary/client/gui/components/TextPane
+    1247: dup
+    1248: invokestatic  #906                // Method net/minecraft/locale/Language.m_128107_:()Lnet/minecraft/locale/Language;
+    1251: getstatic     #929                // Field reliquary/items/VoidTearItem$Mode.NO_REFILL:Lreliquary/items/VoidTearItem$Mode;
+    1254: invokevirtual #900                // Method reliquary/items/VoidTearItem$Mode.m_7912_:()Ljava/lang/String;
+    1257: invokevirtual #911                // Method java/lang/String.toLowerCase:()Ljava/lang/String;
+    1260: invokedynamic #923,  0            // InvokeDynamic #34:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+    1265: invokevirtual #926                // Method net/minecraft/locale/Language.m_6834_:(Ljava/lang/String;)Ljava/lang/String;
+    1268: invokespecial #805                // Method reliquary/client/gui/components/TextPane."<init>":(Ljava/lang/String;)V
+    1271: aastore
+    1272: dup
+    1273: iconst_1
+    1274: aload_1
+    1275: aastore
+    1276: invokestatic  #814                // Method reliquary/client/gui/components/Box.createVertical:(Lreliquary/client/gui/components/Box$Alignment;[Lreliquary/client/gui/components/Component;)Lreliquary/client/gui/components/Box;
+    1279: getstatic     #932                // Field reliquary/items/VoidTearItem$Mode.ONE_STACK:Lreliquary/items/VoidTearItem$Mode;
+    1282: invokevirtual #900                // Method reliquary/items/VoidTearItem$Mode.m_7912_:()Ljava/lang/String;
+    1285: getstatic     #798                // Field reliquary/client/gui/components/Box$Alignment.RIGHT:Lreliquary/client/gui/components/Box$Alignment;
+    1288: iconst_2
+    1289: anewarray     #544                // class reliquary/client/gui/components/Component
+    1292: dup
+    1293: iconst_0
+    1294: new           #800                // class reliquary/client/gui/components/TextPane
+    1297: dup
+    1298: invokestatic  #906                // Method net/minecraft/locale/Language.m_128107_:()Lnet/minecraft/locale/Language;
+    1301: getstatic     #932                // Field reliquary/items/VoidTearItem$Mode.ONE_STACK:Lreliquary/items/VoidTearItem$Mode;
+    1304: invokevirtual #900                // Method reliquary/items/VoidTearItem$Mode.m_7912_:()Ljava/lang/String;
+    1307: invokevirtual #911                // Method java/lang/String.toLowerCase:()Ljava/lang/String;
+    1310: invokedynamic #923,  0            // InvokeDynamic #34:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+    1315: invokevirtual #926                // Method net/minecraft/locale/Language.m_6834_:(Ljava/lang/String;)Ljava/lang/String;
+    1318: invokespecial #805                // Method reliquary/client/gui/components/TextPane."<init>":(Ljava/lang/String;)V
+    1321: aastore
+    1322: dup
+    1323: iconst_1
+    1324: aload_1
+    1325: aastore
+    1326: invokestatic  #814                // Method reliquary/client/gui/components/Box.createVertical:(Lreliquary/client/gui/components/Box$Alignment;[Lreliquary/client/gui/components/Component;)Lreliquary/client/gui/components/Box;
+    1329: invokestatic  #754                // InterfaceMethod java/util/Map.of:(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
+    1332: invokespecial #933                // Method reliquary/handler/ClientEventHandler$1."<init>":(Lnet/minecraft/world/item/Item;Lreliquary/client/gui/hud/HUDPosition;Ljava/util/function/Function;Ljava/util/Map;)V
+    1335: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+    1338: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+    1341: getfield      #890                // Field reliquary/reference/Settings$Client$HudPos.voidTear:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+    1344: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+    1347: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+    1350: invokespecial #607                // Method net/minecraft/util/Tuple."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+    1353: invokeinterface #611,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1358: pop
+    1359: getstatic     #523                // Field hudComponents:Ljava/util/List;
+    1362: new           #539                // class net/minecraft/util/Tuple
+    1365: dup
+    1366: new           #562                // class reliquary/client/gui/hud/ChargeableItemInfoPane
+    1369: dup
+    1370: getstatic     #936                // Field reliquary/init/ModItems.HARVEST_ROD:Lnet/minecraftforge/registries/RegistryObject;
+    1373: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+    1376: checkcast     #567                // class net/minecraft/world/item/Item
+    1379: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+    1382: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+    1385: getfield      #939                // Field reliquary/reference/Settings$Client$HudPos.harvestRod:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+    1388: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+    1391: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+    1394: invokedynamic #944,  0            // InvokeDynamic #35:apply:()Ljava/util/function/Function;
+    1399: getstatic     #948                // Field reliquary/items/HarvestRodItem$Mode.BONE_MEAL:Lreliquary/items/HarvestRodItem$Mode;
+    1402: invokevirtual #949                // Method reliquary/items/HarvestRodItem$Mode.m_7912_:()Ljava/lang/String;
+    1405: new           #711                // class reliquary/client/gui/hud/ChargePane
+    1408: dup
+    1409: getstatic     #936                // Field reliquary/init/ModItems.HARVEST_ROD:Lnet/minecraftforge/registries/RegistryObject;
+    1412: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+    1415: checkcast     #567                // class net/minecraft/world/item/Item
+    1418: new           #281                // class net/minecraft/world/item/ItemStack
+    1421: dup
+    1422: getstatic     #952                // Field net/minecraft/world/item/Items.f_42499_:Lnet/minecraft/world/item/Item;
+    1425: invokespecial #589                // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+    1428: invokedynamic #957,  0            // InvokeDynamic #36:apply:()Ljava/util/function/Function;
+    1433: invokespecial #722                // Method reliquary/client/gui/hud/ChargePane."<init>":(Lnet/minecraft/world/item/Item;Lnet/minecraft/world/item/ItemStack;Ljava/util/function/Function;)V
+    1436: getstatic     #960                // Field reliquary/items/HarvestRodItem$Mode.HOE:Lreliquary/items/HarvestRodItem$Mode;
+    1439: invokevirtual #949                // Method reliquary/items/HarvestRodItem$Mode.m_7912_:()Ljava/lang/String;
+    1442: new           #819                // class reliquary/client/gui/components/ItemStackPane
+    1445: dup
+    1446: getstatic     #963                // Field net/minecraft/world/item/Items.f_42424_:Lnet/minecraft/world/item/Item;
+    1449: invokespecial #825                // Method reliquary/client/gui/components/ItemStackPane."<init>":(Lnet/minecraft/world/item/Item;)V
+    1452: ldc_w         #965                // String dynamic
+    1455: new           #867                // class reliquary/client/gui/hud/DynamicChargePane
+    1458: dup
+    1459: getstatic     #936                // Field reliquary/init/ModItems.HARVEST_ROD:Lnet/minecraftforge/registries/RegistryObject;
+    1462: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+    1465: checkcast     #567                // class net/minecraft/world/item/Item
+    1468: invokedynamic #970,  0            // InvokeDynamic #37:apply:()Ljava/util/function/UnaryOperator;
+    1473: invokedynamic #975,  0            // InvokeDynamic #38:apply:()Ljava/util/function/Function;
+    1478: invokespecial #887                // Method reliquary/client/gui/hud/DynamicChargePane."<init>":(Lnet/minecraft/world/item/Item;Ljava/util/function/UnaryOperator;Ljava/util/function/Function;)V
+    1481: invokestatic  #754                // InterfaceMethod java/util/Map.of:(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
+    1484: invokespecial #757                // Method reliquary/client/gui/hud/ChargeableItemInfoPane."<init>":(Lnet/minecraft/world/item/Item;Lreliquary/client/gui/hud/HUDPosition;Ljava/util/function/Function;Ljava/util/Map;)V
+    1487: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+    1490: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+    1493: getfield      #939                // Field reliquary/reference/Settings$Client$HudPos.harvestRod:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+    1496: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+    1499: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+    1502: invokespecial #607                // Method net/minecraft/util/Tuple."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+    1505: invokeinterface #611,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1510: pop
+    1511: getstatic     #523                // Field hudComponents:Ljava/util/List;
+    1514: new           #539                // class net/minecraft/util/Tuple
+    1517: dup
+    1518: new           #562                // class reliquary/client/gui/hud/ChargeableItemInfoPane
+    1521: dup
+    1522: getstatic     #978                // Field reliquary/init/ModItems.SOJOURNER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+    1525: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+    1528: checkcast     #567                // class net/minecraft/world/item/Item
+    1531: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+    1534: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+    1537: getfield      #981                // Field reliquary/reference/Settings$Client$HudPos.sojournerStaff:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+    1540: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+    1543: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+    1546: invokedynamic #986,  0            // InvokeDynamic #39:apply:()Ljava/util/function/Function;
+    1551: ldc_w         #965                // String dynamic
+    1554: new           #867                // class reliquary/client/gui/hud/DynamicChargePane
+    1557: dup
+    1558: getstatic     #978                // Field reliquary/init/ModItems.SOJOURNER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+    1561: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+    1564: checkcast     #567                // class net/minecraft/world/item/Item
+    1567: getstatic     #978                // Field reliquary/init/ModItems.SOJOURNER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+    1570: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+    1573: checkcast     #988                // class reliquary/items/SojournerStaffItem
+    1576: dup
+    1577: invokestatic  #993                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+    1580: pop
+    1581: invokedynamic #1000,  0           // InvokeDynamic #40:apply:(Lreliquary/items/SojournerStaffItem;)Ljava/util/function/UnaryOperator;
+    1586: getstatic     #978                // Field reliquary/init/ModItems.SOJOURNER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+    1589: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+    1592: checkcast     #988                // class reliquary/items/SojournerStaffItem
+    1595: dup
+    1596: invokestatic  #993                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+    1599: pop
+    1600: invokedynamic #1007,  0           // InvokeDynamic #41:apply:(Lreliquary/items/SojournerStaffItem;)Ljava/util/function/Function;
+    1605: invokespecial #887                // Method reliquary/client/gui/hud/DynamicChargePane."<init>":(Lnet/minecraft/world/item/Item;Ljava/util/function/UnaryOperator;Ljava/util/function/Function;)V
+    1608: invokestatic  #1010               // InterfaceMethod java/util/Map.of:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
+    1611: invokespecial #757                // Method reliquary/client/gui/hud/ChargeableItemInfoPane."<init>":(Lnet/minecraft/world/item/Item;Lreliquary/client/gui/hud/HUDPosition;Ljava/util/function/Function;Ljava/util/Map;)V
+    1614: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+    1617: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+    1620: getfield      #981                // Field reliquary/reference/Settings$Client$HudPos.sojournerStaff:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+    1623: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+    1626: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+    1629: invokespecial #607                // Method net/minecraft/util/Tuple."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+    1632: invokeinterface #611,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1637: pop
+    1638: getstatic     #523                // Field hudComponents:Ljava/util/List;
+    1641: new           #539                // class net/minecraft/util/Tuple
+    1644: dup
+    1645: new           #1012               // class reliquary/client/gui/hud/HeroMedallionPane
+    1648: dup
+    1649: invokespecial #1013               // Method reliquary/client/gui/hud/HeroMedallionPane."<init>":()V
+    1652: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+    1655: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+    1658: getfield      #1016               // Field reliquary/reference/Settings$Client$HudPos.heroMedallion:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+    1661: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+    1664: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+    1667: invokespecial #607                // Method net/minecraft/util/Tuple."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+    1670: invokeinterface #611,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1675: pop
+    1676: getstatic     #523                // Field hudComponents:Ljava/util/List;
+    1679: new           #539                // class net/minecraft/util/Tuple
+    1682: dup
+    1683: getstatic     #798                // Field reliquary/client/gui/components/Box$Alignment.RIGHT:Lreliquary/client/gui/components/Box$Alignment;
+    1686: iconst_2
+    1687: anewarray     #544                // class reliquary/client/gui/components/Component
+    1690: dup
+    1691: iconst_0
+    1692: new           #1018               // class reliquary/client/gui/hud/HandgunPane
+    1695: dup
+    1696: getstatic     #275                // Field net/minecraft/world/InteractionHand.OFF_HAND:Lnet/minecraft/world/InteractionHand;
+    1699: invokespecial #1021               // Method reliquary/client/gui/hud/HandgunPane."<init>":(Lnet/minecraft/world/InteractionHand;)V
+    1702: aastore
+    1703: dup
+    1704: iconst_1
+    1705: new           #1018               // class reliquary/client/gui/hud/HandgunPane
+    1708: dup
+    1709: getstatic     #299                // Field net/minecraft/world/InteractionHand.MAIN_HAND:Lnet/minecraft/world/InteractionHand;
+    1712: invokespecial #1021               // Method reliquary/client/gui/hud/HandgunPane."<init>":(Lnet/minecraft/world/InteractionHand;)V
+    1715: aastore
+    1716: invokestatic  #814                // Method reliquary/client/gui/components/Box.createVertical:(Lreliquary/client/gui/components/Box$Alignment;[Lreliquary/client/gui/components/Component;)Lreliquary/client/gui/components/Box;
+    1719: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+    1722: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+    1725: getfield      #1023               // Field reliquary/reference/Settings$Client$HudPos.handgun:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+    1728: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+    1731: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+    1734: invokespecial #607                // Method net/minecraft/util/Tuple."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+    1737: invokeinterface #611,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1742: pop
+    1743: getstatic     #523                // Field hudComponents:Ljava/util/List;
+    1746: new           #539                // class net/minecraft/util/Tuple
+    1749: dup
+    1750: new           #1025               // class reliquary/client/gui/hud/CharmPane
+    1753: dup
+    1754: invokespecial #1026               // Method reliquary/client/gui/hud/CharmPane."<init>":()V
+    1757: getstatic     #571                // Field reliquary/reference/Settings.CLIENT:Lreliquary/reference/Settings$Client;
+    1760: getfield      #575                // Field reliquary/reference/Settings$Client.hudPositions:Lreliquary/reference/Settings$Client$HudPos;
+    1763: getfield      #1029               // Field reliquary/reference/Settings$Client$HudPos.mobCharm:Lnet/minecraftforge/common/ForgeConfigSpec$EnumValue;
+    1766: invokevirtual #580                // Method net/minecraftforge/common/ForgeConfigSpec$EnumValue.get:()Ljava/lang/Object;
+    1769: checkcast     #549                // class reliquary/client/gui/hud/HUDPosition
+    1772: invokespecial #607                // Method net/minecraft/util/Tuple."<init>":(Ljava/lang/Object;Ljava/lang/Object;)V
+    1775: invokeinterface #611,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+    1780: pop
+    1781: return
+
+  private static void registerEntityRenderers(net.minecraftforge.client.event.EntityRenderersEvent$RegisterRenderers);
+    descriptor: (Lnet/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers;)V
+    Code:
+       0: aload_0
+       1: getstatic     #1036               // Field reliquary/init/ModBlocks.APOTHECARY_MORTAR_TILE_TYPE:Lnet/minecraftforge/registries/RegistryObject;
+       4: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       7: checkcast     #1038               // class net/minecraft/world/level/block/entity/BlockEntityType
+      10: invokedynamic #1048,  0           // InvokeDynamic #42:m_173570_:()Lnet/minecraft/client/renderer/blockentity/BlockEntityRendererProvider;
+      15: invokevirtual #1052               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerBlockEntityRenderer:(Lnet/minecraft/world/level/block/entity/BlockEntityType;Lnet/minecraft/client/renderer/blockentity/BlockEntityRendererProvider;)V
+      18: aload_0
+      19: getstatic     #1055               // Field reliquary/init/ModBlocks.PEDESTAL_TILE_TYPE:Lnet/minecraftforge/registries/RegistryObject;
+      22: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      25: checkcast     #1038               // class net/minecraft/world/level/block/entity/BlockEntityType
+      28: invokedynamic #1060,  0           // InvokeDynamic #43:m_173570_:()Lnet/minecraft/client/renderer/blockentity/BlockEntityRendererProvider;
+      33: invokevirtual #1052               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerBlockEntityRenderer:(Lnet/minecraft/world/level/block/entity/BlockEntityType;Lnet/minecraft/client/renderer/blockentity/BlockEntityRendererProvider;)V
+      36: aload_0
+      37: getstatic     #1063               // Field reliquary/init/ModBlocks.PASSIVE_PEDESTAL_TILE_TYPE:Lnet/minecraftforge/registries/RegistryObject;
+      40: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      43: checkcast     #1038               // class net/minecraft/world/level/block/entity/BlockEntityType
+      46: invokedynamic #1068,  0           // InvokeDynamic #44:m_173570_:()Lnet/minecraft/client/renderer/blockentity/BlockEntityRendererProvider;
+      51: invokevirtual #1052               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerBlockEntityRenderer:(Lnet/minecraft/world/level/block/entity/BlockEntityType;Lnet/minecraft/client/renderer/blockentity/BlockEntityRendererProvider;)V
+      54: aload_0
+      55: getstatic     #1073               // Field reliquary/init/ModEntities.LYSSA_HOOK:Lnet/minecraftforge/registries/RegistryObject;
+      58: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      61: checkcast     #1075               // class net/minecraft/world/entity/EntityType
+      64: invokedynamic #1087,  0           // InvokeDynamic #45:m_174009_:()Lnet/minecraft/client/renderer/entity/EntityRendererProvider;
+      69: invokevirtual #1091               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerEntityRenderer:(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
+      72: aload_0
+      73: getstatic     #1094               // Field reliquary/init/ModEntities.BLAZE_SHOT:Lnet/minecraftforge/registries/RegistryObject;
+      76: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      79: checkcast     #1075               // class net/minecraft/world/entity/EntityType
+      82: invokedynamic #1099,  0           // InvokeDynamic #46:m_174009_:()Lnet/minecraft/client/renderer/entity/EntityRendererProvider;
+      87: invokevirtual #1091               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerEntityRenderer:(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
+      90: aload_0
+      91: getstatic     #1102               // Field reliquary/init/ModEntities.BUSTER_SHOT:Lnet/minecraftforge/registries/RegistryObject;
+      94: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      97: checkcast     #1075               // class net/minecraft/world/entity/EntityType
+     100: invokedynamic #1099,  0           // InvokeDynamic #46:m_174009_:()Lnet/minecraft/client/renderer/entity/EntityRendererProvider;
+     105: invokevirtual #1091               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerEntityRenderer:(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
+     108: aload_0
+     109: getstatic     #1105               // Field reliquary/init/ModEntities.CONCUSSIVE_SHOT:Lnet/minecraftforge/registries/RegistryObject;
+     112: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     115: checkcast     #1075               // class net/minecraft/world/entity/EntityType
+     118: invokedynamic #1099,  0           // InvokeDynamic #46:m_174009_:()Lnet/minecraft/client/renderer/entity/EntityRendererProvider;
+     123: invokevirtual #1091               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerEntityRenderer:(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
+     126: aload_0
+     127: getstatic     #1108               // Field reliquary/init/ModEntities.ENDER_SHOT:Lnet/minecraftforge/registries/RegistryObject;
+     130: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     133: checkcast     #1075               // class net/minecraft/world/entity/EntityType
+     136: invokedynamic #1099,  0           // InvokeDynamic #46:m_174009_:()Lnet/minecraft/client/renderer/entity/EntityRendererProvider;
+     141: invokevirtual #1091               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerEntityRenderer:(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
+     144: aload_0
+     145: getstatic     #1111               // Field reliquary/init/ModEntities.EXORCISM_SHOT:Lnet/minecraftforge/registries/RegistryObject;
+     148: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     151: checkcast     #1075               // class net/minecraft/world/entity/EntityType
+     154: invokedynamic #1099,  0           // InvokeDynamic #46:m_174009_:()Lnet/minecraft/client/renderer/entity/EntityRendererProvider;
+     159: invokevirtual #1091               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerEntityRenderer:(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
+     162: aload_0
+     163: getstatic     #1114               // Field reliquary/init/ModEntities.NEUTRAL_SHOT:Lnet/minecraftforge/registries/RegistryObject;
+     166: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     169: checkcast     #1075               // class net/minecraft/world/entity/EntityType
+     172: invokedynamic #1099,  0           // InvokeDynamic #46:m_174009_:()Lnet/minecraft/client/renderer/entity/EntityRendererProvider;
+     177: invokevirtual #1091               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerEntityRenderer:(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
+     180: aload_0
+     181: getstatic     #1117               // Field reliquary/init/ModEntities.SEEKER_SHOT:Lnet/minecraftforge/registries/RegistryObject;
+     184: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     187: checkcast     #1075               // class net/minecraft/world/entity/EntityType
+     190: invokedynamic #1099,  0           // InvokeDynamic #46:m_174009_:()Lnet/minecraft/client/renderer/entity/EntityRendererProvider;
+     195: invokevirtual #1091               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerEntityRenderer:(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
+     198: aload_0
+     199: getstatic     #1120               // Field reliquary/init/ModEntities.SAND_SHOT:Lnet/minecraftforge/registries/RegistryObject;
+     202: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     205: checkcast     #1075               // class net/minecraft/world/entity/EntityType
+     208: invokedynamic #1099,  0           // InvokeDynamic #46:m_174009_:()Lnet/minecraft/client/renderer/entity/EntityRendererProvider;
+     213: invokevirtual #1091               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerEntityRenderer:(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
+     216: aload_0
+     217: getstatic     #1123               // Field reliquary/init/ModEntities.STORM_SHOT:Lnet/minecraftforge/registries/RegistryObject;
+     220: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     223: checkcast     #1075               // class net/minecraft/world/entity/EntityType
+     226: invokedynamic #1099,  0           // InvokeDynamic #46:m_174009_:()Lnet/minecraft/client/renderer/entity/EntityRendererProvider;
+     231: invokevirtual #1091               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerEntityRenderer:(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
+     234: aload_0
+     235: getstatic     #1126               // Field reliquary/init/ModEntities.TIPPED_ARROW:Lnet/minecraftforge/registries/RegistryObject;
+     238: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     241: checkcast     #1075               // class net/minecraft/world/entity/EntityType
+     244: invokedynamic #1131,  0           // InvokeDynamic #47:m_174009_:()Lnet/minecraft/client/renderer/entity/EntityRendererProvider;
+     249: invokevirtual #1091               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerEntityRenderer:(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
+     252: aload_0
+     253: getstatic     #1134               // Field reliquary/init/ModEntities.GLOWING_WATER:Lnet/minecraftforge/registries/RegistryObject;
+     256: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     259: checkcast     #1075               // class net/minecraft/world/entity/EntityType
+     262: invokedynamic #1139,  0           // InvokeDynamic #48:m_174009_:()Lnet/minecraft/client/renderer/entity/EntityRendererProvider;
+     267: invokevirtual #1091               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerEntityRenderer:(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
+     270: aload_0
+     271: getstatic     #1142               // Field reliquary/init/ModEntities.APHRODITE_POTION:Lnet/minecraftforge/registries/RegistryObject;
+     274: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     277: checkcast     #1075               // class net/minecraft/world/entity/EntityType
+     280: invokedynamic #1139,  0           // InvokeDynamic #48:m_174009_:()Lnet/minecraft/client/renderer/entity/EntityRendererProvider;
+     285: invokevirtual #1091               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerEntityRenderer:(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
+     288: aload_0
+     289: getstatic     #1145               // Field reliquary/init/ModEntities.FERTILE_POTION:Lnet/minecraftforge/registries/RegistryObject;
+     292: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     295: checkcast     #1075               // class net/minecraft/world/entity/EntityType
+     298: invokedynamic #1139,  0           // InvokeDynamic #48:m_174009_:()Lnet/minecraft/client/renderer/entity/EntityRendererProvider;
+     303: invokevirtual #1091               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerEntityRenderer:(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
+     306: aload_0
+     307: getstatic     #1148               // Field reliquary/init/ModEntities.HOLY_HAND_GRENADE:Lnet/minecraftforge/registries/RegistryObject;
+     310: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     313: checkcast     #1075               // class net/minecraft/world/entity/EntityType
+     316: invokedynamic #1139,  0           // InvokeDynamic #48:m_174009_:()Lnet/minecraft/client/renderer/entity/EntityRendererProvider;
+     321: invokevirtual #1091               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerEntityRenderer:(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
+     324: aload_0
+     325: getstatic     #1151               // Field reliquary/init/ModEntities.KRAKEN_SLIME:Lnet/minecraftforge/registries/RegistryObject;
+     328: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     331: checkcast     #1075               // class net/minecraft/world/entity/EntityType
+     334: invokedynamic #1139,  0           // InvokeDynamic #48:m_174009_:()Lnet/minecraft/client/renderer/entity/EntityRendererProvider;
+     339: invokevirtual #1091               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerEntityRenderer:(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
+     342: aload_0
+     343: getstatic     #1154               // Field reliquary/init/ModEntities.SPECIAL_SNOWBALL:Lnet/minecraftforge/registries/RegistryObject;
+     346: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     349: checkcast     #1075               // class net/minecraft/world/entity/EntityType
+     352: invokedynamic #1139,  0           // InvokeDynamic #48:m_174009_:()Lnet/minecraft/client/renderer/entity/EntityRendererProvider;
+     357: invokevirtual #1091               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerEntityRenderer:(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
+     360: aload_0
+     361: getstatic     #1157               // Field reliquary/init/ModEntities.ENDER_STAFF_PROJECTILE:Lnet/minecraftforge/registries/RegistryObject;
+     364: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     367: checkcast     #1075               // class net/minecraft/world/entity/EntityType
+     370: invokedynamic #1139,  0           // InvokeDynamic #48:m_174009_:()Lnet/minecraft/client/renderer/entity/EntityRendererProvider;
+     375: invokevirtual #1091               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerEntityRenderer:(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
+     378: aload_0
+     379: getstatic     #1160               // Field reliquary/init/ModEntities.THROWN_POTION:Lnet/minecraftforge/registries/RegistryObject;
+     382: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     385: checkcast     #1075               // class net/minecraft/world/entity/EntityType
+     388: invokedynamic #1139,  0           // InvokeDynamic #48:m_174009_:()Lnet/minecraft/client/renderer/entity/EntityRendererProvider;
+     393: invokevirtual #1091               // Method net/minecraftforge/client/event/EntityRenderersEvent$RegisterRenderers.registerEntityRenderer:(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/client/renderer/entity/EntityRendererProvider;)V
+     396: return
+
+  private static void clientSetup(net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent);
+    descriptor: (Lnet/minecraftforge/fml/event/lifecycle/FMLClientSetupEvent;)V
+    Code:
+       0: aload_0
+       1: invokedynamic #1170,  0           // InvokeDynamic #49:run:()Ljava/lang/Runnable;
+       6: invokevirtual #1176               // Method net/minecraftforge/fml/event/lifecycle/FMLClientSetupEvent.enqueueWork:(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;
+       9: pop
+      10: aload_0
+      11: invokedynamic #1181,  0           // InvokeDynamic #50:run:()Ljava/lang/Runnable;
+      16: invokevirtual #1176               // Method net/minecraftforge/fml/event/lifecycle/FMLClientSetupEvent.enqueueWork:(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;
+      19: pop
+      20: aload_0
+      21: invokedynamic #1186,  0           // InvokeDynamic #51:run:()Ljava/lang/Runnable;
+      26: invokevirtual #1176               // Method net/minecraftforge/fml/event/lifecycle/FMLClientSetupEvent.enqueueWork:(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;
+      29: pop
+      30: aload_0
+      31: invokedynamic #1191,  0           // InvokeDynamic #52:run:()Ljava/lang/Runnable;
+      36: invokevirtual #1176               // Method net/minecraftforge/fml/event/lifecycle/FMLClientSetupEvent.enqueueWork:(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;
+      39: pop
+      40: return
+
+  private static void registerBulletAndMagazineItemProperties();
+    descriptor: ()V
+    Code:
+       0: new           #1194               // class net/minecraft/resources/ResourceLocation
+       3: dup
+       4: ldc_w         #1196               // String reliquary
+       7: ldc_w         #1198               // String potion
+      10: invokespecial #1201               // Method net/minecraft/resources/ResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+      13: invokedynamic #1211,  0           // InvokeDynamic #53:m_141951_:()Lnet/minecraft/client/renderer/item/ItemPropertyFunction;
+      18: bipush        18
+      20: anewarray     #567                // class net/minecraft/world/item/Item
+      23: dup
+      24: iconst_0
+      25: getstatic     #1214               // Field reliquary/init/ModItems.BLAZE_BULLET:Lnet/minecraftforge/registries/RegistryObject;
+      28: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      31: checkcast     #567                // class net/minecraft/world/item/Item
+      34: aastore
+      35: dup
+      36: iconst_1
+      37: getstatic     #1217               // Field reliquary/init/ModItems.BUSTER_BULLET:Lnet/minecraftforge/registries/RegistryObject;
+      40: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      43: checkcast     #567                // class net/minecraft/world/item/Item
+      46: aastore
+      47: dup
+      48: iconst_2
+      49: getstatic     #1220               // Field reliquary/init/ModItems.CONCUSSIVE_BULLET:Lnet/minecraftforge/registries/RegistryObject;
+      52: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      55: checkcast     #567                // class net/minecraft/world/item/Item
+      58: aastore
+      59: dup
+      60: iconst_3
+      61: getstatic     #1223               // Field reliquary/init/ModItems.ENDER_BULLET:Lnet/minecraftforge/registries/RegistryObject;
+      64: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      67: checkcast     #567                // class net/minecraft/world/item/Item
+      70: aastore
+      71: dup
+      72: iconst_4
+      73: getstatic     #1226               // Field reliquary/init/ModItems.EXORCISM_BULLET:Lnet/minecraftforge/registries/RegistryObject;
+      76: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      79: checkcast     #567                // class net/minecraft/world/item/Item
+      82: aastore
+      83: dup
+      84: iconst_5
+      85: getstatic     #1229               // Field reliquary/init/ModItems.NEUTRAL_BULLET:Lnet/minecraftforge/registries/RegistryObject;
+      88: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      91: checkcast     #567                // class net/minecraft/world/item/Item
+      94: aastore
+      95: dup
+      96: bipush        6
+      98: getstatic     #1232               // Field reliquary/init/ModItems.SAND_BULLET:Lnet/minecraftforge/registries/RegistryObject;
+     101: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     104: checkcast     #567                // class net/minecraft/world/item/Item
+     107: aastore
+     108: dup
+     109: bipush        7
+     111: getstatic     #1235               // Field reliquary/init/ModItems.SEEKER_BULLET:Lnet/minecraftforge/registries/RegistryObject;
+     114: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     117: checkcast     #567                // class net/minecraft/world/item/Item
+     120: aastore
+     121: dup
+     122: bipush        8
+     124: getstatic     #1238               // Field reliquary/init/ModItems.STORM_BULLET:Lnet/minecraftforge/registries/RegistryObject;
+     127: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     130: checkcast     #567                // class net/minecraft/world/item/Item
+     133: aastore
+     134: dup
+     135: bipush        9
+     137: getstatic     #1241               // Field reliquary/init/ModItems.BLAZE_MAGAZINE:Lnet/minecraftforge/registries/RegistryObject;
+     140: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     143: checkcast     #567                // class net/minecraft/world/item/Item
+     146: aastore
+     147: dup
+     148: bipush        10
+     150: getstatic     #1244               // Field reliquary/init/ModItems.BUSTER_MAGAZINE:Lnet/minecraftforge/registries/RegistryObject;
+     153: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     156: checkcast     #567                // class net/minecraft/world/item/Item
+     159: aastore
+     160: dup
+     161: bipush        11
+     163: getstatic     #1247               // Field reliquary/init/ModItems.CONCUSSIVE_MAGAZINE:Lnet/minecraftforge/registries/RegistryObject;
+     166: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     169: checkcast     #567                // class net/minecraft/world/item/Item
+     172: aastore
+     173: dup
+     174: bipush        12
+     176: getstatic     #1250               // Field reliquary/init/ModItems.ENDER_MAGAZINE:Lnet/minecraftforge/registries/RegistryObject;
+     179: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     182: checkcast     #567                // class net/minecraft/world/item/Item
+     185: aastore
+     186: dup
+     187: bipush        13
+     189: getstatic     #1253               // Field reliquary/init/ModItems.EXORCISM_MAGAZINE:Lnet/minecraftforge/registries/RegistryObject;
+     192: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     195: checkcast     #567                // class net/minecraft/world/item/Item
+     198: aastore
+     199: dup
+     200: bipush        14
+     202: getstatic     #1256               // Field reliquary/init/ModItems.NEUTRAL_MAGAZINE:Lnet/minecraftforge/registries/RegistryObject;
+     205: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     208: checkcast     #567                // class net/minecraft/world/item/Item
+     211: aastore
+     212: dup
+     213: bipush        15
+     215: getstatic     #1259               // Field reliquary/init/ModItems.SAND_MAGAZINE:Lnet/minecraftforge/registries/RegistryObject;
+     218: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     221: checkcast     #567                // class net/minecraft/world/item/Item
+     224: aastore
+     225: dup
+     226: bipush        16
+     228: getstatic     #1262               // Field reliquary/init/ModItems.SEEKER_MAGAZINE:Lnet/minecraftforge/registries/RegistryObject;
+     231: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     234: checkcast     #567                // class net/minecraft/world/item/Item
+     237: aastore
+     238: dup
+     239: bipush        17
+     241: getstatic     #1265               // Field reliquary/init/ModItems.STORM_MAGAZINE:Lnet/minecraftforge/registries/RegistryObject;
+     244: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     247: checkcast     #567                // class net/minecraft/world/item/Item
+     250: aastore
+     251: invokestatic  #1269               // Method registerPropertyToItems:(Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/client/renderer/item/ItemPropertyFunction;[Lnet/minecraft/world/item/Item;)V
+     254: return
+
+  private static void registerVoidTearItemProperties();
+    descriptor: ()V
+    Code:
+       0: getstatic     #870                // Field reliquary/init/ModItems.VOID_TEAR:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       6: checkcast     #567                // class net/minecraft/world/item/Item
+       9: new           #1194               // class net/minecraft/resources/ResourceLocation
+      12: dup
+      13: ldc_w         #1271               // String empty
+      16: invokespecial #1272               // Method net/minecraft/resources/ResourceLocation."<init>":(Ljava/lang/String;)V
+      19: invokedynamic #1277,  0           // InvokeDynamic #54:m_141951_:()Lnet/minecraft/client/renderer/item/ItemPropertyFunction;
+      24: invokestatic  #1283               // Method net/minecraft/client/renderer/item/ItemProperties.register:(Lnet/minecraft/world/item/Item;Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/client/renderer/item/ItemPropertyFunction;)V
+      27: return
+
+  private static void registerInfernalTearItemProperties();
+    descriptor: ()V
+    Code:
+       0: getstatic     #1286               // Field reliquary/init/ModItems.INFERNAL_TEAR:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       6: checkcast     #567                // class net/minecraft/world/item/Item
+       9: new           #1194               // class net/minecraft/resources/ResourceLocation
+      12: dup
+      13: ldc_w         #1271               // String empty
+      16: invokespecial #1272               // Method net/minecraft/resources/ResourceLocation."<init>":(Ljava/lang/String;)V
+      19: invokedynamic #1291,  0           // InvokeDynamic #55:m_141951_:()Lnet/minecraft/client/renderer/item/ItemPropertyFunction;
+      24: invokestatic  #1283               // Method net/minecraft/client/renderer/item/ItemProperties.register:(Lnet/minecraft/world/item/Item;Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/client/renderer/item/ItemPropertyFunction;)V
+      27: return
+
+  private static void registerLyssaRodItemProperties();
+    descriptor: ()V
+    Code:
+       0: getstatic     #1294               // Field reliquary/init/ModItems.ROD_OF_LYSSA:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       6: checkcast     #567                // class net/minecraft/world/item/Item
+       9: new           #1194               // class net/minecraft/resources/ResourceLocation
+      12: dup
+      13: ldc_w         #1296               // String cast
+      16: invokespecial #1272               // Method net/minecraft/resources/ResourceLocation."<init>":(Ljava/lang/String;)V
+      19: invokedynamic #1301,  0           // InvokeDynamic #56:m_141951_:()Lnet/minecraft/client/renderer/item/ItemPropertyFunction;
+      24: invokestatic  #1283               // Method net/minecraft/client/renderer/item/ItemProperties.register:(Lnet/minecraft/world/item/Item;Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/client/renderer/item/ItemPropertyFunction;)V
+      27: return
+
+  private static void registerKeyMappings(net.minecraftforge.client.event.RegisterKeyMappingsEvent);
+    descriptor: (Lnet/minecraftforge/client/event/RegisterKeyMappingsEvent;)V
+    Code:
+       0: aload_0
+       1: getstatic     #1303               // Field FORTUNE_COIN_TOGGLE_KEYBIND:Lnet/minecraft/client/KeyMapping;
+       4: invokevirtual #1308               // Method net/minecraftforge/client/event/RegisterKeyMappingsEvent.register:(Lnet/minecraft/client/KeyMapping;)V
+       7: return
+
+  private static void registerPropertyToItems(net.minecraft.resources.ResourceLocation, net.minecraft.client.renderer.item.ItemPropertyFunction, net.minecraft.world.item.Item...);
+    descriptor: (Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/client/renderer/item/ItemPropertyFunction;[Lnet/minecraft/world/item/Item;)V
+    Code:
+       0: aload_2
+       1: astore_3
+       2: aload_3
+       3: arraylength
+       4: istore        4
+       6: iconst_0
+       7: istore        5
+       9: iload         5
+      11: iload         4
+      13: if_icmpge     35
+      16: aload_3
+      17: iload         5
+      19: aaload
+      20: astore        6
+      22: aload         6
+      24: aload_0
+      25: aload_1
+      26: invokestatic  #1283               // Method net/minecraft/client/renderer/item/ItemProperties.register:(Lnet/minecraft/world/item/Item;Lnet/minecraft/resources/ResourceLocation;Lnet/minecraft/client/renderer/item/ItemPropertyFunction;)V
+      29: iinc          5, 1
+      32: goto          9
+      35: return
+
+  private static boolean isPotionAttached(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Z
+    Code:
+       0: aload_0
+       1: invokestatic  #1325               // Method reliquary/util/potions/XRPotionHelper.getPotionEffectsFromStack:(Lnet/minecraft/world/item/ItemStack;)Ljava/util/List;
+       4: invokeinterface #1328,  1         // InterfaceMethod java/util/List.isEmpty:()Z
+       9: ifne          16
+      12: iconst_1
+      13: goto          17
+      16: iconst_0
+      17: ireturn
+
+  private static void loadComplete(net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent);
+    descriptor: (Lnet/minecraftforge/fml/event/lifecycle/FMLLoadCompleteEvent;)V
+    Code:
+       0: aload_0
+       1: invokedynamic #1333,  0           // InvokeDynamic #57:run:()Ljava/lang/Runnable;
+       6: invokevirtual #1336               // Method net/minecraftforge/fml/event/lifecycle/FMLLoadCompleteEvent.enqueueWork:(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;
+       9: pop
+      10: return
+
+  private static void lambda$loadComplete$32();
+    descriptor: ()V
+    Code:
+       0: ldc_w         #1339               // class net/minecraft/world/item/FishingRodItem
+       3: invokedynamic #1346,  0           // InvokeDynamic #58:get:()Ljava/util/function/Supplier;
+       8: invokestatic  #1352               // Method reliquary/client/registry/PedestalClientRegistry.registerItemRenderer:(Ljava/lang/Class;Ljava/util/function/Supplier;)V
+      11: getstatic     #246                // Field net/minecraftforge/common/MinecraftForge.EVENT_BUS:Lnet/minecraftforge/eventbus/api/IEventBus;
+      14: invokedynamic #1361,  0           // InvokeDynamic #59:accept:()Ljava/util/function/Consumer;
+      19: invokeinterface #171,  2          // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+      24: return
+
+  private static float lambda$registerLyssaRodItemProperties$31(net.minecraft.world.item.ItemStack, net.minecraft.client.multiplayer.ClientLevel, net.minecraft.world.entity.LivingEntity, int);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/client/multiplayer/ClientLevel;Lnet/minecraft/world/entity/LivingEntity;I)F
+    Code:
+       0: aload_2
+       1: ifnonnull     6
+       4: fconst_0
+       5: freturn
+       6: aload_1
+       7: ifnonnull     12
+      10: fconst_0
+      11: freturn
+      12: aload_0
+      13: invokestatic  #1366               // Method reliquary/items/RodOfLyssaItem.getHookEntityId:(Lnet/minecraft/world/item/ItemStack;)I
+      16: istore        4
+      18: aload_2
+      19: invokevirtual #1369               // Method net/minecraft/world/entity/LivingEntity.m_21205_:()Lnet/minecraft/world/item/ItemStack;
+      22: aload_0
+      23: if_acmpeq     34
+      26: aload_2
+      27: invokevirtual #1370               // Method net/minecraft/world/entity/LivingEntity.m_21206_:()Lnet/minecraft/world/item/ItemStack;
+      30: aload_0
+      31: if_acmpne     52
+      34: iload         4
+      36: ifle          52
+      39: aload_1
+      40: iload         4
+      42: invokevirtual #1376               // Method net/minecraft/client/multiplayer/ClientLevel.m_6815_:(I)Lnet/minecraft/world/entity/Entity;
+      45: ifnull        52
+      48: fconst_1
+      49: goto          53
+      52: fconst_0
+      53: freturn
+
+  private static float lambda$registerInfernalTearItemProperties$30(net.minecraft.world.item.ItemStack, net.minecraft.client.multiplayer.ClientLevel, net.minecraft.world.entity.LivingEntity, int);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/client/multiplayer/ClientLevel;Lnet/minecraft/world/entity/LivingEntity;I)F
+    Code:
+       0: aload_0
+       1: invokestatic  #1386               // Method reliquary/items/InfernalTearItem.getStackFromTear:(Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/item/ItemStack;
+       4: invokevirtual #1389               // Method net/minecraft/world/item/ItemStack.m_41619_:()Z
+       7: ifeq          14
+      10: fconst_1
+      11: goto          15
+      14: fconst_0
+      15: freturn
+
+  private static float lambda$registerVoidTearItemProperties$29(net.minecraft.world.item.ItemStack, net.minecraft.client.multiplayer.ClientLevel, net.minecraft.world.entity.LivingEntity, int);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/client/multiplayer/ClientLevel;Lnet/minecraft/world/entity/LivingEntity;I)F
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: invokestatic  #1393               // Method reliquary/items/VoidTearItem.isEmpty:(Lnet/minecraft/world/item/ItemStack;Z)Z
+       5: ifeq          12
+       8: fconst_1
+       9: goto          13
+      12: fconst_0
+      13: freturn
+
+  private static float lambda$registerBulletAndMagazineItemProperties$28(net.minecraft.world.item.ItemStack, net.minecraft.client.multiplayer.ClientLevel, net.minecraft.world.entity.LivingEntity, int);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/client/multiplayer/ClientLevel;Lnet/minecraft/world/entity/LivingEntity;I)F
+    Code:
+       0: aload_0
+       1: invokestatic  #1395               // Method isPotionAttached:(Lnet/minecraft/world/item/ItemStack;)Z
+       4: ifeq          11
+       7: fconst_1
+       8: goto          12
+      11: fconst_0
+      12: freturn
+
+  private static net.minecraft.client.renderer.blockentity.BlockEntityRenderer lambda$registerEntityRenderers$27(net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider$Context);
+    descriptor: (Lnet/minecraft/client/renderer/blockentity/BlockEntityRendererProvider$Context;)Lnet/minecraft/client/renderer/blockentity/BlockEntityRenderer;
+    Code:
+       0: new           #1398               // class reliquary/client/render/PassivePedestalRenderer
+       3: dup
+       4: invokespecial #1399               // Method reliquary/client/render/PassivePedestalRenderer."<init>":()V
+       7: areturn
+
+  private static net.minecraft.client.renderer.blockentity.BlockEntityRenderer lambda$registerEntityRenderers$26(net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider$Context);
+    descriptor: (Lnet/minecraft/client/renderer/blockentity/BlockEntityRendererProvider$Context;)Lnet/minecraft/client/renderer/blockentity/BlockEntityRenderer;
+    Code:
+       0: new           #1403               // class reliquary/client/render/PedestalRenderer
+       3: dup
+       4: invokespecial #1404               // Method reliquary/client/render/PedestalRenderer."<init>":()V
+       7: areturn
+
+  private static net.minecraft.client.renderer.blockentity.BlockEntityRenderer lambda$registerEntityRenderers$25(net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider$Context);
+    descriptor: (Lnet/minecraft/client/renderer/blockentity/BlockEntityRendererProvider$Context;)Lnet/minecraft/client/renderer/blockentity/BlockEntityRenderer;
+    Code:
+       0: new           #1406               // class reliquary/client/render/ApothecaryMortarRenderer
+       3: dup
+       4: invokespecial #1407               // Method reliquary/client/render/ApothecaryMortarRenderer."<init>":()V
+       7: areturn
+
+  private static java.lang.String lambda$initHUDComponents$24(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/String;
+    Code:
+       0: ldc_w         #965                // String dynamic
+       3: areturn
+
+  private static java.lang.Integer lambda$initHUDComponents$23(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/Integer;
+    Code:
+       0: getstatic     #936                // Field reliquary/init/ModItems.HARVEST_ROD:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       6: checkcast     #66                 // class reliquary/items/HarvestRodItem
+       9: aload_0
+      10: getstatic     #936                // Field reliquary/init/ModItems.HARVEST_ROD:Lnet/minecraftforge/registries/RegistryObject;
+      13: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      16: checkcast     #66                 // class reliquary/items/HarvestRodItem
+      19: aload_0
+      20: invokevirtual #1413               // Method reliquary/items/HarvestRodItem.getCurrentPlantableSlot:(Lnet/minecraft/world/item/ItemStack;)B
+      23: iconst_1
+      24: invokevirtual #1417               // Method reliquary/items/HarvestRodItem.getPlantableQuantity:(Lnet/minecraft/world/item/ItemStack;IZ)I
+      27: invokestatic  #1423               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      30: areturn
+
+  private static net.minecraft.world.item.ItemStack lambda$initHUDComponents$22(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/item/ItemStack;
+    Code:
+       0: getstatic     #936                // Field reliquary/init/ModItems.HARVEST_ROD:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       6: checkcast     #66                 // class reliquary/items/HarvestRodItem
+       9: aload_0
+      10: iconst_1
+      11: invokevirtual #1427               // Method reliquary/items/HarvestRodItem.getCurrentPlantable:(Lnet/minecraft/world/item/ItemStack;Z)Lnet/minecraft/world/item/ItemStack;
+      14: areturn
+
+  private static java.lang.Integer lambda$initHUDComponents$21(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/Integer;
+    Code:
+       0: getstatic     #936                // Field reliquary/init/ModItems.HARVEST_ROD:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       6: checkcast     #66                 // class reliquary/items/HarvestRodItem
+       9: aload_0
+      10: iconst_1
+      11: invokevirtual #1431               // Method reliquary/items/HarvestRodItem.getBoneMealCount:(Lnet/minecraft/world/item/ItemStack;Z)I
+      14: invokestatic  #1423               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      17: areturn
+
+  private static java.lang.String lambda$initHUDComponents$20(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/String;
+    Code:
+       0: getstatic     #936                // Field reliquary/init/ModItems.HARVEST_ROD:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       6: checkcast     #66                 // class reliquary/items/HarvestRodItem
+       9: aload_0
+      10: invokevirtual #1435               // Method reliquary/items/HarvestRodItem.getMode:(Lnet/minecraft/world/item/ItemStack;)Lreliquary/items/HarvestRodItem$Mode;
+      13: invokevirtual #949                // Method reliquary/items/HarvestRodItem$Mode.m_7912_:()Ljava/lang/String;
+      16: areturn
+
+  private static java.lang.String lambda$initHUDComponents$19(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/String;
+    Code:
+       0: getstatic     #870                // Field reliquary/init/ModItems.VOID_TEAR:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       6: checkcast     #62                 // class reliquary/items/VoidTearItem
+       9: aload_0
+      10: invokevirtual #1438               // Method reliquary/items/VoidTearItem.getMode:(Lnet/minecraft/world/item/ItemStack;)Lreliquary/items/VoidTearItem$Mode;
+      13: invokevirtual #900                // Method reliquary/items/VoidTearItem$Mode.m_7912_:()Ljava/lang/String;
+      16: areturn
+
+  private static java.lang.Integer lambda$initHUDComponents$18(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/Integer;
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: invokestatic  #1441               // Method reliquary/items/VoidTearItem.getTearContents:(Lnet/minecraft/world/item/ItemStack;Z)Lnet/minecraft/world/item/ItemStack;
+       5: invokevirtual #1445               // Method net/minecraft/world/item/ItemStack.m_41613_:()I
+       8: invokestatic  #1423               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      11: areturn
+
+  private static net.minecraft.world.item.ItemStack lambda$initHUDComponents$17(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/item/ItemStack;
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: invokestatic  #1441               // Method reliquary/items/VoidTearItem.getTearContents:(Lnet/minecraft/world/item/ItemStack;Z)Lnet/minecraft/world/item/ItemStack;
+       5: areturn
+
+  private static java.lang.String lambda$initHUDComponents$16(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/String;
+    Code:
+       0: getstatic     #831                // Field reliquary/init/ModItems.RENDING_GALE:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       6: checkcast     #58                 // class reliquary/items/RendingGaleItem
+       9: aload_0
+      10: invokevirtual #1448               // Method reliquary/items/RendingGaleItem.getMode:(Lnet/minecraft/world/item/ItemStack;)Lreliquary/items/RendingGaleItem$Mode;
+      13: invokevirtual #852                // Method reliquary/items/RendingGaleItem$Mode.m_7912_:()Ljava/lang/String;
+      16: areturn
+
+  private static java.lang.Integer lambda$initHUDComponents$15(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/Integer;
+    Code:
+       0: invokestatic  #464                // Method net/minecraft/client/Minecraft.m_91087_:()Lnet/minecraft/client/Minecraft;
+       3: getfield      #478                // Field net/minecraft/client/Minecraft.f_91074_:Lnet/minecraft/client/player/LocalPlayer;
+       6: astore_1
+       7: aload_1
+       8: ifnonnull     15
+      11: iconst_0
+      12: goto          32
+      15: getstatic     #831                // Field reliquary/init/ModItems.RENDING_GALE:Lnet/minecraftforge/registries/RegistryObject;
+      18: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      21: checkcast     #58                 // class reliquary/items/RendingGaleItem
+      24: aload_0
+      25: aload_1
+      26: invokevirtual #1452               // Method reliquary/items/RendingGaleItem.getFeatherCountClient:(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/player/Player;)I
+      29: bipush        100
+      31: idiv
+      32: invokestatic  #1423               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      35: areturn
+
+  private static java.lang.Integer lambda$initHUDComponents$14(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/Integer;
+    Code:
+       0: getstatic     #760                // Field reliquary/init/ModItems.PYROMANCER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       6: checkcast     #49                 // class reliquary/items/PyromancerStaffItem
+       9: aload_0
+      10: getstatic     #776                // Field net/minecraft/world/item/Items.f_42593_:Lnet/minecraft/world/item/Item;
+      13: invokevirtual #1456               // Method reliquary/items/PyromancerStaffItem.getInternalStorageItemCount:(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/Item;)I
+      16: invokestatic  #1423               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      19: areturn
+
+  private static java.lang.Integer lambda$initHUDComponents$13(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/Integer;
+    Code:
+       0: getstatic     #760                // Field reliquary/init/ModItems.PYROMANCER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       6: checkcast     #49                 // class reliquary/items/PyromancerStaffItem
+       9: aload_0
+      10: getstatic     #787                // Field net/minecraft/world/item/Items.f_42613_:Lnet/minecraft/world/item/Item;
+      13: invokevirtual #1456               // Method reliquary/items/PyromancerStaffItem.getInternalStorageItemCount:(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/Item;)I
+      16: invokestatic  #1423               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      19: areturn
+
+  private static java.lang.Integer lambda$initHUDComponents$12(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/Integer;
+    Code:
+       0: getstatic     #760                // Field reliquary/init/ModItems.PYROMANCER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       6: checkcast     #49                 // class reliquary/items/PyromancerStaffItem
+       9: aload_0
+      10: getstatic     #776                // Field net/minecraft/world/item/Items.f_42593_:Lnet/minecraft/world/item/Item;
+      13: invokevirtual #1456               // Method reliquary/items/PyromancerStaffItem.getInternalStorageItemCount:(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/Item;)I
+      16: invokestatic  #1423               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      19: areturn
+
+  private static java.lang.String lambda$initHUDComponents$11(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/String;
+    Code:
+       0: getstatic     #760                // Field reliquary/init/ModItems.PYROMANCER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       6: checkcast     #49                 // class reliquary/items/PyromancerStaffItem
+       9: aload_0
+      10: invokevirtual #1459               // Method reliquary/items/PyromancerStaffItem.getMode:(Lnet/minecraft/world/item/ItemStack;)Lreliquary/items/PyromancerStaffItem$Mode;
+      13: invokevirtual #773                // Method reliquary/items/PyromancerStaffItem$Mode.m_7912_:()Ljava/lang/String;
+      16: areturn
+
+  private static java.lang.Integer lambda$initHUDComponents$10(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/Integer;
+    Code:
+       0: getstatic     #691                // Field reliquary/init/ModItems.ENDER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       6: checkcast     #44                 // class reliquary/items/EnderStaffItem
+       9: aload_0
+      10: iconst_1
+      11: invokevirtual #1462               // Method reliquary/items/EnderStaffItem.getPearlCount:(Lnet/minecraft/world/item/ItemStack;Z)I
+      14: invokestatic  #1423               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      17: areturn
+
+  private static java.lang.Integer lambda$initHUDComponents$9(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/Integer;
+    Code:
+       0: getstatic     #691                // Field reliquary/init/ModItems.ENDER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       6: checkcast     #44                 // class reliquary/items/EnderStaffItem
+       9: aload_0
+      10: iconst_1
+      11: invokevirtual #1462               // Method reliquary/items/EnderStaffItem.getPearlCount:(Lnet/minecraft/world/item/ItemStack;Z)I
+      14: invokestatic  #1423               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      17: areturn
+
+  private static java.lang.Integer lambda$initHUDComponents$8(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/Integer;
+    Code:
+       0: getstatic     #691                // Field reliquary/init/ModItems.ENDER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       6: checkcast     #44                 // class reliquary/items/EnderStaffItem
+       9: aload_0
+      10: iconst_1
+      11: invokevirtual #1462               // Method reliquary/items/EnderStaffItem.getPearlCount:(Lnet/minecraft/world/item/ItemStack;Z)I
+      14: invokestatic  #1423               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      17: areturn
+
+  private static java.lang.String lambda$initHUDComponents$7(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/String;
+    Code:
+       0: getstatic     #691                // Field reliquary/init/ModItems.ENDER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       6: checkcast     #44                 // class reliquary/items/EnderStaffItem
+       9: aload_0
+      10: invokevirtual #1465               // Method reliquary/items/EnderStaffItem.getMode:(Lnet/minecraft/world/item/ItemStack;)Lreliquary/items/EnderStaffItem$Mode;
+      13: invokevirtual #709                // Method reliquary/items/EnderStaffItem$Mode.m_7912_:()Ljava/lang/String;
+      16: areturn
+
+  private static java.lang.Integer lambda$initHUDComponents$6(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/Integer;
+    Code:
+       0: ldc_w         #1467               // String snowballs
+       3: aload_0
+       4: invokestatic  #1473               // Method reliquary/util/NBTHelper.getInt:(Ljava/lang/String;Lnet/minecraft/world/item/ItemStack;)I
+       7: invokestatic  #1423               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      10: areturn
+
+  private static java.lang.Integer lambda$initHUDComponents$5(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/Integer;
+    Code:
+       0: ldc_w         #1467               // String snowballs
+       3: aload_0
+       4: invokestatic  #1473               // Method reliquary/util/NBTHelper.getInt:(Ljava/lang/String;Lnet/minecraft/world/item/ItemStack;)I
+       7: invokestatic  #1423               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      10: areturn
+
+  private static java.lang.Integer lambda$initHUDComponents$4(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/Integer;
+    Code:
+       0: ldc_w         #1475               // String fluidStacks
+       3: aload_0
+       4: invokestatic  #1473               // Method reliquary/util/NBTHelper.getInt:(Ljava/lang/String;Lnet/minecraft/world/item/ItemStack;)I
+       7: sipush        1000
+      10: idiv
+      11: invokestatic  #1423               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      14: areturn
+
+  private static java.lang.Integer lambda$initHUDComponents$3(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/Integer;
+    Code:
+       0: ldc_w         #1477               // String glowstone
+       3: aload_0
+       4: invokestatic  #1473               // Method reliquary/util/NBTHelper.getInt:(Ljava/lang/String;Lnet/minecraft/world/item/ItemStack;)I
+       7: invokestatic  #1423               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      10: areturn
+
+  private static java.lang.Integer lambda$initHUDComponents$2(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/Integer;
+    Code:
+       0: ldc_w         #1479               // String gunpowder
+       3: aload_0
+       4: invokestatic  #1473               // Method reliquary/util/NBTHelper.getInt:(Ljava/lang/String;Lnet/minecraft/world/item/ItemStack;)I
+       7: invokestatic  #1423               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      10: areturn
+
+  private static java.lang.Integer lambda$initHUDComponents$1(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Ljava/lang/Integer;
+    Code:
+       0: ldc_w         #1481               // String charge
+       3: aload_0
+       4: invokestatic  #1473               // Method reliquary/util/NBTHelper.getInt:(Ljava/lang/String;Lnet/minecraft/world/item/ItemStack;)I
+       7: invokestatic  #1423               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      10: areturn
+
+  private static void lambda$registerOverlay$0(net.minecraftforge.client.gui.overlay.ForgeGui, com.mojang.blaze3d.vertex.PoseStack, float, int, int);
+    descriptor: (Lnet/minecraftforge/client/gui/overlay/ForgeGui;Lcom/mojang/blaze3d/vertex/PoseStack;FII)V
+    Code:
+       0: getstatic     #523                // Field hudComponents:Ljava/util/List;
+       3: invokeinterface #1328,  1         // InterfaceMethod java/util/List.isEmpty:()Z
+       8: ifeq          14
+      11: invokestatic  #1483               // Method initHUDComponents:()V
+      14: aload_1
+      15: invokestatic  #1485               // Method renderHUDComponents:(Lcom/mojang/blaze3d/vertex/PoseStack;)V
+      18: return
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: new           #1495               // class net/minecraft/client/KeyMapping
+       3: dup
+       4: ldc_w         #1497               // String keybind.reliquary.fortune_coin
+       7: getstatic     #1503               // Field net/minecraftforge/client/settings/KeyConflictContext.UNIVERSAL:Lnet/minecraftforge/client/settings/KeyConflictContext;
+      10: getstatic     #1507               // Field com/mojang/blaze3d/platform/InputConstants$Type.KEYSYM:Lcom/mojang/blaze3d/platform/InputConstants$Type;
+      13: iconst_m1
+      14: invokevirtual #1511               // Method com/mojang/blaze3d/platform/InputConstants$Type.m_84895_:(I)Lcom/mojang/blaze3d/platform/InputConstants$Key;
+      17: ldc_w         #1513               // String keybind.reliquary.category
+      20: invokespecial #1516               // Method net/minecraft/client/KeyMapping."<init>":(Ljava/lang/String;Lnet/minecraftforge/client/settings/IKeyConflictContext;Lcom/mojang/blaze3d/platform/InputConstants$Key;Ljava/lang/String;)V
+      23: putstatic     #1303               // Field FORTUNE_COIN_TOGGLE_KEYBIND:Lnet/minecraft/client/KeyMapping;
+      26: new           #1518               // class net/minecraft/client/model/geom/ModelLayerLocation
+      29: dup
+      30: new           #1194               // class net/minecraft/resources/ResourceLocation
+      33: dup
+      34: ldc_w         #1196               // String reliquary
+      37: ldc_w         #1520               // String witch_hat
+      40: invokespecial #1201               // Method net/minecraft/resources/ResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+      43: ldc_w         #1522               // String main
+      46: invokespecial #1525               // Method net/minecraft/client/model/geom/ModelLayerLocation."<init>":(Lnet/minecraft/resources/ResourceLocation;Ljava/lang/String;)V
+      49: putstatic     #313                // Field WITCH_HAT_LAYER:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      52: new           #1518               // class net/minecraft/client/model/geom/ModelLayerLocation
+      55: dup
+      56: new           #1194               // class net/minecraft/resources/ResourceLocation
+      59: dup
+      60: ldc_w         #1196               // String reliquary
+      63: ldc_w         #1527               // String mob_charm_belt
+      66: invokespecial #1201               // Method net/minecraft/resources/ResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+      69: ldc_w         #1522               // String main
+      72: invokespecial #1525               // Method net/minecraft/client/model/geom/ModelLayerLocation."<init>":(Lnet/minecraft/resources/ResourceLocation;Ljava/lang/String;)V
+      75: putstatic     #331                // Field MOB_CHARM_BELT_LAYER:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      78: invokestatic  #1533               // Method com/google/common/collect/Lists.newArrayList:()Ljava/util/ArrayList;
+      81: putstatic     #523                // Field hudComponents:Ljava/util/List;
+      84: return
+}

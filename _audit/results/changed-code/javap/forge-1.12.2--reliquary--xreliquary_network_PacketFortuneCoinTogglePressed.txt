@@ -1,0 +1,150 @@
+Compiled from "PacketFortuneCoinTogglePressed.java"
+public class xreliquary.network.PacketFortuneCoinTogglePressed implements net.minecraftforge.fml.common.network.simpleimpl.IMessage, net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler<xreliquary.network.PacketFortuneCoinTogglePressed, net.minecraftforge.fml.common.network.simpleimpl.IMessage> {
+  private xreliquary.network.PacketFortuneCoinTogglePressed$InventoryType inventoryType;
+    descriptor: Lxreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+
+  private int slot;
+    descriptor: I
+
+  public xreliquary.network.PacketFortuneCoinTogglePressed();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #33                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public xreliquary.network.PacketFortuneCoinTogglePressed(xreliquary.network.PacketFortuneCoinTogglePressed$InventoryType, int);
+    descriptor: (Lxreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;I)V
+    Code:
+       0: aload_0
+       1: invokespecial #33                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #38                 // Field inventoryType:Lxreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+       9: aload_0
+      10: iload_2
+      11: putfield      #40                 // Field slot:I
+      14: return
+
+  public void fromBytes(io.netty.buffer.ByteBuf);
+    descriptor: (Lio/netty/buffer/ByteBuf;)V
+    Code:
+       0: aload_0
+       1: invokestatic  #46                 // Method xreliquary/network/PacketFortuneCoinTogglePressed$InventoryType.values:()[Lxreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+       4: aload_1
+       5: invokevirtual #52                 // Method io/netty/buffer/ByteBuf.readByte:()B
+       8: aaload
+       9: putfield      #38                 // Field inventoryType:Lxreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+      12: aload_0
+      13: aload_1
+      14: invokevirtual #56                 // Method io/netty/buffer/ByteBuf.readInt:()I
+      17: putfield      #40                 // Field slot:I
+      20: return
+
+  public void toBytes(io.netty.buffer.ByteBuf);
+    descriptor: (Lio/netty/buffer/ByteBuf;)V
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #38                 // Field inventoryType:Lxreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+       5: invokevirtual #62                 // Method xreliquary/network/PacketFortuneCoinTogglePressed$InventoryType.ordinal:()I
+       8: invokevirtual #66                 // Method io/netty/buffer/ByteBuf.writeByte:(I)Lio/netty/buffer/ByteBuf;
+      11: pop
+      12: aload_1
+      13: aload_0
+      14: getfield      #40                 // Field slot:I
+      17: invokevirtual #69                 // Method io/netty/buffer/ByteBuf.writeInt:(I)Lio/netty/buffer/ByteBuf;
+      20: pop
+      21: return
+
+  public net.minecraftforge.fml.common.network.simpleimpl.IMessage onMessage(xreliquary.network.PacketFortuneCoinTogglePressed, net.minecraftforge.fml.common.network.simpleimpl.MessageContext);
+    descriptor: (Lxreliquary/network/PacketFortuneCoinTogglePressed;Lnet/minecraftforge/fml/common/network/simpleimpl/MessageContext;)Lnet/minecraftforge/fml/common/network/simpleimpl/IMessage;
+    Code:
+       0: aload_2
+       1: invokevirtual #77                 // Method net/minecraftforge/fml/common/network/simpleimpl/MessageContext.getServerHandler:()Lnet/minecraft/network/NetHandlerPlayServer;
+       4: getfield      #83                 // Field net/minecraft/network/NetHandlerPlayServer.field_147369_b:Lnet/minecraft/entity/player/EntityPlayerMP;
+       7: getfield      #89                 // Field net/minecraft/entity/player/EntityPlayerMP.field_70170_p:Lnet/minecraft/world/World;
+      10: checkcast     #91                 // class net/minecraft/world/WorldServer
+      13: aload_0
+      14: aload_1
+      15: aload_2
+      16: invokedynamic #108,  0            // InvokeDynamic #0:run:(Lxreliquary/network/PacketFortuneCoinTogglePressed;Lxreliquary/network/PacketFortuneCoinTogglePressed;Lnet/minecraftforge/fml/common/network/simpleimpl/MessageContext;)Ljava/lang/Runnable;
+      21: invokevirtual #112                // Method net/minecraft/world/WorldServer.func_152344_a:(Ljava/lang/Runnable;)Lcom/google/common/util/concurrent/ListenableFuture;
+      24: pop
+      25: aconst_null
+      26: areturn
+
+  private void handleMessage(xreliquary.network.PacketFortuneCoinTogglePressed, net.minecraft.entity.player.EntityPlayerMP);
+    descriptor: (Lxreliquary/network/PacketFortuneCoinTogglePressed;Lnet/minecraft/entity/player/EntityPlayerMP;)V
+    Code:
+       0: getstatic     #123                // Field net/minecraft/item/ItemStack.field_190927_a:Lnet/minecraft/item/ItemStack;
+       3: astore_3
+       4: getstatic     #127                // Field xreliquary/network/PacketFortuneCoinTogglePressed$1.$SwitchMap$xreliquary$network$PacketFortuneCoinTogglePressed$InventoryType:[I
+       7: aload_1
+       8: getfield      #38                 // Field inventoryType:Lxreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+      11: invokevirtual #62                 // Method xreliquary/network/PacketFortuneCoinTogglePressed$InventoryType.ordinal:()I
+      14: iaload
+      15: tableswitch   { // 1 to 3
+                     1: 40
+                     2: 61
+                     3: 79
+               default: 105
+          }
+      40: aload_2
+      41: getfield      #131                // Field net/minecraft/entity/player/EntityPlayerMP.field_71071_by:Lnet/minecraft/entity/player/InventoryPlayer;
+      44: getfield      #137                // Field net/minecraft/entity/player/InventoryPlayer.field_70462_a:Lnet/minecraft/util/NonNullList;
+      47: aload_1
+      48: getfield      #40                 // Field slot:I
+      51: invokevirtual #143                // Method net/minecraft/util/NonNullList.get:(I)Ljava/lang/Object;
+      54: checkcast     #119                // class net/minecraft/item/ItemStack
+      57: astore_3
+      58: goto          105
+      61: aload_2
+      62: getfield      #131                // Field net/minecraft/entity/player/EntityPlayerMP.field_71071_by:Lnet/minecraft/entity/player/InventoryPlayer;
+      65: getfield      #146                // Field net/minecraft/entity/player/InventoryPlayer.field_184439_c:Lnet/minecraft/util/NonNullList;
+      68: iconst_0
+      69: invokevirtual #143                // Method net/minecraft/util/NonNullList.get:(I)Ljava/lang/Object;
+      72: checkcast     #119                // class net/minecraft/item/ItemStack
+      75: astore_3
+      76: goto          105
+      79: ldc           #148                // String baubles
+      81: invokestatic  #154                // Method net/minecraftforge/fml/common/Loader.isModLoaded:(Ljava/lang/String;)Z
+      84: ifeq          105
+      87: aload_2
+      88: invokestatic  #160                // Method baubles/api/BaublesApi.getBaublesHandler:(Lnet/minecraft/entity/player/EntityPlayer;)Lbaubles/api/cap/IBaublesItemHandler;
+      91: astore        4
+      93: aload         4
+      95: aload_1
+      96: getfield      #40                 // Field slot:I
+      99: invokeinterface #166,  2          // InterfaceMethod baubles/api/cap/IBaublesItemHandler.getStackInSlot:(I)Lnet/minecraft/item/ItemStack;
+     104: astore_3
+     105: aload_3
+     106: invokevirtual #170                // Method net/minecraft/item/ItemStack.func_77973_b:()Lnet/minecraft/item/Item;
+     109: getstatic     #176                // Field xreliquary/init/ModItems.fortuneCoin:Lxreliquary/items/ItemFortuneCoin;
+     112: if_acmpne     122
+     115: getstatic     #176                // Field xreliquary/init/ModItems.fortuneCoin:Lxreliquary/items/ItemFortuneCoin;
+     118: aload_3
+     119: invokevirtual #182                // Method xreliquary/items/ItemFortuneCoin.toggle:(Lnet/minecraft/item/ItemStack;)V
+     122: return
+
+  public net.minecraftforge.fml.common.network.simpleimpl.IMessage onMessage(net.minecraftforge.fml.common.network.simpleimpl.IMessage, net.minecraftforge.fml.common.network.simpleimpl.MessageContext);
+    descriptor: (Lnet/minecraftforge/fml/common/network/simpleimpl/IMessage;Lnet/minecraftforge/fml/common/network/simpleimpl/MessageContext;)Lnet/minecraftforge/fml/common/network/simpleimpl/IMessage;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: checkcast     #2                  // class xreliquary/network/PacketFortuneCoinTogglePressed
+       5: aload_2
+       6: invokevirtual #189                // Method onMessage:(Lxreliquary/network/PacketFortuneCoinTogglePressed;Lnet/minecraftforge/fml/common/network/simpleimpl/MessageContext;)Lnet/minecraftforge/fml/common/network/simpleimpl/IMessage;
+       9: areturn
+
+  private void lambda$onMessage$0(xreliquary.network.PacketFortuneCoinTogglePressed, net.minecraftforge.fml.common.network.simpleimpl.MessageContext);
+    descriptor: (Lxreliquary/network/PacketFortuneCoinTogglePressed;Lnet/minecraftforge/fml/common/network/simpleimpl/MessageContext;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokevirtual #77                 // Method net/minecraftforge/fml/common/network/simpleimpl/MessageContext.getServerHandler:()Lnet/minecraft/network/NetHandlerPlayServer;
+       6: getfield      #83                 // Field net/minecraft/network/NetHandlerPlayServer.field_147369_b:Lnet/minecraft/entity/player/EntityPlayerMP;
+       9: invokespecial #191                // Method handleMessage:(Lxreliquary/network/PacketFortuneCoinTogglePressed;Lnet/minecraft/entity/player/EntityPlayerMP;)V
+      12: return
+}

@@ -1,0 +1,33 @@
+Compiled from "Settings.java"
+public class xreliquary.reference.Settings$ItemSettings$FortuneCoinSettings {
+  public boolean disableAudio;
+    descriptor: Z
+
+  public int standardPullDistance;
+    descriptor: I
+
+  public int longRangePullDistance;
+    descriptor: I
+
+  final xreliquary.reference.Settings$ItemSettings this$0;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings;
+
+  public xreliquary.reference.Settings$ItemSettings$FortuneCoinSettings(xreliquary.reference.Settings$ItemSettings);
+    descriptor: (Lxreliquary/reference/Settings$ItemSettings;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #49                 // Field this$0:Lxreliquary/reference/Settings$ItemSettings;
+       5: aload_0
+       6: invokespecial #52                 // Method java/lang/Object."<init>":()V
+       9: aload_0
+      10: iconst_0
+      11: putfield      #54                 // Field disableAudio:Z
+      14: aload_0
+      15: iconst_5
+      16: putfield      #56                 // Field standardPullDistance:I
+      19: aload_0
+      20: bipush        15
+      22: putfield      #58                 // Field longRangePullDistance:I
+      25: return
+}

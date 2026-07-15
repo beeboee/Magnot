@@ -1,0 +1,26 @@
+Compiled from "Main.java"
+class cool.furry.mc.forge.projectexpansion.Main$1 extends net.minecraft.item.ItemGroup {
+  final cool.furry.mc.forge.projectexpansion.Main this$0;
+    descriptor: Lcool/furry/mc/forge/projectexpansion/Main;
+
+  cool.furry.mc.forge.projectexpansion.Main$1(cool.furry.mc.forge.projectexpansion.Main, java.lang.String);
+    descriptor: (Lcool/furry/mc/forge/projectexpansion/Main;Ljava/lang/String;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #15                 // Field this$0:Lcool/furry/mc/forge/projectexpansion/Main;
+       5: aload_0
+       6: aload_2
+       7: invokespecial #18                 // Method net/minecraft/item/ItemGroup."<init>":(Ljava/lang/String;)V
+      10: return
+
+  public net.minecraft.item.ItemStack func_78016_d();
+    descriptor: ()Lnet/minecraft/item/ItemStack;
+    Code:
+       0: new           #31                 // class net/minecraft/item/ItemStack
+       3: dup
+       4: getstatic     #37                 // Field cool/furry/mc/forge/projectexpansion/util/Matter.FADING:Lcool/furry/mc/forge/projectexpansion/util/Matter;
+       7: invokevirtual #41                 // Method cool/furry/mc/forge/projectexpansion/util/Matter.getMatter:()Lnet/minecraft/item/Item;
+      10: invokespecial #44                 // Method net/minecraft/item/ItemStack."<init>":(Lnet/minecraft/util/IItemProvider;)V
+      13: areturn
+}

@@ -1,0 +1,282 @@
+Compiled from "VacuumMachineBlockEntity.java"
+public abstract class com.enderio.machines.common.blockentity.base.VacuumMachineBlockEntity<T extends net.minecraft.world.entity.Entity> extends com.enderio.machines.common.blockentity.base.MachineBlockEntity {
+  private static final double COLLISION_DISTANCE_SQ;
+    descriptor: D
+
+  protected static final double SPEED;
+    descriptor: D
+
+  protected static final double SPEED_4;
+    descriptor: D
+
+  private java.util.List<java.lang.ref.WeakReference<T>> entities;
+    descriptor: Ljava/util/List;
+
+  private java.lang.Class<T> targetClass;
+    descriptor: Ljava/lang/Class;
+
+  protected static final java.util.function.Predicate<net.minecraft.world.entity.item.ItemEntity> ITEM_ENTITY_FILTER_TRUE;
+    descriptor: Ljava/util/function/Predicate;
+
+  public com.enderio.machines.common.blockentity.base.VacuumMachineBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?>, net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState, java.lang.Class<T>);
+    descriptor: (Lnet/minecraft/world/level/block/entity/BlockEntityType;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Ljava/lang/Class;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: invokespecial #36                 // Method com/enderio/machines/common/blockentity/base/MachineBlockEntity."<init>":(Lnet/minecraft/world/level/block/entity/BlockEntityType;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V
+       7: aload_0
+       8: new           #38                 // class java/util/ArrayList
+      11: dup
+      12: invokespecial #41                 // Method java/util/ArrayList."<init>":()V
+      15: putfield      #43                 // Field entities:Ljava/util/List;
+      18: aload_0
+      19: aload         4
+      21: putfield      #45                 // Field targetClass:Ljava/lang/Class;
+      24: aload_0
+      25: new           #47                 // class com/enderio/core/common/network/slot/IntegerNetworkDataSlot
+      28: dup
+      29: aload_0
+      30: invokedynamic #67,  0             // InvokeDynamic #0:get:(Lcom/enderio/machines/common/blockentity/base/VacuumMachineBlockEntity;)Ljava/util/function/Supplier;
+      35: aload_0
+      36: invokedynamic #79,  0             // InvokeDynamic #1:accept:(Lcom/enderio/machines/common/blockentity/base/VacuumMachineBlockEntity;)Ljava/util/function/Consumer;
+      41: invokespecial #82                 // Method com/enderio/core/common/network/slot/IntegerNetworkDataSlot."<init>":(Ljava/util/function/Supplier;Ljava/util/function/Consumer;)V
+      44: putfield      #86                 // Field rangeDataSlot:Lcom/enderio/core/common/network/slot/IntegerNetworkDataSlot;
+      47: aload_0
+      48: aload_0
+      49: getfield      #86                 // Field rangeDataSlot:Lcom/enderio/core/common/network/slot/IntegerNetworkDataSlot;
+      52: invokevirtual #90                 // Method addDataSlot:(Lcom/enderio/core/common/network/slot/NetworkDataSlot;)V
+      55: aload_0
+      56: new           #92                 // class com/enderio/core/common/network/slot/BooleanNetworkDataSlot
+      59: dup
+      60: aload_0
+      61: invokedynamic #100,  0            // InvokeDynamic #2:get:(Lcom/enderio/machines/common/blockentity/base/VacuumMachineBlockEntity;)Ljava/util/function/Supplier;
+      66: aload_0
+      67: invokedynamic #107,  0            // InvokeDynamic #3:accept:(Lcom/enderio/machines/common/blockentity/base/VacuumMachineBlockEntity;)Ljava/util/function/Consumer;
+      72: invokespecial #108                // Method com/enderio/core/common/network/slot/BooleanNetworkDataSlot."<init>":(Ljava/util/function/Supplier;Ljava/util/function/Consumer;)V
+      75: putfield      #112                // Field rangeVisibleDataSlot:Lcom/enderio/core/common/network/slot/BooleanNetworkDataSlot;
+      78: aload_0
+      79: aload_0
+      80: getfield      #112                // Field rangeVisibleDataSlot:Lcom/enderio/core/common/network/slot/BooleanNetworkDataSlot;
+      83: invokevirtual #90                 // Method addDataSlot:(Lcom/enderio/core/common/network/slot/NetworkDataSlot;)V
+      86: return
+
+  public void serverTick();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokevirtual #126                // Method isRedstoneBlocked:()Z
+       4: ifne          23
+       7: aload_0
+       8: aload_0
+       9: invokevirtual #130                // Method m_58904_:()Lnet/minecraft/world/level/Level;
+      12: aload_0
+      13: invokevirtual #134                // Method m_58899_:()Lnet/minecraft/core/BlockPos;
+      16: aload_0
+      17: invokevirtual #135                // Method getRange:()I
+      20: invokevirtual #139                // Method attractEntities:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;I)V
+      23: aload_0
+      24: invokespecial #141                // Method com/enderio/machines/common/blockentity/base/MachineBlockEntity.serverTick:()V
+      27: return
+
+  public void clientTick();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokevirtual #126                // Method isRedstoneBlocked:()Z
+       4: ifne          23
+       7: aload_0
+       8: aload_0
+       9: invokevirtual #130                // Method m_58904_:()Lnet/minecraft/world/level/Level;
+      12: aload_0
+      13: invokevirtual #134                // Method m_58899_:()Lnet/minecraft/core/BlockPos;
+      16: aload_0
+      17: invokevirtual #135                // Method getRange:()I
+      20: invokevirtual #139                // Method attractEntities:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;I)V
+      23: aload_0
+      24: invokespecial #144                // Method com/enderio/machines/common/blockentity/base/MachineBlockEntity.clientTick:()V
+      27: return
+
+  protected com.enderio.api.io.IIOConfig createIOConfig();
+    descriptor: ()Lcom/enderio/api/io/IIOConfig;
+    Code:
+       0: new           #148                // class com/enderio/machines/common/io/FixedIOConfig
+       3: dup
+       4: getstatic     #154                // Field com/enderio/api/io/IOMode.PUSH:Lcom/enderio/api/io/IOMode;
+       7: invokespecial #157                // Method com/enderio/machines/common/io/FixedIOConfig."<init>":(Lcom/enderio/api/io/IOMode;)V
+      10: areturn
+
+  public java.util.function.Predicate<T> getFilter();
+    descriptor: ()Ljava/util/function/Predicate;
+    Code:
+       0: invokedynamic #171,  0            // InvokeDynamic #4:test:()Ljava/util/function/Predicate;
+       5: areturn
+
+  private void attractEntities(net.minecraft.world.level.Level, net.minecraft.core.BlockPos, int);
+    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;I)V
+    Code:
+       0: aload_1
+       1: invokevirtual #177                // Method net/minecraft/world/level/Level.m_46467_:()J
+       4: aload_2
+       5: invokevirtual #182                // Method net/minecraft/core/BlockPos.m_121878_:()J
+       8: ladd
+       9: ldc2_w        #183                // long 5l
+      12: lrem
+      13: lconst_0
+      14: lcmp
+      15: ifne          29
+      18: aload_0
+      19: aload_1
+      20: aload_2
+      21: iload_3
+      22: aload_0
+      23: invokevirtual #186                // Method getFilter:()Ljava/util/function/Predicate;
+      26: invokevirtual #190                // Method getEntities:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;ILjava/util/function/Predicate;)V
+      29: aload_0
+      30: getfield      #43                 // Field entities:Ljava/util/List;
+      33: invokeinterface #196,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      38: astore        4
+      40: aload         4
+      42: invokeinterface #201,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      47: ifeq          133
+      50: aload         4
+      52: invokeinterface #204,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      57: checkcast     #206                // class java/lang/ref/WeakReference
+      60: astore        5
+      62: aload         5
+      64: invokevirtual #208                // Method java/lang/ref/WeakReference.get:()Ljava/lang/Object;
+      67: ifnonnull     80
+      70: aload         4
+      72: invokeinterface #211,  1          // InterfaceMethod java/util/Iterator.remove:()V
+      77: goto          40
+      80: aload         5
+      82: invokevirtual #208                // Method java/lang/ref/WeakReference.get:()Ljava/lang/Object;
+      85: checkcast     #213                // class net/minecraft/world/entity/Entity
+      88: astore        6
+      90: aload         6
+      92: invokevirtual #216                // Method net/minecraft/world/entity/Entity.m_213877_:()Z
+      95: ifeq          108
+      98: aload         4
+     100: invokeinterface #211,  1          // InterfaceMethod java/util/Iterator.remove:()V
+     105: goto          40
+     108: aload         6
+     110: aload_2
+     111: ldc2_w        #17                 // double 0.025d
+     114: ldc2_w        #20                 // double 0.1d
+     117: dconst_1
+     118: invokestatic  #222                // Method com/enderio/base/common/util/AttractionUtil.moveToPos:(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/core/BlockPos;DDD)Z
+     121: ifeq          130
+     124: aload_0
+     125: aload         6
+     127: invokevirtual #226                // Method handleEntity:(Lnet/minecraft/world/entity/Entity;)V
+     130: goto          40
+     133: return
+
+  public abstract void handleEntity(T);
+    descriptor: (Lnet/minecraft/world/entity/Entity;)V
+
+  private void getEntities(net.minecraft.world.level.Level, net.minecraft.core.BlockPos, int, java.util.function.Predicate<T>);
+    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;ILjava/util/function/Predicate;)V
+    Code:
+       0: aload_0
+       1: getfield      #43                 // Field entities:Ljava/util/List;
+       4: invokeinterface #244,  1          // InterfaceMethod java/util/List.clear:()V
+       9: new           #246                // class net/minecraft/world/phys/AABB
+      12: dup
+      13: aload_2
+      14: invokespecial #249                // Method net/minecraft/world/phys/AABB."<init>":(Lnet/minecraft/core/BlockPos;)V
+      17: iload_3
+      18: i2d
+      19: invokevirtual #253                // Method net/minecraft/world/phys/AABB.m_82400_:(D)Lnet/minecraft/world/phys/AABB;
+      22: astore        5
+      24: aload_1
+      25: aload_0
+      26: getfield      #45                 // Field targetClass:Ljava/lang/Class;
+      29: aload         5
+      31: aload         4
+      33: invokevirtual #257                // Method net/minecraft/world/level/Level.m_6443_:(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;
+      36: invokeinterface #196,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      41: astore        6
+      43: aload         6
+      45: invokeinterface #201,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      50: ifeq          87
+      53: aload         6
+      55: invokeinterface #204,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      60: checkcast     #213                // class net/minecraft/world/entity/Entity
+      63: astore        7
+      65: aload_0
+      66: getfield      #43                 // Field entities:Ljava/util/List;
+      69: new           #206                // class java/lang/ref/WeakReference
+      72: dup
+      73: aload         7
+      75: invokespecial #259                // Method java/lang/ref/WeakReference."<init>":(Ljava/lang/Object;)V
+      78: invokeinterface #262,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      83: pop
+      84: goto          43
+      87: return
+
+  public int getMaxRange();
+    descriptor: ()I
+    Code:
+       0: bipush        6
+       2: ireturn
+
+  public void onLoad();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: getfield      #43                 // Field entities:Ljava/util/List;
+       4: invokeinterface #272,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+       9: ifeq          32
+      12: aload_0
+      13: aload_0
+      14: invokevirtual #130                // Method m_58904_:()Lnet/minecraft/world/level/Level;
+      17: aload_0
+      18: invokevirtual #134                // Method m_58899_:()Lnet/minecraft/core/BlockPos;
+      21: aload_0
+      22: invokevirtual #135                // Method getRange:()I
+      25: aload_0
+      26: invokevirtual #186                // Method getFilter:()Ljava/util/function/Predicate;
+      29: invokevirtual #190                // Method getEntities:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;ILjava/util/function/Predicate;)V
+      32: aload_0
+      33: invokespecial #274                // Method com/enderio/machines/common/blockentity/base/MachineBlockEntity.onLoad:()V
+      36: return
+
+  private static boolean lambda$getFilter$3(net.minecraft.world.entity.Entity);
+    descriptor: (Lnet/minecraft/world/entity/Entity;)Z
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  private void lambda$new$2(java.lang.Boolean);
+    descriptor: (Ljava/lang/Boolean;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #280                // Method java/lang/Boolean.booleanValue:()Z
+       5: putfield      #284                // Field rangeVisible:Z
+       8: return
+
+  private void lambda$new$1(java.lang.Integer);
+    descriptor: (Ljava/lang/Integer;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #291                // Method java/lang/Integer.intValue:()I
+       5: putfield      #293                // Field range:I
+       8: return
+
+  private static boolean lambda$static$0(net.minecraft.world.entity.item.ItemEntity);
+    descriptor: (Lnet/minecraft/world/entity/item/ItemEntity;)Z
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: invokedynamic #305,  0            // InvokeDynamic #5:test:()Ljava/util/function/Predicate;
+       5: putstatic     #307                // Field ITEM_ENTITY_FILTER_TRUE:Ljava/util/function/Predicate;
+       8: return
+}

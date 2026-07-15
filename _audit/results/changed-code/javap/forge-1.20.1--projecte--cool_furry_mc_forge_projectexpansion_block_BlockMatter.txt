@@ -1,0 +1,66 @@
+Compiled from "BlockMatter.java"
+public class cool.furry.mc.forge.projectexpansion.block.BlockMatter extends net.minecraft.world.level.block.Block implements cool.furry.mc.forge.projectexpansion.util.IHasMatter {
+  private final cool.furry.mc.forge.projectexpansion.util.Matter matter;
+    descriptor: Lcool/furry/mc/forge/projectexpansion/util/Matter;
+
+  public cool.furry.mc.forge.projectexpansion.block.BlockMatter(cool.furry.mc.forge.projectexpansion.util.Matter);
+    descriptor: (Lcool/furry/mc/forge/projectexpansion/util/Matter;)V
+    Code:
+       0: aload_0
+       1: invokestatic  #25                 // Method net/minecraft/world/level/block/state/BlockBehaviour$Properties.m_284310_:()Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;
+       4: ldc           #26                 // float 2000000.0f
+       6: ldc           #27                 // float 6000000.0f
+       8: invokevirtual #31                 // Method net/minecraft/world/level/block/state/BlockBehaviour$Properties.m_60913_:(FF)Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;
+      11: invokevirtual #34                 // Method net/minecraft/world/level/block/state/BlockBehaviour$Properties.m_60999_:()Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;
+      14: aload_1
+      15: invokedynamic #54,  0             // InvokeDynamic #0:applyAsInt:(Lcool/furry/mc/forge/projectexpansion/util/Matter;)Ljava/util/function/ToIntFunction;
+      20: invokevirtual #58                 // Method net/minecraft/world/level/block/state/BlockBehaviour$Properties.m_60953_:(Ljava/util/function/ToIntFunction;)Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;
+      23: invokespecial #61                 // Method net/minecraft/world/level/block/Block."<init>":(Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)V
+      26: aload_0
+      27: aload_1
+      28: putfield      #63                 // Field matter:Lcool/furry/mc/forge/projectexpansion/util/Matter;
+      31: return
+
+  public cool.furry.mc.forge.projectexpansion.util.Matter getMatter();
+    descriptor: ()Lcool/furry/mc/forge/projectexpansion/util/Matter;
+    Code:
+       0: aload_0
+       1: getfield      #63                 // Field matter:Lcool/furry/mc/forge/projectexpansion/util/Matter;
+       4: areturn
+
+  public net.minecraft.world.level.material.MapColor getMapColor(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos, net.minecraft.world.level.material.MapColor);
+    descriptor: (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/material/MapColor;)Lnet/minecraft/world/level/material/MapColor;
+    Code:
+       0: aload_0
+       1: getfield      #63                 // Field matter:Lcool/furry/mc/forge/projectexpansion/util/Matter;
+       4: getfield      #76                 // Field cool/furry/mc/forge/projectexpansion/util/Matter.mapColor:Ljava/util/function/Supplier;
+       7: ifnonnull     14
+      10: aconst_null
+      11: goto          29
+      14: aload_0
+      15: getfield      #63                 // Field matter:Lcool/furry/mc/forge/projectexpansion/util/Matter;
+      18: getfield      #76                 // Field cool/furry/mc/forge/projectexpansion/util/Matter.mapColor:Ljava/util/function/Supplier;
+      21: invokeinterface #82,  1           // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      26: checkcast     #84                 // class net/minecraft/world/level/material/MapColor
+      29: astore        5
+      31: aload         5
+      33: ifnull        41
+      36: aload         5
+      38: goto          50
+      41: aload_0
+      42: aload_1
+      43: aload_2
+      44: aload_3
+      45: aload         4
+      47: invokespecial #86                 // Method net/minecraft/world/level/block/Block.getMapColor:(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/material/MapColor;)Lnet/minecraft/world/level/material/MapColor;
+      50: areturn
+
+  private static int lambda$new$0(cool.furry.mc.forge.projectexpansion.util.Matter, net.minecraft.world.level.block.state.BlockState);
+    descriptor: (Lcool/furry/mc/forge/projectexpansion/util/Matter;Lnet/minecraft/world/level/block/state/BlockState;)I
+    Code:
+       0: aload_0
+       1: invokevirtual #99                 // Method cool/furry/mc/forge/projectexpansion/util/Matter.ordinal:()I
+       4: bipush        15
+       6: invokestatic  #105                // Method java/lang/Math.min:(II)I
+       9: ireturn
+}

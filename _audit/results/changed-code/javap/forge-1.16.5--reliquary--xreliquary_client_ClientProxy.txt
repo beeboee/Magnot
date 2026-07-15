@@ -1,0 +1,564 @@
+Compiled from "ClientProxy.java"
+public class xreliquary.client.ClientProxy extends xreliquary.common.CommonProxy {
+  public static final net.minecraft.client.settings.KeyBinding FORTUNE_COIN_TOGGLE_KEYBIND;
+    descriptor: Lnet/minecraft/client/settings/KeyBinding;
+
+  public xreliquary.client.ClientProxy();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #35                 // Method xreliquary/common/CommonProxy."<init>":()V
+       4: return
+
+  public void registerHandlers();
+    descriptor: ()V
+    Code:
+       0: invokestatic  #44                 // Method net/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext.get:()Lnet/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext;
+       3: invokevirtual #48                 // Method net/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext.getModEventBus:()Lnet/minecraftforge/eventbus/api/IEventBus;
+       6: astore_1
+       7: aload_1
+       8: aload_0
+       9: invokedynamic #67,  0             // InvokeDynamic #0:accept:(Lxreliquary/client/ClientProxy;)Ljava/util/function/Consumer;
+      14: invokeinterface #73,  2           // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+      19: aload_1
+      20: aload_0
+      21: invokedynamic #80,  0             // InvokeDynamic #1:accept:(Lxreliquary/client/ClientProxy;)Ljava/util/function/Consumer;
+      26: invokeinterface #73,  2           // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+      31: aload_1
+      32: invokedynamic #89,  0             // InvokeDynamic #2:accept:()Ljava/util/function/Consumer;
+      37: invokeinterface #73,  2           // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+      42: aload_1
+      43: aload_0
+      44: invokedynamic #94,  0             // InvokeDynamic #3:accept:(Lxreliquary/client/ClientProxy;)Ljava/util/function/Consumer;
+      49: invokeinterface #73,  2           // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+      54: aload_1
+      55: aload_0
+      56: invokedynamic #99,  0             // InvokeDynamic #4:accept:(Lxreliquary/client/ClientProxy;)Ljava/util/function/Consumer;
+      61: invokeinterface #73,  2           // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+      66: return
+
+  private void registerEntityRenderers(net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent);
+    descriptor: (Lnet/minecraftforge/fml/event/lifecycle/FMLClientSetupEvent;)V
+    Code:
+       0: getstatic     #107                // Field xreliquary/init/ModEntities.LYSSA_HOOK:Lnet/minecraft/entity/EntityType;
+       3: invokedynamic #119,  0            // InvokeDynamic #5:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+       8: invokestatic  #125                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+      11: getstatic     #128                // Field xreliquary/init/ModEntities.BLAZE_SHOT:Lnet/minecraft/entity/EntityType;
+      14: invokedynamic #133,  0            // InvokeDynamic #6:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+      19: invokestatic  #125                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+      22: getstatic     #136                // Field xreliquary/init/ModEntities.BUSTER_SHOT:Lnet/minecraft/entity/EntityType;
+      25: invokedynamic #133,  0            // InvokeDynamic #6:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+      30: invokestatic  #125                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+      33: getstatic     #139                // Field xreliquary/init/ModEntities.CONCUSSIVE_SHOT:Lnet/minecraft/entity/EntityType;
+      36: invokedynamic #133,  0            // InvokeDynamic #6:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+      41: invokestatic  #125                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+      44: getstatic     #142                // Field xreliquary/init/ModEntities.ENDER_SHOT:Lnet/minecraft/entity/EntityType;
+      47: invokedynamic #133,  0            // InvokeDynamic #6:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+      52: invokestatic  #125                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+      55: getstatic     #145                // Field xreliquary/init/ModEntities.EXORCISM_SHOT:Lnet/minecraft/entity/EntityType;
+      58: invokedynamic #133,  0            // InvokeDynamic #6:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+      63: invokestatic  #125                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+      66: getstatic     #148                // Field xreliquary/init/ModEntities.NEUTRAL_SHOT:Lnet/minecraft/entity/EntityType;
+      69: invokedynamic #133,  0            // InvokeDynamic #6:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+      74: invokestatic  #125                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+      77: getstatic     #151                // Field xreliquary/init/ModEntities.SEEKER_SHOT:Lnet/minecraft/entity/EntityType;
+      80: invokedynamic #133,  0            // InvokeDynamic #6:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+      85: invokestatic  #125                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+      88: getstatic     #154                // Field xreliquary/init/ModEntities.SAND_SHOT:Lnet/minecraft/entity/EntityType;
+      91: invokedynamic #133,  0            // InvokeDynamic #6:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+      96: invokestatic  #125                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+      99: getstatic     #157                // Field xreliquary/init/ModEntities.STORM_SHOT:Lnet/minecraft/entity/EntityType;
+     102: invokedynamic #133,  0            // InvokeDynamic #6:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     107: invokestatic  #125                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     110: getstatic     #160                // Field xreliquary/init/ModEntities.TIPPED_ARROW:Lnet/minecraft/entity/EntityType;
+     113: invokedynamic #165,  0            // InvokeDynamic #7:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     118: invokestatic  #125                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     121: getstatic     #168                // Field xreliquary/init/ModEntities.GLOWING_WATER:Lnet/minecraft/entity/EntityType;
+     124: invokedynamic #173,  0            // InvokeDynamic #8:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     129: invokestatic  #125                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     132: getstatic     #176                // Field xreliquary/init/ModEntities.APHRODITE_POTION:Lnet/minecraft/entity/EntityType;
+     135: invokedynamic #181,  0            // InvokeDynamic #9:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     140: invokestatic  #125                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     143: getstatic     #184                // Field xreliquary/init/ModEntities.FERTILE_POTION:Lnet/minecraft/entity/EntityType;
+     146: invokedynamic #189,  0            // InvokeDynamic #10:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     151: invokestatic  #125                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     154: getstatic     #192                // Field xreliquary/init/ModEntities.HOLY_HAND_GRENADE:Lnet/minecraft/entity/EntityType;
+     157: invokedynamic #197,  0            // InvokeDynamic #11:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     162: invokestatic  #125                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     165: getstatic     #200                // Field xreliquary/init/ModEntities.KRAKEN_SLIME:Lnet/minecraft/entity/EntityType;
+     168: invokedynamic #205,  0            // InvokeDynamic #12:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     173: invokestatic  #125                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     176: getstatic     #208                // Field xreliquary/init/ModEntities.SPECIAL_SNOWBALL:Lnet/minecraft/entity/EntityType;
+     179: invokedynamic #213,  0            // InvokeDynamic #13:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     184: invokestatic  #125                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     187: getstatic     #216                // Field xreliquary/init/ModEntities.ENDER_STAFF_PROJECTILE:Lnet/minecraft/entity/EntityType;
+     190: invokedynamic #221,  0            // InvokeDynamic #14:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     195: invokestatic  #125                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     198: getstatic     #224                // Field xreliquary/init/ModEntities.THROWN_POTION:Lnet/minecraft/entity/EntityType;
+     201: invokedynamic #229,  0            // InvokeDynamic #15:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     206: invokestatic  #125                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Lnet/minecraft/entity/EntityType;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     209: return
+
+  private void clientSetup(net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent);
+    descriptor: (Lnet/minecraftforge/fml/event/lifecycle/FMLClientSetupEvent;)V
+    Code:
+       0: aload_1
+       1: invokedynamic #240,  0            // InvokeDynamic #16:run:()Ljava/lang/Runnable;
+       6: invokevirtual #246                // Method net/minecraftforge/fml/event/lifecycle/FMLClientSetupEvent.enqueueWork:(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;
+       9: pop
+      10: aload_1
+      11: invokedynamic #251,  0            // InvokeDynamic #17:run:()Ljava/lang/Runnable;
+      16: invokevirtual #246                // Method net/minecraftforge/fml/event/lifecycle/FMLClientSetupEvent.enqueueWork:(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;
+      19: pop
+      20: aload_1
+      21: invokedynamic #256,  0            // InvokeDynamic #18:run:()Ljava/lang/Runnable;
+      26: invokevirtual #246                // Method net/minecraftforge/fml/event/lifecycle/FMLClientSetupEvent.enqueueWork:(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;
+      29: pop
+      30: aload_1
+      31: invokedynamic #261,  0            // InvokeDynamic #19:run:()Ljava/lang/Runnable;
+      36: invokevirtual #246                // Method net/minecraftforge/fml/event/lifecycle/FMLClientSetupEvent.enqueueWork:(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;
+      39: pop
+      40: aload_1
+      41: aload_0
+      42: invokedynamic #268,  0            // InvokeDynamic #20:run:(Lxreliquary/client/ClientProxy;)Ljava/lang/Runnable;
+      47: invokevirtual #246                // Method net/minecraftforge/fml/event/lifecycle/FMLClientSetupEvent.enqueueWork:(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;
+      50: pop
+      51: getstatic     #274                // Field xreliquary/init/ModBlocks.FERTILE_LILY_PAD:Lnet/minecraftforge/fml/RegistryObject;
+      54: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      57: checkcast     #281                // class net/minecraft/block/Block
+      60: invokestatic  #287                // Method net/minecraft/client/renderer/RenderType.func_228643_e_:()Lnet/minecraft/client/renderer/RenderType;
+      63: invokestatic  #293                // Method net/minecraft/client/renderer/RenderTypeLookup.setRenderLayer:(Lnet/minecraft/block/Block;Lnet/minecraft/client/renderer/RenderType;)V
+      66: getstatic     #296                // Field xreliquary/init/ModBlocks.INTERDICTION_TORCH:Lnet/minecraftforge/fml/RegistryObject;
+      69: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      72: checkcast     #281                // class net/minecraft/block/Block
+      75: invokestatic  #287                // Method net/minecraft/client/renderer/RenderType.func_228643_e_:()Lnet/minecraft/client/renderer/RenderType;
+      78: invokestatic  #293                // Method net/minecraft/client/renderer/RenderTypeLookup.setRenderLayer:(Lnet/minecraft/block/Block;Lnet/minecraft/client/renderer/RenderType;)V
+      81: getstatic     #299                // Field xreliquary/init/ModBlocks.WALL_INTERDICTION_TORCH:Lnet/minecraftforge/fml/RegistryObject;
+      84: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      87: checkcast     #281                // class net/minecraft/block/Block
+      90: invokestatic  #287                // Method net/minecraft/client/renderer/RenderType.func_228643_e_:()Lnet/minecraft/client/renderer/RenderType;
+      93: invokestatic  #293                // Method net/minecraft/client/renderer/RenderTypeLookup.setRenderLayer:(Lnet/minecraft/block/Block;Lnet/minecraft/client/renderer/RenderType;)V
+      96: return
+
+  public void registerPropertyToItems(net.minecraft.util.ResourceLocation, net.minecraft.item.IItemPropertyGetter, net.minecraft.item.Item...);
+    descriptor: (Lnet/minecraft/util/ResourceLocation;Lnet/minecraft/item/IItemPropertyGetter;[Lnet/minecraft/item/Item;)V
+    Code:
+       0: aload_3
+       1: astore        4
+       3: aload         4
+       5: arraylength
+       6: istore        5
+       8: iconst_0
+       9: istore        6
+      11: iload         6
+      13: iload         5
+      15: if_icmpge     38
+      18: aload         4
+      20: iload         6
+      22: aaload
+      23: astore        7
+      25: aload         7
+      27: aload_1
+      28: aload_2
+      29: invokestatic  #309                // Method net/minecraft/item/ItemModelsProperties.func_239418_a_:(Lnet/minecraft/item/Item;Lnet/minecraft/util/ResourceLocation;Lnet/minecraft/item/IItemPropertyGetter;)V
+      32: iinc          6, 1
+      35: goto          11
+      38: return
+
+  private boolean isPotionAttached(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)Z
+    Code:
+       0: aload_1
+       1: invokestatic  #324                // Method xreliquary/util/potions/XRPotionHelper.getPotionEffectsFromStack:(Lnet/minecraft/item/ItemStack;)Ljava/util/List;
+       4: invokeinterface #330,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+       9: ifne          16
+      12: iconst_1
+      13: goto          17
+      16: iconst_0
+      17: ireturn
+
+  private void loadComplete(net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent);
+    descriptor: (Lnet/minecraftforge/fml/event/lifecycle/FMLLoadCompleteEvent;)V
+    Code:
+       0: aload_1
+       1: invokedynamic #337,  0            // InvokeDynamic #21:run:()Ljava/lang/Runnable;
+       6: invokevirtual #340                // Method net/minecraftforge/fml/event/lifecycle/FMLLoadCompleteEvent.enqueueWork:(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;
+       9: pop
+      10: return
+
+  private void registerTileRenderers(net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent);
+    descriptor: (Lnet/minecraftforge/fml/event/lifecycle/FMLClientSetupEvent;)V
+    Code:
+       0: getstatic     #344                // Field xreliquary/init/ModBlocks.APOTHECARY_MORTAR_TILE_TYPE:Lnet/minecraftforge/fml/RegistryObject;
+       3: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+       6: checkcast     #346                // class net/minecraft/tileentity/TileEntityType
+       9: invokedynamic #360,  0            // InvokeDynamic #22:apply:()Ljava/util/function/Function;
+      14: invokestatic  #366                // Method net/minecraftforge/fml/client/registry/ClientRegistry.bindTileEntityRenderer:(Lnet/minecraft/tileentity/TileEntityType;Ljava/util/function/Function;)V
+      17: getstatic     #369                // Field xreliquary/init/ModBlocks.PEDESTAL_TILE_TYPE:Lnet/minecraftforge/fml/RegistryObject;
+      20: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      23: checkcast     #346                // class net/minecraft/tileentity/TileEntityType
+      26: invokedynamic #374,  0            // InvokeDynamic #23:apply:()Ljava/util/function/Function;
+      31: invokestatic  #366                // Method net/minecraftforge/fml/client/registry/ClientRegistry.bindTileEntityRenderer:(Lnet/minecraft/tileentity/TileEntityType;Ljava/util/function/Function;)V
+      34: getstatic     #377                // Field xreliquary/init/ModBlocks.PASSIVE_PEDESTAL_TILE_TYPE:Lnet/minecraftforge/fml/RegistryObject;
+      37: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      40: checkcast     #346                // class net/minecraft/tileentity/TileEntityType
+      43: invokedynamic #382,  0            // InvokeDynamic #24:apply:()Ljava/util/function/Function;
+      48: invokestatic  #366                // Method net/minecraftforge/fml/client/registry/ClientRegistry.bindTileEntityRenderer:(Lnet/minecraft/tileentity/TileEntityType;Ljava/util/function/Function;)V
+      51: return
+
+  private static void lambda$loadComplete$17();
+    descriptor: ()V
+    Code:
+       0: invokestatic  #387                // Method xreliquary/client/init/ModItemColors.init:()V
+       3: invokestatic  #390                // Method xreliquary/client/init/ModBlockColors.init:()V
+       6: ldc_w         #392                // class net/minecraft/item/FishingRodItem
+       9: ldc_w         #394                // class xreliquary/client/render/PedestalFishHookRenderer
+      12: invokestatic  #400                // Method xreliquary/client/registry/PedestalClientRegistry.registerItemRenderer:(Ljava/lang/Class;Ljava/lang/Class;)V
+      15: getstatic     #405                // Field net/minecraftforge/common/MinecraftForge.EVENT_BUS:Lnet/minecraftforge/eventbus/api/IEventBus;
+      18: invokedynamic #414,  0            // InvokeDynamic #25:accept:()Ljava/util/function/Consumer;
+      23: invokeinterface #73,  2           // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+      28: return
+
+  private void lambda$clientSetup$16();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: new           #416                // class net/minecraft/util/ResourceLocation
+       4: dup
+       5: ldc_w         #418                // String xreliquary
+       8: ldc_w         #420                // String potion
+      11: invokespecial #423                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+      14: aload_0
+      15: invokedynamic #433,  0            // InvokeDynamic #26:call:(Lxreliquary/client/ClientProxy;)Lnet/minecraft/item/IItemPropertyGetter;
+      20: bipush        18
+      22: anewarray     #435                // class net/minecraft/item/Item
+      25: dup
+      26: iconst_0
+      27: getstatic     #440                // Field xreliquary/init/ModItems.BLAZE_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+      30: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      33: checkcast     #435                // class net/minecraft/item/Item
+      36: aastore
+      37: dup
+      38: iconst_1
+      39: getstatic     #443                // Field xreliquary/init/ModItems.BUSTER_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+      42: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      45: checkcast     #435                // class net/minecraft/item/Item
+      48: aastore
+      49: dup
+      50: iconst_2
+      51: getstatic     #446                // Field xreliquary/init/ModItems.CONCUSSIVE_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+      54: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      57: checkcast     #435                // class net/minecraft/item/Item
+      60: aastore
+      61: dup
+      62: iconst_3
+      63: getstatic     #449                // Field xreliquary/init/ModItems.ENDER_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+      66: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      69: checkcast     #435                // class net/minecraft/item/Item
+      72: aastore
+      73: dup
+      74: iconst_4
+      75: getstatic     #452                // Field xreliquary/init/ModItems.EXORCISM_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+      78: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      81: checkcast     #435                // class net/minecraft/item/Item
+      84: aastore
+      85: dup
+      86: iconst_5
+      87: getstatic     #455                // Field xreliquary/init/ModItems.NEUTRAL_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+      90: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      93: checkcast     #435                // class net/minecraft/item/Item
+      96: aastore
+      97: dup
+      98: bipush        6
+     100: getstatic     #458                // Field xreliquary/init/ModItems.SAND_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+     103: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     106: checkcast     #435                // class net/minecraft/item/Item
+     109: aastore
+     110: dup
+     111: bipush        7
+     113: getstatic     #461                // Field xreliquary/init/ModItems.SEEKER_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+     116: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     119: checkcast     #435                // class net/minecraft/item/Item
+     122: aastore
+     123: dup
+     124: bipush        8
+     126: getstatic     #464                // Field xreliquary/init/ModItems.STORM_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+     129: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     132: checkcast     #435                // class net/minecraft/item/Item
+     135: aastore
+     136: dup
+     137: bipush        9
+     139: getstatic     #467                // Field xreliquary/init/ModItems.BLAZE_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     142: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     145: checkcast     #435                // class net/minecraft/item/Item
+     148: aastore
+     149: dup
+     150: bipush        10
+     152: getstatic     #470                // Field xreliquary/init/ModItems.BUSTER_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     155: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     158: checkcast     #435                // class net/minecraft/item/Item
+     161: aastore
+     162: dup
+     163: bipush        11
+     165: getstatic     #473                // Field xreliquary/init/ModItems.CONCUSSIVE_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     168: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     171: checkcast     #435                // class net/minecraft/item/Item
+     174: aastore
+     175: dup
+     176: bipush        12
+     178: getstatic     #476                // Field xreliquary/init/ModItems.ENDER_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     181: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     184: checkcast     #435                // class net/minecraft/item/Item
+     187: aastore
+     188: dup
+     189: bipush        13
+     191: getstatic     #479                // Field xreliquary/init/ModItems.EXORCISM_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     194: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     197: checkcast     #435                // class net/minecraft/item/Item
+     200: aastore
+     201: dup
+     202: bipush        14
+     204: getstatic     #482                // Field xreliquary/init/ModItems.NEUTRAL_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     207: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     210: checkcast     #435                // class net/minecraft/item/Item
+     213: aastore
+     214: dup
+     215: bipush        15
+     217: getstatic     #485                // Field xreliquary/init/ModItems.SAND_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     220: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     223: checkcast     #435                // class net/minecraft/item/Item
+     226: aastore
+     227: dup
+     228: bipush        16
+     230: getstatic     #488                // Field xreliquary/init/ModItems.SEEKER_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     233: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     236: checkcast     #435                // class net/minecraft/item/Item
+     239: aastore
+     240: dup
+     241: bipush        17
+     243: getstatic     #491                // Field xreliquary/init/ModItems.STORM_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     246: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     249: checkcast     #435                // class net/minecraft/item/Item
+     252: aastore
+     253: invokevirtual #493                // Method registerPropertyToItems:(Lnet/minecraft/util/ResourceLocation;Lnet/minecraft/item/IItemPropertyGetter;[Lnet/minecraft/item/Item;)V
+     256: return
+
+  private float lambda$clientSetup$15(net.minecraft.item.ItemStack, net.minecraft.client.world.ClientWorld, net.minecraft.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/world/ClientWorld;Lnet/minecraft/entity/LivingEntity;)F
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #495                // Method isPotionAttached:(Lnet/minecraft/item/ItemStack;)Z
+       5: ifeq          12
+       8: fconst_1
+       9: goto          13
+      12: fconst_0
+      13: freturn
+
+  private static void lambda$clientSetup$14();
+    descriptor: ()V
+    Code:
+       0: getstatic     #502                // Field xreliquary/init/ModItems.VOID_TEAR:Lnet/minecraftforge/fml/RegistryObject;
+       3: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+       6: checkcast     #435                // class net/minecraft/item/Item
+       9: new           #416                // class net/minecraft/util/ResourceLocation
+      12: dup
+      13: ldc_w         #504                // String empty
+      16: invokespecial #507                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+      19: invokedynamic #514,  0            // InvokeDynamic #27:call:()Lnet/minecraft/item/IItemPropertyGetter;
+      24: invokestatic  #309                // Method net/minecraft/item/ItemModelsProperties.func_239418_a_:(Lnet/minecraft/item/Item;Lnet/minecraft/util/ResourceLocation;Lnet/minecraft/item/IItemPropertyGetter;)V
+      27: return
+
+  private static float lambda$clientSetup$13(net.minecraft.item.ItemStack, net.minecraft.client.world.ClientWorld, net.minecraft.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/world/ClientWorld;Lnet/minecraft/entity/LivingEntity;)F
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: invokestatic  #519                // Method xreliquary/items/VoidTearItem.isEmpty:(Lnet/minecraft/item/ItemStack;Z)Z
+       5: ifeq          12
+       8: fconst_1
+       9: goto          13
+      12: fconst_0
+      13: freturn
+
+  private static void lambda$clientSetup$12();
+    descriptor: ()V
+    Code:
+       0: getstatic     #523                // Field xreliquary/init/ModItems.INFERNAL_TEAR:Lnet/minecraftforge/fml/RegistryObject;
+       3: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+       6: checkcast     #435                // class net/minecraft/item/Item
+       9: new           #416                // class net/minecraft/util/ResourceLocation
+      12: dup
+      13: ldc_w         #504                // String empty
+      16: invokespecial #507                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+      19: invokedynamic #528,  0            // InvokeDynamic #28:call:()Lnet/minecraft/item/IItemPropertyGetter;
+      24: invokestatic  #309                // Method net/minecraft/item/ItemModelsProperties.func_239418_a_:(Lnet/minecraft/item/Item;Lnet/minecraft/util/ResourceLocation;Lnet/minecraft/item/IItemPropertyGetter;)V
+      27: return
+
+  private static float lambda$clientSetup$11(net.minecraft.item.ItemStack, net.minecraft.client.world.ClientWorld, net.minecraft.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/world/ClientWorld;Lnet/minecraft/entity/LivingEntity;)F
+    Code:
+       0: aload_0
+       1: invokestatic  #534                // Method xreliquary/items/InfernalTearItem.getStackFromTear:(Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;
+       4: invokevirtual #539                // Method net/minecraft/item/ItemStack.func_190926_b:()Z
+       7: ifeq          14
+      10: fconst_1
+      11: goto          15
+      14: fconst_0
+      15: freturn
+
+  private static void lambda$clientSetup$10();
+    descriptor: ()V
+    Code:
+       0: getstatic     #542                // Field xreliquary/init/ModItems.ROD_OF_LYSSA:Lnet/minecraftforge/fml/RegistryObject;
+       3: invokevirtual #279                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+       6: checkcast     #435                // class net/minecraft/item/Item
+       9: new           #416                // class net/minecraft/util/ResourceLocation
+      12: dup
+      13: ldc_w         #544                // String cast
+      16: invokespecial #507                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+      19: invokedynamic #549,  0            // InvokeDynamic #29:call:()Lnet/minecraft/item/IItemPropertyGetter;
+      24: invokestatic  #309                // Method net/minecraft/item/ItemModelsProperties.func_239418_a_:(Lnet/minecraft/item/Item;Lnet/minecraft/util/ResourceLocation;Lnet/minecraft/item/IItemPropertyGetter;)V
+      27: return
+
+  private static float lambda$clientSetup$9(net.minecraft.item.ItemStack, net.minecraft.client.world.ClientWorld, net.minecraft.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/world/ClientWorld;Lnet/minecraft/entity/LivingEntity;)F
+    Code:
+       0: aload_2
+       1: ifnonnull     6
+       4: fconst_0
+       5: freturn
+       6: aload_1
+       7: ifnonnull     12
+      10: fconst_0
+      11: freturn
+      12: aload_0
+      13: invokestatic  #555                // Method xreliquary/items/RodOfLyssaItem.getHookEntityId:(Lnet/minecraft/item/ItemStack;)I
+      16: istore_3
+      17: aload_2
+      18: invokevirtual #561                // Method net/minecraft/entity/LivingEntity.func_184614_ca:()Lnet/minecraft/item/ItemStack;
+      21: aload_0
+      22: if_acmpeq     33
+      25: aload_2
+      26: invokevirtual #564                // Method net/minecraft/entity/LivingEntity.func_184592_cb:()Lnet/minecraft/item/ItemStack;
+      29: aload_0
+      30: if_acmpne     49
+      33: iload_3
+      34: ifle          49
+      37: aload_1
+      38: iload_3
+      39: invokevirtual #570                // Method net/minecraft/client/world/ClientWorld.func_73045_a:(I)Lnet/minecraft/entity/Entity;
+      42: ifnull        49
+      45: fconst_1
+      46: goto          50
+      49: fconst_0
+      50: freturn
+
+  private static void lambda$clientSetup$8();
+    descriptor: ()V
+    Code:
+       0: getstatic     #574                // Field FORTUNE_COIN_TOGGLE_KEYBIND:Lnet/minecraft/client/settings/KeyBinding;
+       3: invokestatic  #578                // Method net/minecraftforge/fml/client/registry/ClientRegistry.registerKeyBinding:(Lnet/minecraft/client/settings/KeyBinding;)V
+       6: return
+
+  private static net.minecraft.client.renderer.entity.EntityRenderer lambda$registerEntityRenderers$7(net.minecraft.client.renderer.entity.EntityRendererManager);
+    descriptor: (Lnet/minecraft/client/renderer/entity/EntityRendererManager;)Lnet/minecraft/client/renderer/entity/EntityRenderer;
+    Code:
+       0: new           #580                // class net/minecraft/client/renderer/entity/SpriteRenderer
+       3: dup
+       4: aload_0
+       5: invokestatic  #586                // Method net/minecraft/client/Minecraft.func_71410_x:()Lnet/minecraft/client/Minecraft;
+       8: invokevirtual #590                // Method net/minecraft/client/Minecraft.func_175599_af:()Lnet/minecraft/client/renderer/ItemRenderer;
+      11: invokespecial #593                // Method net/minecraft/client/renderer/entity/SpriteRenderer."<init>":(Lnet/minecraft/client/renderer/entity/EntityRendererManager;Lnet/minecraft/client/renderer/ItemRenderer;)V
+      14: areturn
+
+  private static net.minecraft.client.renderer.entity.EntityRenderer lambda$registerEntityRenderers$6(net.minecraft.client.renderer.entity.EntityRendererManager);
+    descriptor: (Lnet/minecraft/client/renderer/entity/EntityRendererManager;)Lnet/minecraft/client/renderer/entity/EntityRenderer;
+    Code:
+       0: new           #580                // class net/minecraft/client/renderer/entity/SpriteRenderer
+       3: dup
+       4: aload_0
+       5: invokestatic  #586                // Method net/minecraft/client/Minecraft.func_71410_x:()Lnet/minecraft/client/Minecraft;
+       8: invokevirtual #590                // Method net/minecraft/client/Minecraft.func_175599_af:()Lnet/minecraft/client/renderer/ItemRenderer;
+      11: invokespecial #593                // Method net/minecraft/client/renderer/entity/SpriteRenderer."<init>":(Lnet/minecraft/client/renderer/entity/EntityRendererManager;Lnet/minecraft/client/renderer/ItemRenderer;)V
+      14: areturn
+
+  private static net.minecraft.client.renderer.entity.EntityRenderer lambda$registerEntityRenderers$5(net.minecraft.client.renderer.entity.EntityRendererManager);
+    descriptor: (Lnet/minecraft/client/renderer/entity/EntityRendererManager;)Lnet/minecraft/client/renderer/entity/EntityRenderer;
+    Code:
+       0: new           #580                // class net/minecraft/client/renderer/entity/SpriteRenderer
+       3: dup
+       4: aload_0
+       5: invokestatic  #586                // Method net/minecraft/client/Minecraft.func_71410_x:()Lnet/minecraft/client/Minecraft;
+       8: invokevirtual #590                // Method net/minecraft/client/Minecraft.func_175599_af:()Lnet/minecraft/client/renderer/ItemRenderer;
+      11: invokespecial #593                // Method net/minecraft/client/renderer/entity/SpriteRenderer."<init>":(Lnet/minecraft/client/renderer/entity/EntityRendererManager;Lnet/minecraft/client/renderer/ItemRenderer;)V
+      14: areturn
+
+  private static net.minecraft.client.renderer.entity.EntityRenderer lambda$registerEntityRenderers$4(net.minecraft.client.renderer.entity.EntityRendererManager);
+    descriptor: (Lnet/minecraft/client/renderer/entity/EntityRendererManager;)Lnet/minecraft/client/renderer/entity/EntityRenderer;
+    Code:
+       0: new           #580                // class net/minecraft/client/renderer/entity/SpriteRenderer
+       3: dup
+       4: aload_0
+       5: invokestatic  #586                // Method net/minecraft/client/Minecraft.func_71410_x:()Lnet/minecraft/client/Minecraft;
+       8: invokevirtual #590                // Method net/minecraft/client/Minecraft.func_175599_af:()Lnet/minecraft/client/renderer/ItemRenderer;
+      11: invokespecial #593                // Method net/minecraft/client/renderer/entity/SpriteRenderer."<init>":(Lnet/minecraft/client/renderer/entity/EntityRendererManager;Lnet/minecraft/client/renderer/ItemRenderer;)V
+      14: areturn
+
+  private static net.minecraft.client.renderer.entity.EntityRenderer lambda$registerEntityRenderers$3(net.minecraft.client.renderer.entity.EntityRendererManager);
+    descriptor: (Lnet/minecraft/client/renderer/entity/EntityRendererManager;)Lnet/minecraft/client/renderer/entity/EntityRenderer;
+    Code:
+       0: new           #580                // class net/minecraft/client/renderer/entity/SpriteRenderer
+       3: dup
+       4: aload_0
+       5: invokestatic  #586                // Method net/minecraft/client/Minecraft.func_71410_x:()Lnet/minecraft/client/Minecraft;
+       8: invokevirtual #590                // Method net/minecraft/client/Minecraft.func_175599_af:()Lnet/minecraft/client/renderer/ItemRenderer;
+      11: invokespecial #593                // Method net/minecraft/client/renderer/entity/SpriteRenderer."<init>":(Lnet/minecraft/client/renderer/entity/EntityRendererManager;Lnet/minecraft/client/renderer/ItemRenderer;)V
+      14: areturn
+
+  private static net.minecraft.client.renderer.entity.EntityRenderer lambda$registerEntityRenderers$2(net.minecraft.client.renderer.entity.EntityRendererManager);
+    descriptor: (Lnet/minecraft/client/renderer/entity/EntityRendererManager;)Lnet/minecraft/client/renderer/entity/EntityRenderer;
+    Code:
+       0: new           #580                // class net/minecraft/client/renderer/entity/SpriteRenderer
+       3: dup
+       4: aload_0
+       5: invokestatic  #586                // Method net/minecraft/client/Minecraft.func_71410_x:()Lnet/minecraft/client/Minecraft;
+       8: invokevirtual #590                // Method net/minecraft/client/Minecraft.func_175599_af:()Lnet/minecraft/client/renderer/ItemRenderer;
+      11: invokespecial #593                // Method net/minecraft/client/renderer/entity/SpriteRenderer."<init>":(Lnet/minecraft/client/renderer/entity/EntityRendererManager;Lnet/minecraft/client/renderer/ItemRenderer;)V
+      14: areturn
+
+  private static net.minecraft.client.renderer.entity.EntityRenderer lambda$registerEntityRenderers$1(net.minecraft.client.renderer.entity.EntityRendererManager);
+    descriptor: (Lnet/minecraft/client/renderer/entity/EntityRendererManager;)Lnet/minecraft/client/renderer/entity/EntityRenderer;
+    Code:
+       0: new           #580                // class net/minecraft/client/renderer/entity/SpriteRenderer
+       3: dup
+       4: aload_0
+       5: invokestatic  #586                // Method net/minecraft/client/Minecraft.func_71410_x:()Lnet/minecraft/client/Minecraft;
+       8: invokevirtual #590                // Method net/minecraft/client/Minecraft.func_175599_af:()Lnet/minecraft/client/renderer/ItemRenderer;
+      11: invokespecial #593                // Method net/minecraft/client/renderer/entity/SpriteRenderer."<init>":(Lnet/minecraft/client/renderer/entity/EntityRendererManager;Lnet/minecraft/client/renderer/ItemRenderer;)V
+      14: areturn
+
+  private static net.minecraft.client.renderer.entity.EntityRenderer lambda$registerEntityRenderers$0(net.minecraft.client.renderer.entity.EntityRendererManager);
+    descriptor: (Lnet/minecraft/client/renderer/entity/EntityRendererManager;)Lnet/minecraft/client/renderer/entity/EntityRenderer;
+    Code:
+       0: new           #580                // class net/minecraft/client/renderer/entity/SpriteRenderer
+       3: dup
+       4: aload_0
+       5: invokestatic  #586                // Method net/minecraft/client/Minecraft.func_71410_x:()Lnet/minecraft/client/Minecraft;
+       8: invokevirtual #590                // Method net/minecraft/client/Minecraft.func_175599_af:()Lnet/minecraft/client/renderer/ItemRenderer;
+      11: invokespecial #593                // Method net/minecraft/client/renderer/entity/SpriteRenderer."<init>":(Lnet/minecraft/client/renderer/entity/EntityRendererManager;Lnet/minecraft/client/renderer/ItemRenderer;)V
+      14: areturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: new           #598                // class net/minecraft/client/settings/KeyBinding
+       3: dup
+       4: ldc_w         #600                // String keybind.xreliquary.fortune_coin
+       7: getstatic     #604                // Field net/minecraft/client/util/InputMappings.field_197958_a:Lnet/minecraft/client/util/InputMappings$Input;
+      10: invokevirtual #608                // Method net/minecraft/client/util/InputMappings$Input.func_197937_c:()I
+      13: ldc_w         #610                // String keybind.xreliquary.category
+      16: invokespecial #613                // Method net/minecraft/client/settings/KeyBinding."<init>":(Ljava/lang/String;ILjava/lang/String;)V
+      19: putstatic     #574                // Field FORTUNE_COIN_TOGGLE_KEYBIND:Lnet/minecraft/client/settings/KeyBinding;
+      22: return
+}

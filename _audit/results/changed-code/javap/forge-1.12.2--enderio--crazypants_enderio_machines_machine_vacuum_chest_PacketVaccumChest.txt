@@ -1,0 +1,134 @@
+Compiled from "PacketVaccumChest.java"
+public class crazypants.enderio.machines.machine.vacuum.chest.PacketVaccumChest extends com.enderio.core.common.network.MessageTileEntity<crazypants.enderio.machines.machine.vacuum.chest.TileVacuumChest> {
+  public static final int CMD_SET_RANGE;
+    descriptor: I
+
+  public static final int CMD_SET_SLOT;
+    descriptor: I
+
+  public static final int CMD_SET_BLACKLIST;
+    descriptor: I
+
+  public static final int CMD_SET_MATCHMETA;
+    descriptor: I
+
+  private int cmd;
+    descriptor: I
+
+  private int value;
+    descriptor: I
+
+  private net.minecraft.item.ItemStack stack;
+    descriptor: Lnet/minecraft/item/ItemStack;
+
+  public crazypants.enderio.machines.machine.vacuum.chest.PacketVaccumChest();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #27                 // Method com/enderio/core/common/network/MessageTileEntity."<init>":()V
+       4: aload_0
+       5: getstatic     #32                 // Field net/minecraft/item/ItemStack.field_190927_a:Lnet/minecraft/item/ItemStack;
+       8: putfield      #34                 // Field stack:Lnet/minecraft/item/ItemStack;
+      11: return
+
+  private crazypants.enderio.machines.machine.vacuum.chest.PacketVaccumChest(crazypants.enderio.machines.machine.vacuum.chest.TileVacuumChest, int);
+    descriptor: (Lcrazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest;I)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #40                 // Method com/enderio/core/common/network/MessageTileEntity."<init>":(Lnet/minecraft/tileentity/TileEntity;)V
+       5: aload_0
+       6: getstatic     #32                 // Field net/minecraft/item/ItemStack.field_190927_a:Lnet/minecraft/item/ItemStack;
+       9: putfield      #34                 // Field stack:Lnet/minecraft/item/ItemStack;
+      12: aload_0
+      13: iload_2
+      14: putfield      #42                 // Field cmd:I
+      17: return
+
+  public static crazypants.enderio.machines.machine.vacuum.chest.PacketVaccumChest setRange(crazypants.enderio.machines.machine.vacuum.chest.TileVacuumChest, int);
+    descriptor: (Lcrazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest;I)Lcrazypants/enderio/machines/machine/vacuum/chest/PacketVaccumChest;
+    Code:
+       0: new           #2                  // class crazypants/enderio/machines/machine/vacuum/chest/PacketVaccumChest
+       3: dup
+       4: aload_0
+       5: iconst_0
+       6: invokespecial #48                 // Method "<init>":(Lcrazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest;I)V
+       9: astore_2
+      10: aload_2
+      11: iload_1
+      12: putfield      #50                 // Field value:I
+      15: aload_0
+      16: iload_1
+      17: invokevirtual #55                 // Method crazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest.setRange:(I)V
+      20: aload_2
+      21: areturn
+
+  public void fromBytes(io.netty.buffer.ByteBuf);
+    descriptor: (Lio/netty/buffer/ByteBuf;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #61                 // Method com/enderio/core/common/network/MessageTileEntity.fromBytes:(Lio/netty/buffer/ByteBuf;)V
+       5: aload_0
+       6: aload_1
+       7: invokevirtual #67                 // Method io/netty/buffer/ByteBuf.readByte:()B
+      10: sipush        255
+      13: iand
+      14: putfield      #42                 // Field cmd:I
+      17: aload_0
+      18: aload_1
+      19: invokevirtual #71                 // Method io/netty/buffer/ByteBuf.readInt:()I
+      22: putfield      #50                 // Field value:I
+      25: aload_0
+      26: aload_1
+      27: invokestatic  #77                 // Method net/minecraftforge/fml/common/network/ByteBufUtils.readItemStack:(Lio/netty/buffer/ByteBuf;)Lnet/minecraft/item/ItemStack;
+      30: ldc           #79                 // String readItemStack returned null
+      32: invokestatic  #85                 // Method com/enderio/core/common/util/NullHelper.notnullF:(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+      35: checkcast     #29                 // class net/minecraft/item/ItemStack
+      38: putfield      #34                 // Field stack:Lnet/minecraft/item/ItemStack;
+      41: return
+
+  public void toBytes(io.netty.buffer.ByteBuf);
+    descriptor: (Lio/netty/buffer/ByteBuf;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #90                 // Method com/enderio/core/common/network/MessageTileEntity.toBytes:(Lio/netty/buffer/ByteBuf;)V
+       5: aload_1
+       6: aload_0
+       7: getfield      #42                 // Field cmd:I
+      10: invokevirtual #94                 // Method io/netty/buffer/ByteBuf.writeByte:(I)Lio/netty/buffer/ByteBuf;
+      13: pop
+      14: aload_1
+      15: aload_0
+      16: getfield      #50                 // Field value:I
+      19: invokevirtual #97                 // Method io/netty/buffer/ByteBuf.writeInt:(I)Lio/netty/buffer/ByteBuf;
+      22: pop
+      23: aload_1
+      24: aload_0
+      25: getfield      #34                 // Field stack:Lnet/minecraft/item/ItemStack;
+      28: invokestatic  #101                // Method net/minecraftforge/fml/common/network/ByteBufUtils.writeItemStack:(Lio/netty/buffer/ByteBuf;Lnet/minecraft/item/ItemStack;)V
+      31: return
+
+  static net.minecraft.tileentity.TileEntity access$000(crazypants.enderio.machines.machine.vacuum.chest.PacketVaccumChest, net.minecraft.world.World);
+    descriptor: (Lcrazypants/enderio/machines/machine/vacuum/chest/PacketVaccumChest;Lnet/minecraft/world/World;)Lnet/minecraft/tileentity/TileEntity;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #107                // Method getTileEntity:(Lnet/minecraft/world/World;)Lnet/minecraft/tileentity/TileEntity;
+       5: areturn
+
+  static int access$100(crazypants.enderio.machines.machine.vacuum.chest.PacketVaccumChest);
+    descriptor: (Lcrazypants/enderio/machines/machine/vacuum/chest/PacketVaccumChest;)I
+    Code:
+       0: aload_0
+       1: getfield      #42                 // Field cmd:I
+       4: ireturn
+
+  static int access$200(crazypants.enderio.machines.machine.vacuum.chest.PacketVaccumChest);
+    descriptor: (Lcrazypants/enderio/machines/machine/vacuum/chest/PacketVaccumChest;)I
+    Code:
+       0: aload_0
+       1: getfield      #50                 // Field value:I
+       4: ireturn
+}

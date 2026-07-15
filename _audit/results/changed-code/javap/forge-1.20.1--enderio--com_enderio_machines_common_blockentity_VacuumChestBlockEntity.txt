@@ -1,0 +1,207 @@
+Compiled from "VacuumChestBlockEntity.java"
+public class com.enderio.machines.common.blockentity.VacuumChestBlockEntity extends com.enderio.machines.common.blockentity.base.VacuumMachineBlockEntity<net.minecraft.world.entity.item.ItemEntity> {
+  public static final com.enderio.machines.common.io.item.SingleSlotAccess FILTER_SLOT;
+    descriptor: Lcom/enderio/machines/common/io/item/SingleSlotAccess;
+
+  public com.enderio.machines.common.blockentity.VacuumChestBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?>, net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState);
+    descriptor: (Lnet/minecraft/world/level/block/entity/BlockEntityType;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: ldc           #31                 // class net/minecraft/world/entity/item/ItemEntity
+       6: invokespecial #34                 // Method com/enderio/machines/common/blockentity/base/VacuumMachineBlockEntity."<init>":(Lnet/minecraft/world/level/block/entity/BlockEntityType;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Ljava/lang/Class;)V
+       9: return
+
+  public net.minecraft.world.inventory.AbstractContainerMenu m_7208_(int, net.minecraft.world.entity.player.Inventory, net.minecraft.world.entity.player.Player);
+    descriptor: (ILnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/world/entity/player/Player;)Lnet/minecraft/world/inventory/AbstractContainerMenu;
+    Code:
+       0: new           #47                 // class com/enderio/machines/common/menu/VacuumChestMenu
+       3: dup
+       4: aload_0
+       5: aload_2
+       6: iload_1
+       7: invokespecial #50                 // Method com/enderio/machines/common/menu/VacuumChestMenu."<init>":(Lcom/enderio/machines/common/blockentity/VacuumChestBlockEntity;Lnet/minecraft/world/entity/player/Inventory;I)V
+      10: areturn
+
+  public com.enderio.machines.common.io.item.MachineInventoryLayout createInventoryLayout();
+    descriptor: ()Lcom/enderio/machines/common/io/item/MachineInventoryLayout;
+    Code:
+       0: aload_0
+       1: invokestatic  #62                 // Method com/enderio/machines/common/io/item/MachineInventoryLayout.builder:()Lcom/enderio/machines/common/io/item/MachineInventoryLayout$Builder;
+       4: bipush        27
+       6: invokevirtual #66                 // Method extractableGUISlot:(Lcom/enderio/machines/common/io/item/MachineInventoryLayout$Builder;I)Lcom/enderio/machines/common/io/item/MachineInventoryLayout$Builder;
+       9: aload_0
+      10: invokedynamic #85,  0             // InvokeDynamic #0:apply:(Lcom/enderio/machines/common/blockentity/VacuumChestBlockEntity;)Ljava/util/function/UnaryOperator;
+      15: invokevirtual #89                 // Method com/enderio/machines/common/io/item/MachineInventoryLayout$Builder.slot:(Ljava/util/function/UnaryOperator;)Lcom/enderio/machines/common/io/item/MachineInventoryLayout$Builder;
+      18: getstatic     #91                 // Field FILTER_SLOT:Lcom/enderio/machines/common/io/item/SingleSlotAccess;
+      21: invokevirtual #95                 // Method com/enderio/machines/common/io/item/MachineInventoryLayout$Builder.slotAccess:(Lcom/enderio/machines/common/io/item/SingleSlotAccess;)Lcom/enderio/machines/common/io/item/MachineInventoryLayout$Builder;
+      24: invokevirtual #98                 // Method com/enderio/machines/common/io/item/MachineInventoryLayout$Builder.build:()Lcom/enderio/machines/common/io/item/MachineInventoryLayout;
+      27: areturn
+
+  private boolean acceptFilter(int, net.minecraft.world.item.ItemStack);
+    descriptor: (ILnet/minecraft/world/item/ItemStack;)Z
+    Code:
+       0: aload_2
+       1: getstatic     #106                // Field com/enderio/base/common/init/EIOCapabilities.FILTER:Lnet/minecraftforge/common/capabilities/Capability;
+       4: invokevirtual #112                // Method net/minecraft/world/item/ItemStack.getCapability:(Lnet/minecraftforge/common/capabilities/Capability;)Lnet/minecraftforge/common/util/LazyOptional;
+       7: invokedynamic #121,  0            // InvokeDynamic #1:apply:()Lnet/minecraftforge/common/util/NonNullFunction;
+      12: invokevirtual #127                // Method net/minecraftforge/common/util/LazyOptional.map:(Lnet/minecraftforge/common/util/NonNullFunction;)Ljava/util/Optional;
+      15: iconst_0
+      16: invokestatic  #133                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      19: invokevirtual #138                // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      22: checkcast     #129                // class java/lang/Boolean
+      25: invokevirtual #142                // Method java/lang/Boolean.booleanValue:()Z
+      28: ireturn
+
+  public void handleEntity(net.minecraft.world.entity.item.ItemEntity);
+    descriptor: (Lnet/minecraft/world/entity/item/ItemEntity;)V
+    Code:
+       0: iconst_0
+       1: istore_2
+       2: iload_2
+       3: aload_0
+       4: invokevirtual #150                // Method getInventory:()Lcom/enderio/machines/common/io/item/MachineInventory;
+       7: invokevirtual #156                // Method com/enderio/machines/common/io/item/MachineInventory.getSlots:()I
+      10: if_icmpge     59
+      13: aload_0
+      14: invokevirtual #150                // Method getInventory:()Lcom/enderio/machines/common/io/item/MachineInventory;
+      17: iload_2
+      18: aload_1
+      19: invokevirtual #160                // Method net/minecraft/world/entity/item/ItemEntity.m_32055_:()Lnet/minecraft/world/item/ItemStack;
+      22: invokevirtual #163                // Method net/minecraft/world/item/ItemStack.m_41777_:()Lnet/minecraft/world/item/ItemStack;
+      25: iconst_0
+      26: invokevirtual #167                // Method com/enderio/machines/common/io/item/MachineInventory.insertItem:(ILnet/minecraft/world/item/ItemStack;Z)Lnet/minecraft/world/item/ItemStack;
+      29: astore_3
+      30: aload_3
+      31: invokevirtual #170                // Method net/minecraft/world/item/ItemStack.m_41619_:()Z
+      34: ifeq          42
+      37: aload_1
+      38: invokevirtual #174                // Method net/minecraft/world/entity/item/ItemEntity.m_146870_:()V
+      41: return
+      42: aload_1
+      43: invokevirtual #160                // Method net/minecraft/world/entity/item/ItemEntity.m_32055_:()Lnet/minecraft/world/item/ItemStack;
+      46: aload_3
+      47: invokevirtual #177                // Method net/minecraft/world/item/ItemStack.m_41613_:()I
+      50: invokevirtual #181                // Method net/minecraft/world/item/ItemStack.m_41764_:(I)V
+      53: iinc          2, 1
+      56: goto          2
+      59: return
+
+  public java.lang.String getColor();
+    descriptor: ()Ljava/lang/String;
+    Code:
+       0: getstatic     #193                // Field com/enderio/machines/common/config/MachinesConfig.CLIENT:Lcom/enderio/machines/common/config/client/MachinesClientConfig;
+       3: getfield      #199                // Field com/enderio/machines/common/config/client/MachinesClientConfig.BLOCKS:Lcom/enderio/machines/common/config/client/MachinesClientBlocksConfig;
+       6: getfield      #205                // Field com/enderio/machines/common/config/client/MachinesClientBlocksConfig.VACUUM_CHEST_RANGE_COLOR:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+       9: invokevirtual #209                // Method net/minecraftforge/common/ForgeConfigSpec$ConfigValue.get:()Ljava/lang/Object;
+      12: checkcast     #211                // class java/lang/String
+      15: areturn
+
+  public java.util.function.Predicate<net.minecraft.world.entity.item.ItemEntity> getFilter();
+    descriptor: ()Ljava/util/function/Predicate;
+    Code:
+       0: getstatic     #91                 // Field FILTER_SLOT:Lcom/enderio/machines/common/io/item/SingleSlotAccess;
+       3: aload_0
+       4: invokevirtual #220                // Method com/enderio/machines/common/io/item/SingleSlotAccess.getItemStack:(Lcom/enderio/machines/common/blockentity/base/MachineBlockEntity;)Lnet/minecraft/world/item/ItemStack;
+       7: astore_1
+       8: aload_1
+       9: getstatic     #106                // Field com/enderio/base/common/init/EIOCapabilities.FILTER:Lnet/minecraftforge/common/capabilities/Capability;
+      12: invokevirtual #112                // Method net/minecraft/world/item/ItemStack.getCapability:(Lnet/minecraftforge/common/capabilities/Capability;)Lnet/minecraftforge/common/util/LazyOptional;
+      15: astore_2
+      16: aload_2
+      17: invokedynamic #227,  0            // InvokeDynamic #2:apply:()Lnet/minecraftforge/common/util/NonNullFunction;
+      22: invokevirtual #127                // Method net/minecraftforge/common/util/LazyOptional.map:(Lnet/minecraftforge/common/util/NonNullFunction;)Ljava/util/Optional;
+      25: getstatic     #231                // Field ITEM_ENTITY_FILTER_TRUE:Ljava/util/function/Predicate;
+      28: invokevirtual #138                // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      31: checkcast     #233                // class java/util/function/Predicate
+      34: areturn
+
+  public com.enderio.machines.common.io.item.MachineInventoryLayout$Builder extractableGUISlot(com.enderio.machines.common.io.item.MachineInventoryLayout$Builder, int);
+    descriptor: (Lcom/enderio/machines/common/io/item/MachineInventoryLayout$Builder;I)Lcom/enderio/machines/common/io/item/MachineInventoryLayout$Builder;
+    Code:
+       0: iconst_0
+       1: istore_3
+       2: iload_3
+       3: iload_2
+       4: if_icmpge     23
+       7: aload_1
+       8: invokedynamic #244,  0            // InvokeDynamic #3:apply:()Ljava/util/function/UnaryOperator;
+      13: invokevirtual #89                 // Method com/enderio/machines/common/io/item/MachineInventoryLayout$Builder.slot:(Ljava/util/function/UnaryOperator;)Lcom/enderio/machines/common/io/item/MachineInventoryLayout$Builder;
+      16: pop
+      17: iinc          3, 1
+      20: goto          2
+      23: aload_1
+      24: areturn
+
+  public void handleEntity(net.minecraft.world.entity.Entity);
+    descriptor: (Lnet/minecraft/world/entity/Entity;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: checkcast     #31                 // class net/minecraft/world/entity/item/ItemEntity
+       5: invokevirtual #249                // Method handleEntity:(Lnet/minecraft/world/entity/item/ItemEntity;)V
+       8: return
+
+  private static com.enderio.machines.common.io.item.MachineInventoryLayout$Builder$SlotBuilder lambda$extractableGUISlot$4(com.enderio.machines.common.io.item.MachineInventoryLayout$Builder$SlotBuilder);
+    descriptor: (Lcom/enderio/machines/common/io/item/MachineInventoryLayout$Builder$SlotBuilder;)Lcom/enderio/machines/common/io/item/MachineInventoryLayout$Builder$SlotBuilder;
+    Code:
+       0: aload_0
+       1: invokevirtual #253                // Method com/enderio/machines/common/io/item/MachineInventoryLayout$Builder$SlotBuilder.guiInsert:()Lcom/enderio/machines/common/io/item/MachineInventoryLayout$Builder$SlotBuilder;
+       4: invokevirtual #256                // Method com/enderio/machines/common/io/item/MachineInventoryLayout$Builder$SlotBuilder.guiExtract:()Lcom/enderio/machines/common/io/item/MachineInventoryLayout$Builder$SlotBuilder;
+       7: invokevirtual #259                // Method com/enderio/machines/common/io/item/MachineInventoryLayout$Builder$SlotBuilder.extract:()Lcom/enderio/machines/common/io/item/MachineInventoryLayout$Builder$SlotBuilder;
+      10: areturn
+
+  private static java.util.function.Predicate lambda$getFilter$3(com.enderio.api.filter.ResourceFilter);
+    descriptor: (Lcom/enderio/api/filter/ResourceFilter;)Ljava/util/function/Predicate;
+    Code:
+       0: aload_0
+       1: instanceof    #262                // class com/enderio/api/filter/ItemStackFilter
+       4: ifeq          19
+       7: aload_0
+       8: checkcast     #262                // class com/enderio/api/filter/ItemStackFilter
+      11: astore_1
+      12: aload_1
+      13: invokedynamic #275,  0            // InvokeDynamic #4:test:(Lcom/enderio/api/filter/ItemStackFilter;)Ljava/util/function/Predicate;
+      18: areturn
+      19: getstatic     #231                // Field ITEM_ENTITY_FILTER_TRUE:Ljava/util/function/Predicate;
+      22: areturn
+
+  private static boolean lambda$getFilter$2(com.enderio.api.filter.ItemStackFilter, net.minecraft.world.entity.item.ItemEntity);
+    descriptor: (Lcom/enderio/api/filter/ItemStackFilter;Lnet/minecraft/world/entity/item/ItemEntity;)Z
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #160                // Method net/minecraft/world/entity/item/ItemEntity.m_32055_:()Lnet/minecraft/world/item/ItemStack;
+       5: invokeinterface #281,  2          // InterfaceMethod com/enderio/api/filter/ItemStackFilter.test:(Ljava/lang/Object;)Z
+      10: ireturn
+
+  private static java.lang.Boolean lambda$acceptFilter$1(com.enderio.api.filter.ResourceFilter);
+    descriptor: (Lcom/enderio/api/filter/ResourceFilter;)Ljava/lang/Boolean;
+    Code:
+       0: aload_0
+       1: instanceof    #262                // class com/enderio/api/filter/ItemStackFilter
+       4: invokestatic  #133                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+       7: areturn
+
+  private com.enderio.machines.common.io.item.MachineInventoryLayout$Builder$SlotBuilder lambda$createInventoryLayout$0(com.enderio.machines.common.io.item.MachineInventoryLayout$Builder$SlotBuilder);
+    descriptor: (Lcom/enderio/machines/common/io/item/MachineInventoryLayout$Builder$SlotBuilder;)Lcom/enderio/machines/common/io/item/MachineInventoryLayout$Builder$SlotBuilder;
+    Code:
+       0: aload_1
+       1: invokevirtual #253                // Method com/enderio/machines/common/io/item/MachineInventoryLayout$Builder$SlotBuilder.guiInsert:()Lcom/enderio/machines/common/io/item/MachineInventoryLayout$Builder$SlotBuilder;
+       4: invokevirtual #256                // Method com/enderio/machines/common/io/item/MachineInventoryLayout$Builder$SlotBuilder.guiExtract:()Lcom/enderio/machines/common/io/item/MachineInventoryLayout$Builder$SlotBuilder;
+       7: aload_0
+       8: invokedynamic #292,  0            // InvokeDynamic #5:test:(Lcom/enderio/machines/common/blockentity/VacuumChestBlockEntity;)Ljava/util/function/BiPredicate;
+      13: invokevirtual #295                // Method com/enderio/machines/common/io/item/MachineInventoryLayout$Builder$SlotBuilder.filter:(Ljava/util/function/BiPredicate;)Lcom/enderio/machines/common/io/item/MachineInventoryLayout$Builder$SlotBuilder;
+      16: areturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: new           #216                // class com/enderio/machines/common/io/item/SingleSlotAccess
+       3: dup
+       4: invokespecial #298                // Method com/enderio/machines/common/io/item/SingleSlotAccess."<init>":()V
+       7: putstatic     #91                 // Field FILTER_SLOT:Lcom/enderio/machines/common/io/item/SingleSlotAccess;
+      10: return
+}

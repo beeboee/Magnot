@@ -1,0 +1,154 @@
+Compiled from "BlockRelay.java"
+public class cool.furry.mc.forge.projectexpansion.block.BlockRelay extends net.minecraft.block.Block implements cool.furry.mc.forge.projectexpansion.util.IHasMatter {
+  private final cool.furry.mc.forge.projectexpansion.util.Matter matter;
+    descriptor: Lcool/furry/mc/forge/projectexpansion/util/Matter;
+
+  public cool.furry.mc.forge.projectexpansion.block.BlockRelay(cool.furry.mc.forge.projectexpansion.util.Matter);
+    descriptor: (Lcool/furry/mc/forge/projectexpansion/util/Matter;)V
+    Code:
+       0: aload_0
+       1: getstatic     #37                 // Field net/minecraft/block/material/Material.field_151576_e:Lnet/minecraft/block/material/Material;
+       4: invokestatic  #41                 // Method net/minecraft/block/AbstractBlock$Properties.func_200945_a:(Lnet/minecraft/block/material/Material;)Lnet/minecraft/block/AbstractBlock$Properties;
+       7: ldc           #42                 // float 10.0f
+       9: ldc           #43                 // float 30.0f
+      11: invokevirtual #47                 // Method net/minecraft/block/AbstractBlock$Properties.func_200948_a:(FF)Lnet/minecraft/block/AbstractBlock$Properties;
+      14: invokevirtual #51                 // Method net/minecraft/block/AbstractBlock$Properties.func_235861_h_:()Lnet/minecraft/block/AbstractBlock$Properties;
+      17: aload_1
+      18: invokedynamic #71,  0             // InvokeDynamic #0:applyAsInt:(Lcool/furry/mc/forge/projectexpansion/util/Matter;)Ljava/util/function/ToIntFunction;
+      23: invokevirtual #75                 // Method net/minecraft/block/AbstractBlock$Properties.func_235838_a_:(Ljava/util/function/ToIntFunction;)Lnet/minecraft/block/AbstractBlock$Properties;
+      26: invokespecial #78                 // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/AbstractBlock$Properties;)V
+      29: aload_0
+      30: aload_1
+      31: putfield      #80                 // Field matter:Lcool/furry/mc/forge/projectexpansion/util/Matter;
+      34: return
+
+  public cool.furry.mc.forge.projectexpansion.util.Matter getMatter();
+    descriptor: ()Lcool/furry/mc/forge/projectexpansion/util/Matter;
+    Code:
+       0: aload_0
+       1: getfield      #80                 // Field matter:Lcool/furry/mc/forge/projectexpansion/util/Matter;
+       4: areturn
+
+  public boolean hasTileEntity(net.minecraft.block.BlockState);
+    descriptor: (Lnet/minecraft/block/BlockState;)Z
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public net.minecraft.tileentity.TileEntity createTileEntity(net.minecraft.block.BlockState, net.minecraft.world.IBlockReader);
+    descriptor: (Lnet/minecraft/block/BlockState;Lnet/minecraft/world/IBlockReader;)Lnet/minecraft/tileentity/TileEntity;
+    Code:
+       0: new           #94                 // class cool/furry/mc/forge/projectexpansion/tile/TileRelay
+       3: dup
+       4: invokespecial #97                 // Method cool/furry/mc/forge/projectexpansion/tile/TileRelay."<init>":()V
+       7: areturn
+
+  public void func_190948_a(net.minecraft.item.ItemStack, net.minecraft.world.IBlockReader, java.util.List<net.minecraft.util.text.ITextComponent>, net.minecraft.client.util.ITooltipFlag);
+    descriptor: (Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/IBlockReader;Ljava/util/List;Lnet/minecraft/client/util/ITooltipFlag;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: aload         4
+       6: invokespecial #108                // Method net/minecraft/block/Block.func_190948_a:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/IBlockReader;Ljava/util/List;Lnet/minecraft/client/util/ITooltipFlag;)V
+       9: aload_3
+      10: getstatic     #112                // Field cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.RELAY_TOOLTIP:Lcool/furry/mc/forge/projectexpansion/util/Lang$Blocks;
+      13: getstatic     #118                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+      16: iconst_0
+      17: anewarray     #120                // class java/lang/Object
+      20: invokevirtual #124                // Method cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.translateColored:(Lnet/minecraft/util/text/TextFormatting;[Ljava/lang/Object;)Lnet/minecraft/util/text/IFormattableTextComponent;
+      23: invokeinterface #130,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      28: pop
+      29: aload_3
+      30: getstatic     #133                // Field cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.RELAY_BONUS:Lcool/furry/mc/forge/projectexpansion/util/Lang$Blocks;
+      33: getstatic     #118                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+      36: iconst_1
+      37: anewarray     #120                // class java/lang/Object
+      40: dup
+      41: iconst_0
+      42: aload_0
+      43: invokevirtual #135                // Method getMatter:()Lcool/furry/mc/forge/projectexpansion/util/Matter;
+      46: getstatic     #141                // Field cool/furry/mc/forge/projectexpansion/config/Config.tickDelay:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+      49: invokevirtual #145                // Method net/minecraftforge/common/ForgeConfigSpec$ConfigValue.get:()Ljava/lang/Object;
+      52: checkcast     #147                // class java/lang/Integer
+      55: invokevirtual #151                // Method java/lang/Integer.intValue:()I
+      58: invokevirtual #157                // Method cool/furry/mc/forge/projectexpansion/util/Matter.getRelayBonusForTicks:(I)Ljava/math/BigInteger;
+      61: invokestatic  #163                // Method cool/furry/mc/forge/projectexpansion/util/EMCFormat.getComponent:(Ljava/math/BigInteger;)Lnet/minecraft/util/text/IFormattableTextComponent;
+      64: getstatic     #169                // Field cool/furry/mc/forge/projectexpansion/util/ColorStyle.GREEN:Lnet/minecraft/util/text/Style;
+      67: invokeinterface #175,  2          // InterfaceMethod net/minecraft/util/text/IFormattableTextComponent.func_230530_a_:(Lnet/minecraft/util/text/Style;)Lnet/minecraft/util/text/IFormattableTextComponent;
+      72: aastore
+      73: invokevirtual #124                // Method cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.translateColored:(Lnet/minecraft/util/text/TextFormatting;[Ljava/lang/Object;)Lnet/minecraft/util/text/IFormattableTextComponent;
+      76: invokeinterface #130,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      81: pop
+      82: aload_3
+      83: getstatic     #178                // Field cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.RELAY_TRANSFER:Lcool/furry/mc/forge/projectexpansion/util/Lang$Blocks;
+      86: getstatic     #118                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+      89: iconst_1
+      90: anewarray     #120                // class java/lang/Object
+      93: dup
+      94: iconst_0
+      95: aload_0
+      96: invokevirtual #135                // Method getMatter:()Lcool/furry/mc/forge/projectexpansion/util/Matter;
+      99: invokevirtual #182                // Method cool/furry/mc/forge/projectexpansion/util/Matter.getRelayTransferComponent:()Lnet/minecraft/util/text/IFormattableTextComponent;
+     102: getstatic     #169                // Field cool/furry/mc/forge/projectexpansion/util/ColorStyle.GREEN:Lnet/minecraft/util/text/Style;
+     105: invokeinterface #175,  2          // InterfaceMethod net/minecraft/util/text/IFormattableTextComponent.func_230530_a_:(Lnet/minecraft/util/text/Style;)Lnet/minecraft/util/text/IFormattableTextComponent;
+     110: aastore
+     111: invokevirtual #124                // Method cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.translateColored:(Lnet/minecraft/util/text/TextFormatting;[Ljava/lang/Object;)Lnet/minecraft/util/text/IFormattableTextComponent;
+     114: invokeinterface #130,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     119: pop
+     120: aload_1
+     121: invokevirtual #187                // Method net/minecraft/item/ItemStack.func_190916_E:()I
+     124: iconst_1
+     125: if_icmple     192
+     128: aload_3
+     129: getstatic     #190                // Field cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.COLLECTOR_STACK_EMC:Lcool/furry/mc/forge/projectexpansion/util/Lang$Blocks;
+     132: getstatic     #118                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+     135: iconst_1
+     136: anewarray     #120                // class java/lang/Object
+     139: dup
+     140: iconst_0
+     141: aload_0
+     142: invokevirtual #135                // Method getMatter:()Lcool/furry/mc/forge/projectexpansion/util/Matter;
+     145: getstatic     #141                // Field cool/furry/mc/forge/projectexpansion/config/Config.tickDelay:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     148: invokevirtual #145                // Method net/minecraftforge/common/ForgeConfigSpec$ConfigValue.get:()Ljava/lang/Object;
+     151: checkcast     #147                // class java/lang/Integer
+     154: invokevirtual #151                // Method java/lang/Integer.intValue:()I
+     157: invokevirtual #193                // Method cool/furry/mc/forge/projectexpansion/util/Matter.getCollectorOutputForTicks:(I)Ljava/math/BigInteger;
+     160: aload_1
+     161: invokevirtual #187                // Method net/minecraft/item/ItemStack.func_190916_E:()I
+     164: i2l
+     165: invokestatic  #199                // Method java/math/BigInteger.valueOf:(J)Ljava/math/BigInteger;
+     168: invokevirtual #203                // Method java/math/BigInteger.multiply:(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+     171: invokestatic  #163                // Method cool/furry/mc/forge/projectexpansion/util/EMCFormat.getComponent:(Ljava/math/BigInteger;)Lnet/minecraft/util/text/IFormattableTextComponent;
+     174: getstatic     #169                // Field cool/furry/mc/forge/projectexpansion/util/ColorStyle.GREEN:Lnet/minecraft/util/text/Style;
+     177: invokeinterface #175,  2          // InterfaceMethod net/minecraft/util/text/IFormattableTextComponent.func_230530_a_:(Lnet/minecraft/util/text/Style;)Lnet/minecraft/util/text/IFormattableTextComponent;
+     182: aastore
+     183: invokevirtual #124                // Method cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.translateColored:(Lnet/minecraft/util/text/TextFormatting;[Ljava/lang/Object;)Lnet/minecraft/util/text/IFormattableTextComponent;
+     186: invokeinterface #130,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     191: pop
+     192: aload_3
+     193: getstatic     #207                // Field cool/furry/mc/forge/projectexpansion/util/Lang.SEE_WIKI:Lcool/furry/mc/forge/projectexpansion/util/Lang;
+     196: getstatic     #210                // Field net/minecraft/util/text/TextFormatting.AQUA:Lnet/minecraft/util/text/TextFormatting;
+     199: iconst_0
+     200: anewarray     #120                // class java/lang/Object
+     203: invokevirtual #211                // Method cool/furry/mc/forge/projectexpansion/util/Lang.translateColored:(Lnet/minecraft/util/text/TextFormatting;[Ljava/lang/Object;)Lnet/minecraft/util/text/IFormattableTextComponent;
+     206: invokeinterface #130,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     211: pop
+     212: return
+
+  public net.minecraft.block.material.PushReaction func_149656_h(net.minecraft.block.BlockState);
+    descriptor: (Lnet/minecraft/block/BlockState;)Lnet/minecraft/block/material/PushReaction;
+    Code:
+       0: getstatic     #227                // Field net/minecraft/block/material/PushReaction.BLOCK:Lnet/minecraft/block/material/PushReaction;
+       3: areturn
+
+  private static int lambda$new$0(cool.furry.mc.forge.projectexpansion.util.Matter, net.minecraft.block.BlockState);
+    descriptor: (Lcool/furry/mc/forge/projectexpansion/util/Matter;Lnet/minecraft/block/BlockState;)I
+    Code:
+       0: aload_0
+       1: invokevirtual #230                // Method cool/furry/mc/forge/projectexpansion/util/Matter.ordinal:()I
+       4: bipush        15
+       6: invokestatic  #236                // Method java/lang/Math.min:(II)I
+       9: ireturn
+}

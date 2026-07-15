@@ -1,0 +1,84 @@
+Compiled from "PacketFortuneCoinTogglePressed.java"
+public final class reliquary.network.PacketFortuneCoinTogglePressed$InventoryType extends java.lang.Enum<reliquary.network.PacketFortuneCoinTogglePressed$InventoryType> {
+  public static final reliquary.network.PacketFortuneCoinTogglePressed$InventoryType MAIN;
+    descriptor: Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+
+  public static final reliquary.network.PacketFortuneCoinTogglePressed$InventoryType OFF_HAND;
+    descriptor: Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+
+  public static final reliquary.network.PacketFortuneCoinTogglePressed$InventoryType CURIOS;
+    descriptor: Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+
+  private static final reliquary.network.PacketFortuneCoinTogglePressed$InventoryType[] $VALUES;
+    descriptor: [Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+
+  public static reliquary.network.PacketFortuneCoinTogglePressed$InventoryType[] values();
+    descriptor: ()[Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+    Code:
+       0: getstatic     #19                 // Field $VALUES:[Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+       3: invokevirtual #24                 // Method "[Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;".clone:()Ljava/lang/Object;
+       6: checkcast     #20                 // class "[Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;"
+       9: areturn
+
+  public static reliquary.network.PacketFortuneCoinTogglePressed$InventoryType valueOf(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+    Code:
+       0: ldc           #2                  // class reliquary/network/PacketFortuneCoinTogglePressed$InventoryType
+       2: aload_0
+       3: invokestatic  #29                 // Method java/lang/Enum.valueOf:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
+       6: checkcast     #2                  // class reliquary/network/PacketFortuneCoinTogglePressed$InventoryType
+       9: areturn
+
+  private reliquary.network.PacketFortuneCoinTogglePressed$InventoryType();
+    descriptor: (Ljava/lang/String;I)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: invokespecial #36                 // Method java/lang/Enum."<init>":(Ljava/lang/String;I)V
+       6: return
+
+  private static reliquary.network.PacketFortuneCoinTogglePressed$InventoryType[] $values();
+    descriptor: ()[Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+    Code:
+       0: iconst_3
+       1: anewarray     #2                  // class reliquary/network/PacketFortuneCoinTogglePressed$InventoryType
+       4: dup
+       5: iconst_0
+       6: getstatic     #40                 // Field MAIN:Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+       9: aastore
+      10: dup
+      11: iconst_1
+      12: getstatic     #42                 // Field OFF_HAND:Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+      15: aastore
+      16: dup
+      17: iconst_2
+      18: getstatic     #44                 // Field CURIOS:Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+      21: aastore
+      22: areturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: new           #2                  // class reliquary/network/PacketFortuneCoinTogglePressed$InventoryType
+       3: dup
+       4: ldc           #46                 // String MAIN
+       6: iconst_0
+       7: invokespecial #47                 // Method "<init>":(Ljava/lang/String;I)V
+      10: putstatic     #40                 // Field MAIN:Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+      13: new           #2                  // class reliquary/network/PacketFortuneCoinTogglePressed$InventoryType
+      16: dup
+      17: ldc           #48                 // String OFF_HAND
+      19: iconst_1
+      20: invokespecial #47                 // Method "<init>":(Ljava/lang/String;I)V
+      23: putstatic     #42                 // Field OFF_HAND:Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+      26: new           #2                  // class reliquary/network/PacketFortuneCoinTogglePressed$InventoryType
+      29: dup
+      30: ldc           #49                 // String CURIOS
+      32: iconst_2
+      33: invokespecial #47                 // Method "<init>":(Ljava/lang/String;I)V
+      36: putstatic     #44                 // Field CURIOS:Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+      39: invokestatic  #51                 // Method $values:()[Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+      42: putstatic     #19                 // Field $VALUES:[Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+      45: return
+}

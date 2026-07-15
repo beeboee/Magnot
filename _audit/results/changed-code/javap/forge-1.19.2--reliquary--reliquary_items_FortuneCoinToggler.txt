@@ -1,0 +1,115 @@
+Compiled from "FortuneCoinToggler.java"
+public class reliquary.items.FortuneCoinToggler {
+  private static reliquary.items.FortuneCoinToggler coinToggler;
+    descriptor: Lreliquary/items/FortuneCoinToggler;
+
+  public reliquary.items.FortuneCoinToggler();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #25                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void setCoinToggler(reliquary.items.FortuneCoinToggler);
+    descriptor: (Lreliquary/items/FortuneCoinToggler;)V
+    Code:
+       0: aload_0
+       1: putstatic     #30                 // Field coinToggler:Lreliquary/items/FortuneCoinToggler;
+       4: return
+
+  public static void handleKeyInputEvent(net.minecraftforge.event.TickEvent$ClientTickEvent);
+    descriptor: (Lnet/minecraftforge/event/TickEvent$ClientTickEvent;)V
+    Code:
+       0: getstatic     #39                 // Field reliquary/handler/ClientEventHandler.FORTUNE_COIN_TOGGLE_KEYBIND:Lnet/minecraft/client/KeyMapping;
+       3: invokevirtual #45                 // Method net/minecraft/client/KeyMapping.m_90859_:()Z
+       6: ifeq          16
+       9: getstatic     #30                 // Field coinToggler:Lreliquary/items/FortuneCoinToggler;
+      12: invokevirtual #48                 // Method findAndToggle:()Z
+      15: pop
+      16: return
+
+  public boolean findAndToggle();
+    descriptor: ()Z
+    Code:
+       0: invokestatic  #56                 // Method net/minecraft/client/Minecraft.m_91087_:()Lnet/minecraft/client/Minecraft;
+       3: getfield      #60                 // Field net/minecraft/client/Minecraft.f_91074_:Lnet/minecraft/client/player/LocalPlayer;
+       6: astore_1
+       7: aload_1
+       8: ifnonnull     13
+      11: iconst_0
+      12: ireturn
+      13: iconst_0
+      14: istore_2
+      15: iload_2
+      16: aload_1
+      17: invokevirtual #66                 // Method net/minecraft/world/entity/player/Player.m_150109_:()Lnet/minecraft/world/entity/player/Inventory;
+      20: getfield      #72                 // Field net/minecraft/world/entity/player/Inventory.f_35974_:Lnet/minecraft/core/NonNullList;
+      23: invokevirtual #78                 // Method net/minecraft/core/NonNullList.size:()I
+      26: if_icmpge     92
+      29: aload_1
+      30: invokevirtual #66                 // Method net/minecraft/world/entity/player/Player.m_150109_:()Lnet/minecraft/world/entity/player/Inventory;
+      33: getfield      #72                 // Field net/minecraft/world/entity/player/Inventory.f_35974_:Lnet/minecraft/core/NonNullList;
+      36: iload_2
+      37: invokevirtual #82                 // Method net/minecraft/core/NonNullList.get:(I)Ljava/lang/Object;
+      40: checkcast     #84                 // class net/minecraft/world/item/ItemStack
+      43: astore_3
+      44: aload_3
+      45: invokevirtual #88                 // Method net/minecraft/world/item/ItemStack.m_41720_:()Lnet/minecraft/world/item/Item;
+      48: getstatic     #94                 // Field reliquary/init/ModItems.FORTUNE_COIN:Lnet/minecraftforge/registries/RegistryObject;
+      51: invokevirtual #99                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      54: if_acmpne     86
+      57: new           #13                 // class reliquary/network/PacketFortuneCoinTogglePressed
+      60: dup
+      61: getstatic     #103                // Field reliquary/network/PacketFortuneCoinTogglePressed$InventoryType.MAIN:Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+      64: iload_2
+      65: invokespecial #106                // Method reliquary/network/PacketFortuneCoinTogglePressed."<init>":(Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;I)V
+      68: invokestatic  #112                // Method reliquary/network/PacketHandler.sendToServer:(Ljava/lang/Object;)V
+      71: getstatic     #94                 // Field reliquary/init/ModItems.FORTUNE_COIN:Lnet/minecraftforge/registries/RegistryObject;
+      74: invokevirtual #99                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      77: checkcast     #114                // class reliquary/items/FortuneCoinItem
+      80: aload_3
+      81: invokevirtual #118                // Method reliquary/items/FortuneCoinItem.toggle:(Lnet/minecraft/world/item/ItemStack;)V
+      84: iconst_1
+      85: ireturn
+      86: iinc          2, 1
+      89: goto          15
+      92: aload_1
+      93: invokevirtual #66                 // Method net/minecraft/world/entity/player/Player.m_150109_:()Lnet/minecraft/world/entity/player/Inventory;
+      96: getfield      #121                // Field net/minecraft/world/entity/player/Inventory.f_35976_:Lnet/minecraft/core/NonNullList;
+      99: iconst_0
+     100: invokevirtual #82                 // Method net/minecraft/core/NonNullList.get:(I)Ljava/lang/Object;
+     103: checkcast     #84                 // class net/minecraft/world/item/ItemStack
+     106: invokevirtual #88                 // Method net/minecraft/world/item/ItemStack.m_41720_:()Lnet/minecraft/world/item/Item;
+     109: getstatic     #94                 // Field reliquary/init/ModItems.FORTUNE_COIN:Lnet/minecraftforge/registries/RegistryObject;
+     112: invokevirtual #99                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     115: if_acmpne     160
+     118: new           #13                 // class reliquary/network/PacketFortuneCoinTogglePressed
+     121: dup
+     122: getstatic     #124                // Field reliquary/network/PacketFortuneCoinTogglePressed$InventoryType.OFF_HAND:Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+     125: iconst_0
+     126: invokespecial #106                // Method reliquary/network/PacketFortuneCoinTogglePressed."<init>":(Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;I)V
+     129: invokestatic  #112                // Method reliquary/network/PacketHandler.sendToServer:(Ljava/lang/Object;)V
+     132: getstatic     #94                 // Field reliquary/init/ModItems.FORTUNE_COIN:Lnet/minecraftforge/registries/RegistryObject;
+     135: invokevirtual #99                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     138: checkcast     #114                // class reliquary/items/FortuneCoinItem
+     141: aload_1
+     142: invokevirtual #66                 // Method net/minecraft/world/entity/player/Player.m_150109_:()Lnet/minecraft/world/entity/player/Inventory;
+     145: getfield      #121                // Field net/minecraft/world/entity/player/Inventory.f_35976_:Lnet/minecraft/core/NonNullList;
+     148: iconst_0
+     149: invokevirtual #82                 // Method net/minecraft/core/NonNullList.get:(I)Ljava/lang/Object;
+     152: checkcast     #84                 // class net/minecraft/world/item/ItemStack
+     155: invokevirtual #118                // Method reliquary/items/FortuneCoinItem.toggle:(Lnet/minecraft/world/item/ItemStack;)V
+     158: iconst_1
+     159: ireturn
+     160: iconst_0
+     161: ireturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: new           #2                  // class reliquary/items/FortuneCoinToggler
+       3: dup
+       4: invokespecial #132                // Method "<init>":()V
+       7: putstatic     #30                 // Field coinToggler:Lreliquary/items/FortuneCoinToggler;
+      10: return
+}

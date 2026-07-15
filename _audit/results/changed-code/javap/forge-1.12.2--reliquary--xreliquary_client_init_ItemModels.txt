@@ -1,0 +1,464 @@
+Compiled from "ItemModels.java"
+public class xreliquary.client.init.ItemModels {
+  public xreliquary.client.init.ItemModels();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #35                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void registerItemModels();
+    descriptor: ()V
+    Code:
+       0: getstatic     #42                 // Field xreliquary/reference/Settings.Disable:Lxreliquary/reference/Settings$DisableSettings;
+       3: getfield      #46                 // Field xreliquary/reference/Settings$DisableSettings.disableAlkahestry:Z
+       6: ifne          17
+       9: getstatic     #52                 // Field xreliquary/init/ModItems.alkahestryTome:Lxreliquary/items/ItemAlkahestryTome;
+      12: ldc           #54                 // String alkahestry_tome
+      14: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+      17: getstatic     #62                 // Field xreliquary/init/ModItems.mercyCross:Lxreliquary/items/ItemMercyCross;
+      20: ldc           #64                 // String mercy_cross
+      22: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+      25: getstatic     #68                 // Field xreliquary/init/ModItems.angelheartVial:Lxreliquary/items/ItemAngelheartVial;
+      28: ldc           #70                 // String angelheart_vial
+      30: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+      33: getstatic     #74                 // Field xreliquary/init/ModItems.angelicFeather:Lxreliquary/items/ItemAngelicFeather;
+      36: ldc           #76                 // String angelic_feather
+      38: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+      41: getstatic     #80                 // Field xreliquary/init/ModItems.destructionCatalyst:Lxreliquary/items/ItemDestructionCatalyst;
+      44: ldc           #82                 // String destruction_catalyst
+      46: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+      49: getstatic     #86                 // Field xreliquary/init/ModItems.emperorChalice:Lxreliquary/items/ItemEmperorChalice;
+      52: ldc           #88                 // String emperor_chalice
+      54: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+      57: getstatic     #92                 // Field xreliquary/init/ModItems.enderStaff:Lxreliquary/items/ItemEnderStaff;
+      60: ldc           #94                 // String ender_staff
+      62: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+      65: getstatic     #98                 // Field xreliquary/init/ModItems.fortuneCoin:Lxreliquary/items/ItemFortuneCoin;
+      68: ldc           #100                // String fortune_coin
+      70: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+      73: getstatic     #104                // Field xreliquary/init/ModItems.glacialStaff:Lxreliquary/items/ItemGlacialStaff;
+      76: ldc           #106                // String glacial_staff
+      78: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+      81: getstatic     #110                // Field xreliquary/init/ModItems.glowingBread:Lxreliquary/items/ItemGlowingBread;
+      84: ldc           #112                // String glowing_bread
+      86: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+      89: getstatic     #116                // Field xreliquary/init/ModItems.glowingWater:Lxreliquary/items/ItemGlowingWater;
+      92: ldc           #118                // String glowing_water
+      94: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+      97: getstatic     #42                 // Field xreliquary/reference/Settings.Disable:Lxreliquary/reference/Settings$DisableSettings;
+     100: getfield      #121                // Field xreliquary/reference/Settings$DisableSettings.disableHandgun:Z
+     103: ifne          114
+     106: getstatic     #125                // Field xreliquary/init/ModItems.handgun:Lxreliquary/items/ItemHandgun;
+     109: ldc           #126                // String handgun
+     111: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     114: getstatic     #130                // Field xreliquary/init/ModItems.harvestRod:Lxreliquary/items/ItemHarvestRod;
+     117: ldc           #132                // String harvest_rod
+     119: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     122: getstatic     #136                // Field xreliquary/init/ModItems.heroMedallion:Lxreliquary/items/ItemHeroMedallion;
+     125: ldc           #138                // String hero_medallion
+     127: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     130: getstatic     #142                // Field xreliquary/init/ModItems.holyHandGrenade:Lxreliquary/items/ItemHolyHandGrenade;
+     133: ldc           #144                // String holy_hand_grenade
+     135: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     138: getstatic     #148                // Field xreliquary/init/ModItems.iceMagusRod:Lxreliquary/items/ItemIceMagusRod;
+     141: ldc           #150                // String ice_magus_rod
+     143: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     146: getstatic     #154                // Field xreliquary/init/ModItems.infernalChalice:Lxreliquary/items/ItemInfernalChalice;
+     149: ldc           #156                // String infernal_chalice
+     151: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     154: getstatic     #160                // Field xreliquary/init/ModItems.infernalClaws:Lxreliquary/items/ItemInfernalClaws;
+     157: ldc           #162                // String infernal_claws
+     159: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     162: getstatic     #166                // Field xreliquary/init/ModItems.krakenShell:Lxreliquary/items/ItemKrakenShell;
+     165: ldc           #168                // String kraken_shell
+     167: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     170: getstatic     #172                // Field xreliquary/init/ModItems.lanternOfParanoia:Lxreliquary/items/ItemLanternOfParanoia;
+     173: ldc           #174                // String lantern_of_paranoia
+     175: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     178: getstatic     #178                // Field xreliquary/init/ModItems.magicbane:Lxreliquary/items/ItemMagicbane;
+     181: ldc           #179                // String magicbane
+     183: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     186: getstatic     #183                // Field xreliquary/init/ModItems.midasTouchstone:Lxreliquary/items/ItemMidasTouchstone;
+     189: ldc           #185                // String midas_touchstone
+     191: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     194: getstatic     #189                // Field xreliquary/init/ModItems.phoenixDown:Lxreliquary/items/ItemPhoenixDown;
+     197: ldc           #191                // String phoenix_down
+     199: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     202: getstatic     #195                // Field xreliquary/init/ModItems.pyromancerStaff:Lxreliquary/items/ItemPyromancerStaff;
+     205: ldc           #197                // String pyromancer_staff
+     207: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     210: getstatic     #201                // Field xreliquary/init/ModItems.rendingGale:Lxreliquary/items/ItemRendingGale;
+     213: ldc           #203                // String rending_gale
+     215: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     218: getstatic     #207                // Field xreliquary/init/ModItems.salamanderEye:Lxreliquary/items/ItemSalamanderEye;
+     221: ldc           #209                // String salamander_eye
+     223: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     226: getstatic     #213                // Field xreliquary/init/ModItems.serpentStaff:Lxreliquary/items/ItemSerpentStaff;
+     229: ldc           #215                // String serpent_staff
+     231: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     234: getstatic     #219                // Field xreliquary/init/ModItems.shearsOfWinter:Lxreliquary/items/ItemShearsOfWinter;
+     237: ldc           #221                // String shears_of_winter
+     239: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     242: getstatic     #225                // Field xreliquary/init/ModItems.sojournerStaff:Lxreliquary/items/ItemSojournerStaff;
+     245: ldc           #227                // String sojourner_staff
+     247: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     250: getstatic     #231                // Field xreliquary/init/ModItems.twilightCloak:Lxreliquary/items/ItemTwilightCloak;
+     253: ldc           #233                // String twilight_cloak
+     255: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     258: getstatic     #237                // Field xreliquary/init/ModItems.witchHat:Lxreliquary/items/ItemWitchHat;
+     261: ldc           #239                // String witch_hat
+     263: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     266: getstatic     #243                // Field xreliquary/init/ModItems.witherlessRose:Lxreliquary/items/ItemWitherlessRose;
+     269: ldc           #245                // String witherless_rose
+     271: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     274: getstatic     #249                // Field xreliquary/init/ModItems.mobCharmBelt:Lxreliquary/items/ItemMobCharmBelt;
+     277: ldc           #251                // String mob_charm_belt
+     279: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     282: getstatic     #255                // Field xreliquary/init/ModItems.rodOfLyssa:Lxreliquary/items/ItemRodOfLyssa;
+     285: ldc_w         #257                // String rod_of_lyssa
+     288: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     291: getstatic     #255                // Field xreliquary/init/ModItems.rodOfLyssa:Lxreliquary/items/ItemRodOfLyssa;
+     294: iconst_1
+     295: anewarray     #259                // class net/minecraft/util/ResourceLocation
+     298: dup
+     299: iconst_0
+     300: getstatic     #265                // Field xreliquary/client/ItemModelLocations.ROD_OF_LYSSA_CAST:Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+     303: aastore
+     304: invokestatic  #271                // Method net/minecraft/client/renderer/block/model/ModelBakery.registerItemVariants:(Lnet/minecraft/item/Item;[Lnet/minecraft/util/ResourceLocation;)V
+     307: iconst_0
+     308: istore_0
+     309: iload_0
+     310: bipush        17
+     312: if_icmpge     332
+     315: getstatic     #275                // Field xreliquary/init/ModItems.mobIngredient:Lxreliquary/items/ItemMobIngredient;
+     318: ldc_w         #277                // String mob_ingredient
+     321: iload_0
+     322: iconst_1
+     323: invokestatic  #280                // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;IZ)V
+     326: iinc          0, 1
+     329: goto          309
+     332: getstatic     #42                 // Field xreliquary/reference/Settings.Disable:Lxreliquary/reference/Settings$DisableSettings;
+     335: getfield      #121                // Field xreliquary/reference/Settings$DisableSettings.disableHandgun:Z
+     338: ifne          393
+     341: getstatic     #284                // Field xreliquary/init/ModItems.magazine:Lxreliquary/items/ItemMagazine;
+     344: ldc_w         #285                // String magazine
+     347: invokedynamic #302,  0            // InvokeDynamic #0:func_178113_a:()Lnet/minecraft/client/renderer/ItemMeshDefinition;
+     352: invokestatic  #306                // Method registerItemModelForAllVariants:(Lnet/minecraft/item/Item;Ljava/lang/String;Lnet/minecraft/client/renderer/ItemMeshDefinition;)V
+     355: iconst_0
+     356: istore_0
+     357: iload_0
+     358: iconst_3
+     359: if_icmpge     379
+     362: getstatic     #310                // Field xreliquary/init/ModItems.gunPart:Lxreliquary/items/ItemGunPart;
+     365: ldc_w         #312                // String gun_part
+     368: iload_0
+     369: iconst_1
+     370: invokestatic  #280                // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;IZ)V
+     373: iinc          0, 1
+     376: goto          357
+     379: getstatic     #316                // Field xreliquary/init/ModItems.bullet:Lxreliquary/items/ItemBullet;
+     382: ldc_w         #317                // String bullet
+     385: invokedynamic #322,  0            // InvokeDynamic #1:func_178113_a:()Lnet/minecraft/client/renderer/ItemMeshDefinition;
+     390: invokestatic  #306                // Method registerItemModelForAllVariants:(Lnet/minecraft/item/Item;Ljava/lang/String;Lnet/minecraft/client/renderer/ItemMeshDefinition;)V
+     393: getstatic     #326                // Field xreliquary/init/ModItems.mobCharmFragment:Lxreliquary/items/ItemMobCharmFragment;
+     396: ldc_w         #328                // String mob_charm_fragment
+     399: invokedynamic #333,  0            // InvokeDynamic #2:func_178113_a:()Lnet/minecraft/client/renderer/ItemMeshDefinition;
+     404: invokestatic  #306                // Method registerItemModelForAllVariants:(Lnet/minecraft/item/Item;Ljava/lang/String;Lnet/minecraft/client/renderer/ItemMeshDefinition;)V
+     407: getstatic     #337                // Field xreliquary/init/ModItems.mobCharm:Lxreliquary/items/ItemMobCharm;
+     410: ldc_w         #339                // String mob_charm
+     413: invokedynamic #344,  0            // InvokeDynamic #3:func_178113_a:()Lnet/minecraft/client/renderer/ItemMeshDefinition;
+     418: invokestatic  #306                // Method registerItemModelForAllVariants:(Lnet/minecraft/item/Item;Ljava/lang/String;Lnet/minecraft/client/renderer/ItemMeshDefinition;)V
+     421: getstatic     #348                // Field xreliquary/init/ModItems.infernalTear:Lxreliquary/items/ItemInfernalTear;
+     424: ldc_w         #350                // String infernal_tear_empty
+     427: invokedynamic #355,  0            // InvokeDynamic #4:func_178113_a:()Lnet/minecraft/client/renderer/ItemMeshDefinition;
+     432: invokestatic  #306                // Method registerItemModelForAllVariants:(Lnet/minecraft/item/Item;Ljava/lang/String;Lnet/minecraft/client/renderer/ItemMeshDefinition;)V
+     435: getstatic     #348                // Field xreliquary/init/ModItems.infernalTear:Lxreliquary/items/ItemInfernalTear;
+     438: iconst_1
+     439: anewarray     #259                // class net/minecraft/util/ResourceLocation
+     442: dup
+     443: iconst_0
+     444: getstatic     #358                // Field xreliquary/client/ItemModelLocations.INFERNAL_TEAR:Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+     447: aastore
+     448: invokestatic  #271                // Method net/minecraft/client/renderer/block/model/ModelBakery.registerItemVariants:(Lnet/minecraft/item/Item;[Lnet/minecraft/util/ResourceLocation;)V
+     451: getstatic     #362                // Field xreliquary/init/ModItems.voidTear:Lxreliquary/items/ItemVoidTear;
+     454: ldc_w         #364                // String void_tear_empty
+     457: invokedynamic #369,  0            // InvokeDynamic #5:func_178113_a:()Lnet/minecraft/client/renderer/ItemMeshDefinition;
+     462: invokestatic  #306                // Method registerItemModelForAllVariants:(Lnet/minecraft/item/Item;Ljava/lang/String;Lnet/minecraft/client/renderer/ItemMeshDefinition;)V
+     465: getstatic     #362                // Field xreliquary/init/ModItems.voidTear:Lxreliquary/items/ItemVoidTear;
+     468: iconst_1
+     469: anewarray     #259                // class net/minecraft/util/ResourceLocation
+     472: dup
+     473: iconst_0
+     474: getstatic     #372                // Field xreliquary/client/ItemModelLocations.VOID_TEAR:Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+     477: aastore
+     478: invokestatic  #271                // Method net/minecraft/client/renderer/block/model/ModelBakery.registerItemVariants:(Lnet/minecraft/item/Item;[Lnet/minecraft/util/ResourceLocation;)V
+     481: getstatic     #42                 // Field xreliquary/reference/Settings.Disable:Lxreliquary/reference/Settings$DisableSettings;
+     484: getfield      #375                // Field xreliquary/reference/Settings$DisableSettings.disablePotions:Z
+     487: ifne          577
+     490: getstatic     #379                // Field xreliquary/init/ModItems.tippedArrow:Lxreliquary/items/ItemXRTippedArrow;
+     493: ldc_w         #381                // String tipped_arrow
+     496: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     499: getstatic     #385                // Field xreliquary/init/ModItems.attractionPotion:Lxreliquary/items/ItemAttractionPotion;
+     502: ldc_w         #387                // String attraction_potion
+     505: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     508: getstatic     #391                // Field xreliquary/init/ModItems.fertilePotion:Lxreliquary/items/ItemFertilePotion;
+     511: ldc_w         #393                // String fertile_potion
+     514: invokestatic  #58                 // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+     517: getstatic     #397                // Field xreliquary/init/ModItems.potionEssence:Lxreliquary/items/ItemPotionEssence;
+     520: ldc_w         #399                // String potion_essence
+     523: invokedynamic #404,  0            // InvokeDynamic #6:func_178113_a:()Lnet/minecraft/client/renderer/ItemMeshDefinition;
+     528: invokestatic  #306                // Method registerItemModelForAllVariants:(Lnet/minecraft/item/Item;Ljava/lang/String;Lnet/minecraft/client/renderer/ItemMeshDefinition;)V
+     531: getstatic     #408                // Field xreliquary/init/ModItems.potion:Lxreliquary/items/ItemXRPotion;
+     534: ldc_w         #409                // String potion
+     537: invokedynamic #414,  0            // InvokeDynamic #7:func_178113_a:()Lnet/minecraft/client/renderer/ItemMeshDefinition;
+     542: invokestatic  #306                // Method registerItemModelForAllVariants:(Lnet/minecraft/item/Item;Ljava/lang/String;Lnet/minecraft/client/renderer/ItemMeshDefinition;)V
+     545: getstatic     #408                // Field xreliquary/init/ModItems.potion:Lxreliquary/items/ItemXRPotion;
+     548: iconst_1
+     549: anewarray     #259                // class net/minecraft/util/ResourceLocation
+     552: dup
+     553: iconst_0
+     554: getstatic     #417                // Field xreliquary/client/ItemModelLocations.POTION_SPLASH:Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+     557: aastore
+     558: invokestatic  #271                // Method net/minecraft/client/renderer/block/model/ModelBakery.registerItemVariants:(Lnet/minecraft/item/Item;[Lnet/minecraft/util/ResourceLocation;)V
+     561: getstatic     #408                // Field xreliquary/init/ModItems.potion:Lxreliquary/items/ItemXRPotion;
+     564: iconst_1
+     565: anewarray     #259                // class net/minecraft/util/ResourceLocation
+     568: dup
+     569: iconst_0
+     570: getstatic     #420                // Field xreliquary/client/ItemModelLocations.POTION_LINGERING:Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+     573: aastore
+     574: invokestatic  #271                // Method net/minecraft/client/renderer/block/model/ModelBakery.registerItemVariants:(Lnet/minecraft/item/Item;[Lnet/minecraft/util/ResourceLocation;)V
+     577: return
+
+  private static void registerItemModelForAllVariants(net.minecraft.item.Item, java.lang.String, net.minecraft.client.renderer.ItemMeshDefinition);
+    descriptor: (Lnet/minecraft/item/Item;Ljava/lang/String;Lnet/minecraft/client/renderer/ItemMeshDefinition;)V
+    Code:
+       0: new           #424                // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #425                // Method java/lang/StringBuilder."<init>":()V
+       7: getstatic     #431                // Field xreliquary/reference/Reference.DOMAIN:Ljava/lang/String;
+      10: invokevirtual #435                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      13: aload_1
+      14: invokevirtual #435                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      17: invokevirtual #439                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      20: astore_1
+      21: aload_0
+      22: iconst_1
+      23: anewarray     #259                // class net/minecraft/util/ResourceLocation
+      26: dup
+      27: iconst_0
+      28: new           #259                // class net/minecraft/util/ResourceLocation
+      31: dup
+      32: aload_1
+      33: invokespecial #442                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;)V
+      36: aastore
+      37: invokestatic  #271                // Method net/minecraft/client/renderer/block/model/ModelBakery.registerItemVariants:(Lnet/minecraft/item/Item;[Lnet/minecraft/util/ResourceLocation;)V
+      40: aload_0
+      41: aload_2
+      42: invokestatic  #448                // Method net/minecraftforge/client/model/ModelLoader.setCustomMeshDefinition:(Lnet/minecraft/item/Item;Lnet/minecraft/client/renderer/ItemMeshDefinition;)V
+      45: return
+
+  private static void registerItemModel(net.minecraft.item.Item, java.lang.String);
+    descriptor: (Lnet/minecraft/item/Item;Ljava/lang/String;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iconst_0
+       3: iconst_0
+       4: invokestatic  #280                // Method registerItemModel:(Lnet/minecraft/item/Item;Ljava/lang/String;IZ)V
+       7: return
+
+  private static void registerItemModel(net.minecraft.item.Item, java.lang.String, int, boolean);
+    descriptor: (Lnet/minecraft/item/Item;Ljava/lang/String;IZ)V
+    Code:
+       0: iload_3
+       1: ifeq          29
+       4: new           #424                // class java/lang/StringBuilder
+       7: dup
+       8: invokespecial #425                // Method java/lang/StringBuilder."<init>":()V
+      11: aload_1
+      12: invokevirtual #435                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      15: ldc_w         #455                // String _
+      18: invokevirtual #435                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      21: iload_2
+      22: invokevirtual #458                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      25: invokevirtual #439                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      28: astore_1
+      29: new           #424                // class java/lang/StringBuilder
+      32: dup
+      33: invokespecial #425                // Method java/lang/StringBuilder."<init>":()V
+      36: getstatic     #431                // Field xreliquary/reference/Reference.DOMAIN:Ljava/lang/String;
+      39: invokevirtual #435                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      42: aload_1
+      43: invokevirtual #435                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      46: invokevirtual #439                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      49: astore_1
+      50: aload_0
+      51: iload_2
+      52: new           #460                // class net/minecraft/client/renderer/block/model/ModelResourceLocation
+      55: dup
+      56: aload_1
+      57: ldc_w         #462                // String inventory
+      60: invokespecial #465                // Method net/minecraft/client/renderer/block/model/ModelResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+      63: invokestatic  #469                // Method net/minecraftforge/client/model/ModelLoader.setCustomModelResourceLocation:(Lnet/minecraft/item/Item;ILnet/minecraft/client/renderer/block/model/ModelResourceLocation;)V
+      66: return
+
+  public static void onModelBake(net.minecraftforge.client.event.ModelBakeEvent);
+    descriptor: (Lnet/minecraftforge/client/event/ModelBakeEvent;)V
+    Code:
+       0: new           #460                // class net/minecraft/client/renderer/block/model/ModelResourceLocation
+       3: dup
+       4: new           #259                // class net/minecraft/util/ResourceLocation
+       7: dup
+       8: ldc_w         #475                // String xreliquary
+      11: ldc_w         #477                // String void_tear
+      14: invokespecial #478                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+      17: ldc_w         #462                // String inventory
+      20: invokespecial #481                // Method net/minecraft/client/renderer/block/model/ModelResourceLocation."<init>":(Lnet/minecraft/util/ResourceLocation;Ljava/lang/String;)V
+      23: astore_1
+      24: new           #483                // class xreliquary/client/model/ModelVoidTear
+      27: dup
+      28: aload_0
+      29: invokevirtual #489                // Method net/minecraftforge/client/event/ModelBakeEvent.getModelRegistry:()Lnet/minecraft/util/registry/IRegistry;
+      32: aload_1
+      33: invokeinterface #495,  2          // InterfaceMethod net/minecraft/util/registry/IRegistry.func_82594_a:(Ljava/lang/Object;)Ljava/lang/Object;
+      38: checkcast     #497                // class net/minecraft/client/renderer/block/model/IBakedModel
+      41: invokespecial #500                // Method xreliquary/client/model/ModelVoidTear."<init>":(Lnet/minecraft/client/renderer/block/model/IBakedModel;)V
+      44: astore_2
+      45: aload_0
+      46: invokevirtual #489                // Method net/minecraftforge/client/event/ModelBakeEvent.getModelRegistry:()Lnet/minecraft/util/registry/IRegistry;
+      49: aload_1
+      50: aload_2
+      51: invokeinterface #504,  3          // InterfaceMethod net/minecraft/util/registry/IRegistry.func_82595_a:(Ljava/lang/Object;Ljava/lang/Object;)V
+      56: return
+
+  private static net.minecraft.client.renderer.block.model.ModelResourceLocation lambda$registerItemModels$7(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+    Code:
+       0: getstatic     #408                // Field xreliquary/init/ModItems.potion:Lxreliquary/items/ItemXRPotion;
+       3: aload_0
+       4: invokevirtual #515                // Method xreliquary/items/ItemXRPotion.isSplash:(Lnet/minecraft/item/ItemStack;)Z
+       7: ifeq          14
+      10: getstatic     #417                // Field xreliquary/client/ItemModelLocations.POTION_SPLASH:Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+      13: areturn
+      14: getstatic     #408                // Field xreliquary/init/ModItems.potion:Lxreliquary/items/ItemXRPotion;
+      17: aload_0
+      18: invokevirtual #518                // Method xreliquary/items/ItemXRPotion.isLingering:(Lnet/minecraft/item/ItemStack;)Z
+      21: ifeq          28
+      24: getstatic     #420                // Field xreliquary/client/ItemModelLocations.POTION_LINGERING:Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+      27: areturn
+      28: getstatic     #521                // Field xreliquary/client/ItemModelLocations.POTION:Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+      31: areturn
+
+  private static net.minecraft.client.renderer.block.model.ModelResourceLocation lambda$registerItemModels$6(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+    Code:
+       0: new           #460                // class net/minecraft/client/renderer/block/model/ModelResourceLocation
+       3: dup
+       4: new           #424                // class java/lang/StringBuilder
+       7: dup
+       8: invokespecial #425                // Method java/lang/StringBuilder."<init>":()V
+      11: getstatic     #431                // Field xreliquary/reference/Reference.DOMAIN:Ljava/lang/String;
+      14: invokevirtual #435                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      17: ldc_w         #399                // String potion_essence
+      20: invokevirtual #435                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      23: invokevirtual #439                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      26: ldc_w         #462                // String inventory
+      29: invokespecial #465                // Method net/minecraft/client/renderer/block/model/ModelResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+      32: areturn
+
+  private static net.minecraft.client.renderer.block.model.ModelResourceLocation lambda$registerItemModels$5(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+    Code:
+       0: getstatic     #362                // Field xreliquary/init/ModItems.voidTear:Lxreliquary/items/ItemVoidTear;
+       3: aload_0
+       4: iconst_1
+       5: invokevirtual #529                // Method xreliquary/items/ItemVoidTear.isEmpty:(Lnet/minecraft/item/ItemStack;Z)Z
+       8: ifne          15
+      11: getstatic     #372                // Field xreliquary/client/ItemModelLocations.VOID_TEAR:Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+      14: areturn
+      15: getstatic     #532                // Field xreliquary/client/ItemModelLocations.VOID_TEAR_EMPTY:Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+      18: areturn
+
+  private static net.minecraft.client.renderer.block.model.ModelResourceLocation lambda$registerItemModels$4(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+    Code:
+       0: getstatic     #348                // Field xreliquary/init/ModItems.infernalTear:Lxreliquary/items/ItemInfernalTear;
+       3: aload_0
+       4: invokevirtual #538                // Method xreliquary/items/ItemInfernalTear.getStackFromTear:(Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;
+       7: invokevirtual #544                // Method net/minecraft/item/ItemStack.func_190926_b:()Z
+      10: ifne          17
+      13: getstatic     #358                // Field xreliquary/client/ItemModelLocations.INFERNAL_TEAR:Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+      16: areturn
+      17: getstatic     #547                // Field xreliquary/client/ItemModelLocations.INFERNAL_TEAR_EMPTY:Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+      20: areturn
+
+  private static net.minecraft.client.renderer.block.model.ModelResourceLocation lambda$registerItemModels$3(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+    Code:
+       0: new           #460                // class net/minecraft/client/renderer/block/model/ModelResourceLocation
+       3: dup
+       4: new           #424                // class java/lang/StringBuilder
+       7: dup
+       8: invokespecial #425                // Method java/lang/StringBuilder."<init>":()V
+      11: getstatic     #431                // Field xreliquary/reference/Reference.DOMAIN:Ljava/lang/String;
+      14: invokevirtual #435                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      17: ldc_w         #339                // String mob_charm
+      20: invokevirtual #435                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      23: invokevirtual #439                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      26: ldc_w         #462                // String inventory
+      29: invokespecial #465                // Method net/minecraft/client/renderer/block/model/ModelResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+      32: areturn
+
+  private static net.minecraft.client.renderer.block.model.ModelResourceLocation lambda$registerItemModels$2(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+    Code:
+       0: new           #460                // class net/minecraft/client/renderer/block/model/ModelResourceLocation
+       3: dup
+       4: new           #424                // class java/lang/StringBuilder
+       7: dup
+       8: invokespecial #425                // Method java/lang/StringBuilder."<init>":()V
+      11: getstatic     #431                // Field xreliquary/reference/Reference.DOMAIN:Ljava/lang/String;
+      14: invokevirtual #435                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      17: ldc_w         #328                // String mob_charm_fragment
+      20: invokevirtual #435                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      23: invokevirtual #439                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      26: ldc_w         #462                // String inventory
+      29: invokespecial #465                // Method net/minecraft/client/renderer/block/model/ModelResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+      32: areturn
+
+  private static net.minecraft.client.renderer.block.model.ModelResourceLocation lambda$registerItemModels$1(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+    Code:
+       0: new           #460                // class net/minecraft/client/renderer/block/model/ModelResourceLocation
+       3: dup
+       4: new           #424                // class java/lang/StringBuilder
+       7: dup
+       8: invokespecial #425                // Method java/lang/StringBuilder."<init>":()V
+      11: getstatic     #431                // Field xreliquary/reference/Reference.DOMAIN:Ljava/lang/String;
+      14: invokevirtual #435                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      17: ldc_w         #317                // String bullet
+      20: invokevirtual #435                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      23: invokevirtual #439                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      26: ldc_w         #462                // String inventory
+      29: invokespecial #465                // Method net/minecraft/client/renderer/block/model/ModelResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+      32: areturn
+
+  private static net.minecraft.client.renderer.block.model.ModelResourceLocation lambda$registerItemModels$0(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)Lnet/minecraft/client/renderer/block/model/ModelResourceLocation;
+    Code:
+       0: new           #460                // class net/minecraft/client/renderer/block/model/ModelResourceLocation
+       3: dup
+       4: new           #424                // class java/lang/StringBuilder
+       7: dup
+       8: invokespecial #425                // Method java/lang/StringBuilder."<init>":()V
+      11: getstatic     #431                // Field xreliquary/reference/Reference.DOMAIN:Ljava/lang/String;
+      14: invokevirtual #435                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      17: ldc_w         #285                // String magazine
+      20: invokevirtual #435                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      23: invokevirtual #439                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      26: ldc_w         #462                // String inventory
+      29: invokespecial #465                // Method net/minecraft/client/renderer/block/model/ModelResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+      32: areturn
+}

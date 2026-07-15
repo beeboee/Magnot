@@ -1,0 +1,385 @@
+Compiled from "VacuumChestScreen.java"
+public class com.enderio.machines.client.gui.screen.VacuumChestScreen extends com.enderio.machines.client.gui.screen.MachineScreen<com.enderio.machines.common.menu.VacuumChestMenu> {
+  private static final net.minecraft.resources.ResourceLocation VACUUM_CHEST_BG;
+    descriptor: Lnet/minecraft/resources/ResourceLocation;
+
+  private static final net.minecraft.resources.ResourceLocation RANGE_BUTTON_TEXTURE;
+    descriptor: Lnet/minecraft/resources/ResourceLocation;
+
+  public com.enderio.machines.client.gui.screen.VacuumChestScreen(com.enderio.machines.common.menu.VacuumChestMenu, net.minecraft.world.entity.player.Inventory, net.minecraft.network.chat.Component);
+    descriptor: (Lcom/enderio/machines/common/menu/VacuumChestMenu;Lnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/chat/Component;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: iconst_1
+       5: invokespecial #19                 // Method com/enderio/machines/client/gui/screen/MachineScreen."<init>":(Lcom/enderio/machines/common/menu/MachineMenu;Lnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/chat/Component;Z)V
+       8: aload_0
+       9: aload_0
+      10: getfield      #23                 // Field f_97727_:I
+      13: bipush        94
+      15: isub
+      16: putfield      #26                 // Field f_97731_:I
+      19: return
+
+  protected void m_7856_();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #38                 // Method com/enderio/machines/client/gui/screen/MachineScreen.m_7856_:()V
+       4: aload_0
+       5: new           #40                 // class com/enderio/core/client/gui/widgets/EnumIconWidget
+       8: dup
+       9: aload_0
+      10: aload_0
+      11: getfield      #43                 // Field f_97735_:I
+      14: aload_0
+      15: getfield      #46                 // Field f_97726_:I
+      18: iadd
+      19: bipush        8
+      21: isub
+      22: bipush        16
+      24: isub
+      25: aload_0
+      26: getfield      #49                 // Field f_97736_:I
+      29: bipush        105
+      31: iadd
+      32: aload_0
+      33: invokedynamic #68,  0             // InvokeDynamic #0:get:(Lcom/enderio/machines/client/gui/screen/VacuumChestScreen;)Ljava/util/function/Supplier;
+      38: aload_0
+      39: invokedynamic #80,  0             // InvokeDynamic #1:accept:(Lcom/enderio/machines/client/gui/screen/VacuumChestScreen;)Ljava/util/function/Consumer;
+      44: getstatic     #85                 // Field com/enderio/base/common/lang/EIOLang.REDSTONE_MODE:Lnet/minecraft/network/chat/Component;
+      47: invokespecial #88                 // Method com/enderio/core/client/gui/widgets/EnumIconWidget."<init>":(Lnet/minecraft/client/gui/screens/Screen;IILjava/util/function/Supplier;Ljava/util/function/Consumer;Lnet/minecraft/network/chat/Component;)V
+      50: invokevirtual #92                 // Method m_142416_:(Lnet/minecraft/client/gui/components/events/GuiEventListener;)Lnet/minecraft/client/gui/components/events/GuiEventListener;
+      53: pop
+      54: aload_0
+      55: new           #94                 // class com/enderio/core/client/gui/widgets/ToggleImageButton
+      58: dup
+      59: aload_0
+      60: aload_0
+      61: getfield      #43                 // Field f_97735_:I
+      64: aload_0
+      65: getfield      #46                 // Field f_97726_:I
+      68: iadd
+      69: bipush        8
+      71: isub
+      72: bipush        32
+      74: isub
+      75: iconst_2
+      76: isub
+      77: aload_0
+      78: getfield      #49                 // Field f_97736_:I
+      81: bipush        105
+      83: iadd
+      84: bipush        16
+      86: bipush        16
+      88: iconst_0
+      89: iconst_0
+      90: bipush        16
+      92: iconst_0
+      93: getstatic     #96                 // Field RANGE_BUTTON_TEXTURE:Lnet/minecraft/resources/ResourceLocation;
+      96: aload_0
+      97: invokedynamic #103,  0            // InvokeDynamic #2:get:(Lcom/enderio/machines/client/gui/screen/VacuumChestScreen;)Ljava/util/function/Supplier;
+     102: aload_0
+     103: invokedynamic #110,  0            // InvokeDynamic #3:accept:(Lcom/enderio/machines/client/gui/screen/VacuumChestScreen;)Ljava/util/function/Consumer;
+     108: aload_0
+     109: invokedynamic #117,  0            // InvokeDynamic #4:get:(Lcom/enderio/machines/client/gui/screen/VacuumChestScreen;)Ljava/util/function/Supplier;
+     114: invokespecial #120                // Method com/enderio/core/client/gui/widgets/ToggleImageButton."<init>":(Lnet/minecraft/client/gui/screens/Screen;IIIIIIIILnet/minecraft/resources/ResourceLocation;Ljava/util/function/Supplier;Ljava/util/function/Consumer;Ljava/util/function/Supplier;)V
+     117: invokevirtual #92                 // Method m_142416_:(Lnet/minecraft/client/gui/components/events/GuiEventListener;)Lnet/minecraft/client/gui/components/events/GuiEventListener;
+     120: pop
+     121: aload_0
+     122: new           #122                // class com/enderio/api/misc/Vector2i
+     125: dup
+     126: aload_0
+     127: getfield      #43                 // Field f_97735_:I
+     130: aload_0
+     131: getfield      #46                 // Field f_97726_:I
+     134: iadd
+     135: bipush        8
+     137: isub
+     138: bipush        8
+     140: isub
+     141: aload_0
+     142: getfield      #49                 // Field f_97736_:I
+     145: bipush        86
+     147: iadd
+     148: invokespecial #125                // Method com/enderio/api/misc/Vector2i."<init>":(II)V
+     151: aload_0
+     152: invokedynamic #132,  0            // InvokeDynamic #5:get:(Lcom/enderio/machines/client/gui/screen/VacuumChestScreen;)Ljava/util/function/Supplier;
+     157: aload_0
+     158: invokedynamic #139,  0            // InvokeDynamic #6:accept:(Lcom/enderio/machines/client/gui/screen/VacuumChestScreen;)Ljava/util/function/Consumer;
+     163: invokestatic  #145                // Method com/enderio/core/client/gui/widgets/MultiIconButton.createAddButton:(Lcom/enderio/api/misc/Vector2i;Ljava/util/function/Supplier;Ljava/util/function/Consumer;)Lcom/enderio/core/client/gui/widgets/MultiIconButton;
+     166: invokevirtual #92                 // Method m_142416_:(Lnet/minecraft/client/gui/components/events/GuiEventListener;)Lnet/minecraft/client/gui/components/events/GuiEventListener;
+     169: pop
+     170: aload_0
+     171: new           #122                // class com/enderio/api/misc/Vector2i
+     174: dup
+     175: aload_0
+     176: getfield      #43                 // Field f_97735_:I
+     179: aload_0
+     180: getfield      #46                 // Field f_97726_:I
+     183: iadd
+     184: bipush        8
+     186: isub
+     187: bipush        8
+     189: isub
+     190: aload_0
+     191: getfield      #49                 // Field f_97736_:I
+     194: bipush        94
+     196: iadd
+     197: invokespecial #125                // Method com/enderio/api/misc/Vector2i."<init>":(II)V
+     200: aload_0
+     201: invokedynamic #150,  0            // InvokeDynamic #7:get:(Lcom/enderio/machines/client/gui/screen/VacuumChestScreen;)Ljava/util/function/Supplier;
+     206: aload_0
+     207: invokedynamic #155,  0            // InvokeDynamic #8:accept:(Lcom/enderio/machines/client/gui/screen/VacuumChestScreen;)Ljava/util/function/Consumer;
+     212: invokestatic  #158                // Method com/enderio/core/client/gui/widgets/MultiIconButton.createMinusButton:(Lcom/enderio/api/misc/Vector2i;Ljava/util/function/Supplier;Ljava/util/function/Consumer;)Lcom/enderio/core/client/gui/widgets/MultiIconButton;
+     215: invokevirtual #92                 // Method m_142416_:(Lnet/minecraft/client/gui/components/events/GuiEventListener;)Lnet/minecraft/client/gui/components/events/GuiEventListener;
+     218: pop
+     219: aload_0
+     220: new           #160                // class com/enderio/machines/client/gui/widget/ActiveWidget
+     223: dup
+     224: aload_0
+     225: aload_0
+     226: getfield      #164                // Field f_97732_:Lnet/minecraft/world/inventory/AbstractContainerMenu;
+     229: checkcast     #166                // class com/enderio/machines/common/menu/VacuumChestMenu
+     232: invokevirtual #170                // Method com/enderio/machines/common/menu/VacuumChestMenu.getBlockEntity:()Lcom/enderio/core/common/blockentity/EnderBlockEntity;
+     235: checkcast     #172                // class com/enderio/machines/common/blockentity/VacuumChestBlockEntity
+     238: dup
+     239: invokestatic  #178                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+     242: pop
+     243: invokedynamic #189,  0            // InvokeDynamic #9:get:(Lcom/enderio/machines/common/blockentity/VacuumChestBlockEntity;)Ljava/util/function/Supplier;
+     248: aload_0
+     249: getfield      #43                 // Field f_97735_:I
+     252: aload_0
+     253: getfield      #46                 // Field f_97726_:I
+     256: iadd
+     257: bipush        8
+     259: isub
+     260: bipush        48
+     262: isub
+     263: iconst_4
+     264: isub
+     265: aload_0
+     266: getfield      #49                 // Field f_97736_:I
+     269: bipush        105
+     271: iadd
+     272: invokespecial #192                // Method com/enderio/machines/client/gui/widget/ActiveWidget."<init>":(Lnet/minecraft/client/gui/screens/Screen;Ljava/util/function/Supplier;II)V
+     275: invokevirtual #92                 // Method m_142416_:(Lnet/minecraft/client/gui/components/events/GuiEventListener;)Lnet/minecraft/client/gui/components/events/GuiEventListener;
+     278: pop
+     279: return
+
+  public net.minecraft.resources.ResourceLocation getBackgroundImage();
+    descriptor: ()Lnet/minecraft/resources/ResourceLocation;
+    Code:
+       0: getstatic     #196                // Field VACUUM_CHEST_BG:Lnet/minecraft/resources/ResourceLocation;
+       3: areturn
+
+  protected com.enderio.api.misc.Vector2i getBackgroundImageSize();
+    descriptor: ()Lcom/enderio/api/misc/Vector2i;
+    Code:
+       0: new           #122                // class com/enderio/api/misc/Vector2i
+       3: dup
+       4: sipush        176
+       7: sipush        206
+      10: invokespecial #125                // Method com/enderio/api/misc/Vector2i."<init>":(II)V
+      13: areturn
+
+  protected void m_280003_(net.minecraft.client.gui.GuiGraphics, int, int);
+    descriptor: (Lnet/minecraft/client/gui/GuiGraphics;II)V
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #204                // Field f_96547_:Lnet/minecraft/client/gui/Font;
+       5: getstatic     #207                // Field com/enderio/base/common/lang/EIOLang.FILTER:Lnet/minecraft/network/chat/Component;
+       8: bipush        8
+      10: bipush        74
+      12: ldc           #208                // int 4210752
+      14: iconst_0
+      15: invokevirtual #214                // Method net/minecraft/client/gui/GuiGraphics.m_280614_:(Lnet/minecraft/client/gui/Font;Lnet/minecraft/network/chat/Component;IIIZ)I
+      18: pop
+      19: aload_1
+      20: aload_0
+      21: getfield      #204                // Field f_96547_:Lnet/minecraft/client/gui/Font;
+      24: getstatic     #217                // Field com/enderio/base/common/lang/EIOLang.RANGE:Lnet/minecraft/network/chat/Component;
+      27: aload_0
+      28: getfield      #46                 // Field f_97726_:I
+      31: bipush        8
+      33: isub
+      34: aload_0
+      35: getfield      #204                // Field f_96547_:Lnet/minecraft/client/gui/Font;
+      38: getstatic     #217                // Field com/enderio/base/common/lang/EIOLang.RANGE:Lnet/minecraft/network/chat/Component;
+      41: invokevirtual #223                // Method net/minecraft/client/gui/Font.m_92852_:(Lnet/minecraft/network/chat/FormattedText;)I
+      44: isub
+      45: bipush        74
+      47: ldc           #208                // int 4210752
+      49: iconst_0
+      50: invokevirtual #214                // Method net/minecraft/client/gui/GuiGraphics.m_280614_:(Lnet/minecraft/client/gui/Font;Lnet/minecraft/network/chat/Component;IIIZ)I
+      53: pop
+      54: aload_0
+      55: aload_1
+      56: iload_2
+      57: iload_3
+      58: invokespecial #225                // Method com/enderio/machines/client/gui/screen/MachineScreen.m_280003_:(Lnet/minecraft/client/gui/GuiGraphics;II)V
+      61: return
+
+  public void m_88315_(net.minecraft.client.gui.GuiGraphics, int, int, float);
+    descriptor: (Lnet/minecraft/client/gui/GuiGraphics;IIF)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: iload_3
+       4: fload         4
+       6: invokespecial #233                // Method com/enderio/machines/client/gui/screen/MachineScreen.m_88315_:(Lnet/minecraft/client/gui/GuiGraphics;IIF)V
+       9: aload_1
+      10: aload_0
+      11: getfield      #204                // Field f_96547_:Lnet/minecraft/client/gui/Font;
+      14: aload_0
+      15: invokevirtual #237                // Method m_6262_:()Lnet/minecraft/world/inventory/AbstractContainerMenu;
+      18: checkcast     #166                // class com/enderio/machines/common/menu/VacuumChestMenu
+      21: invokevirtual #170                // Method com/enderio/machines/common/menu/VacuumChestMenu.getBlockEntity:()Lcom/enderio/core/common/blockentity/EnderBlockEntity;
+      24: checkcast     #172                // class com/enderio/machines/common/blockentity/VacuumChestBlockEntity
+      27: invokevirtual #241                // Method com/enderio/machines/common/blockentity/VacuumChestBlockEntity.getRange:()I
+      30: invokedynamic #253,  0            // InvokeDynamic #10:makeConcatWithConstants:(I)Ljava/lang/String;
+      35: aload_0
+      36: getfield      #43                 // Field f_97735_:I
+      39: aload_0
+      40: getfield      #46                 // Field f_97726_:I
+      43: iadd
+      44: bipush        8
+      46: isub
+      47: bipush        8
+      49: isub
+      50: bipush        10
+      52: isub
+      53: aload_0
+      54: getfield      #49                 // Field f_97736_:I
+      57: bipush        90
+      59: iadd
+      60: iconst_0
+      61: iconst_0
+      62: invokevirtual #257                // Method net/minecraft/client/gui/GuiGraphics.m_280056_:(Lnet/minecraft/client/gui/Font;Ljava/lang/String;IIIZ)I
+      65: pop
+      66: return
+
+  private void lambda$init$8(java.lang.Integer);
+    descriptor: (Ljava/lang/Integer;)V
+    Code:
+       0: aload_0
+       1: getfield      #164                // Field f_97732_:Lnet/minecraft/world/inventory/AbstractContainerMenu;
+       4: checkcast     #166                // class com/enderio/machines/common/menu/VacuumChestMenu
+       7: invokevirtual #170                // Method com/enderio/machines/common/menu/VacuumChestMenu.getBlockEntity:()Lcom/enderio/core/common/blockentity/EnderBlockEntity;
+      10: checkcast     #172                // class com/enderio/machines/common/blockentity/VacuumChestBlockEntity
+      13: invokevirtual #262                // Method com/enderio/machines/common/blockentity/VacuumChestBlockEntity.decreaseRange:()V
+      16: return
+
+  private java.lang.Integer lambda$init$7();
+    descriptor: ()Ljava/lang/Integer;
+    Code:
+       0: aload_0
+       1: getfield      #164                // Field f_97732_:Lnet/minecraft/world/inventory/AbstractContainerMenu;
+       4: checkcast     #166                // class com/enderio/machines/common/menu/VacuumChestMenu
+       7: invokevirtual #170                // Method com/enderio/machines/common/menu/VacuumChestMenu.getBlockEntity:()Lcom/enderio/core/common/blockentity/EnderBlockEntity;
+      10: checkcast     #172                // class com/enderio/machines/common/blockentity/VacuumChestBlockEntity
+      13: invokevirtual #241                // Method com/enderio/machines/common/blockentity/VacuumChestBlockEntity.getRange:()I
+      16: invokestatic  #270                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      19: areturn
+
+  private void lambda$init$6(java.lang.Integer);
+    descriptor: (Ljava/lang/Integer;)V
+    Code:
+       0: aload_0
+       1: getfield      #164                // Field f_97732_:Lnet/minecraft/world/inventory/AbstractContainerMenu;
+       4: checkcast     #166                // class com/enderio/machines/common/menu/VacuumChestMenu
+       7: invokevirtual #170                // Method com/enderio/machines/common/menu/VacuumChestMenu.getBlockEntity:()Lcom/enderio/core/common/blockentity/EnderBlockEntity;
+      10: checkcast     #172                // class com/enderio/machines/common/blockentity/VacuumChestBlockEntity
+      13: invokevirtual #273                // Method com/enderio/machines/common/blockentity/VacuumChestBlockEntity.increaseRange:()V
+      16: return
+
+  private java.lang.Integer lambda$init$5();
+    descriptor: ()Ljava/lang/Integer;
+    Code:
+       0: aload_0
+       1: getfield      #164                // Field f_97732_:Lnet/minecraft/world/inventory/AbstractContainerMenu;
+       4: checkcast     #166                // class com/enderio/machines/common/menu/VacuumChestMenu
+       7: invokevirtual #170                // Method com/enderio/machines/common/menu/VacuumChestMenu.getBlockEntity:()Lcom/enderio/core/common/blockentity/EnderBlockEntity;
+      10: checkcast     #172                // class com/enderio/machines/common/blockentity/VacuumChestBlockEntity
+      13: invokevirtual #241                // Method com/enderio/machines/common/blockentity/VacuumChestBlockEntity.getRange:()I
+      16: invokestatic  #270                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      19: areturn
+
+  private net.minecraft.network.chat.Component lambda$init$4();
+    descriptor: ()Lnet/minecraft/network/chat/Component;
+    Code:
+       0: aload_0
+       1: getfield      #164                // Field f_97732_:Lnet/minecraft/world/inventory/AbstractContainerMenu;
+       4: checkcast     #166                // class com/enderio/machines/common/menu/VacuumChestMenu
+       7: invokevirtual #170                // Method com/enderio/machines/common/menu/VacuumChestMenu.getBlockEntity:()Lcom/enderio/core/common/blockentity/EnderBlockEntity;
+      10: checkcast     #172                // class com/enderio/machines/common/blockentity/VacuumChestBlockEntity
+      13: invokevirtual #277                // Method com/enderio/machines/common/blockentity/VacuumChestBlockEntity.isRangeVisible:()Z
+      16: ifeq          25
+      19: getstatic     #280                // Field com/enderio/base/common/lang/EIOLang.HIDE_RANGE:Lnet/minecraft/network/chat/Component;
+      22: goto          28
+      25: getstatic     #283                // Field com/enderio/base/common/lang/EIOLang.SHOW_RANGE:Lnet/minecraft/network/chat/Component;
+      28: areturn
+
+  private void lambda$init$3(java.lang.Boolean);
+    descriptor: (Ljava/lang/Boolean;)V
+    Code:
+       0: aload_0
+       1: getfield      #164                // Field f_97732_:Lnet/minecraft/world/inventory/AbstractContainerMenu;
+       4: checkcast     #166                // class com/enderio/machines/common/menu/VacuumChestMenu
+       7: invokevirtual #170                // Method com/enderio/machines/common/menu/VacuumChestMenu.getBlockEntity:()Lcom/enderio/core/common/blockentity/EnderBlockEntity;
+      10: checkcast     #172                // class com/enderio/machines/common/blockentity/VacuumChestBlockEntity
+      13: aload_1
+      14: invokevirtual #290                // Method java/lang/Boolean.booleanValue:()Z
+      17: invokevirtual #294                // Method com/enderio/machines/common/blockentity/VacuumChestBlockEntity.setIsRangeVisible:(Z)V
+      20: return
+
+  private java.lang.Boolean lambda$init$2();
+    descriptor: ()Ljava/lang/Boolean;
+    Code:
+       0: aload_0
+       1: getfield      #164                // Field f_97732_:Lnet/minecraft/world/inventory/AbstractContainerMenu;
+       4: checkcast     #166                // class com/enderio/machines/common/menu/VacuumChestMenu
+       7: invokevirtual #170                // Method com/enderio/machines/common/menu/VacuumChestMenu.getBlockEntity:()Lcom/enderio/core/common/blockentity/EnderBlockEntity;
+      10: checkcast     #172                // class com/enderio/machines/common/blockentity/VacuumChestBlockEntity
+      13: invokevirtual #277                // Method com/enderio/machines/common/blockentity/VacuumChestBlockEntity.isRangeVisible:()Z
+      16: invokestatic  #299                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      19: areturn
+
+  private void lambda$init$1(com.enderio.api.misc.RedstoneControl);
+    descriptor: (Lcom/enderio/api/misc/RedstoneControl;)V
+    Code:
+       0: aload_0
+       1: getfield      #164                // Field f_97732_:Lnet/minecraft/world/inventory/AbstractContainerMenu;
+       4: checkcast     #166                // class com/enderio/machines/common/menu/VacuumChestMenu
+       7: invokevirtual #170                // Method com/enderio/machines/common/menu/VacuumChestMenu.getBlockEntity:()Lcom/enderio/core/common/blockentity/EnderBlockEntity;
+      10: checkcast     #172                // class com/enderio/machines/common/blockentity/VacuumChestBlockEntity
+      13: aload_1
+      14: invokevirtual #302                // Method com/enderio/machines/common/blockentity/VacuumChestBlockEntity.setRedstoneControl:(Lcom/enderio/api/misc/RedstoneControl;)V
+      17: return
+
+  private com.enderio.api.misc.RedstoneControl lambda$init$0();
+    descriptor: ()Lcom/enderio/api/misc/RedstoneControl;
+    Code:
+       0: aload_0
+       1: getfield      #164                // Field f_97732_:Lnet/minecraft/world/inventory/AbstractContainerMenu;
+       4: checkcast     #166                // class com/enderio/machines/common/menu/VacuumChestMenu
+       7: invokevirtual #170                // Method com/enderio/machines/common/menu/VacuumChestMenu.getBlockEntity:()Lcom/enderio/core/common/blockentity/EnderBlockEntity;
+      10: checkcast     #172                // class com/enderio/machines/common/blockentity/VacuumChestBlockEntity
+      13: invokevirtual #307                // Method com/enderio/machines/common/blockentity/VacuumChestBlockEntity.getRedstoneControl:()Lcom/enderio/api/misc/RedstoneControl;
+      16: areturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: ldc_w         #310                // String textures/gui/vacuum_chest.png
+       3: invokestatic  #316                // Method com/enderio/EnderIO.loc:(Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+       6: putstatic     #196                // Field VACUUM_CHEST_BG:Lnet/minecraft/resources/ResourceLocation;
+       9: ldc_w         #318                // String textures/gui/icons/range_buttons.png
+      12: invokestatic  #316                // Method com/enderio/EnderIO.loc:(Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      15: putstatic     #96                 // Field RANGE_BUTTON_TEXTURE:Lnet/minecraft/resources/ResourceLocation;
+      18: return
+}

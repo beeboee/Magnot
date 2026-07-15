@@ -1,0 +1,149 @@
+Compiled from "BlockTransmutationInterface.java"
+public class cool.furry.mc.forge.projectexpansion.block.BlockTransmutationInterface extends net.minecraft.block.Block {
+  public cool.furry.mc.forge.projectexpansion.block.BlockTransmutationInterface();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: getstatic     #33                 // Field net/minecraft/block/material/Material.field_151576_e:Lnet/minecraft/block/material/Material;
+       4: invokestatic  #37                 // Method net/minecraft/block/AbstractBlock$Properties.func_200945_a:(Lnet/minecraft/block/material/Material;)Lnet/minecraft/block/AbstractBlock$Properties;
+       7: ldc           #38                 // float 1.5f
+       9: ldc           #39                 // float 30.0f
+      11: invokevirtual #43                 // Method net/minecraft/block/AbstractBlock$Properties.func_200948_a:(FF)Lnet/minecraft/block/AbstractBlock$Properties;
+      14: invokevirtual #47                 // Method net/minecraft/block/AbstractBlock$Properties.func_235861_h_:()Lnet/minecraft/block/AbstractBlock$Properties;
+      17: invokedynamic #66,  0             // InvokeDynamic #0:applyAsInt:()Ljava/util/function/ToIntFunction;
+      22: invokevirtual #70                 // Method net/minecraft/block/AbstractBlock$Properties.func_235838_a_:(Ljava/util/function/ToIntFunction;)Lnet/minecraft/block/AbstractBlock$Properties;
+      25: invokespecial #73                 // Method net/minecraft/block/Block."<init>":(Lnet/minecraft/block/AbstractBlock$Properties;)V
+      28: aload_0
+      29: aload_0
+      30: getfield      #77                 // Field field_176227_L:Lnet/minecraft/state/StateContainer;
+      33: invokevirtual #81                 // Method net/minecraft/state/StateContainer.func_177621_b:()Lnet/minecraft/state/StateHolder;
+      36: checkcast     #83                 // class net/minecraft/block/BlockState
+      39: getstatic     #89                 // Field cool/furry/mc/forge/projectexpansion/tile/TileNBTFilterable.FILTER:Lnet/minecraft/state/BooleanProperty;
+      42: iconst_1
+      43: invokestatic  #95                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      46: invokevirtual #99                 // Method net/minecraft/block/BlockState.func_206870_a:(Lnet/minecraft/state/Property;Ljava/lang/Comparable;)Ljava/lang/Object;
+      49: checkcast     #83                 // class net/minecraft/block/BlockState
+      52: invokevirtual #103                // Method func_180632_j:(Lnet/minecraft/block/BlockState;)V
+      55: return
+
+  public boolean hasTileEntity(net.minecraft.block.BlockState);
+    descriptor: (Lnet/minecraft/block/BlockState;)Z
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public net.minecraft.tileentity.TileEntity createTileEntity(net.minecraft.block.BlockState, net.minecraft.world.IBlockReader);
+    descriptor: (Lnet/minecraft/block/BlockState;Lnet/minecraft/world/IBlockReader;)Lnet/minecraft/tileentity/TileEntity;
+    Code:
+       0: new           #114                // class cool/furry/mc/forge/projectexpansion/tile/TileTransmutationInterface
+       3: dup
+       4: invokespecial #116                // Method cool/furry/mc/forge/projectexpansion/tile/TileTransmutationInterface."<init>":()V
+       7: areturn
+
+  public void func_190948_a(net.minecraft.item.ItemStack, net.minecraft.world.IBlockReader, java.util.List<net.minecraft.util.text.ITextComponent>, net.minecraft.client.util.ITooltipFlag);
+    descriptor: (Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/IBlockReader;Ljava/util/List;Lnet/minecraft/client/util/ITooltipFlag;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: aload         4
+       6: invokespecial #127                // Method net/minecraft/block/Block.func_190948_a:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/IBlockReader;Ljava/util/List;Lnet/minecraft/client/util/ITooltipFlag;)V
+       9: aload_3
+      10: getstatic     #131                // Field cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.TRANSMUTATION_INTERFACE_TOOLTIP:Lcool/furry/mc/forge/projectexpansion/util/Lang$Blocks;
+      13: getstatic     #137                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+      16: iconst_0
+      17: anewarray     #139                // class java/lang/Object
+      20: invokevirtual #143                // Method cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.translateColored:(Lnet/minecraft/util/text/TextFormatting;[Ljava/lang/Object;)Lnet/minecraft/util/text/IFormattableTextComponent;
+      23: invokeinterface #149,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      28: pop
+      29: aload_3
+      30: getstatic     #153                // Field cool/furry/mc/forge/projectexpansion/util/Lang.SEE_WIKI:Lcool/furry/mc/forge/projectexpansion/util/Lang;
+      33: getstatic     #156                // Field net/minecraft/util/text/TextFormatting.AQUA:Lnet/minecraft/util/text/TextFormatting;
+      36: iconst_0
+      37: anewarray     #139                // class java/lang/Object
+      40: invokevirtual #157                // Method cool/furry/mc/forge/projectexpansion/util/Lang.translateColored:(Lnet/minecraft/util/text/TextFormatting;[Ljava/lang/Object;)Lnet/minecraft/util/text/IFormattableTextComponent;
+      43: invokeinterface #149,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      48: pop
+      49: return
+
+  public net.minecraft.util.ActionResultType func_225533_a_(net.minecraft.block.BlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.entity.player.PlayerEntity, net.minecraft.util.Hand, net.minecraft.util.math.BlockRayTraceResult);
+    descriptor: (Lnet/minecraft/block/BlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/util/Hand;Lnet/minecraft/util/math/BlockRayTraceResult;)Lnet/minecraft/util/ActionResultType;
+    Code:
+       0: aload_2
+       1: getfield      #173                // Field net/minecraft/world/World.field_72995_K:Z
+       4: ifeq          11
+       7: getstatic     #179                // Field net/minecraft/util/ActionResultType.SUCCESS:Lnet/minecraft/util/ActionResultType;
+      10: areturn
+      11: aload_2
+      12: aload_3
+      13: invokevirtual #183                // Method net/minecraft/world/World.func_175625_s:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      16: astore        7
+      18: aload         7
+      20: instanceof    #114                // class cool/furry/mc/forge/projectexpansion/tile/TileTransmutationInterface
+      23: ifeq          47
+      26: aload         4
+      28: new           #185                // class net/minecraft/util/text/StringTextComponent
+      31: dup
+      32: aload         7
+      34: checkcast     #114                // class cool/furry/mc/forge/projectexpansion/tile/TileTransmutationInterface
+      37: getfield      #189                // Field cool/furry/mc/forge/projectexpansion/tile/TileTransmutationInterface.ownerName:Ljava/lang/String;
+      40: invokespecial #192                // Method net/minecraft/util/text/StringTextComponent."<init>":(Ljava/lang/String;)V
+      43: iconst_1
+      44: invokevirtual #198                // Method net/minecraft/entity/player/PlayerEntity.func_146105_b:(Lnet/minecraft/util/text/ITextComponent;Z)V
+      47: aload_0
+      48: aload_1
+      49: aload_2
+      50: aload_3
+      51: aload         4
+      53: aload         5
+      55: aload         6
+      57: invokespecial #202                // Method net/minecraft/block/Block.func_225533_a_:(Lnet/minecraft/block/BlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/util/Hand;Lnet/minecraft/util/math/BlockRayTraceResult;)Lnet/minecraft/util/ActionResultType;
+      60: areturn
+
+  public void func_180633_a(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.BlockState, net.minecraft.entity.LivingEntity, net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/item/ItemStack;)V
+    Code:
+       0: aload_1
+       1: aload_2
+       2: invokevirtual #183                // Method net/minecraft/world/World.func_175625_s:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+       5: astore        6
+       7: aload         6
+       9: instanceof    #114                // class cool/furry/mc/forge/projectexpansion/tile/TileTransmutationInterface
+      12: ifeq          27
+      15: aload         6
+      17: checkcast     #114                // class cool/furry/mc/forge/projectexpansion/tile/TileTransmutationInterface
+      20: aload         4
+      22: aload         5
+      24: invokevirtual #219                // Method cool/furry/mc/forge/projectexpansion/tile/TileTransmutationInterface.handlePlace:(Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/item/ItemStack;)V
+      27: return
+
+  protected void func_206840_a(net.minecraft.state.StateContainer$Builder<net.minecraft.block.Block, net.minecraft.block.BlockState>);
+    descriptor: (Lnet/minecraft/state/StateContainer$Builder;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #226                // Method net/minecraft/block/Block.func_206840_a:(Lnet/minecraft/state/StateContainer$Builder;)V
+       5: aload_1
+       6: iconst_1
+       7: anewarray     #228                // class net/minecraft/state/Property
+      10: dup
+      11: iconst_0
+      12: getstatic     #89                 // Field cool/furry/mc/forge/projectexpansion/tile/TileNBTFilterable.FILTER:Lnet/minecraft/state/BooleanProperty;
+      15: aastore
+      16: invokevirtual #232                // Method net/minecraft/state/StateContainer$Builder.func_206894_a:([Lnet/minecraft/state/Property;)Lnet/minecraft/state/StateContainer$Builder;
+      19: pop
+      20: return
+
+  public net.minecraft.block.material.PushReaction func_149656_h(net.minecraft.block.BlockState);
+    descriptor: (Lnet/minecraft/block/BlockState;)Lnet/minecraft/block/material/PushReaction;
+    Code:
+       0: getstatic     #243                // Field net/minecraft/block/material/PushReaction.BLOCK:Lnet/minecraft/block/material/PushReaction;
+       3: areturn
+
+  private static int lambda$new$0(net.minecraft.block.BlockState);
+    descriptor: (Lnet/minecraft/block/BlockState;)I
+    Code:
+       0: bipush        15
+       2: ireturn
+}

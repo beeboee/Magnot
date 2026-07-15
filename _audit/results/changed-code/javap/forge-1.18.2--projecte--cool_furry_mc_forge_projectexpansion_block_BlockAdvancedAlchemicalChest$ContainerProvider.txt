@@ -1,0 +1,91 @@
+Compiled from "BlockAdvancedAlchemicalChest.java"
+final class cool.furry.mc.forge.projectexpansion.block.BlockAdvancedAlchemicalChest$ContainerProvider extends java.lang.Record implements net.minecraft.world.MenuProvider {
+  private final cool.furry.mc.forge.projectexpansion.block.entity.BlockEntityAdvancedAlchemicalChest blockEntity;
+    descriptor: Lcool/furry/mc/forge/projectexpansion/block/entity/BlockEntityAdvancedAlchemicalChest;
+
+  private final net.minecraft.world.InteractionHand hand;
+    descriptor: Lnet/minecraft/world/InteractionHand;
+
+  private cool.furry.mc.forge.projectexpansion.block.BlockAdvancedAlchemicalChest$ContainerProvider(cool.furry.mc.forge.projectexpansion.block.entity.BlockEntityAdvancedAlchemicalChest, net.minecraft.world.InteractionHand);
+    descriptor: (Lcool/furry/mc/forge/projectexpansion/block/entity/BlockEntityAdvancedAlchemicalChest;Lnet/minecraft/world/InteractionHand;)V
+    Code:
+       0: aload_0
+       1: invokespecial #24                 // Method java/lang/Record."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #26                 // Field blockEntity:Lcool/furry/mc/forge/projectexpansion/block/entity/BlockEntityAdvancedAlchemicalChest;
+       9: aload_0
+      10: aload_2
+      11: putfield      #28                 // Field hand:Lnet/minecraft/world/InteractionHand;
+      14: return
+
+  public net.minecraft.world.inventory.AbstractContainerMenu m_7208_(int, net.minecraft.world.entity.player.Inventory, net.minecraft.world.entity.player.Player);
+    descriptor: (ILnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/world/entity/player/Player;)Lnet/minecraft/world/inventory/AbstractContainerMenu;
+    Code:
+       0: aload_0
+       1: getfield      #26                 // Field blockEntity:Lcool/furry/mc/forge/projectexpansion/block/entity/BlockEntityAdvancedAlchemicalChest;
+       4: invokevirtual #39                 // Method cool/furry/mc/forge/projectexpansion/block/entity/BlockEntityAdvancedAlchemicalChest.getBag:()Lnet/minecraftforge/items/IItemHandler;
+       7: checkcast     #41                 // class net/minecraftforge/items/IItemHandlerModifiable
+      10: astore        4
+      12: new           #43                 // class cool/furry/mc/forge/projectexpansion/gui/container/ContainerAdvancedAlchemicalChest
+      15: dup
+      16: iload_1
+      17: aload_2
+      18: aload_0
+      19: getfield      #28                 // Field hand:Lnet/minecraft/world/InteractionHand;
+      22: aload         4
+      24: invokestatic  #49                 // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+      27: checkcast     #41                 // class net/minecraftforge/items/IItemHandlerModifiable
+      30: aload_2
+      31: getfield      #55                 // Field net/minecraft/world/entity/player/Inventory.f_35977_:I
+      34: iconst_0
+      35: aload_0
+      36: getfield      #26                 // Field blockEntity:Lcool/furry/mc/forge/projectexpansion/block/entity/BlockEntityAdvancedAlchemicalChest;
+      39: invokespecial #58                 // Method cool/furry/mc/forge/projectexpansion/gui/container/ContainerAdvancedAlchemicalChest."<init>":(ILnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/world/InteractionHand;Lnet/minecraftforge/items/IItemHandlerModifiable;IZLcool/furry/mc/forge/projectexpansion/block/entity/BlockEntityAdvancedAlchemicalChest;)V
+      42: areturn
+
+  public net.minecraft.network.chat.Component m_5446_();
+    descriptor: ()Lnet/minecraft/network/chat/Component;
+    Code:
+       0: getstatic     #73                 // Field cool/furry/mc/forge/projectexpansion/util/Lang.ADVANCED_ALCHEMICAL_CHEST_TITLE:Lcool/furry/mc/forge/projectexpansion/util/Lang;
+       3: iconst_0
+       4: anewarray     #75                 // class java/lang/Object
+       7: invokevirtual #79                 // Method cool/furry/mc/forge/projectexpansion/util/Lang.translate:([Ljava/lang/Object;)Lnet/minecraft/network/chat/TranslatableComponent;
+      10: areturn
+
+  public final java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+    Code:
+       0: aload_0
+       1: invokedynamic #95,  0             // InvokeDynamic #0:toString:(Lcool/furry/mc/forge/projectexpansion/block/BlockAdvancedAlchemicalChest$ContainerProvider;)Ljava/lang/String;
+       6: areturn
+
+  public final int hashCode();
+    descriptor: ()I
+    Code:
+       0: aload_0
+       1: invokedynamic #100,  0            // InvokeDynamic #0:hashCode:(Lcool/furry/mc/forge/projectexpansion/block/BlockAdvancedAlchemicalChest$ContainerProvider;)I
+       6: ireturn
+
+  public final boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokedynamic #105,  0            // InvokeDynamic #0:equals:(Lcool/furry/mc/forge/projectexpansion/block/BlockAdvancedAlchemicalChest$ContainerProvider;Ljava/lang/Object;)Z
+       7: ireturn
+
+  public cool.furry.mc.forge.projectexpansion.block.entity.BlockEntityAdvancedAlchemicalChest blockEntity();
+    descriptor: ()Lcool/furry/mc/forge/projectexpansion/block/entity/BlockEntityAdvancedAlchemicalChest;
+    Code:
+       0: aload_0
+       1: getfield      #26                 // Field blockEntity:Lcool/furry/mc/forge/projectexpansion/block/entity/BlockEntityAdvancedAlchemicalChest;
+       4: areturn
+
+  public net.minecraft.world.InteractionHand hand();
+    descriptor: ()Lnet/minecraft/world/InteractionHand;
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field hand:Lnet/minecraft/world/InteractionHand;
+       4: areturn
+}

@@ -1,0 +1,234 @@
+Compiled from "PacketFortuneCoinTogglePressed.java"
+public class reliquary.network.PacketFortuneCoinTogglePressed {
+  private final reliquary.network.PacketFortuneCoinTogglePressed$InventoryType inventoryType;
+    descriptor: Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+
+  private final int slot;
+    descriptor: I
+
+  public reliquary.network.PacketFortuneCoinTogglePressed(reliquary.network.PacketFortuneCoinTogglePressed$InventoryType, int);
+    descriptor: (Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;I)V
+    Code:
+       0: aload_0
+       1: invokespecial #34                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #36                 // Field inventoryType:Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+       9: aload_0
+      10: iload_2
+      11: putfield      #38                 // Field slot:I
+      14: return
+
+  static void encode(reliquary.network.PacketFortuneCoinTogglePressed, net.minecraft.network.FriendlyByteBuf);
+    descriptor: (Lreliquary/network/PacketFortuneCoinTogglePressed;Lnet/minecraft/network/FriendlyByteBuf;)V
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #36                 // Field inventoryType:Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+       5: invokevirtual #46                 // Method reliquary/network/PacketFortuneCoinTogglePressed$InventoryType.ordinal:()I
+       8: invokevirtual #52                 // Method net/minecraft/network/FriendlyByteBuf.writeByte:(I)Lio/netty/buffer/ByteBuf;
+      11: pop
+      12: aload_1
+      13: aload_0
+      14: getfield      #38                 // Field slot:I
+      17: invokevirtual #55                 // Method net/minecraft/network/FriendlyByteBuf.writeInt:(I)Lio/netty/buffer/ByteBuf;
+      20: pop
+      21: return
+
+  static reliquary.network.PacketFortuneCoinTogglePressed decode(net.minecraft.network.FriendlyByteBuf);
+    descriptor: (Lnet/minecraft/network/FriendlyByteBuf;)Lreliquary/network/PacketFortuneCoinTogglePressed;
+    Code:
+       0: new           #2                  // class reliquary/network/PacketFortuneCoinTogglePressed
+       3: dup
+       4: invokestatic  #64                 // Method reliquary/network/PacketFortuneCoinTogglePressed$InventoryType.values:()[Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+       7: aload_0
+       8: invokevirtual #68                 // Method net/minecraft/network/FriendlyByteBuf.readByte:()B
+      11: aaload
+      12: aload_0
+      13: invokevirtual #71                 // Method net/minecraft/network/FriendlyByteBuf.readInt:()I
+      16: invokespecial #73                 // Method "<init>":(Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;I)V
+      19: areturn
+
+  static void onMessage(reliquary.network.PacketFortuneCoinTogglePressed, java.util.function.Supplier<net.minecraftforge.network.NetworkEvent$Context>);
+    descriptor: (Lreliquary/network/PacketFortuneCoinTogglePressed;Ljava/util/function/Supplier;)V
+    Code:
+       0: aload_1
+       1: invokeinterface #82,  1           // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       6: checkcast     #12                 // class net/minecraftforge/network/NetworkEvent$Context
+       9: astore_2
+      10: aload_2
+      11: aload_0
+      12: aload_2
+      13: invokedynamic #99,  0             // InvokeDynamic #0:run:(Lreliquary/network/PacketFortuneCoinTogglePressed;Lnet/minecraftforge/network/NetworkEvent$Context;)Ljava/lang/Runnable;
+      18: invokevirtual #103                // Method net/minecraftforge/network/NetworkEvent$Context.enqueueWork:(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;
+      21: pop
+      22: aload_2
+      23: iconst_1
+      24: invokevirtual #107                // Method net/minecraftforge/network/NetworkEvent$Context.setPacketHandled:(Z)V
+      27: return
+
+  private static void handleMessage(reliquary.network.PacketFortuneCoinTogglePressed, net.minecraft.server.level.ServerPlayer);
+    descriptor: (Lreliquary/network/PacketFortuneCoinTogglePressed;Lnet/minecraft/server/level/ServerPlayer;)V
+    Code:
+       0: aload_1
+       1: ifnonnull     5
+       4: return
+       5: getstatic     #119                // Field reliquary/network/PacketFortuneCoinTogglePressed$1.$SwitchMap$reliquary$network$PacketFortuneCoinTogglePressed$InventoryType:[I
+       8: aload_0
+       9: getfield      #36                 // Field inventoryType:Lreliquary/network/PacketFortuneCoinTogglePressed$InventoryType;
+      12: invokevirtual #46                 // Method reliquary/network/PacketFortuneCoinTogglePressed$InventoryType.ordinal:()I
+      15: iaload
+      16: tableswitch   { // 1 to 3
+                     1: 44
+                     2: 96
+                     3: 145
+               default: 155
+          }
+      44: aload_1
+      45: invokevirtual #125                // Method net/minecraft/server/level/ServerPlayer.m_150109_:()Lnet/minecraft/world/entity/player/Inventory;
+      48: getfield      #131                // Field net/minecraft/world/entity/player/Inventory.f_35974_:Lnet/minecraft/core/NonNullList;
+      51: aload_0
+      52: getfield      #38                 // Field slot:I
+      55: invokevirtual #136                // Method net/minecraft/core/NonNullList.get:(I)Ljava/lang/Object;
+      58: checkcast     #138                // class net/minecraft/world/item/ItemStack
+      61: astore_2
+      62: aload_2
+      63: invokevirtual #142                // Method net/minecraft/world/item/ItemStack.m_41720_:()Lnet/minecraft/world/item/Item;
+      66: getstatic     #148                // Field reliquary/init/ModItems.FORTUNE_COIN:Lnet/minecraftforge/registries/RegistryObject;
+      69: invokevirtual #153                // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      72: if_acmpne     93
+      75: getstatic     #148                // Field reliquary/init/ModItems.FORTUNE_COIN:Lnet/minecraftforge/registries/RegistryObject;
+      78: invokevirtual #153                // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      81: checkcast     #155                // class reliquary/items/FortuneCoinItem
+      84: aload_2
+      85: invokevirtual #159                // Method reliquary/items/FortuneCoinItem.toggle:(Lnet/minecraft/world/item/ItemStack;)V
+      88: aload_1
+      89: aload_2
+      90: invokestatic  #163                // Method showMessage:(Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/world/item/ItemStack;)V
+      93: goto          155
+      96: aload_1
+      97: invokevirtual #125                // Method net/minecraft/server/level/ServerPlayer.m_150109_:()Lnet/minecraft/world/entity/player/Inventory;
+     100: getfield      #166                // Field net/minecraft/world/entity/player/Inventory.f_35976_:Lnet/minecraft/core/NonNullList;
+     103: iconst_0
+     104: invokevirtual #136                // Method net/minecraft/core/NonNullList.get:(I)Ljava/lang/Object;
+     107: checkcast     #138                // class net/minecraft/world/item/ItemStack
+     110: astore_2
+     111: aload_2
+     112: invokevirtual #142                // Method net/minecraft/world/item/ItemStack.m_41720_:()Lnet/minecraft/world/item/Item;
+     115: getstatic     #148                // Field reliquary/init/ModItems.FORTUNE_COIN:Lnet/minecraftforge/registries/RegistryObject;
+     118: invokevirtual #153                // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     121: if_acmpne     142
+     124: getstatic     #148                // Field reliquary/init/ModItems.FORTUNE_COIN:Lnet/minecraftforge/registries/RegistryObject;
+     127: invokevirtual #153                // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     130: checkcast     #155                // class reliquary/items/FortuneCoinItem
+     133: aload_2
+     134: invokevirtual #159                // Method reliquary/items/FortuneCoinItem.toggle:(Lnet/minecraft/world/item/ItemStack;)V
+     137: aload_1
+     138: aload_2
+     139: invokestatic  #163                // Method showMessage:(Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/world/item/ItemStack;)V
+     142: goto          155
+     145: aload_1
+     146: aload_0
+     147: invokedynamic #177,  0            // InvokeDynamic #1:get:(Lnet/minecraft/server/level/ServerPlayer;Lreliquary/network/PacketFortuneCoinTogglePressed;)Ljava/util/function/Supplier;
+     152: invokestatic  #180                // Method run:(Ljava/util/function/Supplier;)V
+     155: return
+
+  private static void showMessage(net.minecraft.server.level.ServerPlayer, net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/world/item/ItemStack;)V
+    Code:
+       0: aload_0
+       1: new           #188                // class net/minecraft/network/chat/TranslatableComponent
+       4: dup
+       5: ldc           #190                // String chat.reliquary.fortune_coin.toggle
+       7: iconst_1
+       8: anewarray     #4                  // class java/lang/Object
+      11: dup
+      12: iconst_0
+      13: aload_1
+      14: invokestatic  #194                // Method reliquary/items/FortuneCoinItem.isEnabled:(Lnet/minecraft/world/item/ItemStack;)Z
+      17: ifeq          38
+      20: new           #188                // class net/minecraft/network/chat/TranslatableComponent
+      23: dup
+      24: ldc           #196                // String chat.reliquary.fortune_coin.on
+      26: invokespecial #199                // Method net/minecraft/network/chat/TranslatableComponent."<init>":(Ljava/lang/String;)V
+      29: getstatic     #205                // Field net/minecraft/ChatFormatting.GREEN:Lnet/minecraft/ChatFormatting;
+      32: invokevirtual #209                // Method net/minecraft/network/chat/TranslatableComponent.m_130940_:(Lnet/minecraft/ChatFormatting;)Lnet/minecraft/network/chat/MutableComponent;
+      35: goto          53
+      38: new           #188                // class net/minecraft/network/chat/TranslatableComponent
+      41: dup
+      42: ldc           #215                // String chat.reliquary.fortune_coin.off
+      44: invokespecial #199                // Method net/minecraft/network/chat/TranslatableComponent."<init>":(Ljava/lang/String;)V
+      47: getstatic     #218                // Field net/minecraft/ChatFormatting.RED:Lnet/minecraft/ChatFormatting;
+      50: invokevirtual #209                // Method net/minecraft/network/chat/TranslatableComponent.m_130940_:(Lnet/minecraft/ChatFormatting;)Lnet/minecraft/network/chat/MutableComponent;
+      53: aastore
+      54: invokespecial #221                // Method net/minecraft/network/chat/TranslatableComponent."<init>":(Ljava/lang/String;[Ljava/lang/Object;)V
+      57: iconst_1
+      58: invokevirtual #225                // Method net/minecraft/server/level/ServerPlayer.m_5661_:(Lnet/minecraft/network/chat/Component;Z)V
+      61: return
+
+  private static void run(java.util.function.Supplier<java.lang.Runnable>);
+    descriptor: (Ljava/util/function/Supplier;)V
+    Code:
+       0: aload_0
+       1: invokeinterface #82,  1           // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       6: checkcast     #229                // class java/lang/Runnable
+       9: invokeinterface #231,  1          // InterfaceMethod java/lang/Runnable.run:()V
+      14: return
+
+  private static java.lang.Runnable lambda$handleMessage$3(net.minecraft.server.level.ServerPlayer, reliquary.network.PacketFortuneCoinTogglePressed);
+    descriptor: (Lnet/minecraft/server/level/ServerPlayer;Lreliquary/network/PacketFortuneCoinTogglePressed;)Ljava/lang/Runnable;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokedynamic #240,  0            // InvokeDynamic #2:run:(Lnet/minecraft/server/level/ServerPlayer;Lreliquary/network/PacketFortuneCoinTogglePressed;)Ljava/lang/Runnable;
+       7: areturn
+
+  private static void lambda$handleMessage$2(net.minecraft.server.level.ServerPlayer, reliquary.network.PacketFortuneCoinTogglePressed);
+    descriptor: (Lnet/minecraft/server/level/ServerPlayer;Lreliquary/network/PacketFortuneCoinTogglePressed;)V
+    Code:
+       0: aload_0
+       1: getstatic     #244                // Field reliquary/items/util/ICuriosItem$Type.NECKLACE:Lreliquary/items/util/ICuriosItem$Type;
+       4: invokevirtual #248                // Method reliquary/items/util/ICuriosItem$Type.getIdentifier:()Ljava/lang/String;
+       7: aload_1
+       8: getfield      #38                 // Field slot:I
+      11: invokestatic  #254                // Method reliquary/compat/curios/CuriosCompat.getStackInSlot:(Lnet/minecraft/world/entity/LivingEntity;Ljava/lang/String;I)Ljava/util/Optional;
+      14: aload_0
+      15: aload_1
+      16: invokedynamic #266,  0            // InvokeDynamic #3:accept:(Lnet/minecraft/server/level/ServerPlayer;Lreliquary/network/PacketFortuneCoinTogglePressed;)Ljava/util/function/Consumer;
+      21: invokevirtual #272                // Method java/util/Optional.ifPresent:(Ljava/util/function/Consumer;)V
+      24: return
+
+  private static void lambda$handleMessage$1(net.minecraft.server.level.ServerPlayer, reliquary.network.PacketFortuneCoinTogglePressed, net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/server/level/ServerPlayer;Lreliquary/network/PacketFortuneCoinTogglePressed;Lnet/minecraft/world/item/ItemStack;)V
+    Code:
+       0: aload_2
+       1: invokevirtual #142                // Method net/minecraft/world/item/ItemStack.m_41720_:()Lnet/minecraft/world/item/Item;
+       4: getstatic     #148                // Field reliquary/init/ModItems.FORTUNE_COIN:Lnet/minecraftforge/registries/RegistryObject;
+       7: invokevirtual #153                // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      10: if_acmpne     46
+      13: getstatic     #148                // Field reliquary/init/ModItems.FORTUNE_COIN:Lnet/minecraftforge/registries/RegistryObject;
+      16: invokevirtual #153                // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      19: checkcast     #155                // class reliquary/items/FortuneCoinItem
+      22: aload_2
+      23: invokevirtual #159                // Method reliquary/items/FortuneCoinItem.toggle:(Lnet/minecraft/world/item/ItemStack;)V
+      26: aload_0
+      27: aload_2
+      28: invokestatic  #163                // Method showMessage:(Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/world/item/ItemStack;)V
+      31: aload_0
+      32: getstatic     #244                // Field reliquary/items/util/ICuriosItem$Type.NECKLACE:Lreliquary/items/util/ICuriosItem$Type;
+      35: invokevirtual #248                // Method reliquary/items/util/ICuriosItem$Type.getIdentifier:()Ljava/lang/String;
+      38: aload_1
+      39: getfield      #38                 // Field slot:I
+      42: aload_2
+      43: invokestatic  #276                // Method reliquary/compat/curios/CuriosCompat.setStackInSlot:(Lnet/minecraft/world/entity/LivingEntity;Ljava/lang/String;ILnet/minecraft/world/item/ItemStack;)V
+      46: return
+
+  private static void lambda$onMessage$0(reliquary.network.PacketFortuneCoinTogglePressed, net.minecraftforge.network.NetworkEvent$Context);
+    descriptor: (Lreliquary/network/PacketFortuneCoinTogglePressed;Lnet/minecraftforge/network/NetworkEvent$Context;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #281                // Method net/minecraftforge/network/NetworkEvent$Context.getSender:()Lnet/minecraft/server/level/ServerPlayer;
+       5: invokestatic  #283                // Method handleMessage:(Lreliquary/network/PacketFortuneCoinTogglePressed;Lnet/minecraft/server/level/ServerPlayer;)V
+       8: return
+}

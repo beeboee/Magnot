@@ -1,0 +1,196 @@
+Compiled from "ItemsConfig.java"
+public class com.enderio.base.common.config.common.ItemsConfig {
+  public final net.minecraftforge.common.ForgeConfigSpec$ConfigValue<java.lang.Double> ENDERIOS_CHANCE;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+
+  public final net.minecraftforge.common.ForgeConfigSpec$ConfigValue<java.lang.Double> ENDERIOS_RANGE;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+
+  public final net.minecraftforge.common.ForgeConfigSpec$ConfigValue<java.lang.Integer> ELECTROMAGNET_ENERGY_USE;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+
+  public final net.minecraftforge.common.ForgeConfigSpec$ConfigValue<java.lang.Integer> ELECTROMAGNET_MAX_ENERGY;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+
+  public final net.minecraftforge.common.ForgeConfigSpec$ConfigValue<java.lang.Integer> ELECTROMAGNET_RANGE;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+
+  public final net.minecraftforge.common.ForgeConfigSpec$ConfigValue<java.lang.Integer> ELECTROMAGNET_MAX_ITEMS;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+
+  public final net.minecraftforge.common.ForgeConfigSpec$ConfigValue<java.lang.Integer> LEVITATION_STAFF_ENERGY_USE;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+
+  public final net.minecraftforge.common.ForgeConfigSpec$ConfigValue<java.lang.Integer> LEVITATION_STAFF_MAX_ENERGY;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+
+  public final net.minecraftforge.common.ForgeConfigSpec$ConfigValue<java.lang.Integer> TRAVELLING_BLINK_RANGE;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+
+  public final net.minecraftforge.common.ForgeConfigSpec$ConfigValue<java.lang.Integer> TRAVELLING_BLINK_DISABLED_TIME;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+
+  public final net.minecraftforge.common.ForgeConfigSpec$ConfigValue<java.lang.Integer> TRAVELLING_STAFF_ENERGY_USE;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+
+  public final net.minecraftforge.common.ForgeConfigSpec$ConfigValue<java.lang.Integer> TRAVELLING_STAFF_MAX_ENERGY;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+
+  public final net.minecraftforge.common.ForgeConfigSpec$ConfigValue<java.lang.Integer> TRAVELLING_TO_BLOCK_RANGE;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+
+  public final net.minecraftforge.common.ForgeConfigSpec$ConfigValue<java.lang.Integer> TRAVELLING_BLOCK_TO_BLOCK_RANGE;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+
+  public com.enderio.base.common.config.common.ItemsConfig(net.minecraftforge.common.ForgeConfigSpec$Builder);
+    descriptor: (Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+    Code:
+       0: aload_0
+       1: invokespecial #38                 // Method java/lang/Object."<init>":()V
+       4: aload_1
+       5: ldc           #40                 // String items
+       7: invokevirtual #44                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.push:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      10: pop
+      11: aload_1
+      12: ldc           #46                 // String food
+      14: invokevirtual #44                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.push:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      17: pop
+      18: aload_0
+      19: aload_1
+      20: ldc           #48                 // String The chance of enderios teleporting the player
+      22: invokevirtual #51                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.comment:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      25: ldc           #53                 // String enderioChance
+      27: ldc2_w        #54                 // double 0.3d
+      30: invokestatic  #61                 // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+      33: invokevirtual #65                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.define:(Ljava/lang/String;Ljava/lang/Object;)Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+      36: putfield      #67                 // Field ENDERIOS_CHANCE:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+      39: aload_0
+      40: aload_1
+      41: ldc           #69                 // String The range of an enderio teleport
+      43: invokevirtual #51                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.comment:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      46: ldc           #71                 // String enderioRange
+      48: ldc2_w        #72                 // double 16.0d
+      51: invokestatic  #61                 // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+      54: invokevirtual #65                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.define:(Ljava/lang/String;Ljava/lang/Object;)Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+      57: putfield      #75                 // Field ENDERIOS_RANGE:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+      60: aload_1
+      61: invokevirtual #79                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.pop:()Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      64: pop
+      65: aload_1
+      66: ldc           #81                 // String electromagnet
+      68: invokevirtual #44                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.push:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      71: pop
+      72: aload_0
+      73: aload_1
+      74: ldc           #83                 // String energyUse
+      76: iconst_1
+      77: invokestatic  #88                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      80: invokevirtual #65                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.define:(Ljava/lang/String;Ljava/lang/Object;)Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+      83: putfield      #90                 // Field ELECTROMAGNET_ENERGY_USE:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+      86: aload_0
+      87: aload_1
+      88: ldc           #92                 // String maxEnergy
+      90: ldc           #93                 // int 100000
+      92: invokestatic  #88                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      95: invokevirtual #65                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.define:(Ljava/lang/String;Ljava/lang/Object;)Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+      98: putfield      #95                 // Field ELECTROMAGNET_MAX_ENERGY:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     101: aload_0
+     102: aload_1
+     103: ldc           #97                 // String range
+     105: iconst_5
+     106: invokestatic  #88                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     109: invokevirtual #65                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.define:(Ljava/lang/String;Ljava/lang/Object;)Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     112: putfield      #99                 // Field ELECTROMAGNET_RANGE:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     115: aload_0
+     116: aload_1
+     117: ldc           #101                // String maxItems
+     119: bipush        20
+     121: invokestatic  #88                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     124: invokevirtual #65                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.define:(Ljava/lang/String;Ljava/lang/Object;)Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     127: putfield      #103                // Field ELECTROMAGNET_MAX_ITEMS:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     130: aload_1
+     131: invokevirtual #79                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.pop:()Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+     134: pop
+     135: aload_1
+     136: ldc           #105                // String levitationstaff
+     138: invokevirtual #44                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.push:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+     141: pop
+     142: aload_0
+     143: aload_1
+     144: ldc           #83                 // String energyUse
+     146: iconst_1
+     147: invokestatic  #88                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     150: invokevirtual #65                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.define:(Ljava/lang/String;Ljava/lang/Object;)Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     153: putfield      #107                // Field LEVITATION_STAFF_ENERGY_USE:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     156: aload_0
+     157: aload_1
+     158: ldc           #92                 // String maxEnergy
+     160: sipush        10000
+     163: invokestatic  #88                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     166: invokevirtual #65                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.define:(Ljava/lang/String;Ljava/lang/Object;)Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     169: putfield      #109                // Field LEVITATION_STAFF_MAX_ENERGY:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     172: aload_1
+     173: invokevirtual #79                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.pop:()Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+     176: pop
+     177: aload_1
+     178: ldc           #111                // String travelling
+     180: invokevirtual #44                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.push:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+     183: pop
+     184: aload_0
+     185: aload_1
+     186: ldc           #113                // String blinkRange
+     188: bipush        24
+     190: iconst_4
+     191: sipush        512
+     194: invokevirtual #117                // Method net/minecraftforge/common/ForgeConfigSpec$Builder.defineInRange:(Ljava/lang/String;III)Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;
+     197: putfield      #119                // Field TRAVELLING_BLINK_RANGE:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     200: aload_0
+     201: aload_1
+     202: ldc           #121                // String disabledTime
+     204: iconst_5
+     205: iconst_0
+     206: sipush        1200
+     209: invokevirtual #117                // Method net/minecraftforge/common/ForgeConfigSpec$Builder.defineInRange:(Ljava/lang/String;III)Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;
+     212: putfield      #123                // Field TRAVELLING_BLINK_DISABLED_TIME:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     215: aload_0
+     216: aload_1
+     217: ldc           #83                 // String energyUse
+     219: sipush        1000
+     222: invokestatic  #88                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     225: invokevirtual #65                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.define:(Ljava/lang/String;Ljava/lang/Object;)Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     228: putfield      #125                // Field TRAVELLING_STAFF_ENERGY_USE:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     231: aload_0
+     232: aload_1
+     233: ldc           #92                 // String maxEnergy
+     235: ldc           #93                 // int 100000
+     237: invokestatic  #88                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     240: invokevirtual #65                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.define:(Ljava/lang/String;Ljava/lang/Object;)Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     243: putfield      #127                // Field TRAVELLING_STAFF_MAX_ENERGY:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     246: aload_1
+     247: ldc           #129                // String the following config values are only used if EIOMachines is loaded
+     249: invokevirtual #51                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.comment:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+     252: pop
+     253: aload_0
+     254: aload_1
+     255: ldc           #131                // String itemToBlockRange
+     257: sipush        192
+     260: iconst_4
+     261: sipush        512
+     264: invokevirtual #117                // Method net/minecraftforge/common/ForgeConfigSpec$Builder.defineInRange:(Ljava/lang/String;III)Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;
+     267: putfield      #133                // Field TRAVELLING_TO_BLOCK_RANGE:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     270: aload_0
+     271: aload_1
+     272: ldc           #135                // String blockToBlockRange
+     274: bipush        96
+     276: iconst_4
+     277: sipush        512
+     280: invokevirtual #117                // Method net/minecraftforge/common/ForgeConfigSpec$Builder.defineInRange:(Ljava/lang/String;III)Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;
+     283: putfield      #137                // Field TRAVELLING_BLOCK_TO_BLOCK_RANGE:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     286: aload_1
+     287: invokevirtual #79                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.pop:()Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+     290: pop
+     291: aload_1
+     292: invokevirtual #79                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.pop:()Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+     295: pop
+     296: return
+}

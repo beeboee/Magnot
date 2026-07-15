@@ -1,0 +1,32 @@
+Compiled from "GuiVacuumChest.java"
+class crazypants.enderio.machines.machine.vacuum.chest.GuiVacuumChest$1 extends com.enderio.core.client.gui.widget.GuiToolTip {
+  final crazypants.enderio.machines.machine.vacuum.chest.GuiVacuumChest this$0;
+    descriptor: Lcrazypants/enderio/machines/machine/vacuum/chest/GuiVacuumChest;
+
+  crazypants.enderio.machines.machine.vacuum.chest.GuiVacuumChest$1(crazypants.enderio.machines.machine.vacuum.chest.GuiVacuumChest, java.awt.Rectangle, java.lang.String...);
+    descriptor: (Lcrazypants/enderio/machines/machine/vacuum/chest/GuiVacuumChest;Ljava/awt/Rectangle;[Ljava/lang/String;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #15                 // Field this$0:Lcrazypants/enderio/machines/machine/vacuum/chest/GuiVacuumChest;
+       5: aload_0
+       6: aload_2
+       7: aload_3
+       8: invokespecial #18                 // Method com/enderio/core/client/gui/widget/GuiToolTip."<init>":(Ljava/awt/Rectangle;[Ljava/lang/String;)V
+      11: return
+
+  public java.util.List<java.lang.String> getToolTipText();
+    descriptor: ()Ljava/util/List;
+    Code:
+       0: aload_0
+       1: getfield      #15                 // Field this$0:Lcrazypants/enderio/machines/machine/vacuum/chest/GuiVacuumChest;
+       4: invokestatic  #31                 // Method crazypants/enderio/machines/machine/vacuum/chest/GuiVacuumChest.access$000:(Lcrazypants/enderio/machines/machine/vacuum/chest/GuiVacuumChest;)Lcom/enderio/core/client/gui/button/ToggleButton;
+       7: invokevirtual #37                 // Method com/enderio/core/client/gui/button/ToggleButton.isSelected:()Z
+      10: ifeq          19
+      13: getstatic     #43                 // Field crazypants/enderio/machines/lang/Lang.GUI_HIDE_RANGE:Lcrazypants/enderio/machines/lang/Lang;
+      16: goto          22
+      19: getstatic     #46                 // Field crazypants/enderio/machines/lang/Lang.GUI_SHOW_RANGE:Lcrazypants/enderio/machines/lang/Lang;
+      22: invokevirtual #50                 // Method crazypants/enderio/machines/lang/Lang.get:()Ljava/lang/String;
+      25: invokestatic  #56                 // Method java/util/Collections.singletonList:(Ljava/lang/Object;)Ljava/util/List;
+      28: areturn
+}

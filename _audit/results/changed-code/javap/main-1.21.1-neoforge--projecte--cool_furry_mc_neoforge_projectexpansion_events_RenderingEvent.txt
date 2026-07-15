@@ -1,0 +1,44 @@
+Compiled from "RenderingEvent.java"
+public class cool.furry.mc.neoforge.projectexpansion.events.RenderingEvent {
+  public cool.furry.mc.neoforge.projectexpansion.events.RenderingEvent();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void registerRenderers(net.neoforged.neoforge.client.event.EntityRenderersEvent$RegisterRenderers);
+    descriptor: (Lnet/neoforged/neoforge/client/event/EntityRenderersEvent$RegisterRenderers;)V
+    Code:
+       0: aload_0
+       1: getstatic     #7                  // Field cool/furry/mc/neoforge/projectexpansion/registries/BlockEntityTypes.ADVANCED_ALCHEMICAL_CHEST:Lnet/neoforged/neoforge/registries/DeferredHolder;
+       4: invokevirtual #13                 // Method net/neoforged/neoforge/registries/DeferredHolder.get:()Ljava/lang/Object;
+       7: checkcast     #19                 // class net/minecraft/world/level/block/entity/BlockEntityType
+      10: invokestatic  #21                 // Method registerChest:(Lnet/neoforged/neoforge/client/event/EntityRenderersEvent$RegisterRenderers;Lnet/minecraft/world/level/block/entity/BlockEntityType;)V
+      13: aload_0
+      14: getstatic     #27                 // Field cool/furry/mc/neoforge/projectexpansion/registries/BlockEntityTypes.CONDENSER_MK3:Lnet/neoforged/neoforge/registries/DeferredHolder;
+      17: invokevirtual #13                 // Method net/neoforged/neoforge/registries/DeferredHolder.get:()Ljava/lang/Object;
+      20: checkcast     #19                 // class net/minecraft/world/level/block/entity/BlockEntityType
+      23: invokestatic  #21                 // Method registerChest:(Lnet/neoforged/neoforge/client/event/EntityRenderersEvent$RegisterRenderers;Lnet/minecraft/world/level/block/entity/BlockEntityType;)V
+      26: return
+
+  private static <BE extends net.minecraft.world.level.block.entity.BlockEntity & cool.furry.mc.neoforge.projectexpansion.util.IChestLike> void registerChest(net.neoforged.neoforge.client.event.EntityRenderersEvent$RegisterRenderers, net.minecraft.world.level.block.entity.BlockEntityType<BE>);
+    descriptor: (Lnet/neoforged/neoforge/client/event/EntityRenderersEvent$RegisterRenderers;Lnet/minecraft/world/level/block/entity/BlockEntityType;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_1
+       3: invokedynamic #30,  0             // InvokeDynamic #0:create:(Lnet/minecraft/world/level/block/entity/BlockEntityType;)Lnet/minecraft/client/renderer/blockentity/BlockEntityRendererProvider;
+       8: invokevirtual #34                 // Method net/neoforged/neoforge/client/event/EntityRenderersEvent$RegisterRenderers.registerBlockEntityRenderer:(Lnet/minecraft/world/level/block/entity/BlockEntityType;Lnet/minecraft/client/renderer/blockentity/BlockEntityRendererProvider;)V
+      11: return
+
+  private static net.minecraft.client.renderer.blockentity.BlockEntityRenderer lambda$registerChest$0(net.minecraft.world.level.block.entity.BlockEntityType, net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider$Context);
+    descriptor: (Lnet/minecraft/world/level/block/entity/BlockEntityType;Lnet/minecraft/client/renderer/blockentity/BlockEntityRendererProvider$Context;)Lnet/minecraft/client/renderer/blockentity/BlockEntityRenderer;
+    Code:
+       0: new           #40                 // class cool/furry/mc/neoforge/projectexpansion/rendering/ChestRenderer
+       3: dup
+       4: aload_1
+       5: aload_0
+       6: invokespecial #42                 // Method cool/furry/mc/neoforge/projectexpansion/rendering/ChestRenderer."<init>":(Lnet/minecraft/client/renderer/blockentity/BlockEntityRendererProvider$Context;Lnet/minecraft/world/level/block/entity/BlockEntityType;)V
+       9: areturn
+}

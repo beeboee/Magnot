@@ -1,0 +1,11 @@
+Compiled from "ContainerVacuumChestProxy.java"
+interface crazypants.enderio.machines.machine.vacuum.chest.ContainerVacuumChestProxy {
+  public default void doOpenFilterGui(int);
+    descriptor: (I)V
+    Code:
+       0: getstatic     #18                 // Field crazypants/enderio/machines/machine/vacuum/chest/ContainerVacuumChestProxy$doOpenFilterGui.INSTANCE:Lcrazypants/enderio/base/network/ExecPacket$IServerExec;
+       3: iload_1
+       4: invokestatic  #22                 // Method crazypants/enderio/machines/machine/vacuum/chest/ContainerVacuumChestProxy$doOpenFilterGui.makeWriter:(I)Ljava/util/function/Consumer;
+       7: invokestatic  #26                 // Method crazypants/enderio/base/network/ExecPacket.send:(Lcrazypants/enderio/base/network/ExecPacket$IServerExec;Ljava/util/function/Consumer;)V
+      10: return
+}

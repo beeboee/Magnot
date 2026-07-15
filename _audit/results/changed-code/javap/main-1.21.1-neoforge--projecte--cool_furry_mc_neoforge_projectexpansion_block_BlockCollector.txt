@@ -1,0 +1,375 @@
+Compiled from "BlockCollector.java"
+public class cool.furry.mc.neoforge.projectexpansion.block.BlockCollector extends moze_intel.projecte.gameObjs.blocks.BlockDirection implements cool.furry.mc.neoforge.projectexpansion.util.IHasMatter,net.minecraft.world.level.block.EntityBlock,moze_intel.projecte.gameObjs.blocks.IMatterBlock {
+  private final cool.furry.mc.neoforge.projectexpansion.util.Matter matter;
+    descriptor: Lcool/furry/mc/neoforge/projectexpansion/util/Matter;
+
+  public cool.furry.mc.neoforge.projectexpansion.block.BlockCollector(net.minecraft.world.level.block.state.BlockBehaviour$Properties, cool.furry.mc.neoforge.projectexpansion.util.Matter);
+    descriptor: (Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;Lcool/furry/mc/neoforge/projectexpansion/util/Matter;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #1                  // Method moze_intel/projecte/gameObjs/blocks/BlockDirection."<init>":(Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)V
+       5: aload_0
+       6: aload_2
+       7: putfield      #7                  // Field matter:Lcool/furry/mc/neoforge/projectexpansion/util/Matter;
+      10: return
+
+  public static net.minecraft.world.level.block.state.BlockBehaviour$Properties getProperties(cool.furry.mc.neoforge.projectexpansion.util.Matter);
+    descriptor: (Lcool/furry/mc/neoforge/projectexpansion/util/Matter;)Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;
+    Code:
+       0: invokestatic  #13                 // Method net/minecraft/world/level/block/state/BlockBehaviour$Properties.of:()Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;
+       3: aload_0
+       4: invokestatic  #19                 // Method getDestroyTime:(Lcool/furry/mc/neoforge/projectexpansion/util/Matter;)F
+       7: aload_0
+       8: invokestatic  #23                 // Method getExplosionResistance:(Lcool/furry/mc/neoforge/projectexpansion/util/Matter;)F
+      11: invokevirtual #26                 // Method net/minecraft/world/level/block/state/BlockBehaviour$Properties.strength:(FF)Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;
+      14: invokevirtual #30                 // Method net/minecraft/world/level/block/state/BlockBehaviour$Properties.requiresCorrectToolForDrops:()Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;
+      17: aload_0
+      18: invokedynamic #33,  0             // InvokeDynamic #0:applyAsInt:(Lcool/furry/mc/neoforge/projectexpansion/util/Matter;)Ljava/util/function/ToIntFunction;
+      23: invokevirtual #37                 // Method net/minecraft/world/level/block/state/BlockBehaviour$Properties.lightLevel:(Ljava/util/function/ToIntFunction;)Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;
+      26: areturn
+
+  private static float getDestroyTime(cool.furry.mc.neoforge.projectexpansion.util.Matter);
+    descriptor: (Lcool/furry/mc/neoforge/projectexpansion/util/Matter;)F
+    Code:
+       0: getstatic     #41                 // Field cool/furry/mc/neoforge/projectexpansion/block/BlockCollector$1.$SwitchMap$cool$furry$mc$neoforge$projectexpansion$util$Matter:[I
+       3: aload_0
+       4: invokevirtual #47                 // Method cool/furry/mc/neoforge/projectexpansion/util/Matter.ordinal:()I
+       7: iaload
+       8: lookupswitch  { // 2
+                     1: 36
+                     2: 41
+               default: 46
+          }
+      36: ldc           #53                 // float 0.3f
+      38: goto          48
+      41: ldc           #54                 // float 1000000.0f
+      43: goto          48
+      46: ldc           #55                 // float 2000000.0f
+      48: freturn
+
+  private static float getExplosionResistance(cool.furry.mc.neoforge.projectexpansion.util.Matter);
+    descriptor: (Lcool/furry/mc/neoforge/projectexpansion/util/Matter;)F
+    Code:
+       0: getstatic     #41                 // Field cool/furry/mc/neoforge/projectexpansion/block/BlockCollector$1.$SwitchMap$cool$furry$mc$neoforge$projectexpansion$util$Matter:[I
+       3: aload_0
+       4: invokevirtual #47                 // Method cool/furry/mc/neoforge/projectexpansion/util/Matter.ordinal:()I
+       7: iaload
+       8: lookupswitch  { // 2
+                     1: 36
+                     2: 41
+               default: 46
+          }
+      36: ldc           #56                 // float 0.9f
+      38: goto          48
+      41: ldc           #57                 // float 3000000.0f
+      43: goto          48
+      46: ldc           #58                 // float 6000000.0f
+      48: freturn
+
+  public net.minecraft.world.level.block.entity.BlockEntity newBlockEntity(net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState);
+    descriptor: (Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/entity/BlockEntity;
+    Code:
+       0: new           #59                 // class cool/furry/mc/neoforge/projectexpansion/block/entity/BlockEntityCollector
+       3: dup
+       4: aload_1
+       5: aload_2
+       6: invokespecial #61                 // Method cool/furry/mc/neoforge/projectexpansion/block/entity/BlockEntityCollector."<init>":(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V
+       9: areturn
+
+  public cool.furry.mc.neoforge.projectexpansion.util.Matter getMatter();
+    descriptor: ()Lcool/furry/mc/neoforge/projectexpansion/util/Matter;
+    Code:
+       0: aload_0
+       1: getfield      #7                  // Field matter:Lcool/furry/mc/neoforge/projectexpansion/util/Matter;
+       4: areturn
+
+  public moze_intel.projecte.gameObjs.IMatterType getMatterType();
+    descriptor: ()Lmoze_intel/projecte/gameObjs/IMatterType;
+    Code:
+       0: aload_0
+       1: invokevirtual #64                 // Method getMatter:()Lcool/furry/mc/neoforge/projectexpansion/util/Matter;
+       4: invokestatic  #68                 // Method cool/furry/mc/neoforge/projectexpansion/util/Util.getMatterForProjectE:(Lcool/furry/mc/neoforge/projectexpansion/util/Matter;)Lcool/furry/mc/neoforge/projectexpansion/util/Matter;
+       7: areturn
+
+  public void appendHoverText(net.minecraft.world.item.ItemStack, net.minecraft.world.item.Item$TooltipContext, java.util.List<net.minecraft.network.chat.Component>, net.minecraft.world.item.TooltipFlag);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/Item$TooltipContext;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: aload         4
+       6: invokespecial #74                 // Method moze_intel/projecte/gameObjs/blocks/BlockDirection.appendHoverText:(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/Item$TooltipContext;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V
+       9: aload_3
+      10: getstatic     #78                 // Field cool/furry/mc/neoforge/projectexpansion/util/Lang$Blocks.COLLECTOR_TOOLTIP:Lcool/furry/mc/neoforge/projectexpansion/util/Lang$Blocks;
+      13: getstatic     #84                 // Field net/minecraft/ChatFormatting.GRAY:Lnet/minecraft/ChatFormatting;
+      16: invokevirtual #90                 // Method cool/furry/mc/neoforge/projectexpansion/util/Lang$Blocks.translateColored:(Lnet/minecraft/ChatFormatting;)Lnet/minecraft/network/chat/MutableComponent;
+      19: invokeinterface #94,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      24: pop
+      25: aload_3
+      26: getstatic     #100                // Field cool/furry/mc/neoforge/projectexpansion/util/Lang$Blocks.COLLECTOR_EMC:Lcool/furry/mc/neoforge/projectexpansion/util/Lang$Blocks;
+      29: getstatic     #84                 // Field net/minecraft/ChatFormatting.GRAY:Lnet/minecraft/ChatFormatting;
+      32: iconst_1
+      33: anewarray     #103                // class java/lang/Object
+      36: dup
+      37: iconst_0
+      38: aload_0
+      39: invokevirtual #64                 // Method getMatter:()Lcool/furry/mc/neoforge/projectexpansion/util/Matter;
+      42: getstatic     #105                // Field cool/furry/mc/neoforge/projectexpansion/config/Config.server:Lcool/furry/mc/neoforge/projectexpansion/config/Config$Server;
+      45: getfield      #111                // Field cool/furry/mc/neoforge/projectexpansion/config/Config$Server.tickDelay:Lnet/neoforged/neoforge/common/ModConfigSpec$ConfigValue;
+      48: invokevirtual #117                // Method net/neoforged/neoforge/common/ModConfigSpec$ConfigValue.get:()Ljava/lang/Object;
+      51: checkcast     #123                // class java/lang/Integer
+      54: invokevirtual #125                // Method java/lang/Integer.intValue:()I
+      57: invokevirtual #128                // Method cool/furry/mc/neoforge/projectexpansion/util/Matter.getCollectorOutputForTicks:(I)Ljava/math/BigDecimal;
+      60: invokestatic  #132                // Method cool/furry/mc/neoforge/projectexpansion/util/EMCFormat.getComponent:(Ljava/math/BigDecimal;)Lnet/minecraft/network/chat/MutableComponent;
+      63: getstatic     #138                // Field cool/furry/mc/neoforge/projectexpansion/util/ColorStyle.GREEN:Lnet/minecraft/network/chat/Style;
+      66: invokevirtual #144                // Method net/minecraft/network/chat/MutableComponent.setStyle:(Lnet/minecraft/network/chat/Style;)Lnet/minecraft/network/chat/MutableComponent;
+      69: aastore
+      70: invokevirtual #150                // Method cool/furry/mc/neoforge/projectexpansion/util/Lang$Blocks.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+      73: invokeinterface #94,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      78: pop
+      79: aload_1
+      80: invokevirtual #153                // Method net/minecraft/world/item/ItemStack.getCount:()I
+      83: iconst_1
+      84: if_icmple     152
+      87: aload_3
+      88: getstatic     #158                // Field cool/furry/mc/neoforge/projectexpansion/util/Lang$Blocks.COLLECTOR_STACK_EMC:Lcool/furry/mc/neoforge/projectexpansion/util/Lang$Blocks;
+      91: getstatic     #84                 // Field net/minecraft/ChatFormatting.GRAY:Lnet/minecraft/ChatFormatting;
+      94: iconst_1
+      95: anewarray     #103                // class java/lang/Object
+      98: dup
+      99: iconst_0
+     100: aload_0
+     101: invokevirtual #64                 // Method getMatter:()Lcool/furry/mc/neoforge/projectexpansion/util/Matter;
+     104: getstatic     #105                // Field cool/furry/mc/neoforge/projectexpansion/config/Config.server:Lcool/furry/mc/neoforge/projectexpansion/config/Config$Server;
+     107: getfield      #111                // Field cool/furry/mc/neoforge/projectexpansion/config/Config$Server.tickDelay:Lnet/neoforged/neoforge/common/ModConfigSpec$ConfigValue;
+     110: invokevirtual #117                // Method net/neoforged/neoforge/common/ModConfigSpec$ConfigValue.get:()Ljava/lang/Object;
+     113: checkcast     #123                // class java/lang/Integer
+     116: invokevirtual #125                // Method java/lang/Integer.intValue:()I
+     119: invokevirtual #128                // Method cool/furry/mc/neoforge/projectexpansion/util/Matter.getCollectorOutputForTicks:(I)Ljava/math/BigDecimal;
+     122: aload_1
+     123: invokevirtual #153                // Method net/minecraft/world/item/ItemStack.getCount:()I
+     126: i2l
+     127: invokestatic  #161                // Method java/math/BigDecimal.valueOf:(J)Ljava/math/BigDecimal;
+     130: invokevirtual #167                // Method java/math/BigDecimal.multiply:(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
+     133: invokestatic  #132                // Method cool/furry/mc/neoforge/projectexpansion/util/EMCFormat.getComponent:(Ljava/math/BigDecimal;)Lnet/minecraft/network/chat/MutableComponent;
+     136: getstatic     #138                // Field cool/furry/mc/neoforge/projectexpansion/util/ColorStyle.GREEN:Lnet/minecraft/network/chat/Style;
+     139: invokevirtual #144                // Method net/minecraft/network/chat/MutableComponent.setStyle:(Lnet/minecraft/network/chat/Style;)Lnet/minecraft/network/chat/MutableComponent;
+     142: aastore
+     143: invokevirtual #150                // Method cool/furry/mc/neoforge/projectexpansion/util/Lang$Blocks.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+     146: invokeinterface #94,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     151: pop
+     152: aload_3
+     153: getstatic     #171                // Field cool/furry/mc/neoforge/projectexpansion/util/Lang$Blocks.COLLECTOR_MAX_STORAGE:Lcool/furry/mc/neoforge/projectexpansion/util/Lang$Blocks;
+     156: getstatic     #84                 // Field net/minecraft/ChatFormatting.GRAY:Lnet/minecraft/ChatFormatting;
+     159: iconst_1
+     160: anewarray     #103                // class java/lang/Object
+     163: dup
+     164: iconst_0
+     165: aload_0
+     166: invokevirtual #64                 // Method getMatter:()Lcool/furry/mc/neoforge/projectexpansion/util/Matter;
+     169: invokestatic  #174                // Method cool/furry/mc/neoforge/projectexpansion/util/Fuel.getCollectorEMCLimit:(Lcool/furry/mc/neoforge/projectexpansion/util/Matter;)J
+     172: invokestatic  #180                // Method cool/furry/mc/neoforge/projectexpansion/util/EMCFormat.getComponent:(J)Lnet/minecraft/network/chat/MutableComponent;
+     175: getstatic     #138                // Field cool/furry/mc/neoforge/projectexpansion/util/ColorStyle.GREEN:Lnet/minecraft/network/chat/Style;
+     178: invokevirtual #144                // Method net/minecraft/network/chat/MutableComponent.setStyle:(Lnet/minecraft/network/chat/Style;)Lnet/minecraft/network/chat/MutableComponent;
+     181: aastore
+     182: invokevirtual #150                // Method cool/furry/mc/neoforge/projectexpansion/util/Lang$Blocks.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+     185: invokeinterface #94,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     190: pop
+     191: aload_3
+     192: getstatic     #183                // Field cool/furry/mc/neoforge/projectexpansion/util/Lang.SEE_WIKI:Lcool/furry/mc/neoforge/projectexpansion/util/Lang;
+     195: getstatic     #189                // Field net/minecraft/ChatFormatting.AQUA:Lnet/minecraft/ChatFormatting;
+     198: invokevirtual #192                // Method cool/furry/mc/neoforge/projectexpansion/util/Lang.translateColored:(Lnet/minecraft/ChatFormatting;)Lnet/minecraft/network/chat/MutableComponent;
+     201: invokeinterface #94,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     206: pop
+     207: return
+
+  public <T extends net.minecraft.world.level.block.entity.BlockEntity> net.minecraft.world.level.block.entity.BlockEntityTicker<T> getTicker(net.minecraft.world.level.Level, net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.block.entity.BlockEntityType<T>);
+    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/entity/BlockEntityType;)Lnet/minecraft/world/level/block/entity/BlockEntityTicker;
+    Code:
+       0: aload_3
+       1: getstatic     #193                // Field cool/furry/mc/neoforge/projectexpansion/registries/BlockEntityTypes.COLLECTOR:Lnet/neoforged/neoforge/registries/DeferredHolder;
+       4: invokevirtual #199                // Method net/neoforged/neoforge/registries/DeferredHolder.get:()Ljava/lang/Object;
+       7: if_acmpne     23
+      10: aload_1
+      11: getfield      #202                // Field net/minecraft/world/level/Level.isClientSide:Z
+      14: ifne          23
+      17: invokedynamic #208,  0            // InvokeDynamic #1:tick:()Lnet/minecraft/world/level/block/entity/BlockEntityTicker;
+      22: areturn
+      23: aconst_null
+      24: areturn
+
+  public net.minecraft.world.level.material.PushReaction getPistonPushReaction(net.minecraft.world.level.block.state.BlockState);
+    descriptor: (Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/material/PushReaction;
+    Code:
+       0: getstatic     #212                // Field net/minecraft/world/level/material/PushReaction.BLOCK:Lnet/minecraft/world/level/material/PushReaction;
+       3: areturn
+
+  protected net.minecraft.world.InteractionResult useWithoutItem(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.Level, net.minecraft.core.BlockPos, net.minecraft.world.entity.player.Player, net.minecraft.world.phys.BlockHitResult);
+    descriptor: (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/phys/BlockHitResult;)Lnet/minecraft/world/InteractionResult;
+    Code:
+       0: aload_2
+       1: getfield      #202                // Field net/minecraft/world/level/Level.isClientSide:Z
+       4: ifeq          11
+       7: getstatic     #218                // Field net/minecraft/world/InteractionResult.SUCCESS:Lnet/minecraft/world/InteractionResult;
+      10: areturn
+      11: ldc           #59                 // class cool/furry/mc/neoforge/projectexpansion/block/entity/BlockEntityCollector
+      13: aload_2
+      14: aload_3
+      15: invokestatic  #224                // Method moze_intel/projecte/utils/WorldHelper.getBlockEntity:(Ljava/lang/Class;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/entity/BlockEntity;
+      18: checkcast     #59                 // class cool/furry/mc/neoforge/projectexpansion/block/entity/BlockEntityCollector
+      21: astore        6
+      23: aload         6
+      25: ifnonnull     32
+      28: getstatic     #230                // Field net/minecraft/world/InteractionResult.FAIL:Lnet/minecraft/world/InteractionResult;
+      31: areturn
+      32: aload         4
+      34: aload         6
+      36: aload_3
+      37: invokevirtual #233                // Method net/minecraft/world/entity/player/Player.openMenu:(Lnet/minecraft/world/MenuProvider;Lnet/minecraft/core/BlockPos;)Ljava/util/OptionalInt;
+      40: pop
+      41: getstatic     #239                // Field net/minecraft/world/InteractionResult.CONSUME:Lnet/minecraft/world/InteractionResult;
+      44: areturn
+
+  public boolean hasAnalogOutputSignal(net.minecraft.world.level.block.state.BlockState);
+    descriptor: (Lnet/minecraft/world/level/block/state/BlockState;)Z
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public int getAnalogOutputSignal(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.Level, net.minecraft.core.BlockPos);
+    descriptor: (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)I
+    Code:
+       0: ldc           #242                // class moze_intel/projecte/gameObjs/block_entities/CollectorMK1BlockEntity
+       2: aload_2
+       3: aload_3
+       4: iconst_1
+       5: invokestatic  #244                // Method moze_intel/projecte/utils/WorldHelper.getBlockEntity:(Ljava/lang/Class;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Z)Lnet/minecraft/world/level/block/entity/BlockEntity;
+       8: checkcast     #242                // class moze_intel/projecte/gameObjs/block_entities/CollectorMK1BlockEntity
+      11: astore        4
+      13: aload         4
+      15: ifnonnull     26
+      18: aload_0
+      19: aload_1
+      20: aload_2
+      21: aload_3
+      22: invokespecial #247                // Method moze_intel/projecte/gameObjs/blocks/BlockDirection.getAnalogOutputSignal:(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)I
+      25: ireturn
+      26: aload_2
+      27: getstatic     #251                // Field net/neoforged/neoforge/capabilities/Capabilities$ItemHandler.BLOCK:Lnet/neoforged/neoforge/capabilities/BlockCapability;
+      30: aload_3
+      31: aload_1
+      32: aload         4
+      34: getstatic     #256                // Field net/minecraft/core/Direction.UP:Lnet/minecraft/core/Direction;
+      37: invokestatic  #262                // Method moze_intel/projecte/utils/WorldHelper.getCapability:(Lnet/minecraft/world/level/Level;Lnet/neoforged/neoforge/capabilities/BlockCapability;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/entity/BlockEntity;Ljava/lang/Object;)Ljava/lang/Object;
+      40: checkcast     #266                // class net/neoforged/neoforge/items/IItemHandler
+      43: astore        5
+      45: aload         5
+      47: ifnonnull     58
+      50: aload_0
+      51: aload_1
+      52: aload_2
+      53: aload_3
+      54: invokespecial #247                // Method moze_intel/projecte/gameObjs/blocks/BlockDirection.getAnalogOutputSignal:(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)I
+      57: ireturn
+      58: aload         5
+      60: iconst_0
+      61: invokeinterface #268,  2          // InterfaceMethod net/neoforged/neoforge/items/IItemHandler.getStackInSlot:(I)Lnet/minecraft/world/item/ItemStack;
+      66: astore        6
+      68: aload         6
+      70: invokevirtual #272                // Method net/minecraft/world/item/ItemStack.isEmpty:()Z
+      73: ifeq          90
+      76: aload         4
+      78: invokevirtual #276                // Method moze_intel/projecte/gameObjs/block_entities/CollectorMK1BlockEntity.getStoredEmc:()J
+      81: aload         4
+      83: invokevirtual #280                // Method moze_intel/projecte/gameObjs/block_entities/CollectorMK1BlockEntity.getMaximumEmc:()J
+      86: invokestatic  #283                // Method moze_intel/projecte/utils/MathUtils.scaleToRedstone:(JJ)I
+      89: ireturn
+      90: aload         6
+      92: getstatic     #289                // Field moze_intel/projecte/api/capabilities/PECapabilities.EMC_HOLDER_ITEM_CAPABILITY:Lnet/neoforged/neoforge/capabilities/ItemCapability;
+      95: invokevirtual #295                // Method net/minecraft/world/item/ItemStack.getCapability:(Lnet/neoforged/neoforge/capabilities/ItemCapability;)Ljava/lang/Object;
+      98: checkcast     #298                // class moze_intel/projecte/api/capabilities/item/IItemEmcHolder
+     101: astore        7
+     103: aload         7
+     105: ifnull        130
+     108: aload         7
+     110: aload         6
+     112: invokeinterface #300,  2          // InterfaceMethod moze_intel/projecte/api/capabilities/item/IItemEmcHolder.getStoredEmc:(Lnet/minecraft/world/item/ItemStack;)J
+     117: aload         7
+     119: aload         6
+     121: invokeinterface #303,  2          // InterfaceMethod moze_intel/projecte/api/capabilities/item/IItemEmcHolder.getMaximumEmc:(Lnet/minecraft/world/item/ItemStack;)J
+     126: invokestatic  #283                // Method moze_intel/projecte/utils/MathUtils.scaleToRedstone:(JJ)I
+     129: ireturn
+     130: aload         4
+     132: invokevirtual #276                // Method moze_intel/projecte/gameObjs/block_entities/CollectorMK1BlockEntity.getStoredEmc:()J
+     135: aload         4
+     137: invokevirtual #305                // Method moze_intel/projecte/gameObjs/block_entities/CollectorMK1BlockEntity.getEmcToNextGoal:()J
+     140: invokestatic  #283                // Method moze_intel/projecte/utils/MathUtils.scaleToRedstone:(JJ)I
+     143: ireturn
+
+  public void onRemove(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.Level, net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState, boolean);
+    descriptor: (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Z)V
+    Code:
+       0: aload_1
+       1: invokevirtual #308                // Method net/minecraft/world/level/block/state/BlockState.getBlock:()Lnet/minecraft/world/level/block/Block;
+       4: aload         4
+       6: invokevirtual #308                // Method net/minecraft/world/level/block/state/BlockState.getBlock:()Lnet/minecraft/world/level/block/Block;
+       9: if_acmpeq     45
+      12: ldc           #59                 // class cool/furry/mc/neoforge/projectexpansion/block/entity/BlockEntityCollector
+      14: aload_2
+      15: aload_3
+      16: invokestatic  #224                // Method moze_intel/projecte/utils/WorldHelper.getBlockEntity:(Ljava/lang/Class;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/entity/BlockEntity;
+      19: checkcast     #59                 // class cool/furry/mc/neoforge/projectexpansion/block/entity/BlockEntityCollector
+      22: astore        6
+      24: aload         6
+      26: ifnull        34
+      29: aload         6
+      31: invokevirtual #314                // Method cool/furry/mc/neoforge/projectexpansion/block/entity/BlockEntityCollector.clearLocked:()V
+      34: aload_0
+      35: aload_1
+      36: aload_2
+      37: aload_3
+      38: aload         4
+      40: iload         5
+      42: invokespecial #318                // Method moze_intel/projecte/gameObjs/blocks/BlockDirection.onRemove:(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Z)V
+      45: return
+
+  public net.minecraft.world.level.material.MapColor getMapColor(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos, net.minecraft.world.level.material.MapColor);
+    descriptor: (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/material/MapColor;)Lnet/minecraft/world/level/material/MapColor;
+    Code:
+       0: aload_0
+       1: getfield      #7                  // Field matter:Lcool/furry/mc/neoforge/projectexpansion/util/Matter;
+       4: getfield      #322                // Field cool/furry/mc/neoforge/projectexpansion/util/Matter.mapColor:Ljava/util/function/Supplier;
+       7: ifnonnull     22
+      10: aload_0
+      11: aload_1
+      12: aload_2
+      13: aload_3
+      14: aload         4
+      16: invokespecial #326                // Method moze_intel/projecte/gameObjs/blocks/BlockDirection.getMapColor:(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/material/MapColor;)Lnet/minecraft/world/level/material/MapColor;
+      19: goto          37
+      22: aload_0
+      23: getfield      #7                  // Field matter:Lcool/furry/mc/neoforge/projectexpansion/util/Matter;
+      26: getfield      #322                // Field cool/furry/mc/neoforge/projectexpansion/util/Matter.mapColor:Ljava/util/function/Supplier;
+      29: invokeinterface #330,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      34: checkcast     #333                // class net/minecraft/world/level/material/MapColor
+      37: areturn
+
+  protected com.mojang.serialization.MapCodec<? extends net.minecraft.world.level.block.Block> codec();
+    descriptor: ()Lcom/mojang/serialization/MapCodec;
+    Code:
+       0: getstatic     #335                // Field cool/furry/mc/neoforge/projectexpansion/registries/BlockTypes.COLLECTOR:Lnet/neoforged/neoforge/registries/DeferredHolder;
+       3: invokevirtual #199                // Method net/neoforged/neoforge/registries/DeferredHolder.get:()Ljava/lang/Object;
+       6: checkcast     #338                // class com/mojang/serialization/MapCodec
+       9: areturn
+
+  private static int lambda$getProperties$0(cool.furry.mc.neoforge.projectexpansion.util.Matter, net.minecraft.world.level.block.state.BlockState);
+    descriptor: (Lcool/furry/mc/neoforge/projectexpansion/util/Matter;Lnet/minecraft/world/level/block/state/BlockState;)I
+    Code:
+       0: aload_0
+       1: invokevirtual #47                 // Method cool/furry/mc/neoforge/projectexpansion/util/Matter.ordinal:()I
+       4: bipush        15
+       6: invokestatic  #340                // Method java/lang/Math.min:(II)I
+       9: ireturn
+}

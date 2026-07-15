@@ -1,0 +1,17 @@
+Compiled from "TileVacuumChest.java"
+final class crazypants.enderio.machines.machine.vacuum.chest.TileVacuumChest$1 extends com.enderio.core.common.inventory.Filters$PredicateItemStack {
+  crazypants.enderio.machines.machine.vacuum.chest.TileVacuumChest$1();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #14                 // Method com/enderio/core/common/inventory/Filters$PredicateItemStack."<init>":()V
+       4: return
+
+  public boolean doApply(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)Z
+    Code:
+       0: aload_1
+       1: invokevirtual #25                 // Method net/minecraft/item/ItemStack.func_77973_b:()Lnet/minecraft/item/Item;
+       4: instanceof    #27                 // class crazypants/enderio/base/filter/item/items/IItemFilterItemUpgrade
+       7: ireturn
+}

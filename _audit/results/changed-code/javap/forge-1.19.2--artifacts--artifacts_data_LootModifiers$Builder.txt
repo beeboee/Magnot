@@ -1,0 +1,186 @@
+Compiled from "LootModifiers.java"
+public class artifacts.data.LootModifiers$Builder {
+  private final java.lang.String lootTable;
+    descriptor: Ljava/lang/String;
+
+  private final net.minecraft.world.level.storage.loot.LootPool$Builder lootPool;
+    descriptor: Lnet/minecraft/world/level/storage/loot/LootPool$Builder;
+
+  private final java.util.List<net.minecraft.world.level.storage.loot.predicates.LootItemCondition> conditions;
+    descriptor: Ljava/util/List;
+
+  private net.minecraft.world.level.storage.loot.parameters.LootContextParamSet paramSet;
+    descriptor: Lnet/minecraft/world/level/storage/loot/parameters/LootContextParamSet;
+
+  private artifacts.data.LootModifiers$Builder(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    Code:
+       0: aload_0
+       1: invokespecial #68                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: invokestatic  #72                 // Method net/minecraft/world/level/storage/loot/LootPool.m_79043_:()Lnet/minecraft/world/level/storage/loot/LootPool$Builder;
+       8: putfield      #74                 // Field lootPool:Lnet/minecraft/world/level/storage/loot/LootPool$Builder;
+      11: aload_0
+      12: getstatic     #79                 // Field net/minecraft/world/level/storage/loot/parameters/LootContextParamSets.f_81411_:Lnet/minecraft/world/level/storage/loot/parameters/LootContextParamSet;
+      15: putfield      #81                 // Field paramSet:Lnet/minecraft/world/level/storage/loot/parameters/LootContextParamSet;
+      18: aload_0
+      19: aload_1
+      20: putfield      #83                 // Field lootTable:Ljava/lang/String;
+      23: aload_0
+      24: new           #85                 // class java/util/ArrayList
+      27: dup
+      28: invokespecial #86                 // Method java/util/ArrayList."<init>":()V
+      31: putfield      #88                 // Field conditions:Ljava/util/List;
+      34: return
+
+  private artifacts.common.loot.RollLootTableModifier build();
+    descriptor: ()Lartifacts/common/loot/RollLootTableModifier;
+    Code:
+       0: new           #94                 // class artifacts/common/loot/RollLootTableModifier
+       3: dup
+       4: aload_0
+       5: getfield      #88                 // Field conditions:Ljava/util/List;
+       8: iconst_0
+       9: anewarray     #20                 // class net/minecraft/world/level/storage/loot/predicates/LootItemCondition
+      12: invokeinterface #100,  2          // InterfaceMethod java/util/List.toArray:([Ljava/lang/Object;)[Ljava/lang/Object;
+      17: checkcast     #102                // class "[Lnet/minecraft/world/level/storage/loot/predicates/LootItemCondition;"
+      20: new           #104                // class net/minecraft/resources/ResourceLocation
+      23: dup
+      24: ldc           #106                // String artifacts
+      26: aload_0
+      27: getfield      #83                 // Field lootTable:Ljava/lang/String;
+      30: invokedynamic #118,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+      35: invokespecial #121                // Method net/minecraft/resources/ResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+      38: invokespecial #124                // Method artifacts/common/loot/RollLootTableModifier."<init>":([Lnet/minecraft/world/level/storage/loot/predicates/LootItemCondition;Lnet/minecraft/resources/ResourceLocation;)V
+      41: areturn
+
+  protected net.minecraft.world.level.storage.loot.LootTable$Builder createLootTable();
+    descriptor: ()Lnet/minecraft/world/level/storage/loot/LootTable$Builder;
+    Code:
+       0: new           #14                 // class net/minecraft/world/level/storage/loot/LootTable$Builder
+       3: dup
+       4: invokespecial #127                // Method net/minecraft/world/level/storage/loot/LootTable$Builder."<init>":()V
+       7: aload_0
+       8: getfield      #74                 // Field lootPool:Lnet/minecraft/world/level/storage/loot/LootPool$Builder;
+      11: invokevirtual #131                // Method net/minecraft/world/level/storage/loot/LootTable$Builder.m_79161_:(Lnet/minecraft/world/level/storage/loot/LootPool$Builder;)Lnet/minecraft/world/level/storage/loot/LootTable$Builder;
+      14: areturn
+
+  public net.minecraft.world.level.storage.loot.parameters.LootContextParamSet getParameterSet();
+    descriptor: ()Lnet/minecraft/world/level/storage/loot/parameters/LootContextParamSet;
+    Code:
+       0: aload_0
+       1: getfield      #81                 // Field paramSet:Lnet/minecraft/world/level/storage/loot/parameters/LootContextParamSet;
+       4: areturn
+
+  protected java.lang.String getName();
+    descriptor: ()Ljava/lang/String;
+    Code:
+       0: aload_0
+       1: getfield      #83                 // Field lootTable:Ljava/lang/String;
+       4: areturn
+
+  private artifacts.data.LootModifiers$Builder parameterSet(net.minecraft.world.level.storage.loot.parameters.LootContextParamSet);
+    descriptor: (Lnet/minecraft/world/level/storage/loot/parameters/LootContextParamSet;)Lartifacts/data/LootModifiers$Builder;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #81                 // Field paramSet:Lnet/minecraft/world/level/storage/loot/parameters/LootContextParamSet;
+       5: aload_0
+       6: areturn
+
+  private artifacts.data.LootModifiers$Builder lootPoolCondition(net.minecraft.world.level.storage.loot.predicates.LootItemCondition$Builder);
+    descriptor: (Lnet/minecraft/world/level/storage/loot/predicates/LootItemCondition$Builder;)Lartifacts/data/LootModifiers$Builder;
+    Code:
+       0: aload_0
+       1: getfield      #74                 // Field lootPool:Lnet/minecraft/world/level/storage/loot/LootPool$Builder;
+       4: aload_1
+       5: invokevirtual #143                // Method net/minecraft/world/level/storage/loot/LootPool$Builder.m_79080_:(Lnet/minecraft/world/level/storage/loot/predicates/LootItemCondition$Builder;)Lnet/minecraft/world/level/storage/loot/LootPool$Builder;
+       8: pop
+       9: aload_0
+      10: areturn
+
+  private artifacts.data.LootModifiers$Builder lootModifierCondition(net.minecraft.world.level.storage.loot.predicates.LootItemCondition$Builder);
+    descriptor: (Lnet/minecraft/world/level/storage/loot/predicates/LootItemCondition$Builder;)Lartifacts/data/LootModifiers$Builder;
+    Code:
+       0: aload_0
+       1: getfield      #88                 // Field conditions:Ljava/util/List;
+       4: aload_1
+       5: invokeinterface #150,  1          // InterfaceMethod net/minecraft/world/level/storage/loot/predicates/LootItemCondition$Builder.m_6409_:()Lnet/minecraft/world/level/storage/loot/predicates/LootItemCondition;
+      10: invokeinterface #154,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      15: pop
+      16: aload_0
+      17: areturn
+
+  private artifacts.data.LootModifiers$Builder item(net.minecraft.world.item.Item, int);
+    descriptor: (Lnet/minecraft/world/item/Item;I)Lartifacts/data/LootModifiers$Builder;
+    Code:
+       0: aload_0
+       1: getfield      #74                 // Field lootPool:Lnet/minecraft/world/level/storage/loot/LootPool$Builder;
+       4: aload_1
+       5: iload_2
+       6: invokestatic  #161                // Method artifacts/data/LootTables.item:(Lnet/minecraft/world/item/Item;I)Lnet/minecraft/world/level/storage/loot/entries/LootPoolSingletonContainer$Builder;
+       9: invokevirtual #165                // Method net/minecraft/world/level/storage/loot/LootPool$Builder.m_79076_:(Lnet/minecraft/world/level/storage/loot/entries/LootPoolEntryContainer$Builder;)Lnet/minecraft/world/level/storage/loot/LootPool$Builder;
+      12: pop
+      13: aload_0
+      14: areturn
+
+  private artifacts.data.LootModifiers$Builder item(net.minecraft.world.item.Item);
+    descriptor: (Lnet/minecraft/world/item/Item;)Lartifacts/data/LootModifiers$Builder;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iconst_1
+       3: invokevirtual #171                // Method item:(Lnet/minecraft/world/item/Item;I)Lartifacts/data/LootModifiers$Builder;
+       6: areturn
+
+  private artifacts.data.LootModifiers$Builder artifact(int);
+    descriptor: (I)Lartifacts/data/LootModifiers$Builder;
+    Code:
+       0: aload_0
+       1: getfield      #74                 // Field lootPool:Lnet/minecraft/world/level/storage/loot/LootPool$Builder;
+       4: iload_1
+       5: invokestatic  #176                // Method artifacts/data/LootTables.artifact:(I)Lnet/minecraft/world/level/storage/loot/entries/LootPoolEntryContainer$Builder;
+       8: invokevirtual #165                // Method net/minecraft/world/level/storage/loot/LootPool$Builder.m_79076_:(Lnet/minecraft/world/level/storage/loot/entries/LootPoolEntryContainer$Builder;)Lnet/minecraft/world/level/storage/loot/LootPool$Builder;
+      11: pop
+      12: aload_0
+      13: areturn
+
+  private artifacts.data.LootModifiers$Builder drinkingHat(int);
+    descriptor: (I)Lartifacts/data/LootModifiers$Builder;
+    Code:
+       0: aload_0
+       1: getfield      #74                 // Field lootPool:Lnet/minecraft/world/level/storage/loot/LootPool$Builder;
+       4: iload_1
+       5: invokestatic  #179                // Method artifacts/data/LootTables.drinkingHat:(I)Lnet/minecraft/world/level/storage/loot/entries/LootPoolEntryContainer$Builder;
+       8: invokevirtual #165                // Method net/minecraft/world/level/storage/loot/LootPool$Builder.m_79076_:(Lnet/minecraft/world/level/storage/loot/entries/LootPoolEntryContainer$Builder;)Lnet/minecraft/world/level/storage/loot/LootPool$Builder;
+      11: pop
+      12: aload_0
+      13: areturn
+
+  private artifacts.data.LootModifiers$Builder everlastingBeef();
+    descriptor: ()Lartifacts/data/LootModifiers$Builder;
+    Code:
+       0: aload_0
+       1: getfield      #74                 // Field lootPool:Lnet/minecraft/world/level/storage/loot/LootPool$Builder;
+       4: getstatic     #187                // Field artifacts/common/init/ModItems.EVERLASTING_BEEF:Lnet/minecraftforge/registries/RegistryObject;
+       7: invokevirtual #193                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      10: checkcast     #195                // class net/minecraft/world/item/Item
+      13: iconst_1
+      14: invokestatic  #161                // Method artifacts/data/LootTables.item:(Lnet/minecraft/world/item/Item;I)Lnet/minecraft/world/level/storage/loot/entries/LootPoolSingletonContainer$Builder;
+      17: invokestatic  #201                // Method net/minecraft/world/level/storage/loot/functions/SmeltItemFunction.m_81271_:()Lnet/minecraft/world/level/storage/loot/functions/LootItemConditionalFunction$Builder;
+      20: getstatic     #205                // Field net/minecraft/world/level/storage/loot/LootContext$EntityTarget.THIS:Lnet/minecraft/world/level/storage/loot/LootContext$EntityTarget;
+      23: invokestatic  #209                // Method net/minecraft/advancements/critereon/EntityPredicate$Builder.m_36633_:()Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
+      26: invokestatic  #213                // Method net/minecraft/advancements/critereon/EntityFlagsPredicate$Builder.m_33713_:()Lnet/minecraft/advancements/critereon/EntityFlagsPredicate$Builder;
+      29: iconst_1
+      30: invokestatic  #219                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      33: invokevirtual #223                // Method net/minecraft/advancements/critereon/EntityFlagsPredicate$Builder.m_33714_:(Ljava/lang/Boolean;)Lnet/minecraft/advancements/critereon/EntityFlagsPredicate$Builder;
+      36: invokevirtual #227                // Method net/minecraft/advancements/critereon/EntityFlagsPredicate$Builder.m_33716_:()Lnet/minecraft/advancements/critereon/EntityFlagsPredicate;
+      39: invokevirtual #231                // Method net/minecraft/advancements/critereon/EntityPredicate$Builder.m_36642_:(Lnet/minecraft/advancements/critereon/EntityFlagsPredicate;)Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;
+      42: invokestatic  #237                // Method net/minecraft/world/level/storage/loot/predicates/LootItemEntityPropertyCondition.m_81864_:(Lnet/minecraft/world/level/storage/loot/LootContext$EntityTarget;Lnet/minecraft/advancements/critereon/EntityPredicate$Builder;)Lnet/minecraft/world/level/storage/loot/predicates/LootItemCondition$Builder;
+      45: invokevirtual #240                // Method net/minecraft/world/level/storage/loot/functions/LootItemConditionalFunction$Builder.m_79080_:(Lnet/minecraft/world/level/storage/loot/predicates/LootItemCondition$Builder;)Lnet/minecraft/world/level/storage/loot/functions/LootItemConditionalFunction$Builder;
+      48: invokevirtual #244                // Method net/minecraft/world/level/storage/loot/entries/LootPoolSingletonContainer$Builder.m_79078_:(Lnet/minecraft/world/level/storage/loot/functions/LootItemFunction$Builder;)Lnet/minecraft/world/level/storage/loot/entries/LootPoolSingletonContainer$Builder;
+      51: invokevirtual #165                // Method net/minecraft/world/level/storage/loot/LootPool$Builder.m_79076_:(Lnet/minecraft/world/level/storage/loot/entries/LootPoolEntryContainer$Builder;)Lnet/minecraft/world/level/storage/loot/LootPool$Builder;
+      54: pop
+      55: aload_0
+      56: areturn
+}

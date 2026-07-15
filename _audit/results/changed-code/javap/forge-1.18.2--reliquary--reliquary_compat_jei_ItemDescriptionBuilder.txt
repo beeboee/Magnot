@@ -1,0 +1,817 @@
+Compiled from "ItemDescriptionBuilder.java"
+public class reliquary.compat.jei.ItemDescriptionBuilder {
+  private reliquary.compat.jei.ItemDescriptionBuilder();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void addIngredientInfo(mezz.jei.api.registration.IRecipeRegistration);
+    descriptor: (Lmezz/jei/api/registration/IRecipeRegistration;)V
+    Code:
+       0: aload_0
+       1: getstatic     #24                 // Field reliquary/init/ModItems.ALKAHESTRY_TOME:Lnet/minecraftforge/registries/RegistryObject;
+       4: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+       7: checkcast     #32                 // class net/minecraft/world/item/Item
+      10: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+      13: aload_0
+      14: getstatic     #39                 // Field reliquary/init/ModItems.MERCY_CROSS:Lnet/minecraftforge/registries/RegistryObject;
+      17: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      20: checkcast     #32                 // class net/minecraft/world/item/Item
+      23: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+      26: aload_0
+      27: getstatic     #42                 // Field reliquary/init/ModItems.ANGELHEART_VIAL:Lnet/minecraftforge/registries/RegistryObject;
+      30: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      33: checkcast     #32                 // class net/minecraft/world/item/Item
+      36: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+      39: aload_0
+      40: getstatic     #45                 // Field reliquary/init/ModItems.ANGELIC_FEATHER:Lnet/minecraftforge/registries/RegistryObject;
+      43: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      46: checkcast     #32                 // class net/minecraft/world/item/Item
+      49: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+      52: aload_0
+      53: getstatic     #48                 // Field reliquary/init/ModItems.APHRODITE_POTION:Lnet/minecraftforge/registries/RegistryObject;
+      56: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      59: checkcast     #32                 // class net/minecraft/world/item/Item
+      62: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+      65: aload_0
+      66: getstatic     #51                 // Field reliquary/init/ModItems.POTION_ESSENCE:Lnet/minecraftforge/registries/RegistryObject;
+      69: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      72: checkcast     #32                 // class net/minecraft/world/item/Item
+      75: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+      78: aload_0
+      79: getstatic     #54                 // Field reliquary/init/ModItems.DESTRUCTION_CATALYST:Lnet/minecraftforge/registries/RegistryObject;
+      82: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      85: checkcast     #32                 // class net/minecraft/world/item/Item
+      88: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+      91: aload_0
+      92: getstatic     #57                 // Field reliquary/init/ModItems.EMPEROR_CHALICE:Lnet/minecraftforge/registries/RegistryObject;
+      95: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      98: checkcast     #32                 // class net/minecraft/world/item/Item
+     101: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     104: aload_0
+     105: getstatic     #60                 // Field reliquary/init/ModItems.ENDER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+     108: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     111: checkcast     #32                 // class net/minecraft/world/item/Item
+     114: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     117: aload_0
+     118: getstatic     #63                 // Field reliquary/init/ModItems.FERTILE_POTION:Lnet/minecraftforge/registries/RegistryObject;
+     121: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     124: checkcast     #32                 // class net/minecraft/world/item/Item
+     127: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     130: aload_0
+     131: getstatic     #66                 // Field reliquary/init/ModItems.FORTUNE_COIN:Lnet/minecraftforge/registries/RegistryObject;
+     134: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     137: checkcast     #32                 // class net/minecraft/world/item/Item
+     140: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     143: aload_0
+     144: getstatic     #69                 // Field reliquary/init/ModItems.GLACIAL_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+     147: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     150: checkcast     #32                 // class net/minecraft/world/item/Item
+     153: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     156: aload_0
+     157: getstatic     #72                 // Field reliquary/init/ModItems.GLOWING_WATER:Lnet/minecraftforge/registries/RegistryObject;
+     160: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     163: checkcast     #32                 // class net/minecraft/world/item/Item
+     166: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     169: aload_0
+     170: getstatic     #75                 // Field reliquary/init/ModItems.HOLY_HAND_GRENADE:Lnet/minecraftforge/registries/RegistryObject;
+     173: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     176: checkcast     #32                 // class net/minecraft/world/item/Item
+     179: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     182: aload_0
+     183: getstatic     #78                 // Field reliquary/init/ModItems.HANDGUN:Lnet/minecraftforge/registries/RegistryObject;
+     186: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     189: checkcast     #32                 // class net/minecraft/world/item/Item
+     192: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     195: aload_0
+     196: getstatic     #81                 // Field reliquary/init/ModItems.GRIP_ASSEMBLY:Lnet/minecraftforge/registries/RegistryObject;
+     199: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     202: checkcast     #32                 // class net/minecraft/world/item/Item
+     205: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     208: aload_0
+     209: getstatic     #84                 // Field reliquary/init/ModItems.BARREL_ASSEMBLY:Lnet/minecraftforge/registries/RegistryObject;
+     212: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     215: checkcast     #32                 // class net/minecraft/world/item/Item
+     218: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     221: aload_0
+     222: getstatic     #87                 // Field reliquary/init/ModItems.HAMMER_ASSEMBLY:Lnet/minecraftforge/registries/RegistryObject;
+     225: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     228: checkcast     #32                 // class net/minecraft/world/item/Item
+     231: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     234: aload_0
+     235: getstatic     #90                 // Field reliquary/init/ModItems.HARVEST_ROD:Lnet/minecraftforge/registries/RegistryObject;
+     238: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     241: checkcast     #32                 // class net/minecraft/world/item/Item
+     244: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     247: aload_0
+     248: getstatic     #93                 // Field reliquary/init/ModItems.HERO_MEDALLION:Lnet/minecraftforge/registries/RegistryObject;
+     251: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     254: checkcast     #32                 // class net/minecraft/world/item/Item
+     257: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     260: aload_0
+     261: getstatic     #96                 // Field reliquary/init/ModItems.ICE_MAGUS_ROD:Lnet/minecraftforge/registries/RegistryObject;
+     264: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     267: checkcast     #32                 // class net/minecraft/world/item/Item
+     270: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     273: aload_0
+     274: getstatic     #99                 // Field reliquary/init/ModItems.INFERNAL_CHALICE:Lnet/minecraftforge/registries/RegistryObject;
+     277: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     280: checkcast     #32                 // class net/minecraft/world/item/Item
+     283: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     286: aload_0
+     287: getstatic     #102                // Field reliquary/init/ModItems.INFERNAL_CLAWS:Lnet/minecraftforge/registries/RegistryObject;
+     290: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     293: checkcast     #32                 // class net/minecraft/world/item/Item
+     296: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     299: aload_0
+     300: getstatic     #105                // Field reliquary/init/ModItems.INFERNAL_TEAR:Lnet/minecraftforge/registries/RegistryObject;
+     303: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     306: checkcast     #32                 // class net/minecraft/world/item/Item
+     309: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     312: aload_0
+     313: getstatic     #108                // Field reliquary/init/ModItems.KRAKEN_SHELL:Lnet/minecraftforge/registries/RegistryObject;
+     316: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     319: checkcast     #32                 // class net/minecraft/world/item/Item
+     322: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     325: aload_0
+     326: getstatic     #111                // Field reliquary/init/ModItems.MIDAS_TOUCHSTONE:Lnet/minecraftforge/registries/RegistryObject;
+     329: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     332: checkcast     #32                 // class net/minecraft/world/item/Item
+     335: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     338: aload_0
+     339: getstatic     #114                // Field reliquary/init/ModItems.PHOENIX_DOWN:Lnet/minecraftforge/registries/RegistryObject;
+     342: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     345: checkcast     #32                 // class net/minecraft/world/item/Item
+     348: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     351: aload_0
+     352: getstatic     #117                // Field reliquary/init/ModItems.PYROMANCER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+     355: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     358: checkcast     #32                 // class net/minecraft/world/item/Item
+     361: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     364: aload_0
+     365: getstatic     #120                // Field reliquary/init/ModItems.RENDING_GALE:Lnet/minecraftforge/registries/RegistryObject;
+     368: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     371: checkcast     #32                 // class net/minecraft/world/item/Item
+     374: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     377: aload_0
+     378: getstatic     #123                // Field reliquary/init/ModItems.ROD_OF_LYSSA:Lnet/minecraftforge/registries/RegistryObject;
+     381: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     384: checkcast     #32                 // class net/minecraft/world/item/Item
+     387: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     390: aload_0
+     391: getstatic     #126                // Field reliquary/init/ModItems.SOJOURNER_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+     394: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     397: checkcast     #32                 // class net/minecraft/world/item/Item
+     400: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     403: aload_0
+     404: getstatic     #129                // Field reliquary/init/ModItems.TIPPED_ARROW:Lnet/minecraftforge/registries/RegistryObject;
+     407: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     410: checkcast     #32                 // class net/minecraft/world/item/Item
+     413: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     416: aload_0
+     417: getstatic     #132                // Field reliquary/init/ModItems.VOID_TEAR:Lnet/minecraftforge/registries/RegistryObject;
+     420: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     423: checkcast     #32                 // class net/minecraft/world/item/Item
+     426: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     429: aload_0
+     430: getstatic     #135                // Field reliquary/init/ModItems.WITCH_HAT:Lnet/minecraftforge/registries/RegistryObject;
+     433: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     436: checkcast     #32                 // class net/minecraft/world/item/Item
+     439: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     442: aload_0
+     443: getstatic     #138                // Field reliquary/init/ModItems.WITHERLESS_ROSE:Lnet/minecraftforge/registries/RegistryObject;
+     446: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     449: checkcast     #32                 // class net/minecraft/world/item/Item
+     452: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     455: aload_0
+     456: getstatic     #141                // Field reliquary/init/ModItems.EMPTY_POTION_VIAL:Lnet/minecraftforge/registries/RegistryObject;
+     459: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     462: checkcast     #32                 // class net/minecraft/world/item/Item
+     465: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     468: aload_0
+     469: getstatic     #144                // Field reliquary/init/ModItems.POTION:Lnet/minecraftforge/registries/RegistryObject;
+     472: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     475: checkcast     #32                 // class net/minecraft/world/item/Item
+     478: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     481: aload_0
+     482: getstatic     #147                // Field reliquary/init/ModItems.SPLASH_POTION:Lnet/minecraftforge/registries/RegistryObject;
+     485: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     488: checkcast     #32                 // class net/minecraft/world/item/Item
+     491: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     494: aload_0
+     495: getstatic     #150                // Field reliquary/init/ModItems.LINGERING_POTION:Lnet/minecraftforge/registries/RegistryObject;
+     498: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     501: checkcast     #32                 // class net/minecraft/world/item/Item
+     504: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     507: aload_0
+     508: getstatic     #153                // Field reliquary/init/ModItems.MOB_CHARM_BELT:Lnet/minecraftforge/registries/RegistryObject;
+     511: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     514: checkcast     #32                 // class net/minecraft/world/item/Item
+     517: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     520: aload_0
+     521: getstatic     #156                // Field reliquary/init/ModItems.ZOMBIE_HEART:Lnet/minecraftforge/registries/RegistryObject;
+     524: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     527: checkcast     #32                 // class net/minecraft/world/item/Item
+     530: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     533: aload_0
+     534: getstatic     #159                // Field reliquary/init/ModItems.SQUID_BEAK:Lnet/minecraftforge/registries/RegistryObject;
+     537: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     540: checkcast     #32                 // class net/minecraft/world/item/Item
+     543: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     546: aload_0
+     547: getstatic     #162                // Field reliquary/init/ModItems.RIB_BONE:Lnet/minecraftforge/registries/RegistryObject;
+     550: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     553: checkcast     #32                 // class net/minecraft/world/item/Item
+     556: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     559: aload_0
+     560: getstatic     #165                // Field reliquary/init/ModItems.CATALYZING_GLAND:Lnet/minecraftforge/registries/RegistryObject;
+     563: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     566: checkcast     #32                 // class net/minecraft/world/item/Item
+     569: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     572: aload_0
+     573: getstatic     #168                // Field reliquary/init/ModItems.CHELICERAE:Lnet/minecraftforge/registries/RegistryObject;
+     576: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     579: checkcast     #32                 // class net/minecraft/world/item/Item
+     582: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     585: aload_0
+     586: getstatic     #171                // Field reliquary/init/ModItems.SLIME_PEARL:Lnet/minecraftforge/registries/RegistryObject;
+     589: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     592: checkcast     #32                 // class net/minecraft/world/item/Item
+     595: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     598: aload_0
+     599: getstatic     #174                // Field reliquary/init/ModItems.KRAKEN_SHELL_FRAGMENT:Lnet/minecraftforge/registries/RegistryObject;
+     602: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     605: checkcast     #32                 // class net/minecraft/world/item/Item
+     608: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     611: aload_0
+     612: getstatic     #177                // Field reliquary/init/ModItems.BAT_WING:Lnet/minecraftforge/registries/RegistryObject;
+     615: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     618: checkcast     #32                 // class net/minecraft/world/item/Item
+     621: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     624: aload_0
+     625: getstatic     #180                // Field reliquary/init/ModItems.WITHERED_RIB:Lnet/minecraftforge/registries/RegistryObject;
+     628: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     631: checkcast     #32                 // class net/minecraft/world/item/Item
+     634: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     637: aload_0
+     638: getstatic     #183                // Field reliquary/init/ModItems.MOLTEN_CORE:Lnet/minecraftforge/registries/RegistryObject;
+     641: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     644: checkcast     #32                 // class net/minecraft/world/item/Item
+     647: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     650: aload_0
+     651: getstatic     #186                // Field reliquary/init/ModItems.EYE_OF_THE_STORM:Lnet/minecraftforge/registries/RegistryObject;
+     654: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     657: checkcast     #32                 // class net/minecraft/world/item/Item
+     660: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     663: aload_0
+     664: getstatic     #189                // Field reliquary/init/ModItems.FERTILE_ESSENCE:Lnet/minecraftforge/registries/RegistryObject;
+     667: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     670: checkcast     #32                 // class net/minecraft/world/item/Item
+     673: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     676: aload_0
+     677: getstatic     #192                // Field reliquary/init/ModItems.FROZEN_CORE:Lnet/minecraftforge/registries/RegistryObject;
+     680: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     683: checkcast     #32                 // class net/minecraft/world/item/Item
+     686: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     689: aload_0
+     690: getstatic     #195                // Field reliquary/init/ModItems.NEBULOUS_HEART:Lnet/minecraftforge/registries/RegistryObject;
+     693: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     696: checkcast     #32                 // class net/minecraft/world/item/Item
+     699: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     702: aload_0
+     703: getstatic     #198                // Field reliquary/init/ModItems.INFERNAL_CLAW:Lnet/minecraftforge/registries/RegistryObject;
+     706: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     709: checkcast     #32                 // class net/minecraft/world/item/Item
+     712: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     715: aload_0
+     716: getstatic     #201                // Field reliquary/init/ModItems.GUARDIAN_SPIKE:Lnet/minecraftforge/registries/RegistryObject;
+     719: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     722: checkcast     #32                 // class net/minecraft/world/item/Item
+     725: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     728: aload_0
+     729: getstatic     #204                // Field reliquary/init/ModItems.CRIMSON_CLOTH:Lnet/minecraftforge/registries/RegistryObject;
+     732: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     735: checkcast     #32                 // class net/minecraft/world/item/Item
+     738: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     741: aload_0
+     742: getstatic     #207                // Field reliquary/init/ModItems.LANTERN_OF_PARANOIA:Lnet/minecraftforge/registries/RegistryObject;
+     745: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     748: checkcast     #32                 // class net/minecraft/world/item/Item
+     751: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     754: aload_0
+     755: getstatic     #210                // Field reliquary/init/ModItems.MAGICBANE:Lnet/minecraftforge/registries/RegistryObject;
+     758: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     761: checkcast     #32                 // class net/minecraft/world/item/Item
+     764: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     767: aload_0
+     768: getstatic     #213                // Field reliquary/init/ModItems.SALAMANDER_EYE:Lnet/minecraftforge/registries/RegistryObject;
+     771: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     774: checkcast     #32                 // class net/minecraft/world/item/Item
+     777: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     780: aload_0
+     781: getstatic     #216                // Field reliquary/init/ModItems.SERPENT_STAFF:Lnet/minecraftforge/registries/RegistryObject;
+     784: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     787: checkcast     #32                 // class net/minecraft/world/item/Item
+     790: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     793: aload_0
+     794: getstatic     #219                // Field reliquary/init/ModItems.SHEARS_OF_WINTER:Lnet/minecraftforge/registries/RegistryObject;
+     797: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     800: checkcast     #32                 // class net/minecraft/world/item/Item
+     803: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     806: aload_0
+     807: getstatic     #222                // Field reliquary/init/ModItems.TWILIGHT_CLOAK:Lnet/minecraftforge/registries/RegistryObject;
+     810: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     813: checkcast     #32                 // class net/minecraft/world/item/Item
+     816: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     819: aload_0
+     820: getstatic     #225                // Field reliquary/init/ModItems.GLOWING_BREAD:Lnet/minecraftforge/registries/RegistryObject;
+     823: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     826: checkcast     #32                 // class net/minecraft/world/item/Item
+     829: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     832: aload_0
+     833: invokestatic  #228                // Method registerCharmFragmentItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;)V
+     836: aload_0
+     837: invokestatic  #231                // Method registerCharmItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;)V
+     840: aload_0
+     841: getstatic     #234                // Field reliquary/init/ModItems.EMPTY_MAGAZINE:Lnet/minecraftforge/registries/RegistryObject;
+     844: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     847: checkcast     #32                 // class net/minecraft/world/item/Item
+     850: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     853: aload_0
+     854: getstatic     #237                // Field reliquary/init/ModItems.EMPTY_BULLET:Lnet/minecraftforge/registries/RegistryObject;
+     857: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     860: checkcast     #32                 // class net/minecraft/world/item/Item
+     863: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     866: aload_0
+     867: getstatic     #240                // Field reliquary/init/ModItems.NEUTRAL_MAGAZINE:Lnet/minecraftforge/registries/RegistryObject;
+     870: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     873: checkcast     #32                 // class net/minecraft/world/item/Item
+     876: invokestatic  #243                // Method registerPotionAmmoItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     879: aload_0
+     880: getstatic     #246                // Field reliquary/init/ModItems.EXORCISM_MAGAZINE:Lnet/minecraftforge/registries/RegistryObject;
+     883: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     886: checkcast     #32                 // class net/minecraft/world/item/Item
+     889: invokestatic  #243                // Method registerPotionAmmoItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     892: aload_0
+     893: getstatic     #249                // Field reliquary/init/ModItems.BLAZE_MAGAZINE:Lnet/minecraftforge/registries/RegistryObject;
+     896: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     899: checkcast     #32                 // class net/minecraft/world/item/Item
+     902: invokestatic  #243                // Method registerPotionAmmoItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     905: aload_0
+     906: getstatic     #252                // Field reliquary/init/ModItems.ENDER_MAGAZINE:Lnet/minecraftforge/registries/RegistryObject;
+     909: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     912: checkcast     #32                 // class net/minecraft/world/item/Item
+     915: invokestatic  #243                // Method registerPotionAmmoItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     918: aload_0
+     919: getstatic     #255                // Field reliquary/init/ModItems.CONCUSSIVE_MAGAZINE:Lnet/minecraftforge/registries/RegistryObject;
+     922: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     925: checkcast     #32                 // class net/minecraft/world/item/Item
+     928: invokestatic  #243                // Method registerPotionAmmoItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     931: aload_0
+     932: getstatic     #258                // Field reliquary/init/ModItems.BUSTER_MAGAZINE:Lnet/minecraftforge/registries/RegistryObject;
+     935: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     938: checkcast     #32                 // class net/minecraft/world/item/Item
+     941: invokestatic  #243                // Method registerPotionAmmoItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     944: aload_0
+     945: getstatic     #261                // Field reliquary/init/ModItems.SEEKER_MAGAZINE:Lnet/minecraftforge/registries/RegistryObject;
+     948: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     951: checkcast     #32                 // class net/minecraft/world/item/Item
+     954: invokestatic  #243                // Method registerPotionAmmoItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     957: aload_0
+     958: getstatic     #264                // Field reliquary/init/ModItems.SAND_MAGAZINE:Lnet/minecraftforge/registries/RegistryObject;
+     961: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     964: checkcast     #32                 // class net/minecraft/world/item/Item
+     967: invokestatic  #243                // Method registerPotionAmmoItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     970: aload_0
+     971: getstatic     #267                // Field reliquary/init/ModItems.STORM_MAGAZINE:Lnet/minecraftforge/registries/RegistryObject;
+     974: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     977: checkcast     #32                 // class net/minecraft/world/item/Item
+     980: invokestatic  #243                // Method registerPotionAmmoItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     983: aload_0
+     984: getstatic     #270                // Field reliquary/init/ModItems.NEUTRAL_BULLET:Lnet/minecraftforge/registries/RegistryObject;
+     987: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     990: checkcast     #32                 // class net/minecraft/world/item/Item
+     993: invokestatic  #243                // Method registerPotionAmmoItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+     996: aload_0
+     997: getstatic     #273                // Field reliquary/init/ModItems.EXORCISM_BULLET:Lnet/minecraftforge/registries/RegistryObject;
+    1000: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+    1003: checkcast     #32                 // class net/minecraft/world/item/Item
+    1006: invokestatic  #243                // Method registerPotionAmmoItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+    1009: aload_0
+    1010: getstatic     #276                // Field reliquary/init/ModItems.BLAZE_BULLET:Lnet/minecraftforge/registries/RegistryObject;
+    1013: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+    1016: checkcast     #32                 // class net/minecraft/world/item/Item
+    1019: invokestatic  #243                // Method registerPotionAmmoItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+    1022: aload_0
+    1023: getstatic     #279                // Field reliquary/init/ModItems.ENDER_BULLET:Lnet/minecraftforge/registries/RegistryObject;
+    1026: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+    1029: checkcast     #32                 // class net/minecraft/world/item/Item
+    1032: invokestatic  #243                // Method registerPotionAmmoItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+    1035: aload_0
+    1036: getstatic     #282                // Field reliquary/init/ModItems.CONCUSSIVE_BULLET:Lnet/minecraftforge/registries/RegistryObject;
+    1039: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+    1042: checkcast     #32                 // class net/minecraft/world/item/Item
+    1045: invokestatic  #243                // Method registerPotionAmmoItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+    1048: aload_0
+    1049: getstatic     #285                // Field reliquary/init/ModItems.BUSTER_BULLET:Lnet/minecraftforge/registries/RegistryObject;
+    1052: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+    1055: checkcast     #32                 // class net/minecraft/world/item/Item
+    1058: invokestatic  #243                // Method registerPotionAmmoItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+    1061: aload_0
+    1062: getstatic     #288                // Field reliquary/init/ModItems.SEEKER_BULLET:Lnet/minecraftforge/registries/RegistryObject;
+    1065: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+    1068: checkcast     #32                 // class net/minecraft/world/item/Item
+    1071: invokestatic  #243                // Method registerPotionAmmoItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+    1074: aload_0
+    1075: getstatic     #291                // Field reliquary/init/ModItems.SAND_BULLET:Lnet/minecraftforge/registries/RegistryObject;
+    1078: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+    1081: checkcast     #32                 // class net/minecraft/world/item/Item
+    1084: invokestatic  #243                // Method registerPotionAmmoItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+    1087: aload_0
+    1088: getstatic     #294                // Field reliquary/init/ModItems.STORM_BULLET:Lnet/minecraftforge/registries/RegistryObject;
+    1091: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+    1094: checkcast     #32                 // class net/minecraft/world/item/Item
+    1097: invokestatic  #243                // Method registerPotionAmmoItemsDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+    1100: aload_0
+    1101: getstatic     #299                // Field reliquary/init/ModBlocks.ALKAHESTRY_ALTAR_ITEM:Lnet/minecraftforge/registries/RegistryObject;
+    1104: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+    1107: checkcast     #32                 // class net/minecraft/world/item/Item
+    1110: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+    1113: aload_0
+    1114: getstatic     #302                // Field reliquary/init/ModBlocks.APOTHECARY_CAULDRON_ITEM:Lnet/minecraftforge/registries/RegistryObject;
+    1117: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+    1120: checkcast     #32                 // class net/minecraft/world/item/Item
+    1123: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+    1126: aload_0
+    1127: getstatic     #305                // Field reliquary/init/ModBlocks.APOTHECARY_MORTAR_ITEM:Lnet/minecraftforge/registries/RegistryObject;
+    1130: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+    1133: checkcast     #32                 // class net/minecraft/world/item/Item
+    1136: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+    1139: aload_0
+    1140: getstatic     #308                // Field reliquary/init/ModBlocks.INTERDICTION_TORCH_ITEM:Lnet/minecraftforge/registries/RegistryObject;
+    1143: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+    1146: checkcast     #32                 // class net/minecraft/world/item/Item
+    1149: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+    1152: aload_0
+    1153: getstatic     #311                // Field reliquary/init/ModBlocks.WRAITH_NODE_ITEM:Lnet/minecraftforge/registries/RegistryObject;
+    1156: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+    1159: checkcast     #32                 // class net/minecraft/world/item/Item
+    1162: invokestatic  #36                 // Method registerItemDescription:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+    1165: aload_0
+    1166: getstatic     #315                // Field reliquary/init/ModBlocks.PEDESTAL_ITEMS:Ljava/util/Map;
+    1169: invokeinterface #321,  1          // InterfaceMethod java/util/Map.values:()Ljava/util/Collection;
+    1174: invokeinterface #327,  1          // InterfaceMethod java/util/Collection.stream:()Ljava/util/stream/Stream;
+    1179: invokedynamic #346,  0            // InvokeDynamic #0:apply:()Ljava/util/function/Function;
+    1184: invokeinterface #352,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+    1189: invokestatic  #358                // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+    1192: invokeinterface #362,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+    1197: checkcast     #364                // class java/util/List
+    1200: iconst_1
+    1201: anewarray     #366                // class java/lang/String
+    1204: dup
+    1205: iconst_0
+    1206: ldc_w         #368                // String pedestal
+    1209: aastore
+    1210: invokestatic  #372                // Method addStacksIngredientInfo:(Lmezz/jei/api/registration/IRecipeRegistration;Ljava/util/List;[Ljava/lang/String;)V
+    1213: aload_0
+    1214: getstatic     #375                // Field reliquary/init/ModBlocks.PASSIVE_PEDESTAL_ITEMS:Ljava/util/Map;
+    1217: invokeinterface #321,  1          // InterfaceMethod java/util/Map.values:()Ljava/util/Collection;
+    1222: invokeinterface #327,  1          // InterfaceMethod java/util/Collection.stream:()Ljava/util/stream/Stream;
+    1227: invokedynamic #380,  0            // InvokeDynamic #1:apply:()Ljava/util/function/Function;
+    1232: invokeinterface #352,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+    1237: invokestatic  #358                // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+    1240: invokeinterface #362,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+    1245: checkcast     #364                // class java/util/List
+    1248: iconst_1
+    1249: anewarray     #366                // class java/lang/String
+    1252: dup
+    1253: iconst_0
+    1254: ldc_w         #382                // String passive_pedestal
+    1257: aastore
+    1258: invokestatic  #372                // Method addStacksIngredientInfo:(Lmezz/jei/api/registration/IRecipeRegistration;Ljava/util/List;[Ljava/lang/String;)V
+    1261: return
+
+  private static void registerItemDescription(mezz.jei.api.registration.IRecipeRegistration, net.minecraft.world.item.Item);
+    descriptor: (Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+    Code:
+       0: invokestatic  #390                // Method net/minecraft/core/NonNullList.m_122779_:()Lnet/minecraft/core/NonNullList;
+       3: astore_2
+       4: aload_1
+       5: getstatic     #396                // Field reliquary/Reliquary.ITEM_GROUP:Lnet/minecraft/world/item/CreativeModeTab;
+       8: aload_2
+       9: invokevirtual #400                // Method net/minecraft/world/item/Item.m_6787_:(Lnet/minecraft/world/item/CreativeModeTab;Lnet/minecraft/core/NonNullList;)V
+      12: aload_2
+      13: invokevirtual #404                // Method net/minecraft/core/NonNullList.isEmpty:()Z
+      16: ifne          29
+      19: aload_0
+      20: aload_1
+      21: aload_2
+      22: iconst_0
+      23: anewarray     #366                // class java/lang/String
+      26: invokestatic  #407                // Method addStacksIngredientInfo:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;Ljava/util/List;[Ljava/lang/String;)V
+      29: return
+
+  private static void addStacksIngredientInfo(mezz.jei.api.registration.IRecipeRegistration, net.minecraft.world.item.Item, java.util.List<net.minecraft.world.item.ItemStack>, java.lang.String...);
+    descriptor: (Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;Ljava/util/List;[Ljava/lang/String;)V
+    Code:
+       0: aload_1
+       1: invokestatic  #419                // Method reliquary/util/RegistryHelper.getRegistryName:(Lnet/minecraftforge/registries/ForgeRegistryEntry;)Lnet/minecraft/resources/ResourceLocation;
+       4: invokevirtual #425                // Method net/minecraft/resources/ResourceLocation.m_135815_:()Ljava/lang/String;
+       7: astore        5
+       9: aload_3
+      10: arraylength
+      11: ifle          42
+      14: aload_3
+      15: arraylength
+      16: iconst_1
+      17: iadd
+      18: anewarray     #366                // class java/lang/String
+      21: astore        4
+      23: aload         4
+      25: iconst_0
+      26: aload         5
+      28: aastore
+      29: aload_3
+      30: iconst_0
+      31: aload         4
+      33: iconst_1
+      34: aload_3
+      35: arraylength
+      36: invokestatic  #431                // Method java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+      39: goto          53
+      42: iconst_1
+      43: anewarray     #366                // class java/lang/String
+      46: dup
+      47: iconst_0
+      48: aload         5
+      50: aastore
+      51: astore        4
+      53: aload_0
+      54: aload_2
+      55: aload         4
+      57: invokestatic  #372                // Method addStacksIngredientInfo:(Lmezz/jei/api/registration/IRecipeRegistration;Ljava/util/List;[Ljava/lang/String;)V
+      60: return
+
+  private static void addStacksIngredientInfo(mezz.jei.api.registration.IRecipeRegistration, java.util.List<net.minecraft.world.item.ItemStack>, java.lang.String...);
+    descriptor: (Lmezz/jei/api/registration/IRecipeRegistration;Ljava/util/List;[Ljava/lang/String;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: getstatic     #449                // Field mezz/jei/api/constants/VanillaTypes.ITEM:Lmezz/jei/api/ingredients/IIngredientType;
+       5: aload_2
+       6: invokestatic  #453                // Method getTranslationKeys:([Ljava/lang/String;)[Lnet/minecraft/network/chat/Component;
+       9: invokeinterface #456,  4          // InterfaceMethod mezz/jei/api/registration/IRecipeRegistration.addIngredientInfo:(Ljava/util/List;Lmezz/jei/api/ingredients/IIngredientType;[Lnet/minecraft/network/chat/Component;)V
+      14: return
+
+  private static net.minecraft.network.chat.Component[] getTranslationKeys(java.lang.String...);
+    descriptor: ([Ljava/lang/String;)[Lnet/minecraft/network/chat/Component;
+    Code:
+       0: aload_0
+       1: arraylength
+       2: anewarray     #458                // class net/minecraft/network/chat/Component
+       5: astore_1
+       6: iconst_0
+       7: istore_2
+       8: iload_2
+       9: aload_0
+      10: arraylength
+      11: if_icmpge     59
+      14: aload_1
+      15: iload_2
+      16: new           #462                // class net/minecraft/network/chat/TranslatableComponent
+      19: dup
+      20: ldc_w         #464                // String jei.%s.description.%s
+      23: iconst_2
+      24: anewarray     #4                  // class java/lang/Object
+      27: dup
+      28: iconst_0
+      29: ldc_w         #466                // String reliquary
+      32: aastore
+      33: dup
+      34: iconst_1
+      35: aload_0
+      36: iload_2
+      37: aaload
+      38: bipush        47
+      40: bipush        46
+      42: invokevirtual #470                // Method java/lang/String.replace:(CC)Ljava/lang/String;
+      45: aastore
+      46: invokestatic  #474                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      49: invokespecial #477                // Method net/minecraft/network/chat/TranslatableComponent."<init>":(Ljava/lang/String;)V
+      52: aastore
+      53: iinc          2, 1
+      56: goto          8
+      59: aload_1
+      60: areturn
+
+  private static void registerCharmFragmentItemsDescription(mezz.jei.api.registration.IRecipeRegistration);
+    descriptor: (Lmezz/jei/api/registration/IRecipeRegistration;)V
+    Code:
+       0: getstatic     #483                // Field reliquary/init/ModItems.MOB_CHARM_FRAGMENT:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+       6: checkcast     #485                // class reliquary/items/MobCharmFragmentItem
+       9: astore_1
+      10: aload_0
+      11: aload_1
+      12: invokedynamic #492,  0            // InvokeDynamic #2:apply:()Ljava/util/function/Function;
+      17: invokestatic  #496                // Method registerCharmBasedItems:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;Ljava/util/function/Function;)V
+      20: return
+
+  private static void registerCharmItemsDescription(mezz.jei.api.registration.IRecipeRegistration);
+    descriptor: (Lmezz/jei/api/registration/IRecipeRegistration;)V
+    Code:
+       0: getstatic     #500                // Field reliquary/init/ModItems.MOB_CHARM:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+       6: checkcast     #502                // class reliquary/items/MobCharmItem
+       9: astore_1
+      10: aload_0
+      11: aload_1
+      12: invokedynamic #505,  0            // InvokeDynamic #3:apply:()Ljava/util/function/Function;
+      17: invokestatic  #496                // Method registerCharmBasedItems:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;Ljava/util/function/Function;)V
+      20: return
+
+  private static void registerCharmBasedItems(mezz.jei.api.registration.IRecipeRegistration, net.minecraft.world.item.Item, java.util.function.Function<net.minecraft.world.item.ItemStack, net.minecraft.resources.ResourceLocation>);
+    descriptor: (Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;Ljava/util/function/Function;)V
+    Code:
+       0: invokestatic  #390                // Method net/minecraft/core/NonNullList.m_122779_:()Lnet/minecraft/core/NonNullList;
+       3: astore_3
+       4: aload_1
+       5: getstatic     #396                // Field reliquary/Reliquary.ITEM_GROUP:Lnet/minecraft/world/item/CreativeModeTab;
+       8: aload_3
+       9: invokevirtual #400                // Method net/minecraft/world/item/Item.m_6787_:(Lnet/minecraft/world/item/CreativeModeTab;Lnet/minecraft/core/NonNullList;)V
+      12: aload_3
+      13: invokevirtual #511                // Method net/minecraft/core/NonNullList.iterator:()Ljava/util/Iterator;
+      16: astore        4
+      18: aload         4
+      20: invokeinterface #516,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      25: ifeq          167
+      28: aload         4
+      30: invokeinterface #520,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      35: checkcast     #522                // class net/minecraft/world/item/ItemStack
+      38: astore        5
+      40: getstatic     #528                // Field net/minecraftforge/registries/ForgeRegistries.ENTITIES:Lnet/minecraftforge/registries/IForgeRegistry;
+      43: aload_2
+      44: aload         5
+      46: invokeinterface #532,  2          // InterfaceMethod java/util/function/Function.apply:(Ljava/lang/Object;)Ljava/lang/Object;
+      51: checkcast     #421                // class net/minecraft/resources/ResourceLocation
+      54: invokeinterface #538,  2          // InterfaceMethod net/minecraftforge/registries/IForgeRegistry.getValue:(Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      59: checkcast     #540                // class net/minecraft/world/entity/EntityType
+      62: astore        6
+      64: aload         6
+      66: ifnonnull     72
+      69: goto          18
+      72: aload_1
+      73: invokestatic  #419                // Method reliquary/util/RegistryHelper.getRegistryName:(Lnet/minecraftforge/registries/ForgeRegistryEntry;)Lnet/minecraft/resources/ResourceLocation;
+      76: invokevirtual #425                // Method net/minecraft/resources/ResourceLocation.m_135815_:()Ljava/lang/String;
+      79: astore        7
+      81: ldc_w         #464                // String jei.%s.description.%s
+      84: iconst_2
+      85: anewarray     #4                  // class java/lang/Object
+      88: dup
+      89: iconst_0
+      90: ldc_w         #466                // String reliquary
+      93: aastore
+      94: dup
+      95: iconst_1
+      96: aload         7
+      98: bipush        47
+     100: bipush        46
+     102: invokevirtual #470                // Method java/lang/String.replace:(CC)Ljava/lang/String;
+     105: aastore
+     106: invokestatic  #474                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     109: astore        8
+     111: aload         6
+     113: invokevirtual #544                // Method net/minecraft/world/entity/EntityType.m_20676_:()Lnet/minecraft/network/chat/Component;
+     116: invokeinterface #547,  1          // InterfaceMethod net/minecraft/network/chat/Component.getString:()Ljava/lang/String;
+     121: astore        9
+     123: aload_0
+     124: aload         5
+     126: getstatic     #449                // Field mezz/jei/api/constants/VanillaTypes.ITEM:Lmezz/jei/api/ingredients/IIngredientType;
+     129: iconst_1
+     130: anewarray     #458                // class net/minecraft/network/chat/Component
+     133: dup
+     134: iconst_0
+     135: new           #462                // class net/minecraft/network/chat/TranslatableComponent
+     138: dup
+     139: aload         8
+     141: iconst_2
+     142: anewarray     #4                  // class java/lang/Object
+     145: dup
+     146: iconst_0
+     147: aload         9
+     149: aastore
+     150: dup
+     151: iconst_1
+     152: aload         9
+     154: aastore
+     155: invokespecial #550                // Method net/minecraft/network/chat/TranslatableComponent."<init>":(Ljava/lang/String;[Ljava/lang/Object;)V
+     158: aastore
+     159: invokeinterface #553,  4          // InterfaceMethod mezz/jei/api/registration/IRecipeRegistration.addIngredientInfo:(Ljava/lang/Object;Lmezz/jei/api/ingredients/IIngredientType;[Lnet/minecraft/network/chat/Component;)V
+     164: goto          18
+     167: return
+
+  private static void registerPotionAmmoItemsDescription(mezz.jei.api.registration.IRecipeRegistration, net.minecraft.world.item.Item);
+    descriptor: (Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;)V
+    Code:
+       0: invokestatic  #390                // Method net/minecraft/core/NonNullList.m_122779_:()Lnet/minecraft/core/NonNullList;
+       3: astore_2
+       4: invokestatic  #390                // Method net/minecraft/core/NonNullList.m_122779_:()Lnet/minecraft/core/NonNullList;
+       7: astore_3
+       8: aload_1
+       9: getstatic     #396                // Field reliquary/Reliquary.ITEM_GROUP:Lnet/minecraft/world/item/CreativeModeTab;
+      12: aload_2
+      13: invokevirtual #400                // Method net/minecraft/world/item/Item.m_6787_:(Lnet/minecraft/world/item/CreativeModeTab;Lnet/minecraft/core/NonNullList;)V
+      16: aload_2
+      17: invokevirtual #511                // Method net/minecraft/core/NonNullList.iterator:()Ljava/util/Iterator;
+      20: astore        4
+      22: aload         4
+      24: invokeinterface #516,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      29: ifeq          67
+      32: aload         4
+      34: invokeinterface #520,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      39: checkcast     #522                // class net/minecraft/world/item/ItemStack
+      42: astore        5
+      44: aload         5
+      46: invokestatic  #570                // Method reliquary/util/potions/XRPotionHelper.getPotionEffectsFromStack:(Lnet/minecraft/world/item/ItemStack;)Ljava/util/List;
+      49: invokeinterface #571,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+      54: ifne          64
+      57: aload_3
+      58: aload         5
+      60: invokevirtual #575                // Method net/minecraft/core/NonNullList.add:(Ljava/lang/Object;)Z
+      63: pop
+      64: goto          22
+      67: aload_3
+      68: invokevirtual #404                // Method net/minecraft/core/NonNullList.isEmpty:()Z
+      71: ifne          90
+      74: aload_0
+      75: aload_1
+      76: aload_3
+      77: iconst_1
+      78: anewarray     #366                // class java/lang/String
+      81: dup
+      82: iconst_0
+      83: ldc_w         #577                // String ammo_potion
+      86: aastore
+      87: invokestatic  #407                // Method addStacksIngredientInfo:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;Ljava/util/List;[Ljava/lang/String;)V
+      90: invokestatic  #390                // Method net/minecraft/core/NonNullList.m_122779_:()Lnet/minecraft/core/NonNullList;
+      93: astore_2
+      94: invokestatic  #390                // Method net/minecraft/core/NonNullList.m_122779_:()Lnet/minecraft/core/NonNullList;
+      97: astore        4
+      99: aload_1
+     100: getstatic     #396                // Field reliquary/Reliquary.ITEM_GROUP:Lnet/minecraft/world/item/CreativeModeTab;
+     103: aload_2
+     104: invokevirtual #400                // Method net/minecraft/world/item/Item.m_6787_:(Lnet/minecraft/world/item/CreativeModeTab;Lnet/minecraft/core/NonNullList;)V
+     107: aload_2
+     108: invokevirtual #511                // Method net/minecraft/core/NonNullList.iterator:()Ljava/util/Iterator;
+     111: astore        5
+     113: aload         5
+     115: invokeinterface #516,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     120: ifeq          159
+     123: aload         5
+     125: invokeinterface #520,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     130: checkcast     #522                // class net/minecraft/world/item/ItemStack
+     133: astore        6
+     135: aload         6
+     137: invokestatic  #570                // Method reliquary/util/potions/XRPotionHelper.getPotionEffectsFromStack:(Lnet/minecraft/world/item/ItemStack;)Ljava/util/List;
+     140: invokeinterface #571,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+     145: ifeq          156
+     148: aload         4
+     150: aload         6
+     152: invokevirtual #575                // Method net/minecraft/core/NonNullList.add:(Ljava/lang/Object;)Z
+     155: pop
+     156: goto          113
+     159: aload         4
+     161: invokevirtual #404                // Method net/minecraft/core/NonNullList.isEmpty:()Z
+     164: ifne          178
+     167: aload_0
+     168: aload_1
+     169: aload         4
+     171: iconst_0
+     172: anewarray     #366                // class java/lang/String
+     175: invokestatic  #407                // Method addStacksIngredientInfo:(Lmezz/jei/api/registration/IRecipeRegistration;Lnet/minecraft/world/item/Item;Ljava/util/List;[Ljava/lang/String;)V
+     178: return
+
+  private static net.minecraft.world.item.ItemStack lambda$addIngredientInfo$1(net.minecraftforge.registries.RegistryObject);
+    descriptor: (Lnet/minecraftforge/registries/RegistryObject;)Lnet/minecraft/world/item/ItemStack;
+    Code:
+       0: new           #522                // class net/minecraft/world/item/ItemStack
+       3: dup
+       4: aload_0
+       5: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+       8: checkcast     #581                // class net/minecraft/world/level/ItemLike
+      11: invokespecial #584                // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+      14: areturn
+
+  private static net.minecraft.world.item.ItemStack lambda$addIngredientInfo$0(net.minecraftforge.registries.RegistryObject);
+    descriptor: (Lnet/minecraftforge/registries/RegistryObject;)Lnet/minecraft/world/item/ItemStack;
+    Code:
+       0: new           #522                // class net/minecraft/world/item/ItemStack
+       3: dup
+       4: aload_0
+       5: invokevirtual #30                 // Method net/minecraftforge/registries/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+       8: checkcast     #581                // class net/minecraft/world/level/ItemLike
+      11: invokespecial #584                // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+      14: areturn
+}

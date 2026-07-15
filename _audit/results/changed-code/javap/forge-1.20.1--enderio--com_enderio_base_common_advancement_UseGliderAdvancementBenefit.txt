@@ -1,0 +1,62 @@
+Compiled from "UseGliderAdvancementBenefit.java"
+public class com.enderio.base.common.advancement.UseGliderAdvancementBenefit {
+  public static final net.minecraft.resources.ResourceLocation USE_GLIDER_ADVANCEMENT;
+    descriptor: Lnet/minecraft/resources/ResourceLocation;
+
+  public static final java.util.Map<java.lang.Integer, net.minecraft.world.item.Item> PLAYER_BOUND_GLIDERS;
+    descriptor: Ljava/util/Map;
+
+  public com.enderio.base.common.advancement.UseGliderAdvancementBenefit();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #25                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void onEarnAdvancement(net.minecraftforge.event.entity.player.AdvancementEvent$AdvancementEarnEvent);
+    descriptor: (Lnet/minecraftforge/event/entity/player/AdvancementEvent$AdvancementEarnEvent;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #34                 // Method net/minecraftforge/event/entity/player/AdvancementEvent$AdvancementEarnEvent.getAdvancement:()Lnet/minecraft/advancements/Advancement;
+       4: invokevirtual #40                 // Method net/minecraft/advancements/Advancement.m_138327_:()Lnet/minecraft/resources/ResourceLocation;
+       7: getstatic     #42                 // Field USE_GLIDER_ADVANCEMENT:Lnet/minecraft/resources/ResourceLocation;
+      10: invokevirtual #48                 // Method net/minecraft/resources/ResourceLocation.equals:(Ljava/lang/Object;)Z
+      13: ifeq          72
+      16: getstatic     #50                 // Field PLAYER_BOUND_GLIDERS:Ljava/util/Map;
+      19: aload_0
+      20: invokevirtual #54                 // Method net/minecraftforge/event/entity/player/AdvancementEvent$AdvancementEarnEvent.getEntity:()Lnet/minecraft/world/entity/player/Player;
+      23: invokevirtual #60                 // Method net/minecraft/world/entity/player/Player.m_20148_:()Ljava/util/UUID;
+      26: invokevirtual #66                 // Method java/util/UUID.hashCode:()I
+      29: invokestatic  #72                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      32: invokeinterface #78,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      37: checkcast     #80                 // class net/minecraft/world/item/Item
+      40: astore_1
+      41: aload_1
+      42: ifnull        72
+      45: aload_0
+      46: invokevirtual #54                 // Method net/minecraftforge/event/entity/player/AdvancementEvent$AdvancementEarnEvent.getEntity:()Lnet/minecraft/world/entity/player/Player;
+      49: aload_1
+      50: invokevirtual #84                 // Method net/minecraft/world/item/Item.m_7968_:()Lnet/minecraft/world/item/ItemStack;
+      53: invokevirtual #88                 // Method net/minecraft/world/entity/player/Player.m_36356_:(Lnet/minecraft/world/item/ItemStack;)Z
+      56: ifne          72
+      59: aload_0
+      60: invokevirtual #54                 // Method net/minecraftforge/event/entity/player/AdvancementEvent$AdvancementEarnEvent.getEntity:()Lnet/minecraft/world/entity/player/Player;
+      63: aload_1
+      64: invokevirtual #84                 // Method net/minecraft/world/item/Item.m_7968_:()Lnet/minecraft/world/item/ItemStack;
+      67: iconst_0
+      68: invokevirtual #92                 // Method net/minecraft/world/entity/player/Player.m_36176_:(Lnet/minecraft/world/item/ItemStack;Z)Lnet/minecraft/world/entity/item/ItemEntity;
+      71: pop
+      72: return
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: ldc           #99                 // String adventure/use_glider
+       2: invokestatic  #105                // Method com/enderio/EnderIO.loc:(Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+       5: putstatic     #42                 // Field USE_GLIDER_ADVANCEMENT:Lnet/minecraft/resources/ResourceLocation;
+       8: new           #107                // class java/util/HashMap
+      11: dup
+      12: invokespecial #108                // Method java/util/HashMap."<init>":()V
+      15: putstatic     #50                 // Field PLAYER_BOUND_GLIDERS:Ljava/util/Map;
+      18: return
+}

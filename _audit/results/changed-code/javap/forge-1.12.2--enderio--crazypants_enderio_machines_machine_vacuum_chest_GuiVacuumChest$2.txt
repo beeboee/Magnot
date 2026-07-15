@@ -1,0 +1,23 @@
+Compiled from "GuiVacuumChest.java"
+class crazypants.enderio.machines.machine.vacuum.chest.GuiVacuumChest$2 implements java.lang.Runnable {
+  final crazypants.enderio.machines.machine.vacuum.chest.GuiVacuumChest this$0;
+    descriptor: Lcrazypants/enderio/machines/machine/vacuum/chest/GuiVacuumChest;
+
+  crazypants.enderio.machines.machine.vacuum.chest.GuiVacuumChest$2(crazypants.enderio.machines.machine.vacuum.chest.GuiVacuumChest);
+    descriptor: (Lcrazypants/enderio/machines/machine/vacuum/chest/GuiVacuumChest;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #17                 // Field this$0:Lcrazypants/enderio/machines/machine/vacuum/chest/GuiVacuumChest;
+       5: aload_0
+       6: invokespecial #20                 // Method java/lang/Object."<init>":()V
+       9: return
+
+  public void run();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: getfield      #17                 // Field this$0:Lcrazypants/enderio/machines/machine/vacuum/chest/GuiVacuumChest;
+       4: invokevirtual #26                 // Method crazypants/enderio/machines/machine/vacuum/chest/GuiVacuumChest.filterChanged:()V
+       7: return
+}

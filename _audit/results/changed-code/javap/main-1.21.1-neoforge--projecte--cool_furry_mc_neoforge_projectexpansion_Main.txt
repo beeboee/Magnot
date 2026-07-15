@@ -1,0 +1,184 @@
+Compiled from "Main.java"
+public class cool.furry.mc.neoforge.projectexpansion.Main {
+  public static final java.lang.String MOD_ID;
+    descriptor: Ljava/lang/String;
+
+  public static final org.apache.logging.log4j.Logger Logger;
+    descriptor: Lorg/apache/logging/log4j/Logger;
+
+  public static net.neoforged.fml.ModContainer MOD_CONTAINER;
+    descriptor: Lnet/neoforged/fml/ModContainer;
+
+  private static cool.furry.mc.neoforge.projectexpansion.Main INSTANCE;
+    descriptor: Lcool/furry/mc/neoforge/projectexpansion/Main;
+
+  private final cool.furry.mc.neoforge.projectexpansion.net.PacketHandler packetHandler;
+    descriptor: Lcool/furry/mc/neoforge/projectexpansion/net/PacketHandler;
+
+  public cool.furry.mc.neoforge.projectexpansion.Main(net.neoforged.bus.api.IEventBus, net.neoforged.fml.ModContainer);
+    descriptor: (Lnet/neoforged/bus/api/IEventBus;Lnet/neoforged/fml/ModContainer;)V
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: putstatic     #7                  // Field INSTANCE:Lcool/furry/mc/neoforge/projectexpansion/Main;
+       8: aload_2
+       9: putstatic     #13                 // Field MOD_CONTAINER:Lnet/neoforged/fml/ModContainer;
+      12: getstatic     #17                 // Field cool/furry/mc/neoforge/projectexpansion/registries/AttachmentTypes.Registry:Lnet/neoforged/neoforge/registries/DeferredRegister;
+      15: aload_1
+      16: invokevirtual #23                 // Method net/neoforged/neoforge/registries/DeferredRegister.register:(Lnet/neoforged/bus/api/IEventBus;)V
+      19: getstatic     #29                 // Field cool/furry/mc/neoforge/projectexpansion/registries/Attributes.Registry:Lnet/neoforged/neoforge/registries/DeferredRegister;
+      22: aload_1
+      23: invokevirtual #23                 // Method net/neoforged/neoforge/registries/DeferredRegister.register:(Lnet/neoforged/bus/api/IEventBus;)V
+      26: getstatic     #32                 // Field cool/furry/mc/neoforge/projectexpansion/registries/BlockEntityTypes.Registry:Lnet/neoforged/neoforge/registries/DeferredRegister;
+      29: aload_1
+      30: invokevirtual #23                 // Method net/neoforged/neoforge/registries/DeferredRegister.register:(Lnet/neoforged/bus/api/IEventBus;)V
+      33: getstatic     #35                 // Field cool/furry/mc/neoforge/projectexpansion/registries/Blocks.Registry:Lnet/neoforged/neoforge/registries/DeferredRegister$Blocks;
+      36: aload_1
+      37: invokevirtual #40                 // Method net/neoforged/neoforge/registries/DeferredRegister$Blocks.register:(Lnet/neoforged/bus/api/IEventBus;)V
+      40: getstatic     #43                 // Field cool/furry/mc/neoforge/projectexpansion/registries/BlockTypes.Registry:Lnet/neoforged/neoforge/registries/DeferredRegister;
+      43: aload_1
+      44: invokevirtual #23                 // Method net/neoforged/neoforge/registries/DeferredRegister.register:(Lnet/neoforged/bus/api/IEventBus;)V
+      47: getstatic     #46                 // Field cool/furry/mc/neoforge/projectexpansion/registries/DataComponentTypes.Registry:Lnet/neoforged/neoforge/registries/DeferredRegister$DataComponents;
+      50: aload_1
+      51: invokevirtual #51                 // Method net/neoforged/neoforge/registries/DeferredRegister$DataComponents.register:(Lnet/neoforged/bus/api/IEventBus;)V
+      54: getstatic     #54                 // Field cool/furry/mc/neoforge/projectexpansion/registries/Items.Registry:Lnet/neoforged/neoforge/registries/DeferredRegister;
+      57: aload_1
+      58: invokevirtual #23                 // Method net/neoforged/neoforge/registries/DeferredRegister.register:(Lnet/neoforged/bus/api/IEventBus;)V
+      61: getstatic     #57                 // Field cool/furry/mc/neoforge/projectexpansion/registries/SoundEvents.Registry:Lnet/neoforged/neoforge/registries/DeferredRegister;
+      64: aload_1
+      65: invokevirtual #23                 // Method net/neoforged/neoforge/registries/DeferredRegister.register:(Lnet/neoforged/bus/api/IEventBus;)V
+      68: getstatic     #60                 // Field cool/furry/mc/neoforge/projectexpansion/registries/MenuTypes.Registry:Lnet/neoforged/neoforge/registries/DeferredRegister;
+      71: aload_1
+      72: invokevirtual #23                 // Method net/neoforged/neoforge/registries/DeferredRegister.register:(Lnet/neoforged/bus/api/IEventBus;)V
+      75: getstatic     #63                 // Field cool/furry/mc/neoforge/projectexpansion/registries/CreativeTabs.Registry:Lnet/neoforged/neoforge/registries/DeferredRegister;
+      78: aload_1
+      79: invokevirtual #23                 // Method net/neoforged/neoforge/registries/DeferredRegister.register:(Lnet/neoforged/bus/api/IEventBus;)V
+      82: getstatic     #66                 // Field net/neoforged/neoforge/common/NeoForge.EVENT_BUS:Lnet/neoforged/bus/api/IEventBus;
+      85: aload_0
+      86: invokedynamic #72,  0             // InvokeDynamic #0:accept:(Lcool/furry/mc/neoforge/projectexpansion/Main;)Ljava/util/function/Consumer;
+      91: invokeinterface #76,  2           // InterfaceMethod net/neoforged/bus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+      96: aload_2
+      97: invokestatic  #82                 // Method cool/furry/mc/neoforge/projectexpansion/config/Config.register:(Lnet/neoforged/fml/ModContainer;)V
+     100: invokestatic  #87                 // Method cool/furry/mc/neoforge/projectexpansion/util/Fuel.registerAll:()V
+     103: invokestatic  #92                 // Method cool/furry/mc/neoforge/projectexpansion/util/Matter.registerAll:()V
+     106: invokestatic  #95                 // Method cool/furry/mc/neoforge/projectexpansion/util/Star.registerAll:()V
+     109: invokestatic  #98                 // Method cool/furry/mc/neoforge/projectexpansion/util/AdvancedAlchemicalChest.register:()V
+     112: aload_0
+     113: new           #102                // class cool/furry/mc/neoforge/projectexpansion/net/PacketHandler
+     116: dup
+     117: aload_1
+     118: aload_2
+     119: invokevirtual #104                // Method net/neoforged/fml/ModContainer.getModInfo:()Lnet/neoforged/neoforgespi/language/IModInfo;
+     122: invokeinterface #110,  1          // InterfaceMethod net/neoforged/neoforgespi/language/IModInfo.getVersion:()Lorg/apache/maven/artifact/versioning/ArtifactVersion;
+     127: invokespecial #116                // Method cool/furry/mc/neoforge/projectexpansion/net/PacketHandler."<init>":(Lnet/neoforged/bus/api/IEventBus;Lorg/apache/maven/artifact/versioning/ArtifactVersion;)V
+     130: putfield      #119                // Field packetHandler:Lcool/furry/mc/neoforge/projectexpansion/net/PacketHandler;
+     133: return
+
+  public static cool.furry.mc.neoforge.projectexpansion.net.PacketHandler packetHandler();
+    descriptor: ()Lcool/furry/mc/neoforge/projectexpansion/net/PacketHandler;
+    Code:
+       0: getstatic     #7                  // Field INSTANCE:Lcool/furry/mc/neoforge/projectexpansion/Main;
+       3: getfield      #119                // Field packetHandler:Lcool/furry/mc/neoforge/projectexpansion/net/PacketHandler;
+       6: areturn
+
+  private void serverTick(net.neoforged.neoforge.event.tick.ServerTickEvent$Post);
+    descriptor: (Lnet/neoforged/neoforge/event/tick/ServerTickEvent$Post;)V
+    Code:
+       0: invokestatic  #123                // Method cool/furry/mc/neoforge/projectexpansion/util/AlchemicalCollectionCollector.process:()V
+       3: aload_1
+       4: invokevirtual #128                // Method net/neoforged/neoforge/event/tick/ServerTickEvent$Post.getServer:()Lnet/minecraft/server/MinecraftServer;
+       7: invokevirtual #134                // Method net/minecraft/server/MinecraftServer.getPlayerList:()Lnet/minecraft/server/players/PlayerList;
+      10: invokevirtual #140                // Method net/minecraft/server/players/PlayerList.getPlayers:()Ljava/util/List;
+      13: invokeinterface #146,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      18: astore_2
+      19: aload_2
+      20: invokeinterface #152,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      25: ifeq          204
+      28: aload_2
+      29: invokeinterface #158,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      34: checkcast     #162                // class net/minecraft/server/level/ServerPlayer
+      37: astore_3
+      38: iconst_0
+      39: istore        4
+      41: iload         4
+      43: aload_3
+      44: invokevirtual #164                // Method net/minecraft/server/level/ServerPlayer.getInventory:()Lnet/minecraft/world/entity/player/Inventory;
+      47: invokevirtual #168                // Method net/minecraft/world/entity/player/Inventory.getContainerSize:()I
+      50: if_icmpge     201
+      53: aload_3
+      54: invokevirtual #164                // Method net/minecraft/server/level/ServerPlayer.getInventory:()Lnet/minecraft/world/entity/player/Inventory;
+      57: iload         4
+      59: invokevirtual #174                // Method net/minecraft/world/entity/player/Inventory.getItem:(I)Lnet/minecraft/world/item/ItemStack;
+      62: astore        5
+      64: aload         5
+      66: invokevirtual #178                // Method net/minecraft/world/item/ItemStack.getItem:()Lnet/minecraft/world/item/Item;
+      69: getstatic     #183                // Field cool/furry/mc/neoforge/projectexpansion/registries/Items.INFINITE_FUEL:Lnet/neoforged/neoforge/registries/DeferredHolder;
+      72: invokevirtual #187                // Method net/neoforged/neoforge/registries/DeferredHolder.get:()Ljava/lang/Object;
+      75: invokevirtual #192                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+      78: ifeq          136
+      81: aload         5
+      83: getstatic     #196                // Field cool/furry/mc/neoforge/projectexpansion/registries/DataComponentTypes.OWNER:Lnet/neoforged/neoforge/registries/DeferredHolder;
+      86: invokevirtual #187                // Method net/neoforged/neoforge/registries/DeferredHolder.get:()Ljava/lang/Object;
+      89: checkcast     #199                // class net/minecraft/core/component/DataComponentType
+      92: invokevirtual #201                // Method net/minecraft/world/item/ItemStack.has:(Lnet/minecraft/core/component/DataComponentType;)Z
+      95: ifne          136
+      98: aload         5
+     100: getstatic     #196                // Field cool/furry/mc/neoforge/projectexpansion/registries/DataComponentTypes.OWNER:Lnet/neoforged/neoforge/registries/DeferredHolder;
+     103: invokevirtual #187                // Method net/neoforged/neoforge/registries/DeferredHolder.get:()Ljava/lang/Object;
+     106: checkcast     #199                // class net/minecraft/core/component/DataComponentType
+     109: new           #205                // class cool/furry/mc/neoforge/projectexpansion/registries/DataComponentTypes$OwnerData
+     112: dup
+     113: aload_3
+     114: invokevirtual #207                // Method net/minecraft/server/level/ServerPlayer.getUUID:()Ljava/util/UUID;
+     117: aload_3
+     118: invokevirtual #211                // Method net/minecraft/server/level/ServerPlayer.getName:()Lnet/minecraft/network/chat/Component;
+     121: invokeinterface #215,  1          // InterfaceMethod net/minecraft/network/chat/Component.getString:()Ljava/lang/String;
+     126: invokespecial #221                // Method cool/furry/mc/neoforge/projectexpansion/registries/DataComponentTypes$OwnerData."<init>":(Ljava/util/UUID;Ljava/lang/String;)V
+     129: invokevirtual #224                // Method net/minecraft/world/item/ItemStack.set:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Ljava/lang/Object;
+     132: pop
+     133: goto          195
+     136: aload_1
+     137: invokevirtual #128                // Method net/neoforged/neoforge/event/tick/ServerTickEvent$Post.getServer:()Lnet/minecraft/server/MinecraftServer;
+     140: invokevirtual #228                // Method net/minecraft/server/MinecraftServer.registryAccess:()Lnet/minecraft/core/RegistryAccess$Frozen;
+     143: getstatic     #232                // Field cool/furry/mc/neoforge/projectexpansion/registries/Enchantments.ALCHEMICAL_COLLECTION:Lnet/minecraft/resources/ResourceKey;
+     146: invokeinterface #238,  2          // InterfaceMethod net/minecraft/core/RegistryAccess$Frozen.holderOrThrow:(Lnet/minecraft/resources/ResourceKey;)Lnet/minecraft/core/Holder;
+     151: aload         5
+     153: invokestatic  #244                // Method net/minecraft/world/item/enchantment/EnchantmentHelper.getTagEnchantmentLevel:(Lnet/minecraft/core/Holder;Lnet/minecraft/world/item/ItemStack;)I
+     156: ifle          163
+     159: iconst_1
+     160: goto          164
+     163: iconst_0
+     164: istore        6
+     166: iload         6
+     168: ifeq          195
+     171: aload         5
+     173: getstatic     #250                // Field moze_intel/projecte/gameObjs/registries/PEDataComponentTypes.ACTIVE:Lmoze_intel/projecte/gameObjs/registration/PEDeferredHolder;
+     176: invokevirtual #256                // Method net/minecraft/world/item/ItemStack.has:(Ljava/util/function/Supplier;)Z
+     179: ifne          195
+     182: aload         5
+     184: getstatic     #250                // Field moze_intel/projecte/gameObjs/registries/PEDataComponentTypes.ACTIVE:Lmoze_intel/projecte/gameObjs/registration/PEDeferredHolder;
+     187: iconst_1
+     188: invokestatic  #259                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+     191: invokevirtual #265                // Method net/minecraft/world/item/ItemStack.set:(Ljava/util/function/Supplier;Ljava/lang/Object;)Ljava/lang/Object;
+     194: pop
+     195: iinc          4, 1
+     198: goto          41
+     201: goto          19
+     204: return
+
+  public static net.minecraft.resources.ResourceLocation rl(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+    Code:
+       0: ldc_w         #268                // String projectexpansion
+       3: aload_0
+       4: invokestatic  #270                // Method net/minecraft/resources/ResourceLocation.fromNamespaceAndPath:(Ljava/lang/String;Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+       7: areturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: invokestatic  #276                // Method org/apache/logging/log4j/LogManager.getLogger:()Lorg/apache/logging/log4j/Logger;
+       3: putstatic     #282                // Field Logger:Lorg/apache/logging/log4j/Logger;
+       6: return
+}

@@ -1,0 +1,73 @@
+Compiled from "VacuumConfig.java"
+public final class crazypants.enderio.machines.config.config.VacuumConfig {
+  public static final info.loenwind.autoconfig.factory.IValueFactory F;
+    descriptor: Linfo/loenwind/autoconfig/factory/IValueFactory;
+
+  public static final info.loenwind.autoconfig.factory.IValue<java.lang.Integer> vacuumChestRange;
+    descriptor: Linfo/loenwind/autoconfig/factory/IValue;
+
+  public static final info.loenwind.autoconfig.factory.IValue<java.lang.Integer> vacuumXPRange;
+    descriptor: Linfo/loenwind/autoconfig/factory/IValue;
+
+  public static final info.loenwind.autoconfig.factory.IValue<java.lang.Integer> vacuumChestMaxItems;
+    descriptor: Linfo/loenwind/autoconfig/factory/IValue;
+
+  public static final info.loenwind.autoconfig.factory.IValue<java.lang.Double> vacuumXPVelocity;
+    descriptor: Linfo/loenwind/autoconfig/factory/IValue;
+
+  public crazypants.enderio.machines.config.config.VacuumConfig();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #18                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: getstatic     #26                 // Field crazypants/enderio/machines/config/Config.F:Lcrazypants/enderio/base/config/factory/ValueFactoryEIO;
+       3: ldc           #28                 // String vacuum
+       5: invokevirtual #34                 // Method crazypants/enderio/base/config/factory/ValueFactoryEIO.section:(Ljava/lang/String;)Lcrazypants/enderio/base/config/factory/IValueFactoryEIO;
+       8: putstatic     #36                 // Field F:Linfo/loenwind/autoconfig/factory/IValueFactory;
+      11: getstatic     #36                 // Field F:Linfo/loenwind/autoconfig/factory/IValueFactory;
+      14: ldc           #37                 // String vacuumChestRange
+      16: bipush        6
+      18: ldc           #39                 // String The maximum range of the vacuum chest
+      20: invokeinterface #45,  4           // InterfaceMethod info/loenwind/autoconfig/factory/IValueFactory.make:(Ljava/lang/String;ILjava/lang/String;)Linfo/loenwind/autoconfig/factory/IValue;
+      25: dconst_1
+      26: ldc2_w        #46                 // double 32.0d
+      29: invokeinterface #53,  5           // InterfaceMethod info/loenwind/autoconfig/factory/IValue.setRange:(DD)Linfo/loenwind/autoconfig/factory/IValue;
+      34: invokeinterface #57,  1           // InterfaceMethod info/loenwind/autoconfig/factory/IValue.sync:()Linfo/loenwind/autoconfig/factory/IValue;
+      39: putstatic     #59                 // Field vacuumChestRange:Linfo/loenwind/autoconfig/factory/IValue;
+      42: getstatic     #36                 // Field F:Linfo/loenwind/autoconfig/factory/IValueFactory;
+      45: ldc           #60                 // String vacuumXPRange
+      47: bipush        6
+      49: ldc           #62                 // String The range of the XP vacuum
+      51: invokeinterface #45,  4           // InterfaceMethod info/loenwind/autoconfig/factory/IValueFactory.make:(Ljava/lang/String;ILjava/lang/String;)Linfo/loenwind/autoconfig/factory/IValue;
+      56: dconst_1
+      57: ldc2_w        #46                 // double 32.0d
+      60: invokeinterface #53,  5           // InterfaceMethod info/loenwind/autoconfig/factory/IValue.setRange:(DD)Linfo/loenwind/autoconfig/factory/IValue;
+      65: invokeinterface #57,  1           // InterfaceMethod info/loenwind/autoconfig/factory/IValue.sync:()Linfo/loenwind/autoconfig/factory/IValue;
+      70: putstatic     #64                 // Field vacuumXPRange:Linfo/loenwind/autoconfig/factory/IValue;
+      73: getstatic     #36                 // Field F:Linfo/loenwind/autoconfig/factory/IValueFactory;
+      76: ldc           #65                 // String vacuumChestMaxItems
+      78: bipush        40
+      80: ldc           #67                 // String Maximum number of items the vacuum chest can effect at a time. (-1 for unlimited)
+      82: invokeinterface #45,  4           // InterfaceMethod info/loenwind/autoconfig/factory/IValueFactory.make:(Ljava/lang/String;ILjava/lang/String;)Linfo/loenwind/autoconfig/factory/IValue;
+      87: ldc2_w        #68                 // double -1.0d
+      90: invokeinterface #73,  3           // InterfaceMethod info/loenwind/autoconfig/factory/IValue.setMin:(D)Linfo/loenwind/autoconfig/factory/IValue;
+      95: invokeinterface #57,  1           // InterfaceMethod info/loenwind/autoconfig/factory/IValue.sync:()Linfo/loenwind/autoconfig/factory/IValue;
+     100: putstatic     #75                 // Field vacuumChestMaxItems:Linfo/loenwind/autoconfig/factory/IValue;
+     103: getstatic     #36                 // Field F:Linfo/loenwind/autoconfig/factory/IValueFactory;
+     106: ldc           #76                 // String vacuumXPVelocity
+     108: ldc2_w        #77                 // double 0.1d
+     111: ldc           #80                 // String Velocity multiplier for attracting XP orbs
+     113: invokeinterface #83,  5           // InterfaceMethod info/loenwind/autoconfig/factory/IValueFactory.make:(Ljava/lang/String;DLjava/lang/String;)Linfo/loenwind/autoconfig/factory/IValue;
+     118: ldc2_w        #84                 // double 0.5d
+     121: invokeinterface #88,  3           // InterfaceMethod info/loenwind/autoconfig/factory/IValue.setMax:(D)Linfo/loenwind/autoconfig/factory/IValue;
+     126: ldc2_w        #89                 // double 0.01d
+     129: invokeinterface #73,  3           // InterfaceMethod info/loenwind/autoconfig/factory/IValue.setMin:(D)Linfo/loenwind/autoconfig/factory/IValue;
+     134: invokeinterface #57,  1           // InterfaceMethod info/loenwind/autoconfig/factory/IValue.sync:()Linfo/loenwind/autoconfig/factory/IValue;
+     139: putstatic     #92                 // Field vacuumXPVelocity:Linfo/loenwind/autoconfig/factory/IValue;
+     142: return
+}

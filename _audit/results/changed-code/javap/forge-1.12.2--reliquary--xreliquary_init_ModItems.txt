@@ -1,0 +1,622 @@
+Compiled from "ModItems.java"
+public class xreliquary.init.ModItems {
+  public static xreliquary.items.ItemAlkahestryTome alkahestryTome;
+    descriptor: Lxreliquary/items/ItemAlkahestryTome;
+
+  public static xreliquary.items.ItemMobIngredient mobIngredient;
+    descriptor: Lxreliquary/items/ItemMobIngredient;
+
+  public static xreliquary.items.ItemMercyCross mercyCross;
+    descriptor: Lxreliquary/items/ItemMercyCross;
+
+  public static xreliquary.items.ItemAngelheartVial angelheartVial;
+    descriptor: Lxreliquary/items/ItemAngelheartVial;
+
+  public static xreliquary.items.ItemAngelicFeather angelicFeather;
+    descriptor: Lxreliquary/items/ItemAngelicFeather;
+
+  public static xreliquary.items.ItemAttractionPotion attractionPotion;
+    descriptor: Lxreliquary/items/ItemAttractionPotion;
+
+  public static xreliquary.items.ItemPotionEssence potionEssence;
+    descriptor: Lxreliquary/items/ItemPotionEssence;
+
+  public static xreliquary.items.ItemBullet bullet;
+    descriptor: Lxreliquary/items/ItemBullet;
+
+  public static xreliquary.items.ItemDestructionCatalyst destructionCatalyst;
+    descriptor: Lxreliquary/items/ItemDestructionCatalyst;
+
+  public static xreliquary.items.ItemEmperorChalice emperorChalice;
+    descriptor: Lxreliquary/items/ItemEmperorChalice;
+
+  public static xreliquary.items.ItemEnderStaff enderStaff;
+    descriptor: Lxreliquary/items/ItemEnderStaff;
+
+  public static xreliquary.items.ItemFertilePotion fertilePotion;
+    descriptor: Lxreliquary/items/ItemFertilePotion;
+
+  public static xreliquary.items.ItemFortuneCoin fortuneCoin;
+    descriptor: Lxreliquary/items/ItemFortuneCoin;
+
+  public static xreliquary.items.ItemGlacialStaff glacialStaff;
+    descriptor: Lxreliquary/items/ItemGlacialStaff;
+
+  public static xreliquary.items.ItemGlowingBread glowingBread;
+    descriptor: Lxreliquary/items/ItemGlowingBread;
+
+  public static xreliquary.items.ItemGlowingWater glowingWater;
+    descriptor: Lxreliquary/items/ItemGlowingWater;
+
+  public static xreliquary.items.ItemHolyHandGrenade holyHandGrenade;
+    descriptor: Lxreliquary/items/ItemHolyHandGrenade;
+
+  public static xreliquary.items.ItemGunPart gunPart;
+    descriptor: Lxreliquary/items/ItemGunPart;
+
+  public static xreliquary.items.ItemHandgun handgun;
+    descriptor: Lxreliquary/items/ItemHandgun;
+
+  public static xreliquary.items.ItemHarvestRod harvestRod;
+    descriptor: Lxreliquary/items/ItemHarvestRod;
+
+  public static xreliquary.items.ItemMobCharmFragment mobCharmFragment;
+    descriptor: Lxreliquary/items/ItemMobCharmFragment;
+
+  public static xreliquary.items.ItemHeroMedallion heroMedallion;
+    descriptor: Lxreliquary/items/ItemHeroMedallion;
+
+  public static xreliquary.items.ItemIceMagusRod iceMagusRod;
+    descriptor: Lxreliquary/items/ItemIceMagusRod;
+
+  public static xreliquary.items.ItemInfernalChalice infernalChalice;
+    descriptor: Lxreliquary/items/ItemInfernalChalice;
+
+  public static xreliquary.items.ItemInfernalClaws infernalClaws;
+    descriptor: Lxreliquary/items/ItemInfernalClaws;
+
+  public static xreliquary.items.ItemInfernalTear infernalTear;
+    descriptor: Lxreliquary/items/ItemInfernalTear;
+
+  public static xreliquary.items.ItemKrakenShell krakenShell;
+    descriptor: Lxreliquary/items/ItemKrakenShell;
+
+  public static xreliquary.items.ItemLanternOfParanoia lanternOfParanoia;
+    descriptor: Lxreliquary/items/ItemLanternOfParanoia;
+
+  public static xreliquary.items.ItemMagazine magazine;
+    descriptor: Lxreliquary/items/ItemMagazine;
+
+  public static xreliquary.items.ItemMagicbane magicbane;
+    descriptor: Lxreliquary/items/ItemMagicbane;
+
+  public static xreliquary.items.ItemMidasTouchstone midasTouchstone;
+    descriptor: Lxreliquary/items/ItemMidasTouchstone;
+
+  public static xreliquary.items.ItemPhoenixDown phoenixDown;
+    descriptor: Lxreliquary/items/ItemPhoenixDown;
+
+  public static xreliquary.items.ItemPyromancerStaff pyromancerStaff;
+    descriptor: Lxreliquary/items/ItemPyromancerStaff;
+
+  public static xreliquary.items.ItemRendingGale rendingGale;
+    descriptor: Lxreliquary/items/ItemRendingGale;
+
+  public static xreliquary.items.ItemRodOfLyssa rodOfLyssa;
+    descriptor: Lxreliquary/items/ItemRodOfLyssa;
+
+  public static xreliquary.items.ItemSalamanderEye salamanderEye;
+    descriptor: Lxreliquary/items/ItemSalamanderEye;
+
+  public static xreliquary.items.ItemSerpentStaff serpentStaff;
+    descriptor: Lxreliquary/items/ItemSerpentStaff;
+
+  public static xreliquary.items.ItemShearsOfWinter shearsOfWinter;
+    descriptor: Lxreliquary/items/ItemShearsOfWinter;
+
+  public static xreliquary.items.ItemSojournerStaff sojournerStaff;
+    descriptor: Lxreliquary/items/ItemSojournerStaff;
+
+  public static xreliquary.items.ItemXRTippedArrow tippedArrow;
+    descriptor: Lxreliquary/items/ItemXRTippedArrow;
+
+  public static xreliquary.items.ItemTwilightCloak twilightCloak;
+    descriptor: Lxreliquary/items/ItemTwilightCloak;
+
+  public static xreliquary.items.ItemVoidTear voidTear;
+    descriptor: Lxreliquary/items/ItemVoidTear;
+
+  public static xreliquary.items.ItemWitchHat witchHat;
+    descriptor: Lxreliquary/items/ItemWitchHat;
+
+  public static xreliquary.items.ItemWitherlessRose witherlessRose;
+    descriptor: Lxreliquary/items/ItemWitherlessRose;
+
+  public static xreliquary.items.ItemXRPotion potion;
+    descriptor: Lxreliquary/items/ItemXRPotion;
+
+  public static xreliquary.items.ItemMobCharmBelt mobCharmBelt;
+    descriptor: Lxreliquary/items/ItemMobCharmBelt;
+
+  public static xreliquary.items.ItemMobCharm mobCharm;
+    descriptor: Lxreliquary/items/ItemMobCharm;
+
+  public xreliquary.init.ModItems();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #146                // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void register(net.minecraftforge.event.RegistryEvent$Register<net.minecraft.item.Item>);
+    descriptor: (Lnet/minecraftforge/event/RegistryEvent$Register;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #155                // Method net/minecraftforge/event/RegistryEvent$Register.getRegistry:()Lnet/minecraftforge/registries/IForgeRegistry;
+       4: astore_1
+       5: getstatic     #159                // Field xreliquary/reference/Settings.Disable:Lxreliquary/reference/Settings$DisableSettings;
+       8: getfield      #163                // Field xreliquary/reference/Settings$DisableSettings.disableAlkahestry:Z
+      11: ifne          33
+      14: aload_1
+      15: new           #165                // class xreliquary/items/ItemAlkahestryTome
+      18: dup
+      19: invokespecial #166                // Method xreliquary/items/ItemAlkahestryTome."<init>":()V
+      22: ldc           #168                // String alkahestry_tome
+      24: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+      27: checkcast     #165                // class xreliquary/items/ItemAlkahestryTome
+      30: putstatic     #174                // Field alkahestryTome:Lxreliquary/items/ItemAlkahestryTome;
+      33: aload_1
+      34: new           #178                // class xreliquary/items/ItemMobIngredient
+      37: dup
+      38: invokespecial #179                // Method xreliquary/items/ItemMobIngredient."<init>":()V
+      41: ldc           #181                // String mob_ingredient
+      43: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+      46: checkcast     #178                // class xreliquary/items/ItemMobIngredient
+      49: putstatic     #183                // Field mobIngredient:Lxreliquary/items/ItemMobIngredient;
+      52: aload_1
+      53: new           #185                // class xreliquary/items/ItemMercyCross
+      56: dup
+      57: invokespecial #186                // Method xreliquary/items/ItemMercyCross."<init>":()V
+      60: ldc           #188                // String mercy_cross
+      62: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+      65: checkcast     #185                // class xreliquary/items/ItemMercyCross
+      68: putstatic     #190                // Field mercyCross:Lxreliquary/items/ItemMercyCross;
+      71: aload_1
+      72: new           #192                // class xreliquary/items/ItemAngelheartVial
+      75: dup
+      76: invokespecial #193                // Method xreliquary/items/ItemAngelheartVial."<init>":()V
+      79: ldc           #195                // String angelheart_vial
+      81: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+      84: checkcast     #192                // class xreliquary/items/ItemAngelheartVial
+      87: putstatic     #197                // Field angelheartVial:Lxreliquary/items/ItemAngelheartVial;
+      90: aload_1
+      91: new           #199                // class xreliquary/items/ItemAngelicFeather
+      94: dup
+      95: invokespecial #200                // Method xreliquary/items/ItemAngelicFeather."<init>":()V
+      98: ldc           #202                // String angelic_feather
+     100: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     103: checkcast     #199                // class xreliquary/items/ItemAngelicFeather
+     106: putstatic     #204                // Field angelicFeather:Lxreliquary/items/ItemAngelicFeather;
+     109: aload_1
+     110: new           #206                // class xreliquary/items/ItemDestructionCatalyst
+     113: dup
+     114: invokespecial #207                // Method xreliquary/items/ItemDestructionCatalyst."<init>":()V
+     117: ldc           #209                // String destruction_catalyst
+     119: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     122: checkcast     #206                // class xreliquary/items/ItemDestructionCatalyst
+     125: putstatic     #211                // Field destructionCatalyst:Lxreliquary/items/ItemDestructionCatalyst;
+     128: aload_1
+     129: new           #213                // class xreliquary/items/ItemEmperorChalice
+     132: dup
+     133: invokespecial #214                // Method xreliquary/items/ItemEmperorChalice."<init>":()V
+     136: ldc           #216                // String emperor_chalice
+     138: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     141: checkcast     #213                // class xreliquary/items/ItemEmperorChalice
+     144: putstatic     #218                // Field emperorChalice:Lxreliquary/items/ItemEmperorChalice;
+     147: aload_1
+     148: new           #220                // class xreliquary/items/ItemEnderStaff
+     151: dup
+     152: invokespecial #221                // Method xreliquary/items/ItemEnderStaff."<init>":()V
+     155: ldc           #223                // String ender_staff
+     157: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     160: checkcast     #220                // class xreliquary/items/ItemEnderStaff
+     163: putstatic     #225                // Field enderStaff:Lxreliquary/items/ItemEnderStaff;
+     166: aload_1
+     167: new           #227                // class xreliquary/items/ItemFortuneCoin
+     170: dup
+     171: invokespecial #228                // Method xreliquary/items/ItemFortuneCoin."<init>":()V
+     174: ldc           #230                // String fortune_coin
+     176: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     179: checkcast     #227                // class xreliquary/items/ItemFortuneCoin
+     182: putstatic     #232                // Field fortuneCoin:Lxreliquary/items/ItemFortuneCoin;
+     185: aload_1
+     186: new           #234                // class xreliquary/items/ItemGlacialStaff
+     189: dup
+     190: invokespecial #235                // Method xreliquary/items/ItemGlacialStaff."<init>":()V
+     193: ldc           #237                // String glacial_staff
+     195: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     198: checkcast     #234                // class xreliquary/items/ItemGlacialStaff
+     201: putstatic     #239                // Field glacialStaff:Lxreliquary/items/ItemGlacialStaff;
+     204: aload_1
+     205: new           #241                // class xreliquary/items/ItemGlowingBread
+     208: dup
+     209: invokespecial #242                // Method xreliquary/items/ItemGlowingBread."<init>":()V
+     212: ldc           #244                // String glowing_bread
+     214: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     217: checkcast     #241                // class xreliquary/items/ItemGlowingBread
+     220: putstatic     #246                // Field glowingBread:Lxreliquary/items/ItemGlowingBread;
+     223: aload_1
+     224: new           #248                // class xreliquary/items/ItemGlowingWater
+     227: dup
+     228: invokespecial #249                // Method xreliquary/items/ItemGlowingWater."<init>":()V
+     231: ldc           #251                // String glowing_water
+     233: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     236: checkcast     #248                // class xreliquary/items/ItemGlowingWater
+     239: putstatic     #253                // Field glowingWater:Lxreliquary/items/ItemGlowingWater;
+     242: aload_1
+     243: new           #255                // class xreliquary/items/ItemHarvestRod
+     246: dup
+     247: invokespecial #256                // Method xreliquary/items/ItemHarvestRod."<init>":()V
+     250: ldc_w         #258                // String harvest_rod
+     253: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     256: checkcast     #255                // class xreliquary/items/ItemHarvestRod
+     259: putstatic     #260                // Field harvestRod:Lxreliquary/items/ItemHarvestRod;
+     262: aload_1
+     263: new           #262                // class xreliquary/items/ItemMobCharmFragment
+     266: dup
+     267: invokespecial #263                // Method xreliquary/items/ItemMobCharmFragment."<init>":()V
+     270: ldc_w         #265                // String mob_charm_fragment
+     273: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     276: checkcast     #262                // class xreliquary/items/ItemMobCharmFragment
+     279: putstatic     #267                // Field mobCharmFragment:Lxreliquary/items/ItemMobCharmFragment;
+     282: aload_1
+     283: new           #269                // class xreliquary/items/ItemHeroMedallion
+     286: dup
+     287: invokespecial #270                // Method xreliquary/items/ItemHeroMedallion."<init>":()V
+     290: ldc_w         #272                // String hero_medallion
+     293: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     296: checkcast     #269                // class xreliquary/items/ItemHeroMedallion
+     299: putstatic     #274                // Field heroMedallion:Lxreliquary/items/ItemHeroMedallion;
+     302: aload_1
+     303: new           #276                // class xreliquary/items/ItemHolyHandGrenade
+     306: dup
+     307: invokespecial #277                // Method xreliquary/items/ItemHolyHandGrenade."<init>":()V
+     310: ldc_w         #279                // String holy_hand_grenade
+     313: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     316: checkcast     #276                // class xreliquary/items/ItemHolyHandGrenade
+     319: putstatic     #281                // Field holyHandGrenade:Lxreliquary/items/ItemHolyHandGrenade;
+     322: aload_1
+     323: new           #283                // class xreliquary/items/ItemIceMagusRod
+     326: dup
+     327: invokespecial #284                // Method xreliquary/items/ItemIceMagusRod."<init>":()V
+     330: ldc_w         #286                // String ice_magus_rod
+     333: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     336: checkcast     #283                // class xreliquary/items/ItemIceMagusRod
+     339: putstatic     #288                // Field iceMagusRod:Lxreliquary/items/ItemIceMagusRod;
+     342: aload_1
+     343: new           #290                // class xreliquary/items/ItemInfernalChalice
+     346: dup
+     347: invokespecial #291                // Method xreliquary/items/ItemInfernalChalice."<init>":()V
+     350: ldc_w         #293                // String infernal_chalice
+     353: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     356: checkcast     #290                // class xreliquary/items/ItemInfernalChalice
+     359: putstatic     #295                // Field infernalChalice:Lxreliquary/items/ItemInfernalChalice;
+     362: aload_1
+     363: new           #297                // class xreliquary/items/ItemInfernalClaws
+     366: dup
+     367: invokespecial #298                // Method xreliquary/items/ItemInfernalClaws."<init>":()V
+     370: ldc_w         #300                // String infernal_claws
+     373: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     376: checkcast     #297                // class xreliquary/items/ItemInfernalClaws
+     379: putstatic     #302                // Field infernalClaws:Lxreliquary/items/ItemInfernalClaws;
+     382: aload_1
+     383: new           #304                // class xreliquary/items/ItemInfernalTear
+     386: dup
+     387: invokespecial #305                // Method xreliquary/items/ItemInfernalTear."<init>":()V
+     390: ldc_w         #307                // String infernal_tear
+     393: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     396: checkcast     #304                // class xreliquary/items/ItemInfernalTear
+     399: putstatic     #309                // Field infernalTear:Lxreliquary/items/ItemInfernalTear;
+     402: aload_1
+     403: new           #311                // class xreliquary/items/ItemKrakenShell
+     406: dup
+     407: invokespecial #312                // Method xreliquary/items/ItemKrakenShell."<init>":()V
+     410: ldc_w         #314                // String kraken_shell
+     413: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     416: checkcast     #311                // class xreliquary/items/ItemKrakenShell
+     419: putstatic     #316                // Field krakenShell:Lxreliquary/items/ItemKrakenShell;
+     422: aload_1
+     423: new           #318                // class xreliquary/items/ItemLanternOfParanoia
+     426: dup
+     427: invokespecial #319                // Method xreliquary/items/ItemLanternOfParanoia."<init>":()V
+     430: ldc_w         #321                // String lantern_of_paranoia
+     433: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     436: checkcast     #318                // class xreliquary/items/ItemLanternOfParanoia
+     439: putstatic     #323                // Field lanternOfParanoia:Lxreliquary/items/ItemLanternOfParanoia;
+     442: aload_1
+     443: new           #325                // class xreliquary/items/ItemMagicbane
+     446: dup
+     447: invokespecial #326                // Method xreliquary/items/ItemMagicbane."<init>":()V
+     450: ldc_w         #327                // String magicbane
+     453: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     456: checkcast     #325                // class xreliquary/items/ItemMagicbane
+     459: putstatic     #329                // Field magicbane:Lxreliquary/items/ItemMagicbane;
+     462: aload_1
+     463: new           #331                // class xreliquary/items/ItemMidasTouchstone
+     466: dup
+     467: invokespecial #332                // Method xreliquary/items/ItemMidasTouchstone."<init>":()V
+     470: ldc_w         #334                // String midas_touchstone
+     473: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     476: checkcast     #331                // class xreliquary/items/ItemMidasTouchstone
+     479: putstatic     #336                // Field midasTouchstone:Lxreliquary/items/ItemMidasTouchstone;
+     482: aload_1
+     483: new           #338                // class xreliquary/items/ItemMobCharm
+     486: dup
+     487: invokespecial #339                // Method xreliquary/items/ItemMobCharm."<init>":()V
+     490: ldc_w         #341                // String mob_charm
+     493: iconst_0
+     494: invokestatic  #344                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;Z)Lnet/minecraft/item/Item;
+     497: checkcast     #338                // class xreliquary/items/ItemMobCharm
+     500: putstatic     #346                // Field mobCharm:Lxreliquary/items/ItemMobCharm;
+     503: aload_1
+     504: new           #348                // class xreliquary/items/ItemMobCharmBelt
+     507: dup
+     508: invokespecial #349                // Method xreliquary/items/ItemMobCharmBelt."<init>":()V
+     511: ldc_w         #351                // String mob_charm_belt
+     514: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     517: checkcast     #348                // class xreliquary/items/ItemMobCharmBelt
+     520: putstatic     #353                // Field mobCharmBelt:Lxreliquary/items/ItemMobCharmBelt;
+     523: aload_1
+     524: new           #355                // class xreliquary/items/ItemPhoenixDown
+     527: dup
+     528: invokespecial #356                // Method xreliquary/items/ItemPhoenixDown."<init>":()V
+     531: ldc_w         #358                // String phoenix_down
+     534: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     537: checkcast     #355                // class xreliquary/items/ItemPhoenixDown
+     540: putstatic     #360                // Field phoenixDown:Lxreliquary/items/ItemPhoenixDown;
+     543: aload_1
+     544: new           #362                // class xreliquary/items/ItemPyromancerStaff
+     547: dup
+     548: invokespecial #363                // Method xreliquary/items/ItemPyromancerStaff."<init>":()V
+     551: ldc_w         #365                // String pyromancer_staff
+     554: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     557: checkcast     #362                // class xreliquary/items/ItemPyromancerStaff
+     560: putstatic     #367                // Field pyromancerStaff:Lxreliquary/items/ItemPyromancerStaff;
+     563: aload_1
+     564: new           #369                // class xreliquary/items/ItemRendingGale
+     567: dup
+     568: invokespecial #370                // Method xreliquary/items/ItemRendingGale."<init>":()V
+     571: ldc_w         #372                // String rending_gale
+     574: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     577: checkcast     #369                // class xreliquary/items/ItemRendingGale
+     580: putstatic     #374                // Field rendingGale:Lxreliquary/items/ItemRendingGale;
+     583: aload_1
+     584: new           #376                // class xreliquary/items/ItemRodOfLyssa
+     587: dup
+     588: invokespecial #377                // Method xreliquary/items/ItemRodOfLyssa."<init>":()V
+     591: ldc_w         #379                // String rod_of_lyssa
+     594: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     597: checkcast     #376                // class xreliquary/items/ItemRodOfLyssa
+     600: putstatic     #381                // Field rodOfLyssa:Lxreliquary/items/ItemRodOfLyssa;
+     603: aload_1
+     604: new           #383                // class xreliquary/items/ItemSalamanderEye
+     607: dup
+     608: invokespecial #384                // Method xreliquary/items/ItemSalamanderEye."<init>":()V
+     611: ldc_w         #386                // String salamander_eye
+     614: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     617: checkcast     #383                // class xreliquary/items/ItemSalamanderEye
+     620: putstatic     #388                // Field salamanderEye:Lxreliquary/items/ItemSalamanderEye;
+     623: aload_1
+     624: new           #390                // class xreliquary/items/ItemSerpentStaff
+     627: dup
+     628: invokespecial #391                // Method xreliquary/items/ItemSerpentStaff."<init>":()V
+     631: ldc_w         #393                // String serpent_staff
+     634: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     637: checkcast     #390                // class xreliquary/items/ItemSerpentStaff
+     640: putstatic     #395                // Field serpentStaff:Lxreliquary/items/ItemSerpentStaff;
+     643: aload_1
+     644: new           #397                // class xreliquary/items/ItemShearsOfWinter
+     647: dup
+     648: invokespecial #398                // Method xreliquary/items/ItemShearsOfWinter."<init>":()V
+     651: ldc_w         #400                // String shears_of_winter
+     654: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     657: checkcast     #397                // class xreliquary/items/ItemShearsOfWinter
+     660: putstatic     #402                // Field shearsOfWinter:Lxreliquary/items/ItemShearsOfWinter;
+     663: aload_1
+     664: new           #404                // class xreliquary/items/ItemSojournerStaff
+     667: dup
+     668: invokespecial #405                // Method xreliquary/items/ItemSojournerStaff."<init>":()V
+     671: ldc_w         #407                // String sojourner_staff
+     674: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     677: checkcast     #404                // class xreliquary/items/ItemSojournerStaff
+     680: putstatic     #409                // Field sojournerStaff:Lxreliquary/items/ItemSojournerStaff;
+     683: aload_1
+     684: new           #411                // class xreliquary/items/ItemTwilightCloak
+     687: dup
+     688: invokespecial #412                // Method xreliquary/items/ItemTwilightCloak."<init>":()V
+     691: ldc_w         #414                // String twilight_cloak
+     694: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     697: checkcast     #411                // class xreliquary/items/ItemTwilightCloak
+     700: putstatic     #416                // Field twilightCloak:Lxreliquary/items/ItemTwilightCloak;
+     703: aload_1
+     704: new           #418                // class xreliquary/items/ItemVoidTear
+     707: dup
+     708: invokespecial #419                // Method xreliquary/items/ItemVoidTear."<init>":()V
+     711: ldc_w         #421                // String void_tear
+     714: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     717: checkcast     #418                // class xreliquary/items/ItemVoidTear
+     720: putstatic     #423                // Field voidTear:Lxreliquary/items/ItemVoidTear;
+     723: aload_1
+     724: new           #425                // class xreliquary/items/ItemWitchHat
+     727: dup
+     728: invokespecial #426                // Method xreliquary/items/ItemWitchHat."<init>":()V
+     731: ldc_w         #428                // String witch_hat
+     734: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     737: checkcast     #425                // class xreliquary/items/ItemWitchHat
+     740: putstatic     #430                // Field witchHat:Lxreliquary/items/ItemWitchHat;
+     743: aload_1
+     744: new           #432                // class xreliquary/items/ItemWitherlessRose
+     747: dup
+     748: invokespecial #433                // Method xreliquary/items/ItemWitherlessRose."<init>":()V
+     751: ldc_w         #435                // String witherless_rose
+     754: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     757: checkcast     #432                // class xreliquary/items/ItemWitherlessRose
+     760: putstatic     #437                // Field witherlessRose:Lxreliquary/items/ItemWitherlessRose;
+     763: getstatic     #159                // Field xreliquary/reference/Settings.Disable:Lxreliquary/reference/Settings$DisableSettings;
+     766: getfield      #440                // Field xreliquary/reference/Settings$DisableSettings.disableHandgun:Z
+     769: ifne          852
+     772: aload_1
+     773: new           #442                // class xreliquary/items/ItemBullet
+     776: dup
+     777: invokespecial #443                // Method xreliquary/items/ItemBullet."<init>":()V
+     780: ldc_w         #444                // String bullet
+     783: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     786: checkcast     #442                // class xreliquary/items/ItemBullet
+     789: putstatic     #446                // Field bullet:Lxreliquary/items/ItemBullet;
+     792: aload_1
+     793: new           #448                // class xreliquary/items/ItemMagazine
+     796: dup
+     797: invokespecial #449                // Method xreliquary/items/ItemMagazine."<init>":()V
+     800: ldc_w         #450                // String magazine
+     803: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     806: checkcast     #448                // class xreliquary/items/ItemMagazine
+     809: putstatic     #452                // Field magazine:Lxreliquary/items/ItemMagazine;
+     812: aload_1
+     813: new           #454                // class xreliquary/items/ItemGunPart
+     816: dup
+     817: invokespecial #455                // Method xreliquary/items/ItemGunPart."<init>":()V
+     820: ldc_w         #457                // String gun_part
+     823: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     826: checkcast     #454                // class xreliquary/items/ItemGunPart
+     829: putstatic     #459                // Field gunPart:Lxreliquary/items/ItemGunPart;
+     832: aload_1
+     833: new           #461                // class xreliquary/items/ItemHandgun
+     836: dup
+     837: invokespecial #462                // Method xreliquary/items/ItemHandgun."<init>":()V
+     840: ldc_w         #463                // String handgun
+     843: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     846: checkcast     #461                // class xreliquary/items/ItemHandgun
+     849: putstatic     #465                // Field handgun:Lxreliquary/items/ItemHandgun;
+     852: getstatic     #159                // Field xreliquary/reference/Settings.Disable:Lxreliquary/reference/Settings$DisableSettings;
+     855: getfield      #468                // Field xreliquary/reference/Settings$DisableSettings.disablePotions:Z
+     858: ifne          1028
+     861: aload_1
+     862: new           #470                // class xreliquary/items/ItemAttractionPotion
+     865: dup
+     866: invokespecial #471                // Method xreliquary/items/ItemAttractionPotion."<init>":()V
+     869: ldc_w         #473                // String attraction_potion
+     872: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     875: checkcast     #470                // class xreliquary/items/ItemAttractionPotion
+     878: putstatic     #475                // Field attractionPotion:Lxreliquary/items/ItemAttractionPotion;
+     881: aload_1
+     882: new           #477                // class xreliquary/items/ItemFertilePotion
+     885: dup
+     886: invokespecial #478                // Method xreliquary/items/ItemFertilePotion."<init>":()V
+     889: ldc_w         #480                // String fertile_potion
+     892: invokestatic  #172                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+     895: checkcast     #477                // class xreliquary/items/ItemFertilePotion
+     898: putstatic     #482                // Field fertilePotion:Lxreliquary/items/ItemFertilePotion;
+     901: aload_1
+     902: new           #484                // class xreliquary/items/ItemPotionEssence
+     905: dup
+     906: invokespecial #485                // Method xreliquary/items/ItemPotionEssence."<init>":()V
+     909: ldc_w         #487                // String potion_essence
+     912: iconst_0
+     913: invokestatic  #344                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;Z)Lnet/minecraft/item/Item;
+     916: checkcast     #484                // class xreliquary/items/ItemPotionEssence
+     919: putstatic     #489                // Field potionEssence:Lxreliquary/items/ItemPotionEssence;
+     922: aload_1
+     923: new           #491                // class xreliquary/items/ItemXRPotion
+     926: dup
+     927: invokespecial #492                // Method xreliquary/items/ItemXRPotion."<init>":()V
+     930: ldc_w         #493                // String potion
+     933: iconst_0
+     934: invokestatic  #344                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;Z)Lnet/minecraft/item/Item;
+     937: checkcast     #491                // class xreliquary/items/ItemXRPotion
+     940: putstatic     #495                // Field potion:Lxreliquary/items/ItemXRPotion;
+     943: aload_1
+     944: new           #497                // class xreliquary/items/ItemXRTippedArrow
+     947: dup
+     948: invokespecial #498                // Method xreliquary/items/ItemXRTippedArrow."<init>":()V
+     951: ldc_w         #500                // String tipped_arrow
+     954: iconst_0
+     955: invokestatic  #344                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;Z)Lnet/minecraft/item/Item;
+     958: checkcast     #497                // class xreliquary/items/ItemXRTippedArrow
+     961: putstatic     #502                // Field tippedArrow:Lxreliquary/items/ItemXRTippedArrow;
+     964: getstatic     #508                // Field net/minecraft/block/BlockDispenser.field_149943_a:Lnet/minecraft/util/registry/RegistryDefaulted;
+     967: getstatic     #495                // Field potion:Lxreliquary/items/ItemXRPotion;
+     970: new           #28                 // class xreliquary/init/ModItems$1
+     973: dup
+     974: invokespecial #509                // Method xreliquary/init/ModItems$1."<init>":()V
+     977: invokevirtual #515                // Method net/minecraft/util/registry/RegistryDefaulted.func_82595_a:(Ljava/lang/Object;Ljava/lang/Object;)V
+     980: getstatic     #508                // Field net/minecraft/block/BlockDispenser.field_149943_a:Lnet/minecraft/util/registry/RegistryDefaulted;
+     983: getstatic     #475                // Field attractionPotion:Lxreliquary/items/ItemAttractionPotion;
+     986: new           #26                 // class xreliquary/init/ModItems$2
+     989: dup
+     990: invokespecial #516                // Method xreliquary/init/ModItems$2."<init>":()V
+     993: invokevirtual #515                // Method net/minecraft/util/registry/RegistryDefaulted.func_82595_a:(Ljava/lang/Object;Ljava/lang/Object;)V
+     996: getstatic     #508                // Field net/minecraft/block/BlockDispenser.field_149943_a:Lnet/minecraft/util/registry/RegistryDefaulted;
+     999: getstatic     #482                // Field fertilePotion:Lxreliquary/items/ItemFertilePotion;
+    1002: new           #24                 // class xreliquary/init/ModItems$3
+    1005: dup
+    1006: invokespecial #517                // Method xreliquary/init/ModItems$3."<init>":()V
+    1009: invokevirtual #515                // Method net/minecraft/util/registry/RegistryDefaulted.func_82595_a:(Ljava/lang/Object;Ljava/lang/Object;)V
+    1012: getstatic     #508                // Field net/minecraft/block/BlockDispenser.field_149943_a:Lnet/minecraft/util/registry/RegistryDefaulted;
+    1015: getstatic     #502                // Field tippedArrow:Lxreliquary/items/ItemXRTippedArrow;
+    1018: new           #22                 // class xreliquary/init/ModItems$4
+    1021: dup
+    1022: invokespecial #518                // Method xreliquary/init/ModItems$4."<init>":()V
+    1025: invokevirtual #515                // Method net/minecraft/util/registry/RegistryDefaulted.func_82595_a:(Ljava/lang/Object;Ljava/lang/Object;)V
+    1028: getstatic     #508                // Field net/minecraft/block/BlockDispenser.field_149943_a:Lnet/minecraft/util/registry/RegistryDefaulted;
+    1031: getstatic     #253                // Field glowingWater:Lxreliquary/items/ItemGlowingWater;
+    1034: new           #20                 // class xreliquary/init/ModItems$5
+    1037: dup
+    1038: invokespecial #519                // Method xreliquary/init/ModItems$5."<init>":()V
+    1041: invokevirtual #515                // Method net/minecraft/util/registry/RegistryDefaulted.func_82595_a:(Ljava/lang/Object;Ljava/lang/Object;)V
+    1044: getstatic     #508                // Field net/minecraft/block/BlockDispenser.field_149943_a:Lnet/minecraft/util/registry/RegistryDefaulted;
+    1047: getstatic     #281                // Field holyHandGrenade:Lxreliquary/items/ItemHolyHandGrenade;
+    1050: new           #18                 // class xreliquary/init/ModItems$6
+    1053: dup
+    1054: invokespecial #520                // Method xreliquary/init/ModItems$6."<init>":()V
+    1057: invokevirtual #515                // Method net/minecraft/util/registry/RegistryDefaulted.func_82595_a:(Ljava/lang/Object;Ljava/lang/Object;)V
+    1060: getstatic     #508                // Field net/minecraft/block/BlockDispenser.field_149943_a:Lnet/minecraft/util/registry/RegistryDefaulted;
+    1063: getstatic     #281                // Field holyHandGrenade:Lxreliquary/items/ItemHolyHandGrenade;
+    1066: new           #16                 // class xreliquary/init/ModItems$7
+    1069: dup
+    1070: invokespecial #521                // Method xreliquary/init/ModItems$7."<init>":()V
+    1073: invokevirtual #515                // Method net/minecraft/util/registry/RegistryDefaulted.func_82595_a:(Ljava/lang/Object;Ljava/lang/Object;)V
+    1076: return
+
+  private static <T extends net.minecraft.item.Item> T registerItem(net.minecraftforge.registries.IForgeRegistry<net.minecraft.item.Item>, T, java.lang.String);
+    descriptor: (Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;)Lnet/minecraft/item/Item;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: iconst_1
+       4: invokestatic  #344                // Method registerItem:(Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;Z)Lnet/minecraft/item/Item;
+       7: areturn
+
+  private static <T extends net.minecraft.item.Item> T registerItem(net.minecraftforge.registries.IForgeRegistry<net.minecraft.item.Item>, T, java.lang.String, boolean);
+    descriptor: (Lnet/minecraftforge/registries/IForgeRegistry;Lnet/minecraft/item/Item;Ljava/lang/String;Z)Lnet/minecraft/item/Item;
+    Code:
+       0: aload_1
+       1: new           #534                // class net/minecraft/util/ResourceLocation
+       4: dup
+       5: ldc_w         #535                // String xreliquary
+       8: aload_2
+       9: invokespecial #538                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+      12: invokevirtual #544                // Method net/minecraft/item/Item.setRegistryName:(Lnet/minecraft/util/ResourceLocation;)Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      15: pop
+      16: aload_0
+      17: aload_1
+      18: invokeinterface #547,  2          // InterfaceMethod net/minecraftforge/registries/IForgeRegistry.register:(Lnet/minecraftforge/registries/IForgeRegistryEntry;)V
+      23: iload_3
+      24: ifeq          35
+      27: getstatic     #553                // Field xreliquary/Reliquary.PROXY:Lxreliquary/common/CommonProxy;
+      30: aload_1
+      31: aload_2
+      32: invokevirtual #559                // Method xreliquary/common/CommonProxy.registerJEI:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+      35: aload_1
+      36: areturn
+}

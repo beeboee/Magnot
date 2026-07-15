@@ -1,0 +1,569 @@
+Compiled from "ClientProxy.java"
+public class xreliquary.client.ClientProxy extends xreliquary.common.CommonProxy {
+  public static final net.minecraft.client.settings.KeyBinding FORTUNE_COIN_TOGGLE_KEYBIND;
+    descriptor: Lnet/minecraft/client/settings/KeyBinding;
+
+  public xreliquary.client.ClientProxy();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #38                 // Method xreliquary/common/CommonProxy."<init>":()V
+       4: return
+
+  public void registerJEI(net.minecraft.block.Block, java.lang.String, boolean);
+    descriptor: (Lnet/minecraft/block/Block;Ljava/lang/String;Z)V
+    Code:
+       0: ldc           #44                 // String jei
+       2: invokestatic  #50                 // Method net/minecraftforge/fml/common/Loader.isModLoaded:(Ljava/lang/String;)Z
+       5: ifeq          43
+       8: iload_3
+       9: ifeq          35
+      12: invokestatic  #56                 // Method net/minecraft/util/NonNullList.func_191196_a:()Lnet/minecraft/util/NonNullList;
+      15: astore        4
+      17: aload_1
+      18: getstatic     #62                 // Field xreliquary/Reliquary.CREATIVE_TAB:Lnet/minecraft/creativetab/CreativeTabs;
+      21: aload         4
+      23: invokevirtual #68                 // Method net/minecraft/block/Block.func_149666_a:(Lnet/minecraft/creativetab/CreativeTabs;Lnet/minecraft/util/NonNullList;)V
+      26: aload         4
+      28: aload_2
+      29: invokestatic  #74                 // Method xreliquary/compat/jei/descriptions/JEIDescriptionRegistry.register:(Ljava/util/List;Ljava/lang/String;)V
+      32: goto          43
+      35: aload_1
+      36: invokestatic  #80                 // Method net/minecraft/item/Item.func_150898_a:(Lnet/minecraft/block/Block;)Lnet/minecraft/item/Item;
+      39: aload_2
+      40: invokestatic  #83                 // Method xreliquary/compat/jei/descriptions/JEIDescriptionRegistry.register:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+      43: return
+
+  public void initSpecialJEIDescriptions();
+    descriptor: ()V
+    Code:
+       0: ldc           #44                 // String jei
+       2: invokestatic  #50                 // Method net/minecraftforge/fml/common/Loader.isModLoaded:(Ljava/lang/String;)Z
+       5: ifne          9
+       8: return
+       9: invokestatic  #56                 // Method net/minecraft/util/NonNullList.func_191196_a:()Lnet/minecraft/util/NonNullList;
+      12: astore_1
+      13: getstatic     #99                 // Field xreliquary/init/ModItems.potionEssence:Lxreliquary/items/ItemPotionEssence;
+      16: ifnull        38
+      19: getstatic     #99                 // Field xreliquary/init/ModItems.potionEssence:Lxreliquary/items/ItemPotionEssence;
+      22: getstatic     #99                 // Field xreliquary/init/ModItems.potionEssence:Lxreliquary/items/ItemPotionEssence;
+      25: invokevirtual #105                // Method xreliquary/items/ItemPotionEssence.func_77640_w:()Lnet/minecraft/creativetab/CreativeTabs;
+      28: aload_1
+      29: invokevirtual #108                // Method xreliquary/items/ItemPotionEssence.func_150895_a:(Lnet/minecraft/creativetab/CreativeTabs;Lnet/minecraft/util/NonNullList;)V
+      32: aload_1
+      33: ldc           #110                // String potion_essence
+      35: invokestatic  #74                 // Method xreliquary/compat/jei/descriptions/JEIDescriptionRegistry.register:(Ljava/util/List;Ljava/lang/String;)V
+      38: new           #112                // class net/minecraft/item/ItemStack
+      41: dup
+      42: getstatic     #116                // Field xreliquary/init/ModItems.potion:Lxreliquary/items/ItemXRPotion;
+      45: invokespecial #119                // Method net/minecraft/item/ItemStack."<init>":(Lnet/minecraft/item/Item;)V
+      48: invokestatic  #125                // Method java/util/Collections.singletonList:(Ljava/lang/Object;)Ljava/util/List;
+      51: ldc           #127                // String potion0
+      53: invokestatic  #74                 // Method xreliquary/compat/jei/descriptions/JEIDescriptionRegistry.register:(Ljava/util/List;Ljava/lang/String;)V
+      56: new           #129                // class java/util/ArrayList
+      59: dup
+      60: invokespecial #130                // Method java/util/ArrayList."<init>":()V
+      63: astore_2
+      64: new           #129                // class java/util/ArrayList
+      67: dup
+      68: invokespecial #130                // Method java/util/ArrayList."<init>":()V
+      71: astore_3
+      72: new           #129                // class java/util/ArrayList
+      75: dup
+      76: invokespecial #130                // Method java/util/ArrayList."<init>":()V
+      79: astore        4
+      81: new           #129                // class java/util/ArrayList
+      84: dup
+      85: invokespecial #130                // Method java/util/ArrayList."<init>":()V
+      88: astore        5
+      90: new           #129                // class java/util/ArrayList
+      93: dup
+      94: invokespecial #130                // Method java/util/ArrayList."<init>":()V
+      97: astore        6
+      99: new           #129                // class java/util/ArrayList
+     102: dup
+     103: invokespecial #130                // Method java/util/ArrayList."<init>":()V
+     106: astore        7
+     108: getstatic     #136                // Field xreliquary/util/potions/PotionMap.uniquePotions:Ljava/util/List;
+     111: invokeinterface #142,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+     116: astore        8
+     118: aload         8
+     120: invokeinterface #148,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     125: ifeq          347
+     128: aload         8
+     130: invokeinterface #152,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     135: checkcast     #154                // class xreliquary/util/potions/PotionEssence
+     138: astore        9
+     140: new           #112                // class net/minecraft/item/ItemStack
+     143: dup
+     144: getstatic     #116                // Field xreliquary/init/ModItems.potion:Lxreliquary/items/ItemXRPotion;
+     147: iconst_1
+     148: invokespecial #157                // Method net/minecraft/item/ItemStack."<init>":(Lnet/minecraft/item/Item;I)V
+     151: astore        10
+     153: aload         10
+     155: aload         9
+     157: invokevirtual #161                // Method xreliquary/util/potions/PotionEssence.getEffects:()Ljava/util/List;
+     160: invokestatic  #167                // Method xreliquary/util/potions/XRPotionHelper.addPotionEffectsToStack:(Lnet/minecraft/item/ItemStack;Ljava/util/List;)V
+     163: ldc           #169                // String hasPotion
+     165: aload         10
+     167: iconst_1
+     168: invokestatic  #175                // Method xreliquary/util/NBTHelper.setBoolean:(Ljava/lang/String;Lnet/minecraft/item/ItemStack;Z)V
+     171: aload_2
+     172: aload         10
+     174: invokeinterface #179,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     179: pop
+     180: aload         10
+     182: invokevirtual #183                // Method net/minecraft/item/ItemStack.func_77946_l:()Lnet/minecraft/item/ItemStack;
+     185: astore        11
+     187: ldc           #185                // String splash
+     189: aload         11
+     191: iconst_1
+     192: invokestatic  #175                // Method xreliquary/util/NBTHelper.setBoolean:(Ljava/lang/String;Lnet/minecraft/item/ItemStack;Z)V
+     195: aload_3
+     196: aload         11
+     198: invokeinterface #179,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     203: pop
+     204: aload         10
+     206: invokevirtual #183                // Method net/minecraft/item/ItemStack.func_77946_l:()Lnet/minecraft/item/ItemStack;
+     209: astore        12
+     211: ldc           #187                // String lingering
+     213: aload         12
+     215: iconst_1
+     216: invokestatic  #175                // Method xreliquary/util/NBTHelper.setBoolean:(Ljava/lang/String;Lnet/minecraft/item/ItemStack;Z)V
+     219: aload         4
+     221: aload         12
+     223: invokeinterface #179,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     228: pop
+     229: new           #112                // class net/minecraft/item/ItemStack
+     232: dup
+     233: getstatic     #191                // Field xreliquary/init/ModItems.tippedArrow:Lxreliquary/items/ItemXRTippedArrow;
+     236: invokespecial #119                // Method net/minecraft/item/ItemStack."<init>":(Lnet/minecraft/item/Item;)V
+     239: astore        13
+     241: aload         13
+     243: aload         9
+     245: invokevirtual #161                // Method xreliquary/util/potions/PotionEssence.getEffects:()Ljava/util/List;
+     248: ldc           #192                // float 0.125f
+     250: invokestatic  #196                // Method xreliquary/util/potions/XRPotionHelper.changePotionEffectsDuration:(Ljava/util/Collection;F)Ljava/util/List;
+     253: invokestatic  #167                // Method xreliquary/util/potions/XRPotionHelper.addPotionEffectsToStack:(Lnet/minecraft/item/ItemStack;Ljava/util/List;)V
+     256: aload         5
+     258: aload         13
+     260: invokeinterface #179,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     265: pop
+     266: new           #112                // class net/minecraft/item/ItemStack
+     269: dup
+     270: getstatic     #200                // Field xreliquary/init/ModItems.bullet:Lxreliquary/items/ItemBullet;
+     273: iconst_1
+     274: iconst_1
+     275: invokespecial #203                // Method net/minecraft/item/ItemStack."<init>":(Lnet/minecraft/item/Item;II)V
+     278: astore        14
+     280: aload         14
+     282: aload         9
+     284: invokevirtual #161                // Method xreliquary/util/potions/PotionEssence.getEffects:()Ljava/util/List;
+     287: ldc           #204                // float 0.2f
+     289: invokestatic  #196                // Method xreliquary/util/potions/XRPotionHelper.changePotionEffectsDuration:(Ljava/util/Collection;F)Ljava/util/List;
+     292: invokestatic  #167                // Method xreliquary/util/potions/XRPotionHelper.addPotionEffectsToStack:(Lnet/minecraft/item/ItemStack;Ljava/util/List;)V
+     295: aload         6
+     297: aload         14
+     299: invokeinterface #179,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     304: pop
+     305: new           #112                // class net/minecraft/item/ItemStack
+     308: dup
+     309: getstatic     #208                // Field xreliquary/init/ModItems.magazine:Lxreliquary/items/ItemMagazine;
+     312: iconst_1
+     313: iconst_1
+     314: invokespecial #203                // Method net/minecraft/item/ItemStack."<init>":(Lnet/minecraft/item/Item;II)V
+     317: astore        15
+     319: aload         15
+     321: aload         9
+     323: invokevirtual #161                // Method xreliquary/util/potions/PotionEssence.getEffects:()Ljava/util/List;
+     326: ldc           #204                // float 0.2f
+     328: invokestatic  #196                // Method xreliquary/util/potions/XRPotionHelper.changePotionEffectsDuration:(Ljava/util/Collection;F)Ljava/util/List;
+     331: invokestatic  #167                // Method xreliquary/util/potions/XRPotionHelper.addPotionEffectsToStack:(Lnet/minecraft/item/ItemStack;Ljava/util/List;)V
+     334: aload         7
+     336: aload         15
+     338: invokeinterface #179,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     343: pop
+     344: goto          118
+     347: aload_2
+     348: ldc           #209                // String potion
+     350: invokestatic  #74                 // Method xreliquary/compat/jei/descriptions/JEIDescriptionRegistry.register:(Ljava/util/List;Ljava/lang/String;)V
+     353: aload_3
+     354: ldc           #211                // String potion_splash
+     356: invokestatic  #74                 // Method xreliquary/compat/jei/descriptions/JEIDescriptionRegistry.register:(Ljava/util/List;Ljava/lang/String;)V
+     359: aload         4
+     361: ldc           #213                // String potion_lingering
+     363: invokestatic  #74                 // Method xreliquary/compat/jei/descriptions/JEIDescriptionRegistry.register:(Ljava/util/List;Ljava/lang/String;)V
+     366: aload         5
+     368: ldc           #215                // String tipped_arrow
+     370: invokestatic  #74                 // Method xreliquary/compat/jei/descriptions/JEIDescriptionRegistry.register:(Ljava/util/List;Ljava/lang/String;)V
+     373: aload         6
+     375: ldc           #217                // String bullet1_potion
+     377: invokestatic  #74                 // Method xreliquary/compat/jei/descriptions/JEIDescriptionRegistry.register:(Ljava/util/List;Ljava/lang/String;)V
+     380: aload         7
+     382: ldc           #219                // String magazine1_potion
+     384: invokestatic  #74                 // Method xreliquary/compat/jei/descriptions/JEIDescriptionRegistry.register:(Ljava/util/List;Ljava/lang/String;)V
+     387: invokestatic  #56                 // Method net/minecraft/util/NonNullList.func_191196_a:()Lnet/minecraft/util/NonNullList;
+     390: astore        8
+     392: getstatic     #223                // Field xreliquary/init/ModItems.mobCharm:Lxreliquary/items/ItemMobCharm;
+     395: getstatic     #62                 // Field xreliquary/Reliquary.CREATIVE_TAB:Lnet/minecraft/creativetab/CreativeTabs;
+     398: aload         8
+     400: invokevirtual #226                // Method xreliquary/items/ItemMobCharm.func_150895_a:(Lnet/minecraft/creativetab/CreativeTabs;Lnet/minecraft/util/NonNullList;)V
+     403: iconst_0
+     404: istore        9
+     406: aload         8
+     408: invokevirtual #227                // Method net/minecraft/util/NonNullList.iterator:()Ljava/util/Iterator;
+     411: astore        10
+     413: aload         10
+     415: invokeinterface #148,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     420: ifeq          469
+     423: aload         10
+     425: invokeinterface #152,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     430: checkcast     #112                // class net/minecraft/item/ItemStack
+     433: astore        11
+     435: aload         11
+     437: invokestatic  #125                // Method java/util/Collections.singletonList:(Ljava/lang/Object;)Ljava/util/List;
+     440: new           #229                // class java/lang/StringBuilder
+     443: dup
+     444: invokespecial #230                // Method java/lang/StringBuilder."<init>":()V
+     447: ldc           #232                // String mob_charm
+     449: invokevirtual #236                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     452: iload         9
+     454: invokevirtual #239                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     457: invokevirtual #243                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     460: invokestatic  #74                 // Method xreliquary/compat/jei/descriptions/JEIDescriptionRegistry.register:(Ljava/util/List;Ljava/lang/String;)V
+     463: iinc          9, 1
+     466: goto          413
+     469: return
+
+  public void registerJEI(net.minecraft.item.Item, java.lang.String);
+    descriptor: (Lnet/minecraft/item/Item;Ljava/lang/String;)V
+    Code:
+       0: ldc           #44                 // String jei
+       2: invokestatic  #50                 // Method net/minecraftforge/fml/common/Loader.isModLoaded:(Ljava/lang/String;)Z
+       5: ifeq          13
+       8: aload_1
+       9: aload_2
+      10: invokestatic  #83                 // Method xreliquary/compat/jei/descriptions/JEIDescriptionRegistry.register:(Lnet/minecraft/item/Item;Ljava/lang/String;)V
+      13: return
+
+  public static void registerModels(net.minecraftforge.client.event.ModelRegistryEvent);
+    descriptor: (Lnet/minecraftforge/client/event/ModelRegistryEvent;)V
+    Code:
+       0: invokestatic  #271                // Method xreliquary/client/init/ItemBlockModels.registerItemBlockModels:()V
+       3: invokestatic  #276                // Method xreliquary/client/init/ItemModels.registerItemModels:()V
+       6: invokestatic  #279                // Method registerEntityRenderers:()V
+       9: return
+
+  private static void registerEntityRenderers();
+    descriptor: ()V
+    Code:
+       0: ldc_w         #283                // class xreliquary/entities/EntityLyssaHook
+       3: invokedynamic #302,  0            // InvokeDynamic #0:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+       8: invokestatic  #308                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Ljava/lang/Class;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+      11: ldc_w         #310                // class xreliquary/entities/shot/EntityBlazeShot
+      14: invokedynamic #315,  0            // InvokeDynamic #1:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+      19: invokestatic  #308                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Ljava/lang/Class;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+      22: ldc_w         #317                // class xreliquary/entities/shot/EntityBusterShot
+      25: invokedynamic #315,  0            // InvokeDynamic #1:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+      30: invokestatic  #308                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Ljava/lang/Class;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+      33: ldc_w         #319                // class xreliquary/entities/shot/EntityConcussiveShot
+      36: invokedynamic #315,  0            // InvokeDynamic #1:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+      41: invokestatic  #308                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Ljava/lang/Class;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+      44: ldc_w         #321                // class xreliquary/entities/shot/EntityEnderShot
+      47: invokedynamic #315,  0            // InvokeDynamic #1:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+      52: invokestatic  #308                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Ljava/lang/Class;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+      55: ldc_w         #323                // class xreliquary/entities/shot/EntityExorcismShot
+      58: invokedynamic #315,  0            // InvokeDynamic #1:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+      63: invokestatic  #308                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Ljava/lang/Class;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+      66: ldc_w         #325                // class xreliquary/entities/shot/EntityNeutralShot
+      69: invokedynamic #315,  0            // InvokeDynamic #1:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+      74: invokestatic  #308                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Ljava/lang/Class;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+      77: ldc_w         #327                // class xreliquary/entities/shot/EntitySeekerShot
+      80: invokedynamic #315,  0            // InvokeDynamic #1:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+      85: invokestatic  #308                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Ljava/lang/Class;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+      88: ldc_w         #329                // class xreliquary/entities/shot/EntitySandShot
+      91: invokedynamic #315,  0            // InvokeDynamic #1:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+      96: invokestatic  #308                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Ljava/lang/Class;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+      99: ldc_w         #331                // class xreliquary/entities/shot/EntityStormShot
+     102: invokedynamic #315,  0            // InvokeDynamic #1:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     107: invokestatic  #308                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Ljava/lang/Class;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     110: ldc_w         #333                // class xreliquary/entities/EntityXRTippedArrow
+     113: invokedynamic #338,  0            // InvokeDynamic #2:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     118: invokestatic  #308                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Ljava/lang/Class;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     121: ldc_w         #340                // class xreliquary/entities/EntityGlowingWater
+     124: invokedynamic #345,  0            // InvokeDynamic #3:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     129: invokestatic  #308                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Ljava/lang/Class;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     132: ldc_w         #347                // class xreliquary/entities/potion/EntityAttractionPotion
+     135: invokedynamic #352,  0            // InvokeDynamic #4:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     140: invokestatic  #308                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Ljava/lang/Class;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     143: ldc_w         #354                // class xreliquary/entities/potion/EntityFertilePotion
+     146: invokedynamic #359,  0            // InvokeDynamic #5:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     151: invokestatic  #308                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Ljava/lang/Class;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     154: ldc_w         #361                // class xreliquary/entities/EntityHolyHandGrenade
+     157: invokedynamic #366,  0            // InvokeDynamic #6:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     162: invokestatic  #308                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Ljava/lang/Class;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     165: ldc_w         #368                // class xreliquary/entities/EntityKrakenSlime
+     168: invokedynamic #373,  0            // InvokeDynamic #7:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     173: invokestatic  #308                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Ljava/lang/Class;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     176: ldc_w         #375                // class xreliquary/entities/EntitySpecialSnowball
+     179: invokedynamic #380,  0            // InvokeDynamic #8:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     184: invokestatic  #308                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Ljava/lang/Class;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     187: ldc_w         #382                // class xreliquary/entities/EntityEnderStaffProjectile
+     190: invokedynamic #387,  0            // InvokeDynamic #9:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     195: invokestatic  #308                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Ljava/lang/Class;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     198: ldc_w         #389                // class xreliquary/entities/potion/EntityThrownXRPotion
+     201: invokedynamic #394,  0            // InvokeDynamic #10:createRenderFor:()Lnet/minecraftforge/fml/client/registry/IRenderFactory;
+     206: invokestatic  #308                // Method net/minecraftforge/fml/client/registry/RenderingRegistry.registerEntityRenderingHandler:(Ljava/lang/Class;Lnet/minecraftforge/fml/client/registry/IRenderFactory;)V
+     209: return
+
+  public void init();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #397                // Method xreliquary/common/CommonProxy.init:()V
+       4: invokestatic  #400                // Method xreliquary/client/init/ModItemColors.init:()V
+       7: invokestatic  #403                // Method xreliquary/client/init/ModBlockColors.init:()V
+      10: aload_0
+      11: invokespecial #406                // Method registerBeltRender:()V
+      14: aload_0
+      15: invokespecial #409                // Method registerRenderers:()V
+      18: getstatic     #411                // Field FORTUNE_COIN_TOGGLE_KEYBIND:Lnet/minecraft/client/settings/KeyBinding;
+      21: invokestatic  #417                // Method net/minecraftforge/fml/client/registry/ClientRegistry.registerKeyBinding:(Lnet/minecraft/client/settings/KeyBinding;)V
+      24: return
+
+  public void postInit();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #420                // Method xreliquary/common/CommonProxy.postInit:()V
+       4: ldc_w         #422                // class net/minecraft/item/ItemFishingRod
+       7: ldc_w         #424                // class xreliquary/client/render/RenderPedestalFishHook
+      10: invokestatic  #430                // Method xreliquary/client/registry/PedestalClientRegistry.registerItemRenderer:(Ljava/lang/Class;Ljava/lang/Class;)V
+      13: return
+
+  private void registerBeltRender();
+    descriptor: ()V
+    Code:
+       0: invokestatic  #436                // Method net/minecraft/client/Minecraft.func_71410_x:()Lnet/minecraft/client/Minecraft;
+       3: invokevirtual #440                // Method net/minecraft/client/Minecraft.func_175598_ae:()Lnet/minecraft/client/renderer/entity/RenderManager;
+       6: invokevirtual #446                // Method net/minecraft/client/renderer/entity/RenderManager.getSkinMap:()Ljava/util/Map;
+       9: astore_1
+      10: aload_1
+      11: ldc_w         #448                // String default
+      14: invokeinterface #454,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      19: checkcast     #456                // class net/minecraft/client/renderer/entity/RenderPlayer
+      22: astore_2
+      23: aload_2
+      24: new           #458                // class xreliquary/client/render/MobCharmBeltLayerRenderer
+      27: dup
+      28: invokespecial #459                // Method xreliquary/client/render/MobCharmBeltLayerRenderer."<init>":()V
+      31: invokevirtual #463                // Method net/minecraft/client/renderer/entity/RenderPlayer.func_177094_a:(Lnet/minecraft/client/renderer/entity/layers/LayerRenderer;)Z
+      34: pop
+      35: return
+
+  private void registerRenderers();
+    descriptor: ()V
+    Code:
+       0: ldc_w         #470                // class xreliquary/blocks/tile/TileEntityMortar
+       3: new           #472                // class xreliquary/client/render/RenderApothecaryMortar
+       6: dup
+       7: invokespecial #473                // Method xreliquary/client/render/RenderApothecaryMortar."<init>":()V
+      10: invokestatic  #477                // Method net/minecraftforge/fml/client/registry/ClientRegistry.bindTileEntitySpecialRenderer:(Ljava/lang/Class;Lnet/minecraft/client/renderer/tileentity/TileEntitySpecialRenderer;)V
+      13: ldc_w         #479                // class xreliquary/blocks/tile/TileEntityPedestal
+      16: new           #481                // class xreliquary/client/render/TileEntityPedestalRenderer
+      19: dup
+      20: invokespecial #482                // Method xreliquary/client/render/TileEntityPedestalRenderer."<init>":()V
+      23: invokestatic  #477                // Method net/minecraftforge/fml/client/registry/ClientRegistry.bindTileEntitySpecialRenderer:(Ljava/lang/Class;Lnet/minecraft/client/renderer/tileentity/TileEntitySpecialRenderer;)V
+      26: ldc_w         #484                // class xreliquary/blocks/tile/TileEntityPedestalPassive
+      29: new           #486                // class xreliquary/client/render/TileEntityPedestalPassiveRenderer
+      32: dup
+      33: invokespecial #487                // Method xreliquary/client/render/TileEntityPedestalPassiveRenderer."<init>":()V
+      36: invokestatic  #477                // Method net/minecraftforge/fml/client/registry/ClientRegistry.bindTileEntitySpecialRenderer:(Ljava/lang/Class;Lnet/minecraft/client/renderer/tileentity/TileEntitySpecialRenderer;)V
+      39: return
+
+  public void initColors();
+    descriptor: ()V
+    Code:
+       0: getstatic     #493                // Field xreliquary/util/LanguageHelper.globals:Ljava/util/Map;
+       3: ldc_w         #495                // String colors.black
+       6: ldc_w         #497                // String §0
+       9: invokeinterface #501,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      14: pop
+      15: getstatic     #493                // Field xreliquary/util/LanguageHelper.globals:Ljava/util/Map;
+      18: ldc_w         #503                // String colors.navy
+      21: ldc_w         #505                // String §1
+      24: invokeinterface #501,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      29: pop
+      30: getstatic     #493                // Field xreliquary/util/LanguageHelper.globals:Ljava/util/Map;
+      33: ldc_w         #507                // String colors.green
+      36: ldc_w         #509                // String §2
+      39: invokeinterface #501,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      44: pop
+      45: getstatic     #493                // Field xreliquary/util/LanguageHelper.globals:Ljava/util/Map;
+      48: ldc_w         #511                // String colors.blue
+      51: ldc_w         #513                // String §3
+      54: invokeinterface #501,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      59: pop
+      60: getstatic     #493                // Field xreliquary/util/LanguageHelper.globals:Ljava/util/Map;
+      63: ldc_w         #515                // String colors.red
+      66: ldc_w         #517                // String §4
+      69: invokeinterface #501,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      74: pop
+      75: getstatic     #493                // Field xreliquary/util/LanguageHelper.globals:Ljava/util/Map;
+      78: ldc_w         #519                // String colors.purple
+      81: ldc_w         #521                // String §5
+      84: invokeinterface #501,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      89: pop
+      90: getstatic     #493                // Field xreliquary/util/LanguageHelper.globals:Ljava/util/Map;
+      93: ldc_w         #523                // String colors.gold
+      96: ldc_w         #525                // String §6
+      99: invokeinterface #501,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     104: pop
+     105: getstatic     #493                // Field xreliquary/util/LanguageHelper.globals:Ljava/util/Map;
+     108: ldc_w         #527                // String colors.light_gray
+     111: ldc_w         #529                // String §7
+     114: invokeinterface #501,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     119: pop
+     120: getstatic     #493                // Field xreliquary/util/LanguageHelper.globals:Ljava/util/Map;
+     123: ldc_w         #531                // String colors.gray
+     126: ldc_w         #533                // String §8
+     129: invokeinterface #501,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     134: pop
+     135: getstatic     #493                // Field xreliquary/util/LanguageHelper.globals:Ljava/util/Map;
+     138: ldc_w         #535                // String colors.dark_purple
+     141: ldc_w         #537                // String §9
+     144: invokeinterface #501,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     149: pop
+     150: getstatic     #493                // Field xreliquary/util/LanguageHelper.globals:Ljava/util/Map;
+     153: ldc_w         #539                // String colors.light_green
+     156: ldc_w         #541                // String §a
+     159: invokeinterface #501,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     164: pop
+     165: getstatic     #493                // Field xreliquary/util/LanguageHelper.globals:Ljava/util/Map;
+     168: ldc_w         #543                // String colors.light_blue
+     171: ldc_w         #545                // String §b
+     174: invokeinterface #501,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     179: pop
+     180: getstatic     #493                // Field xreliquary/util/LanguageHelper.globals:Ljava/util/Map;
+     183: ldc_w         #547                // String colors.rose
+     186: ldc_w         #549                // String §c
+     189: invokeinterface #501,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     194: pop
+     195: getstatic     #493                // Field xreliquary/util/LanguageHelper.globals:Ljava/util/Map;
+     198: ldc_w         #551                // String colors.light_purple
+     201: ldc_w         #553                // String §d
+     204: invokeinterface #501,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     209: pop
+     210: getstatic     #493                // Field xreliquary/util/LanguageHelper.globals:Ljava/util/Map;
+     213: ldc_w         #555                // String colors.yellow
+     216: ldc_w         #557                // String §e
+     219: invokeinterface #501,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     224: pop
+     225: getstatic     #493                // Field xreliquary/util/LanguageHelper.globals:Ljava/util/Map;
+     228: ldc_w         #559                // String colors.white
+     231: ldc_w         #561                // String §f
+     234: invokeinterface #501,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     239: pop
+     240: getstatic     #493                // Field xreliquary/util/LanguageHelper.globals:Ljava/util/Map;
+     243: ldc_w         #563                // String colors.reset
+     246: getstatic     #569                // Field net/minecraft/util/text/TextFormatting.RESET:Lnet/minecraft/util/text/TextFormatting;
+     249: invokevirtual #570                // Method net/minecraft/util/text/TextFormatting.toString:()Ljava/lang/String;
+     252: invokeinterface #501,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     257: pop
+     258: return
+
+  private static net.minecraft.client.renderer.entity.Render lambda$registerEntityRenderers$6(net.minecraft.client.renderer.entity.RenderManager);
+    descriptor: (Lnet/minecraft/client/renderer/entity/RenderManager;)Lnet/minecraft/client/renderer/entity/Render;
+    Code:
+       0: new           #572                // class xreliquary/client/render/RenderThrownXRPotion
+       3: dup
+       4: aload_0
+       5: invokestatic  #436                // Method net/minecraft/client/Minecraft.func_71410_x:()Lnet/minecraft/client/Minecraft;
+       8: invokevirtual #576                // Method net/minecraft/client/Minecraft.func_175599_af:()Lnet/minecraft/client/renderer/RenderItem;
+      11: invokespecial #579                // Method xreliquary/client/render/RenderThrownXRPotion."<init>":(Lnet/minecraft/client/renderer/entity/RenderManager;Lnet/minecraft/client/renderer/RenderItem;)V
+      14: areturn
+
+  private static net.minecraft.client.renderer.entity.Render lambda$registerEntityRenderers$5(net.minecraft.client.renderer.entity.RenderManager);
+    descriptor: (Lnet/minecraft/client/renderer/entity/RenderManager;)Lnet/minecraft/client/renderer/entity/Render;
+    Code:
+       0: new           #583                // class net/minecraft/client/renderer/entity/RenderSnowball
+       3: dup
+       4: aload_0
+       5: getstatic     #588                // Field net/minecraft/init/Items.field_151079_bi:Lnet/minecraft/item/Item;
+       8: invokestatic  #436                // Method net/minecraft/client/Minecraft.func_71410_x:()Lnet/minecraft/client/Minecraft;
+      11: invokevirtual #576                // Method net/minecraft/client/Minecraft.func_175599_af:()Lnet/minecraft/client/renderer/RenderItem;
+      14: invokespecial #591                // Method net/minecraft/client/renderer/entity/RenderSnowball."<init>":(Lnet/minecraft/client/renderer/entity/RenderManager;Lnet/minecraft/item/Item;Lnet/minecraft/client/renderer/RenderItem;)V
+      17: areturn
+
+  private static net.minecraft.client.renderer.entity.Render lambda$registerEntityRenderers$4(net.minecraft.client.renderer.entity.RenderManager);
+    descriptor: (Lnet/minecraft/client/renderer/entity/RenderManager;)Lnet/minecraft/client/renderer/entity/Render;
+    Code:
+       0: new           #583                // class net/minecraft/client/renderer/entity/RenderSnowball
+       3: dup
+       4: aload_0
+       5: getstatic     #594                // Field net/minecraft/init/Items.field_151126_ay:Lnet/minecraft/item/Item;
+       8: invokestatic  #436                // Method net/minecraft/client/Minecraft.func_71410_x:()Lnet/minecraft/client/Minecraft;
+      11: invokevirtual #576                // Method net/minecraft/client/Minecraft.func_175599_af:()Lnet/minecraft/client/renderer/RenderItem;
+      14: invokespecial #591                // Method net/minecraft/client/renderer/entity/RenderSnowball."<init>":(Lnet/minecraft/client/renderer/entity/RenderManager;Lnet/minecraft/item/Item;Lnet/minecraft/client/renderer/RenderItem;)V
+      17: areturn
+
+  private static net.minecraft.client.renderer.entity.Render lambda$registerEntityRenderers$3(net.minecraft.client.renderer.entity.RenderManager);
+    descriptor: (Lnet/minecraft/client/renderer/entity/RenderManager;)Lnet/minecraft/client/renderer/entity/Render;
+    Code:
+       0: new           #583                // class net/minecraft/client/renderer/entity/RenderSnowball
+       3: dup
+       4: aload_0
+       5: getstatic     #598                // Field xreliquary/init/ModItems.holyHandGrenade:Lxreliquary/items/ItemHolyHandGrenade;
+       8: invokestatic  #436                // Method net/minecraft/client/Minecraft.func_71410_x:()Lnet/minecraft/client/Minecraft;
+      11: invokevirtual #576                // Method net/minecraft/client/Minecraft.func_175599_af:()Lnet/minecraft/client/renderer/RenderItem;
+      14: invokespecial #591                // Method net/minecraft/client/renderer/entity/RenderSnowball."<init>":(Lnet/minecraft/client/renderer/entity/RenderManager;Lnet/minecraft/item/Item;Lnet/minecraft/client/renderer/RenderItem;)V
+      17: areturn
+
+  private static net.minecraft.client.renderer.entity.Render lambda$registerEntityRenderers$2(net.minecraft.client.renderer.entity.RenderManager);
+    descriptor: (Lnet/minecraft/client/renderer/entity/RenderManager;)Lnet/minecraft/client/renderer/entity/Render;
+    Code:
+       0: new           #583                // class net/minecraft/client/renderer/entity/RenderSnowball
+       3: dup
+       4: aload_0
+       5: getstatic     #602                // Field xreliquary/init/ModItems.fertilePotion:Lxreliquary/items/ItemFertilePotion;
+       8: invokestatic  #436                // Method net/minecraft/client/Minecraft.func_71410_x:()Lnet/minecraft/client/Minecraft;
+      11: invokevirtual #576                // Method net/minecraft/client/Minecraft.func_175599_af:()Lnet/minecraft/client/renderer/RenderItem;
+      14: invokespecial #591                // Method net/minecraft/client/renderer/entity/RenderSnowball."<init>":(Lnet/minecraft/client/renderer/entity/RenderManager;Lnet/minecraft/item/Item;Lnet/minecraft/client/renderer/RenderItem;)V
+      17: areturn
+
+  private static net.minecraft.client.renderer.entity.Render lambda$registerEntityRenderers$1(net.minecraft.client.renderer.entity.RenderManager);
+    descriptor: (Lnet/minecraft/client/renderer/entity/RenderManager;)Lnet/minecraft/client/renderer/entity/Render;
+    Code:
+       0: new           #583                // class net/minecraft/client/renderer/entity/RenderSnowball
+       3: dup
+       4: aload_0
+       5: getstatic     #606                // Field xreliquary/init/ModItems.attractionPotion:Lxreliquary/items/ItemAttractionPotion;
+       8: invokestatic  #436                // Method net/minecraft/client/Minecraft.func_71410_x:()Lnet/minecraft/client/Minecraft;
+      11: invokevirtual #576                // Method net/minecraft/client/Minecraft.func_175599_af:()Lnet/minecraft/client/renderer/RenderItem;
+      14: invokespecial #591                // Method net/minecraft/client/renderer/entity/RenderSnowball."<init>":(Lnet/minecraft/client/renderer/entity/RenderManager;Lnet/minecraft/item/Item;Lnet/minecraft/client/renderer/RenderItem;)V
+      17: areturn
+
+  private static net.minecraft.client.renderer.entity.Render lambda$registerEntityRenderers$0(net.minecraft.client.renderer.entity.RenderManager);
+    descriptor: (Lnet/minecraft/client/renderer/entity/RenderManager;)Lnet/minecraft/client/renderer/entity/Render;
+    Code:
+       0: new           #583                // class net/minecraft/client/renderer/entity/RenderSnowball
+       3: dup
+       4: aload_0
+       5: getstatic     #610                // Field xreliquary/init/ModItems.glowingWater:Lxreliquary/items/ItemGlowingWater;
+       8: invokestatic  #436                // Method net/minecraft/client/Minecraft.func_71410_x:()Lnet/minecraft/client/Minecraft;
+      11: invokevirtual #576                // Method net/minecraft/client/Minecraft.func_175599_af:()Lnet/minecraft/client/renderer/RenderItem;
+      14: invokespecial #591                // Method net/minecraft/client/renderer/entity/RenderSnowball."<init>":(Lnet/minecraft/client/renderer/entity/RenderManager;Lnet/minecraft/item/Item;Lnet/minecraft/client/renderer/RenderItem;)V
+      17: areturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: new           #613                // class net/minecraft/client/settings/KeyBinding
+       3: dup
+       4: ldc_w         #615                // String xreliquary.keybind.fortune_coin
+       7: iconst_0
+       8: ldc_w         #617                // String xreliquary.keybind.category
+      11: invokespecial #620                // Method net/minecraft/client/settings/KeyBinding."<init>":(Ljava/lang/String;ILjava/lang/String;)V
+      14: putstatic     #411                // Field FORTUNE_COIN_TOGGLE_KEYBIND:Lnet/minecraft/client/settings/KeyBinding;
+      17: return
+}

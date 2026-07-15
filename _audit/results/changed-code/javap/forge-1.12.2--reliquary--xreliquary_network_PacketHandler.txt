@@ -1,0 +1,71 @@
+Compiled from "PacketHandler.java"
+public class xreliquary.network.PacketHandler {
+  public static net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper networkWrapper;
+    descriptor: Lnet/minecraftforge/fml/common/network/simpleimpl/SimpleNetworkWrapper;
+
+  public xreliquary.network.PacketHandler();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #11                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void init();
+    descriptor: ()V
+    Code:
+       0: getstatic     #20                 // Field net/minecraftforge/fml/common/network/NetworkRegistry.INSTANCE:Lnet/minecraftforge/fml/common/network/NetworkRegistry;
+       3: ldc           #22                 // String xreliquary
+       5: invokevirtual #26                 // Method net/minecraftforge/fml/common/network/NetworkRegistry.newSimpleChannel:(Ljava/lang/String;)Lnet/minecraftforge/fml/common/network/simpleimpl/SimpleNetworkWrapper;
+       8: putstatic     #28                 // Field networkWrapper:Lnet/minecraftforge/fml/common/network/simpleimpl/SimpleNetworkWrapper;
+      11: iconst_0
+      12: istore_0
+      13: getstatic     #28                 // Field networkWrapper:Lnet/minecraftforge/fml/common/network/simpleimpl/SimpleNetworkWrapper;
+      16: ldc           #30                 // class xreliquary/network/PacketFXThrownPotionImpact
+      18: ldc           #30                 // class xreliquary/network/PacketFXThrownPotionImpact
+      20: iload_0
+      21: getstatic     #36                 // Field net/minecraftforge/fml/relauncher/Side.CLIENT:Lnet/minecraftforge/fml/relauncher/Side;
+      24: invokevirtual #42                 // Method net/minecraftforge/fml/common/network/simpleimpl/SimpleNetworkWrapper.registerMessage:(Ljava/lang/Class;Ljava/lang/Class;ILnet/minecraftforge/fml/relauncher/Side;)V
+      27: iinc          0, 1
+      30: getstatic     #28                 // Field networkWrapper:Lnet/minecraftforge/fml/common/network/simpleimpl/SimpleNetworkWrapper;
+      33: ldc           #44                 // class xreliquary/network/PacketFXConcussiveExplosion
+      35: ldc           #44                 // class xreliquary/network/PacketFXConcussiveExplosion
+      37: iload_0
+      38: getstatic     #36                 // Field net/minecraftforge/fml/relauncher/Side.CLIENT:Lnet/minecraftforge/fml/relauncher/Side;
+      41: invokevirtual #42                 // Method net/minecraftforge/fml/common/network/simpleimpl/SimpleNetworkWrapper.registerMessage:(Ljava/lang/Class;Ljava/lang/Class;ILnet/minecraftforge/fml/relauncher/Side;)V
+      44: iinc          0, 1
+      47: getstatic     #28                 // Field networkWrapper:Lnet/minecraftforge/fml/common/network/simpleimpl/SimpleNetworkWrapper;
+      50: ldc           #46                 // class xreliquary/network/PacketCountSync
+      52: ldc           #46                 // class xreliquary/network/PacketCountSync
+      54: iload_0
+      55: getstatic     #36                 // Field net/minecraftforge/fml/relauncher/Side.CLIENT:Lnet/minecraftforge/fml/relauncher/Side;
+      58: invokevirtual #42                 // Method net/minecraftforge/fml/common/network/simpleimpl/SimpleNetworkWrapper.registerMessage:(Ljava/lang/Class;Ljava/lang/Class;ILnet/minecraftforge/fml/relauncher/Side;)V
+      61: iinc          0, 1
+      64: getstatic     #28                 // Field networkWrapper:Lnet/minecraftforge/fml/common/network/simpleimpl/SimpleNetworkWrapper;
+      67: ldc           #48                 // class xreliquary/network/PacketMobCharmDamage
+      69: ldc           #48                 // class xreliquary/network/PacketMobCharmDamage
+      71: iload_0
+      72: getstatic     #36                 // Field net/minecraftforge/fml/relauncher/Side.CLIENT:Lnet/minecraftforge/fml/relauncher/Side;
+      75: invokevirtual #42                 // Method net/minecraftforge/fml/common/network/simpleimpl/SimpleNetworkWrapper.registerMessage:(Ljava/lang/Class;Ljava/lang/Class;ILnet/minecraftforge/fml/relauncher/Side;)V
+      78: iinc          0, 1
+      81: getstatic     #28                 // Field networkWrapper:Lnet/minecraftforge/fml/common/network/simpleimpl/SimpleNetworkWrapper;
+      84: ldc           #50                 // class xreliquary/network/PacketPedestalFishHook
+      86: ldc           #50                 // class xreliquary/network/PacketPedestalFishHook
+      88: iload_0
+      89: getstatic     #36                 // Field net/minecraftforge/fml/relauncher/Side.CLIENT:Lnet/minecraftforge/fml/relauncher/Side;
+      92: invokevirtual #42                 // Method net/minecraftforge/fml/common/network/simpleimpl/SimpleNetworkWrapper.registerMessage:(Ljava/lang/Class;Ljava/lang/Class;ILnet/minecraftforge/fml/relauncher/Side;)V
+      95: iinc          0, 1
+      98: getstatic     #28                 // Field networkWrapper:Lnet/minecraftforge/fml/common/network/simpleimpl/SimpleNetworkWrapper;
+     101: ldc           #52                 // class xreliquary/network/PacketContainerItemHandlerSync
+     103: ldc           #52                 // class xreliquary/network/PacketContainerItemHandlerSync
+     105: iload_0
+     106: getstatic     #36                 // Field net/minecraftforge/fml/relauncher/Side.CLIENT:Lnet/minecraftforge/fml/relauncher/Side;
+     109: invokevirtual #42                 // Method net/minecraftforge/fml/common/network/simpleimpl/SimpleNetworkWrapper.registerMessage:(Ljava/lang/Class;Ljava/lang/Class;ILnet/minecraftforge/fml/relauncher/Side;)V
+     112: iinc          0, 1
+     115: getstatic     #28                 // Field networkWrapper:Lnet/minecraftforge/fml/common/network/simpleimpl/SimpleNetworkWrapper;
+     118: ldc           #54                 // class xreliquary/network/PacketFortuneCoinTogglePressed
+     120: ldc           #54                 // class xreliquary/network/PacketFortuneCoinTogglePressed
+     122: iload_0
+     123: getstatic     #57                 // Field net/minecraftforge/fml/relauncher/Side.SERVER:Lnet/minecraftforge/fml/relauncher/Side;
+     126: invokevirtual #42                 // Method net/minecraftforge/fml/common/network/simpleimpl/SimpleNetworkWrapper.registerMessage:(Ljava/lang/Class;Ljava/lang/Class;ILnet/minecraftforge/fml/relauncher/Side;)V
+     129: return
+}

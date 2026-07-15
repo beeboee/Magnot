@@ -1,0 +1,235 @@
+Compiled from "UniversalAttractorItem.java"
+public class artifacts.common.item.curio.belt.UniversalAttractorItem extends artifacts.common.item.curio.CurioItem {
+  public artifacts.common.item.curio.belt.UniversalAttractorItem();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #27                 // Method artifacts/common/item/curio/CurioItem."<init>":()V
+       4: aload_0
+       5: ldc           #7                  // class net/minecraftforge/event/entity/player/PlayerEvent$ItemPickupEvent
+       7: aload_0
+       8: invokedynamic #46,  0             // InvokeDynamic #0:accept:(Lartifacts/common/item/curio/belt/UniversalAttractorItem;)Ljava/util/function/BiConsumer;
+      13: invokevirtual #50                 // Method addListener:(Ljava/lang/Class;Ljava/util/function/BiConsumer;)V
+      16: getstatic     #56                 // Field net/minecraftforge/common/MinecraftForge.EVENT_BUS:Lnet/minecraftforge/eventbus/api/IEventBus;
+      19: aload_0
+      20: invokedynamic #67,  0             // InvokeDynamic #1:accept:(Lartifacts/common/item/curio/belt/UniversalAttractorItem;)Ljava/util/function/Consumer;
+      25: invokeinterface #72,  2           // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+      30: return
+
+  private void onItemPickup(net.minecraftforge.event.entity.player.PlayerEvent$ItemPickupEvent, net.minecraft.world.entity.LivingEntity);
+    descriptor: (Lnet/minecraftforge/event/entity/player/PlayerEvent$ItemPickupEvent;Lnet/minecraft/world/entity/LivingEntity;)V
+    Code:
+       0: aload_0
+       1: aload_2
+       2: invokevirtual #78                 // Method damageEquippedStacks:(Lnet/minecraft/world/entity/LivingEntity;)V
+       5: return
+
+  public static int getCooldown(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)I
+    Code:
+       0: aload_0
+       1: invokevirtual #90                 // Method net/minecraft/world/item/ItemStack.m_41784_:()Lnet/minecraft/nbt/CompoundTag;
+       4: ldc           #92                 // String Cooldown
+       6: invokevirtual #98                 // Method net/minecraft/nbt/CompoundTag.m_128451_:(Ljava/lang/String;)I
+       9: ireturn
+
+  public static void setCooldown(net.minecraft.world.item.ItemStack, int);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;I)V
+    Code:
+       0: aload_0
+       1: invokevirtual #90                 // Method net/minecraft/world/item/ItemStack.m_41784_:()Lnet/minecraft/nbt/CompoundTag;
+       4: ldc           #92                 // String Cooldown
+       6: iload_1
+       7: invokevirtual #106                // Method net/minecraft/nbt/CompoundTag.m_128405_:(Ljava/lang/String;I)V
+      10: return
+
+  private void onItemToss(net.minecraftforge.event.entity.item.ItemTossEvent);
+    descriptor: (Lnet/minecraftforge/event/entity/item/ItemTossEvent;)V
+    Code:
+       0: getstatic     #114                // Field artifacts/common/config/ModConfig.server:Lartifacts/common/config/ServerConfig;
+       3: getfield      #120                // Field artifacts/common/config/ServerConfig.universalAttractor:Lartifacts/common/config/item/curio/belt/UniversalAttractorConfig;
+       6: getfield      #125                // Field artifacts/common/config/item/curio/belt/UniversalAttractorConfig.cooldown:Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;
+       9: invokevirtual #129                // Method net/minecraftforge/common/ForgeConfigSpec$IntValue.get:()Ljava/lang/Object;
+      12: checkcast     #131                // class java/lang/Integer
+      15: invokevirtual #135                // Method java/lang/Integer.intValue:()I
+      18: istore_2
+      19: iload_2
+      20: ifle          45
+      23: invokestatic  #141                // Method top/theillusivec4/curios/api/CuriosApi.getCuriosHelper:()Ltop/theillusivec4/curios/api/type/util/ICuriosHelper;
+      26: aload_0
+      27: aload_1
+      28: invokevirtual #147                // Method net/minecraftforge/event/entity/item/ItemTossEvent.getPlayer:()Lnet/minecraft/world/entity/player/Player;
+      31: invokeinterface #153,  3          // InterfaceMethod top/theillusivec4/curios/api/type/util/ICuriosHelper.findEquippedCurio:(Lnet/minecraft/world/item/Item;Lnet/minecraft/world/entity/LivingEntity;)Ljava/util/Optional;
+      36: iload_2
+      37: invokedynamic #163,  0            // InvokeDynamic #2:accept:(I)Ljava/util/function/Consumer;
+      42: invokevirtual #168                // Method java/util/Optional.ifPresent:(Ljava/util/function/Consumer;)V
+      45: return
+
+  public void curioTick(top.theillusivec4.curios.api.SlotContext, net.minecraft.world.item.ItemStack);
+    descriptor: (Ltop/theillusivec4/curios/api/SlotContext;Lnet/minecraft/world/item/ItemStack;)V
+    Code:
+       0: aload_1
+       1: invokevirtual #177                // Method top/theillusivec4/curios/api/SlotContext.entity:()Lnet/minecraft/world/entity/LivingEntity;
+       4: astore_3
+       5: getstatic     #114                // Field artifacts/common/config/ModConfig.server:Lartifacts/common/config/ServerConfig;
+       8: aload_0
+       9: invokevirtual #181                // Method artifacts/common/config/ServerConfig.isCosmetic:(Lnet/minecraft/world/item/Item;)Z
+      12: ifne          29
+      15: aload_3
+      16: invokevirtual #187                // Method net/minecraft/world/entity/LivingEntity.m_5833_:()Z
+      19: ifne          29
+      22: aload_3
+      23: instanceof    #189                // class net/minecraft/world/entity/player/Player
+      26: ifne          30
+      29: return
+      30: aload_2
+      31: invokestatic  #191                // Method getCooldown:(Lnet/minecraft/world/item/ItemStack;)I
+      34: istore        4
+      36: iload         4
+      38: ifgt          334
+      41: aload_3
+      42: invokevirtual #195                // Method net/minecraft/world/entity/LivingEntity.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+      45: dconst_0
+      46: ldc2_w        #196                // double 0.75d
+      49: dconst_0
+      50: invokevirtual #203                // Method net/minecraft/world/phys/Vec3.m_82520_:(DDD)Lnet/minecraft/world/phys/Vec3;
+      53: astore        5
+      55: getstatic     #114                // Field artifacts/common/config/ModConfig.server:Lartifacts/common/config/ServerConfig;
+      58: getfield      #120                // Field artifacts/common/config/ServerConfig.universalAttractor:Lartifacts/common/config/item/curio/belt/UniversalAttractorConfig;
+      61: getfield      #206                // Field artifacts/common/config/item/curio/belt/UniversalAttractorConfig.range:Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;
+      64: invokevirtual #129                // Method net/minecraftforge/common/ForgeConfigSpec$IntValue.get:()Ljava/lang/Object;
+      67: checkcast     #131                // class java/lang/Integer
+      70: invokevirtual #135                // Method java/lang/Integer.intValue:()I
+      73: istore        6
+      75: aload_3
+      76: getfield      #210                // Field net/minecraft/world/entity/LivingEntity.f_19853_:Lnet/minecraft/world/level/Level;
+      79: ldc           #212                // class net/minecraft/world/entity/item/ItemEntity
+      81: new           #214                // class net/minecraft/world/phys/AABB
+      84: dup
+      85: aload         5
+      87: getfield      #218                // Field net/minecraft/world/phys/Vec3.f_82479_:D
+      90: iload         6
+      92: i2d
+      93: dsub
+      94: aload         5
+      96: getfield      #221                // Field net/minecraft/world/phys/Vec3.f_82480_:D
+      99: iload         6
+     101: i2d
+     102: dsub
+     103: aload         5
+     105: getfield      #224                // Field net/minecraft/world/phys/Vec3.f_82481_:D
+     108: iload         6
+     110: i2d
+     111: dsub
+     112: aload         5
+     114: getfield      #218                // Field net/minecraft/world/phys/Vec3.f_82479_:D
+     117: iload         6
+     119: i2d
+     120: dadd
+     121: aload         5
+     123: getfield      #221                // Field net/minecraft/world/phys/Vec3.f_82480_:D
+     126: iload         6
+     128: i2d
+     129: dadd
+     130: aload         5
+     132: getfield      #224                // Field net/minecraft/world/phys/Vec3.f_82481_:D
+     135: iload         6
+     137: i2d
+     138: dadd
+     139: invokespecial #227                // Method net/minecraft/world/phys/AABB."<init>":(DDDDDD)V
+     142: invokevirtual #233                // Method net/minecraft/world/level/Level.m_45976_:(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;
+     145: astore        7
+     147: iconst_0
+     148: istore        8
+     150: aload         7
+     152: invokeinterface #239,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+     157: astore        9
+     159: aload         9
+     161: invokeinterface #244,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     166: ifeq          331
+     169: aload         9
+     171: invokeinterface #247,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     176: checkcast     #212                // class net/minecraft/world/entity/item/ItemEntity
+     179: astore        10
+     181: aload         10
+     183: invokevirtual #250                // Method net/minecraft/world/entity/item/ItemEntity.m_6084_:()Z
+     186: ifeq          328
+     189: aload         10
+     191: invokevirtual #253                // Method net/minecraft/world/entity/item/ItemEntity.m_32063_:()Z
+     194: ifne          328
+     197: aload         10
+     199: invokevirtual #256                // Method net/minecraft/world/entity/item/ItemEntity.getPersistentData:()Lnet/minecraft/nbt/CompoundTag;
+     202: ldc_w         #258                // String PreventRemoteMovement
+     205: invokevirtual #262                // Method net/minecraft/nbt/CompoundTag.m_128471_:(Ljava/lang/String;)Z
+     208: ifne          328
+     211: iload         8
+     213: iinc          8, 1
+     216: sipush        200
+     219: if_icmple     225
+     222: goto          331
+     225: aload         5
+     227: aload         10
+     229: invokevirtual #263                // Method net/minecraft/world/entity/item/ItemEntity.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+     232: dconst_0
+     233: aload         10
+     235: invokevirtual #267                // Method net/minecraft/world/entity/item/ItemEntity.m_20206_:()F
+     238: fconst_2
+     239: fdiv
+     240: f2d
+     241: dconst_0
+     242: invokevirtual #203                // Method net/minecraft/world/phys/Vec3.m_82520_:(DDD)Lnet/minecraft/world/phys/Vec3;
+     245: invokevirtual #271                // Method net/minecraft/world/phys/Vec3.m_82546_:(Lnet/minecraft/world/phys/Vec3;)Lnet/minecraft/world/phys/Vec3;
+     248: astore        11
+     250: aload         11
+     252: getfield      #218                // Field net/minecraft/world/phys/Vec3.f_82479_:D
+     255: aload         11
+     257: getfield      #218                // Field net/minecraft/world/phys/Vec3.f_82479_:D
+     260: dmul
+     261: aload         11
+     263: getfield      #221                // Field net/minecraft/world/phys/Vec3.f_82480_:D
+     266: aload         11
+     268: getfield      #221                // Field net/minecraft/world/phys/Vec3.f_82480_:D
+     271: dmul
+     272: dadd
+     273: aload         11
+     275: getfield      #224                // Field net/minecraft/world/phys/Vec3.f_82481_:D
+     278: aload         11
+     280: getfield      #224                // Field net/minecraft/world/phys/Vec3.f_82481_:D
+     283: dmul
+     284: dadd
+     285: invokestatic  #277                // Method java/lang/Math.sqrt:(D)D
+     288: dconst_1
+     289: dcmpl
+     290: ifle          300
+     293: aload         11
+     295: invokevirtual #280                // Method net/minecraft/world/phys/Vec3.m_82541_:()Lnet/minecraft/world/phys/Vec3;
+     298: astore        11
+     300: aload         10
+     302: aload         11
+     304: getstatic     #114                // Field artifacts/common/config/ModConfig.server:Lartifacts/common/config/ServerConfig;
+     307: getfield      #120                // Field artifacts/common/config/ServerConfig.universalAttractor:Lartifacts/common/config/item/curio/belt/UniversalAttractorConfig;
+     310: getfield      #284                // Field artifacts/common/config/item/curio/belt/UniversalAttractorConfig.motionMultiplier:Lnet/minecraftforge/common/ForgeConfigSpec$DoubleValue;
+     313: invokevirtual #285                // Method net/minecraftforge/common/ForgeConfigSpec$DoubleValue.get:()Ljava/lang/Object;
+     316: checkcast     #287                // class java/lang/Double
+     319: invokevirtual #291                // Method java/lang/Double.doubleValue:()D
+     322: invokevirtual #295                // Method net/minecraft/world/phys/Vec3.m_82490_:(D)Lnet/minecraft/world/phys/Vec3;
+     325: invokevirtual #299                // Method net/minecraft/world/entity/item/ItemEntity.m_20256_:(Lnet/minecraft/world/phys/Vec3;)V
+     328: goto          159
+     331: goto          342
+     334: aload_2
+     335: iload         4
+     337: iconst_1
+     338: isub
+     339: invokestatic  #301                // Method setCooldown:(Lnet/minecraft/world/item/ItemStack;I)V
+     342: return
+
+  private static void lambda$onItemToss$0(int, org.apache.commons.lang3.tuple.ImmutableTriple);
+    descriptor: (ILorg/apache/commons/lang3/tuple/ImmutableTriple;)V
+    Code:
+       0: aload_1
+       1: getfield      #318                // Field org/apache/commons/lang3/tuple/ImmutableTriple.right:Ljava/lang/Object;
+       4: checkcast     #86                 // class net/minecraft/world/item/ItemStack
+       7: iload_0
+       8: invokestatic  #301                // Method setCooldown:(Lnet/minecraft/world/item/ItemStack;I)V
+      11: return
+}

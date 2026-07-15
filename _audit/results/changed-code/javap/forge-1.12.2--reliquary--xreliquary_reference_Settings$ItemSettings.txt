@@ -1,0 +1,243 @@
+Compiled from "Settings.java"
+public class xreliquary.reference.Settings$ItemSettings {
+  public final xreliquary.reference.Settings$ItemSettings$AlkahestryTomeSettings AlkahestryTome;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$AlkahestryTomeSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$AngelicFeatherSettings AngelicFeather;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$AngelicFeatherSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$AngelHeartVialSettings AngelHeartVial;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$AngelHeartVialSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$DestructionCatalystSettings DestructionCatalyst;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$DestructionCatalystSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$EmperorChaliceSettings EmperorChalice;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$EmperorChaliceSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$EnderStaffSettings EnderStaff;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$EnderStaffSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$FortuneCoinSettings FortuneCoin;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$FortuneCoinSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$GlacialStaffSettings GlacialStaff;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$GlacialStaffSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$HarvestRodSettings HarvestRod;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$HarvestRodSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$HeroMedallionSettings HeroMedallion;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$HeroMedallionSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$IceMagusRodSettings IceMagusRod;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$IceMagusRodSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$InfernalChaliceSettings InfernalChalice;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$InfernalChaliceSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$InfernalClawsSettings InfernalClaws;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$InfernalClawsSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$InfernalTearSettings InfernalTear;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$InfernalTearSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$KrakenShellSettings KrakenShell;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$KrakenShellSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$LanternOfParanoiaSettings LanternOfParanoia;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$LanternOfParanoiaSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$MidasTouchstoneSettings MidasTouchstone;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$MidasTouchstoneSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$MobCharmSettings MobCharm;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$MobCharmSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$PhoenixDownSettings PhoenixDown;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$PhoenixDownSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$PyromancerStaffSettings PyromancerStaff;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$PyromancerStaffSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$RendingGaleSettings RendingGale;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$RendingGaleSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$RodOfLyssaSettings RodOfLyssa;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$RodOfLyssaSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$SeekerShotSettings SeekerShot;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$SeekerShotSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$SojournerStaffSettings SojournerStaff;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$SojournerStaffSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$TwilightCloakSettings TwilightCloak;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$TwilightCloakSettings;
+
+  public final xreliquary.reference.Settings$ItemSettings$VoidTearSettings VoidTear;
+    descriptor: Lxreliquary/reference/Settings$ItemSettings$VoidTearSettings;
+
+  public xreliquary.reference.Settings$ItemSettings();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #204                // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: new           #85                 // class xreliquary/reference/Settings$ItemSettings$AlkahestryTomeSettings
+       8: dup
+       9: aload_0
+      10: invokespecial #207                // Method xreliquary/reference/Settings$ItemSettings$AlkahestryTomeSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+      13: putfield      #209                // Field AlkahestryTome:Lxreliquary/reference/Settings$ItemSettings$AlkahestryTomeSettings;
+      16: aload_0
+      17: new           #82                 // class xreliquary/reference/Settings$ItemSettings$AngelicFeatherSettings
+      20: dup
+      21: aload_0
+      22: invokespecial #210                // Method xreliquary/reference/Settings$ItemSettings$AngelicFeatherSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+      25: putfield      #212                // Field AngelicFeather:Lxreliquary/reference/Settings$ItemSettings$AngelicFeatherSettings;
+      28: aload_0
+      29: new           #79                 // class xreliquary/reference/Settings$ItemSettings$AngelHeartVialSettings
+      32: dup
+      33: aload_0
+      34: invokespecial #213                // Method xreliquary/reference/Settings$ItemSettings$AngelHeartVialSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+      37: putfield      #215                // Field AngelHeartVial:Lxreliquary/reference/Settings$ItemSettings$AngelHeartVialSettings;
+      40: aload_0
+      41: new           #76                 // class xreliquary/reference/Settings$ItemSettings$DestructionCatalystSettings
+      44: dup
+      45: aload_0
+      46: invokespecial #216                // Method xreliquary/reference/Settings$ItemSettings$DestructionCatalystSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+      49: putfield      #218                // Field DestructionCatalyst:Lxreliquary/reference/Settings$ItemSettings$DestructionCatalystSettings;
+      52: aload_0
+      53: new           #73                 // class xreliquary/reference/Settings$ItemSettings$EmperorChaliceSettings
+      56: dup
+      57: aload_0
+      58: invokespecial #219                // Method xreliquary/reference/Settings$ItemSettings$EmperorChaliceSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+      61: putfield      #221                // Field EmperorChalice:Lxreliquary/reference/Settings$ItemSettings$EmperorChaliceSettings;
+      64: aload_0
+      65: new           #70                 // class xreliquary/reference/Settings$ItemSettings$EnderStaffSettings
+      68: dup
+      69: aload_0
+      70: invokespecial #222                // Method xreliquary/reference/Settings$ItemSettings$EnderStaffSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+      73: putfield      #224                // Field EnderStaff:Lxreliquary/reference/Settings$ItemSettings$EnderStaffSettings;
+      76: aload_0
+      77: new           #67                 // class xreliquary/reference/Settings$ItemSettings$FortuneCoinSettings
+      80: dup
+      81: aload_0
+      82: invokespecial #225                // Method xreliquary/reference/Settings$ItemSettings$FortuneCoinSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+      85: putfield      #227                // Field FortuneCoin:Lxreliquary/reference/Settings$ItemSettings$FortuneCoinSettings;
+      88: aload_0
+      89: new           #64                 // class xreliquary/reference/Settings$ItemSettings$GlacialStaffSettings
+      92: dup
+      93: aload_0
+      94: invokespecial #228                // Method xreliquary/reference/Settings$ItemSettings$GlacialStaffSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+      97: putfield      #230                // Field GlacialStaff:Lxreliquary/reference/Settings$ItemSettings$GlacialStaffSettings;
+     100: aload_0
+     101: new           #61                 // class xreliquary/reference/Settings$ItemSettings$HarvestRodSettings
+     104: dup
+     105: aload_0
+     106: invokespecial #231                // Method xreliquary/reference/Settings$ItemSettings$HarvestRodSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+     109: putfield      #233                // Field HarvestRod:Lxreliquary/reference/Settings$ItemSettings$HarvestRodSettings;
+     112: aload_0
+     113: new           #58                 // class xreliquary/reference/Settings$ItemSettings$HeroMedallionSettings
+     116: dup
+     117: aload_0
+     118: invokespecial #234                // Method xreliquary/reference/Settings$ItemSettings$HeroMedallionSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+     121: putfield      #236                // Field HeroMedallion:Lxreliquary/reference/Settings$ItemSettings$HeroMedallionSettings;
+     124: aload_0
+     125: new           #55                 // class xreliquary/reference/Settings$ItemSettings$IceMagusRodSettings
+     128: dup
+     129: aload_0
+     130: invokespecial #237                // Method xreliquary/reference/Settings$ItemSettings$IceMagusRodSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+     133: putfield      #239                // Field IceMagusRod:Lxreliquary/reference/Settings$ItemSettings$IceMagusRodSettings;
+     136: aload_0
+     137: new           #52                 // class xreliquary/reference/Settings$ItemSettings$InfernalChaliceSettings
+     140: dup
+     141: aload_0
+     142: invokespecial #240                // Method xreliquary/reference/Settings$ItemSettings$InfernalChaliceSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+     145: putfield      #242                // Field InfernalChalice:Lxreliquary/reference/Settings$ItemSettings$InfernalChaliceSettings;
+     148: aload_0
+     149: new           #49                 // class xreliquary/reference/Settings$ItemSettings$InfernalClawsSettings
+     152: dup
+     153: aload_0
+     154: invokespecial #243                // Method xreliquary/reference/Settings$ItemSettings$InfernalClawsSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+     157: putfield      #245                // Field InfernalClaws:Lxreliquary/reference/Settings$ItemSettings$InfernalClawsSettings;
+     160: aload_0
+     161: new           #46                 // class xreliquary/reference/Settings$ItemSettings$InfernalTearSettings
+     164: dup
+     165: aload_0
+     166: invokespecial #246                // Method xreliquary/reference/Settings$ItemSettings$InfernalTearSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+     169: putfield      #248                // Field InfernalTear:Lxreliquary/reference/Settings$ItemSettings$InfernalTearSettings;
+     172: aload_0
+     173: new           #43                 // class xreliquary/reference/Settings$ItemSettings$KrakenShellSettings
+     176: dup
+     177: aload_0
+     178: invokespecial #249                // Method xreliquary/reference/Settings$ItemSettings$KrakenShellSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+     181: putfield      #251                // Field KrakenShell:Lxreliquary/reference/Settings$ItemSettings$KrakenShellSettings;
+     184: aload_0
+     185: new           #40                 // class xreliquary/reference/Settings$ItemSettings$LanternOfParanoiaSettings
+     188: dup
+     189: aload_0
+     190: invokespecial #252                // Method xreliquary/reference/Settings$ItemSettings$LanternOfParanoiaSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+     193: putfield      #254                // Field LanternOfParanoia:Lxreliquary/reference/Settings$ItemSettings$LanternOfParanoiaSettings;
+     196: aload_0
+     197: new           #37                 // class xreliquary/reference/Settings$ItemSettings$MidasTouchstoneSettings
+     200: dup
+     201: aload_0
+     202: invokespecial #255                // Method xreliquary/reference/Settings$ItemSettings$MidasTouchstoneSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+     205: putfield      #257                // Field MidasTouchstone:Lxreliquary/reference/Settings$ItemSettings$MidasTouchstoneSettings;
+     208: aload_0
+     209: new           #34                 // class xreliquary/reference/Settings$ItemSettings$MobCharmSettings
+     212: dup
+     213: aload_0
+     214: invokespecial #258                // Method xreliquary/reference/Settings$ItemSettings$MobCharmSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+     217: putfield      #260                // Field MobCharm:Lxreliquary/reference/Settings$ItemSettings$MobCharmSettings;
+     220: aload_0
+     221: new           #31                 // class xreliquary/reference/Settings$ItemSettings$PhoenixDownSettings
+     224: dup
+     225: aload_0
+     226: invokespecial #261                // Method xreliquary/reference/Settings$ItemSettings$PhoenixDownSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+     229: putfield      #263                // Field PhoenixDown:Lxreliquary/reference/Settings$ItemSettings$PhoenixDownSettings;
+     232: aload_0
+     233: new           #28                 // class xreliquary/reference/Settings$ItemSettings$PyromancerStaffSettings
+     236: dup
+     237: aload_0
+     238: invokespecial #264                // Method xreliquary/reference/Settings$ItemSettings$PyromancerStaffSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+     241: putfield      #266                // Field PyromancerStaff:Lxreliquary/reference/Settings$ItemSettings$PyromancerStaffSettings;
+     244: aload_0
+     245: new           #25                 // class xreliquary/reference/Settings$ItemSettings$RendingGaleSettings
+     248: dup
+     249: aload_0
+     250: invokespecial #267                // Method xreliquary/reference/Settings$ItemSettings$RendingGaleSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+     253: putfield      #269                // Field RendingGale:Lxreliquary/reference/Settings$ItemSettings$RendingGaleSettings;
+     256: aload_0
+     257: new           #22                 // class xreliquary/reference/Settings$ItemSettings$RodOfLyssaSettings
+     260: dup
+     261: aload_0
+     262: invokespecial #270                // Method xreliquary/reference/Settings$ItemSettings$RodOfLyssaSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+     265: putfield      #272                // Field RodOfLyssa:Lxreliquary/reference/Settings$ItemSettings$RodOfLyssaSettings;
+     268: aload_0
+     269: new           #19                 // class xreliquary/reference/Settings$ItemSettings$SeekerShotSettings
+     272: dup
+     273: aload_0
+     274: invokespecial #273                // Method xreliquary/reference/Settings$ItemSettings$SeekerShotSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+     277: putfield      #275                // Field SeekerShot:Lxreliquary/reference/Settings$ItemSettings$SeekerShotSettings;
+     280: aload_0
+     281: new           #16                 // class xreliquary/reference/Settings$ItemSettings$SojournerStaffSettings
+     284: dup
+     285: aload_0
+     286: invokespecial #276                // Method xreliquary/reference/Settings$ItemSettings$SojournerStaffSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+     289: putfield      #278                // Field SojournerStaff:Lxreliquary/reference/Settings$ItemSettings$SojournerStaffSettings;
+     292: aload_0
+     293: new           #13                 // class xreliquary/reference/Settings$ItemSettings$TwilightCloakSettings
+     296: dup
+     297: aload_0
+     298: invokespecial #279                // Method xreliquary/reference/Settings$ItemSettings$TwilightCloakSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+     301: putfield      #281                // Field TwilightCloak:Lxreliquary/reference/Settings$ItemSettings$TwilightCloakSettings;
+     304: aload_0
+     305: new           #10                 // class xreliquary/reference/Settings$ItemSettings$VoidTearSettings
+     308: dup
+     309: aload_0
+     310: invokespecial #282                // Method xreliquary/reference/Settings$ItemSettings$VoidTearSettings."<init>":(Lxreliquary/reference/Settings$ItemSettings;)V
+     313: putfield      #284                // Field VoidTear:Lxreliquary/reference/Settings$ItemSettings$VoidTearSettings;
+     316: return
+}

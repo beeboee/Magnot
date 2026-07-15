@@ -1,0 +1,329 @@
+Compiled from "BlockPowerFlower.java"
+public class cool.furry.mc.forge.projectexpansion.block.BlockPowerFlower extends net.minecraft.world.level.block.Block implements cool.furry.mc.forge.projectexpansion.util.IHasMatter,net.minecraft.world.level.block.EntityBlock {
+  private static final net.minecraft.world.phys.shapes.VoxelShape SHAPE;
+    descriptor: Lnet/minecraft/world/phys/shapes/VoxelShape;
+
+  private final cool.furry.mc.forge.projectexpansion.util.Matter matter;
+    descriptor: Lcool/furry/mc/forge/projectexpansion/util/Matter;
+
+  public cool.furry.mc.forge.projectexpansion.block.BlockPowerFlower(cool.furry.mc.forge.projectexpansion.util.Matter);
+    descriptor: (Lcool/furry/mc/forge/projectexpansion/util/Matter;)V
+    Code:
+       0: aload_0
+       1: invokestatic  #39                 // Method net/minecraft/world/level/block/state/BlockBehaviour$Properties.m_284310_:()Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;
+       4: ldc           #40                 // float 1.5f
+       6: ldc           #41                 // float 30.0f
+       8: invokevirtual #45                 // Method net/minecraft/world/level/block/state/BlockBehaviour$Properties.m_60913_:(FF)Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;
+      11: aload_1
+      12: invokedynamic #65,  0             // InvokeDynamic #0:applyAsInt:(Lcool/furry/mc/forge/projectexpansion/util/Matter;)Ljava/util/function/ToIntFunction;
+      17: invokevirtual #69                 // Method net/minecraft/world/level/block/state/BlockBehaviour$Properties.m_60953_:(Ljava/util/function/ToIntFunction;)Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;
+      20: invokespecial #72                 // Method net/minecraft/world/level/block/Block."<init>":(Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)V
+      23: aload_0
+      24: aload_1
+      25: putfield      #74                 // Field matter:Lcool/furry/mc/forge/projectexpansion/util/Matter;
+      28: return
+
+  public cool.furry.mc.forge.projectexpansion.util.Matter getMatter();
+    descriptor: ()Lcool/furry/mc/forge/projectexpansion/util/Matter;
+    Code:
+       0: aload_0
+       1: getfield      #74                 // Field matter:Lcool/furry/mc/forge/projectexpansion/util/Matter;
+       4: areturn
+
+  public net.minecraft.world.level.block.entity.BlockEntity m_142194_(net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState);
+    descriptor: (Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/entity/BlockEntity;
+    Code:
+       0: new           #84                 // class cool/furry/mc/forge/projectexpansion/block/entity/BlockEntityPowerFlower
+       3: dup
+       4: aload_1
+       5: aload_2
+       6: invokespecial #87                 // Method cool/furry/mc/forge/projectexpansion/block/entity/BlockEntityPowerFlower."<init>":(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V
+       9: areturn
+
+  public net.minecraft.world.phys.shapes.VoxelShape m_5940_(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos, net.minecraft.world.phys.shapes.CollisionContext);
+    descriptor: (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/shapes/CollisionContext;)Lnet/minecraft/world/phys/shapes/VoxelShape;
+    Code:
+       0: getstatic     #96                 // Field SHAPE:Lnet/minecraft/world/phys/shapes/VoxelShape;
+       3: areturn
+
+  public void m_5871_(net.minecraft.world.item.ItemStack, net.minecraft.world.level.BlockGetter, java.util.List<net.minecraft.network.chat.Component>, net.minecraft.world.item.TooltipFlag);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/BlockGetter;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: aload         4
+       6: invokespecial #109                // Method net/minecraft/world/level/block/Block.m_5871_:(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/BlockGetter;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V
+       9: aload_3
+      10: getstatic     #113                // Field cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.POWER_FLOWER_TOOLTIP:Lcool/furry/mc/forge/projectexpansion/util/Lang$Blocks;
+      13: getstatic     #119                // Field net/minecraft/ChatFormatting.GRAY:Lnet/minecraft/ChatFormatting;
+      16: iconst_2
+      17: anewarray     #121                // class java/lang/Object
+      20: dup
+      21: iconst_0
+      22: getstatic     #127                // Field cool/furry/mc/forge/projectexpansion/config/Config.tickDelay:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+      25: invokevirtual #131                // Method net/minecraftforge/common/ForgeConfigSpec$ConfigValue.get:()Ljava/lang/Object;
+      28: checkcast     #133                // class java/lang/Integer
+      31: invokevirtual #137                // Method java/lang/Integer.toString:()Ljava/lang/String;
+      34: invokestatic  #143                // InterfaceMethod net/minecraft/network/chat/Component.m_237113_:(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+      37: getstatic     #149                // Field cool/furry/mc/forge/projectexpansion/util/ColorStyle.GREEN:Lnet/minecraft/network/chat/Style;
+      40: invokevirtual #155                // Method net/minecraft/network/chat/MutableComponent.m_6270_:(Lnet/minecraft/network/chat/Style;)Lnet/minecraft/network/chat/MutableComponent;
+      43: aastore
+      44: dup
+      45: iconst_1
+      46: getstatic     #127                // Field cool/furry/mc/forge/projectexpansion/config/Config.tickDelay:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+      49: invokevirtual #131                // Method net/minecraftforge/common/ForgeConfigSpec$ConfigValue.get:()Ljava/lang/Object;
+      52: checkcast     #133                // class java/lang/Integer
+      55: invokevirtual #159                // Method java/lang/Integer.intValue:()I
+      58: iconst_1
+      59: if_icmpne     67
+      62: ldc           #161                // String
+      64: goto          69
+      67: ldc           #173                // String s
+      69: invokestatic  #143                // InterfaceMethod net/minecraft/network/chat/Component.m_237113_:(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+      72: getstatic     #177                // Field cool/furry/mc/forge/projectexpansion/util/ColorStyle.GRAY:Lnet/minecraft/network/chat/Style;
+      75: invokevirtual #155                // Method net/minecraft/network/chat/MutableComponent.m_6270_:(Lnet/minecraft/network/chat/Style;)Lnet/minecraft/network/chat/MutableComponent;
+      78: aastore
+      79: invokevirtual #181                // Method cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+      82: invokeinterface #185,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      87: pop
+      88: aload_3
+      89: getstatic     #188                // Field cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.POWER_FLOWER_EMC:Lcool/furry/mc/forge/projectexpansion/util/Lang$Blocks;
+      92: getstatic     #119                // Field net/minecraft/ChatFormatting.GRAY:Lnet/minecraft/ChatFormatting;
+      95: iconst_1
+      96: anewarray     #121                // class java/lang/Object
+      99: dup
+     100: iconst_0
+     101: aload_0
+     102: invokevirtual #190                // Method getMatter:()Lcool/furry/mc/forge/projectexpansion/util/Matter;
+     105: invokevirtual #196                // Method cool/furry/mc/forge/projectexpansion/util/Matter.getPowerFlowerOutput:()Ljava/math/BigInteger;
+     108: invokestatic  #202                // Method cool/furry/mc/forge/projectexpansion/util/EMCFormat.getComponent:(Ljava/math/BigInteger;)Lnet/minecraft/network/chat/MutableComponent;
+     111: getstatic     #149                // Field cool/furry/mc/forge/projectexpansion/util/ColorStyle.GREEN:Lnet/minecraft/network/chat/Style;
+     114: invokevirtual #155                // Method net/minecraft/network/chat/MutableComponent.m_6270_:(Lnet/minecraft/network/chat/Style;)Lnet/minecraft/network/chat/MutableComponent;
+     117: aastore
+     118: invokevirtual #181                // Method cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+     121: invokeinterface #185,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     126: pop
+     127: aload_1
+     128: invokevirtual #205                // Method net/minecraft/world/item/ItemStack.m_41613_:()I
+     131: iconst_1
+     132: if_icmple     185
+     135: aload_3
+     136: getstatic     #208                // Field cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.POWER_FLOWER_STACK_EMC:Lcool/furry/mc/forge/projectexpansion/util/Lang$Blocks;
+     139: getstatic     #119                // Field net/minecraft/ChatFormatting.GRAY:Lnet/minecraft/ChatFormatting;
+     142: iconst_1
+     143: anewarray     #121                // class java/lang/Object
+     146: dup
+     147: iconst_0
+     148: aload_0
+     149: invokevirtual #190                // Method getMatter:()Lcool/furry/mc/forge/projectexpansion/util/Matter;
+     152: invokevirtual #196                // Method cool/furry/mc/forge/projectexpansion/util/Matter.getPowerFlowerOutput:()Ljava/math/BigInteger;
+     155: aload_1
+     156: invokevirtual #205                // Method net/minecraft/world/item/ItemStack.m_41613_:()I
+     159: i2l
+     160: invokestatic  #214                // Method java/math/BigInteger.valueOf:(J)Ljava/math/BigInteger;
+     163: invokevirtual #218                // Method java/math/BigInteger.multiply:(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+     166: invokestatic  #202                // Method cool/furry/mc/forge/projectexpansion/util/EMCFormat.getComponent:(Ljava/math/BigInteger;)Lnet/minecraft/network/chat/MutableComponent;
+     169: getstatic     #149                // Field cool/furry/mc/forge/projectexpansion/util/ColorStyle.GREEN:Lnet/minecraft/network/chat/Style;
+     172: invokevirtual #155                // Method net/minecraft/network/chat/MutableComponent.m_6270_:(Lnet/minecraft/network/chat/Style;)Lnet/minecraft/network/chat/MutableComponent;
+     175: aastore
+     176: invokevirtual #181                // Method cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+     179: invokeinterface #185,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     184: pop
+     185: aload_3
+     186: getstatic     #222                // Field cool/furry/mc/forge/projectexpansion/util/Lang.SEE_WIKI:Lcool/furry/mc/forge/projectexpansion/util/Lang;
+     189: getstatic     #225                // Field net/minecraft/ChatFormatting.AQUA:Lnet/minecraft/ChatFormatting;
+     192: iconst_0
+     193: anewarray     #121                // class java/lang/Object
+     196: invokevirtual #226                // Method cool/furry/mc/forge/projectexpansion/util/Lang.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+     199: invokeinterface #185,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     204: pop
+     205: return
+
+  public net.minecraft.world.InteractionResult m_6227_(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.Level, net.minecraft.core.BlockPos, net.minecraft.world.entity.player.Player, net.minecraft.world.InteractionHand, net.minecraft.world.phys.BlockHitResult);
+    descriptor: (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/phys/BlockHitResult;)Lnet/minecraft/world/InteractionResult;
+    Code:
+       0: aload_2
+       1: getfield      #241                // Field net/minecraft/world/level/Level.f_46443_:Z
+       4: ifeq          11
+       7: getstatic     #247                // Field net/minecraft/world/InteractionResult.SUCCESS:Lnet/minecraft/world/InteractionResult;
+      10: areturn
+      11: aload_2
+      12: aload_3
+      13: invokevirtual #251                // Method net/minecraft/world/level/Level.m_7702_:(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/entity/BlockEntity;
+      16: astore        7
+      18: aload         7
+      20: instanceof    #84                 // class cool/furry/mc/forge/projectexpansion/block/entity/BlockEntityPowerFlower
+      23: ifeq          47
+      26: aload         7
+      28: checkcast     #84                 // class cool/furry/mc/forge/projectexpansion/block/entity/BlockEntityPowerFlower
+      31: astore        8
+      33: aload         4
+      35: aload         8
+      37: getfield      #255                // Field cool/furry/mc/forge/projectexpansion/block/entity/BlockEntityPowerFlower.ownerName:Ljava/lang/String;
+      40: invokestatic  #143                // InterfaceMethod net/minecraft/network/chat/Component.m_237113_:(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+      43: iconst_1
+      44: invokevirtual #261                // Method net/minecraft/world/entity/player/Player.m_5661_:(Lnet/minecraft/network/chat/Component;Z)V
+      47: aload_0
+      48: aload_1
+      49: aload_2
+      50: aload_3
+      51: aload         4
+      53: aload         5
+      55: aload         6
+      57: invokespecial #265                // Method net/minecraft/world/level/block/Block.m_6227_:(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/phys/BlockHitResult;)Lnet/minecraft/world/InteractionResult;
+      60: areturn
+
+  public void m_6402_(net.minecraft.world.level.Level, net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState, net.minecraft.world.entity.LivingEntity, net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;)V
+    Code:
+       0: aload_1
+       1: aload_2
+       2: invokevirtual #251                // Method net/minecraft/world/level/Level.m_7702_:(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/entity/BlockEntity;
+       5: astore        6
+       7: aload         6
+       9: instanceof    #84                 // class cool/furry/mc/forge/projectexpansion/block/entity/BlockEntityPowerFlower
+      12: ifeq          31
+      15: aload         6
+      17: checkcast     #84                 // class cool/furry/mc/forge/projectexpansion/block/entity/BlockEntityPowerFlower
+      20: astore        7
+      22: aload         7
+      24: aload         4
+      26: aload         5
+      28: invokevirtual #282                // Method cool/furry/mc/forge/projectexpansion/block/entity/BlockEntityPowerFlower.handlePlace:(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;)V
+      31: return
+
+  public <T extends net.minecraft.world.level.block.entity.BlockEntity> net.minecraft.world.level.block.entity.BlockEntityTicker<T> m_142354_(net.minecraft.world.level.Level, net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.block.entity.BlockEntityType<T>);
+    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/entity/BlockEntityType;)Lnet/minecraft/world/level/block/entity/BlockEntityTicker;
+    Code:
+       0: aload_3
+       1: getstatic     #293                // Field cool/furry/mc/forge/projectexpansion/registries/BlockEntityTypes.POWER_FLOWER:Lnet/minecraftforge/registries/RegistryObject;
+       4: invokevirtual #296                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       7: if_acmpne     23
+      10: aload_1
+      11: getfield      #241                // Field net/minecraft/world/level/Level.f_46443_:Z
+      14: ifne          23
+      17: invokedynamic #306,  0            // InvokeDynamic #1:m_155252_:()Lnet/minecraft/world/level/block/entity/BlockEntityTicker;
+      22: areturn
+      23: aconst_null
+      24: areturn
+
+  public net.minecraft.world.level.material.PushReaction getPistonPushReaction(net.minecraft.world.level.block.state.BlockState);
+    descriptor: (Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/material/PushReaction;
+    Code:
+       0: getstatic     #317                // Field net/minecraft/world/level/material/PushReaction.BLOCK:Lnet/minecraft/world/level/material/PushReaction;
+       3: areturn
+
+  public net.minecraft.world.level.material.MapColor getMapColor(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos, net.minecraft.world.level.material.MapColor);
+    descriptor: (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/material/MapColor;)Lnet/minecraft/world/level/material/MapColor;
+    Code:
+       0: aload_0
+       1: getfield      #74                 // Field matter:Lcool/furry/mc/forge/projectexpansion/util/Matter;
+       4: getfield      #323                // Field cool/furry/mc/forge/projectexpansion/util/Matter.mapColor:Ljava/util/function/Supplier;
+       7: ifnonnull     14
+      10: aconst_null
+      11: goto          29
+      14: aload_0
+      15: getfield      #74                 // Field matter:Lcool/furry/mc/forge/projectexpansion/util/Matter;
+      18: getfield      #323                // Field cool/furry/mc/forge/projectexpansion/util/Matter.mapColor:Ljava/util/function/Supplier;
+      21: invokeinterface #326,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      26: checkcast     #328                // class net/minecraft/world/level/material/MapColor
+      29: astore        5
+      31: aload         5
+      33: ifnull        41
+      36: aload         5
+      38: goto          50
+      41: aload_0
+      42: aload_1
+      43: aload_2
+      44: aload_3
+      45: aload         4
+      47: invokespecial #330                // Method net/minecraft/world/level/block/Block.getMapColor:(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/material/MapColor;)Lnet/minecraft/world/level/material/MapColor;
+      50: areturn
+
+  private static int lambda$new$0(cool.furry.mc.forge.projectexpansion.util.Matter, net.minecraft.world.level.block.state.BlockState);
+    descriptor: (Lcool/furry/mc/forge/projectexpansion/util/Matter;Lnet/minecraft/world/level/block/state/BlockState;)I
+    Code:
+       0: aload_0
+       1: invokevirtual #336                // Method cool/furry/mc/forge/projectexpansion/util/Matter.ordinal:()I
+       4: bipush        15
+       6: invokestatic  #342                // Method java/lang/Math.min:(II)I
+       9: ireturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: dconst_0
+       1: dconst_0
+       2: dconst_0
+       3: ldc2_w        #345                // double 16.0d
+       6: dconst_1
+       7: ldc2_w        #345                // double 16.0d
+      10: invokestatic  #350                // Method m_49796_:(DDDDDD)Lnet/minecraft/world/phys/shapes/VoxelShape;
+      13: bipush        6
+      15: anewarray     #352                // class net/minecraft/world/phys/shapes/VoxelShape
+      18: dup
+      19: iconst_0
+      20: ldc2_w        #353                // double 3.5d
+      23: ldc2_w        #355                // double 4.0d
+      26: ldc2_w        #357                // double 6.5d
+      29: ldc2_w        #359                // double 12.5d
+      32: ldc2_w        #361                // double 13.0d
+      35: ldc2_w        #363                // double 9.5d
+      38: invokestatic  #350                // Method m_49796_:(DDDDDD)Lnet/minecraft/world/phys/shapes/VoxelShape;
+      41: aastore
+      42: dup
+      43: iconst_1
+      44: ldc2_w        #357                // double 6.5d
+      47: dconst_1
+      48: ldc2_w        #357                // double 6.5d
+      51: ldc2_w        #363                // double 9.5d
+      54: ldc2_w        #345                // double 16.0d
+      57: ldc2_w        #363                // double 9.5d
+      60: invokestatic  #350                // Method m_49796_:(DDDDDD)Lnet/minecraft/world/phys/shapes/VoxelShape;
+      63: aastore
+      64: dup
+      65: iconst_2
+      66: ldc2_w        #357                // double 6.5d
+      69: ldc2_w        #355                // double 4.0d
+      72: ldc2_w        #353                // double 3.5d
+      75: ldc2_w        #363                // double 9.5d
+      78: ldc2_w        #361                // double 13.0d
+      81: ldc2_w        #359                // double 12.5d
+      84: invokestatic  #350                // Method m_49796_:(DDDDDD)Lnet/minecraft/world/phys/shapes/VoxelShape;
+      87: aastore
+      88: dup
+      89: iconst_3
+      90: ldc2_w        #357                // double 6.5d
+      93: ldc2_w        #365                // double 7.0d
+      96: ldc2_w        #367                // double 0.5d
+      99: ldc2_w        #363                // double 9.5d
+     102: ldc2_w        #369                // double 10.0d
+     105: ldc2_w        #371                // double 15.5d
+     108: invokestatic  #350                // Method m_49796_:(DDDDDD)Lnet/minecraft/world/phys/shapes/VoxelShape;
+     111: aastore
+     112: dup
+     113: iconst_4
+     114: ldc2_w        #353                // double 3.5d
+     117: ldc2_w        #365                // double 7.0d
+     120: ldc2_w        #353                // double 3.5d
+     123: ldc2_w        #359                // double 12.5d
+     126: ldc2_w        #369                // double 10.0d
+     129: ldc2_w        #359                // double 12.5d
+     132: invokestatic  #350                // Method m_49796_:(DDDDDD)Lnet/minecraft/world/phys/shapes/VoxelShape;
+     135: aastore
+     136: dup
+     137: iconst_5
+     138: ldc2_w        #367                // double 0.5d
+     141: ldc2_w        #365                // double 7.0d
+     144: ldc2_w        #357                // double 6.5d
+     147: ldc2_w        #371                // double 15.5d
+     150: ldc2_w        #369                // double 10.0d
+     153: ldc2_w        #363                // double 9.5d
+     156: invokestatic  #350                // Method m_49796_:(DDDDDD)Lnet/minecraft/world/phys/shapes/VoxelShape;
+     159: aastore
+     160: invokestatic  #378                // Method net/minecraft/world/phys/shapes/Shapes.m_83124_:(Lnet/minecraft/world/phys/shapes/VoxelShape;[Lnet/minecraft/world/phys/shapes/VoxelShape;)Lnet/minecraft/world/phys/shapes/VoxelShape;
+     163: putstatic     #96                 // Field SHAPE:Lnet/minecraft/world/phys/shapes/VoxelShape;
+     166: return
+}

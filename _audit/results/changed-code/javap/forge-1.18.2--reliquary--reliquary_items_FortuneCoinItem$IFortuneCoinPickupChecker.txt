@@ -1,0 +1,5 @@
+Compiled from "FortuneCoinItem.java"
+public interface reliquary.items.FortuneCoinItem$IFortuneCoinPickupChecker {
+  public abstract boolean canPickup(net.minecraft.world.entity.item.ItemEntity);
+    descriptor: (Lnet/minecraft/world/entity/item/ItemEntity;)Z
+}

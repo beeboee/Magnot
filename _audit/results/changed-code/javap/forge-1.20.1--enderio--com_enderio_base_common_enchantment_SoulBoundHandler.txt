@@ -1,0 +1,168 @@
+Compiled from "SoulBoundHandler.java"
+public class com.enderio.base.common.enchantment.SoulBoundHandler {
+  public com.enderio.base.common.enchantment.SoulBoundHandler();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #30                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void deathHandler(net.minecraftforge.event.entity.living.LivingDropsEvent);
+    descriptor: (Lnet/minecraftforge/event/entity/living/LivingDropsEvent;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #44                 // Method net/minecraftforge/event/entity/living/LivingDropsEvent.getEntity:()Lnet/minecraft/world/entity/LivingEntity;
+       4: ifnull        24
+       7: aload_0
+       8: invokevirtual #44                 // Method net/minecraftforge/event/entity/living/LivingDropsEvent.getEntity:()Lnet/minecraft/world/entity/LivingEntity;
+      11: instanceof    #46                 // class net/minecraftforge/common/util/FakePlayer
+      14: ifne          24
+      17: aload_0
+      18: invokevirtual #50                 // Method net/minecraftforge/event/entity/living/LivingDropsEvent.isCanceled:()Z
+      21: ifeq          25
+      24: return
+      25: aload_0
+      26: invokevirtual #44                 // Method net/minecraftforge/event/entity/living/LivingDropsEvent.getEntity:()Lnet/minecraft/world/entity/LivingEntity;
+      29: invokevirtual #56                 // Method net/minecraft/world/entity/LivingEntity.m_9236_:()Lnet/minecraft/world/level/Level;
+      32: invokevirtual #62                 // Method net/minecraft/world/level/Level.m_46469_:()Lnet/minecraft/world/level/GameRules;
+      35: getstatic     #66                 // Field net/minecraft/world/level/GameRules.f_46133_:Lnet/minecraft/world/level/GameRules$Key;
+      38: invokevirtual #70                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+      41: ifeq          45
+      44: return
+      45: new           #72                 // class java/util/ArrayList
+      48: dup
+      49: invokespecial #73                 // Method java/util/ArrayList."<init>":()V
+      52: astore_1
+      53: aload_0
+      54: invokevirtual #44                 // Method net/minecraftforge/event/entity/living/LivingDropsEvent.getEntity:()Lnet/minecraft/world/entity/LivingEntity;
+      57: astore_3
+      58: aload_3
+      59: instanceof    #75                 // class net/minecraft/world/entity/player/Player
+      62: ifeq          163
+      65: aload_3
+      66: checkcast     #75                 // class net/minecraft/world/entity/player/Player
+      69: astore_2
+      70: aload_0
+      71: invokevirtual #79                 // Method net/minecraftforge/event/entity/living/LivingDropsEvent.getDrops:()Ljava/util/Collection;
+      74: invokeinterface #85,  1           // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+      79: astore_3
+      80: aload_3
+      81: invokeinterface #90,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+      86: ifeq          140
+      89: aload_3
+      90: invokeinterface #94,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      95: checkcast     #96                 // class net/minecraft/world/entity/item/ItemEntity
+      98: astore        4
+     100: aload         4
+     102: invokevirtual #100                // Method net/minecraft/world/entity/item/ItemEntity.m_32055_:()Lnet/minecraft/world/item/ItemStack;
+     105: astore        5
+     107: aload         5
+     109: invokestatic  #104                // Method isSoulBound:(Lnet/minecraft/world/item/ItemStack;)Z
+     112: ifeq          137
+     115: aload_2
+     116: aload         5
+     118: invokevirtual #107                // Method net/minecraft/world/entity/player/Player.m_36356_:(Lnet/minecraft/world/item/ItemStack;)Z
+     121: ifeq          130
+     124: aload_3
+     125: invokeinterface #110,  1          // InterfaceMethod java/util/Iterator.remove:()V
+     130: aload_1
+     131: aload         5
+     133: invokevirtual #116                // Method java/util/ArrayList.add:(Ljava/lang/Object;)Z
+     136: pop
+     137: goto          80
+     140: aload_1
+     141: invokevirtual #119                // Method java/util/ArrayList.isEmpty:()Z
+     144: ifeq          148
+     147: return
+     148: aload_1
+     149: aload_2
+     150: dup
+     151: invokestatic  #125                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+     154: pop
+     155: invokedynamic #141,  0            // InvokeDynamic #0:accept:(Lnet/minecraft/world/entity/player/Player;)Ljava/util/function/Consumer;
+     160: invokevirtual #145                // Method java/util/ArrayList.forEach:(Ljava/util/function/Consumer;)V
+     163: return
+
+  public static void reviveHandler(net.minecraftforge.event.entity.player.PlayerEvent$Clone);
+    descriptor: (Lnet/minecraftforge/event/entity/player/PlayerEvent$Clone;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #165                // Method net/minecraftforge/event/entity/player/PlayerEvent$Clone.getOriginal:()Lnet/minecraft/world/entity/player/Player;
+       4: invokevirtual #168                // Method net/minecraft/world/entity/player/Player.m_21224_:()Z
+       7: ifne          11
+      10: return
+      11: aload_0
+      12: invokevirtual #170                // Method net/minecraftforge/event/entity/player/PlayerEvent$Clone.getEntity:()Lnet/minecraft/world/entity/player/Player;
+      15: invokevirtual #171                // Method net/minecraft/world/entity/player/Player.m_9236_:()Lnet/minecraft/world/level/Level;
+      18: invokevirtual #62                 // Method net/minecraft/world/level/Level.m_46469_:()Lnet/minecraft/world/level/GameRules;
+      21: getstatic     #66                 // Field net/minecraft/world/level/GameRules.f_46133_:Lnet/minecraft/world/level/GameRules$Key;
+      24: invokevirtual #70                 // Method net/minecraft/world/level/GameRules.m_46207_:(Lnet/minecraft/world/level/GameRules$Key;)Z
+      27: ifeq          31
+      30: return
+      31: aload_0
+      32: invokevirtual #165                // Method net/minecraftforge/event/entity/player/PlayerEvent$Clone.getOriginal:()Lnet/minecraft/world/entity/player/Player;
+      35: invokevirtual #175                // Method net/minecraft/world/entity/player/Player.m_150109_:()Lnet/minecraft/world/entity/player/Inventory;
+      38: getfield      #181                // Field net/minecraft/world/entity/player/Inventory.f_35974_:Lnet/minecraft/core/NonNullList;
+      41: aload_0
+      42: invokedynamic #189,  0            // InvokeDynamic #1:accept:(Lnet/minecraftforge/event/entity/player/PlayerEvent$Clone;)Ljava/util/function/Consumer;
+      47: invokevirtual #192                // Method net/minecraft/core/NonNullList.forEach:(Ljava/util/function/Consumer;)V
+      50: aload_0
+      51: invokevirtual #165                // Method net/minecraftforge/event/entity/player/PlayerEvent$Clone.getOriginal:()Lnet/minecraft/world/entity/player/Player;
+      54: invokevirtual #175                // Method net/minecraft/world/entity/player/Player.m_150109_:()Lnet/minecraft/world/entity/player/Inventory;
+      57: getfield      #195                // Field net/minecraft/world/entity/player/Inventory.f_35975_:Lnet/minecraft/core/NonNullList;
+      60: aload_0
+      61: invokedynamic #200,  0            // InvokeDynamic #2:accept:(Lnet/minecraftforge/event/entity/player/PlayerEvent$Clone;)Ljava/util/function/Consumer;
+      66: invokevirtual #192                // Method net/minecraft/core/NonNullList.forEach:(Ljava/util/function/Consumer;)V
+      69: aload_0
+      70: invokevirtual #165                // Method net/minecraftforge/event/entity/player/PlayerEvent$Clone.getOriginal:()Lnet/minecraft/world/entity/player/Player;
+      73: invokevirtual #175                // Method net/minecraft/world/entity/player/Player.m_150109_:()Lnet/minecraft/world/entity/player/Inventory;
+      76: getfield      #203                // Field net/minecraft/world/entity/player/Inventory.f_35976_:Lnet/minecraft/core/NonNullList;
+      79: aload_0
+      80: invokedynamic #208,  0            // InvokeDynamic #3:accept:(Lnet/minecraftforge/event/entity/player/PlayerEvent$Clone;)Ljava/util/function/Consumer;
+      85: invokevirtual #192                // Method net/minecraft/core/NonNullList.forEach:(Ljava/util/function/Consumer;)V
+      88: return
+
+  public static boolean isSoulBound(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Z
+    Code:
+       0: aload_0
+       1: getstatic     #215                // Field com/enderio/base/common/init/EIOEnchantments.SOULBOUND:Lcom/tterrag/registrate/util/entry/RegistryEntry;
+       4: invokevirtual #220                // Method com/tterrag/registrate/util/entry/RegistryEntry.get:()Ljava/lang/Object;
+       7: checkcast     #222                // class net/minecraft/world/item/enchantment/Enchantment
+      10: invokevirtual #226                // Method net/minecraft/world/item/ItemStack.getEnchantmentLevel:(Lnet/minecraft/world/item/enchantment/Enchantment;)I
+      13: ifle          20
+      16: iconst_1
+      17: goto          21
+      20: iconst_0
+      21: ireturn
+
+  private static void lambda$reviveHandler$2(net.minecraftforge.event.entity.player.PlayerEvent$Clone, net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraftforge/event/entity/player/PlayerEvent$Clone;Lnet/minecraft/world/item/ItemStack;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #170                // Method net/minecraftforge/event/entity/player/PlayerEvent$Clone.getEntity:()Lnet/minecraft/world/entity/player/Player;
+       4: aload_1
+       5: invokevirtual #107                // Method net/minecraft/world/entity/player/Player.m_36356_:(Lnet/minecraft/world/item/ItemStack;)Z
+       8: pop
+       9: return
+
+  private static void lambda$reviveHandler$1(net.minecraftforge.event.entity.player.PlayerEvent$Clone, net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraftforge/event/entity/player/PlayerEvent$Clone;Lnet/minecraft/world/item/ItemStack;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #170                // Method net/minecraftforge/event/entity/player/PlayerEvent$Clone.getEntity:()Lnet/minecraft/world/entity/player/Player;
+       4: aload_1
+       5: invokevirtual #107                // Method net/minecraft/world/entity/player/Player.m_36356_:(Lnet/minecraft/world/item/ItemStack;)Z
+       8: pop
+       9: return
+
+  private static void lambda$reviveHandler$0(net.minecraftforge.event.entity.player.PlayerEvent$Clone, net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraftforge/event/entity/player/PlayerEvent$Clone;Lnet/minecraft/world/item/ItemStack;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #170                // Method net/minecraftforge/event/entity/player/PlayerEvent$Clone.getEntity:()Lnet/minecraft/world/entity/player/Player;
+       4: aload_1
+       5: invokevirtual #107                // Method net/minecraft/world/entity/player/Player.m_36356_:(Lnet/minecraft/world/item/ItemStack;)Z
+       8: pop
+       9: return
+}

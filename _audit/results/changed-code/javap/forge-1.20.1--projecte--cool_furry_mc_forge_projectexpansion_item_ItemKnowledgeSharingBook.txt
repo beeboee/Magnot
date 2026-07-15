@@ -1,0 +1,508 @@
+Compiled from "ItemKnowledgeSharingBook.java"
+public class cool.furry.mc.forge.projectexpansion.item.ItemKnowledgeSharingBook extends net.minecraft.world.item.Item {
+  public cool.furry.mc.forge.projectexpansion.item.ItemKnowledgeSharingBook();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: new           #7                  // class net/minecraft/world/item/Item$Properties
+       4: dup
+       5: invokespecial #22                 // Method net/minecraft/world/item/Item$Properties."<init>":()V
+       8: iconst_1
+       9: invokevirtual #26                 // Method net/minecraft/world/item/Item$Properties.m_41487_:(I)Lnet/minecraft/world/item/Item$Properties;
+      12: getstatic     #32                 // Field net/minecraft/world/item/Rarity.RARE:Lnet/minecraft/world/item/Rarity;
+      15: invokevirtual #36                 // Method net/minecraft/world/item/Item$Properties.m_41497_:(Lnet/minecraft/world/item/Rarity;)Lnet/minecraft/world/item/Item$Properties;
+      18: invokespecial #39                 // Method net/minecraft/world/item/Item."<init>":(Lnet/minecraft/world/item/Item$Properties;)V
+      21: return
+
+  public net.minecraft.world.InteractionResultHolder<net.minecraft.world.item.ItemStack> m_7203_(net.minecraft.world.level.Level, net.minecraft.world.entity.player.Player, net.minecraft.world.InteractionHand);
+    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;
+    Code:
+       0: aload_2
+       1: aload_3
+       2: invokevirtual #50                 // Method net/minecraft/world/entity/player/Player.m_21120_:(Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/item/ItemStack;
+       5: astore        4
+       7: aload_2
+       8: invokevirtual #54                 // Method net/minecraft/world/entity/player/Player.m_6047_:()Z
+      11: ifeq          135
+      14: aload_1
+      15: getfield      #60                 // Field net/minecraft/world/level/Level.f_46443_:Z
+      18: ifne          125
+      21: aload         4
+      23: invokevirtual #66                 // Method net/minecraft/world/item/ItemStack.m_41784_:()Lnet/minecraft/nbt/CompoundTag;
+      26: astore        5
+      28: aload         5
+      30: getstatic     #72                 // Field cool/furry/mc/forge/projectexpansion/util/TagNames.OWNER:Ljava/lang/String;
+      33: aload_2
+      34: invokevirtual #76                 // Method net/minecraft/world/entity/player/Player.m_20148_:()Ljava/util/UUID;
+      37: invokevirtual #82                 // Method net/minecraft/nbt/CompoundTag.m_128362_:(Ljava/lang/String;Ljava/util/UUID;)V
+      40: aload         5
+      42: getstatic     #85                 // Field cool/furry/mc/forge/projectexpansion/util/TagNames.OWNER_NAME:Ljava/lang/String;
+      45: aload_2
+      46: invokevirtual #89                 // Method net/minecraft/world/entity/player/Player.m_6302_:()Ljava/lang/String;
+      49: invokevirtual #93                 // Method net/minecraft/nbt/CompoundTag.m_128359_:(Ljava/lang/String;Ljava/lang/String;)V
+      52: aload_1
+      53: aconst_null
+      54: aload_2
+      55: invokevirtual #97                 // Method net/minecraft/world/entity/player/Player.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+      58: getfield      #103                // Field net/minecraft/world/phys/Vec3.f_82479_:D
+      61: aload_2
+      62: invokevirtual #97                 // Method net/minecraft/world/entity/player/Player.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+      65: getfield      #106                // Field net/minecraft/world/phys/Vec3.f_82480_:D
+      68: aload_2
+      69: invokevirtual #97                 // Method net/minecraft/world/entity/player/Player.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+      72: getfield      #109                // Field net/minecraft/world/phys/Vec3.f_82481_:D
+      75: getstatic     #115                // Field cool/furry/mc/forge/projectexpansion/registries/SoundEvents.KNOWLEDGE_SHARING_BOOK_STORE:Lnet/minecraftforge/registries/RegistryObject;
+      78: invokevirtual #121                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      81: checkcast     #123                // class net/minecraft/sounds/SoundEvent
+      84: getstatic     #129                // Field net/minecraft/sounds/SoundSource.PLAYERS:Lnet/minecraft/sounds/SoundSource;
+      87: ldc           #130                // float 0.8f
+      89: ldc           #130                // float 0.8f
+      91: aload_1
+      92: getfield      #134                // Field net/minecraft/world/level/Level.f_46441_:Lnet/minecraft/util/RandomSource;
+      95: invokeinterface #140,  1          // InterfaceMethod net/minecraft/util/RandomSource.m_188501_:()F
+     100: ldc           #141                // float 0.4f
+     102: fmul
+     103: fadd
+     104: invokevirtual #145                // Method net/minecraft/world/level/Level.m_6263_:(Lnet/minecraft/world/entity/player/Player;DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V
+     107: aload_2
+     108: getstatic     #149                // Field cool/furry/mc/forge/projectexpansion/util/Lang$Items.KNOWLEDGE_SHARING_BOOK_STORED:Lcool/furry/mc/forge/projectexpansion/util/Lang$Items;
+     111: getstatic     #155                // Field net/minecraft/ChatFormatting.GREEN:Lnet/minecraft/ChatFormatting;
+     114: iconst_0
+     115: anewarray     #157                // class java/lang/Object
+     118: invokevirtual #161                // Method cool/furry/mc/forge/projectexpansion/util/Lang$Items.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+     121: iconst_1
+     122: invokevirtual #165                // Method net/minecraft/world/entity/player/Player.m_5661_:(Lnet/minecraft/network/chat/Component;Z)V
+     125: aload         4
+     127: aload_1
+     128: getfield      #60                 // Field net/minecraft/world/level/Level.f_46443_:Z
+     131: invokestatic  #171                // Method net/minecraft/world/InteractionResultHolder.m_19092_:(Ljava/lang/Object;Z)Lnet/minecraft/world/InteractionResultHolder;
+     134: areturn
+     135: aload         4
+     137: invokevirtual #66                 // Method net/minecraft/world/item/ItemStack.m_41784_:()Lnet/minecraft/nbt/CompoundTag;
+     140: astore        5
+     142: aload         5
+     144: getstatic     #72                 // Field cool/furry/mc/forge/projectexpansion/util/TagNames.OWNER:Ljava/lang/String;
+     147: invokevirtual #175                // Method net/minecraft/nbt/CompoundTag.m_128403_:(Ljava/lang/String;)Z
+     150: ifeq          982
+     153: aload         5
+     155: getstatic     #72                 // Field cool/furry/mc/forge/projectexpansion/util/TagNames.OWNER:Ljava/lang/String;
+     158: invokevirtual #179                // Method net/minecraft/nbt/CompoundTag.m_128342_:(Ljava/lang/String;)Ljava/util/UUID;
+     161: astore        6
+     163: aload_2
+     164: invokevirtual #76                 // Method net/minecraft/world/entity/player/Player.m_20148_:()Ljava/util/UUID;
+     167: aload         5
+     169: getstatic     #72                 // Field cool/furry/mc/forge/projectexpansion/util/TagNames.OWNER:Ljava/lang/String;
+     172: invokevirtual #179                // Method net/minecraft/nbt/CompoundTag.m_128342_:(Ljava/lang/String;)Ljava/util/UUID;
+     175: invokevirtual #185                // Method java/util/UUID.equals:(Ljava/lang/Object;)Z
+     178: ifeq          205
+     181: aload_2
+     182: getstatic     #188                // Field cool/furry/mc/forge/projectexpansion/util/Lang$Items.KNOWLEDGE_SHARING_BOOK_SELF:Lcool/furry/mc/forge/projectexpansion/util/Lang$Items;
+     185: getstatic     #191                // Field net/minecraft/ChatFormatting.RED:Lnet/minecraft/ChatFormatting;
+     188: iconst_0
+     189: anewarray     #157                // class java/lang/Object
+     192: invokevirtual #161                // Method cool/furry/mc/forge/projectexpansion/util/Lang$Items.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+     195: iconst_1
+     196: invokevirtual #165                // Method net/minecraft/world/entity/player/Player.m_5661_:(Lnet/minecraft/network/chat/Component;Z)V
+     199: aload         4
+     201: invokestatic  #195                // Method net/minecraft/world/InteractionResultHolder.m_19100_:(Ljava/lang/Object;)Lnet/minecraft/world/InteractionResultHolder;
+     204: areturn
+     205: aload_1
+     206: getfield      #60                 // Field net/minecraft/world/level/Level.f_46443_:Z
+     209: ifne          700
+     212: aload         6
+     214: invokestatic  #201                // Method cool/furry/mc/forge/projectexpansion/util/Util.getKnowledgeProvider:(Ljava/util/UUID;)Lmoze_intel/projecte/api/capabilities/IKnowledgeProvider;
+     217: astore        7
+     219: aload_2
+     220: invokestatic  #204                // Method cool/furry/mc/forge/projectexpansion/util/Util.getKnowledgeProvider:(Lnet/minecraft/world/entity/player/Player;)Lmoze_intel/projecte/api/capabilities/IKnowledgeProvider;
+     223: astore        8
+     225: aload         7
+     227: ifnonnull     284
+     230: aload_2
+     231: getstatic     #208                // Field cool/furry/mc/forge/projectexpansion/util/Lang.FAILED_TO_GET_KNOWLEDGE_PROVIDER:Lcool/furry/mc/forge/projectexpansion/util/Lang;
+     234: getstatic     #191                // Field net/minecraft/ChatFormatting.RED:Lnet/minecraft/ChatFormatting;
+     237: iconst_1
+     238: anewarray     #157                // class java/lang/Object
+     241: dup
+     242: iconst_0
+     243: aload         6
+     245: invokestatic  #212                // Method cool/furry/mc/forge/projectexpansion/util/Util.getPlayer:(Ljava/util/UUID;)Lnet/minecraft/server/level/ServerPlayer;
+     248: ifnonnull     256
+     251: aload         6
+     253: goto          270
+     256: aload         6
+     258: invokestatic  #212                // Method cool/furry/mc/forge/projectexpansion/util/Util.getPlayer:(Ljava/util/UUID;)Lnet/minecraft/server/level/ServerPlayer;
+     261: invokestatic  #224                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+     264: checkcast     #226                // class net/minecraft/server/level/ServerPlayer
+     267: invokevirtual #230                // Method net/minecraft/server/level/ServerPlayer.m_5446_:()Lnet/minecraft/network/chat/Component;
+     270: aastore
+     271: invokevirtual #231                // Method cool/furry/mc/forge/projectexpansion/util/Lang.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+     274: iconst_1
+     275: invokevirtual #165                // Method net/minecraft/world/entity/player/Player.m_5661_:(Lnet/minecraft/network/chat/Component;Z)V
+     278: aload         4
+     280: invokestatic  #195                // Method net/minecraft/world/InteractionResultHolder.m_19100_:(Ljava/lang/Object;)Lnet/minecraft/world/InteractionResultHolder;
+     283: areturn
+     284: aload         8
+     286: ifnonnull     320
+     289: aload_2
+     290: getstatic     #208                // Field cool/furry/mc/forge/projectexpansion/util/Lang.FAILED_TO_GET_KNOWLEDGE_PROVIDER:Lcool/furry/mc/forge/projectexpansion/util/Lang;
+     293: getstatic     #191                // Field net/minecraft/ChatFormatting.RED:Lnet/minecraft/ChatFormatting;
+     296: iconst_1
+     297: anewarray     #157                // class java/lang/Object
+     300: dup
+     301: iconst_0
+     302: aload_2
+     303: invokevirtual #232                // Method net/minecraft/world/entity/player/Player.m_5446_:()Lnet/minecraft/network/chat/Component;
+     306: aastore
+     307: invokevirtual #231                // Method cool/furry/mc/forge/projectexpansion/util/Lang.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+     310: iconst_1
+     311: invokevirtual #165                // Method net/minecraft/world/entity/player/Player.m_5661_:(Lnet/minecraft/network/chat/Component;Z)V
+     314: aload         4
+     316: invokestatic  #195                // Method net/minecraft/world/InteractionResultHolder.m_19100_:(Ljava/lang/Object;)Lnet/minecraft/world/InteractionResultHolder;
+     319: areturn
+     320: lconst_0
+     321: lstore        9
+     323: aload         7
+     325: invokeinterface #236,  1          // InterfaceMethod moze_intel/projecte/api/capabilities/IKnowledgeProvider.getKnowledge:()Ljava/util/Set;
+     330: invokeinterface #242,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+     335: astore        11
+     337: aload         11
+     339: invokeinterface #247,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     344: ifeq          442
+     347: aload         11
+     349: invokeinterface #250,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     354: checkcast     #252                // class moze_intel/projecte/api/ItemInfo
+     357: astore        12
+     359: aload         8
+     361: aload         12
+     363: invokeinterface #256,  2          // InterfaceMethod moze_intel/projecte/api/capabilities/IKnowledgeProvider.hasKnowledge:(Lmoze_intel/projecte/api/ItemInfo;)Z
+     368: ifne          439
+     371: getstatic     #262                // Field cool/furry/mc/forge/projectexpansion/config/Config.notifyKnowledgeBookGains:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     374: invokevirtual #263                // Method net/minecraftforge/common/ForgeConfigSpec$ConfigValue.get:()Ljava/lang/Object;
+     377: checkcast     #265                // class java/lang/Boolean
+     380: invokevirtual #268                // Method java/lang/Boolean.booleanValue:()Z
+     383: ifeq          423
+     386: lload         9
+     388: ldc2_w        #269                // long 100l
+     391: lcmp
+     392: ifge          423
+     395: aload_2
+     396: getstatic     #273                // Field cool/furry/mc/forge/projectexpansion/util/Lang$Items.KNOWLEDGE_SHARING_BOOK_LEARNED:Lcool/furry/mc/forge/projectexpansion/util/Lang$Items;
+     399: getstatic     #155                // Field net/minecraft/ChatFormatting.GREEN:Lnet/minecraft/ChatFormatting;
+     402: iconst_1
+     403: anewarray     #157                // class java/lang/Object
+     406: dup
+     407: iconst_0
+     408: aload         12
+     410: invokevirtual #277                // Method moze_intel/projecte/api/ItemInfo.createStack:()Lnet/minecraft/world/item/ItemStack;
+     413: invokevirtual #280                // Method net/minecraft/world/item/ItemStack.m_41611_:()Lnet/minecraft/network/chat/Component;
+     416: aastore
+     417: invokevirtual #161                // Method cool/furry/mc/forge/projectexpansion/util/Lang$Items.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+     420: invokevirtual #284                // Method net/minecraft/world/entity/player/Player.m_213846_:(Lnet/minecraft/network/chat/Component;)V
+     423: aload         8
+     425: aload         12
+     427: invokeinterface #287,  2          // InterfaceMethod moze_intel/projecte/api/capabilities/IKnowledgeProvider.addKnowledge:(Lmoze_intel/projecte/api/ItemInfo;)Z
+     432: pop
+     433: lload         9
+     435: lconst_1
+     436: ladd
+     437: lstore        9
+     439: goto          337
+     442: aload         5
+     444: getstatic     #290                // Field cool/furry/mc/forge/projectexpansion/util/TagNames.LAST_USED:Ljava/lang/String;
+     447: aload_1
+     448: invokevirtual #294                // Method net/minecraft/world/level/Level.m_46467_:()J
+     451: invokevirtual #298                // Method net/minecraft/nbt/CompoundTag.m_128356_:(Ljava/lang/String;J)V
+     454: aload         5
+     456: getstatic     #301                // Field cool/furry/mc/forge/projectexpansion/util/TagNames.KNOWLEDGE_GAINED:Ljava/lang/String;
+     459: lload         9
+     461: invokevirtual #298                // Method net/minecraft/nbt/CompoundTag.m_128356_:(Ljava/lang/String;J)V
+     464: lload         9
+     466: lconst_0
+     467: lcmp
+     468: ifle          624
+     471: aload         8
+     473: aload_2
+     474: checkcast     #226                // class net/minecraft/server/level/ServerPlayer
+     477: invokeinterface #305,  2          // InterfaceMethod moze_intel/projecte/api/capabilities/IKnowledgeProvider.sync:(Lnet/minecraft/server/level/ServerPlayer;)V
+     482: lload         9
+     484: ldc2_w        #269                // long 100l
+     487: lcmp
+     488: ifle          520
+     491: aload_2
+     492: getstatic     #308                // Field cool/furry/mc/forge/projectexpansion/util/Lang$Items.KNOWLEDGE_SHARING_BOOK_LEARNED_OVER_100:Lcool/furry/mc/forge/projectexpansion/util/Lang$Items;
+     495: getstatic     #155                // Field net/minecraft/ChatFormatting.GREEN:Lnet/minecraft/ChatFormatting;
+     498: iconst_1
+     499: anewarray     #157                // class java/lang/Object
+     502: dup
+     503: iconst_0
+     504: lload         9
+     506: ldc2_w        #269                // long 100l
+     509: lsub
+     510: invokestatic  #314                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+     513: aastore
+     514: invokevirtual #161                // Method cool/furry/mc/forge/projectexpansion/util/Lang$Items.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+     517: invokevirtual #284                // Method net/minecraft/world/entity/player/Player.m_213846_:(Lnet/minecraft/network/chat/Component;)V
+     520: aload_2
+     521: getstatic     #317                // Field cool/furry/mc/forge/projectexpansion/util/Lang$Items.KNOWLEDGE_SHARING_BOOK_LEARNED_TOTAL:Lcool/furry/mc/forge/projectexpansion/util/Lang$Items;
+     524: getstatic     #155                // Field net/minecraft/ChatFormatting.GREEN:Lnet/minecraft/ChatFormatting;
+     527: iconst_2
+     528: anewarray     #157                // class java/lang/Object
+     531: dup
+     532: iconst_0
+     533: lload         9
+     535: invokestatic  #314                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+     538: aastore
+     539: dup
+     540: iconst_1
+     541: aload         5
+     543: getstatic     #85                 // Field cool/furry/mc/forge/projectexpansion/util/TagNames.OWNER_NAME:Ljava/lang/String;
+     546: invokevirtual #321                // Method net/minecraft/nbt/CompoundTag.m_128461_:(Ljava/lang/String;)Ljava/lang/String;
+     549: invokestatic  #327                // InterfaceMethod net/minecraft/network/chat/Component.m_237113_:(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+     552: getstatic     #333                // Field cool/furry/mc/forge/projectexpansion/util/ColorStyle.AQUA:Lnet/minecraft/network/chat/Style;
+     555: invokevirtual #339                // Method net/minecraft/network/chat/MutableComponent.m_6270_:(Lnet/minecraft/network/chat/Style;)Lnet/minecraft/network/chat/MutableComponent;
+     558: aastore
+     559: invokevirtual #161                // Method cool/furry/mc/forge/projectexpansion/util/Lang$Items.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+     562: iconst_1
+     563: invokevirtual #165                // Method net/minecraft/world/entity/player/Player.m_5661_:(Lnet/minecraft/network/chat/Component;Z)V
+     566: aload_1
+     567: aconst_null
+     568: aload_2
+     569: invokevirtual #97                 // Method net/minecraft/world/entity/player/Player.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+     572: getfield      #103                // Field net/minecraft/world/phys/Vec3.f_82479_:D
+     575: aload_2
+     576: invokevirtual #97                 // Method net/minecraft/world/entity/player/Player.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+     579: getfield      #106                // Field net/minecraft/world/phys/Vec3.f_82480_:D
+     582: aload_2
+     583: invokevirtual #97                 // Method net/minecraft/world/entity/player/Player.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+     586: getfield      #109                // Field net/minecraft/world/phys/Vec3.f_82481_:D
+     589: getstatic     #342                // Field cool/furry/mc/forge/projectexpansion/registries/SoundEvents.KNOWLEDGE_SHARING_BOOK_USE:Lnet/minecraftforge/registries/RegistryObject;
+     592: invokevirtual #121                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     595: checkcast     #123                // class net/minecraft/sounds/SoundEvent
+     598: getstatic     #129                // Field net/minecraft/sounds/SoundSource.PLAYERS:Lnet/minecraft/sounds/SoundSource;
+     601: ldc           #130                // float 0.8f
+     603: ldc           #130                // float 0.8f
+     605: aload_1
+     606: getfield      #134                // Field net/minecraft/world/level/Level.f_46441_:Lnet/minecraft/util/RandomSource;
+     609: invokeinterface #140,  1          // InterfaceMethod net/minecraft/util/RandomSource.m_188501_:()F
+     614: ldc           #141                // float 0.4f
+     616: fmul
+     617: fadd
+     618: invokevirtual #145                // Method net/minecraft/world/level/Level.m_6263_:(Lnet/minecraft/world/entity/player/Player;DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V
+     621: goto          697
+     624: aload_2
+     625: getstatic     #345                // Field cool/furry/mc/forge/projectexpansion/util/Lang$Items.KNOWLEDGE_SHARING_BOOK_NO_NEW_KNOWLEDGE:Lcool/furry/mc/forge/projectexpansion/util/Lang$Items;
+     628: getstatic     #191                // Field net/minecraft/ChatFormatting.RED:Lnet/minecraft/ChatFormatting;
+     631: iconst_0
+     632: anewarray     #157                // class java/lang/Object
+     635: invokevirtual #161                // Method cool/furry/mc/forge/projectexpansion/util/Lang$Items.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+     638: iconst_1
+     639: invokevirtual #165                // Method net/minecraft/world/entity/player/Player.m_5661_:(Lnet/minecraft/network/chat/Component;Z)V
+     642: aload_1
+     643: aconst_null
+     644: aload_2
+     645: invokevirtual #97                 // Method net/minecraft/world/entity/player/Player.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+     648: getfield      #103                // Field net/minecraft/world/phys/Vec3.f_82479_:D
+     651: aload_2
+     652: invokevirtual #97                 // Method net/minecraft/world/entity/player/Player.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+     655: getfield      #106                // Field net/minecraft/world/phys/Vec3.f_82480_:D
+     658: aload_2
+     659: invokevirtual #97                 // Method net/minecraft/world/entity/player/Player.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+     662: getfield      #109                // Field net/minecraft/world/phys/Vec3.f_82481_:D
+     665: getstatic     #348                // Field cool/furry/mc/forge/projectexpansion/registries/SoundEvents.KNOWLEDGE_SHARING_BOOK_USE_NONE:Lnet/minecraftforge/registries/RegistryObject;
+     668: invokevirtual #121                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     671: checkcast     #123                // class net/minecraft/sounds/SoundEvent
+     674: getstatic     #129                // Field net/minecraft/sounds/SoundSource.PLAYERS:Lnet/minecraft/sounds/SoundSource;
+     677: ldc           #130                // float 0.8f
+     679: ldc           #130                // float 0.8f
+     681: aload_1
+     682: getfield      #134                // Field net/minecraft/world/level/Level.f_46441_:Lnet/minecraft/util/RandomSource;
+     685: invokeinterface #140,  1          // InterfaceMethod net/minecraft/util/RandomSource.m_188501_:()F
+     690: ldc           #141                // float 0.4f
+     692: fmul
+     693: fadd
+     694: invokevirtual #145                // Method net/minecraft/world/level/Level.m_6263_:(Lnet/minecraft/world/entity/player/Player;DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V
+     697: goto          966
+     700: aload         5
+     702: getstatic     #301                // Field cool/furry/mc/forge/projectexpansion/util/TagNames.KNOWLEDGE_GAINED:Ljava/lang/String;
+     705: invokevirtual #352                // Method net/minecraft/nbt/CompoundTag.m_128454_:(Ljava/lang/String;)J
+     708: lstore        7
+     710: iconst_0
+     711: istore        9
+     713: iload         9
+     715: iconst_5
+     716: if_icmpge     966
+     719: new           #99                 // class net/minecraft/world/phys/Vec3
+     722: dup
+     723: aload_1
+     724: getfield      #134                // Field net/minecraft/world/level/Level.f_46441_:Lnet/minecraft/util/RandomSource;
+     727: invokeinterface #140,  1          // InterfaceMethod net/minecraft/util/RandomSource.m_188501_:()F
+     732: f2d
+     733: ldc2_w        #353                // double 0.5d
+     736: dsub
+     737: ldc2_w        #355                // double 0.1d
+     740: dmul
+     741: invokestatic  #362                // Method java/lang/Math.random:()D
+     744: ldc2_w        #355                // double 0.1d
+     747: dmul
+     748: ldc2_w        #355                // double 0.1d
+     751: dadd
+     752: dconst_0
+     753: invokespecial #365                // Method net/minecraft/world/phys/Vec3."<init>":(DDD)V
+     756: aload_2
+     757: invokevirtual #369                // Method net/minecraft/world/entity/player/Player.m_20155_:()Lnet/minecraft/world/phys/Vec2;
+     760: getfield      #375                // Field net/minecraft/world/phys/Vec2.f_82470_:F
+     763: fneg
+     764: ldc_w         #376                // float 0.017453292f
+     767: fmul
+     768: invokevirtual #380                // Method net/minecraft/world/phys/Vec3.m_82496_:(F)Lnet/minecraft/world/phys/Vec3;
+     771: aload_2
+     772: invokevirtual #369                // Method net/minecraft/world/entity/player/Player.m_20155_:()Lnet/minecraft/world/phys/Vec2;
+     775: getfield      #383                // Field net/minecraft/world/phys/Vec2.f_82471_:F
+     778: fneg
+     779: ldc_w         #376                // float 0.017453292f
+     782: fmul
+     783: invokevirtual #386                // Method net/minecraft/world/phys/Vec3.m_82524_:(F)Lnet/minecraft/world/phys/Vec3;
+     786: astore        10
+     788: new           #99                 // class net/minecraft/world/phys/Vec3
+     791: dup
+     792: aload_1
+     793: getfield      #134                // Field net/minecraft/world/level/Level.f_46441_:Lnet/minecraft/util/RandomSource;
+     796: invokeinterface #140,  1          // InterfaceMethod net/minecraft/util/RandomSource.m_188501_:()F
+     801: f2d
+     802: ldc2_w        #353                // double 0.5d
+     805: dsub
+     806: ldc2_w        #387                // double 0.3d
+     809: dmul
+     810: aload_1
+     811: getfield      #134                // Field net/minecraft/world/level/Level.f_46441_:Lnet/minecraft/util/RandomSource;
+     814: invokeinterface #140,  1          // InterfaceMethod net/minecraft/util/RandomSource.m_188501_:()F
+     819: fneg
+     820: f2d
+     821: ldc2_w        #389                // double 0.6d
+     824: dmul
+     825: ldc2_w        #387                // double 0.3d
+     828: dsub
+     829: ldc2_w        #389                // double 0.6d
+     832: invokespecial #365                // Method net/minecraft/world/phys/Vec3."<init>":(DDD)V
+     835: aload_2
+     836: invokevirtual #369                // Method net/minecraft/world/entity/player/Player.m_20155_:()Lnet/minecraft/world/phys/Vec2;
+     839: getfield      #375                // Field net/minecraft/world/phys/Vec2.f_82470_:F
+     842: fneg
+     843: ldc_w         #376                // float 0.017453292f
+     846: fmul
+     847: invokevirtual #380                // Method net/minecraft/world/phys/Vec3.m_82496_:(F)Lnet/minecraft/world/phys/Vec3;
+     850: aload_2
+     851: invokevirtual #369                // Method net/minecraft/world/entity/player/Player.m_20155_:()Lnet/minecraft/world/phys/Vec2;
+     854: getfield      #383                // Field net/minecraft/world/phys/Vec2.f_82471_:F
+     857: fneg
+     858: ldc_w         #376                // float 0.017453292f
+     861: fmul
+     862: invokevirtual #386                // Method net/minecraft/world/phys/Vec3.m_82524_:(F)Lnet/minecraft/world/phys/Vec3;
+     865: aload_2
+     866: invokevirtual #97                 // Method net/minecraft/world/entity/player/Player.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+     869: getfield      #103                // Field net/minecraft/world/phys/Vec3.f_82479_:D
+     872: aload_2
+     873: invokevirtual #97                 // Method net/minecraft/world/entity/player/Player.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+     876: getfield      #106                // Field net/minecraft/world/phys/Vec3.f_82480_:D
+     879: aload_2
+     880: invokevirtual #393                // Method net/minecraft/world/entity/player/Player.m_20192_:()F
+     883: f2d
+     884: dadd
+     885: aload_2
+     886: invokevirtual #97                 // Method net/minecraft/world/entity/player/Player.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+     889: getfield      #109                // Field net/minecraft/world/phys/Vec3.f_82481_:D
+     892: invokevirtual #397                // Method net/minecraft/world/phys/Vec3.m_82520_:(DDD)Lnet/minecraft/world/phys/Vec3;
+     895: astore        11
+     897: aload_1
+     898: lload         7
+     900: lconst_0
+     901: lcmp
+     902: ifle          920
+     905: new           #399                // class net/minecraft/core/particles/ItemParticleOption
+     908: dup
+     909: getstatic     #405                // Field net/minecraft/core/particles/ParticleTypes.f_123752_:Lnet/minecraft/core/particles/ParticleType;
+     912: aload         4
+     914: invokespecial #408                // Method net/minecraft/core/particles/ItemParticleOption."<init>":(Lnet/minecraft/core/particles/ParticleType;Lnet/minecraft/world/item/ItemStack;)V
+     917: goto          923
+     920: getstatic     #412                // Field net/minecraft/core/particles/ParticleTypes.f_123762_:Lnet/minecraft/core/particles/SimpleParticleType;
+     923: aload         11
+     925: getfield      #103                // Field net/minecraft/world/phys/Vec3.f_82479_:D
+     928: aload         11
+     930: getfield      #106                // Field net/minecraft/world/phys/Vec3.f_82480_:D
+     933: aload         11
+     935: getfield      #109                // Field net/minecraft/world/phys/Vec3.f_82481_:D
+     938: aload         10
+     940: getfield      #103                // Field net/minecraft/world/phys/Vec3.f_82479_:D
+     943: aload         10
+     945: getfield      #106                // Field net/minecraft/world/phys/Vec3.f_82480_:D
+     948: ldc2_w        #415                // double 0.05d
+     951: dadd
+     952: aload         10
+     954: getfield      #109                // Field net/minecraft/world/phys/Vec3.f_82481_:D
+     957: invokevirtual #420                // Method net/minecraft/world/level/Level.m_7106_:(Lnet/minecraft/core/particles/ParticleOptions;DDDDDD)V
+     960: iinc          9, 1
+     963: goto          713
+     966: aload         4
+     968: iconst_1
+     969: invokevirtual #424                // Method net/minecraft/world/item/ItemStack.m_41774_:(I)V
+     972: aload         4
+     974: aload_1
+     975: getfield      #60                 // Field net/minecraft/world/level/Level.f_46443_:Z
+     978: invokestatic  #171                // Method net/minecraft/world/InteractionResultHolder.m_19092_:(Ljava/lang/Object;Z)Lnet/minecraft/world/InteractionResultHolder;
+     981: areturn
+     982: aload_2
+     983: getstatic     #427                // Field cool/furry/mc/forge/projectexpansion/util/Lang$Items.KNOWLEDGE_SHARING_BOOK_NO_OWNER:Lcool/furry/mc/forge/projectexpansion/util/Lang$Items;
+     986: getstatic     #191                // Field net/minecraft/ChatFormatting.RED:Lnet/minecraft/ChatFormatting;
+     989: iconst_0
+     990: anewarray     #157                // class java/lang/Object
+     993: invokevirtual #161                // Method cool/furry/mc/forge/projectexpansion/util/Lang$Items.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+     996: iconst_1
+     997: invokevirtual #165                // Method net/minecraft/world/entity/player/Player.m_5661_:(Lnet/minecraft/network/chat/Component;Z)V
+    1000: aload         4
+    1002: invokestatic  #195                // Method net/minecraft/world/InteractionResultHolder.m_19100_:(Ljava/lang/Object;)Lnet/minecraft/world/InteractionResultHolder;
+    1005: areturn
+
+  public boolean m_5812_(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Z
+    Code:
+       0: aload_1
+       1: invokevirtual #66                 // Method net/minecraft/world/item/ItemStack.m_41784_:()Lnet/minecraft/nbt/CompoundTag;
+       4: getstatic     #72                 // Field cool/furry/mc/forge/projectexpansion/util/TagNames.OWNER:Ljava/lang/String;
+       7: invokevirtual #175                // Method net/minecraft/nbt/CompoundTag.m_128403_:(Ljava/lang/String;)Z
+      10: ireturn
+
+  public void m_7373_(net.minecraft.world.item.ItemStack, net.minecraft.world.level.Level, java.util.List<net.minecraft.network.chat.Component>, net.minecraft.world.item.TooltipFlag);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: aload         4
+       6: invokespecial #460                // Method net/minecraft/world/item/Item.m_7373_:(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V
+       9: aload_1
+      10: invokevirtual #66                 // Method net/minecraft/world/item/ItemStack.m_41784_:()Lnet/minecraft/nbt/CompoundTag;
+      13: astore        5
+      15: aload         5
+      17: getstatic     #72                 // Field cool/furry/mc/forge/projectexpansion/util/TagNames.OWNER:Ljava/lang/String;
+      20: invokevirtual #175                // Method net/minecraft/nbt/CompoundTag.m_128403_:(Ljava/lang/String;)Z
+      23: ifeq          66
+      26: aload_3
+      27: getstatic     #463                // Field cool/furry/mc/forge/projectexpansion/util/Lang$Items.KNOWLEDGE_SHARING_BOOK_SELECTED:Lcool/furry/mc/forge/projectexpansion/util/Lang$Items;
+      30: getstatic     #466                // Field net/minecraft/ChatFormatting.GRAY:Lnet/minecraft/ChatFormatting;
+      33: iconst_1
+      34: anewarray     #157                // class java/lang/Object
+      37: dup
+      38: iconst_0
+      39: aload         5
+      41: getstatic     #85                 // Field cool/furry/mc/forge/projectexpansion/util/TagNames.OWNER_NAME:Ljava/lang/String;
+      44: invokevirtual #321                // Method net/minecraft/nbt/CompoundTag.m_128461_:(Ljava/lang/String;)Ljava/lang/String;
+      47: invokestatic  #327                // InterfaceMethod net/minecraft/network/chat/Component.m_237113_:(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+      50: getstatic     #333                // Field cool/furry/mc/forge/projectexpansion/util/ColorStyle.AQUA:Lnet/minecraft/network/chat/Style;
+      53: invokevirtual #339                // Method net/minecraft/network/chat/MutableComponent.m_6270_:(Lnet/minecraft/network/chat/Style;)Lnet/minecraft/network/chat/MutableComponent;
+      56: aastore
+      57: invokevirtual #161                // Method cool/furry/mc/forge/projectexpansion/util/Lang$Items.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+      60: invokeinterface #471,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      65: pop
+      66: return
+}

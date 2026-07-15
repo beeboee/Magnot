@@ -1,0 +1,277 @@
+Compiled from "CuriosCompat.java"
+public class xreliquary.compat.curios.CuriosCompat implements xreliquary.compat.ICompat {
+  private static final xreliquary.compat.curios.CuriosCompat$EmptyCuriosHandler EMPTY_HANDLER;
+    descriptor: Lxreliquary/compat/curios/CuriosCompat$EmptyCuriosHandler;
+
+  public xreliquary.compat.curios.CuriosCompat();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #45                 // Method java/lang/Object."<init>":()V
+       4: invokestatic  #51                 // Method net/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext.get:()Lnet/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext;
+       7: invokevirtual #55                 // Method net/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext.getModEventBus:()Lnet/minecraftforge/eventbus/api/IEventBus;
+      10: astore_1
+      11: aload_1
+      12: aload_0
+      13: invokedynamic #74,  0             // InvokeDynamic #0:accept:(Lxreliquary/compat/curios/CuriosCompat;)Ljava/util/function/Consumer;
+      18: invokeinterface #80,  2           // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+      23: getstatic     #86                 // Field net/minecraftforge/common/MinecraftForge.EVENT_BUS:Lnet/minecraftforge/eventbus/api/IEventBus;
+      26: aload_0
+      27: invokeinterface #89,  2           // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.register:(Ljava/lang/Object;)V
+      32: return
+
+  private void sendImc(net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent);
+    descriptor: (Lnet/minecraftforge/fml/event/lifecycle/InterModEnqueueEvent;)V
+    Code:
+       0: ldc           #94                 // String curios
+       2: ldc           #96                 // String register_type
+       4: invokedynamic #105,  0            // InvokeDynamic #1:get:()Ljava/util/function/Supplier;
+       9: invokestatic  #111                // Method net/minecraftforge/fml/InterModComms.sendTo:(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;)Z
+      12: pop
+      13: ldc           #94                 // String curios
+      15: ldc           #96                 // String register_type
+      17: invokedynamic #116,  0            // InvokeDynamic #2:get:()Ljava/util/function/Supplier;
+      22: invokestatic  #111                // Method net/minecraftforge/fml/InterModComms.sendTo:(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;)Z
+      25: pop
+      26: ldc           #94                 // String curios
+      28: ldc           #96                 // String register_type
+      30: invokedynamic #121,  0            // InvokeDynamic #3:get:()Ljava/util/function/Supplier;
+      35: invokestatic  #111                // Method net/minecraftforge/fml/InterModComms.sendTo:(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;)Z
+      38: pop
+      39: return
+
+  public void onAttachCapabilities(net.minecraftforge.event.AttachCapabilitiesEvent<net.minecraft.item.ItemStack>);
+    descriptor: (Lnet/minecraftforge/event/AttachCapabilitiesEvent;)V
+    Code:
+       0: aload_1
+       1: invokevirtual #132                // Method net/minecraftforge/event/AttachCapabilitiesEvent.getObject:()Ljava/lang/Object;
+       4: checkcast     #134                // class net/minecraft/item/ItemStack
+       7: astore_2
+       8: aload_2
+       9: invokevirtual #138                // Method net/minecraft/item/ItemStack.func_77973_b:()Lnet/minecraft/item/Item;
+      12: astore_3
+      13: aload_3
+      14: getstatic     #144                // Field xreliquary/init/ModItems.MOB_CHARM_BELT:Lnet/minecraftforge/fml/RegistryObject;
+      17: invokevirtual #149                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      20: if_acmpne     73
+      23: aload_1
+      24: new           #151                // class net/minecraft/util/ResourceLocation
+      27: dup
+      28: ldc           #153                // String xreliquary
+      30: new           #155                // class java/lang/StringBuilder
+      33: dup
+      34: invokespecial #156                // Method java/lang/StringBuilder."<init>":()V
+      37: aload_3
+      38: invokevirtual #162                // Method net/minecraft/item/Item.getRegistryName:()Lnet/minecraft/util/ResourceLocation;
+      41: invokevirtual #166                // Method net/minecraft/util/ResourceLocation.func_110623_a:()Ljava/lang/String;
+      44: invokevirtual #170                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      47: ldc           #172                // String _curios
+      49: invokevirtual #170                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      52: invokevirtual #175                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      55: invokespecial #178                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+      58: new           #14                 // class xreliquary/compat/curios/CuriosCompat$1
+      61: dup
+      62: aload_0
+      63: aload_3
+      64: invokespecial #181                // Method xreliquary/compat/curios/CuriosCompat$1."<init>":(Lxreliquary/compat/curios/CuriosCompat;Lnet/minecraft/item/Item;)V
+      67: invokevirtual #185                // Method net/minecraftforge/event/AttachCapabilitiesEvent.addCapability:(Lnet/minecraft/util/ResourceLocation;Lnet/minecraftforge/common/capabilities/ICapabilityProvider;)V
+      70: goto          149
+      73: aload_3
+      74: invokevirtual #162                // Method net/minecraft/item/Item.getRegistryName:()Lnet/minecraft/util/ResourceLocation;
+      77: ifnull        149
+      80: aload_3
+      81: invokevirtual #162                // Method net/minecraft/item/Item.getRegistryName:()Lnet/minecraft/util/ResourceLocation;
+      84: invokevirtual #188                // Method net/minecraft/util/ResourceLocation.func_110624_b:()Ljava/lang/String;
+      87: ldc           #153                // String xreliquary
+      89: invokevirtual #194                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      92: ifeq          149
+      95: aload_3
+      96: instanceof    #18                 // class xreliquary/items/util/IBaubleItem
+      99: ifeq          149
+     102: aload_1
+     103: new           #151                // class net/minecraft/util/ResourceLocation
+     106: dup
+     107: ldc           #153                // String xreliquary
+     109: new           #155                // class java/lang/StringBuilder
+     112: dup
+     113: invokespecial #156                // Method java/lang/StringBuilder."<init>":()V
+     116: aload_3
+     117: invokevirtual #162                // Method net/minecraft/item/Item.getRegistryName:()Lnet/minecraft/util/ResourceLocation;
+     120: invokevirtual #166                // Method net/minecraft/util/ResourceLocation.func_110623_a:()Ljava/lang/String;
+     123: invokevirtual #170                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     126: ldc           #172                // String _curios
+     128: invokevirtual #170                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     131: invokevirtual #175                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     134: invokespecial #178                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+     137: new           #12                 // class xreliquary/compat/curios/CuriosCompat$2
+     140: dup
+     141: aload_0
+     142: aload_3
+     143: invokespecial #195                // Method xreliquary/compat/curios/CuriosCompat$2."<init>":(Lxreliquary/compat/curios/CuriosCompat;Lnet/minecraft/item/Item;)V
+     146: invokevirtual #185                // Method net/minecraftforge/event/AttachCapabilitiesEvent.addCapability:(Lnet/minecraft/util/ResourceLocation;Lnet/minecraftforge/common/capabilities/ICapabilityProvider;)V
+     149: return
+
+  public void setup();
+    descriptor: ()V
+    Code:
+       0: getstatic     #208                // Field net/minecraftforge/api/distmarker/Dist.CLIENT:Lnet/minecraftforge/api/distmarker/Dist;
+       3: invokedynamic #215,  0            // InvokeDynamic #4:get:()Ljava/util/function/Supplier;
+       8: invokestatic  #221                // Method net/minecraftforge/fml/DistExecutor.runWhenOn:(Lnet/minecraftforge/api/distmarker/Dist;Ljava/util/function/Supplier;)V
+      11: getstatic     #224                // Field xreliquary/init/ModItems.MOB_CHARM:Lnet/minecraftforge/fml/RegistryObject;
+      14: invokevirtual #149                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      17: checkcast     #28                 // class xreliquary/items/MobCharmItem
+      20: new           #226                // class xreliquary/compat/curios/CuriosCharmInventoryHandler
+      23: dup
+      24: invokespecial #227                // Method xreliquary/compat/curios/CuriosCharmInventoryHandler."<init>":()V
+      27: invokevirtual #231                // Method xreliquary/items/MobCharmItem.setCharmInventoryHandler:(Lxreliquary/items/MobCharmItem$CharmInventoryHandler;)V
+      30: invokedynamic #243,  0            // InvokeDynamic #5:apply:()Ljava/util/function/BiFunction;
+      35: invokestatic  #249                // Method xreliquary/util/InventoryHelper.addBaublesItemHandlerFactory:(Ljava/util/function/BiFunction;)V
+      38: return
+
+  public static java.util.Optional<net.minecraft.item.ItemStack> getStackInSlot(net.minecraft.entity.LivingEntity, java.lang.String, int);
+    descriptor: (Lnet/minecraft/entity/LivingEntity;Ljava/lang/String;I)Ljava/util/Optional;
+    Code:
+       0: invokestatic  #258                // Method top/theillusivec4/curios/api/CuriosApi.getCuriosHelper:()Ltop/theillusivec4/curios/api/type/util/ICuriosHelper;
+       3: aload_0
+       4: invokeinterface #264,  2          // InterfaceMethod top/theillusivec4/curios/api/type/util/ICuriosHelper.getCuriosHandler:(Lnet/minecraft/entity/LivingEntity;)Lnet/minecraftforge/common/util/LazyOptional;
+       9: aload_1
+      10: iload_2
+      11: invokedynamic #276,  0            // InvokeDynamic #6:apply:(Ljava/lang/String;I)Lnet/minecraftforge/common/util/NonNullFunction;
+      16: invokevirtual #282                // Method net/minecraftforge/common/util/LazyOptional.map:(Lnet/minecraftforge/common/util/NonNullFunction;)Ljava/util/Optional;
+      19: invokestatic  #288                // Method java/util/Optional.empty:()Ljava/util/Optional;
+      22: invokevirtual #291                // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      25: checkcast     #284                // class java/util/Optional
+      28: areturn
+
+  public static void setStackInSlot(net.minecraft.entity.LivingEntity, java.lang.String, int, net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/entity/LivingEntity;Ljava/lang/String;ILnet/minecraft/item/ItemStack;)V
+    Code:
+       0: invokestatic  #258                // Method top/theillusivec4/curios/api/CuriosApi.getCuriosHelper:()Ltop/theillusivec4/curios/api/type/util/ICuriosHelper;
+       3: aload_0
+       4: invokeinterface #264,  2          // InterfaceMethod top/theillusivec4/curios/api/type/util/ICuriosHelper.getCuriosHandler:(Lnet/minecraft/entity/LivingEntity;)Lnet/minecraftforge/common/util/LazyOptional;
+       9: aload_1
+      10: iload_2
+      11: aload_3
+      12: invokedynamic #309,  0            // InvokeDynamic #7:accept:(Ljava/lang/String;ILnet/minecraft/item/ItemStack;)Lnet/minecraftforge/common/util/NonNullConsumer;
+      17: invokevirtual #313                // Method net/minecraftforge/common/util/LazyOptional.ifPresent:(Lnet/minecraftforge/common/util/NonNullConsumer;)V
+      20: return
+
+  private static void lambda$setStackInSlot$10(java.lang.String, int, net.minecraft.item.ItemStack, top.theillusivec4.curios.api.type.capability.ICuriosItemHandler);
+    descriptor: (Ljava/lang/String;ILnet/minecraft/item/ItemStack;Ltop/theillusivec4/curios/api/type/capability/ICuriosItemHandler;)V
+    Code:
+       0: aload_3
+       1: aload_0
+       2: invokeinterface #319,  2          // InterfaceMethod top/theillusivec4/curios/api/type/capability/ICuriosItemHandler.getStacksHandler:(Ljava/lang/String;)Ljava/util/Optional;
+       7: iload_1
+       8: aload_2
+       9: invokedynamic #329,  0            // InvokeDynamic #8:accept:(ILnet/minecraft/item/ItemStack;)Ljava/util/function/Consumer;
+      14: invokevirtual #331                // Method java/util/Optional.ifPresent:(Ljava/util/function/Consumer;)V
+      17: return
+
+  private static void lambda$setStackInSlot$9(int, net.minecraft.item.ItemStack, top.theillusivec4.curios.api.type.inventory.ICurioStacksHandler);
+    descriptor: (ILnet/minecraft/item/ItemStack;Ltop/theillusivec4/curios/api/type/inventory/ICurioStacksHandler;)V
+    Code:
+       0: aload_2
+       1: invokeinterface #339,  1          // InterfaceMethod top/theillusivec4/curios/api/type/inventory/ICurioStacksHandler.getStacks:()Ltop/theillusivec4/curios/api/type/inventory/IDynamicStackHandler;
+       6: iload_0
+       7: aload_1
+       8: invokeinterface #344,  3          // InterfaceMethod top/theillusivec4/curios/api/type/inventory/IDynamicStackHandler.setStackInSlot:(ILnet/minecraft/item/ItemStack;)V
+      13: return
+
+  private static java.util.Optional lambda$getStackInSlot$8(java.lang.String, int, top.theillusivec4.curios.api.type.capability.ICuriosItemHandler);
+    descriptor: (Ljava/lang/String;ILtop/theillusivec4/curios/api/type/capability/ICuriosItemHandler;)Ljava/util/Optional;
+    Code:
+       0: aload_2
+       1: aload_0
+       2: invokeinterface #319,  2          // InterfaceMethod top/theillusivec4/curios/api/type/capability/ICuriosItemHandler.getStacksHandler:(Ljava/lang/String;)Ljava/util/Optional;
+       7: iload_1
+       8: invokedynamic #356,  0            // InvokeDynamic #9:apply:(I)Ljava/util/function/Function;
+      13: invokevirtual #359                // Method java/util/Optional.map:(Ljava/util/function/Function;)Ljava/util/Optional;
+      16: areturn
+
+  private static net.minecraft.item.ItemStack lambda$getStackInSlot$7(int, top.theillusivec4.curios.api.type.inventory.ICurioStacksHandler);
+    descriptor: (ILtop/theillusivec4/curios/api/type/inventory/ICurioStacksHandler;)Lnet/minecraft/item/ItemStack;
+    Code:
+       0: aload_1
+       1: invokeinterface #339,  1          // InterfaceMethod top/theillusivec4/curios/api/type/inventory/ICurioStacksHandler.getStacks:()Ltop/theillusivec4/curios/api/type/inventory/IDynamicStackHandler;
+       6: iload_0
+       7: invokeinterface #362,  2          // InterfaceMethod top/theillusivec4/curios/api/type/inventory/IDynamicStackHandler.getStackInSlot:(I)Lnet/minecraft/item/ItemStack;
+      12: areturn
+
+  private static net.minecraftforge.items.IItemHandler lambda$setup$6(net.minecraft.entity.player.PlayerEntity, xreliquary.items.util.IBaubleItem$Type);
+    descriptor: (Lnet/minecraft/entity/player/PlayerEntity;Lxreliquary/items/util/IBaubleItem$Type;)Lnet/minecraftforge/items/IItemHandler;
+    Code:
+       0: invokestatic  #258                // Method top/theillusivec4/curios/api/CuriosApi.getCuriosHelper:()Ltop/theillusivec4/curios/api/type/util/ICuriosHelper;
+       3: aload_0
+       4: invokeinterface #264,  2          // InterfaceMethod top/theillusivec4/curios/api/type/util/ICuriosHelper.getCuriosHandler:(Lnet/minecraft/entity/LivingEntity;)Lnet/minecraftforge/common/util/LazyOptional;
+       9: aload_1
+      10: invokedynamic #372,  0            // InvokeDynamic #10:apply:(Lxreliquary/items/util/IBaubleItem$Type;)Lnet/minecraftforge/common/util/NonNullFunction;
+      15: invokevirtual #282                // Method net/minecraftforge/common/util/LazyOptional.map:(Lnet/minecraftforge/common/util/NonNullFunction;)Ljava/util/Optional;
+      18: getstatic     #374                // Field EMPTY_HANDLER:Lxreliquary/compat/curios/CuriosCompat$EmptyCuriosHandler;
+      21: invokevirtual #291                // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      24: checkcast     #376                // class net/minecraftforge/items/IItemHandler
+      27: areturn
+
+  private static top.theillusivec4.curios.api.type.inventory.IDynamicStackHandler lambda$setup$5(xreliquary.items.util.IBaubleItem$Type, top.theillusivec4.curios.api.type.capability.ICuriosItemHandler);
+    descriptor: (Lxreliquary/items/util/IBaubleItem$Type;Ltop/theillusivec4/curios/api/type/capability/ICuriosItemHandler;)Ltop/theillusivec4/curios/api/type/inventory/IDynamicStackHandler;
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokevirtual #383                // Method xreliquary/items/util/IBaubleItem$Type.getIdentifier:()Ljava/lang/String;
+       5: invokeinterface #319,  2          // InterfaceMethod top/theillusivec4/curios/api/type/capability/ICuriosItemHandler.getStacksHandler:(Ljava/lang/String;)Ljava/util/Optional;
+      10: invokedynamic #389,  0            // InvokeDynamic #11:apply:()Ljava/util/function/Function;
+      15: invokevirtual #359                // Method java/util/Optional.map:(Ljava/util/function/Function;)Ljava/util/Optional;
+      18: getstatic     #374                // Field EMPTY_HANDLER:Lxreliquary/compat/curios/CuriosCompat$EmptyCuriosHandler;
+      21: invokevirtual #291                // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      24: checkcast     #341                // class top/theillusivec4/curios/api/type/inventory/IDynamicStackHandler
+      27: areturn
+
+  private static java.lang.Runnable lambda$setup$4();
+    descriptor: ()Ljava/lang/Runnable;
+    Code:
+       0: invokedynamic #397,  0            // InvokeDynamic #12:run:()Ljava/lang/Runnable;
+       5: areturn
+
+  private static void lambda$setup$3();
+    descriptor: ()V
+    Code:
+       0: new           #399                // class xreliquary/compat/curios/CuriosFortuneCoinToggler
+       3: dup
+       4: invokespecial #400                // Method xreliquary/compat/curios/CuriosFortuneCoinToggler."<init>":()V
+       7: invokevirtual #403                // Method xreliquary/compat/curios/CuriosFortuneCoinToggler.registerSelf:()V
+      10: return
+
+  private static java.lang.Object lambda$sendImc$2();
+    descriptor: ()Ljava/lang/Object;
+    Code:
+       0: getstatic     #409                // Field top/theillusivec4/curios/api/SlotTypePreset.BELT:Ltop/theillusivec4/curios/api/SlotTypePreset;
+       3: invokevirtual #413                // Method top/theillusivec4/curios/api/SlotTypePreset.getMessageBuilder:()Ltop/theillusivec4/curios/api/SlotTypeMessage$Builder;
+       6: invokevirtual #417                // Method top/theillusivec4/curios/api/SlotTypeMessage$Builder.build:()Ltop/theillusivec4/curios/api/SlotTypeMessage;
+       9: areturn
+
+  private static java.lang.Object lambda$sendImc$1();
+    descriptor: ()Ljava/lang/Object;
+    Code:
+       0: getstatic     #420                // Field top/theillusivec4/curios/api/SlotTypePreset.BODY:Ltop/theillusivec4/curios/api/SlotTypePreset;
+       3: invokevirtual #413                // Method top/theillusivec4/curios/api/SlotTypePreset.getMessageBuilder:()Ltop/theillusivec4/curios/api/SlotTypeMessage$Builder;
+       6: invokevirtual #417                // Method top/theillusivec4/curios/api/SlotTypeMessage$Builder.build:()Ltop/theillusivec4/curios/api/SlotTypeMessage;
+       9: areturn
+
+  private static java.lang.Object lambda$sendImc$0();
+    descriptor: ()Ljava/lang/Object;
+    Code:
+       0: getstatic     #423                // Field top/theillusivec4/curios/api/SlotTypePreset.NECKLACE:Ltop/theillusivec4/curios/api/SlotTypePreset;
+       3: invokevirtual #413                // Method top/theillusivec4/curios/api/SlotTypePreset.getMessageBuilder:()Ltop/theillusivec4/curios/api/SlotTypeMessage$Builder;
+       6: invokevirtual #417                // Method top/theillusivec4/curios/api/SlotTypeMessage$Builder.build:()Ltop/theillusivec4/curios/api/SlotTypeMessage;
+       9: areturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: new           #9                  // class xreliquary/compat/curios/CuriosCompat$EmptyCuriosHandler
+       3: dup
+       4: aconst_null
+       5: invokespecial #427                // Method xreliquary/compat/curios/CuriosCompat$EmptyCuriosHandler."<init>":(Lxreliquary/compat/curios/CuriosCompat$1;)V
+       8: putstatic     #374                // Field EMPTY_HANDLER:Lxreliquary/compat/curios/CuriosCompat$EmptyCuriosHandler;
+      11: return
+}

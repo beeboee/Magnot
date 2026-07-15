@@ -1,0 +1,103 @@
+Compiled from "VacuumChestMenu.java"
+public class com.enderio.machines.common.menu.VacuumChestMenu extends com.enderio.machines.common.menu.MachineMenu<com.enderio.machines.common.blockentity.VacuumChestBlockEntity> {
+  public com.enderio.machines.common.menu.VacuumChestMenu(com.enderio.machines.common.blockentity.VacuumChestBlockEntity, net.minecraft.world.entity.player.Inventory, int);
+    descriptor: (Lcom/enderio/machines/common/blockentity/VacuumChestBlockEntity;Lnet/minecraft/world/entity/player/Inventory;I)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: getstatic     #14                 // Field com/enderio/machines/common/init/MachineMenus.VACUUM_CHEST:Lcom/tterrag/registrate/util/entry/MenuEntry;
+       6: invokevirtual #20                 // Method com/tterrag/registrate/util/entry/MenuEntry.get:()Ljava/lang/Object;
+       9: checkcast     #22                 // class net/minecraft/world/inventory/MenuType
+      12: iload_3
+      13: invokespecial #25                 // Method com/enderio/machines/common/menu/MachineMenu."<init>":(Lcom/enderio/machines/common/blockentity/base/MachineBlockEntity;Lnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/world/inventory/MenuType;I)V
+      16: aload_1
+      17: ifnull        114
+      20: aload_0
+      21: new           #27                 // class com/enderio/machines/common/menu/MachineSlot
+      24: dup
+      25: aload_1
+      26: invokevirtual #33                 // Method com/enderio/machines/common/blockentity/VacuumChestBlockEntity.getInventory:()Lcom/enderio/machines/common/io/item/MachineInventory;
+      29: getstatic     #37                 // Field com/enderio/machines/common/blockentity/VacuumChestBlockEntity.FILTER_SLOT:Lcom/enderio/machines/common/io/item/SingleSlotAccess;
+      32: bipush        8
+      34: bipush        86
+      36: invokespecial #40                 // Method com/enderio/machines/common/menu/MachineSlot."<init>":(Lcom/enderio/machines/common/io/item/MachineInventory;Lcom/enderio/machines/common/io/item/SingleSlotAccess;II)V
+      39: invokevirtual #44                 // Method m_38897_:(Lnet/minecraft/world/inventory/Slot;)Lnet/minecraft/world/inventory/Slot;
+      42: pop
+      43: iconst_0
+      44: istore        4
+      46: iload         4
+      48: iconst_3
+      49: if_icmpge     114
+      52: iconst_0
+      53: istore        5
+      55: iload         5
+      57: bipush        9
+      59: if_icmpge     108
+      62: aload_0
+      63: new           #27                 // class com/enderio/machines/common/menu/MachineSlot
+      66: dup
+      67: aload_1
+      68: invokevirtual #33                 // Method com/enderio/machines/common/blockentity/VacuumChestBlockEntity.getInventory:()Lcom/enderio/machines/common/io/item/MachineInventory;
+      71: iload         5
+      73: iload         4
+      75: bipush        9
+      77: imul
+      78: iadd
+      79: bipush        8
+      81: iload         5
+      83: bipush        18
+      85: imul
+      86: iadd
+      87: bipush        18
+      89: iload         4
+      91: bipush        18
+      93: imul
+      94: iadd
+      95: invokespecial #49                 // Method com/enderio/machines/common/menu/MachineSlot."<init>":(Lcom/enderio/machines/common/io/item/MachineInventory;III)V
+      98: invokevirtual #44                 // Method m_38897_:(Lnet/minecraft/world/inventory/Slot;)Lnet/minecraft/world/inventory/Slot;
+     101: pop
+     102: iinc          5, 1
+     105: goto          55
+     108: iinc          4, 1
+     111: goto          46
+     114: aload_0
+     115: bipush        8
+     117: bipush        124
+     119: invokevirtual #53                 // Method addInventorySlots:(II)V
+     122: return
+
+  public static com.enderio.machines.common.menu.VacuumChestMenu factory(net.minecraft.world.inventory.MenuType<com.enderio.machines.common.menu.VacuumChestMenu>, int, net.minecraft.world.entity.player.Inventory, net.minecraft.network.FriendlyByteBuf);
+    descriptor: (Lnet/minecraft/world/inventory/MenuType;ILnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/network/FriendlyByteBuf;)Lcom/enderio/machines/common/menu/VacuumChestMenu;
+    Code:
+       0: aload_2
+       1: getfield      #71                 // Field net/minecraft/world/entity/player/Inventory.f_35978_:Lnet/minecraft/world/entity/player/Player;
+       4: invokevirtual #77                 // Method net/minecraft/world/entity/player/Player.m_9236_:()Lnet/minecraft/world/level/Level;
+       7: aload_3
+       8: invokevirtual #83                 // Method net/minecraft/network/FriendlyByteBuf.m_130135_:()Lnet/minecraft/core/BlockPos;
+      11: invokevirtual #89                 // Method net/minecraft/world/level/Level.m_7702_:(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/entity/BlockEntity;
+      14: astore        4
+      16: aload         4
+      18: instanceof    #29                 // class com/enderio/machines/common/blockentity/VacuumChestBlockEntity
+      21: ifeq          43
+      24: aload         4
+      26: checkcast     #29                 // class com/enderio/machines/common/blockentity/VacuumChestBlockEntity
+      29: astore        5
+      31: new           #2                  // class com/enderio/machines/common/menu/VacuumChestMenu
+      34: dup
+      35: aload         5
+      37: aload_2
+      38: iload_1
+      39: invokespecial #91                 // Method "<init>":(Lcom/enderio/machines/common/blockentity/VacuumChestBlockEntity;Lnet/minecraft/world/entity/player/Inventory;I)V
+      42: areturn
+      43: invokestatic  #99                 // Method org/apache/logging/log4j/LogManager.getLogger:()Lorg/apache/logging/log4j/Logger;
+      46: ldc           #101                // String couldn\'t find BlockEntity
+      48: invokeinterface #107,  2          // InterfaceMethod org/apache/logging/log4j/Logger.warn:(Ljava/lang/String;)V
+      53: new           #2                  // class com/enderio/machines/common/menu/VacuumChestMenu
+      56: dup
+      57: aconst_null
+      58: aload_2
+      59: iload_1
+      60: invokespecial #91                 // Method "<init>":(Lcom/enderio/machines/common/blockentity/VacuumChestBlockEntity;Lnet/minecraft/world/entity/player/Inventory;I)V
+      63: areturn
+}

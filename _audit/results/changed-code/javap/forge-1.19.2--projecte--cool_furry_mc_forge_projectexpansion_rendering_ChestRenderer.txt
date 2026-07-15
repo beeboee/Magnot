@@ -1,0 +1,166 @@
+Compiled from "ChestRenderer.java"
+public class cool.furry.mc.forge.projectexpansion.rendering.ChestRenderer<B extends net.minecraft.world.level.block.Block, BE extends net.minecraft.world.level.block.entity.BlockEntity & cool.furry.mc.forge.projectexpansion.util.IChestLike> implements net.minecraft.client.renderer.blockentity.BlockEntityRenderer<BE> {
+  private final net.minecraft.client.model.geom.ModelPart lid;
+    descriptor: Lnet/minecraft/client/model/geom/ModelPart;
+
+  private final net.minecraft.client.model.geom.ModelPart bottom;
+    descriptor: Lnet/minecraft/client/model/geom/ModelPart;
+
+  private final net.minecraft.client.model.geom.ModelPart lock;
+    descriptor: Lnet/minecraft/client/model/geom/ModelPart;
+
+  private final java.util.function.Predicate<net.minecraft.world.level.block.Block> blockChecker;
+    descriptor: Ljava/util/function/Predicate;
+
+  private final net.minecraft.resources.ResourceLocation texture;
+    descriptor: Lnet/minecraft/resources/ResourceLocation;
+
+  public cool.furry.mc.forge.projectexpansion.rendering.ChestRenderer(net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider$Context, net.minecraft.resources.ResourceLocation, java.util.function.Supplier<net.minecraftforge.registries.RegistryObject<B>>);
+    descriptor: (Lnet/minecraft/client/renderer/blockentity/BlockEntityRendererProvider$Context;Lnet/minecraft/resources/ResourceLocation;Ljava/util/function/Supplier;)V
+    Code:
+       0: aload_0
+       1: invokespecial #33                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: aload_2
+       6: putfield      #35                 // Field texture:Lnet/minecraft/resources/ResourceLocation;
+       9: aload_0
+      10: aload_3
+      11: invokedynamic #55,  0             // InvokeDynamic #0:test:(Ljava/util/function/Supplier;)Ljava/util/function/Predicate;
+      16: putfield      #57                 // Field blockChecker:Ljava/util/function/Predicate;
+      19: aload_1
+      20: getstatic     #63                 // Field net/minecraft/client/model/geom/ModelLayers.f_171275_:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      23: invokevirtual #67                 // Method net/minecraft/client/renderer/blockentity/BlockEntityRendererProvider$Context.m_173582_:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      26: astore        4
+      28: aload_0
+      29: aload         4
+      31: ldc           #68                 // String bottom
+      33: invokevirtual #74                 // Method net/minecraft/client/model/geom/ModelPart.m_171324_:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelPart;
+      36: putfield      #76                 // Field bottom:Lnet/minecraft/client/model/geom/ModelPart;
+      39: aload_0
+      40: aload         4
+      42: ldc           #77                 // String lid
+      44: invokevirtual #74                 // Method net/minecraft/client/model/geom/ModelPart.m_171324_:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelPart;
+      47: putfield      #79                 // Field lid:Lnet/minecraft/client/model/geom/ModelPart;
+      50: aload_0
+      51: aload         4
+      53: ldc           #80                 // String lock
+      55: invokevirtual #74                 // Method net/minecraft/client/model/geom/ModelPart.m_171324_:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelPart;
+      58: putfield      #82                 // Field lock:Lnet/minecraft/client/model/geom/ModelPart;
+      61: return
+
+  public void m_6922_(BE, float, com.mojang.blaze3d.vertex.PoseStack, net.minecraft.client.renderer.MultiBufferSource, int, int);
+    descriptor: (Lnet/minecraft/world/level/block/entity/BlockEntity;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;II)V
+    Code:
+       0: aload_3
+       1: invokevirtual #100                // Method com/mojang/blaze3d/vertex/PoseStack.m_85836_:()V
+       4: aload_1
+       5: invokevirtual #106                // Method net/minecraft/world/level/block/entity/BlockEntity.m_58904_:()Lnet/minecraft/world/level/Level;
+       8: ifnull        99
+      11: aload_1
+      12: invokevirtual #110                // Method net/minecraft/world/level/block/entity/BlockEntity.m_58901_:()Z
+      15: ifne          99
+      18: aload_1
+      19: invokevirtual #106                // Method net/minecraft/world/level/block/entity/BlockEntity.m_58904_:()Lnet/minecraft/world/level/Level;
+      22: aload_1
+      23: invokevirtual #114                // Method net/minecraft/world/level/block/entity/BlockEntity.m_58899_:()Lnet/minecraft/core/BlockPos;
+      26: invokevirtual #120                // Method net/minecraft/world/level/Level.m_8055_:(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;
+      29: astore        7
+      31: aload_0
+      32: getfield      #57                 // Field blockChecker:Ljava/util/function/Predicate;
+      35: aload         7
+      37: invokevirtual #126                // Method net/minecraft/world/level/block/state/BlockState.m_60734_:()Lnet/minecraft/world/level/block/Block;
+      40: invokeinterface #130,  2          // InterfaceMethod java/util/function/Predicate.test:(Ljava/lang/Object;)Z
+      45: ifeq          99
+      48: aload_3
+      49: ldc2_w        #131                // double 0.5d
+      52: ldc2_w        #131                // double 0.5d
+      55: ldc2_w        #131                // double 0.5d
+      58: invokevirtual #136                // Method com/mojang/blaze3d/vertex/PoseStack.m_85837_:(DDD)V
+      61: aload_3
+      62: getstatic     #142                // Field com/mojang/math/Vector3f.f_122225_:Lcom/mojang/math/Vector3f;
+      65: aload         7
+      67: getstatic     #148                // Field net/minecraft/world/level/block/state/properties/BlockStateProperties.f_61374_:Lnet/minecraft/world/level/block/state/properties/DirectionProperty;
+      70: invokevirtual #152                // Method net/minecraft/world/level/block/state/BlockState.m_61143_:(Lnet/minecraft/world/level/block/state/properties/Property;)Ljava/lang/Comparable;
+      73: checkcast     #154                // class net/minecraft/core/Direction
+      76: invokevirtual #158                // Method net/minecraft/core/Direction.m_122435_:()F
+      79: fneg
+      80: invokevirtual #162                // Method com/mojang/math/Vector3f.m_122240_:(F)Lcom/mojang/math/Quaternion;
+      83: invokevirtual #166                // Method com/mojang/blaze3d/vertex/PoseStack.m_85845_:(Lcom/mojang/math/Quaternion;)V
+      86: aload_3
+      87: ldc2_w        #167                // double -0.5d
+      90: ldc2_w        #167                // double -0.5d
+      93: ldc2_w        #167                // double -0.5d
+      96: invokevirtual #136                // Method com/mojang/blaze3d/vertex/PoseStack.m_85837_:(DDD)V
+      99: fconst_1
+     100: aload_1
+     101: checkcast     #170                // class cool/furry/mc/forge/projectexpansion/util/IChestLike
+     104: fload_2
+     105: invokeinterface #174,  2          // InterfaceMethod cool/furry/mc/forge/projectexpansion/util/IChestLike.getOpenNess:(F)F
+     110: fsub
+     111: fstore        7
+     113: fconst_1
+     114: fload         7
+     116: fload         7
+     118: fmul
+     119: fload         7
+     121: fmul
+     122: fsub
+     123: fstore        7
+     125: aload         4
+     127: aload_0
+     128: getfield      #35                 // Field texture:Lnet/minecraft/resources/ResourceLocation;
+     131: invokestatic  #180                // Method net/minecraft/client/renderer/RenderType.m_110452_:(Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
+     134: invokeinterface #186,  2          // InterfaceMethod net/minecraft/client/renderer/MultiBufferSource.m_6299_:(Lnet/minecraft/client/renderer/RenderType;)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+     139: astore        8
+     141: aload_0
+     142: getfield      #79                 // Field lid:Lnet/minecraft/client/model/geom/ModelPart;
+     145: fload         7
+     147: ldc           #187                // float 1.5707964f
+     149: fmul
+     150: fneg
+     151: putfield      #191                // Field net/minecraft/client/model/geom/ModelPart.f_104203_:F
+     154: aload_0
+     155: getfield      #82                 // Field lock:Lnet/minecraft/client/model/geom/ModelPart;
+     158: aload_0
+     159: getfield      #79                 // Field lid:Lnet/minecraft/client/model/geom/ModelPart;
+     162: getfield      #191                // Field net/minecraft/client/model/geom/ModelPart.f_104203_:F
+     165: putfield      #191                // Field net/minecraft/client/model/geom/ModelPart.f_104203_:F
+     168: aload_0
+     169: getfield      #79                 // Field lid:Lnet/minecraft/client/model/geom/ModelPart;
+     172: aload_3
+     173: aload         8
+     175: iload         5
+     177: iload         6
+     179: invokevirtual #195                // Method net/minecraft/client/model/geom/ModelPart.m_104301_:(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;II)V
+     182: aload_0
+     183: getfield      #82                 // Field lock:Lnet/minecraft/client/model/geom/ModelPart;
+     186: aload_3
+     187: aload         8
+     189: iload         5
+     191: iload         6
+     193: invokevirtual #195                // Method net/minecraft/client/model/geom/ModelPart.m_104301_:(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;II)V
+     196: aload_0
+     197: getfield      #76                 // Field bottom:Lnet/minecraft/client/model/geom/ModelPart;
+     200: aload_3
+     201: aload         8
+     203: iload         5
+     205: iload         6
+     207: invokevirtual #195                // Method net/minecraft/client/model/geom/ModelPart.m_104301_:(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;II)V
+     210: aload_3
+     211: invokevirtual #198                // Method com/mojang/blaze3d/vertex/PoseStack.m_85849_:()V
+     214: return
+
+  private static boolean lambda$new$0(java.util.function.Supplier, net.minecraft.world.level.block.Block);
+    descriptor: (Ljava/util/function/Supplier;Lnet/minecraft/world/level/block/Block;)Z
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokeinterface #220,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       7: checkcast     #222                // class net/minecraftforge/registries/RegistryObject
+      10: invokevirtual #223                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      13: if_acmpne     20
+      16: iconst_1
+      17: goto          21
+      20: iconst_0
+      21: ireturn
+}

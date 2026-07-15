@@ -1,0 +1,201 @@
+Compiled from "ChestRenderer.java"
+public class cool.furry.mc.neoforge.projectexpansion.rendering.ChestRenderer<BE extends net.minecraft.world.level.block.entity.BlockEntity & cool.furry.mc.neoforge.projectexpansion.util.IChestLike> implements net.minecraft.client.renderer.blockentity.BlockEntityRenderer<BE> {
+  private final net.minecraft.client.model.geom.ModelPart lid;
+    descriptor: Lnet/minecraft/client/model/geom/ModelPart;
+
+  private final net.minecraft.client.model.geom.ModelPart bottom;
+    descriptor: Lnet/minecraft/client/model/geom/ModelPart;
+
+  private final net.minecraft.client.model.geom.ModelPart lock;
+    descriptor: Lnet/minecraft/client/model/geom/ModelPart;
+
+  private final net.minecraft.world.level.block.entity.BlockEntityType<BE> type;
+    descriptor: Lnet/minecraft/world/level/block/entity/BlockEntityType;
+
+  public cool.furry.mc.neoforge.projectexpansion.rendering.ChestRenderer(net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider$Context, net.minecraft.world.level.block.entity.BlockEntityType<BE>);
+    descriptor: (Lnet/minecraft/client/renderer/blockentity/BlockEntityRendererProvider$Context;Lnet/minecraft/world/level/block/entity/BlockEntityType;)V
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: aload_2
+       6: putfield      #7                  // Field type:Lnet/minecraft/world/level/block/entity/BlockEntityType;
+       9: aload_1
+      10: getstatic     #13                 // Field net/minecraft/client/model/geom/ModelLayers.CHEST:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      13: invokevirtual #19                 // Method net/minecraft/client/renderer/blockentity/BlockEntityRendererProvider$Context.bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      16: astore_3
+      17: aload_0
+      18: aload_3
+      19: ldc           #25                 // String bottom
+      21: invokevirtual #27                 // Method net/minecraft/client/model/geom/ModelPart.getChild:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelPart;
+      24: putfield      #33                 // Field bottom:Lnet/minecraft/client/model/geom/ModelPart;
+      27: aload_0
+      28: aload_3
+      29: ldc           #36                 // String lid
+      31: invokevirtual #27                 // Method net/minecraft/client/model/geom/ModelPart.getChild:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelPart;
+      34: putfield      #38                 // Field lid:Lnet/minecraft/client/model/geom/ModelPart;
+      37: aload_0
+      38: aload_3
+      39: ldc           #40                 // String lock
+      41: invokevirtual #27                 // Method net/minecraft/client/model/geom/ModelPart.getChild:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelPart;
+      44: putfield      #42                 // Field lock:Lnet/minecraft/client/model/geom/ModelPart;
+      47: return
+
+  public void render(net.minecraft.world.level.block.entity.BlockEntity, float, com.mojang.blaze3d.vertex.PoseStack, net.minecraft.client.renderer.MultiBufferSource, int, int);
+    descriptor: (Lnet/minecraft/world/level/block/entity/BlockEntity;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;II)V
+    Code:
+       0: aload_1
+       1: invokevirtual #44                 // Method net/minecraft/world/level/block/entity/BlockEntity.getLevel:()Lnet/minecraft/world/level/Level;
+       4: ifnull        14
+       7: aload_1
+       8: invokevirtual #50                 // Method net/minecraft/world/level/block/entity/BlockEntity.isRemoved:()Z
+      11: ifeq          15
+      14: return
+      15: aload_1
+      16: invokevirtual #44                 // Method net/minecraft/world/level/block/entity/BlockEntity.getLevel:()Lnet/minecraft/world/level/Level;
+      19: aload_1
+      20: invokevirtual #54                 // Method net/minecraft/world/level/block/entity/BlockEntity.getBlockPos:()Lnet/minecraft/core/BlockPos;
+      23: invokevirtual #58                 // Method net/minecraft/world/level/Level.getBlockState:(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;
+      26: astore        7
+      28: aload         7
+      30: invokevirtual #64                 // Method net/minecraft/world/level/block/state/BlockState.getBlock:()Lnet/minecraft/world/level/block/Block;
+      33: astore        8
+      35: aload_0
+      36: aload         8
+      38: invokevirtual #70                 // Method getTexture:(Lnet/minecraft/world/level/block/Block;)Lnet/minecraft/resources/ResourceLocation;
+      41: astore        9
+      43: aload_1
+      44: invokevirtual #74                 // Method net/minecraft/world/level/block/entity/BlockEntity.getType:()Lnet/minecraft/world/level/block/entity/BlockEntityType;
+      47: aload_0
+      48: getfield      #7                  // Field type:Lnet/minecraft/world/level/block/entity/BlockEntityType;
+      51: invokevirtual #78                 // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+      54: ifeq          243
+      57: aload_1
+      58: instanceof    #82                 // class cool/furry/mc/neoforge/projectexpansion/util/IChestLike
+      61: ifeq          243
+      64: aload_1
+      65: checkcast     #82                 // class cool/furry/mc/neoforge/projectexpansion/util/IChestLike
+      68: astore        10
+      70: aload         9
+      72: ifnull        243
+      75: aload_3
+      76: invokevirtual #84                 // Method com/mojang/blaze3d/vertex/PoseStack.pushPose:()V
+      79: aload_3
+      80: ldc2_w        #89                 // double 0.5d
+      83: ldc2_w        #89                 // double 0.5d
+      86: ldc2_w        #89                 // double 0.5d
+      89: invokevirtual #91                 // Method com/mojang/blaze3d/vertex/PoseStack.translate:(DDD)V
+      92: aload_3
+      93: getstatic     #95                 // Field com/mojang/math/Axis.YP:Lcom/mojang/math/Axis;
+      96: aload         7
+      98: getstatic     #101                // Field net/minecraft/world/level/block/state/properties/BlockStateProperties.HORIZONTAL_FACING:Lnet/minecraft/world/level/block/state/properties/DirectionProperty;
+     101: invokevirtual #107                // Method net/minecraft/world/level/block/state/BlockState.getValue:(Lnet/minecraft/world/level/block/state/properties/Property;)Ljava/lang/Comparable;
+     104: checkcast     #111                // class net/minecraft/core/Direction
+     107: invokevirtual #113                // Method net/minecraft/core/Direction.toYRot:()F
+     110: fneg
+     111: invokeinterface #117,  2          // InterfaceMethod com/mojang/math/Axis.rotationDegrees:(F)Lorg/joml/Quaternionf;
+     116: invokevirtual #121                // Method com/mojang/blaze3d/vertex/PoseStack.mulPose:(Lorg/joml/Quaternionf;)V
+     119: aload_3
+     120: ldc2_w        #125                // double -0.5d
+     123: ldc2_w        #125                // double -0.5d
+     126: ldc2_w        #125                // double -0.5d
+     129: invokevirtual #91                 // Method com/mojang/blaze3d/vertex/PoseStack.translate:(DDD)V
+     132: fconst_1
+     133: aload         10
+     135: fload_2
+     136: invokeinterface #127,  2          // InterfaceMethod cool/furry/mc/neoforge/projectexpansion/util/IChestLike.getOpenNess:(F)F
+     141: fsub
+     142: fstore        11
+     144: fconst_1
+     145: fload         11
+     147: fload         11
+     149: fmul
+     150: fload         11
+     152: fmul
+     153: fsub
+     154: fstore        11
+     156: aload         4
+     158: aload         9
+     160: invokestatic  #131                // Method net/minecraft/client/renderer/RenderType.entityCutout:(Lnet/minecraft/resources/ResourceLocation;)Lnet/minecraft/client/renderer/RenderType;
+     163: invokeinterface #137,  2          // InterfaceMethod net/minecraft/client/renderer/MultiBufferSource.getBuffer:(Lnet/minecraft/client/renderer/RenderType;)Lcom/mojang/blaze3d/vertex/VertexConsumer;
+     168: astore        12
+     170: aload_0
+     171: getfield      #38                 // Field lid:Lnet/minecraft/client/model/geom/ModelPart;
+     174: fload         11
+     176: ldc           #145                // float 1.5707964f
+     178: fmul
+     179: fneg
+     180: putfield      #146                // Field net/minecraft/client/model/geom/ModelPart.xRot:F
+     183: aload_0
+     184: getfield      #42                 // Field lock:Lnet/minecraft/client/model/geom/ModelPart;
+     187: aload_0
+     188: getfield      #38                 // Field lid:Lnet/minecraft/client/model/geom/ModelPart;
+     191: getfield      #146                // Field net/minecraft/client/model/geom/ModelPart.xRot:F
+     194: putfield      #146                // Field net/minecraft/client/model/geom/ModelPart.xRot:F
+     197: aload_0
+     198: getfield      #38                 // Field lid:Lnet/minecraft/client/model/geom/ModelPart;
+     201: aload_3
+     202: aload         12
+     204: iload         5
+     206: iload         6
+     208: invokevirtual #150                // Method net/minecraft/client/model/geom/ModelPart.render:(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;II)V
+     211: aload_0
+     212: getfield      #42                 // Field lock:Lnet/minecraft/client/model/geom/ModelPart;
+     215: aload_3
+     216: aload         12
+     218: iload         5
+     220: iload         6
+     222: invokevirtual #150                // Method net/minecraft/client/model/geom/ModelPart.render:(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;II)V
+     225: aload_0
+     226: getfield      #33                 // Field bottom:Lnet/minecraft/client/model/geom/ModelPart;
+     229: aload_3
+     230: aload         12
+     232: iload         5
+     234: iload         6
+     236: invokevirtual #150                // Method net/minecraft/client/model/geom/ModelPart.render:(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;II)V
+     239: aload_3
+     240: invokevirtual #154                // Method com/mojang/blaze3d/vertex/PoseStack.popPose:()V
+     243: return
+
+  private net.minecraft.resources.ResourceLocation getTexture(net.minecraft.world.level.block.Block);
+    descriptor: (Lnet/minecraft/world/level/block/Block;)Lnet/minecraft/resources/ResourceLocation;
+    Code:
+       0: aload_1
+       1: dup
+       2: invokestatic  #157                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+       5: pop
+       6: astore_2
+       7: iconst_0
+       8: istore_3
+       9: aload_2
+      10: iload_3
+      11: invokedynamic #163,  0            // InvokeDynamic #0:typeSwitch:(Ljava/lang/Object;I)I
+      16: lookupswitch  { // 2
+                     0: 44
+                     1: 76
+               default: 90
+          }
+      44: aload_2
+      45: checkcast     #167                // class cool/furry/mc/neoforge/projectexpansion/block/BlockAdvancedAlchemicalChest
+      48: astore        4
+      50: ldc           #169                // String textures/block/advanced_alchemical_chest/%s.png
+      52: iconst_1
+      53: anewarray     #2                  // class java/lang/Object
+      56: dup
+      57: iconst_0
+      58: aload         4
+      60: invokevirtual #171                // Method cool/furry/mc/neoforge/projectexpansion/block/BlockAdvancedAlchemicalChest.getColor:()Lnet/minecraft/world/item/DyeColor;
+      63: invokevirtual #175                // Method net/minecraft/world/item/DyeColor.getName:()Ljava/lang/String;
+      66: aastore
+      67: invokestatic  #181                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      70: invokestatic  #187                // Method cool/furry/mc/neoforge/projectexpansion/Main.rl:(Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      73: goto          91
+      76: aload_2
+      77: checkcast     #193                // class cool/furry/mc/neoforge/projectexpansion/block/BlockCondenserMK3
+      80: astore        5
+      82: ldc           #195                // String textures/block/condenser_mk1.png
+      84: invokestatic  #197                // Method moze_intel/projecte/PECore.rl:(Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+      87: goto          91
+      90: aconst_null
+      91: areturn
+}

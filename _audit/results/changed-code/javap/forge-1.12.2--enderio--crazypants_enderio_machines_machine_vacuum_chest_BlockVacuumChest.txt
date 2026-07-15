@@ -1,0 +1,344 @@
+Compiled from "BlockVacuumChest.java"
+public class crazypants.enderio.machines.machine.vacuum.chest.BlockVacuumChest extends crazypants.enderio.base.BlockEio<crazypants.enderio.machines.machine.vacuum.chest.TileVacuumChest> implements crazypants.enderio.base.render.ISmartRenderAwareBlock, crazypants.enderio.base.gui.handler.IEioGuiHandler$WithPos, com.enderio.core.api.client.gui.IResourceTooltipProvider, crazypants.enderio.base.paint.IPaintable$IBlockPaintableBlock, crazypants.enderio.base.paint.IPaintable$IWrenchHideablePaint, crazypants.enderio.base.render.IHaveRenderers {
+  public static crazypants.enderio.machines.machine.vacuum.chest.BlockVacuumChest create(crazypants.enderio.api.IModObject);
+    descriptor: (Lcrazypants/enderio/api/IModObject;)Lcrazypants/enderio/machines/machine/vacuum/chest/BlockVacuumChest;
+    Code:
+       0: new           #2                  // class crazypants/enderio/machines/machine/vacuum/chest/BlockVacuumChest
+       3: dup
+       4: aload_0
+       5: invokespecial #45                 // Method "<init>":(Lcrazypants/enderio/api/IModObject;)V
+       8: astore_1
+       9: aload_1
+      10: invokevirtual #49                 // Method init:()V
+      13: aload_1
+      14: areturn
+
+  protected crazypants.enderio.machines.machine.vacuum.chest.BlockVacuumChest(crazypants.enderio.api.IModObject);
+    descriptor: (Lcrazypants/enderio/api/IModObject;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #54                 // Method crazypants/enderio/base/BlockEio."<init>":(Lcrazypants/enderio/api/IModObject;)V
+       5: aload_0
+       6: invokevirtual #57                 // Method initDefaultState:()V
+       9: aload_0
+      10: aload_0
+      11: getstatic     #63                 // Field net/minecraft/block/state/BlockFaceShape.BOWL:Lnet/minecraft/block/state/BlockFaceShape;
+      14: invokevirtual #67                 // Method mkShape:(Lnet/minecraft/block/state/BlockFaceShape;)Lcom/enderio/core/common/BlockEnder$IShape;
+      17: invokevirtual #71                 // Method setShape:(Lcom/enderio/core/common/BlockEnder$IShape;)V
+      20: return
+
+  protected void initDefaultState();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: aload_0
+       2: invokevirtual #76                 // Method func_176194_O:()Lnet/minecraft/block/state/BlockStateContainer;
+       5: invokevirtual #82                 // Method net/minecraft/block/state/BlockStateContainer.func_177621_b:()Lnet/minecraft/block/state/IBlockState;
+       8: getstatic     #88                 // Field crazypants/enderio/base/render/property/EnumRenderMode.RENDER:Lnet/minecraft/block/properties/PropertyEnum;
+      11: getstatic     #92                 // Field crazypants/enderio/base/render/property/EnumRenderMode.AUTO:Lcrazypants/enderio/base/render/property/EnumRenderMode;
+      14: invokeinterface #98,  3           // InterfaceMethod net/minecraft/block/state/IBlockState.func_177226_a:(Lnet/minecraft/block/properties/IProperty;Ljava/lang/Comparable;)Lnet/minecraft/block/state/IBlockState;
+      19: invokevirtual #102                // Method func_180632_j:(Lnet/minecraft/block/state/IBlockState;)V
+      22: return
+
+  public void func_189540_a(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.Block, net.minecraft.util.math.BlockPos);
+    descriptor: (Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/Block;Lnet/minecraft/util/math/BlockPos;)V
+    Code:
+       0: aload_0
+       1: aload_2
+       2: aload_3
+       3: invokevirtual #108                // Method getTileEntity:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lcom/enderio/core/common/TileEntityBase;
+       6: checkcast     #110                // class crazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest
+       9: astore        6
+      11: aload         6
+      13: ifnull        29
+      16: aload         6
+      18: aload_1
+      19: aload_2
+      20: aload         5
+      22: aload         4
+      24: aload         5
+      26: invokevirtual #113                // Method crazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest.onNeighborBlockChange:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/Block;Lnet/minecraft/util/math/BlockPos;)V
+      29: return
+
+  protected void init();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #125                // Method crazypants/enderio/base/BlockEio.init:()V
+       4: aload_0
+       5: invokevirtual #128                // Method registerInSmartModelAttacher:()V
+       8: return
+
+  protected void registerInSmartModelAttacher();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokestatic  #134                // Method crazypants/enderio/base/render/registry/SmartModelAttacher.register:(Lnet/minecraft/block/Block;)V
+       4: return
+
+  protected net.minecraft.block.state.BlockStateContainer func_180661_e();
+    descriptor: ()Lnet/minecraft/block/state/BlockStateContainer;
+    Code:
+       0: new           #78                 // class net/minecraft/block/state/BlockStateContainer
+       3: dup
+       4: aload_0
+       5: iconst_1
+       6: anewarray     #137                // class net/minecraft/block/properties/IProperty
+       9: dup
+      10: iconst_0
+      11: getstatic     #88                 // Field crazypants/enderio/base/render/property/EnumRenderMode.RENDER:Lnet/minecraft/block/properties/PropertyEnum;
+      14: aastore
+      15: invokespecial #140                // Method net/minecraft/block/state/BlockStateContainer."<init>":(Lnet/minecraft/block/Block;[Lnet/minecraft/block/properties/IProperty;)V
+      18: areturn
+
+  public net.minecraft.block.state.IBlockState func_176203_a(int);
+    descriptor: (I)Lnet/minecraft/block/state/IBlockState;
+    Code:
+       0: aload_0
+       1: invokevirtual #145                // Method func_176223_P:()Lnet/minecraft/block/state/IBlockState;
+       4: areturn
+
+  public int func_176201_c(net.minecraft.block.state.IBlockState);
+    descriptor: (Lnet/minecraft/block/state/IBlockState;)I
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public net.minecraft.block.state.IBlockState func_176221_a(net.minecraft.block.state.IBlockState, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    descriptor: (Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+    Code:
+       0: aload_0
+       1: invokevirtual #145                // Method func_176223_P:()Lnet/minecraft/block/state/IBlockState;
+       4: areturn
+
+  public final net.minecraft.block.state.IBlockState getExtendedState(net.minecraft.block.state.IBlockState, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    descriptor: (Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/state/IBlockState;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: invokevirtual #162                // Method createBlockStateWrapper:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lcrazypants/enderio/base/render/pipeline/BlockStateWrapperBase;
+       7: astore        4
+       9: aload_0
+      10: aload_2
+      11: aload_3
+      12: invokevirtual #165                // Method getTileEntitySafe:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lcom/enderio/core/common/TileEntityBase;
+      15: checkcast     #110                // class crazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest
+      18: astore        5
+      20: aload         5
+      22: ifnull        35
+      25: aload_0
+      26: aload         4
+      28: aload_2
+      29: aload_3
+      30: aload         5
+      32: invokevirtual #169                // Method setBlockStateWrapperCache:(Lcrazypants/enderio/base/render/IBlockStateWrapper;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lcrazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest;)V
+      35: aload         4
+      37: invokeinterface #174,  1          // InterfaceMethod crazypants/enderio/base/render/IBlockStateWrapper.bakeModel:()V
+      42: aload         4
+      44: areturn
+
+  protected void setBlockStateWrapperCache(crazypants.enderio.base.render.IBlockStateWrapper, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos, crazypants.enderio.machines.machine.vacuum.chest.TileVacuumChest);
+    descriptor: (Lcrazypants/enderio/base/render/IBlockStateWrapper;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lcrazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest;)V
+    Code:
+       0: aload_1
+       1: iconst_0
+       2: invokestatic  #183                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       5: invokeinterface #187,  2          // InterfaceMethod crazypants/enderio/base/render/IBlockStateWrapper.addCacheKey:(Ljava/lang/Object;)Lcrazypants/enderio/base/render/IBlockStateWrapper;
+      10: pop
+      11: return
+
+  protected crazypants.enderio.base.render.pipeline.BlockStateWrapperBase createBlockStateWrapper(net.minecraft.block.state.IBlockState, net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos);
+    descriptor: (Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lcrazypants/enderio/base/render/pipeline/BlockStateWrapperBase;
+    Code:
+       0: new           #189                // class crazypants/enderio/base/render/pipeline/BlockStateWrapperBase
+       3: dup
+       4: aload_1
+       5: aload_2
+       6: aload_3
+       7: aload_0
+       8: invokevirtual #193                // Method getBlockRenderMapper:()Lcrazypants/enderio/base/render/IRenderMapper$IBlockRenderMapper;
+      11: invokespecial #196                // Method crazypants/enderio/base/render/pipeline/BlockStateWrapperBase."<init>":(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;Lcrazypants/enderio/base/render/IRenderMapper$IBlockRenderMapper;)V
+      14: areturn
+
+  public crazypants.enderio.base.render.IRenderMapper$IItemRenderMapper getItemRenderMapper();
+    descriptor: ()Lcrazypants/enderio/base/render/IRenderMapper$IItemRenderMapper;
+    Code:
+       0: getstatic     #204                // Field crazypants/enderio/machines/machine/vacuum/chest/VacuumRenderMapper.instance:Lcrazypants/enderio/machines/machine/vacuum/chest/VacuumRenderMapper;
+       3: areturn
+
+  public crazypants.enderio.base.render.IRenderMapper$IBlockRenderMapper getBlockRenderMapper();
+    descriptor: ()Lcrazypants/enderio/base/render/IRenderMapper$IBlockRenderMapper;
+    Code:
+       0: getstatic     #204                // Field crazypants/enderio/machines/machine/vacuum/chest/VacuumRenderMapper.instance:Lcrazypants/enderio/machines/machine/vacuum/chest/VacuumRenderMapper;
+       3: areturn
+
+  public net.minecraft.util.BlockRenderLayer func_180664_k();
+    descriptor: ()Lnet/minecraft/util/BlockRenderLayer;
+    Code:
+       0: getstatic     #212                // Field net/minecraft/util/BlockRenderLayer.CUTOUT:Lnet/minecraft/util/BlockRenderLayer;
+       3: areturn
+
+  public boolean func_149662_c(net.minecraft.block.state.IBlockState);
+    descriptor: (Lnet/minecraft/block/state/IBlockState;)Z
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public net.minecraft.inventory.Container getServerGuiElement(net.minecraft.entity.player.EntityPlayer, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing, int);
+    descriptor: (Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;I)Lnet/minecraft/inventory/Container;
+    Code:
+       0: aload_0
+       1: aload_2
+       2: aload_3
+       3: invokevirtual #108                // Method getTileEntity:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lcom/enderio/core/common/TileEntityBase;
+       6: checkcast     #110                // class crazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest
+       9: astore        6
+      11: aload         6
+      13: ifnull        30
+      16: new           #220                // class crazypants/enderio/machines/machine/vacuum/chest/ContainerVacuumChest
+      19: dup
+      20: aload_1
+      21: getfield      #226                // Field net/minecraft/entity/player/EntityPlayer.field_71071_by:Lnet/minecraft/entity/player/InventoryPlayer;
+      24: aload         6
+      26: invokespecial #229                // Method crazypants/enderio/machines/machine/vacuum/chest/ContainerVacuumChest."<init>":(Lnet/minecraft/entity/player/InventoryPlayer;Lcrazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest;)V
+      29: areturn
+      30: aconst_null
+      31: areturn
+
+  public net.minecraft.client.gui.GuiScreen getClientGuiElement(net.minecraft.entity.player.EntityPlayer, net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.util.EnumFacing, int);
+    descriptor: (Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;I)Lnet/minecraft/client/gui/GuiScreen;
+    Code:
+       0: aload_0
+       1: aload_2
+       2: aload_3
+       3: invokevirtual #108                // Method getTileEntity:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lcom/enderio/core/common/TileEntityBase;
+       6: checkcast     #110                // class crazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest
+       9: astore        6
+      11: aload         6
+      13: ifnull        30
+      16: new           #239                // class crazypants/enderio/machines/machine/vacuum/chest/GuiVacuumChest
+      19: dup
+      20: aload_1
+      21: getfield      #226                // Field net/minecraft/entity/player/EntityPlayer.field_71071_by:Lnet/minecraft/entity/player/InventoryPlayer;
+      24: aload         6
+      26: invokespecial #240                // Method crazypants/enderio/machines/machine/vacuum/chest/GuiVacuumChest."<init>":(Lnet/minecraft/entity/player/InventoryPlayer;Lcrazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest;)V
+      29: areturn
+      30: aconst_null
+      31: areturn
+
+  public java.lang.String getUnlocalizedNameForTooltip(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)Ljava/lang/String;
+    Code:
+       0: aload_0
+       1: invokevirtual #246                // Method func_149739_a:()Ljava/lang/String;
+       4: areturn
+
+  public boolean canRenderInLayer(net.minecraft.block.state.IBlockState, net.minecraft.util.BlockRenderLayer);
+    descriptor: (Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/util/BlockRenderLayer;)Z
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public boolean addHitEffects(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.RayTraceResult, net.minecraft.client.particle.ParticleManager);
+    descriptor: (Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/RayTraceResult;Lnet/minecraft/client/particle/ParticleManager;)Z
+    Code:
+       0: aload_1
+       1: aload_2
+       2: aload_3
+       3: aload         4
+       5: invokestatic  #257                // Method crazypants/enderio/base/paint/render/PaintHelper.addHitEffects:(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/RayTraceResult;Lnet/minecraft/client/particle/ParticleManager;)Z
+       8: ireturn
+
+  public boolean addDestroyEffects(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.client.particle.ParticleManager);
+    descriptor: (Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/client/particle/ParticleManager;)Z
+    Code:
+       0: aload_1
+       1: aload_2
+       2: aload_3
+       3: invokestatic  #265                // Method crazypants/enderio/base/paint/render/PaintHelper.addDestroyEffects:(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/client/particle/ParticleManager;)Z
+       6: ireturn
+
+  public void registerRenderers(crazypants.enderio.api.IModObject);
+    descriptor: (Lcrazypants/enderio/api/IModObject;)V
+    Code:
+       0: aload_1
+       1: invokestatic  #271                // Method crazypants/enderio/util/ClientUtil.registerDefaultItemRenderer:(Lcrazypants/enderio/api/IModObject;)V
+       4: return
+
+  public boolean func_149740_M(net.minecraft.block.state.IBlockState);
+    descriptor: (Lnet/minecraft/block/state/IBlockState;)Z
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public int func_180641_l(net.minecraft.block.state.IBlockState, net.minecraft.world.World, net.minecraft.util.math.BlockPos);
+    descriptor: (Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)I
+    Code:
+       0: aload_0
+       1: aload_2
+       2: aload_3
+       3: invokevirtual #108                // Method getTileEntity:(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)Lcom/enderio/core/common/TileEntityBase;
+       6: checkcast     #110                // class crazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest
+       9: astore        4
+      11: aload         4
+      13: ifnonnull     18
+      16: iconst_0
+      17: ireturn
+      18: iconst_0
+      19: istore        5
+      21: fconst_0
+      22: fstore        6
+      24: aload         4
+      26: invokevirtual #278                // Method crazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest.getInventory:()Lcom/enderio/core/common/inventory/EnderInventory;
+      29: astore        7
+      31: iconst_0
+      32: istore        8
+      34: iload         8
+      36: aload         7
+      38: invokevirtual #288                // Method com/enderio/core/common/inventory/EnderInventory.getSlots:()I
+      41: if_icmpge     98
+      44: aload         7
+      46: iload         8
+      48: invokevirtual #292                // Method com/enderio/core/common/inventory/EnderInventory.getStackInSlot:(I)Lnet/minecraft/item/ItemStack;
+      51: astore        9
+      53: aload         9
+      55: invokevirtual #298                // Method net/minecraft/item/ItemStack.func_190926_b:()Z
+      58: ifne          92
+      61: fload         6
+      63: aload         9
+      65: invokevirtual #301                // Method net/minecraft/item/ItemStack.func_190916_E:()I
+      68: i2f
+      69: aload         7
+      71: iload         8
+      73: invokevirtual #305                // Method com/enderio/core/common/inventory/EnderInventory.getSlotLimit:(I)I
+      76: aload         9
+      78: invokevirtual #308                // Method net/minecraft/item/ItemStack.func_77976_d:()I
+      81: invokestatic  #314                // Method java/lang/Math.min:(II)I
+      84: i2f
+      85: fdiv
+      86: fadd
+      87: fstore        6
+      89: iinc          5, 1
+      92: iinc          8, 1
+      95: goto          34
+      98: fload         6
+     100: aload         7
+     102: invokevirtual #288                // Method com/enderio/core/common/inventory/EnderInventory.getSlots:()I
+     105: i2f
+     106: fdiv
+     107: fstore        6
+     109: fload         6
+     111: ldc_w         #315                // float 14.0f
+     114: fmul
+     115: invokestatic  #321                // Method net/minecraft/util/math/MathHelper.func_76141_d:(F)I
+     118: iload         5
+     120: ifle          127
+     123: iconst_1
+     124: goto          128
+     127: iconst_0
+     128: iadd
+     129: ireturn
+}

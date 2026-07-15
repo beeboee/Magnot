@@ -1,0 +1,1428 @@
+Compiled from "ModItems.java"
+public class xreliquary.init.ModItems {
+  private static final net.minecraftforge.registries.DeferredRegister<net.minecraft.item.Item> ITEMS;
+    descriptor: Lnet/minecraftforge/registries/DeferredRegister;
+
+  private static final net.minecraftforge.registries.DeferredRegister<net.minecraft.inventory.container.ContainerType<?>> CONTAINERS;
+    descriptor: Lnet/minecraftforge/registries/DeferredRegister;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.AlkahestryTomeItem> ALKAHESTRY_TOME;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.MercyCrossItem> MERCY_CROSS;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.AngelheartVialItem> ANGELHEART_VIAL;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.AngelicFeatherItem> ANGELIC_FEATHER;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.AttractionPotionItem> ATTRACTION_POTION;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.PotionEssenceItem> POTION_ESSENCE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.DestructionCatalystItem> DESTRUCTION_CATALYST;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.EmperorChaliceItem> EMPEROR_CHALICE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.EnderStaffItem> ENDER_STAFF;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.FertilePotionItem> FERTILE_POTION;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.FortuneCoinItem> FORTUNE_COIN;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.GlacialStaffItem> GLACIAL_STAFF;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.GlowingWaterItem> GLOWING_WATER;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.HolyHandGrenadeItem> HOLY_HAND_GRENADE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.HandgunItem> HANDGUN;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> GRIP_ASSEMBLY;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> BARREL_ASSEMBLY;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> HAMMER_ASSEMBLY;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.HarvestRodItem> HARVEST_ROD;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.MobCharmFragmentItem> MOB_CHARM_FRAGMENT;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.HeroMedallionItem> HERO_MEDALLION;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.IceMagusRodItem> ICE_MAGUS_ROD;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.InfernalChaliceItem> INFERNAL_CHALICE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.InfernalClawsItem> INFERNAL_CLAWS;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.InfernalTearItem> INFERNAL_TEAR;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.KrakenShellItem> KRAKEN_SHELL;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.MidasTouchstoneItem> MIDAS_TOUCHSTONE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.PhoenixDownItem> PHOENIX_DOWN;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.PyromancerStaffItem> PYROMANCER_STAFF;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.RendingGaleItem> RENDING_GALE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.RodOfLyssaItem> ROD_OF_LYSSA;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.SojournerStaffItem> SOJOURNER_STAFF;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.TippedArrowItem> TIPPED_ARROW;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.VoidTearItem> VOID_TEAR;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.WitchHatItem> WITCH_HAT;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.WitherlessRoseItem> WITHERLESS_ROSE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> EMPTY_POTION_VIAL;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.PotionItemBase> POTION;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.PotionItemBase> SPLASH_POTION;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.PotionItemBase> LINGERING_POTION;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.MobCharmBeltItem> MOB_CHARM_BELT;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.MobCharmItem> MOB_CHARM;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.MagazineItem> EMPTY_MAGAZINE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.MagazineItem> NEUTRAL_MAGAZINE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.MagazineItem> EXORCISM_MAGAZINE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.MagazineItem> BLAZE_MAGAZINE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.MagazineItem> ENDER_MAGAZINE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.MagazineItem> CONCUSSIVE_MAGAZINE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.MagazineItem> BUSTER_MAGAZINE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.MagazineItem> SEEKER_MAGAZINE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.MagazineItem> SAND_MAGAZINE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.MagazineItem> STORM_MAGAZINE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.BulletItem> EMPTY_BULLET;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.BulletItem> NEUTRAL_BULLET;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.BulletItem> EXORCISM_BULLET;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.BulletItem> BLAZE_BULLET;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.BulletItem> ENDER_BULLET;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.BulletItem> CONCUSSIVE_BULLET;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.BulletItem> BUSTER_BULLET;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.BulletItem> SEEKER_BULLET;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.BulletItem> SAND_BULLET;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.BulletItem> STORM_BULLET;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> ZOMBIE_HEART;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> SQUID_BEAK;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> RIB_BONE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> CATALYZING_GLAND;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> CHELICERAE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> SLIME_PEARL;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> KRAKEN_SHELL_FRAGMENT;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> BAT_WING;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> WITHERED_RIB;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> MOLTEN_CORE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> EYE_OF_THE_STORM;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> FERTILE_ESSENCE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> FROZEN_CORE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> NEBULOUS_HEART;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> INFERNAL_CLAW;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> GUARDIAN_SPIKE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> CRIMSON_CLOTH;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.LanternOfParanoiaItem> LANTERN_OF_PARANOIA;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.MagicbaneItem> MAGICBANE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.SalamanderEyeItem> SALAMANDER_EYE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.SerpentStaffItem> SERPENT_STAFF;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ShearsOfWinterItem> SHEARS_OF_WINTER;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.TwilightCloakItem> TWILIGHT_CLOAK;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<xreliquary.items.ItemBase> GLOWING_BREAD;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<net.minecraft.inventory.container.ContainerType<xreliquary.common.gui.ContainerAlkahestTome>> ALKAHEST_TOME_CONTAINER_TYPE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public static final net.minecraftforge.fml.RegistryObject<net.minecraft.inventory.container.ContainerType<xreliquary.common.gui.ContainerMobCharmBelt>> MOB_CHAR_BELT_CONTAINER_TYPE;
+    descriptor: Lnet/minecraftforge/fml/RegistryObject;
+
+  public xreliquary.init.ModItems();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #241                // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void registerContainers(net.minecraftforge.event.RegistryEvent$Register<net.minecraft.inventory.container.ContainerType<?>>);
+    descriptor: (Lnet/minecraftforge/event/RegistryEvent$Register;)V
+    Code:
+       0: getstatic     #252                // Field net/minecraftforge/api/distmarker/Dist.CLIENT:Lnet/minecraftforge/api/distmarker/Dist;
+       3: invokedynamic #271,  0            // InvokeDynamic #0:get:()Ljava/util/function/Supplier;
+       8: invokestatic  #277                // Method net/minecraftforge/fml/DistExecutor.unsafeRunWhenOn:(Lnet/minecraftforge/api/distmarker/Dist;Ljava/util/function/Supplier;)V
+      11: return
+
+  public static void registerDispenseBehaviors();
+    descriptor: ()V
+    Code:
+       0: getstatic     #287                // Field java/lang/Boolean.FALSE:Ljava/lang/Boolean;
+       3: getstatic     #291                // Field xreliquary/reference/Settings.COMMON:Lxreliquary/reference/Settings$Common;
+       6: getfield      #295                // Field xreliquary/reference/Settings$Common.disable:Lxreliquary/reference/Settings$Common$DisableSettings;
+       9: getfield      #299                // Field xreliquary/reference/Settings$Common$DisableSettings.disablePotions:Lnet/minecraftforge/common/ForgeConfigSpec$BooleanValue;
+      12: invokevirtual #301                // Method net/minecraftforge/common/ForgeConfigSpec$BooleanValue.get:()Ljava/lang/Object;
+      15: invokevirtual #305                // Method java/lang/Boolean.equals:(Ljava/lang/Object;)Z
+      18: ifeq          116
+      21: getstatic     #307                // Field SPLASH_POTION:Lnet/minecraftforge/fml/RegistryObject;
+      24: invokevirtual #312                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      27: checkcast     #314                // class net/minecraft/util/IItemProvider
+      30: new           #25                 // class xreliquary/init/ModItems$1
+      33: dup
+      34: invokespecial #315                // Method xreliquary/init/ModItems$1."<init>":()V
+      37: invokestatic  #321                // Method net/minecraft/block/DispenserBlock.func_199774_a:(Lnet/minecraft/util/IItemProvider;Lnet/minecraft/dispenser/IDispenseItemBehavior;)V
+      40: getstatic     #323                // Field LINGERING_POTION:Lnet/minecraftforge/fml/RegistryObject;
+      43: invokevirtual #312                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      46: checkcast     #314                // class net/minecraft/util/IItemProvider
+      49: new           #23                 // class xreliquary/init/ModItems$2
+      52: dup
+      53: invokespecial #324                // Method xreliquary/init/ModItems$2."<init>":()V
+      56: invokestatic  #321                // Method net/minecraft/block/DispenserBlock.func_199774_a:(Lnet/minecraft/util/IItemProvider;Lnet/minecraft/dispenser/IDispenseItemBehavior;)V
+      59: getstatic     #326                // Field ATTRACTION_POTION:Lnet/minecraftforge/fml/RegistryObject;
+      62: invokevirtual #312                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      65: checkcast     #314                // class net/minecraft/util/IItemProvider
+      68: new           #21                 // class xreliquary/init/ModItems$3
+      71: dup
+      72: invokespecial #327                // Method xreliquary/init/ModItems$3."<init>":()V
+      75: invokestatic  #321                // Method net/minecraft/block/DispenserBlock.func_199774_a:(Lnet/minecraft/util/IItemProvider;Lnet/minecraft/dispenser/IDispenseItemBehavior;)V
+      78: getstatic     #329                // Field FERTILE_POTION:Lnet/minecraftforge/fml/RegistryObject;
+      81: invokevirtual #312                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      84: checkcast     #314                // class net/minecraft/util/IItemProvider
+      87: new           #19                 // class xreliquary/init/ModItems$4
+      90: dup
+      91: invokespecial #330                // Method xreliquary/init/ModItems$4."<init>":()V
+      94: invokestatic  #321                // Method net/minecraft/block/DispenserBlock.func_199774_a:(Lnet/minecraft/util/IItemProvider;Lnet/minecraft/dispenser/IDispenseItemBehavior;)V
+      97: getstatic     #332                // Field TIPPED_ARROW:Lnet/minecraftforge/fml/RegistryObject;
+     100: invokevirtual #312                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     103: checkcast     #314                // class net/minecraft/util/IItemProvider
+     106: new           #17                 // class xreliquary/init/ModItems$5
+     109: dup
+     110: invokespecial #333                // Method xreliquary/init/ModItems$5."<init>":()V
+     113: invokestatic  #321                // Method net/minecraft/block/DispenserBlock.func_199774_a:(Lnet/minecraft/util/IItemProvider;Lnet/minecraft/dispenser/IDispenseItemBehavior;)V
+     116: getstatic     #335                // Field GLOWING_WATER:Lnet/minecraftforge/fml/RegistryObject;
+     119: invokevirtual #312                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     122: checkcast     #314                // class net/minecraft/util/IItemProvider
+     125: new           #15                 // class xreliquary/init/ModItems$6
+     128: dup
+     129: invokespecial #336                // Method xreliquary/init/ModItems$6."<init>":()V
+     132: invokestatic  #321                // Method net/minecraft/block/DispenserBlock.func_199774_a:(Lnet/minecraft/util/IItemProvider;Lnet/minecraft/dispenser/IDispenseItemBehavior;)V
+     135: getstatic     #338                // Field HOLY_HAND_GRENADE:Lnet/minecraftforge/fml/RegistryObject;
+     138: invokevirtual #312                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     141: checkcast     #314                // class net/minecraft/util/IItemProvider
+     144: new           #13                 // class xreliquary/init/ModItems$7
+     147: dup
+     148: invokespecial #339                // Method xreliquary/init/ModItems$7."<init>":()V
+     151: invokestatic  #321                // Method net/minecraft/block/DispenserBlock.func_199774_a:(Lnet/minecraft/util/IItemProvider;Lnet/minecraft/dispenser/IDispenseItemBehavior;)V
+     154: return
+
+  public static void registerRecipeSerializers(net.minecraftforge.event.RegistryEvent$Register<net.minecraft.item.crafting.IRecipeSerializer<?>>);
+    descriptor: (Lnet/minecraftforge/event/RegistryEvent$Register;)V
+    Code:
+       0: getstatic     #347                // Field xreliquary/crafting/conditions/MobDropsCraftableCondition.SERIALIZER:Lxreliquary/crafting/conditions/SimpleConditionSerializer;
+       3: invokestatic  #353                // Method net/minecraftforge/common/crafting/CraftingHelper.register:(Lnet/minecraftforge/common/crafting/conditions/IConditionSerializer;)Lnet/minecraftforge/common/crafting/conditions/IConditionSerializer;
+       6: pop
+       7: getstatic     #356                // Field xreliquary/crafting/conditions/AlkahestryEnabledCondition.SERIALIZER:Lxreliquary/crafting/conditions/SimpleConditionSerializer;
+      10: invokestatic  #353                // Method net/minecraftforge/common/crafting/CraftingHelper.register:(Lnet/minecraftforge/common/crafting/conditions/IConditionSerializer;)Lnet/minecraftforge/common/crafting/conditions/IConditionSerializer;
+      13: pop
+      14: getstatic     #359                // Field xreliquary/crafting/conditions/HandgunEnabledCondition.SERIALIZER:Lxreliquary/crafting/conditions/SimpleConditionSerializer;
+      17: invokestatic  #353                // Method net/minecraftforge/common/crafting/CraftingHelper.register:(Lnet/minecraftforge/common/crafting/conditions/IConditionSerializer;)Lnet/minecraftforge/common/crafting/conditions/IConditionSerializer;
+      20: pop
+      21: getstatic     #362                // Field xreliquary/crafting/conditions/PotionsEnabledCondition.SERIALIZER:Lxreliquary/crafting/conditions/SimpleConditionSerializer;
+      24: invokestatic  #353                // Method net/minecraftforge/common/crafting/CraftingHelper.register:(Lnet/minecraftforge/common/crafting/conditions/IConditionSerializer;)Lnet/minecraftforge/common/crafting/conditions/IConditionSerializer;
+      27: pop
+      28: getstatic     #365                // Field xreliquary/crafting/conditions/PassivePedestalEnabledCondition.SERIALIZER:Lxreliquary/crafting/conditions/SimpleConditionSerializer;
+      31: invokestatic  #353                // Method net/minecraftforge/common/crafting/CraftingHelper.register:(Lnet/minecraftforge/common/crafting/conditions/IConditionSerializer;)Lnet/minecraftforge/common/crafting/conditions/IConditionSerializer;
+      34: pop
+      35: getstatic     #368                // Field xreliquary/crafting/conditions/PedestalEnabledCondition.SERIALIZER:Lxreliquary/crafting/conditions/SimpleConditionSerializer;
+      38: invokestatic  #353                // Method net/minecraftforge/common/crafting/CraftingHelper.register:(Lnet/minecraftforge/common/crafting/conditions/IConditionSerializer;)Lnet/minecraftforge/common/crafting/conditions/IConditionSerializer;
+      41: pop
+      42: getstatic     #371                // Field xreliquary/crafting/conditions/SpawnEggEnabledCondition.SERIALIZER:Lxreliquary/crafting/conditions/SimpleConditionSerializer;
+      45: invokestatic  #353                // Method net/minecraftforge/common/crafting/CraftingHelper.register:(Lnet/minecraftforge/common/crafting/conditions/IConditionSerializer;)Lnet/minecraftforge/common/crafting/conditions/IConditionSerializer;
+      48: pop
+      49: aload_0
+      50: invokevirtual #375                // Method net/minecraftforge/event/RegistryEvent$Register.getRegistry:()Lnet/minecraftforge/registries/IForgeRegistry;
+      53: astore_1
+      54: aload_1
+      55: getstatic     #378                // Field xreliquary/crafting/MobCharmRecipe.SERIALIZER:Lxreliquary/crafting/MobCharmRecipe$Serializer;
+      58: new           #380                // class net/minecraft/util/ResourceLocation
+      61: dup
+      62: ldc_w         #382                // String xreliquary
+      65: ldc_w         #384                // String mob_charm
+      68: invokespecial #387                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+      71: invokevirtual #391                // Method xreliquary/crafting/MobCharmRecipe$Serializer.setRegistryName:(Lnet/minecraft/util/ResourceLocation;)Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      74: checkcast     #393                // class net/minecraft/item/crafting/IRecipeSerializer
+      77: invokeinterface #398,  2          // InterfaceMethod net/minecraftforge/registries/IForgeRegistry.register:(Lnet/minecraftforge/registries/IForgeRegistryEntry;)V
+      82: aload_1
+      83: getstatic     #401                // Field xreliquary/crafting/FragmentToSpawnEggRecipe.SERIALIZER:Lxreliquary/crafting/FragmentToSpawnEggRecipe$Serializer;
+      86: new           #380                // class net/minecraft/util/ResourceLocation
+      89: dup
+      90: ldc_w         #382                // String xreliquary
+      93: ldc_w         #403                // String fragment_to_spawn_egg
+      96: invokespecial #387                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+      99: invokevirtual #404                // Method xreliquary/crafting/FragmentToSpawnEggRecipe$Serializer.setRegistryName:(Lnet/minecraft/util/ResourceLocation;)Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     102: checkcast     #393                // class net/minecraft/item/crafting/IRecipeSerializer
+     105: invokeinterface #398,  2          // InterfaceMethod net/minecraftforge/registries/IForgeRegistry.register:(Lnet/minecraftforge/registries/IForgeRegistryEntry;)V
+     110: aload_1
+     111: getstatic     #409                // Field xreliquary/crafting/MobCharmRepairRecipe.SERIALIZER:Lnet/minecraft/item/crafting/IRecipeSerializer;
+     114: new           #380                // class net/minecraft/util/ResourceLocation
+     117: dup
+     118: ldc_w         #382                // String xreliquary
+     121: ldc_w         #411                // String mob_charm_repair
+     124: invokespecial #387                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+     127: invokeinterface #414,  2          // InterfaceMethod net/minecraft/item/crafting/IRecipeSerializer.setRegistryName:(Lnet/minecraft/util/ResourceLocation;)Ljava/lang/Object;
+     132: checkcast     #393                // class net/minecraft/item/crafting/IRecipeSerializer
+     135: invokeinterface #398,  2          // InterfaceMethod net/minecraftforge/registries/IForgeRegistry.register:(Lnet/minecraftforge/registries/IForgeRegistryEntry;)V
+     140: aload_1
+     141: getstatic     #417                // Field xreliquary/crafting/AlkahestryChargingRecipe.SERIALIZER:Lxreliquary/crafting/AlkahestryChargingRecipe$Serializer;
+     144: new           #380                // class net/minecraft/util/ResourceLocation
+     147: dup
+     148: ldc_w         #382                // String xreliquary
+     151: ldc_w         #419                // String alkahestry_charging
+     154: invokespecial #387                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+     157: invokevirtual #420                // Method xreliquary/crafting/AlkahestryChargingRecipe$Serializer.setRegistryName:(Lnet/minecraft/util/ResourceLocation;)Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     160: checkcast     #393                // class net/minecraft/item/crafting/IRecipeSerializer
+     163: invokeinterface #398,  2          // InterfaceMethod net/minecraftforge/registries/IForgeRegistry.register:(Lnet/minecraftforge/registries/IForgeRegistryEntry;)V
+     168: aload_1
+     169: getstatic     #423                // Field xreliquary/crafting/AlkahestryCraftingRecipe.SERIALIZER:Lxreliquary/crafting/AlkahestryCraftingRecipe$Serializer;
+     172: new           #380                // class net/minecraft/util/ResourceLocation
+     175: dup
+     176: ldc_w         #382                // String xreliquary
+     179: ldc_w         #425                // String alkahestry_crafting
+     182: invokespecial #387                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+     185: invokevirtual #426                // Method xreliquary/crafting/AlkahestryCraftingRecipe$Serializer.setRegistryName:(Lnet/minecraft/util/ResourceLocation;)Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     188: checkcast     #393                // class net/minecraft/item/crafting/IRecipeSerializer
+     191: invokeinterface #398,  2          // InterfaceMethod net/minecraftforge/registries/IForgeRegistry.register:(Lnet/minecraftforge/registries/IForgeRegistryEntry;)V
+     196: aload_1
+     197: getstatic     #429                // Field xreliquary/crafting/AlkahestryDrainRecipe.SERIALIZER:Lxreliquary/crafting/AlkahestryDrainRecipe$Serializer;
+     200: new           #380                // class net/minecraft/util/ResourceLocation
+     203: dup
+     204: ldc_w         #382                // String xreliquary
+     207: ldc_w         #431                // String alkahestry_drain
+     210: invokespecial #387                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+     213: invokevirtual #432                // Method xreliquary/crafting/AlkahestryDrainRecipe$Serializer.setRegistryName:(Lnet/minecraft/util/ResourceLocation;)Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     216: checkcast     #393                // class net/minecraft/item/crafting/IRecipeSerializer
+     219: invokeinterface #398,  2          // InterfaceMethod net/minecraftforge/registries/IForgeRegistry.register:(Lnet/minecraftforge/registries/IForgeRegistryEntry;)V
+     224: aload_1
+     225: getstatic     #435                // Field xreliquary/crafting/PotionEffectsRecipe.SERIALIZER:Lxreliquary/crafting/PotionEffectsRecipe$Serializer;
+     228: new           #380                // class net/minecraft/util/ResourceLocation
+     231: dup
+     232: ldc_w         #382                // String xreliquary
+     235: ldc_w         #437                // String potion_effects
+     238: invokespecial #387                // Method net/minecraft/util/ResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+     241: invokevirtual #438                // Method xreliquary/crafting/PotionEffectsRecipe$Serializer.setRegistryName:(Lnet/minecraft/util/ResourceLocation;)Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     244: checkcast     #393                // class net/minecraft/item/crafting/IRecipeSerializer
+     247: invokeinterface #398,  2          // InterfaceMethod net/minecraftforge/registries/IForgeRegistry.register:(Lnet/minecraftforge/registries/IForgeRegistryEntry;)V
+     252: return
+
+  public static void registerHandgunMagazines();
+    descriptor: ()V
+    Code:
+       0: getstatic     #445                // Field HANDGUN:Lnet/minecraftforge/fml/RegistryObject;
+       3: invokevirtual #312                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+       6: checkcast     #82                 // class xreliquary/items/HandgunItem
+       9: astore_0
+      10: aload_0
+      11: getstatic     #447                // Field NEUTRAL_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+      14: invokevirtual #312                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      17: checkcast     #449                // class net/minecraftforge/registries/ForgeRegistryEntry
+      20: invokestatic  #455                // Method xreliquary/util/RegistryHelper.getRegistryName:(Lnet/minecraftforge/registries/ForgeRegistryEntry;)Lnet/minecraft/util/ResourceLocation;
+      23: invokevirtual #459                // Method net/minecraft/util/ResourceLocation.toString:()Ljava/lang/String;
+      26: invokedynamic #471,  0            // InvokeDynamic #1:createShot:()Lxreliquary/items/HandgunItem$IShotEntityFactory;
+      31: getstatic     #473                // Field NEUTRAL_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+      34: invokevirtual #477                // Method xreliquary/items/HandgunItem.registerMagazine:(Ljava/lang/String;Lxreliquary/items/HandgunItem$IShotEntityFactory;Ljava/util/function/Supplier;)V
+      37: aload_0
+      38: getstatic     #479                // Field EXORCISM_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+      41: invokevirtual #312                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      44: checkcast     #449                // class net/minecraftforge/registries/ForgeRegistryEntry
+      47: invokestatic  #455                // Method xreliquary/util/RegistryHelper.getRegistryName:(Lnet/minecraftforge/registries/ForgeRegistryEntry;)Lnet/minecraft/util/ResourceLocation;
+      50: invokevirtual #459                // Method net/minecraft/util/ResourceLocation.toString:()Ljava/lang/String;
+      53: invokedynamic #484,  0            // InvokeDynamic #2:createShot:()Lxreliquary/items/HandgunItem$IShotEntityFactory;
+      58: getstatic     #486                // Field EXORCISM_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+      61: invokevirtual #477                // Method xreliquary/items/HandgunItem.registerMagazine:(Ljava/lang/String;Lxreliquary/items/HandgunItem$IShotEntityFactory;Ljava/util/function/Supplier;)V
+      64: aload_0
+      65: getstatic     #488                // Field BLAZE_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+      68: invokevirtual #312                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      71: checkcast     #449                // class net/minecraftforge/registries/ForgeRegistryEntry
+      74: invokestatic  #455                // Method xreliquary/util/RegistryHelper.getRegistryName:(Lnet/minecraftforge/registries/ForgeRegistryEntry;)Lnet/minecraft/util/ResourceLocation;
+      77: invokevirtual #459                // Method net/minecraft/util/ResourceLocation.toString:()Ljava/lang/String;
+      80: invokedynamic #493,  0            // InvokeDynamic #3:createShot:()Lxreliquary/items/HandgunItem$IShotEntityFactory;
+      85: getstatic     #495                // Field BLAZE_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+      88: invokevirtual #477                // Method xreliquary/items/HandgunItem.registerMagazine:(Ljava/lang/String;Lxreliquary/items/HandgunItem$IShotEntityFactory;Ljava/util/function/Supplier;)V
+      91: aload_0
+      92: getstatic     #497                // Field ENDER_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+      95: invokevirtual #312                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      98: checkcast     #449                // class net/minecraftforge/registries/ForgeRegistryEntry
+     101: invokestatic  #455                // Method xreliquary/util/RegistryHelper.getRegistryName:(Lnet/minecraftforge/registries/ForgeRegistryEntry;)Lnet/minecraft/util/ResourceLocation;
+     104: invokevirtual #459                // Method net/minecraft/util/ResourceLocation.toString:()Ljava/lang/String;
+     107: invokedynamic #502,  0            // InvokeDynamic #4:createShot:()Lxreliquary/items/HandgunItem$IShotEntityFactory;
+     112: getstatic     #504                // Field ENDER_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+     115: invokevirtual #477                // Method xreliquary/items/HandgunItem.registerMagazine:(Ljava/lang/String;Lxreliquary/items/HandgunItem$IShotEntityFactory;Ljava/util/function/Supplier;)V
+     118: aload_0
+     119: getstatic     #506                // Field CONCUSSIVE_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     122: invokevirtual #312                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     125: checkcast     #449                // class net/minecraftforge/registries/ForgeRegistryEntry
+     128: invokestatic  #455                // Method xreliquary/util/RegistryHelper.getRegistryName:(Lnet/minecraftforge/registries/ForgeRegistryEntry;)Lnet/minecraft/util/ResourceLocation;
+     131: invokevirtual #459                // Method net/minecraft/util/ResourceLocation.toString:()Ljava/lang/String;
+     134: invokedynamic #511,  0            // InvokeDynamic #5:createShot:()Lxreliquary/items/HandgunItem$IShotEntityFactory;
+     139: getstatic     #513                // Field CONCUSSIVE_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+     142: invokevirtual #477                // Method xreliquary/items/HandgunItem.registerMagazine:(Ljava/lang/String;Lxreliquary/items/HandgunItem$IShotEntityFactory;Ljava/util/function/Supplier;)V
+     145: aload_0
+     146: getstatic     #515                // Field BUSTER_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     149: invokevirtual #312                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     152: checkcast     #449                // class net/minecraftforge/registries/ForgeRegistryEntry
+     155: invokestatic  #455                // Method xreliquary/util/RegistryHelper.getRegistryName:(Lnet/minecraftforge/registries/ForgeRegistryEntry;)Lnet/minecraft/util/ResourceLocation;
+     158: invokevirtual #459                // Method net/minecraft/util/ResourceLocation.toString:()Ljava/lang/String;
+     161: invokedynamic #520,  0            // InvokeDynamic #6:createShot:()Lxreliquary/items/HandgunItem$IShotEntityFactory;
+     166: getstatic     #522                // Field BUSTER_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+     169: invokevirtual #477                // Method xreliquary/items/HandgunItem.registerMagazine:(Ljava/lang/String;Lxreliquary/items/HandgunItem$IShotEntityFactory;Ljava/util/function/Supplier;)V
+     172: aload_0
+     173: getstatic     #524                // Field SEEKER_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     176: invokevirtual #312                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     179: checkcast     #449                // class net/minecraftforge/registries/ForgeRegistryEntry
+     182: invokestatic  #455                // Method xreliquary/util/RegistryHelper.getRegistryName:(Lnet/minecraftforge/registries/ForgeRegistryEntry;)Lnet/minecraft/util/ResourceLocation;
+     185: invokevirtual #459                // Method net/minecraft/util/ResourceLocation.toString:()Ljava/lang/String;
+     188: invokedynamic #529,  0            // InvokeDynamic #7:createShot:()Lxreliquary/items/HandgunItem$IShotEntityFactory;
+     193: getstatic     #531                // Field SEEKER_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+     196: invokevirtual #477                // Method xreliquary/items/HandgunItem.registerMagazine:(Ljava/lang/String;Lxreliquary/items/HandgunItem$IShotEntityFactory;Ljava/util/function/Supplier;)V
+     199: aload_0
+     200: getstatic     #533                // Field SAND_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     203: invokevirtual #312                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     206: checkcast     #449                // class net/minecraftforge/registries/ForgeRegistryEntry
+     209: invokestatic  #455                // Method xreliquary/util/RegistryHelper.getRegistryName:(Lnet/minecraftforge/registries/ForgeRegistryEntry;)Lnet/minecraft/util/ResourceLocation;
+     212: invokevirtual #459                // Method net/minecraft/util/ResourceLocation.toString:()Ljava/lang/String;
+     215: invokedynamic #538,  0            // InvokeDynamic #8:createShot:()Lxreliquary/items/HandgunItem$IShotEntityFactory;
+     220: getstatic     #540                // Field SAND_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+     223: invokevirtual #477                // Method xreliquary/items/HandgunItem.registerMagazine:(Ljava/lang/String;Lxreliquary/items/HandgunItem$IShotEntityFactory;Ljava/util/function/Supplier;)V
+     226: aload_0
+     227: getstatic     #542                // Field STORM_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     230: invokevirtual #312                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+     233: checkcast     #449                // class net/minecraftforge/registries/ForgeRegistryEntry
+     236: invokestatic  #455                // Method xreliquary/util/RegistryHelper.getRegistryName:(Lnet/minecraftforge/registries/ForgeRegistryEntry;)Lnet/minecraft/util/ResourceLocation;
+     239: invokevirtual #459                // Method net/minecraft/util/ResourceLocation.toString:()Ljava/lang/String;
+     242: invokedynamic #547,  0            // InvokeDynamic #9:createShot:()Lxreliquary/items/HandgunItem$IShotEntityFactory;
+     247: getstatic     #549                // Field STORM_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+     250: invokevirtual #477                // Method xreliquary/items/HandgunItem.registerMagazine:(Ljava/lang/String;Lxreliquary/items/HandgunItem$IShotEntityFactory;Ljava/util/function/Supplier;)V
+     253: return
+
+  public static boolean isEnabled(net.minecraft.item.Item...);
+    descriptor: ([Lnet/minecraft/item/Item;)Z
+    Code:
+       0: aload_0
+       1: astore_1
+       2: aload_1
+       3: arraylength
+       4: istore_2
+       5: iconst_0
+       6: istore_3
+       7: iload_3
+       8: iload_2
+       9: if_icmpge     38
+      12: aload_1
+      13: iload_3
+      14: aaload
+      15: astore        4
+      17: aload         4
+      19: ifnull        30
+      22: aload         4
+      24: invokevirtual #558                // Method net/minecraft/item/Item.getRegistryName:()Lnet/minecraft/util/ResourceLocation;
+      27: ifnonnull     32
+      30: iconst_0
+      31: ireturn
+      32: iinc          3, 1
+      35: goto          7
+      38: iconst_1
+      39: ireturn
+
+  public static void registerListeners(net.minecraftforge.eventbus.api.IEventBus);
+    descriptor: (Lnet/minecraftforge/eventbus/api/IEventBus;)V
+    Code:
+       0: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+       3: aload_0
+       4: invokevirtual #569                // Method net/minecraftforge/registries/DeferredRegister.register:(Lnet/minecraftforge/eventbus/api/IEventBus;)V
+       7: getstatic     #571                // Field CONTAINERS:Lnet/minecraftforge/registries/DeferredRegister;
+      10: aload_0
+      11: invokevirtual #569                // Method net/minecraftforge/registries/DeferredRegister.register:(Lnet/minecraftforge/eventbus/api/IEventBus;)V
+      14: aload_0
+      15: ldc_w         #393                // class net/minecraft/item/crafting/IRecipeSerializer
+      18: invokedynamic #581,  0            // InvokeDynamic #10:accept:()Ljava/util/function/Consumer;
+      23: invokeinterface #587,  3          // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addGenericListener:(Ljava/lang/Class;Ljava/util/function/Consumer;)V
+      28: aload_0
+      29: ldc_w         #589                // class net/minecraft/inventory/container/ContainerType
+      32: invokedynamic #593,  0            // InvokeDynamic #11:accept:()Ljava/util/function/Consumer;
+      37: invokeinterface #587,  3          // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addGenericListener:(Ljava/lang/Class;Ljava/util/function/Consumer;)V
+      42: return
+
+  private static java.lang.Runnable lambda$registerContainers$29();
+    descriptor: ()Ljava/lang/Runnable;
+    Code:
+       0: invokedynamic #603,  0            // InvokeDynamic #12:run:()Ljava/lang/Runnable;
+       5: areturn
+
+  private static void lambda$registerContainers$28();
+    descriptor: ()V
+    Code:
+       0: getstatic     #605                // Field ALKAHEST_TOME_CONTAINER_TYPE:Lnet/minecraftforge/fml/RegistryObject;
+       3: invokevirtual #312                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+       6: checkcast     #589                // class net/minecraft/inventory/container/ContainerType
+       9: invokedynamic #619,  0            // InvokeDynamic #13:create:()Lnet/minecraft/client/gui/ScreenManager$IScreenFactory;
+      14: invokestatic  #623                // Method net/minecraft/client/gui/ScreenManager.func_216911_a:(Lnet/minecraft/inventory/container/ContainerType;Lnet/minecraft/client/gui/ScreenManager$IScreenFactory;)V
+      17: getstatic     #625                // Field MOB_CHAR_BELT_CONTAINER_TYPE:Lnet/minecraftforge/fml/RegistryObject;
+      20: invokevirtual #312                // Method net/minecraftforge/fml/RegistryObject.get:()Lnet/minecraftforge/registries/IForgeRegistryEntry;
+      23: checkcast     #589                // class net/minecraft/inventory/container/ContainerType
+      26: invokedynamic #634,  0            // InvokeDynamic #14:create:()Lnet/minecraft/client/gui/ScreenManager$IScreenFactory;
+      31: invokestatic  #623                // Method net/minecraft/client/gui/ScreenManager.func_216911_a:(Lnet/minecraft/inventory/container/ContainerType;Lnet/minecraft/client/gui/ScreenManager$IScreenFactory;)V
+      34: return
+
+  private static net.minecraft.inventory.container.ContainerType lambda$static$27();
+    descriptor: ()Lnet/minecraft/inventory/container/ContainerType;
+    Code:
+       0: invokedynamic #649,  0            // InvokeDynamic #15:create:()Lnet/minecraftforge/fml/network/IContainerFactory;
+       5: invokestatic  #654                // InterfaceMethod net/minecraftforge/common/extensions/IForgeContainerType.create:(Lnet/minecraftforge/fml/network/IContainerFactory;)Lnet/minecraft/inventory/container/ContainerType;
+       8: areturn
+
+  private static net.minecraft.inventory.container.ContainerType lambda$static$26();
+    descriptor: ()Lnet/minecraft/inventory/container/ContainerType;
+    Code:
+       0: invokedynamic #662,  0            // InvokeDynamic #16:create:()Lnet/minecraftforge/fml/network/IContainerFactory;
+       5: invokestatic  #654                // InterfaceMethod net/minecraftforge/common/extensions/IForgeContainerType.create:(Lnet/minecraftforge/fml/network/IContainerFactory;)Lnet/minecraft/inventory/container/ContainerType;
+       8: areturn
+
+  private static xreliquary.common.gui.ContainerAlkahestTome lambda$static$25(int, net.minecraft.entity.player.PlayerInventory, net.minecraft.network.PacketBuffer);
+    descriptor: (ILnet/minecraft/entity/player/PlayerInventory;Lnet/minecraft/network/PacketBuffer;)Lxreliquary/common/gui/ContainerAlkahestTome;
+    Code:
+       0: iload_0
+       1: invokestatic  #667                // Method xreliquary/common/gui/ContainerAlkahestTome.fromBuffer:(I)Lxreliquary/common/gui/ContainerAlkahestTome;
+       4: areturn
+
+  private static xreliquary.items.ItemBase lambda$static$24();
+    descriptor: ()Lxreliquary/items/ItemBase;
+    Code:
+       0: new           #677                // class xreliquary/items/ItemBase
+       3: dup
+       4: new           #32                 // class net/minecraft/item/Item$Properties
+       7: dup
+       8: invokespecial #678                // Method net/minecraft/item/Item$Properties."<init>":()V
+      11: getstatic     #684                // Field net/minecraft/item/Rarity.RARE:Lnet/minecraft/item/Rarity;
+      14: invokevirtual #688                // Method net/minecraft/item/Item$Properties.func_208103_a:(Lnet/minecraft/item/Rarity;)Lnet/minecraft/item/Item$Properties;
+      17: new           #37                 // class net/minecraft/item/Food$Builder
+      20: dup
+      21: invokespecial #689                // Method net/minecraft/item/Food$Builder."<init>":()V
+      24: bipush        20
+      26: invokevirtual #693                // Method net/minecraft/item/Food$Builder.func_221456_a:(I)Lnet/minecraft/item/Food$Builder;
+      29: fconst_1
+      30: invokevirtual #697                // Method net/minecraft/item/Food$Builder.func_221454_a:(F)Lnet/minecraft/item/Food$Builder;
+      33: invokevirtual #701                // Method net/minecraft/item/Food$Builder.func_221457_c:()Lnet/minecraft/item/Food$Builder;
+      36: invokevirtual #705                // Method net/minecraft/item/Food$Builder.func_221453_d:()Lnet/minecraft/item/Food;
+      39: invokevirtual #709                // Method net/minecraft/item/Item$Properties.func_221540_a:(Lnet/minecraft/item/Food;)Lnet/minecraft/item/Item$Properties;
+      42: invokespecial #712                // Method xreliquary/items/ItemBase."<init>":(Lnet/minecraft/item/Item$Properties;)V
+      45: areturn
+
+  private static xreliquary.items.BulletItem lambda$static$23();
+    descriptor: ()Lxreliquary/items/BulletItem;
+    Code:
+       0: new           #716                // class xreliquary/items/BulletItem
+       3: dup
+       4: iconst_1
+       5: iconst_0
+       6: ldc_w         #718                // String 0000DD
+       9: bipush        16
+      11: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      14: invokespecial #727                // Method xreliquary/items/BulletItem."<init>":(ZZI)V
+      17: areturn
+
+  private static xreliquary.items.BulletItem lambda$static$22();
+    descriptor: ()Lxreliquary/items/BulletItem;
+    Code:
+       0: new           #716                // class xreliquary/items/BulletItem
+       3: dup
+       4: iconst_1
+       5: iconst_0
+       6: ldc_w         #730                // String DDDD77
+       9: bipush        16
+      11: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      14: invokespecial #727                // Method xreliquary/items/BulletItem."<init>":(ZZI)V
+      17: areturn
+
+  private static xreliquary.items.BulletItem lambda$static$21();
+    descriptor: ()Lxreliquary/items/BulletItem;
+    Code:
+       0: new           #716                // class xreliquary/items/BulletItem
+       3: dup
+       4: iconst_1
+       5: iconst_0
+       6: ldc_w         #733                // String 00BB99
+       9: bipush        16
+      11: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      14: invokespecial #727                // Method xreliquary/items/BulletItem."<init>":(ZZI)V
+      17: areturn
+
+  private static xreliquary.items.BulletItem lambda$static$20();
+    descriptor: ()Lxreliquary/items/BulletItem;
+    Code:
+       0: new           #716                // class xreliquary/items/BulletItem
+       3: dup
+       4: iconst_1
+       5: iconst_0
+       6: ldc_w         #736                // String 444444
+       9: bipush        16
+      11: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      14: invokespecial #727                // Method xreliquary/items/BulletItem."<init>":(ZZI)V
+      17: areturn
+
+  private static xreliquary.items.BulletItem lambda$static$19();
+    descriptor: ()Lxreliquary/items/BulletItem;
+    Code:
+       0: new           #716                // class xreliquary/items/BulletItem
+       3: dup
+       4: iconst_1
+       5: iconst_0
+       6: ldc_w         #739                // String 00BB00
+       9: bipush        16
+      11: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      14: invokespecial #727                // Method xreliquary/items/BulletItem."<init>":(ZZI)V
+      17: areturn
+
+  private static xreliquary.items.BulletItem lambda$static$18();
+    descriptor: ()Lxreliquary/items/BulletItem;
+    Code:
+       0: new           #716                // class xreliquary/items/BulletItem
+       3: dup
+       4: iconst_1
+       5: iconst_0
+       6: ldc_w         #742                // String 9900EE
+       9: bipush        16
+      11: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      14: invokespecial #727                // Method xreliquary/items/BulletItem."<init>":(ZZI)V
+      17: areturn
+
+  private static xreliquary.items.BulletItem lambda$static$17();
+    descriptor: ()Lxreliquary/items/BulletItem;
+    Code:
+       0: new           #716                // class xreliquary/items/BulletItem
+       3: dup
+       4: iconst_1
+       5: iconst_0
+       6: ldc_w         #745                // String DD2222
+       9: bipush        16
+      11: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      14: invokespecial #727                // Method xreliquary/items/BulletItem."<init>":(ZZI)V
+      17: areturn
+
+  private static xreliquary.items.BulletItem lambda$static$16();
+    descriptor: ()Lxreliquary/items/BulletItem;
+    Code:
+       0: new           #716                // class xreliquary/items/BulletItem
+       3: dup
+       4: iconst_1
+       5: iconst_0
+       6: ldc_w         #748                // String DDDD00
+       9: bipush        16
+      11: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      14: invokespecial #727                // Method xreliquary/items/BulletItem."<init>":(ZZI)V
+      17: areturn
+
+  private static xreliquary.items.BulletItem lambda$static$15();
+    descriptor: ()Lxreliquary/items/BulletItem;
+    Code:
+       0: new           #716                // class xreliquary/items/BulletItem
+       3: dup
+       4: iconst_0
+       5: iconst_1
+       6: ldc_w         #751                // String 888888
+       9: bipush        16
+      11: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      14: invokespecial #727                // Method xreliquary/items/BulletItem."<init>":(ZZI)V
+      17: areturn
+
+  private static xreliquary.items.BulletItem lambda$static$14();
+    descriptor: ()Lxreliquary/items/BulletItem;
+    Code:
+       0: new           #716                // class xreliquary/items/BulletItem
+       3: dup
+       4: iconst_0
+       5: iconst_0
+       6: ldc_w         #754                // String 333333
+       9: bipush        16
+      11: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      14: invokespecial #727                // Method xreliquary/items/BulletItem."<init>":(ZZI)V
+      17: areturn
+
+  private static xreliquary.items.MagazineItem lambda$static$13();
+    descriptor: ()Lxreliquary/items/MagazineItem;
+    Code:
+       0: new           #758                // class xreliquary/items/MagazineItem
+       3: dup
+       4: iconst_0
+       5: ldc_w         #718                // String 0000DD
+       8: bipush        16
+      10: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      13: invokespecial #761                // Method xreliquary/items/MagazineItem."<init>":(ZI)V
+      16: areturn
+
+  private static xreliquary.items.MagazineItem lambda$static$12();
+    descriptor: ()Lxreliquary/items/MagazineItem;
+    Code:
+       0: new           #758                // class xreliquary/items/MagazineItem
+       3: dup
+       4: iconst_0
+       5: ldc_w         #730                // String DDDD77
+       8: bipush        16
+      10: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      13: invokespecial #761                // Method xreliquary/items/MagazineItem."<init>":(ZI)V
+      16: areturn
+
+  private static xreliquary.items.MagazineItem lambda$static$11();
+    descriptor: ()Lxreliquary/items/MagazineItem;
+    Code:
+       0: new           #758                // class xreliquary/items/MagazineItem
+       3: dup
+       4: iconst_0
+       5: ldc_w         #733                // String 00BB99
+       8: bipush        16
+      10: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      13: invokespecial #761                // Method xreliquary/items/MagazineItem."<init>":(ZI)V
+      16: areturn
+
+  private static xreliquary.items.MagazineItem lambda$static$10();
+    descriptor: ()Lxreliquary/items/MagazineItem;
+    Code:
+       0: new           #758                // class xreliquary/items/MagazineItem
+       3: dup
+       4: iconst_0
+       5: ldc_w         #736                // String 444444
+       8: bipush        16
+      10: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      13: invokespecial #761                // Method xreliquary/items/MagazineItem."<init>":(ZI)V
+      16: areturn
+
+  private static xreliquary.items.MagazineItem lambda$static$9();
+    descriptor: ()Lxreliquary/items/MagazineItem;
+    Code:
+       0: new           #758                // class xreliquary/items/MagazineItem
+       3: dup
+       4: iconst_0
+       5: ldc_w         #739                // String 00BB00
+       8: bipush        16
+      10: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      13: invokespecial #761                // Method xreliquary/items/MagazineItem."<init>":(ZI)V
+      16: areturn
+
+  private static xreliquary.items.MagazineItem lambda$static$8();
+    descriptor: ()Lxreliquary/items/MagazineItem;
+    Code:
+       0: new           #758                // class xreliquary/items/MagazineItem
+       3: dup
+       4: iconst_0
+       5: ldc_w         #742                // String 9900EE
+       8: bipush        16
+      10: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      13: invokespecial #761                // Method xreliquary/items/MagazineItem."<init>":(ZI)V
+      16: areturn
+
+  private static xreliquary.items.MagazineItem lambda$static$7();
+    descriptor: ()Lxreliquary/items/MagazineItem;
+    Code:
+       0: new           #758                // class xreliquary/items/MagazineItem
+       3: dup
+       4: iconst_0
+       5: ldc_w         #745                // String DD2222
+       8: bipush        16
+      10: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      13: invokespecial #761                // Method xreliquary/items/MagazineItem."<init>":(ZI)V
+      16: areturn
+
+  private static xreliquary.items.MagazineItem lambda$static$6();
+    descriptor: ()Lxreliquary/items/MagazineItem;
+    Code:
+       0: new           #758                // class xreliquary/items/MagazineItem
+       3: dup
+       4: iconst_0
+       5: ldc_w         #748                // String DDDD00
+       8: bipush        16
+      10: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      13: invokespecial #761                // Method xreliquary/items/MagazineItem."<init>":(ZI)V
+      16: areturn
+
+  private static xreliquary.items.MagazineItem lambda$static$5();
+    descriptor: ()Lxreliquary/items/MagazineItem;
+    Code:
+       0: new           #758                // class xreliquary/items/MagazineItem
+       3: dup
+       4: iconst_1
+       5: ldc_w         #751                // String 888888
+       8: bipush        16
+      10: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      13: invokespecial #761                // Method xreliquary/items/MagazineItem."<init>":(ZI)V
+      16: areturn
+
+  private static xreliquary.items.MagazineItem lambda$static$4();
+    descriptor: ()Lxreliquary/items/MagazineItem;
+    Code:
+       0: new           #758                // class xreliquary/items/MagazineItem
+       3: dup
+       4: iconst_0
+       5: ldc_w         #754                // String 333333
+       8: bipush        16
+      10: invokestatic  #724                // Method java/lang/Integer.parseInt:(Ljava/lang/String;I)I
+      13: invokespecial #761                // Method xreliquary/items/MagazineItem."<init>":(ZI)V
+      16: areturn
+
+  private static xreliquary.items.ItemBase lambda$static$3();
+    descriptor: ()Lxreliquary/items/ItemBase;
+    Code:
+       0: new           #677                // class xreliquary/items/ItemBase
+       3: dup
+       4: getstatic     #291                // Field xreliquary/reference/Settings.COMMON:Lxreliquary/reference/Settings$Common;
+       7: getfield      #295                // Field xreliquary/reference/Settings$Common.disable:Lxreliquary/reference/Settings$Common$DisableSettings;
+      10: getfield      #299                // Field xreliquary/reference/Settings$Common$DisableSettings.disablePotions:Lnet/minecraftforge/common/ForgeConfigSpec$BooleanValue;
+      13: dup
+      14: invokestatic  #777                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+      17: pop
+      18: invokedynamic #784,  0            // InvokeDynamic #17:get:(Lnet/minecraftforge/common/ForgeConfigSpec$BooleanValue;)Ljava/util/function/Supplier;
+      23: invokespecial #787                // Method xreliquary/items/ItemBase."<init>":(Ljava/util/function/Supplier;)V
+      26: areturn
+
+  private static xreliquary.items.ItemBase lambda$static$2();
+    descriptor: ()Lxreliquary/items/ItemBase;
+    Code:
+       0: new           #677                // class xreliquary/items/ItemBase
+       3: dup
+       4: new           #32                 // class net/minecraft/item/Item$Properties
+       7: dup
+       8: invokespecial #678                // Method net/minecraft/item/Item$Properties."<init>":()V
+      11: iconst_4
+      12: invokevirtual #792                // Method net/minecraft/item/Item$Properties.func_200917_a:(I)Lnet/minecraft/item/Item$Properties;
+      15: getstatic     #291                // Field xreliquary/reference/Settings.COMMON:Lxreliquary/reference/Settings$Common;
+      18: getfield      #295                // Field xreliquary/reference/Settings$Common.disable:Lxreliquary/reference/Settings$Common$DisableSettings;
+      21: getfield      #795                // Field xreliquary/reference/Settings$Common$DisableSettings.disableHandgun:Lnet/minecraftforge/common/ForgeConfigSpec$BooleanValue;
+      24: dup
+      25: invokestatic  #777                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+      28: pop
+      29: invokedynamic #784,  0            // InvokeDynamic #17:get:(Lnet/minecraftforge/common/ForgeConfigSpec$BooleanValue;)Ljava/util/function/Supplier;
+      34: invokespecial #798                // Method xreliquary/items/ItemBase."<init>":(Lnet/minecraft/item/Item$Properties;Ljava/util/function/Supplier;)V
+      37: areturn
+
+  private static xreliquary.items.ItemBase lambda$static$1();
+    descriptor: ()Lxreliquary/items/ItemBase;
+    Code:
+       0: new           #677                // class xreliquary/items/ItemBase
+       3: dup
+       4: new           #32                 // class net/minecraft/item/Item$Properties
+       7: dup
+       8: invokespecial #678                // Method net/minecraft/item/Item$Properties."<init>":()V
+      11: iconst_4
+      12: invokevirtual #792                // Method net/minecraft/item/Item$Properties.func_200917_a:(I)Lnet/minecraft/item/Item$Properties;
+      15: getstatic     #291                // Field xreliquary/reference/Settings.COMMON:Lxreliquary/reference/Settings$Common;
+      18: getfield      #295                // Field xreliquary/reference/Settings$Common.disable:Lxreliquary/reference/Settings$Common$DisableSettings;
+      21: getfield      #795                // Field xreliquary/reference/Settings$Common$DisableSettings.disableHandgun:Lnet/minecraftforge/common/ForgeConfigSpec$BooleanValue;
+      24: dup
+      25: invokestatic  #777                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+      28: pop
+      29: invokedynamic #784,  0            // InvokeDynamic #17:get:(Lnet/minecraftforge/common/ForgeConfigSpec$BooleanValue;)Ljava/util/function/Supplier;
+      34: invokespecial #798                // Method xreliquary/items/ItemBase."<init>":(Lnet/minecraft/item/Item$Properties;Ljava/util/function/Supplier;)V
+      37: areturn
+
+  private static xreliquary.items.ItemBase lambda$static$0();
+    descriptor: ()Lxreliquary/items/ItemBase;
+    Code:
+       0: new           #677                // class xreliquary/items/ItemBase
+       3: dup
+       4: new           #32                 // class net/minecraft/item/Item$Properties
+       7: dup
+       8: invokespecial #678                // Method net/minecraft/item/Item$Properties."<init>":()V
+      11: iconst_4
+      12: invokevirtual #792                // Method net/minecraft/item/Item$Properties.func_200917_a:(I)Lnet/minecraft/item/Item$Properties;
+      15: getstatic     #291                // Field xreliquary/reference/Settings.COMMON:Lxreliquary/reference/Settings$Common;
+      18: getfield      #295                // Field xreliquary/reference/Settings$Common.disable:Lxreliquary/reference/Settings$Common$DisableSettings;
+      21: getfield      #795                // Field xreliquary/reference/Settings$Common$DisableSettings.disableHandgun:Lnet/minecraftforge/common/ForgeConfigSpec$BooleanValue;
+      24: dup
+      25: invokestatic  #777                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+      28: pop
+      29: invokedynamic #784,  0            // InvokeDynamic #17:get:(Lnet/minecraftforge/common/ForgeConfigSpec$BooleanValue;)Ljava/util/function/Supplier;
+      34: invokespecial #798                // Method xreliquary/items/ItemBase."<init>":(Lnet/minecraft/item/Item$Properties;Ljava/util/function/Supplier;)V
+      37: areturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: getstatic     #805                // Field net/minecraftforge/registries/ForgeRegistries.ITEMS:Lnet/minecraftforge/registries/IForgeRegistry;
+       3: ldc_w         #382                // String xreliquary
+       6: invokestatic  #808                // Method net/minecraftforge/registries/DeferredRegister.create:(Lnet/minecraftforge/registries/IForgeRegistry;Ljava/lang/String;)Lnet/minecraftforge/registries/DeferredRegister;
+       9: putstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+      12: getstatic     #810                // Field net/minecraftforge/registries/ForgeRegistries.CONTAINERS:Lnet/minecraftforge/registries/IForgeRegistry;
+      15: ldc_w         #382                // String xreliquary
+      18: invokestatic  #808                // Method net/minecraftforge/registries/DeferredRegister.create:(Lnet/minecraftforge/registries/IForgeRegistry;Ljava/lang/String;)Lnet/minecraftforge/registries/DeferredRegister;
+      21: putstatic     #571                // Field CONTAINERS:Lnet/minecraftforge/registries/DeferredRegister;
+      24: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+      27: ldc_w         #812                // String alkahestry_tome
+      30: invokedynamic #819,  0            // InvokeDynamic #18:get:()Ljava/util/function/Supplier;
+      35: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+      38: putstatic     #824                // Field ALKAHESTRY_TOME:Lnet/minecraftforge/fml/RegistryObject;
+      41: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+      44: ldc_w         #826                // String mercy_cross
+      47: invokedynamic #833,  0            // InvokeDynamic #19:get:()Ljava/util/function/Supplier;
+      52: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+      55: putstatic     #835                // Field MERCY_CROSS:Lnet/minecraftforge/fml/RegistryObject;
+      58: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+      61: ldc_w         #837                // String angelheart_vial
+      64: invokedynamic #844,  0            // InvokeDynamic #20:get:()Ljava/util/function/Supplier;
+      69: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+      72: putstatic     #846                // Field ANGELHEART_VIAL:Lnet/minecraftforge/fml/RegistryObject;
+      75: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+      78: ldc_w         #848                // String angelic_feather
+      81: invokedynamic #855,  0            // InvokeDynamic #21:get:()Ljava/util/function/Supplier;
+      86: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+      89: putstatic     #857                // Field ANGELIC_FEATHER:Lnet/minecraftforge/fml/RegistryObject;
+      92: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+      95: ldc_w         #859                // String attraction_potion
+      98: invokedynamic #866,  0            // InvokeDynamic #22:get:()Ljava/util/function/Supplier;
+     103: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     106: putstatic     #326                // Field ATTRACTION_POTION:Lnet/minecraftforge/fml/RegistryObject;
+     109: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     112: ldc_w         #868                // String potion_essence
+     115: invokedynamic #875,  0            // InvokeDynamic #23:get:()Ljava/util/function/Supplier;
+     120: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     123: putstatic     #877                // Field POTION_ESSENCE:Lnet/minecraftforge/fml/RegistryObject;
+     126: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     129: ldc_w         #879                // String destruction_catalyst
+     132: invokedynamic #886,  0            // InvokeDynamic #24:get:()Ljava/util/function/Supplier;
+     137: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     140: putstatic     #888                // Field DESTRUCTION_CATALYST:Lnet/minecraftforge/fml/RegistryObject;
+     143: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     146: ldc_w         #890                // String emperor_chalice
+     149: invokedynamic #897,  0            // InvokeDynamic #25:get:()Ljava/util/function/Supplier;
+     154: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     157: putstatic     #899                // Field EMPEROR_CHALICE:Lnet/minecraftforge/fml/RegistryObject;
+     160: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     163: ldc_w         #901                // String ender_staff
+     166: invokedynamic #908,  0            // InvokeDynamic #26:get:()Ljava/util/function/Supplier;
+     171: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     174: putstatic     #910                // Field ENDER_STAFF:Lnet/minecraftforge/fml/RegistryObject;
+     177: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     180: ldc_w         #912                // String fertile_potion
+     183: invokedynamic #919,  0            // InvokeDynamic #27:get:()Ljava/util/function/Supplier;
+     188: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     191: putstatic     #329                // Field FERTILE_POTION:Lnet/minecraftforge/fml/RegistryObject;
+     194: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     197: ldc_w         #921                // String fortune_coin
+     200: invokedynamic #928,  0            // InvokeDynamic #28:get:()Ljava/util/function/Supplier;
+     205: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     208: putstatic     #930                // Field FORTUNE_COIN:Lnet/minecraftforge/fml/RegistryObject;
+     211: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     214: ldc_w         #932                // String glacial_staff
+     217: invokedynamic #939,  0            // InvokeDynamic #29:get:()Ljava/util/function/Supplier;
+     222: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     225: putstatic     #941                // Field GLACIAL_STAFF:Lnet/minecraftforge/fml/RegistryObject;
+     228: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     231: ldc_w         #943                // String glowing_water
+     234: invokedynamic #950,  0            // InvokeDynamic #30:get:()Ljava/util/function/Supplier;
+     239: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     242: putstatic     #335                // Field GLOWING_WATER:Lnet/minecraftforge/fml/RegistryObject;
+     245: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     248: ldc_w         #952                // String holy_hand_grenade
+     251: invokedynamic #959,  0            // InvokeDynamic #31:get:()Ljava/util/function/Supplier;
+     256: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     259: putstatic     #338                // Field HOLY_HAND_GRENADE:Lnet/minecraftforge/fml/RegistryObject;
+     262: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     265: ldc_w         #960                // String handgun
+     268: invokedynamic #965,  0            // InvokeDynamic #32:get:()Ljava/util/function/Supplier;
+     273: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     276: putstatic     #445                // Field HANDGUN:Lnet/minecraftforge/fml/RegistryObject;
+     279: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     282: ldc_w         #967                // String grip_assembly
+     285: invokedynamic #972,  0            // InvokeDynamic #33:get:()Ljava/util/function/Supplier;
+     290: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     293: putstatic     #974                // Field GRIP_ASSEMBLY:Lnet/minecraftforge/fml/RegistryObject;
+     296: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     299: ldc_w         #976                // String barrel_assembly
+     302: invokedynamic #980,  0            // InvokeDynamic #34:get:()Ljava/util/function/Supplier;
+     307: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     310: putstatic     #982                // Field BARREL_ASSEMBLY:Lnet/minecraftforge/fml/RegistryObject;
+     313: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     316: ldc_w         #984                // String hammer_assembly
+     319: invokedynamic #988,  0            // InvokeDynamic #35:get:()Ljava/util/function/Supplier;
+     324: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     327: putstatic     #990                // Field HAMMER_ASSEMBLY:Lnet/minecraftforge/fml/RegistryObject;
+     330: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     333: ldc_w         #992                // String harvest_rod
+     336: invokedynamic #999,  0            // InvokeDynamic #36:get:()Ljava/util/function/Supplier;
+     341: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     344: putstatic     #1001               // Field HARVEST_ROD:Lnet/minecraftforge/fml/RegistryObject;
+     347: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     350: ldc_w         #1003               // String mob_charm_fragment
+     353: invokedynamic #1010,  0           // InvokeDynamic #37:get:()Ljava/util/function/Supplier;
+     358: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     361: putstatic     #1012               // Field MOB_CHARM_FRAGMENT:Lnet/minecraftforge/fml/RegistryObject;
+     364: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     367: ldc_w         #1014               // String hero_medallion
+     370: invokedynamic #1021,  0           // InvokeDynamic #38:get:()Ljava/util/function/Supplier;
+     375: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     378: putstatic     #1023               // Field HERO_MEDALLION:Lnet/minecraftforge/fml/RegistryObject;
+     381: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     384: ldc_w         #1025               // String ice_magus_rod
+     387: invokedynamic #1032,  0           // InvokeDynamic #39:get:()Ljava/util/function/Supplier;
+     392: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     395: putstatic     #1034               // Field ICE_MAGUS_ROD:Lnet/minecraftforge/fml/RegistryObject;
+     398: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     401: ldc_w         #1036               // String infernal_chalice
+     404: invokedynamic #1043,  0           // InvokeDynamic #40:get:()Ljava/util/function/Supplier;
+     409: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     412: putstatic     #1045               // Field INFERNAL_CHALICE:Lnet/minecraftforge/fml/RegistryObject;
+     415: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     418: ldc_w         #1047               // String infernal_claws
+     421: invokedynamic #1054,  0           // InvokeDynamic #41:get:()Ljava/util/function/Supplier;
+     426: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     429: putstatic     #1056               // Field INFERNAL_CLAWS:Lnet/minecraftforge/fml/RegistryObject;
+     432: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     435: ldc_w         #1058               // String infernal_tear
+     438: invokedynamic #1065,  0           // InvokeDynamic #42:get:()Ljava/util/function/Supplier;
+     443: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     446: putstatic     #1067               // Field INFERNAL_TEAR:Lnet/minecraftforge/fml/RegistryObject;
+     449: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     452: ldc_w         #1069               // String kraken_shell
+     455: invokedynamic #1076,  0           // InvokeDynamic #43:get:()Ljava/util/function/Supplier;
+     460: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     463: putstatic     #1078               // Field KRAKEN_SHELL:Lnet/minecraftforge/fml/RegistryObject;
+     466: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     469: ldc_w         #1080               // String midas_touchstone
+     472: invokedynamic #1087,  0           // InvokeDynamic #44:get:()Ljava/util/function/Supplier;
+     477: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     480: putstatic     #1089               // Field MIDAS_TOUCHSTONE:Lnet/minecraftforge/fml/RegistryObject;
+     483: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     486: ldc_w         #1091               // String phoenix_down
+     489: invokedynamic #1098,  0           // InvokeDynamic #45:get:()Ljava/util/function/Supplier;
+     494: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     497: putstatic     #1100               // Field PHOENIX_DOWN:Lnet/minecraftforge/fml/RegistryObject;
+     500: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     503: ldc_w         #1102               // String pyromancer_staff
+     506: invokedynamic #1109,  0           // InvokeDynamic #46:get:()Ljava/util/function/Supplier;
+     511: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     514: putstatic     #1111               // Field PYROMANCER_STAFF:Lnet/minecraftforge/fml/RegistryObject;
+     517: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     520: ldc_w         #1113               // String rending_gale
+     523: invokedynamic #1120,  0           // InvokeDynamic #47:get:()Ljava/util/function/Supplier;
+     528: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     531: putstatic     #1122               // Field RENDING_GALE:Lnet/minecraftforge/fml/RegistryObject;
+     534: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     537: ldc_w         #1124               // String rod_of_lyssa
+     540: invokedynamic #1131,  0           // InvokeDynamic #48:get:()Ljava/util/function/Supplier;
+     545: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     548: putstatic     #1133               // Field ROD_OF_LYSSA:Lnet/minecraftforge/fml/RegistryObject;
+     551: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     554: ldc_w         #1135               // String sojourner_staff
+     557: invokedynamic #1142,  0           // InvokeDynamic #49:get:()Ljava/util/function/Supplier;
+     562: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     565: putstatic     #1144               // Field SOJOURNER_STAFF:Lnet/minecraftforge/fml/RegistryObject;
+     568: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     571: ldc_w         #1146               // String tipped_arrow
+     574: invokedynamic #1153,  0           // InvokeDynamic #50:get:()Ljava/util/function/Supplier;
+     579: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     582: putstatic     #332                // Field TIPPED_ARROW:Lnet/minecraftforge/fml/RegistryObject;
+     585: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     588: ldc_w         #1155               // String void_tear
+     591: invokedynamic #1162,  0           // InvokeDynamic #51:get:()Ljava/util/function/Supplier;
+     596: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     599: putstatic     #1164               // Field VOID_TEAR:Lnet/minecraftforge/fml/RegistryObject;
+     602: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     605: ldc_w         #1166               // String witch_hat
+     608: invokedynamic #1173,  0           // InvokeDynamic #52:get:()Ljava/util/function/Supplier;
+     613: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     616: putstatic     #1175               // Field WITCH_HAT:Lnet/minecraftforge/fml/RegistryObject;
+     619: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     622: ldc_w         #1177               // String witherless_rose
+     625: invokedynamic #1184,  0           // InvokeDynamic #53:get:()Ljava/util/function/Supplier;
+     630: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     633: putstatic     #1186               // Field WITHERLESS_ROSE:Lnet/minecraftforge/fml/RegistryObject;
+     636: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     639: ldc_w         #1188               // String empty_potion_vial
+     642: invokedynamic #1192,  0           // InvokeDynamic #54:get:()Ljava/util/function/Supplier;
+     647: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     650: putstatic     #1194               // Field EMPTY_POTION_VIAL:Lnet/minecraftforge/fml/RegistryObject;
+     653: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     656: ldc_w         #1196               // String potion
+     659: invokedynamic #1203,  0           // InvokeDynamic #55:get:()Ljava/util/function/Supplier;
+     664: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     667: putstatic     #1205               // Field POTION:Lnet/minecraftforge/fml/RegistryObject;
+     670: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     673: ldc_w         #1207               // String splash_potion
+     676: invokedynamic #1212,  0           // InvokeDynamic #56:get:()Ljava/util/function/Supplier;
+     681: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     684: putstatic     #307                // Field SPLASH_POTION:Lnet/minecraftforge/fml/RegistryObject;
+     687: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     690: ldc_w         #1214               // String lingering_potion
+     693: invokedynamic #1212,  0           // InvokeDynamic #56:get:()Ljava/util/function/Supplier;
+     698: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     701: putstatic     #323                // Field LINGERING_POTION:Lnet/minecraftforge/fml/RegistryObject;
+     704: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     707: ldc_w         #1216               // String mob_charm_belt
+     710: invokedynamic #1223,  0           // InvokeDynamic #57:get:()Ljava/util/function/Supplier;
+     715: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     718: putstatic     #1225               // Field MOB_CHARM_BELT:Lnet/minecraftforge/fml/RegistryObject;
+     721: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     724: ldc_w         #384                // String mob_charm
+     727: invokedynamic #1232,  0           // InvokeDynamic #58:get:()Ljava/util/function/Supplier;
+     732: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     735: putstatic     #1234               // Field MOB_CHARM:Lnet/minecraftforge/fml/RegistryObject;
+     738: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     741: ldc_w         #1236               // String magazines/empty_magazine
+     744: invokedynamic #1241,  0           // InvokeDynamic #59:get:()Ljava/util/function/Supplier;
+     749: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     752: putstatic     #1243               // Field EMPTY_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     755: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     758: ldc_w         #1245               // String magazines/neutral_magazine
+     761: invokedynamic #1249,  0           // InvokeDynamic #60:get:()Ljava/util/function/Supplier;
+     766: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     769: putstatic     #447                // Field NEUTRAL_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     772: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     775: ldc_w         #1251               // String magazines/exorcism_magazine
+     778: invokedynamic #1255,  0           // InvokeDynamic #61:get:()Ljava/util/function/Supplier;
+     783: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     786: putstatic     #479                // Field EXORCISM_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     789: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     792: ldc_w         #1257               // String magazines/blaze_magazine
+     795: invokedynamic #1261,  0           // InvokeDynamic #62:get:()Ljava/util/function/Supplier;
+     800: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     803: putstatic     #488                // Field BLAZE_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     806: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     809: ldc_w         #1263               // String magazines/ender_magazine
+     812: invokedynamic #1267,  0           // InvokeDynamic #63:get:()Ljava/util/function/Supplier;
+     817: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     820: putstatic     #497                // Field ENDER_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     823: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     826: ldc_w         #1269               // String magazines/concussive_magazine
+     829: invokedynamic #1273,  0           // InvokeDynamic #64:get:()Ljava/util/function/Supplier;
+     834: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     837: putstatic     #506                // Field CONCUSSIVE_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     840: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     843: ldc_w         #1275               // String magazines/buster_magazine
+     846: invokedynamic #1279,  0           // InvokeDynamic #65:get:()Ljava/util/function/Supplier;
+     851: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     854: putstatic     #515                // Field BUSTER_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     857: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     860: ldc_w         #1281               // String magazines/seeker_magazine
+     863: invokedynamic #1285,  0           // InvokeDynamic #66:get:()Ljava/util/function/Supplier;
+     868: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     871: putstatic     #524                // Field SEEKER_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     874: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     877: ldc_w         #1287               // String magazines/sand_magazine
+     880: invokedynamic #1291,  0           // InvokeDynamic #67:get:()Ljava/util/function/Supplier;
+     885: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     888: putstatic     #533                // Field SAND_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     891: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     894: ldc_w         #1293               // String magazines/storm_magazine
+     897: invokedynamic #1297,  0           // InvokeDynamic #68:get:()Ljava/util/function/Supplier;
+     902: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     905: putstatic     #542                // Field STORM_MAGAZINE:Lnet/minecraftforge/fml/RegistryObject;
+     908: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     911: ldc_w         #1299               // String bullets/empty_bullet
+     914: invokedynamic #1304,  0           // InvokeDynamic #69:get:()Ljava/util/function/Supplier;
+     919: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     922: putstatic     #1306               // Field EMPTY_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+     925: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     928: ldc_w         #1308               // String bullets/neutral_bullet
+     931: invokedynamic #1312,  0           // InvokeDynamic #70:get:()Ljava/util/function/Supplier;
+     936: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     939: putstatic     #473                // Field NEUTRAL_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+     942: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     945: ldc_w         #1314               // String bullets/exorcism_bullet
+     948: invokedynamic #1318,  0           // InvokeDynamic #71:get:()Ljava/util/function/Supplier;
+     953: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     956: putstatic     #486                // Field EXORCISM_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+     959: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     962: ldc_w         #1320               // String bullets/blaze_bullet
+     965: invokedynamic #1324,  0           // InvokeDynamic #72:get:()Ljava/util/function/Supplier;
+     970: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     973: putstatic     #495                // Field BLAZE_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+     976: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     979: ldc_w         #1326               // String bullets/ender_bullet
+     982: invokedynamic #1330,  0           // InvokeDynamic #73:get:()Ljava/util/function/Supplier;
+     987: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+     990: putstatic     #504                // Field ENDER_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+     993: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+     996: ldc_w         #1332               // String bullets/concussive_bullet
+     999: invokedynamic #1336,  0           // InvokeDynamic #74:get:()Ljava/util/function/Supplier;
+    1004: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1007: putstatic     #513                // Field CONCUSSIVE_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+    1010: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1013: ldc_w         #1338               // String bullets/buster_bullet
+    1016: invokedynamic #1342,  0           // InvokeDynamic #75:get:()Ljava/util/function/Supplier;
+    1021: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1024: putstatic     #522                // Field BUSTER_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+    1027: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1030: ldc_w         #1344               // String bullets/seeker_bullet
+    1033: invokedynamic #1348,  0           // InvokeDynamic #76:get:()Ljava/util/function/Supplier;
+    1038: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1041: putstatic     #531                // Field SEEKER_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+    1044: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1047: ldc_w         #1350               // String bullets/sand_bullet
+    1050: invokedynamic #1354,  0           // InvokeDynamic #77:get:()Ljava/util/function/Supplier;
+    1055: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1058: putstatic     #540                // Field SAND_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+    1061: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1064: ldc_w         #1356               // String bullets/storm_bullet
+    1067: invokedynamic #1360,  0           // InvokeDynamic #78:get:()Ljava/util/function/Supplier;
+    1072: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1075: putstatic     #549                // Field STORM_BULLET:Lnet/minecraftforge/fml/RegistryObject;
+    1078: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1081: ldc_w         #1362               // String zombie_heart
+    1084: invokedynamic #1367,  0           // InvokeDynamic #79:get:()Ljava/util/function/Supplier;
+    1089: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1092: putstatic     #1369               // Field ZOMBIE_HEART:Lnet/minecraftforge/fml/RegistryObject;
+    1095: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1098: ldc_w         #1371               // String squid_beak
+    1101: invokedynamic #1367,  0           // InvokeDynamic #79:get:()Ljava/util/function/Supplier;
+    1106: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1109: putstatic     #1373               // Field SQUID_BEAK:Lnet/minecraftforge/fml/RegistryObject;
+    1112: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1115: ldc_w         #1375               // String rib_bone
+    1118: invokedynamic #1367,  0           // InvokeDynamic #79:get:()Ljava/util/function/Supplier;
+    1123: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1126: putstatic     #1377               // Field RIB_BONE:Lnet/minecraftforge/fml/RegistryObject;
+    1129: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1132: ldc_w         #1379               // String catalyzing_gland
+    1135: invokedynamic #1367,  0           // InvokeDynamic #79:get:()Ljava/util/function/Supplier;
+    1140: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1143: putstatic     #1381               // Field CATALYZING_GLAND:Lnet/minecraftforge/fml/RegistryObject;
+    1146: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1149: ldc_w         #1383               // String chelicerae
+    1152: invokedynamic #1367,  0           // InvokeDynamic #79:get:()Ljava/util/function/Supplier;
+    1157: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1160: putstatic     #1385               // Field CHELICERAE:Lnet/minecraftforge/fml/RegistryObject;
+    1163: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1166: ldc_w         #1387               // String slime_pearl
+    1169: invokedynamic #1367,  0           // InvokeDynamic #79:get:()Ljava/util/function/Supplier;
+    1174: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1177: putstatic     #1389               // Field SLIME_PEARL:Lnet/minecraftforge/fml/RegistryObject;
+    1180: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1183: ldc_w         #1391               // String kraken_shell_fragment
+    1186: invokedynamic #1394,  0           // InvokeDynamic #80:get:()Ljava/util/function/Supplier;
+    1191: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1194: putstatic     #1396               // Field KRAKEN_SHELL_FRAGMENT:Lnet/minecraftforge/fml/RegistryObject;
+    1197: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1200: ldc_w         #1398               // String bat_wing
+    1203: invokedynamic #1367,  0           // InvokeDynamic #79:get:()Ljava/util/function/Supplier;
+    1208: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1211: putstatic     #1400               // Field BAT_WING:Lnet/minecraftforge/fml/RegistryObject;
+    1214: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1217: ldc_w         #1402               // String withered_rib
+    1220: invokedynamic #1367,  0           // InvokeDynamic #79:get:()Ljava/util/function/Supplier;
+    1225: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1228: putstatic     #1404               // Field WITHERED_RIB:Lnet/minecraftforge/fml/RegistryObject;
+    1231: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1234: ldc_w         #1406               // String molten_core
+    1237: invokedynamic #1367,  0           // InvokeDynamic #79:get:()Ljava/util/function/Supplier;
+    1242: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1245: putstatic     #1408               // Field MOLTEN_CORE:Lnet/minecraftforge/fml/RegistryObject;
+    1248: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1251: ldc_w         #1410               // String eye_of_the_storm
+    1254: invokedynamic #1367,  0           // InvokeDynamic #79:get:()Ljava/util/function/Supplier;
+    1259: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1262: putstatic     #1412               // Field EYE_OF_THE_STORM:Lnet/minecraftforge/fml/RegistryObject;
+    1265: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1268: ldc_w         #1414               // String fertile_essence
+    1271: invokedynamic #1394,  0           // InvokeDynamic #80:get:()Ljava/util/function/Supplier;
+    1276: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1279: putstatic     #1416               // Field FERTILE_ESSENCE:Lnet/minecraftforge/fml/RegistryObject;
+    1282: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1285: ldc_w         #1418               // String frozen_core
+    1288: invokedynamic #1367,  0           // InvokeDynamic #79:get:()Ljava/util/function/Supplier;
+    1293: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1296: putstatic     #1420               // Field FROZEN_CORE:Lnet/minecraftforge/fml/RegistryObject;
+    1299: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1302: ldc_w         #1422               // String nebulous_heart
+    1305: invokedynamic #1367,  0           // InvokeDynamic #79:get:()Ljava/util/function/Supplier;
+    1310: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1313: putstatic     #1424               // Field NEBULOUS_HEART:Lnet/minecraftforge/fml/RegistryObject;
+    1316: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1319: ldc_w         #1426               // String infernal_claw
+    1322: invokedynamic #1394,  0           // InvokeDynamic #80:get:()Ljava/util/function/Supplier;
+    1327: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1330: putstatic     #1428               // Field INFERNAL_CLAW:Lnet/minecraftforge/fml/RegistryObject;
+    1333: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1336: ldc_w         #1430               // String guardian_spike
+    1339: invokedynamic #1367,  0           // InvokeDynamic #79:get:()Ljava/util/function/Supplier;
+    1344: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1347: putstatic     #1432               // Field GUARDIAN_SPIKE:Lnet/minecraftforge/fml/RegistryObject;
+    1350: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1353: ldc_w         #1434               // String crimson_cloth
+    1356: invokedynamic #1394,  0           // InvokeDynamic #80:get:()Ljava/util/function/Supplier;
+    1361: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1364: putstatic     #1436               // Field CRIMSON_CLOTH:Lnet/minecraftforge/fml/RegistryObject;
+    1367: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1370: ldc_w         #1438               // String lantern_of_paranoia
+    1373: invokedynamic #1445,  0           // InvokeDynamic #81:get:()Ljava/util/function/Supplier;
+    1378: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1381: putstatic     #1447               // Field LANTERN_OF_PARANOIA:Lnet/minecraftforge/fml/RegistryObject;
+    1384: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1387: ldc_w         #1449               // String magicbane
+    1390: invokedynamic #1456,  0           // InvokeDynamic #82:get:()Ljava/util/function/Supplier;
+    1395: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1398: putstatic     #1458               // Field MAGICBANE:Lnet/minecraftforge/fml/RegistryObject;
+    1401: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1404: ldc_w         #1460               // String salamander_eye
+    1407: invokedynamic #1467,  0           // InvokeDynamic #83:get:()Ljava/util/function/Supplier;
+    1412: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1415: putstatic     #1469               // Field SALAMANDER_EYE:Lnet/minecraftforge/fml/RegistryObject;
+    1418: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1421: ldc_w         #1471               // String serpent_staff
+    1424: invokedynamic #1478,  0           // InvokeDynamic #84:get:()Ljava/util/function/Supplier;
+    1429: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1432: putstatic     #1480               // Field SERPENT_STAFF:Lnet/minecraftforge/fml/RegistryObject;
+    1435: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1438: ldc_w         #1482               // String shears_of_winter
+    1441: invokedynamic #1489,  0           // InvokeDynamic #85:get:()Ljava/util/function/Supplier;
+    1446: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1449: putstatic     #1491               // Field SHEARS_OF_WINTER:Lnet/minecraftforge/fml/RegistryObject;
+    1452: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1455: ldc_w         #1493               // String twilight_cloak
+    1458: invokedynamic #1500,  0           // InvokeDynamic #86:get:()Ljava/util/function/Supplier;
+    1463: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1466: putstatic     #1502               // Field TWILIGHT_CLOAK:Lnet/minecraftforge/fml/RegistryObject;
+    1469: getstatic     #565                // Field ITEMS:Lnet/minecraftforge/registries/DeferredRegister;
+    1472: ldc_w         #1504               // String glowing_bread
+    1475: invokedynamic #1508,  0           // InvokeDynamic #87:get:()Ljava/util/function/Supplier;
+    1480: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1483: putstatic     #1510               // Field GLOWING_BREAD:Lnet/minecraftforge/fml/RegistryObject;
+    1486: getstatic     #571                // Field CONTAINERS:Lnet/minecraftforge/registries/DeferredRegister;
+    1489: ldc_w         #1512               // String alkahest_tome
+    1492: invokedynamic #1517,  0           // InvokeDynamic #88:get:()Ljava/util/function/Supplier;
+    1497: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1500: putstatic     #605                // Field ALKAHEST_TOME_CONTAINER_TYPE:Lnet/minecraftforge/fml/RegistryObject;
+    1503: getstatic     #571                // Field CONTAINERS:Lnet/minecraftforge/registries/DeferredRegister;
+    1506: ldc_w         #1519               // String mob_char_belt
+    1509: invokedynamic #1523,  0           // InvokeDynamic #89:get:()Ljava/util/function/Supplier;
+    1514: invokevirtual #822                // Method net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/fml/RegistryObject;
+    1517: putstatic     #625                // Field MOB_CHAR_BELT_CONTAINER_TYPE:Lnet/minecraftforge/fml/RegistryObject;
+    1520: return
+}

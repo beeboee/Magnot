@@ -1,0 +1,94 @@
+Compiled from "BlockAdvancedAlchemicalChest.java"
+final class cool.furry.mc.neoforge.projectexpansion.block.BlockAdvancedAlchemicalChest$ContainerProvider extends java.lang.Record implements net.minecraft.world.MenuProvider {
+  private final cool.furry.mc.neoforge.projectexpansion.block.entity.BlockEntityAdvancedAlchemicalChest blockEntity;
+    descriptor: Lcool/furry/mc/neoforge/projectexpansion/block/entity/BlockEntityAdvancedAlchemicalChest;
+
+  private final net.minecraft.world.InteractionHand hand;
+    descriptor: Lnet/minecraft/world/InteractionHand;
+
+  private cool.furry.mc.neoforge.projectexpansion.block.BlockAdvancedAlchemicalChest$ContainerProvider(cool.furry.mc.neoforge.projectexpansion.block.entity.BlockEntityAdvancedAlchemicalChest, net.minecraft.world.InteractionHand);
+    descriptor: (Lcool/furry/mc/neoforge/projectexpansion/block/entity/BlockEntityAdvancedAlchemicalChest;Lnet/minecraft/world/InteractionHand;)V
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Record."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #7                  // Field blockEntity:Lcool/furry/mc/neoforge/projectexpansion/block/entity/BlockEntityAdvancedAlchemicalChest;
+       9: aload_0
+      10: aload_2
+      11: putfield      #13                 // Field hand:Lnet/minecraft/world/InteractionHand;
+      14: return
+
+  public net.minecraft.world.inventory.AbstractContainerMenu createMenu(int, net.minecraft.world.entity.player.Inventory, net.minecraft.world.entity.player.Player);
+    descriptor: (ILnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/world/entity/player/Player;)Lnet/minecraft/world/inventory/AbstractContainerMenu;
+    Code:
+       0: aload_0
+       1: getfield      #7                  // Field blockEntity:Lcool/furry/mc/neoforge/projectexpansion/block/entity/BlockEntityAdvancedAlchemicalChest;
+       4: invokevirtual #17                 // Method cool/furry/mc/neoforge/projectexpansion/block/entity/BlockEntityAdvancedAlchemicalChest.getBag:()Lnet/neoforged/neoforge/items/IItemHandler;
+       7: checkcast     #23                 // class net/neoforged/neoforge/items/IItemHandlerModifiable
+      10: astore        4
+      12: aload         4
+      14: ifnonnull     27
+      17: new           #25                 // class java/lang/NullPointerException
+      20: dup
+      21: ldc           #27                 // String Bag is null
+      23: invokespecial #29                 // Method java/lang/NullPointerException."<init>":(Ljava/lang/String;)V
+      26: athrow
+      27: new           #32                 // class cool/furry/mc/neoforge/projectexpansion/gui/container/ContainerAdvancedAlchemicalChest
+      30: dup
+      31: iload_1
+      32: aload_2
+      33: aload_0
+      34: getfield      #13                 // Field hand:Lnet/minecraft/world/InteractionHand;
+      37: aload         4
+      39: aload_2
+      40: getfield      #34                 // Field net/minecraft/world/entity/player/Inventory.selected:I
+      43: iconst_0
+      44: aload_0
+      45: getfield      #7                  // Field blockEntity:Lcool/furry/mc/neoforge/projectexpansion/block/entity/BlockEntityAdvancedAlchemicalChest;
+      48: invokespecial #40                 // Method cool/furry/mc/neoforge/projectexpansion/gui/container/ContainerAdvancedAlchemicalChest."<init>":(ILnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/world/InteractionHand;Lnet/neoforged/neoforge/items/IItemHandlerModifiable;IZLcool/furry/mc/neoforge/projectexpansion/block/entity/BlockEntityAdvancedAlchemicalChest;)V
+      51: areturn
+
+  public net.minecraft.network.chat.Component getDisplayName();
+    descriptor: ()Lnet/minecraft/network/chat/Component;
+    Code:
+       0: getstatic     #43                 // Field cool/furry/mc/neoforge/projectexpansion/util/Lang.ADVANCED_ALCHEMICAL_CHEST_TITLE:Lcool/furry/mc/neoforge/projectexpansion/util/Lang;
+       3: invokevirtual #49                 // Method cool/furry/mc/neoforge/projectexpansion/util/Lang.translate:()Lnet/minecraft/network/chat/MutableComponent;
+       6: areturn
+
+  public final java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+    Code:
+       0: aload_0
+       1: invokedynamic #53,  0             // InvokeDynamic #0:toString:(Lcool/furry/mc/neoforge/projectexpansion/block/BlockAdvancedAlchemicalChest$ContainerProvider;)Ljava/lang/String;
+       6: areturn
+
+  public final int hashCode();
+    descriptor: ()I
+    Code:
+       0: aload_0
+       1: invokedynamic #57,  0             // InvokeDynamic #0:hashCode:(Lcool/furry/mc/neoforge/projectexpansion/block/BlockAdvancedAlchemicalChest$ContainerProvider;)I
+       6: ireturn
+
+  public final boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokedynamic #61,  0             // InvokeDynamic #0:equals:(Lcool/furry/mc/neoforge/projectexpansion/block/BlockAdvancedAlchemicalChest$ContainerProvider;Ljava/lang/Object;)Z
+       7: ireturn
+
+  public cool.furry.mc.neoforge.projectexpansion.block.entity.BlockEntityAdvancedAlchemicalChest blockEntity();
+    descriptor: ()Lcool/furry/mc/neoforge/projectexpansion/block/entity/BlockEntityAdvancedAlchemicalChest;
+    Code:
+       0: aload_0
+       1: getfield      #7                  // Field blockEntity:Lcool/furry/mc/neoforge/projectexpansion/block/entity/BlockEntityAdvancedAlchemicalChest;
+       4: areturn
+
+  public net.minecraft.world.InteractionHand hand();
+    descriptor: ()Lnet/minecraft/world/InteractionHand;
+    Code:
+       0: aload_0
+       1: getfield      #13                 // Field hand:Lnet/minecraft/world/InteractionHand;
+       4: areturn
+}

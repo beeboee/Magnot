@@ -1,0 +1,44 @@
+Compiled from "Settings.java"
+public class reliquary.reference.Settings$Common$ItemSettings$FortuneCoinSettings {
+  public final net.minecraftforge.common.ForgeConfigSpec$IntValue standardPullDistance;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;
+
+  public final net.minecraftforge.common.ForgeConfigSpec$IntValue longRangePullDistance;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;
+
+  reliquary.reference.Settings$Common$ItemSettings$FortuneCoinSettings(net.minecraftforge.common.ForgeConfigSpec$Builder);
+    descriptor: (Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+    Code:
+       0: aload_0
+       1: invokespecial #30                 // Method java/lang/Object."<init>":()V
+       4: aload_1
+       5: ldc           #32                 // String Fortune Coin settings
+       7: invokevirtual #36                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.comment:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      10: ldc           #38                 // String fortuneCoin
+      12: invokevirtual #41                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.push:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      15: pop
+      16: aload_0
+      17: aload_1
+      18: ldc           #43                 // String The distance that it pulls from when activated
+      20: invokevirtual #36                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.comment:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      23: ldc           #44                 // String standardPullDistance
+      25: iconst_5
+      26: iconst_3
+      27: bipush        10
+      29: invokevirtual #48                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.defineInRange:(Ljava/lang/String;III)Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;
+      32: putfield      #50                 // Field standardPullDistance:Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;
+      35: aload_0
+      36: aload_1
+      37: ldc           #52                 // String The distance that it pulls from when right click is held
+      39: invokevirtual #36                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.comment:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      42: ldc           #53                 // String longRangePullDistance
+      44: bipush        15
+      46: bipush        9
+      48: bipush        30
+      50: invokevirtual #48                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.defineInRange:(Ljava/lang/String;III)Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;
+      53: putfield      #55                 // Field longRangePullDistance:Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;
+      56: aload_1
+      57: invokevirtual #59                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.pop:()Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      60: pop
+      61: return
+}

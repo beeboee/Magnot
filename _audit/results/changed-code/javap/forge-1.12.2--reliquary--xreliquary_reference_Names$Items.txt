@@ -1,0 +1,171 @@
+Compiled from "Names.java"
+public class xreliquary.reference.Names$Items {
+  public static final java.lang.String HANDGUN;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String BULLET;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String MERCY_CROSS;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String MAGAZINE;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String SOJOURNER_STAFF;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String ALKAHESTRY_TOME;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String HOLY_HAND_GRENADE;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String FORTUNE_COIN;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String GLOWING_BREAD;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String MIDAS_TOUCHSTONE;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String EMPEROR_CHALICE;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String SALAMANDER_EYE;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String DESTRUCTION_CATALYST;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String ICE_MAGUS_ROD;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String GLACIAL_STAFF;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String MAGICBANE;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String WITHERLESS_ROSE;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String TWILIGHT_CLOAK;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String VOID_TEAR_EMPTY;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String VOID_TEAR;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String HERO_MEDALLION;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String ENDER_STAFF;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String ANGELIC_FEATHER;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String PHOENIX_DOWN;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String INFERNAL_CLAWS;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String INFERNAL_CHALICE;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String KRAKEN_SHELL;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String SERPENT_STAFF;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String WITCH_HAT;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String INFERNAL_TEAR;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String INFERNAL_TEAR_EMPTY;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String LANTERN_OF_PARANOIA;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String ROD_OF_LYSSA;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String SHEARS_OF_WINTER;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String PYROMANCER_STAFF;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String RENDING_GALE;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String HARVEST_ROD;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String MOB_INGREDIENT;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String MOB_CHARM_FRAGMENT;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String HEART_ZHU;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String SEEKER_SHOT;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String FERTILE_ESSENCE;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String MOB_CHARM_BELT;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String MOB_CHARM;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String GUN_PART;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String POTION;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String POTION_SPLASH;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String POTION_LINGERING;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String POTION_ESSENCE;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String GLOWING_WATER;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String ANGELHEART_VIAL;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String FERTILE_POTION;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String ATTRACTION_POTION;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String TIPPED_ARROW;
+    descriptor: Ljava/lang/String;
+
+  public xreliquary.reference.Names$Items();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #175                // Method java/lang/Object."<init>":()V
+       4: return
+}

@@ -1,0 +1,159 @@
+Compiled from "BlockCompactSun.java"
+public class cool.furry.mc.forge.projectexpansion.block.BlockCompactSun extends net.minecraft.world.level.block.Block {
+  public cool.furry.mc.forge.projectexpansion.block.BlockCompactSun();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokestatic  #26                 // Method net/minecraft/world/level/block/state/BlockBehaviour$Properties.m_284310_:()Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;
+       4: ldc           #27                 // float 2000000.0f
+       6: ldc           #28                 // float 6000000.0f
+       8: invokevirtual #32                 // Method net/minecraft/world/level/block/state/BlockBehaviour$Properties.m_60913_:(FF)Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;
+      11: invokevirtual #35                 // Method net/minecraft/world/level/block/state/BlockBehaviour$Properties.m_60999_:()Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;
+      14: invokedynamic #54,  0             // InvokeDynamic #0:applyAsInt:()Ljava/util/function/ToIntFunction;
+      19: invokevirtual #58                 // Method net/minecraft/world/level/block/state/BlockBehaviour$Properties.m_60953_:(Ljava/util/function/ToIntFunction;)Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;
+      22: invokespecial #61                 // Method net/minecraft/world/level/block/Block."<init>":(Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)V
+      25: return
+
+  public void m_5871_(net.minecraft.world.item.ItemStack, net.minecraft.world.level.BlockGetter, java.util.List<net.minecraft.network.chat.Component>, net.minecraft.world.item.TooltipFlag);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/BlockGetter;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: aload         4
+       6: invokespecial #73                 // Method net/minecraft/world/level/block/Block.m_5871_:(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/BlockGetter;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V
+       9: aload_3
+      10: getstatic     #77                 // Field cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.COMPACT_SUN_TOOLTIP:Lcool/furry/mc/forge/projectexpansion/util/Lang$Blocks;
+      13: getstatic     #83                 // Field net/minecraft/ChatFormatting.GRAY:Lnet/minecraft/ChatFormatting;
+      16: iconst_0
+      17: anewarray     #85                 // class java/lang/Object
+      20: invokevirtual #89                 // Method cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+      23: invokeinterface #95,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      28: pop
+      29: aload_3
+      30: getstatic     #98                 // Field cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.COMPACT_SUN_TOOLTIP2:Lcool/furry/mc/forge/projectexpansion/util/Lang$Blocks;
+      33: getstatic     #83                 // Field net/minecraft/ChatFormatting.GRAY:Lnet/minecraft/ChatFormatting;
+      36: iconst_1
+      37: anewarray     #85                 // class java/lang/Object
+      40: dup
+      41: iconst_0
+      42: invokestatic  #104                // Method cool/furry/mc/forge/projectexpansion/util/Util.getSunBonus:()I
+      45: invokestatic  #110                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      48: aastore
+      49: invokevirtual #89                 // Method cool/furry/mc/forge/projectexpansion/util/Lang$Blocks.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+      52: invokeinterface #95,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      57: pop
+      58: aload_3
+      59: getstatic     #114                // Field cool/furry/mc/forge/projectexpansion/util/Lang.SEE_WIKI:Lcool/furry/mc/forge/projectexpansion/util/Lang;
+      62: getstatic     #117                // Field net/minecraft/ChatFormatting.AQUA:Lnet/minecraft/ChatFormatting;
+      65: iconst_0
+      66: anewarray     #85                 // class java/lang/Object
+      69: invokevirtual #118                // Method cool/furry/mc/forge/projectexpansion/util/Lang.translateColored:(Lnet/minecraft/ChatFormatting;[Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+      72: invokeinterface #95,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      77: pop
+      78: return
+
+  public net.minecraft.world.level.material.PushReaction getPistonPushReaction(net.minecraft.world.level.block.state.BlockState);
+    descriptor: (Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/material/PushReaction;
+    Code:
+       0: getstatic     #135                // Field net/minecraft/world/level/material/PushReaction.BLOCK:Lnet/minecraft/world/level/material/PushReaction;
+       3: areturn
+
+  public net.minecraft.world.level.material.MapColor getMapColor(net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos, net.minecraft.world.level.material.MapColor);
+    descriptor: (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/material/MapColor;)Lnet/minecraft/world/level/material/MapColor;
+    Code:
+       0: getstatic     #145                // Field net/minecraft/world/level/material/MapColor.f_283832_:Lnet/minecraft/world/level/material/MapColor;
+       3: areturn
+
+  public void m_141947_(net.minecraft.world.level.Level, net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState, net.minecraft.world.entity.Entity);
+    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/entity/Entity;)V
+    Code:
+       0: aload_1
+       1: invokestatic  #156                // Method cool/furry/mc/forge/projectexpansion/registries/DamageSources.fromLevel:(Lnet/minecraft/world/level/Level;)Lcool/furry/mc/forge/projectexpansion/registries/DamageSources;
+       4: astore        5
+       6: aload         4
+       8: instanceof    #158                // class net/minecraft/server/level/ServerPlayer
+      11: ifeq          52
+      14: aload         4
+      16: checkcast     #158                // class net/minecraft/server/level/ServerPlayer
+      19: astore        6
+      21: aload         6
+      23: invokestatic  #164                // Method cool/furry/mc/forge/projectexpansion/util/SunExposureHelper.wearingProtectiveBoots:(Lnet/minecraft/server/level/ServerPlayer;)Z
+      26: ifne          52
+      29: aload         6
+      31: invokevirtual #168                // Method net/minecraft/server/level/ServerPlayer.m_21233_:()F
+      34: fstore        7
+      36: aload         6
+      38: aload         5
+      40: invokevirtual #172                // Method cool/furry/mc/forge/projectexpansion/registries/DamageSources.walkOnSun:()Lnet/minecraft/world/damagesource/DamageSource;
+      43: fload         7
+      45: ldc           #173                // float 0.6f
+      47: fmul
+      48: invokevirtual #177                // Method net/minecraft/server/level/ServerPlayer.m_6469_:(Lnet/minecraft/world/damagesource/DamageSource;F)Z
+      51: pop
+      52: aload_0
+      53: aload_1
+      54: aload_2
+      55: aload_3
+      56: aload         4
+      58: invokespecial #179                // Method net/minecraft/world/level/block/Block.m_141947_:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/entity/Entity;)V
+      61: return
+
+  public static boolean adjacent(net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos);
+    descriptor: (Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Z
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aconst_null
+       3: invokestatic  #195                // Method adjacent:(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/Direction;)Z
+       6: ireturn
+
+  public static boolean adjacent(net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos, net.minecraft.core.Direction);
+    descriptor: (Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/Direction;)Z
+    Code:
+       0: aload_0
+       1: ifnonnull     6
+       4: iconst_0
+       5: ireturn
+       6: invokestatic  #201                // Method net/minecraft/core/Direction.values:()[Lnet/minecraft/core/Direction;
+       9: astore_3
+      10: aload_3
+      11: arraylength
+      12: istore        4
+      14: iconst_0
+      15: istore        5
+      17: iload         5
+      19: iload         4
+      21: if_icmpge     72
+      24: aload_3
+      25: iload         5
+      27: aaload
+      28: astore        6
+      30: aload_2
+      31: ifnull        43
+      34: aload         6
+      36: aload_2
+      37: if_acmpeq     43
+      40: goto          66
+      43: aload_0
+      44: aload_1
+      45: aload         6
+      47: invokevirtual #209                // Method net/minecraft/core/BlockPos.m_121945_:(Lnet/minecraft/core/Direction;)Lnet/minecraft/core/BlockPos;
+      50: invokeinterface #215,  2          // InterfaceMethod net/minecraft/world/level/BlockGetter.m_8055_:(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;
+      55: invokevirtual #221                // Method net/minecraft/world/level/block/state/BlockState.m_60734_:()Lnet/minecraft/world/level/block/Block;
+      58: instanceof    #2                  // class cool/furry/mc/forge/projectexpansion/block/BlockCompactSun
+      61: ifeq          66
+      64: iconst_1
+      65: ireturn
+      66: iinc          5, 1
+      69: goto          17
+      72: iconst_0
+      73: ireturn
+
+  private static int lambda$new$0(net.minecraft.world.level.block.state.BlockState);
+    descriptor: (Lnet/minecraft/world/level/block/state/BlockState;)I
+    Code:
+       0: bipush        15
+       2: ireturn
+}

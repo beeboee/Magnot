@@ -1,0 +1,45 @@
+Compiled from "PacketVaccumChest.java"
+public class crazypants.enderio.machines.machine.vacuum.chest.PacketVaccumChest$Handler implements net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler<crazypants.enderio.machines.machine.vacuum.chest.PacketVaccumChest, net.minecraftforge.fml.common.network.simpleimpl.IMessage> {
+  public crazypants.enderio.machines.machine.vacuum.chest.PacketVaccumChest$Handler();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #15                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public net.minecraftforge.fml.common.network.simpleimpl.IMessage onMessage(crazypants.enderio.machines.machine.vacuum.chest.PacketVaccumChest, net.minecraftforge.fml.common.network.simpleimpl.MessageContext);
+    descriptor: (Lcrazypants/enderio/machines/machine/vacuum/chest/PacketVaccumChest;Lnet/minecraftforge/fml/common/network/simpleimpl/MessageContext;)Lnet/minecraftforge/fml/common/network/simpleimpl/IMessage;
+    Code:
+       0: aload_1
+       1: aload_2
+       2: invokevirtual #26                 // Method net/minecraftforge/fml/common/network/simpleimpl/MessageContext.getServerHandler:()Lnet/minecraft/network/NetHandlerPlayServer;
+       5: getfield      #32                 // Field net/minecraft/network/NetHandlerPlayServer.field_147369_b:Lnet/minecraft/entity/player/EntityPlayerMP;
+       8: getfield      #38                 // Field net/minecraft/entity/player/EntityPlayerMP.field_70170_p:Lnet/minecraft/world/World;
+      11: invokestatic  #42                 // Method crazypants/enderio/machines/machine/vacuum/chest/PacketVaccumChest.access$000:(Lcrazypants/enderio/machines/machine/vacuum/chest/PacketVaccumChest;Lnet/minecraft/world/World;)Lnet/minecraft/tileentity/TileEntity;
+      14: checkcast     #44                 // class crazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest
+      17: astore_3
+      18: aload_3
+      19: ifnull        52
+      22: aload_1
+      23: invokestatic  #48                 // Method crazypants/enderio/machines/machine/vacuum/chest/PacketVaccumChest.access$100:(Lcrazypants/enderio/machines/machine/vacuum/chest/PacketVaccumChest;)I
+      26: lookupswitch  { // 1
+                     0: 44
+               default: 52
+          }
+      44: aload_3
+      45: aload_1
+      46: invokestatic  #51                 // Method crazypants/enderio/machines/machine/vacuum/chest/PacketVaccumChest.access$200:(Lcrazypants/enderio/machines/machine/vacuum/chest/PacketVaccumChest;)I
+      49: invokevirtual #55                 // Method crazypants/enderio/machines/machine/vacuum/chest/TileVacuumChest.setRange:(I)V
+      52: aconst_null
+      53: areturn
+
+  public net.minecraftforge.fml.common.network.simpleimpl.IMessage onMessage(net.minecraftforge.fml.common.network.simpleimpl.IMessage, net.minecraftforge.fml.common.network.simpleimpl.MessageContext);
+    descriptor: (Lnet/minecraftforge/fml/common/network/simpleimpl/IMessage;Lnet/minecraftforge/fml/common/network/simpleimpl/MessageContext;)Lnet/minecraftforge/fml/common/network/simpleimpl/IMessage;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: checkcast     #10                 // class crazypants/enderio/machines/machine/vacuum/chest/PacketVaccumChest
+       5: aload_2
+       6: invokevirtual #64                 // Method onMessage:(Lcrazypants/enderio/machines/machine/vacuum/chest/PacketVaccumChest;Lnet/minecraftforge/fml/common/network/simpleimpl/MessageContext;)Lnet/minecraftforge/fml/common/network/simpleimpl/IMessage;
+       9: areturn
+}

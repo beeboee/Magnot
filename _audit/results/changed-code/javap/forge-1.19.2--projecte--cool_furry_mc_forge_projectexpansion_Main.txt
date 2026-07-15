@@ -1,0 +1,149 @@
+Compiled from "Main.java"
+public class cool.furry.mc.forge.projectexpansion.Main {
+  public static final java.lang.String MOD_ID;
+    descriptor: Ljava/lang/String;
+
+  public static net.minecraft.world.item.CreativeModeTab tab;
+    descriptor: Lnet/minecraft/world/item/CreativeModeTab;
+
+  public static final org.apache.logging.log4j.Logger Logger;
+    descriptor: Lorg/apache/logging/log4j/Logger;
+
+  public cool.furry.mc.forge.projectexpansion.Main();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #39                 // Method java/lang/Object."<init>":()V
+       4: new           #10                 // class cool/furry/mc/forge/projectexpansion/Main$1
+       7: dup
+       8: aload_0
+       9: ldc           #31                 // String projectexpansion
+      11: invokespecial #42                 // Method cool/furry/mc/forge/projectexpansion/Main$1."<init>":(Lcool/furry/mc/forge/projectexpansion/Main;Ljava/lang/String;)V
+      14: putstatic     #44                 // Field tab:Lnet/minecraft/world/item/CreativeModeTab;
+      17: invokestatic  #49                 // Method cool/furry/mc/forge/projectexpansion/net/PacketHandler.register:()V
+      20: invokestatic  #55                 // Method net/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext.get:()Lnet/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext;
+      23: invokevirtual #59                 // Method net/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext.getModEventBus:()Lnet/minecraftforge/eventbus/api/IEventBus;
+      26: astore_1
+      27: getstatic     #65                 // Field cool/furry/mc/forge/projectexpansion/registries/BlockEntityTypes.Registry:Lnet/minecraftforge/registries/DeferredRegister;
+      30: aload_1
+      31: invokevirtual #70                 // Method net/minecraftforge/registries/DeferredRegister.register:(Lnet/minecraftforge/eventbus/api/IEventBus;)V
+      34: getstatic     #73                 // Field cool/furry/mc/forge/projectexpansion/registries/Blocks.Registry:Lnet/minecraftforge/registries/DeferredRegister;
+      37: aload_1
+      38: invokevirtual #70                 // Method net/minecraftforge/registries/DeferredRegister.register:(Lnet/minecraftforge/eventbus/api/IEventBus;)V
+      41: getstatic     #76                 // Field cool/furry/mc/forge/projectexpansion/registries/Enchantments.Registry:Lnet/minecraftforge/registries/DeferredRegister;
+      44: aload_1
+      45: invokevirtual #70                 // Method net/minecraftforge/registries/DeferredRegister.register:(Lnet/minecraftforge/eventbus/api/IEventBus;)V
+      48: getstatic     #79                 // Field cool/furry/mc/forge/projectexpansion/registries/Items.Registry:Lnet/minecraftforge/registries/DeferredRegister;
+      51: aload_1
+      52: invokevirtual #70                 // Method net/minecraftforge/registries/DeferredRegister.register:(Lnet/minecraftforge/eventbus/api/IEventBus;)V
+      55: getstatic     #82                 // Field cool/furry/mc/forge/projectexpansion/registries/SoundEvents.Registry:Lnet/minecraftforge/registries/DeferredRegister;
+      58: aload_1
+      59: invokevirtual #70                 // Method net/minecraftforge/registries/DeferredRegister.register:(Lnet/minecraftforge/eventbus/api/IEventBus;)V
+      62: getstatic     #85                 // Field cool/furry/mc/forge/projectexpansion/registries/MenuTypes.Registry:Lnet/minecraftforge/registries/DeferredRegister;
+      65: aload_1
+      66: invokevirtual #70                 // Method net/minecraftforge/registries/DeferredRegister.register:(Lnet/minecraftforge/eventbus/api/IEventBus;)V
+      69: getstatic     #91                 // Field net/minecraftforge/common/MinecraftForge.EVENT_BUS:Lnet/minecraftforge/eventbus/api/IEventBus;
+      72: aload_0
+      73: invokedynamic #110,  0            // InvokeDynamic #0:accept:(Lcool/furry/mc/forge/projectexpansion/Main;)Ljava/util/function/Consumer;
+      78: invokeinterface #116,  2          // InterfaceMethod net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V
+      83: invokestatic  #121                // Method net/minecraftforge/fml/ModLoadingContext.get:()Lnet/minecraftforge/fml/ModLoadingContext;
+      86: getstatic     #125                // Field net/minecraftforge/fml/config/ModConfig$Type.COMMON:Lnet/minecraftforge/fml/config/ModConfig$Type;
+      89: getstatic     #131                // Field cool/furry/mc/forge/projectexpansion/config/Config.Spec:Lnet/minecraftforge/common/ForgeConfigSpec;
+      92: ldc           #133                // String project-expansion.toml
+      94: invokevirtual #137                // Method net/minecraftforge/fml/ModLoadingContext.registerConfig:(Lnet/minecraftforge/fml/config/ModConfig$Type;Lnet/minecraftforge/fml/config/IConfigSpec;Ljava/lang/String;)V
+      97: invokestatic  #142                // Method cool/furry/mc/forge/projectexpansion/util/Fuel.registerAll:()V
+     100: invokestatic  #145                // Method cool/furry/mc/forge/projectexpansion/util/Matter.registerAll:()V
+     103: invokestatic  #148                // Method cool/furry/mc/forge/projectexpansion/util/Star.registerAll:()V
+     106: invokestatic  #151                // Method cool/furry/mc/forge/projectexpansion/util/AdvancedAlchemicalChest.register:()V
+     109: return
+
+  private void serverTick(net.minecraftforge.event.TickEvent$ServerTickEvent);
+    descriptor: (Lnet/minecraftforge/event/TickEvent$ServerTickEvent;)V
+    Code:
+       0: aload_1
+       1: getfield      #158                // Field net/minecraftforge/event/TickEvent$ServerTickEvent.phase:Lnet/minecraftforge/event/TickEvent$Phase;
+       4: getstatic     #161                // Field net/minecraftforge/event/TickEvent$Phase.END:Lnet/minecraftforge/event/TickEvent$Phase;
+       7: if_acmpeq     11
+      10: return
+      11: invokestatic  #166                // Method cool/furry/mc/forge/projectexpansion/util/AlchemicalCollectionCollector.process:()V
+      14: invokestatic  #172                // Method net/minecraftforge/server/ServerLifecycleHooks.getCurrentServer:()Lnet/minecraft/server/MinecraftServer;
+      17: invokevirtual #178                // Method net/minecraft/server/MinecraftServer.m_6846_:()Lnet/minecraft/server/players/PlayerList;
+      20: invokevirtual #184                // Method net/minecraft/server/players/PlayerList.m_11314_:()Ljava/util/List;
+      23: invokeinterface #190,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      28: astore_2
+      29: aload_2
+      30: invokeinterface #196,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      35: ifeq          173
+      38: aload_2
+      39: invokeinterface #200,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      44: checkcast     #202                // class net/minecraft/server/level/ServerPlayer
+      47: astore_3
+      48: iconst_0
+      49: istore        4
+      51: iload         4
+      53: aload_3
+      54: invokevirtual #206                // Method net/minecraft/server/level/ServerPlayer.m_150109_:()Lnet/minecraft/world/entity/player/Inventory;
+      57: invokevirtual #212                // Method net/minecraft/world/entity/player/Inventory.m_6643_:()I
+      60: if_icmpge     170
+      63: aload_3
+      64: invokevirtual #206                // Method net/minecraft/server/level/ServerPlayer.m_150109_:()Lnet/minecraft/world/entity/player/Inventory;
+      67: iload         4
+      69: invokevirtual #216                // Method net/minecraft/world/entity/player/Inventory.m_8020_:(I)Lnet/minecraft/world/item/ItemStack;
+      72: astore        5
+      74: aload         5
+      76: invokevirtual #222                // Method net/minecraft/world/item/ItemStack.m_41720_:()Lnet/minecraft/world/item/Item;
+      79: getstatic     #226                // Field cool/furry/mc/forge/projectexpansion/registries/Items.INFINITE_FUEL:Lnet/minecraftforge/registries/RegistryObject;
+      82: invokevirtual #230                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      85: invokevirtual #234                // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+      88: ifeq          109
+      91: aload         5
+      93: invokevirtual #238                // Method net/minecraft/world/item/ItemStack.m_41784_:()Lnet/minecraft/nbt/CompoundTag;
+      96: getstatic     #243                // Field cool/furry/mc/forge/projectexpansion/util/TagNames.OWNER:Ljava/lang/String;
+      99: aload_3
+     100: invokevirtual #247                // Method net/minecraft/server/level/ServerPlayer.m_20148_:()Ljava/util/UUID;
+     103: invokevirtual #253                // Method net/minecraft/nbt/CompoundTag.m_128362_:(Ljava/lang/String;Ljava/util/UUID;)V
+     106: goto          164
+     109: getstatic     #256                // Field cool/furry/mc/forge/projectexpansion/registries/Enchantments.ALCHEMICAL_COLLECTION:Lnet/minecraftforge/registries/RegistryObject;
+     112: invokevirtual #230                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     115: checkcast     #258                // class net/minecraft/world/item/enchantment/Enchantment
+     118: aload         5
+     120: invokestatic  #264                // Method net/minecraft/world/item/enchantment/EnchantmentHelper.getTagEnchantmentLevel:(Lnet/minecraft/world/item/enchantment/Enchantment;Lnet/minecraft/world/item/ItemStack;)I
+     123: ifle          130
+     126: iconst_1
+     127: goto          131
+     130: iconst_0
+     131: istore        6
+     133: iload         6
+     135: ifeq          164
+     138: aload         5
+     140: invokevirtual #238                // Method net/minecraft/world/item/ItemStack.m_41784_:()Lnet/minecraft/nbt/CompoundTag;
+     143: getstatic     #267                // Field cool/furry/mc/forge/projectexpansion/util/TagNames.ALCHEMICAL_COLLECTION_ENABLED:Ljava/lang/String;
+     146: invokevirtual #271                // Method net/minecraft/nbt/CompoundTag.m_128441_:(Ljava/lang/String;)Z
+     149: ifne          164
+     152: aload         5
+     154: invokevirtual #238                // Method net/minecraft/world/item/ItemStack.m_41784_:()Lnet/minecraft/nbt/CompoundTag;
+     157: getstatic     #267                // Field cool/furry/mc/forge/projectexpansion/util/TagNames.ALCHEMICAL_COLLECTION_ENABLED:Ljava/lang/String;
+     160: iconst_1
+     161: invokevirtual #275                // Method net/minecraft/nbt/CompoundTag.m_128379_:(Ljava/lang/String;Z)V
+     164: iinc          4, 1
+     167: goto          51
+     170: goto          29
+     173: return
+
+  public static net.minecraft.resources.ResourceLocation rl(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+    Code:
+       0: new           #289                // class net/minecraft/resources/ResourceLocation
+       3: dup
+       4: ldc           #31                 // String projectexpansion
+       6: aload_0
+       7: invokespecial #292                // Method net/minecraft/resources/ResourceLocation."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+      10: areturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: invokestatic  #300                // Method org/apache/logging/log4j/LogManager.getLogger:()Lorg/apache/logging/log4j/Logger;
+       3: putstatic     #302                // Field Logger:Lorg/apache/logging/log4j/Logger;
+       6: return
+}

@@ -1,0 +1,27 @@
+Compiled from "ContainerVacuumChest.java"
+class crazypants.enderio.machines.machine.vacuum.chest.ContainerVacuumChest$1 extends com.enderio.core.common.inventory.EnderSlot {
+  final crazypants.enderio.machines.machine.vacuum.chest.ContainerVacuumChest this$0;
+    descriptor: Lcrazypants/enderio/machines/machine/vacuum/chest/ContainerVacuumChest;
+
+  crazypants.enderio.machines.machine.vacuum.chest.ContainerVacuumChest$1(crazypants.enderio.machines.machine.vacuum.chest.ContainerVacuumChest, com.enderio.core.common.inventory.EnderInventory$View, java.lang.String, int, int);
+    descriptor: (Lcrazypants/enderio/machines/machine/vacuum/chest/ContainerVacuumChest;Lcom/enderio/core/common/inventory/EnderInventory$View;Ljava/lang/String;II)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #21                 // Field this$0:Lcrazypants/enderio/machines/machine/vacuum/chest/ContainerVacuumChest;
+       5: aload_0
+       6: aload_2
+       7: aload_3
+       8: iload         4
+      10: iload         5
+      12: invokespecial #24                 // Method com/enderio/core/common/inventory/EnderSlot."<init>":(Lcom/enderio/core/common/inventory/EnderInventory$View;Ljava/lang/String;II)V
+      15: return
+
+  public void func_75218_e();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: getfield      #21                 // Field this$0:Lcrazypants/enderio/machines/machine/vacuum/chest/ContainerVacuumChest;
+       4: invokevirtual #37                 // Method crazypants/enderio/machines/machine/vacuum/chest/ContainerVacuumChest.filterChanged:()V
+       7: return
+}

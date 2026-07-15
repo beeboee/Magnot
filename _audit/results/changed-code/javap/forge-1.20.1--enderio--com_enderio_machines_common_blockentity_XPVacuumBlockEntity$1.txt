@@ -1,0 +1,28 @@
+Compiled from "XPVacuumBlockEntity.java"
+class com.enderio.machines.common.blockentity.XPVacuumBlockEntity$1 extends com.enderio.machines.common.io.fluid.MachineFluidHandler {
+  final com.enderio.machines.common.blockentity.XPVacuumBlockEntity this$0;
+    descriptor: Lcom/enderio/machines/common/blockentity/XPVacuumBlockEntity;
+
+  com.enderio.machines.common.blockentity.XPVacuumBlockEntity$1(com.enderio.machines.common.blockentity.XPVacuumBlockEntity, com.enderio.api.io.IIOConfig, com.enderio.machines.common.io.fluid.MachineTankLayout);
+    descriptor: (Lcom/enderio/machines/common/blockentity/XPVacuumBlockEntity;Lcom/enderio/api/io/IIOConfig;Lcom/enderio/machines/common/io/fluid/MachineTankLayout;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #16                 // Field this$0:Lcom/enderio/machines/common/blockentity/XPVacuumBlockEntity;
+       5: aload_0
+       6: aload_2
+       7: aload_3
+       8: invokespecial #19                 // Method com/enderio/machines/common/io/fluid/MachineFluidHandler."<init>":(Lcom/enderio/api/io/IIOConfig;Lcom/enderio/machines/common/io/fluid/MachineTankLayout;)V
+      11: return
+
+  protected void onContentsChanged(int);
+    descriptor: (I)V
+    Code:
+       0: aload_0
+       1: iload_1
+       2: invokespecial #29                 // Method com/enderio/machines/common/io/fluid/MachineFluidHandler.onContentsChanged:(I)V
+       5: aload_0
+       6: getfield      #16                 // Field this$0:Lcom/enderio/machines/common/blockentity/XPVacuumBlockEntity;
+       9: invokevirtual #33                 // Method com/enderio/machines/common/blockentity/XPVacuumBlockEntity.m_6596_:()V
+      12: return
+}
