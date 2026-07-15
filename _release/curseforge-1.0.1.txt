@@ -1,0 +1,6 @@
+Magnot 1.0.1 CurseForge upload receipt
+status=accepted
+project_id=1609524
+file_id=8434729
+file_url=https://www.curseforge.com/minecraft/mc-mods/magnot/files/8434729
+accepted_at=2026-07-15T00:24:34Z
