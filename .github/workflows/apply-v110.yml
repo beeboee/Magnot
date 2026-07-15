@@ -26,7 +26,7 @@ jobs:
             from pathlib import Path
             path = Path('.v110/part04')
             data = path.read_text()
-            if len(data) == 7999 and data[3678:3698] == 'hWsWW2195LOVdNu8PD1K':
+            if len(data) == 7999 and data[3680:3696] == '5DhxWsWW2195LOVd':
                 path.write_text(data[:3688] + 'G' + data[3688:])
             PY
             cat .v110/part* | tr -d '\r\n' > /tmp/v110.b64
