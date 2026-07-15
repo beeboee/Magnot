@@ -8,7 +8,6 @@
     "simplemagnets.MagnetItemMixin",
     "itemcollectors.CollectorBlockEntityMixin",
     "portcompat.Ae2wtlibMagnetHandlerMixin",
-    "portcompat.ArtifactsMagnetismMixin",
     "portcompat.MekanismMagneticAttractionMixin",
     "portcompat.ReliquaryFortuneCoinMixin",
     "portcompat.MobGrindingUtilsAbsorptionHopperMixin",
