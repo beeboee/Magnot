@@ -1,8 +1,0 @@
-target_sha=af17667b1e0592cba1c3a54b87736de8ca1978df
-run_id=29380931000
-status=queued
-conclusion=
-87244200179	publish (forge-1.12.2, 1.12.2-forge-legacy, 8, 8, 4.10.3, forge, 1.12.2, Legacy core and public c...	queued	
-87244200203	publish (forge-1.19.2, 1.19.2-forge, 17, 17, 7.6.4, forge, 1.19.2, create(required), Simple Magne...	queued	
-87244200225	publish (forge-1.16.5, 1.16.5-forge, 17, 8, 8.8, forge, 1.16.5, create(required), Simple Magnets,...	queued	
-87244200327	publish (fabric-1.20.1, 1.20.1-fabric, 17, 17, 8.12, fabric, 1.20.1, create-fabric(required), Sim...	in_progress	
