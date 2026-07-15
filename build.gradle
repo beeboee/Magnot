@@ -63,6 +63,11 @@ repositories {
             includeGroup 'mezz.jei'
         }
     }
+    maven {
+        name = 'Terraformers Maven'
+        url = 'https://maven.terraformersmc.com/releases/'
+        content { includeGroup 'dev.emi' }
+    }
     mavenCentral()
 }
 
@@ -87,6 +92,11 @@ neoForge {
         magnot {
             sourceSet sourceSets.main
         }
+    }
+
+    unitTest {
+        enable()
+        testedMod = mods.magnot
     }
 }
 
@@ -207,6 +217,12 @@ tasks.matching { it.name in ['runClient', 'runServer'] }.configureEach {
     dependsOn tasks.named('downloadCompatTestMods')
 }
 
+def withCreate = (findProperty('with_create') ?: 'false').toString().toBoolean()
+def withSable = (findProperty('with_sable') ?: 'false').toString().toBoolean()
+def withJei = (findProperty('with_jei') ?: 'false').toString().toBoolean()
+def withEmi = (findProperty('with_emi') ?: 'false').toString().toBoolean()
+def withCompatTestMods = (findProperty('with_compat_test_mods') ?: 'false').toString().toBoolean()
+
 def requestedCreateVersion = (findProperty('create_version') ?: create_version).toString().trim()
 def defaultCreateClassifier = requestedCreateVersion.startsWith('6.0.10-') ? 'slim' : ''
 def createClassifier = hasProperty('create_classifier')
@@ -218,36 +234,57 @@ if (!createClassifier.isEmpty()) {
 }
 
 dependencies {
-    implementation(createCoordinates) { transitive = false }
-    implementation("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
+    // Optional Create-backed selection path. The common runtime never references these classes.
+    compileOnly(createCoordinates) { transitive = false }
+    compileOnly("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
     compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")
-    runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
-    implementation("com.tterrag.registrate:Registrate:${registrate_version}")
+    compileOnly("com.tterrag.registrate:Registrate:${registrate_version}")
+    if (withCreate) {
+        runtimeOnly(createCoordinates) { transitive = false }
+        runtimeOnly("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
+        runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
+        runtimeOnly("com.tterrag.registrate:Registrate:${registrate_version}")
+    }
 
-    runtimeOnly("org.appliedenergistics:appliedenergistics2:${ae2_version}")
-    runtimeOnly("de.mari_023:ae2wtlib:${ae2wtlib_version}")
+    // Optional recipe viewers. Only isolated plugin classes compile against these APIs.
+    compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
+    compileOnly("dev.emi:emi-neoforge:${emi_version}+${minecraft_version}:api")
+    if (withJei) {
+        runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
+    }
+    if (withEmi) {
+        runtimeOnly("dev.emi:emi-neoforge:${emi_version}+${minecraft_version}")
+    }
 
     compileOnly("curse.maven:projecte-${projecte_curse_id}:${projecte_file_id}")
-    runtimeOnly("curse.maven:projecte-${projecte_curse_id}:${projecte_file_id}")
 
     compileOnly("dev.ryanhcode.sable:sable-neoforge-${minecraft_version}:${sable_version}")
-    runtimeOnly("maven.modrinth:oWaK0Q19:${create_aeronautics_modrinth_version}")
-    runtimeOnly("dev.ryanhcode.sable:sable-neoforge-${minecraft_version}:${sable_version}")
+    if (withSable) {
+        runtimeOnly("dev.ryanhcode.sable:sable-neoforge-${minecraft_version}:${sable_version}")
+    }
 
-    runtimeOnly("curse.maven:sophisticated-core-${sophisticated_core_curse_id}:${sophisticated_core_file_id}")
-    runtimeOnly("curse.maven:sophisticated-backpacks-${sophisticated_backpacks_curse_id}:${sophisticated_backpacks_file_id}")
-    runtimeOnly("curse.maven:sophisticated-storage-${sophisticated_storage_curse_id}:${sophisticated_storage_file_id}")
+    if (withCompatTestMods) {
+        runtimeOnly("org.appliedenergistics:appliedenergistics2:${ae2_version}")
+        runtimeOnly("de.mari_023:ae2wtlib:${ae2wtlib_version}")
+        runtimeOnly("curse.maven:projecte-${projecte_curse_id}:${projecte_file_id}")
+        runtimeOnly("curse.maven:sophisticated-core-${sophisticated_core_curse_id}:${sophisticated_core_file_id}")
+        runtimeOnly("curse.maven:sophisticated-backpacks-${sophisticated_backpacks_curse_id}:${sophisticated_backpacks_file_id}")
+        runtimeOnly("curse.maven:sophisticated-storage-${sophisticated_storage_curse_id}:${sophisticated_storage_file_id}")
+        runtimeOnly("top.theillusivec4.curios:curios-neoforge:${curios_version}")
+        runtimeOnly("curse.maven:artifacts-${artifacts_curse_id}:${artifacts_file_id}")
+        runtimeOnly("mekanism:Mekanism:${mekanism_version}")
+        runtimeOnly("curse.maven:actually-additions-${actually_additions_curse_id}:${actually_additions_file_id}")
+        runtimeOnly(localRuntimeMods)
+    }
 
-    runtimeOnly("top.theillusivec4.curios:curios-neoforge:${curios_version}")
-    runtimeOnly("curse.maven:artifacts-${artifacts_curse_id}:${artifacts_file_id}")
-    runtimeOnly("mekanism:Mekanism:${mekanism_version}")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junit_version}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junit_version}")
+    testImplementation("net.neoforged:testframework:${neoforge_version}") { transitive = false }
 
-    // Optional magnet compat test mods. Only exact pinned file ids are usable here.
-    runtimeOnly("curse.maven:actually-additions-${actually_additions_curse_id}:${actually_additions_file_id}")
+}
 
-    // Local compat test jars remain available as an escape hatch for jars that
-    // cannot be fetched cleanly from Maven.
-    runtimeOnly(localRuntimeMods)
+tasks.named('test', Test).configure {
+    useJUnitPlatform()
 }
 
 var replaceProperties = [

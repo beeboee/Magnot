@@ -14,6 +14,7 @@ import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -37,9 +38,20 @@ public abstract class MagnetItemMixin {
             return candidates;
         }
 
-        return candidates.stream()
-                .filter(candidate -> !(candidate instanceof ItemEntity item)
-                        || !FerrousMagnetRules.blocksPlayerItemPull(serverLevel, player, item))
-                .toList();
+        FerrousMagnetRules.MagnetQueryContext query = FerrousMagnetRules.playerContext(serverLevel, player);
+        ArrayList<T> filtered = null;
+        for (int i = 0; i < candidates.size(); i++) {
+            T candidate = candidates.get(i);
+            boolean blocked = candidate instanceof ItemEntity item && query.blocks(item);
+            if (blocked) {
+                if (filtered == null) {
+                    filtered = new ArrayList<>(candidates.size() - 1);
+                    filtered.addAll(candidates.subList(0, i));
+                }
+            } else if (filtered != null) {
+                filtered.add(candidate);
+            }
+        }
+        return filtered == null ? candidates : filtered;
     }
 }

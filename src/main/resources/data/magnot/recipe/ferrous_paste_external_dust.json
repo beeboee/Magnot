@@ -1,0 +1,19 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "magnot:material_available",
+      "material": "external_iron_dust",
+      "expected": true
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "type": "neoforge:difference",
+      "base": { "tag": "c:dusts/iron" },
+      "subtracted": { "item": "magnot:iron_dust" }
+    },
+    { "tag": "magnot:slime_adhesives" }
+  ],
+  "result": { "id": "magnot:ferrous_paste", "count": 1 }
+}
