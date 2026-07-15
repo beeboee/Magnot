@@ -1,0 +1,27 @@
+259-2026-07-15T03:08:47.7286274Z Note: Writing refmap to /home/runner/work/Magnot/Magnot/build/tmp/compileJava/compileJava-refmap.json
+260-2026-07-15T03:08:47.7287899Z Note: Writing searge composite mappings to /home/runner/work/Magnot/Magnot/build/tmp/compileJava/compileJava-mappings.tsrg
+261-2026-07-15T03:08:47.8219343Z Note: Writing refmap to /home/runner/work/Magnot/Magnot/build/tmp/compileJava/compileJava-refmap.json
+262-2026-07-15T03:08:47.8221214Z Note: Writing refmap to /home/runner/work/Magnot/Magnot/build/tmp/compileJava/compileJava-refmap.json
+263-2026-07-15T03:08:47.8222917Z Note: Writing searge composite mappings to /home/runner/work/Magnot/Magnot/build/tmp/compileJava/compileJava-mappings.tsrg
+264:2026-07-15T03:08:48.2241197Z /home/runner/work/Magnot/Magnot/ports/forge-1.20.1/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java:36: error: level has private access in Entity
+265-2026-07-15T03:08:48.2242549Z 
+266-2026-07-15T03:08:48.2254733Z         if (item.level instanceof ServerLevel serverLevel
+267-2026-07-15T03:08:48.2256388Z                 ^
+268-2026-07-15T03:08:48.2270162Z > Task :compileJava FAILED
+269:2026-07-15T03:08:48.2287162Z /home/runner/work/Magnot/Magnot/ports/forge-1.20.1/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java:49: error: level has private access in Entity
+270-2026-07-15T03:08:48.2289121Z gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/__run-1784084893636.json
+271-2026-07-15T03:08:48.2291034Z         if (item.level instanceof ServerLevel serverLevel
+272-2026-07-15T03:08:48.2293596Z                 ^
+273:2026-07-15T03:08:48.2295787Z /home/runner/work/Magnot/Magnot/ports/forge-1.20.1/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java:97: error: level has private access in Entity
+274-2026-07-15T03:08:48.2297809Z         if (entity instanceof ItemEntity item && player.level instanceof ServerLevel serverLevel
+275-2026-07-15T03:08:48.2298886Z                                                        ^
+276-2026-07-15T03:08:48.2299847Z 3 errors
+277-2026-07-15T03:08:48.2300362Z 
+278-2026-07-15T03:08:48.2300799Z FAILURE: Build failed with an exception.
+279-2026-07-15T03:08:48.2301192Z 
+280-2026-07-15T03:08:48.2301362Z * What went wrong:
+281-2026-07-15T03:08:48.2301813Z Execution failed for task ':compileJava'.
+282-2026-07-15T03:08:48.2302526Z > Compilation failed; see the compiler error output for details.
+283-2026-07-15T03:08:48.2303038Z 
+284-2026-07-15T03:08:48.2303193Z * Try:
+285-2026-07-15T03:08:48.2303636Z > Run with --info option to get more log output.
