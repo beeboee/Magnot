@@ -39,7 +39,7 @@ tasks.register('validateCreateDependency') {
     group = 'verification'
     description = 'Resolves the exact newest supported Create Fabric artifact for this port.'
     doLast {
-        configurations.modRuntimeClasspath.resolve()
+        configurations.runtimeClasspath.resolve()
         println "Validated Create Fabric ${create_version} on Minecraft ${minecraft_version}."
     }
 }
