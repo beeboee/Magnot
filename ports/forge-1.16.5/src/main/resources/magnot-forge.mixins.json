@@ -4,6 +4,18 @@
   "package": "com.beeboee.magnot.mixin",
   "compatibilityLevel": "JAVA_8",
   "refmap": "magnot.refmap.json",
-  "mixins": ["simplemagnets.MagnetItemMixin"],
-  "injectors": {"defaultRequire":0}
+  "mixins": [
+    "simplemagnets.MagnetItemMixin",
+    "portcompat.ItemCollectorsMixin",
+    "portcompat.MobGrindingUtilsMixin",
+    "portcompat.ModularRoutersMixin",
+    "portcompat.MekanismMixin",
+    "portcompat.DraconicEvolutionMixin",
+    "portcompat.ReliquaryMixin",
+    "portcompat.SophisticatedCoreMixin",
+    "portcompat.IndustrialForegoingBackpackMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
 }
