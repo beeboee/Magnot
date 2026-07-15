@@ -17,14 +17,14 @@ public abstract class MagnetHandlerMixin {
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/entity/item/ItemEntity;playerTouch(Lnet/minecraft/world/entity/player/Player;)V"
-            )
+            ),
+            require = 0
     )
-    private static void magnot$blockFerrousRegionPickup(ItemEntity itemEntity, Player player) {
-        if (itemEntity.level() instanceof ServerLevel serverLevel
-                && FerrousMagnetRules.blocksPlayerMagnet(serverLevel, player, itemEntity.position())) {
+    private static void magnot$filterPickup(ItemEntity item, Player player) {
+        if (item.level() instanceof ServerLevel serverLevel
+                && FerrousMagnetRules.blocksPlayerItemPull(serverLevel, player, item)) {
             return;
         }
-
-        itemEntity.playerTouch(player);
+        item.playerTouch(player);
     }
 }
