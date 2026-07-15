@@ -1,0 +1,48 @@
+name: Inspect legacy Create resolution
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  inspect:
+    if: github.event.head_commit.message == 'Inspect legacy Create resolution'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Capture resolver status
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          target_sha='899bcee9ba54ec5e27d65ce7171f23d5f81a28ad'
+          run_id=''
+          for attempt in $(seq 1 30); do
+            run_id="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/workflows/resolve-create-legacy-now.yml/runs?per_page=50" --jq ".workflow_runs[] | select(.head_sha == \"${target_sha}\") | .id" | head -n1)"
+            [[ -n "$run_id" ]] && break
+            sleep 2
+          done
+          mkdir -p _audit
+          {
+            echo "run_id=$run_id"
+            if [[ -n "$run_id" ]]; then
+              echo "status=$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.status')"
+              echo "conclusion=$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.conclusion // empty')"
+              gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/jobs?per_page=50" --jq '.jobs[] | [.id,.name,.status,(.conclusion // "")] | @tsv'
+            fi
+          } > _audit/create-legacy-resolution-status.txt
+      - name: Commit status
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add _audit/create-legacy-resolution-status.txt
+          git commit -m 'Record legacy Create resolution status'
+          git pull --rebase origin main
+          git push origin HEAD:main
