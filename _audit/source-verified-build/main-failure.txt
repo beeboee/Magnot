@@ -1,0 +1,312 @@
+===== job 87258823482 =====
+244-2026-07-15T03:09:55.0016446Z [36;1m    'https://maven.createmod.net/com/simibubi/create/create-1.21.1/maven-metadata.xml')"[0m
+245-2026-07-15T03:09:55.0016980Z [36;1m  version="$(printf '%s' "$metadata" \[0m
+246-2026-07-15T03:09:55.0017455Z [36;1m    | sed -n 's:.*<version>\(6\.0\.[^<]*\)</version>.*:\1:p' \[0m
+247-2026-07-15T03:09:55.0017827Z [36;1m    | tail -n 1)"[0m
+248-2026-07-15T03:09:55.0018101Z [36;1m  classifier=''[0m
+249-2026-07-15T03:09:55.0018357Z [36;1mfi[0m
+250-2026-07-15T03:09:55.0018577Z [36;1m[0m
+251-2026-07-15T03:09:55.0018803Z [36;1mif [[ -z "$version" ]]; then[0m
+252:2026-07-15T03:09:55.0019160Z [36;1m  echo 'Could not resolve a Create version.' >&2[0m
+253-2026-07-15T03:09:55.0019501Z [36;1m  exit 1[0m
+254-2026-07-15T03:09:55.0019734Z [36;1mfi[0m
+255-2026-07-15T03:09:55.0019945Z [36;1m[0m
+256-2026-07-15T03:09:55.0020210Z [36;1mecho "version=$version" >> "$GITHUB_OUTPUT"[0m
+257-2026-07-15T03:09:55.0020608Z [36;1mecho "classifier=$classifier" >> "$GITHUB_OUTPUT"[0m
+258-2026-07-15T03:09:55.0021102Z [36;1mecho "Testing Create $version${classifier:+ with classifier $classifier}"[0m
+259-2026-07-15T03:09:55.0214189Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+260-2026-07-15T03:09:55.0214600Z env:
+261-2026-07-15T03:09:55.0214974Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.11-10/x64
+262-2026-07-15T03:09:55.0215742Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.11-10/x64
+263-2026-07-15T03:09:55.0216571Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+264-2026-07-15T03:09:55.0216951Z   GRADLE_USER_HOME: /home/runner/.gradle
+265-2026-07-15T03:09:55.0217307Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+266-2026-07-15T03:09:55.0217655Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+267-2026-07-15T03:09:55.0218159Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+268-2026-07-15T03:09:55.0218917Z   DEVELOCITY_INJECTION_CUSTOM_VALUE: gradle-actions
+269-2026-07-15T03:09:55.0219301Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+270-2026-07-15T03:09:55.0219623Z ##[endgroup]
+271-2026-07-15T03:09:55.5161054Z Testing Create 6.0.11-295
+272-2026-07-15T03:09:55.5217962Z ##[group]Run set -o pipefail
+--
+290-2026-07-15T03:09:56.7588544Z To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.8/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+291-2026-07-15T03:09:58.4542823Z Daemon will be stopped at the end of the build 
+292-2026-07-15T03:10:00.1549170Z Calculating task graph as no cached configuration is available for tasks: build
+293-2026-07-15T03:10:07.7548517Z 
+294-2026-07-15T03:10:07.7593262Z > Configure project :
+295-2026-07-15T03:10:07.7617295Z Creating Minecraft artifacts without recompilation.
+296-2026-07-15T03:10:18.7568628Z gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/build-1784085002118.json
+297-2026-07-15T03:10:18.7569565Z 
+298:2026-07-15T03:10:18.7570126Z FAILURE: Build failed with an exception.
+299-2026-07-15T03:10:18.7570575Z 
+300:2026-07-15T03:10:18.7570801Z * What went wrong:
+301-2026-07-15T03:10:18.7571974Z Configuration cache state could not be cached: field `classpath` of task `:compileJava` of type `org.gradle.api.tasks.compile.JavaCompile`: error writing value of type 'org.gradle.api.internal.artifacts.configurations.DefaultUnlockedConfiguration'
+302:2026-07-15T03:10:18.7573449Z > Could not resolve all files for configuration ':compileClasspath'.
+303:2026-07-15T03:10:18.7574137Z    > Could not find mekanism:Mekanism:1.21.1-10.7.18.84.
+304-2026-07-15T03:10:18.7574630Z      Searched in the following locations:
+305-2026-07-15T03:10:18.7575334Z        - https://maven.neoforged.net/releases/mekanism/Mekanism/1.21.1-10.7.18.84/Mekanism-1.21.1-10.7.18.84.pom
+306-2026-07-15T03:10:18.7576575Z        - https://maven.createmod.net/mekanism/Mekanism/1.21.1-10.7.18.84/Mekanism-1.21.1-10.7.18.84.pom
+307-2026-07-15T03:10:18.7577495Z        - https://maven.parchmentmc.org/mekanism/Mekanism/1.21.1-10.7.18.84/Mekanism-1.21.1-10.7.18.84.pom
+308-2026-07-15T03:10:18.7578363Z        - https://repo.maven.apache.org/maven2/mekanism/Mekanism/1.21.1-10.7.18.84/Mekanism-1.21.1-10.7.18.84.pom
+309-2026-07-15T03:10:18.7579274Z      Required by:
+310-2026-07-15T03:10:18.7579631Z          project :
+311:2026-07-15T03:10:18.7580094Z    > Could not find com.tterrag.registrate:Registrate:MC1.21-1.3.0+67.
+312-2026-07-15T03:10:18.7580619Z      Searched in the following locations:
+313-2026-07-15T03:10:18.7581365Z        - https://maven.neoforged.net/releases/com/tterrag/registrate/Registrate/MC1.21-1.3.0+67/Registrate-MC1.21-1.3.0+67.pom
+314-2026-07-15T03:10:18.7582353Z        - https://maven.createmod.net/com/tterrag/registrate/Registrate/MC1.21-1.3.0+67/Registrate-MC1.21-1.3.0+67.pom
+315-2026-07-15T03:10:18.7590139Z        - https://maven.parchmentmc.org/com/tterrag/registrate/Registrate/MC1.21-1.3.0+67/Registrate-MC1.21-1.3.0+67.pom
+316-2026-07-15T03:10:18.7630007Z        - https://repo.maven.apache.org/maven2/com/tterrag/registrate/Registrate/MC1.21-1.3.0+67/Registrate-MC1.21-1.3.0+67.pom
+317-2026-07-15T03:10:18.7657670Z      Required by:
+318-2026-07-15T03:10:18.7662566Z          project :
+319-2026-07-15T03:10:18.7663053Z 
+320-2026-07-15T03:10:18.7663395Z * Try:
+321-2026-07-15T03:10:18.7685867Z > Run with --info or --debug option to get more log output.
+322-2026-07-15T03:10:18.7693225Z > Run with --scan to get full insights.
+323-2026-07-15T03:10:18.7694126Z > Get more help at https://help.gradle.org.
+324-2026-07-15T03:10:18.7694666Z 
+325:2026-07-15T03:10:18.7694953Z * Exception is:
+326-2026-07-15T03:10:18.7744346Z org.gradle.configurationcache.ConfigurationCacheError: Configuration cache state could not be cached: field `classpath` of task `:compileJava` of type `org.gradle.api.tasks.compile.JavaCompile`: error writing value of type 'org.gradle.api.internal.artifacts.configurations.DefaultUnlockedConfiguration'
+327-2026-07-15T03:10:18.7765081Z 	at org.gradle.configurationcache.problems.ProblemsListener$DefaultImpls.onError(ProblemsListener.kt:37)
+328-2026-07-15T03:10:18.7797304Z 	at org.gradle.configurationcache.problems.ConfigurationCacheProblems.onError(ConfigurationCacheProblems.kt:41)
+329-2026-07-15T03:10:18.7827006Z 	at org.gradle.configurationcache.serialization.AbstractIsolateContext.onError(Contexts.kt:456)
+330-2026-07-15T03:10:18.7842695Z 	at org.gradle.configurationcache.serialization.beans.BeanPropertyWriterKt.writeNextProperty(BeanPropertyWriter.kt:100)
+331-2026-07-15T03:10:18.7856996Z 	at org.gradle.configurationcache.serialization.beans.BeanPropertyWriter.writeStateOf(BeanPropertyWriter.kt:53)
+332-2026-07-15T03:10:18.7867107Z 	at org.gradle.configurationcache.serialization.codecs.TaskNodeCodec$writeTask$3$2$1.invokeSuspend(TaskNodeCodec.kt:102)
+333-2026-07-15T03:10:18.7868289Z 	at org.gradle.configurationcache.serialization.codecs.TaskNodeCodec$writeTask$3$2$1.invoke(TaskNodeCodec.kt)
+334-2026-07-15T03:10:18.7869410Z 	at org.gradle.configurationcache.serialization.codecs.TaskNodeCodec$writeTask$3$2$1.invoke(TaskNodeCodec.kt)
+335-2026-07-15T03:10:18.7870498Z 	at org.gradle.configurationcache.serialization.codecs.TaskNodeCodecKt.withTaskOf(TaskNodeCodec.kt:236)
+336-2026-07-15T03:10:18.7910202Z 	at org.gradle.configurationcache.serialization.codecs.TaskNodeCodecKt.access$withTaskOf(TaskNodeCodec.kt:1)
+337-2026-07-15T03:10:18.7916747Z 	at org.gradle.configurationcache.serialization.codecs.TaskNodeCodec.writeTask(TaskNodeCodec.kt:96)
+338-2026-07-15T03:10:18.7918496Z 	at org.gradle.configurationcache.serialization.codecs.TaskNodeCodec.encode(TaskNodeCodec.kt:73)
+339-2026-07-15T03:10:18.7920075Z 	at org.gradle.configurationcache.serialization.codecs.TaskNodeCodec.encode(TaskNodeCodec.kt:66)
+340-2026-07-15T03:10:18.7921676Z 	at org.gradle.configurationcache.serialization.codecs.BindingsBackedCodec.encode(BindingsBackedCodec.kt:62)
+341-2026-07-15T03:10:18.7923227Z 	at org.gradle.configurationcache.serialization.DefaultWriteContext.write(Contexts.kt:82)
+342-2026-07-15T03:10:18.7924694Z 	at org.gradle.configurationcache.serialization.codecs.WorkNodeCodec.doWrite(WorkNodeCodec.kt:77)
+343-2026-07-15T03:10:18.7926469Z 	at org.gradle.configurationcache.serialization.codecs.WorkNodeCodec.writeWork(WorkNodeCodec.kt:56)
+344-2026-07-15T03:10:18.7928087Z 	at org.gradle.configurationcache.ConfigurationCacheState.writeWorkGraphOf(ConfigurationCacheState.kt:489)
+345-2026-07-15T03:10:18.7930353Z 	at org.gradle.configurationcache.ConfigurationCacheState.writeBuildContent$configuration_cache(ConfigurationCacheState.kt:450)
+--
+476-2026-07-15T03:10:18.8089096Z 	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+477-2026-07-15T03:10:18.8089958Z 	at org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment.doBuild(EstablishBuildEnvironment.java:84)
+478-2026-07-15T03:10:18.8090774Z 	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
+479-2026-07-15T03:10:18.8091550Z 	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+480-2026-07-15T03:10:18.8092408Z 	at org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy$1.run(StartBuildOrRespondWithBusy.java:52)
+481-2026-07-15T03:10:18.8093584Z 	at org.gradle.launcher.daemon.server.DaemonStateCoordinator$1.run(DaemonStateCoordinator.java:297)
+482-2026-07-15T03:10:18.8102153Z 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+483-2026-07-15T03:10:18.8103105Z 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+484:2026-07-15T03:10:18.8104416Z Caused by: org.gradle.api.internal.artifacts.ivyservice.DefaultLenientConfiguration$ArtifactResolveException: Could not resolve all files for configuration ':compileClasspath'.
+485:2026-07-15T03:10:18.8106218Z 	at org.gradle.api.internal.artifacts.ResolveExceptionContextualizer.mapFailures(ResolveExceptionContextualizer.java:56)
+486-2026-07-15T03:10:18.8107366Z 	at org.gradle.api.internal.artifacts.configurations.DefaultConfiguration$DefaultResolutionHost.mapFailure(DefaultConfiguration.java:2109)
+487-2026-07-15T03:10:18.8108423Z 	at org.gradle.api.internal.artifacts.configurations.ResolutionHost.rethrowFailure(ResolutionHost.java:47)
+488-2026-07-15T03:10:18.8109602Z 	at org.gradle.api.internal.artifacts.configurations.ResolutionBackedFileCollection.maybeThrowResolutionFailures(ResolutionBackedFileCollection.java:84)
+489-2026-07-15T03:10:18.8111178Z 	at org.gradle.api.internal.artifacts.configurations.ResolutionBackedFileCollection.visitContents(ResolutionBackedFileCollection.java:74)
+490-2026-07-15T03:10:18.8112438Z 	at org.gradle.api.internal.file.AbstractFileCollection.visitStructure(AbstractFileCollection.java:361)
+491-2026-07-15T03:10:18.8113387Z 	at org.gradle.configurationcache.serialization.codecs.CollectingVisitor.startVisit(FileCollectionCodec.kt:168)
+492-2026-07-15T03:10:18.8114331Z 	at org.gradle.api.internal.file.AbstractFileCollection.visitStructure(AbstractFileCollection.java:360)
+493-2026-07-15T03:10:18.8115312Z 	at org.gradle.api.internal.artifacts.configurations.DefaultConfiguration.visitContents(DefaultConfiguration.java:526)
+494-2026-07-15T03:10:18.8116572Z 	at org.gradle.api.internal.file.AbstractFileCollection.visitStructure(AbstractFileCollection.java:361)
+495-2026-07-15T03:10:18.8117766Z 	at org.gradle.configurationcache.serialization.codecs.FileCollectionCodec.encodeContents(FileCollectionCodec.kt:61)
+496-2026-07-15T03:10:18.8118768Z 	at org.gradle.configurationcache.serialization.codecs.FileCollectionCodec.encode(FileCollectionCodec.kt:55)
+497-2026-07-15T03:10:18.8120360Z 	at org.gradle.configurationcache.serialization.codecs.FileCollectionCodec.encode(FileCollectionCodec.kt:47)
+498-2026-07-15T03:10:18.8122047Z 	at org.gradle.configurationcache.serialization.codecs.BindingsBackedCodec.encode(BindingsBackedCodec.kt:62)
+499-2026-07-15T03:10:18.8123556Z 	at org.gradle.configurationcache.serialization.DefaultWriteContext.write(Contexts.kt:82)
+500-2026-07-15T03:10:18.8125204Z 	at org.gradle.configurationcache.serialization.beans.BeanPropertyWriterKt.writeNextProperty(BeanPropertyWriter.kt:98)
+501-2026-07-15T03:10:18.8126450Z 	... 153 more
+502:2026-07-15T03:10:18.8127470Z Caused by: org.gradle.internal.resolve.ModuleVersionNotFoundException: Could not find mekanism:Mekanism:1.21.1-10.7.18.84.
+503-2026-07-15T03:10:18.8128549Z Searched in the following locations:
+504-2026-07-15T03:10:18.8129137Z   - https://maven.neoforged.net/releases/mekanism/Mekanism/1.21.1-10.7.18.84/Mekanism-1.21.1-10.7.18.84.pom
+505-2026-07-15T03:10:18.8130453Z   - https://maven.createmod.net/mekanism/Mekanism/1.21.1-10.7.18.84/Mekanism-1.21.1-10.7.18.84.pom
+506-2026-07-15T03:10:18.8131677Z   - https://maven.parchmentmc.org/mekanism/Mekanism/1.21.1-10.7.18.84/Mekanism-1.21.1-10.7.18.84.pom
+507-2026-07-15T03:10:18.8132929Z   - https://repo.maven.apache.org/maven2/mekanism/Mekanism/1.21.1-10.7.18.84/Mekanism-1.21.1-10.7.18.84.pom
+508-2026-07-15T03:10:18.8133877Z Required by:
+509-2026-07-15T03:10:18.8134264Z     project :
+510-2026-07-15T03:10:18.8134495Z 
+511-2026-07-15T03:10:18.8134503Z 
+512-2026-07-15T03:10:18.8134686Z BUILD FAILED in 23s
+513-2026-07-15T03:10:18.8135269Z Configuration cache entry discarded due to serialization error.
+514-2026-07-15T03:10:19.1947576Z ##[error]Process completed with exit code 1.
+515-2026-07-15T03:10:19.2008649Z ##[group]Run {
+516-2026-07-15T03:10:19.2009224Z [36;1m{[0m
+517-2026-07-15T03:10:19.2009642Z [36;1m  echo "### Create compatibility failed: latest-6.0"[0m
+518-2026-07-15T03:10:19.2010113Z [36;1m  echo[0m
+519-2026-07-15T03:10:19.2010562Z [36;1m  echo "Create version: \`6.0.11-295\`"[0m
+520-2026-07-15T03:10:19.2011020Z [36;1m  echo[0m
+521-2026-07-15T03:10:19.2011431Z [36;1m  echo '```text'[0m
+522:2026-07-15T03:10:19.2012124Z [36;1m  grep -nE -B 5 -A 15 '(error:|What went wrong:|Caused by:|Could not|Exception|FAILURE:)' build.log | tail -n 220 || tail -n 220 build.log[0m
+523-2026-07-15T03:10:19.2013116Z [36;1m  echo '```'[0m
+524-2026-07-15T03:10:19.2013697Z [36;1m} > build-comment.md[0m
+525-2026-07-15T03:10:19.2015266Z [36;1mgh pr comment '20' --body-file build-comment.md[0m
+526-2026-07-15T03:10:19.2063291Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+527-2026-07-15T03:10:19.2080236Z env:
+528-2026-07-15T03:10:19.2080867Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.11-10/x64
+529-2026-07-15T03:10:19.2081853Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.11-10/x64
+530-2026-07-15T03:10:19.2082640Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+531-2026-07-15T03:10:19.2083231Z   GRADLE_USER_HOME: /home/runner/.gradle
+532-2026-07-15T03:10:19.2083783Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+533-2026-07-15T03:10:19.2084346Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+534-2026-07-15T03:10:19.2085165Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+535-2026-07-15T03:10:19.2086279Z   DEVELOCITY_INJECTION_CUSTOM_VALUE: gradle-actions
+536-2026-07-15T03:10:19.2086889Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+537-2026-07-15T03:10:19.2092220Z   GH_TOKEN: ***
+538-2026-07-15T03:10:19.2092610Z ##[endgroup]
+539-2026-07-15T03:10:20.0597602Z https://github.com/beeboee/Magnot/pull/20#issuecomment-4976487094
+540-2026-07-15T03:10:20.0674036Z ##[group]Run exit 1
+541-2026-07-15T03:10:20.0674502Z [36;1mexit 1[0m
+542-2026-07-15T03:10:20.0718170Z shell: /usr/bin/bash -e {0}
+
+===== job 87258823489 =====
+244-2026-07-15T03:09:54.5927122Z [36;1m    'https://maven.createmod.net/com/simibubi/create/create-1.21.1/maven-metadata.xml')"[0m
+245-2026-07-15T03:09:54.5927664Z [36;1m  version="$(printf '%s' "$metadata" \[0m
+246-2026-07-15T03:09:54.5928126Z [36;1m    | sed -n 's:.*<version>\(6\.0\.[^<]*\)</version>.*:\1:p' \[0m
+247-2026-07-15T03:09:54.5928509Z [36;1m    | tail -n 1)"[0m
+248-2026-07-15T03:09:54.5928774Z [36;1m  classifier=''[0m
+249-2026-07-15T03:09:54.5929024Z [36;1mfi[0m
+250-2026-07-15T03:09:54.5929238Z [36;1m[0m
+251-2026-07-15T03:09:54.5929462Z [36;1mif [[ -z "$version" ]]; then[0m
+252:2026-07-15T03:09:54.5929819Z [36;1m  echo 'Could not resolve a Create version.' >&2[0m
+253-2026-07-15T03:09:54.5930156Z [36;1m  exit 1[0m
+254-2026-07-15T03:09:54.5930377Z [36;1mfi[0m
+255-2026-07-15T03:09:54.5930579Z [36;1m[0m
+256-2026-07-15T03:09:54.5930832Z [36;1mecho "version=$version" >> "$GITHUB_OUTPUT"[0m
+257-2026-07-15T03:09:54.5931226Z [36;1mecho "classifier=$classifier" >> "$GITHUB_OUTPUT"[0m
+258-2026-07-15T03:09:54.5931707Z [36;1mecho "Testing Create $version${classifier:+ with classifier $classifier}"[0m
+259-2026-07-15T03:09:54.6065407Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+260-2026-07-15T03:09:54.6065800Z env:
+261-2026-07-15T03:09:54.6066159Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.11-10/x64
+262-2026-07-15T03:09:54.6066922Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.11-10/x64
+263-2026-07-15T03:09:54.6067770Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+264-2026-07-15T03:09:54.6068338Z   GRADLE_USER_HOME: /home/runner/.gradle
+265-2026-07-15T03:09:54.6068685Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+266-2026-07-15T03:09:54.6069025Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+267-2026-07-15T03:09:54.6069525Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+268-2026-07-15T03:09:54.6070050Z   DEVELOCITY_INJECTION_CUSTOM_VALUE: gradle-actions
+269-2026-07-15T03:09:54.6070406Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+270-2026-07-15T03:09:54.6070701Z ##[endgroup]
+271-2026-07-15T03:09:54.6165169Z Testing Create 6.0.11-295
+272-2026-07-15T03:09:54.6214552Z ##[group]Run set -o pipefail
+--
+290-2026-07-15T03:09:55.3673335Z To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.8/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+291-2026-07-15T03:09:56.9656388Z Daemon will be stopped at the end of the build 
+292-2026-07-15T03:09:58.6659509Z Calculating task graph as no cached configuration is available for tasks: build
+293-2026-07-15T03:10:06.0698160Z 
+294-2026-07-15T03:10:06.0698750Z > Configure project :
+295-2026-07-15T03:10:06.0725845Z Creating Minecraft artifacts without recompilation.
+296-2026-07-15T03:10:17.4667938Z gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/build-1784085000449.json
+297-2026-07-15T03:10:17.4683582Z 
+298:2026-07-15T03:10:17.4693669Z FAILURE: Build failed with an exception.
+299-2026-07-15T03:10:17.4694315Z 
+300:2026-07-15T03:10:17.4694646Z * What went wrong:
+301-2026-07-15T03:10:17.4696733Z Configuration cache state could not be cached: field `classpath` of task `:compileJava` of type `org.gradle.api.tasks.compile.JavaCompile`: error writing value of type 'org.gradle.api.internal.artifacts.configurations.DefaultUnlockedConfiguration'
+302:2026-07-15T03:10:17.4699142Z > Could not resolve all files for configuration ':compileClasspath'.
+303:2026-07-15T03:10:17.4700183Z    > Could not find mekanism:Mekanism:1.21.1-10.7.18.84.
+304-2026-07-15T03:10:17.4700976Z      Searched in the following locations:
+305-2026-07-15T03:10:17.4702196Z        - https://maven.neoforged.net/releases/mekanism/Mekanism/1.21.1-10.7.18.84/Mekanism-1.21.1-10.7.18.84.pom
+306-2026-07-15T03:10:17.4704081Z        - https://maven.createmod.net/mekanism/Mekanism/1.21.1-10.7.18.84/Mekanism-1.21.1-10.7.18.84.pom
+307-2026-07-15T03:10:17.4705659Z        - https://maven.parchmentmc.org/mekanism/Mekanism/1.21.1-10.7.18.84/Mekanism-1.21.1-10.7.18.84.pom
+308-2026-07-15T03:10:17.4707231Z        - https://repo.maven.apache.org/maven2/mekanism/Mekanism/1.21.1-10.7.18.84/Mekanism-1.21.1-10.7.18.84.pom
+309-2026-07-15T03:10:17.4708707Z      Required by:
+310-2026-07-15T03:10:17.4709274Z          project :
+311:2026-07-15T03:10:17.4710039Z    > Could not find com.tterrag.registrate:Registrate:MC1.21-1.3.0+67.
+312-2026-07-15T03:10:17.4710935Z      Searched in the following locations:
+313-2026-07-15T03:10:17.4712210Z        - https://maven.neoforged.net/releases/com/tterrag/registrate/Registrate/MC1.21-1.3.0+67/Registrate-MC1.21-1.3.0+67.pom
+314-2026-07-15T03:10:17.4714334Z        - https://maven.createmod.net/com/tterrag/registrate/Registrate/MC1.21-1.3.0+67/Registrate-MC1.21-1.3.0+67.pom
+315-2026-07-15T03:10:17.4716095Z        - https://maven.parchmentmc.org/com/tterrag/registrate/Registrate/MC1.21-1.3.0+67/Registrate-MC1.21-1.3.0+67.pom
+316-2026-07-15T03:10:17.4718207Z        - https://repo.maven.apache.org/maven2/com/tterrag/registrate/Registrate/MC1.21-1.3.0+67/Registrate-MC1.21-1.3.0+67.pom
+317-2026-07-15T03:10:17.4719503Z      Required by:
+318-2026-07-15T03:10:17.4720060Z          project :
+319-2026-07-15T03:10:17.4721841Z 
+320-2026-07-15T03:10:17.4722171Z * Try:
+321-2026-07-15T03:10:17.4723081Z > Run with --info or --debug option to get more log output.
+322-2026-07-15T03:10:17.4723923Z > Run with --scan to get full insights.
+323-2026-07-15T03:10:17.4724662Z > Get more help at https://help.gradle.org.
+324-2026-07-15T03:10:17.4725204Z 
+325:2026-07-15T03:10:17.4725523Z * Exception is:
+326-2026-07-15T03:10:17.4727954Z org.gradle.configurationcache.ConfigurationCacheError: Configuration cache state could not be cached: field `classpath` of task `:compileJava` of type `org.gradle.api.tasks.compile.JavaCompile`: error writing value of type 'org.gradle.api.internal.artifacts.configurations.DefaultUnlockedConfiguration'
+327-2026-07-15T03:10:17.4731259Z 	at org.gradle.configurationcache.problems.ProblemsListener$DefaultImpls.onError(ProblemsListener.kt:37)
+328-2026-07-15T03:10:17.4733493Z 	at org.gradle.configurationcache.problems.ConfigurationCacheProblems.onError(ConfigurationCacheProblems.kt:41)
+329-2026-07-15T03:10:17.4753893Z 	at org.gradle.configurationcache.serialization.AbstractIsolateContext.onError(Contexts.kt:456)
+330-2026-07-15T03:10:17.4774232Z 	at org.gradle.configurationcache.serialization.beans.BeanPropertyWriterKt.writeNextProperty(BeanPropertyWriter.kt:100)
+331-2026-07-15T03:10:17.4803960Z 	at org.gradle.configurationcache.serialization.beans.BeanPropertyWriter.writeStateOf(BeanPropertyWriter.kt:53)
+332-2026-07-15T03:10:17.4805840Z 	at org.gradle.configurationcache.serialization.codecs.TaskNodeCodec$writeTask$3$2$1.invokeSuspend(TaskNodeCodec.kt:102)
+333-2026-07-15T03:10:17.4835860Z 	at org.gradle.configurationcache.serialization.codecs.TaskNodeCodec$writeTask$3$2$1.invoke(TaskNodeCodec.kt)
+334-2026-07-15T03:10:17.4854124Z 	at org.gradle.configurationcache.serialization.codecs.TaskNodeCodec$writeTask$3$2$1.invoke(TaskNodeCodec.kt)
+335-2026-07-15T03:10:17.4856027Z 	at org.gradle.configurationcache.serialization.codecs.TaskNodeCodecKt.withTaskOf(TaskNodeCodec.kt:236)
+336-2026-07-15T03:10:17.4857892Z 	at org.gradle.configurationcache.serialization.codecs.TaskNodeCodecKt.access$withTaskOf(TaskNodeCodec.kt:1)
+337-2026-07-15T03:10:17.4860551Z 	at org.gradle.configurationcache.serialization.codecs.TaskNodeCodec.writeTask(TaskNodeCodec.kt:96)
+338-2026-07-15T03:10:17.4869713Z 	at org.gradle.configurationcache.serialization.codecs.TaskNodeCodec.encode(TaskNodeCodec.kt:73)
+339-2026-07-15T03:10:17.4871593Z 	at org.gradle.configurationcache.serialization.codecs.TaskNodeCodec.encode(TaskNodeCodec.kt:66)
+340-2026-07-15T03:10:17.4873714Z 	at org.gradle.configurationcache.serialization.codecs.BindingsBackedCodec.encode(BindingsBackedCodec.kt:62)
+341-2026-07-15T03:10:17.4875377Z 	at org.gradle.configurationcache.serialization.DefaultWriteContext.write(Contexts.kt:82)
+342-2026-07-15T03:10:17.4876879Z 	at org.gradle.configurationcache.serialization.codecs.WorkNodeCodec.doWrite(WorkNodeCodec.kt:77)
+343-2026-07-15T03:10:17.4878659Z 	at org.gradle.configurationcache.serialization.codecs.WorkNodeCodec.writeWork(WorkNodeCodec.kt:56)
+344-2026-07-15T03:10:17.4880471Z 	at org.gradle.configurationcache.ConfigurationCacheState.writeWorkGraphOf(ConfigurationCacheState.kt:489)
+345-2026-07-15T03:10:17.4883068Z 	at org.gradle.configurationcache.ConfigurationCacheState.writeBuildContent$configuration_cache(ConfigurationCacheState.kt:450)
+--
+476-2026-07-15T03:10:17.5127032Z 	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+477-2026-07-15T03:10:17.5127901Z 	at org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment.doBuild(EstablishBuildEnvironment.java:84)
+478-2026-07-15T03:10:17.5129067Z 	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
+479-2026-07-15T03:10:17.5130616Z 	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+480-2026-07-15T03:10:17.5132250Z 	at org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy$1.run(StartBuildOrRespondWithBusy.java:52)
+481-2026-07-15T03:10:17.5133502Z 	at org.gradle.launcher.daemon.server.DaemonStateCoordinator$1.run(DaemonStateCoordinator.java:297)
+482-2026-07-15T03:10:17.5134319Z 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+483-2026-07-15T03:10:17.5135114Z 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+484:2026-07-15T03:10:17.5136361Z Caused by: org.gradle.api.internal.artifacts.ivyservice.DefaultLenientConfiguration$ArtifactResolveException: Could not resolve all files for configuration ':compileClasspath'.
+485:2026-07-15T03:10:17.5137569Z 	at org.gradle.api.internal.artifacts.ResolveExceptionContextualizer.mapFailures(ResolveExceptionContextualizer.java:56)
+486-2026-07-15T03:10:17.5138825Z 	at org.gradle.api.internal.artifacts.configurations.DefaultConfiguration$DefaultResolutionHost.mapFailure(DefaultConfiguration.java:2109)
+487-2026-07-15T03:10:17.5139814Z 	at org.gradle.api.internal.artifacts.configurations.ResolutionHost.rethrowFailure(ResolutionHost.java:47)
+488-2026-07-15T03:10:17.5140909Z 	at org.gradle.api.internal.artifacts.configurations.ResolutionBackedFileCollection.maybeThrowResolutionFailures(ResolutionBackedFileCollection.java:84)
+489-2026-07-15T03:10:17.5142147Z 	at org.gradle.api.internal.artifacts.configurations.ResolutionBackedFileCollection.visitContents(ResolutionBackedFileCollection.java:74)
+490-2026-07-15T03:10:17.5143522Z 	at org.gradle.api.internal.file.AbstractFileCollection.visitStructure(AbstractFileCollection.java:361)
+491-2026-07-15T03:10:17.5144579Z 	at org.gradle.configurationcache.serialization.codecs.CollectingVisitor.startVisit(FileCollectionCodec.kt:168)
+492-2026-07-15T03:10:17.5145469Z 	at org.gradle.api.internal.file.AbstractFileCollection.visitStructure(AbstractFileCollection.java:360)
+493-2026-07-15T03:10:17.5146647Z 	at org.gradle.api.internal.artifacts.configurations.DefaultConfiguration.visitContents(DefaultConfiguration.java:526)
+494-2026-07-15T03:10:17.5148438Z 	at org.gradle.api.internal.file.AbstractFileCollection.visitStructure(AbstractFileCollection.java:361)
+495-2026-07-15T03:10:17.5150217Z 	at org.gradle.configurationcache.serialization.codecs.FileCollectionCodec.encodeContents(FileCollectionCodec.kt:61)
+496-2026-07-15T03:10:17.5152141Z 	at org.gradle.configurationcache.serialization.codecs.FileCollectionCodec.encode(FileCollectionCodec.kt:55)
+497-2026-07-15T03:10:17.5154230Z 	at org.gradle.configurationcache.serialization.codecs.FileCollectionCodec.encode(FileCollectionCodec.kt:47)
+498-2026-07-15T03:10:17.5156051Z 	at org.gradle.configurationcache.serialization.codecs.BindingsBackedCodec.encode(BindingsBackedCodec.kt:62)
+499-2026-07-15T03:10:17.5157682Z 	at org.gradle.configurationcache.serialization.DefaultWriteContext.write(Contexts.kt:82)
+500-2026-07-15T03:10:17.5159469Z 	at org.gradle.configurationcache.serialization.beans.BeanPropertyWriterKt.writeNextProperty(BeanPropertyWriter.kt:98)
+501-2026-07-15T03:10:17.5161003Z 	... 153 more
+502:2026-07-15T03:10:17.5162015Z Caused by: org.gradle.internal.resolve.ModuleVersionNotFoundException: Could not find mekanism:Mekanism:1.21.1-10.7.18.84.
+503-2026-07-15T03:10:17.5163507Z Searched in the following locations:
+504-2026-07-15T03:10:17.5164542Z   - https://maven.neoforged.net/releases/mekanism/Mekanism/1.21.1-10.7.18.84/Mekanism-1.21.1-10.7.18.84.pom
+505-2026-07-15T03:10:17.5165949Z   - https://maven.createmod.net/mekanism/Mekanism/1.21.1-10.7.18.84/Mekanism-1.21.1-10.7.18.84.pom
+506-2026-07-15T03:10:17.5167291Z   - https://maven.parchmentmc.org/mekanism/Mekanism/1.21.1-10.7.18.84/Mekanism-1.21.1-10.7.18.84.pom
+507-2026-07-15T03:10:17.5168640Z   - https://repo.maven.apache.org/maven2/mekanism/Mekanism/1.21.1-10.7.18.84/Mekanism-1.21.1-10.7.18.84.pom
+508-2026-07-15T03:10:17.5169624Z Required by:
+509-2026-07-15T03:10:17.5170005Z     project :
+510-2026-07-15T03:10:17.5170232Z 
+511-2026-07-15T03:10:17.5170239Z 
+512-2026-07-15T03:10:17.5170406Z BUILD FAILED in 22s
+513-2026-07-15T03:10:17.5171010Z Configuration cache entry discarded due to serialization error.
+514-2026-07-15T03:10:17.8973657Z ##[error]Process completed with exit code 1.
+515-2026-07-15T03:10:17.9031183Z ##[group]Run {
+516-2026-07-15T03:10:17.9031480Z [36;1m{[0m
+517-2026-07-15T03:10:17.9031773Z [36;1m  echo "### Create compatibility failed: pinned"[0m
+518-2026-07-15T03:10:17.9032119Z [36;1m  echo[0m
+519-2026-07-15T03:10:17.9032379Z [36;1m  echo "Create version: \`6.0.11-295\`"[0m
+520-2026-07-15T03:10:17.9033070Z [36;1m  echo[0m
+521-2026-07-15T03:10:17.9033458Z [36;1m  echo '```text'[0m
+522:2026-07-15T03:10:17.9034248Z [36;1m  grep -nE -B 5 -A 15 '(error:|What went wrong:|Caused by:|Could not|Exception|FAILURE:)' build.log | tail -n 220 || tail -n 220 build.log[0m
+523-2026-07-15T03:10:17.9034868Z [36;1m  echo '```'[0m
+524-2026-07-15T03:10:17.9035331Z [36;1m} > build-comment.md[0m
+525-2026-07-15T03:10:17.9035684Z [36;1mgh pr comment '20' --body-file build-comment.md[0m
+526-2026-07-15T03:10:17.9076021Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+527-2026-07-15T03:10:17.9076806Z env:
+528-2026-07-15T03:10:17.9077610Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.11-10/x64
+529-2026-07-15T03:10:17.9078855Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.11-10/x64
+530-2026-07-15T03:10:17.9079884Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+531-2026-07-15T03:10:17.9080604Z   GRADLE_USER_HOME: /home/runner/.gradle
+532-2026-07-15T03:10:17.9081387Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+533-2026-07-15T03:10:17.9082139Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+534-2026-07-15T03:10:17.9083351Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+535-2026-07-15T03:10:17.9099135Z   DEVELOCITY_INJECTION_CUSTOM_VALUE: gradle-actions
+536-2026-07-15T03:10:17.9099824Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+537-2026-07-15T03:10:17.9106061Z   GH_TOKEN: ***
+538-2026-07-15T03:10:17.9106451Z ##[endgroup]
+539-2026-07-15T03:10:18.9021066Z https://github.com/beeboee/Magnot/pull/20#issuecomment-4976486992
+540-2026-07-15T03:10:18.9072333Z ##[group]Run exit 1
+541-2026-07-15T03:10:18.9072612Z [36;1mexit 1[0m
+542-2026-07-15T03:10:18.9104442Z shell: /usr/bin/bash -e {0}
+
