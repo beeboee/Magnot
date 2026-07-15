@@ -105,18 +105,20 @@ jobs:
           LATEST_CREATE: ${{ steps.latest-create.outputs.version }}
         shell: bash
         run: |
-          set -euo pipefail
+          set -o pipefail
           read -r -a flags <<< "$BASE_FLAGS"
           if [[ -n "${LATEST_CREATE:-}" ]]; then
             flags+=("-Pcreate_version=$LATEST_CREATE")
           fi
-          gradle build --stacktrace "${flags[@]}"
-      - name: Upload test reports
+          gradle build --stacktrace "${flags[@]}" 2>&1 | tee build-${{ strategy.job-index }}.log
+      - name: Upload build log and test reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-results-${{ strategy.job-index }}
-          path: build/reports/tests/test
+          name: build-results-${{ strategy.job-index }}
+          path: |
+            build-${{ strategy.job-index }}.log
+            build/reports/tests/test
           if-no-files-found: ignore
           retention-days: 7
 
