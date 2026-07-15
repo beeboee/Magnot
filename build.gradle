@@ -44,10 +44,12 @@ sourceSets.main.resources.srcDirs = ['ports/forge-1.20.1/src/main/resources']
 
 repositories {
     mavenCentral()
+    maven { url = 'https://maven.createmod.net' }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    implementation fg.deobf("com.simibubi.create:create-${minecraft_version}:${create_version}")
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
