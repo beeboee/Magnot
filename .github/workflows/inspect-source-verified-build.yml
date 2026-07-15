@@ -1,0 +1,49 @@
+name: Inspect source-verified compatibility build
+
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/inspect-source-verified-build.yml]
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  inspect:
+    if: github.event.head_commit.message == 'Inspect source-verified compatibility build'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wait for exact build run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          target_sha='841c943a12e652f597dda570d494ea74d010e4d9'
+          run_id=''
+          for attempt in $(seq 1 120); do
+            run_id="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/workflows/build-source-verified-compat.yml/runs?per_page=100" --jq ".workflow_runs[] | select(.head_sha == \"${target_sha}\") | .id" | head -n1)"
+            if [[ -n "$run_id" ]]; then
+              status="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.status')"
+              [[ "$status" == completed ]] && break
+            fi
+            sleep 5
+          done
+          test -n "$run_id"
+          mkdir -p _audit/source-verified-build
+          {
+            echo "target_sha=$target_sha"
+            echo "run_id=$run_id"
+            echo "status=$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.status')"
+            echo "conclusion=$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.conclusion // empty')"
+            gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/jobs?per_page=100" --jq '.jobs[] | [.id,.name,.status,(.conclusion // "")] | @tsv'
+          } > _audit/source-verified-build/result.txt
+      - name: Commit result
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add _audit/source-verified-build/result.txt
+          git commit -m 'Record source-verified compatibility build'
+          git push
