@@ -1,8 +1,6 @@
 name: Apply v1.1.0 implementation
 
 on:
-  push:
-    branches: [v1.1.0]
   pull_request:
     branches: [main]
 
@@ -21,18 +19,19 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cat .v110/part* | tr -d '\r\n' | base64 -d > /tmp/v110.tar.gz
-          tar -xzf /tmp/v110.tar.gz
+          cat .v110/part* | tr -d '\r\n' > /tmp/v110.b64
+          echo 'ee4a5c6b771d744010b5b6f666dd88759e1d94ae3128402a971f2323a3379900  /tmp/v110.b64' | sha256sum -c -
+          base64 -d /tmp/v110.b64 > /tmp/v110.tar.gz
+          echo '528a958bbf782be306d8423fa11b79e32ac9b6b8fc8bdbfe4caa421b7bef4743  /tmp/v110.tar.gz' | sha256sum -c -
+          tar --exclude='.github/workflows/*' -xzf /tmp/v110.tar.gz
           rm -f \
-            .github/workflows/create-compat.yml \
-            .github/workflows/source-snapshot.yml \
             src/main/java/com/beeboee/magnot/client/MagnotClientEvents.java \
             src/main/java/com/beeboee/magnot/client/MagnotSpecialTextures.java \
             src/main/java/com/beeboee/magnot/compat/sable/MagnotSableClientCompat.java \
             src/main/resources/data/magnot/recipe/ferrous_paste.json \
             src/main/resources/data/magnot/recipe/iron_dust_from_crushing.json \
             src/main/resources/data/magnot/recipe/ferrous_tube.json
-          rm -rf .v110 .github/workflows/apply-v110.yml
+          rm -rf .v110
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add -A
