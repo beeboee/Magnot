@@ -1,0 +1,130 @@
+name: Inventory port integration versions
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    if: github.event.head_commit.message == 'Inventory port integration versions'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Query Modrinth compatibility matrix
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import datetime as dt
+          import json
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          from pathlib import Path
+
+          projects = {
+              "Applied Energistics 2": "ae2",
+              "AE2 Wireless Terminals": "ae2wtlib",
+              "ProjectE": "projecte",
+              "Artifacts": "artifacts",
+              "Mekanism": "mekanism",
+              "Draconic Evolution": "draconic-evolution",
+              "Reliquary Reincarnations": "reliquary-reincarnations",
+              "Actually Additions": "actually-additions",
+              "Sophisticated Core": "sophisticated-core",
+              "Mob Grinding Utils": "mob-grinding-utils",
+              "Item Collectors": "item-collectors",
+              "Simple Magnets": "simple-magnets",
+              "Modular Routers": "modular-routers",
+              "Industrial Foregoing": "industrial-foregoing",
+              "Ender IO": "enderio",
+          }
+          targets = [
+              ("1.20.1 Forge", "1.20.1", "forge"),
+              ("1.20.1 Fabric", "1.20.1", "fabric"),
+              ("1.19.2 Forge", "1.19.2", "forge"),
+              ("1.18.2 Forge", "1.18.2", "forge"),
+              ("1.16.5 Forge", "1.16.5", "forge"),
+              ("1.12.2 Forge", "1.12.2", "forge"),
+          ]
+          headers = {"User-Agent": "Magnot port compatibility inventory (github.com/beeboee/Magnot)"}
+
+          def get_json(url):
+              request = urllib.request.Request(url, headers=headers)
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  return json.load(response)
+
+          report = {
+              "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+              "source": "Modrinth v2 API",
+              "targets": {},
+          }
+
+          for target_name, game_version, loader in targets:
+              target_rows = {}
+              for display_name, slug in projects.items():
+                  encoded_loaders = urllib.parse.quote(json.dumps([loader], separators=(",", ":")))
+                  encoded_versions = urllib.parse.quote(json.dumps([game_version], separators=(",", ":")))
+                  url = f"https://api.modrinth.com/v2/project/{urllib.parse.quote(slug)}/version?loaders={encoded_loaders}&game_versions={encoded_versions}"
+                  try:
+                      versions = get_json(url)
+                      if versions:
+                          latest = versions[0]
+                          target_rows[display_name] = {
+                              "slug": slug,
+                              "available": True,
+                              "version_number": latest.get("version_number"),
+                              "version_type": latest.get("version_type"),
+                              "published": latest.get("date_published"),
+                              "version_id": latest.get("id"),
+                              "loaders": latest.get("loaders", []),
+                              "game_versions": latest.get("game_versions", []),
+                              "matching_versions": len(versions),
+                          }
+                      else:
+                          target_rows[display_name] = {"slug": slug, "available": False, "matching_versions": 0}
+                  except urllib.error.HTTPError as error:
+                      target_rows[display_name] = {"slug": slug, "available": False, "error": f"HTTP {error.code}"}
+                  except Exception as error:
+                      target_rows[display_name] = {"slug": slug, "available": False, "error": str(error)}
+                  time.sleep(0.06)
+              report["targets"][target_name] = target_rows
+
+          out = Path("_porting")
+          out.mkdir(exist_ok=True)
+          (out / "integration-version-matrix.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+
+          lines = [
+              "# Port integration version inventory",
+              "",
+              f"Generated: {report['generated_at']}",
+              "",
+              "This is a live Modrinth availability inventory. A listed build means a matching file exists for the exact Minecraft and loader pair; it does not by itself prove Magnot's mixin works against that version.",
+              "",
+          ]
+          for target_name, rows in report["targets"].items():
+              lines += [f"## {target_name}", "", "| Integration | Latest matching version | Channel | Matching files |", "|---|---:|---|---:|"]
+              for display_name, row in rows.items():
+                  if row.get("available"):
+                      lines.append(f"| {display_name} | `{row.get('version_number')}` | {row.get('version_type')} | {row.get('matching_versions')} |")
+                  else:
+                      note = row.get("error", "none found")
+                      lines.append(f"| {display_name} | — | {note} | 0 |")
+              lines.append("")
+          (out / "integration-version-matrix.md").write_text("\n".join(lines), encoding="utf-8")
+          PY
+
+      - name: Commit inventory
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add _porting/integration-version-matrix.json _porting/integration-version-matrix.md
+          git commit -m 'Record port integration version inventory'
+          git push
