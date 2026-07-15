@@ -207,10 +207,12 @@ tasks.matching { it.name in ['runClient', 'runServer'] }.configureEach {
     dependsOn tasks.named('downloadCompatTestMods')
 }
 
+def requestedCreateVersion = (findProperty('create_version') ?: create_version).toString().trim()
+def defaultCreateClassifier = requestedCreateVersion.startsWith('6.0.10-') ? 'slim' : ''
 def createClassifier = hasProperty('create_classifier')
         ? property('create_classifier').toString().trim()
-        : 'slim'
-def createCoordinates = "com.simibubi.create:create-${minecraft_version}:${create_version}"
+        : defaultCreateClassifier
+def createCoordinates = "com.simibubi.create:create-${minecraft_version}:${requestedCreateVersion}"
 if (!createClassifier.isEmpty()) {
     createCoordinates += ":${createClassifier}"
 }
