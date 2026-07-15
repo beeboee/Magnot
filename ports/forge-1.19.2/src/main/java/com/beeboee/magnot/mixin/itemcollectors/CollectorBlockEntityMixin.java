@@ -17,13 +17,28 @@ import java.util.List;
 import java.util.function.Predicate;
 
 @Pseudo
-@Mixin(targets="com.supermartijn642.itemcollectors.CollectorBlockEntity", remap=false)
+@Mixin(targets = "com.supermartijn642.itemcollectors.CollectorBlockEntity", remap = false)
 public abstract class CollectorBlockEntityMixin {
-    @Redirect(method="update", at=@At(value="INVOKE", target="Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;"), require=0)
-    private <T extends Entity> List<T> magnot$filter(Level level, Class<T> type, AABB box, Predicate<? super T> predicate) {
-        List<T> candidates=level.getEntitiesOfClass(type,box,predicate);
-        if (!(level instanceof ServerLevel) || !ItemEntity.class.isAssignableFrom(type)) return candidates;
-        ServerLevel serverLevel=(ServerLevel)level; Vec3 source=Vec3.atCenterOf(((BlockEntity)(Object)this).getBlockPos());
-        return candidates.stream().filter(candidate -> !(candidate instanceof ItemEntity) || !FerrousMagnetRules.blocksItemPull(serverLevel,source,(ItemEntity)candidate)).toList();
+    @Redirect(
+            method = "update",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;",
+                    remap = true
+            ),
+            require = 0
+    )
+    private <T extends Entity> List<T> magnot$filter(Level level, Class<T> type, AABB box,
+                                                      Predicate<? super T> predicate) {
+        List<T> candidates = level.getEntitiesOfClass(type, box, predicate);
+        if (!(level instanceof ServerLevel) || !ItemEntity.class.isAssignableFrom(type)) {
+            return candidates;
+        }
+        ServerLevel serverLevel = (ServerLevel) level;
+        Vec3 source = Vec3.atCenterOf(((BlockEntity) (Object) this).getBlockPos());
+        return candidates.stream()
+                .filter(candidate -> !(candidate instanceof ItemEntity)
+                        || !FerrousMagnetRules.blocksItemPull(serverLevel, source, (ItemEntity) candidate))
+                .toList();
     }
 }
