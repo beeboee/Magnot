@@ -1,0 +1,46 @@
+name: Diagnose CurseForge upload
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  diagnose:
+    if: github.event.head_commit.message == 'Temporarily capture CurseForge upload diagnostics'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Download and filter original publish log
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _diagnostics
+          gh api "/repos/${GITHUB_REPOSITORY}/actions/jobs/87212721095/logs" > /tmp/publish.log
+          {
+            echo 'Filtered CurseForge publication log'
+            echo '===================================='
+            grep -iE 'curseforge|publish|upload|file|version|skip|warning|error|success|token|project' /tmp/publish.log | tail -n 180 || true
+            echo
+            echo 'Final 100 lines'
+            echo '==============='
+            tail -n 100 /tmp/publish.log
+          } > _diagnostics/curseforge-publish-log.txt
+
+      - name: Commit diagnostic output
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add _diagnostics/curseforge-publish-log.txt
+          git commit -m 'Record CurseForge upload diagnostics'
+          git push
