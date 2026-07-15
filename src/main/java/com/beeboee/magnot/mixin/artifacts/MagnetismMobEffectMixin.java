@@ -1,6 +1,5 @@
 package com.beeboee.magnot.mixin.artifacts;
 
-import com.beeboee.magnot.debug.MagnotDebug;
 import com.beeboee.magnot.region.FerrousMagnetRules;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
@@ -12,15 +11,50 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.ArrayList;
+import java.util.IdentityHashMap;
 import java.util.List;
+import java.util.Map;
 
 @Pseudo
 @Mixin(targets = "artifacts.effect.MagnetismMobEffect", remap = false)
 public abstract class MagnetismMobEffectMixin {
+    @Unique
+    private FerrousMagnetRules.MagnetQueryContext magnot$queryContext;
+
+    @Unique
+    private final Map<ItemEntity, Boolean> magnot$decisions = new IdentityHashMap<>();
+
+    @Inject(
+            method = "applyEffectTick(Lnet/minecraft/world/entity/LivingEntity;I)Z",
+            at = @At("HEAD"),
+            require = 0
+    )
+    private void magnot$beginMagnetPass(LivingEntity entity, int amplifier, CallbackInfoReturnable<Boolean> cir) {
+        magnot$decisions.clear();
+        if (entity.level() instanceof ServerLevel serverLevel) {
+            magnot$queryContext = magnot$createQuery(serverLevel, entity);
+        } else {
+            magnot$queryContext = null;
+        }
+    }
+
+    @Inject(
+            method = "applyEffectTick(Lnet/minecraft/world/entity/LivingEntity;I)Z",
+            at = @At("RETURN"),
+            require = 0
+    )
+    private void magnot$endMagnetPass(LivingEntity entity, int amplifier, CallbackInfoReturnable<Boolean> cir) {
+        magnot$queryContext = null;
+        magnot$decisions.clear();
+    }
+
     @Redirect(
             method = "applyEffectTick(Lnet/minecraft/world/entity/LivingEntity;I)Z",
             at = @At(
@@ -35,12 +69,18 @@ public abstract class MagnetismMobEffectMixin {
             return items;
         }
 
-        Vec3 source = entity.position().add(0.0D, 0.75D, 0.0D);
-        List<ItemEntity> filtered = null;
+        FerrousMagnetRules.MagnetQueryContext query = magnot$queryContext;
+        if (query == null) {
+            query = magnot$createQuery(serverLevel, entity);
+            magnot$queryContext = query;
+        }
 
+        List<ItemEntity> filtered = null;
         for (int index = 0; index < items.size(); index++) {
             ItemEntity item = items.get(index);
-            if (magnot$blocksArtifactsPull(serverLevel, entity, source, item)) {
+            boolean blocked = query.blocks(item);
+            magnot$decisions.put(item, blocked);
+            if (blocked) {
                 if (filtered == null) {
                     filtered = new ArrayList<>(items.size());
                     filtered.addAll(items.subList(0, index));
@@ -65,7 +105,7 @@ public abstract class MagnetismMobEffectMixin {
             require = 0
     )
     private void magnot$blockFerrousRegionPullFromEntity(Entity targetEntity, Vec3 motion, LivingEntity entity, int amplifier) {
-        magnot$blockFerrousRegionPull(targetEntity, motion, entity);
+        magnot$applyMotionIfAllowed(targetEntity, motion, entity);
     }
 
     @Redirect(
@@ -77,46 +117,38 @@ public abstract class MagnetismMobEffectMixin {
             require = 0
     )
     private void magnot$blockFerrousRegionPullFromItem(ItemEntity itemEntity, Vec3 motion, LivingEntity entity, int amplifier) {
-        magnot$blockFerrousRegionPull(itemEntity, motion, entity);
+        magnot$applyMotionIfAllowed(itemEntity, motion, entity);
     }
 
-    private void magnot$blockFerrousRegionPull(Entity targetEntity, Vec3 motion, LivingEntity entity) {
-        if (!(targetEntity instanceof ItemEntity itemEntity)) {
+    @Unique
+    private void magnot$applyMotionIfAllowed(Entity targetEntity, Vec3 motion, LivingEntity entity) {
+        if (!(targetEntity instanceof ItemEntity itemEntity)
+                || !(entity.level() instanceof ServerLevel serverLevel)) {
             targetEntity.setDeltaMovement(motion);
             return;
         }
 
-        if (!(entity.level() instanceof ServerLevel serverLevel)) {
-            targetEntity.setDeltaMovement(motion);
-            return;
-        }
-
-        Vec3 source = entity.position().add(0.0D, 0.75D, 0.0D);
-        if (magnot$blocksArtifactsPull(serverLevel, entity, source, itemEntity)) {
-            return;
-        }
-
-        targetEntity.setDeltaMovement(motion);
-    }
-
-    private boolean magnot$blocksArtifactsPull(ServerLevel level, LivingEntity entity, Vec3 source, ItemEntity itemEntity) {
-        boolean blocked;
-
-        if (entity instanceof Player player) {
-            blocked = FerrousMagnetRules.blocksPlayerItemPull(level, player, itemEntity);
-        } else {
-            blocked = FerrousMagnetRules.blocksItemPull(level, source, itemEntity);
+        Boolean blocked = magnot$decisions.get(itemEntity);
+        if (blocked == null) {
+            FerrousMagnetRules.MagnetQueryContext query = magnot$queryContext;
+            if (query == null) {
+                query = magnot$createQuery(serverLevel, entity);
+                magnot$queryContext = query;
+            }
+            blocked = query.blocks(itemEntity);
+            magnot$decisions.put(itemEntity, blocked);
         }
 
         if (!blocked) {
-            return false;
+            targetEntity.setDeltaMovement(motion);
         }
+    }
 
+    @Unique
+    private static FerrousMagnetRules.MagnetQueryContext magnot$createQuery(ServerLevel level, LivingEntity entity) {
         if (entity instanceof Player player) {
-            MagnotDebug.log("artifacts-filter player={} item={} source={} target={}", player.getName().getString(), itemEntity.getId(), source, FerrousMagnetRules.itemPullTarget(itemEntity));
-        } else {
-            MagnotDebug.log("artifacts-filter source={} item={} sourcePos={} target={}", entity.getId(), itemEntity.getId(), source, FerrousMagnetRules.itemPullTarget(itemEntity));
+            return FerrousMagnetRules.playerContext(level, player);
         }
-        return true;
+        return FerrousMagnetRules.sourceContext(level, entity.position().add(0.0D, 0.75D, 0.0D));
     }
 }
