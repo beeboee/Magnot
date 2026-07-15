@@ -6,8 +6,10 @@ This branch ports Magnot's core ferrous-region behavior to Minecraft 1.20.1 Forg
 
 - Minecraft 1.20.1
 - Forge 47.1.33 or newer
-- Create 0.5.1 or newer
+- Create 6.0.8, below Create 6.1
 - Java 17
+
+The build resolves the current Modrinth Create artifact `mc1.20.1-6.0.8` as part of verification.
 
 ## Included
 
@@ -18,20 +20,22 @@ This branch ports Magnot's core ferrous-region behavior to Minecraft 1.20.1 Forg
 
 ## Alpha integration coverage
 
-The alpha contains optional mixin hooks for:
+Active optional hooks whose target classes were found in current matching upstream jars:
 
 - Simple Magnets `1.1.12-forge-mc1.20.1`
-- Item Collectors `1.1.12` 1.20.x builds
+- Item Collectors 1.20.x builds
 - Sophisticated Core / Sophisticated Backpacks `1.20.1-1.3.67.2148`
-- Artifacts `9.5.19`
+- AE2 Wireless Terminals `15.3.3-forge`
 - Mekanism `10.4.16.80`
 - Draconic Evolution `3.1.2.621`
 - Reliquary Reincarnations `1.20.1-2.0.62.1532`
 - Modular Routers `12.1.1`
-- Ender IO `6.2.18-beta`
-- AE2 Wireless Terminals and Mob Grinding Utils where their target methods match the 1.20.1 build
+- Ender IO `6.2.18-beta`, using its 1.20.1 package layout
+- Industrial Foregoing `1.20.1-3.5.22` Infinity Backpack
 
-These hooks are deliberately optional and do not make the listed mods hard dependencies. The established Simple Magnets, Item Collectors, and Sophisticated Core hooks have prior port coverage. The newly added hooks are **experimental** until tested in a complete modded runtime.
+Artifacts and Mob Grinding Utils are not advertised by this port. Their previously copied hooks could not be tied to a verified 1.20.1 target and were removed from the active mixin configuration rather than silently doing nothing.
+
+All compatibility mods remain optional. Bytecode target verification and a successful Magnot build are stronger than the earlier compile-only alpha, but complete in-game interaction testing is still required before promoting these hooks to stable support.
 
 ## Port status
 
