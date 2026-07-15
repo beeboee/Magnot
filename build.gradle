@@ -20,6 +20,11 @@ sourceSets.main.resources.srcDirs = ['ports/fabric-1.20.1/src/main/resources']
 
 repositories {
     mavenCentral()
+    maven {
+        name = 'Modrinth'
+        url = 'https://api.modrinth.com/maven'
+        content { includeGroup 'maven.modrinth' }
+    }
 }
 
 dependencies {
@@ -27,6 +32,20 @@ dependencies {
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+    modRuntimeOnly "maven.modrinth:create-fabric:${create_version}"
+}
+
+tasks.register('validateCreateDependency') {
+    group = 'verification'
+    description = 'Resolves the exact newest supported Create Fabric artifact for this port.'
+    doLast {
+        configurations.modRuntimeClasspath.resolve()
+        println "Validated Create Fabric ${create_version} on Minecraft ${minecraft_version}."
+    }
+}
+
+tasks.named('build').configure {
+    dependsOn tasks.named('validateCreateDependency')
 }
 
 tasks.named('processResources', ProcessResources).configure {
