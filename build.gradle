@@ -1,7 +1,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '2.0.141'
+    id 'net.neoforged.moddev' version '2.0.140'
 }
 
 version = mod_version
@@ -14,28 +14,19 @@ base {
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 repositories {
-    maven { url = 'https://maven.createmod.net' }
-    maven { url = 'https://maven.ithundxr.dev/snapshots' }
+    maven {
+        name = 'Create Maven'
+        url = 'https://maven.createmod.net'
+    }
+    maven {
+        name = 'ParchmentMC'
+        url = 'https://maven.parchmentmc.org'
+    }
     maven {
         name = 'CurseMaven'
         url = 'https://www.cursemaven.com'
         content {
             includeGroup 'curse.maven'
-        }
-    }
-    maven {
-        name = 'ModMaven'
-        url = 'https://modmaven.dev/artifactory/local-releases/'
-        content {
-            includeGroup 'de.mari_023'
-            includeGroup 'mekanism'
-        }
-    }
-    maven {
-        name = 'TheIllusiveC4 Maven'
-        url = 'https://maven.theillusivec4.top/'
-        content {
-            includeGroup 'top.theillusivec4.curios'
         }
     }
     maven {
@@ -207,10 +198,12 @@ tasks.matching { it.name in ['runClient', 'runServer'] }.configureEach {
     dependsOn tasks.named('downloadCompatTestMods')
 }
 
+def requestedCreateVersion = (findProperty('create_version') ?: create_version).toString().trim()
+def defaultCreateClassifier = requestedCreateVersion.startsWith('6.0.10-') ? 'slim' : ''
 def createClassifier = hasProperty('create_classifier')
         ? property('create_classifier').toString().trim()
-        : 'slim'
-def createCoordinates = "com.simibubi.create:create-${minecraft_version}:${create_version}"
+        : defaultCreateClassifier
+def createCoordinates = "com.simibubi.create:create-${minecraft_version}:${requestedCreateVersion}"
 if (!createClassifier.isEmpty()) {
     createCoordinates += ":${createClassifier}"
 }
@@ -228,52 +221,49 @@ dependencies {
     compileOnly("curse.maven:projecte-${projecte_curse_id}:${projecte_file_id}")
     runtimeOnly("curse.maven:projecte-${projecte_curse_id}:${projecte_file_id}")
 
+    runtimeOnly("maven.modrinth:create-aeronautics:${create_aeronautics_modrinth_version}")
     compileOnly("dev.ryanhcode.sable:sable-neoforge-${minecraft_version}:${sable_version}")
-    runtimeOnly("maven.modrinth:oWaK0Q19:${create_aeronautics_modrinth_version}")
     runtimeOnly("dev.ryanhcode.sable:sable-neoforge-${minecraft_version}:${sable_version}")
 
+    compileOnly("curse.maven:sophisticated-core-${sophisticated_core_curse_id}:${sophisticated_core_file_id}")
     runtimeOnly("curse.maven:sophisticated-core-${sophisticated_core_curse_id}:${sophisticated_core_file_id}")
     runtimeOnly("curse.maven:sophisticated-backpacks-${sophisticated_backpacks_curse_id}:${sophisticated_backpacks_file_id}")
     runtimeOnly("curse.maven:sophisticated-storage-${sophisticated_storage_curse_id}:${sophisticated_storage_file_id}")
 
     runtimeOnly("top.theillusivec4.curios:curios-neoforge:${curios_version}")
+    compileOnly("curse.maven:artifacts-${artifacts_curse_id}:${artifacts_file_id}")
     runtimeOnly("curse.maven:artifacts-${artifacts_curse_id}:${artifacts_file_id}")
+    compileOnly("mekanism:Mekanism:${mekanism_version}")
     runtimeOnly("mekanism:Mekanism:${mekanism_version}")
 
-    // Optional magnet compat test mods. Only exact pinned file ids are usable here.
+    compileOnly("curse.maven:actually-additions-${actually_additions_curse_id}:${actually_additions_file_id}")
     runtimeOnly("curse.maven:actually-additions-${actually_additions_curse_id}:${actually_additions_file_id}")
 
-    // Local compat test jars remain available as an escape hatch for jars that
-    // cannot be fetched cleanly from Maven.
     runtimeOnly(localRuntimeMods)
 }
 
-var replaceProperties = [
-        minecraft_version       : minecraft_version,
-        minecraft_version_range : minecraft_version_range,
-        neoforge_version        : neoforge_version,
-        neoforge_version_range  : neoforge_version_range,
-        loader_version_range    : loader_version_range,
-        create_version_range    : create_version_range,
-        mod_id                  : mod_id,
-        mod_name                : mod_name,
-        mod_license             : mod_license,
-        mod_version             : mod_version,
-        mod_authors             : mod_authors,
-        mod_description         : mod_description
-]
+tasks.withType(ProcessResources).configureEach {
+    inputs.property 'version', mod_version
+    inputs.property 'minecraft_version_range', minecraft_version_range
+    inputs.property 'neoforge_version_range', neoforge_version_range
+    inputs.property 'loader_version_range', loader_version_range
+    inputs.property 'create_version_range', create_version_range
 
-tasks.named('processResources', ProcessResources).configure {
-    inputs.properties replaceProperties
-    filesMatching(['META-INF/neoforge.mods.toml']) {
-        expand replaceProperties
+    filesMatching('META-INF/neoforge.mods.toml') {
+        expand(
+                version: mod_version,
+                minecraft_version_range: minecraft_version_range,
+                neoforge_version_range: neoforge_version_range,
+                loader_version_range: loader_version_range,
+                create_version_range: create_version_range
+        )
     }
 }
 
-publishing {
-    publications {
-        register('mavenJava', MavenPublication) {
-            from components.java
-        }
+jar {
+    manifest {
+        attributes([
+                'MixinConfigs': 'magnot.mixins.json'
+        ])
     }
 }
