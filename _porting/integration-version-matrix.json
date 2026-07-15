@@ -1,0 +1,983 @@
+{
+  "generated_at": "2026-07-15T00:36:29.095322+00:00",
+  "source": "Modrinth v2 API",
+  "targets": {
+    "1.20.1 Forge": {
+      "Applied Energistics 2": {
+        "slug": "ae2",
+        "available": true,
+        "version_number": "15.4.10",
+        "version_type": "release",
+        "published": "2025-10-25T14:52:59.275713Z",
+        "version_id": "7KVs6HMQ",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.20.1"
+        ],
+        "matching_versions": 57
+      },
+      "AE2 Wireless Terminals": {
+        "slug": "ae2wtlib",
+        "available": false,
+        "error": "HTTP 404"
+      },
+      "ProjectE": {
+        "slug": "projecte",
+        "available": false,
+        "error": "HTTP 404"
+      },
+      "Artifacts": {
+        "slug": "artifacts",
+        "available": true,
+        "version_number": "9.5.19",
+        "version_type": "release",
+        "published": "2026-04-10T09:23:04.410935Z",
+        "version_id": "lrLPBSzq",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.20.1"
+        ],
+        "matching_versions": 31
+      },
+      "Mekanism": {
+        "slug": "mekanism",
+        "available": true,
+        "version_number": "10.4.16.80",
+        "version_type": "release",
+        "published": "2025-05-21T13:09:52.248827Z",
+        "version_id": "uxe1WQp4",
+        "loaders": [
+          "forge",
+          "neoforge"
+        ],
+        "game_versions": [
+          "1.20.1"
+        ],
+        "matching_versions": 16
+      },
+      "Draconic Evolution": {
+        "slug": "draconic-evolution",
+        "available": true,
+        "version_number": "3.1.2.621",
+        "version_type": "release",
+        "published": "2025-07-21T04:16:38.746848Z",
+        "version_id": "YR33MHbk",
+        "loaders": [
+          "forge",
+          "neoforge"
+        ],
+        "game_versions": [
+          "1.20.1"
+        ],
+        "matching_versions": 11
+      },
+      "Reliquary Reincarnations": {
+        "slug": "reliquary-reincarnations",
+        "available": true,
+        "version_number": "1.20.1-2.0.62.1532",
+        "version_type": "release",
+        "published": "2026-07-09T07:51:58.096225Z",
+        "version_id": "vCP6UDyI",
+        "loaders": [
+          "forge",
+          "neoforge"
+        ],
+        "game_versions": [
+          "1.20.1"
+        ],
+        "matching_versions": 22
+      },
+      "Actually Additions": {
+        "slug": "actually-additions",
+        "available": false,
+        "matching_versions": 0
+      },
+      "Sophisticated Core": {
+        "slug": "sophisticated-core",
+        "available": true,
+        "version_number": "1.20.1-1.3.67.2148",
+        "version_type": "release",
+        "published": "2026-07-14T22:39:14.253872Z",
+        "version_id": "Zzum3Py1",
+        "loaders": [
+          "forge",
+          "neoforge"
+        ],
+        "game_versions": [
+          "1.20.1"
+        ],
+        "matching_versions": 247
+      },
+      "Mob Grinding Utils": {
+        "slug": "mob-grinding-utils",
+        "available": false,
+        "error": "HTTP 404"
+      },
+      "Item Collectors": {
+        "slug": "item-collectors",
+        "available": true,
+        "version_number": "1.1.12-forge-mc1.20.2",
+        "version_type": "release",
+        "published": "2026-02-21T15:40:49.256135Z",
+        "version_id": "VxDl7akr",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.20",
+          "1.20.1",
+          "1.20.2"
+        ],
+        "matching_versions": 6
+      },
+      "Simple Magnets": {
+        "slug": "simple-magnets",
+        "available": true,
+        "version_number": "1.1.12-forge-mc1.20.1",
+        "version_type": "release",
+        "published": "2024-10-20T18:03:16.245353Z",
+        "version_id": "Sg3Svl6F",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.20",
+          "1.20.1"
+        ],
+        "matching_versions": 5
+      },
+      "Modular Routers": {
+        "slug": "modular-routers",
+        "available": true,
+        "version_number": "12.1.1",
+        "version_type": "release",
+        "published": "2024-01-24T15:15:37.142818Z",
+        "version_id": "3QDNtJUd",
+        "loaders": [
+          "forge",
+          "neoforge"
+        ],
+        "game_versions": [
+          "1.20.1"
+        ],
+        "matching_versions": 4
+      },
+      "Industrial Foregoing": {
+        "slug": "industrial-foregoing",
+        "available": true,
+        "version_number": "1.20.1-3.5.22",
+        "version_type": "beta",
+        "published": "2026-04-19T12:03:12.256870Z",
+        "version_id": "5XXYqEMK",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.20.1"
+        ],
+        "matching_versions": 19
+      },
+      "Ender IO": {
+        "slug": "enderio",
+        "available": true,
+        "version_number": "6.2.18-beta",
+        "version_type": "beta",
+        "published": "2026-03-08T01:00:52.057579Z",
+        "version_id": "nJnmg29v",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.20.1"
+        ],
+        "matching_versions": 54
+      }
+    },
+    "1.20.1 Fabric": {
+      "Applied Energistics 2": {
+        "slug": "ae2",
+        "available": true,
+        "version_number": "15.4.10",
+        "version_type": "release",
+        "published": "2025-10-25T14:54:43.640822Z",
+        "version_id": "kA3rm9EP",
+        "loaders": [
+          "fabric"
+        ],
+        "game_versions": [
+          "1.20.1"
+        ],
+        "matching_versions": 39
+      },
+      "AE2 Wireless Terminals": {
+        "slug": "ae2wtlib",
+        "available": false,
+        "error": "HTTP 404"
+      },
+      "ProjectE": {
+        "slug": "projecte",
+        "available": false,
+        "error": "HTTP 404"
+      },
+      "Artifacts": {
+        "slug": "artifacts",
+        "available": true,
+        "version_number": "9.5.17",
+        "version_type": "release",
+        "published": "2026-04-05T16:46:08.486115Z",
+        "version_id": "txBP6ArM",
+        "loaders": [
+          "fabric"
+        ],
+        "game_versions": [
+          "1.20.1"
+        ],
+        "matching_versions": 31
+      },
+      "Mekanism": {
+        "slug": "mekanism",
+        "available": false,
+        "matching_versions": 0
+      },
+      "Draconic Evolution": {
+        "slug": "draconic-evolution",
+        "available": false,
+        "matching_versions": 0
+      },
+      "Reliquary Reincarnations": {
+        "slug": "reliquary-reincarnations",
+        "available": false,
+        "matching_versions": 0
+      },
+      "Actually Additions": {
+        "slug": "actually-additions",
+        "available": false,
+        "matching_versions": 0
+      },
+      "Sophisticated Core": {
+        "slug": "sophisticated-core",
+        "available": false,
+        "matching_versions": 0
+      },
+      "Mob Grinding Utils": {
+        "slug": "mob-grinding-utils",
+        "available": false,
+        "error": "HTTP 404"
+      },
+      "Item Collectors": {
+        "slug": "item-collectors",
+        "available": true,
+        "version_number": "1.1.12-fabric-mc1.20.2",
+        "version_type": "release",
+        "published": "2026-02-21T15:56:28.830393Z",
+        "version_id": "DcWenLH6",
+        "loaders": [
+          "fabric",
+          "quilt"
+        ],
+        "game_versions": [
+          "1.20",
+          "1.20.1",
+          "1.20.2"
+        ],
+        "matching_versions": 6
+      },
+      "Simple Magnets": {
+        "slug": "simple-magnets",
+        "available": true,
+        "version_number": "1.1.12-fabric-mc1.20.1",
+        "version_type": "release",
+        "published": "2024-10-20T18:08:19.693108Z",
+        "version_id": "Kh9ezZdR",
+        "loaders": [
+          "fabric",
+          "quilt"
+        ],
+        "game_versions": [
+          "1.20",
+          "1.20.1"
+        ],
+        "matching_versions": 5
+      },
+      "Modular Routers": {
+        "slug": "modular-routers",
+        "available": false,
+        "matching_versions": 0
+      },
+      "Industrial Foregoing": {
+        "slug": "industrial-foregoing",
+        "available": false,
+        "matching_versions": 0
+      },
+      "Ender IO": {
+        "slug": "enderio",
+        "available": false,
+        "matching_versions": 0
+      }
+    },
+    "1.19.2 Forge": {
+      "Applied Energistics 2": {
+        "slug": "ae2",
+        "available": true,
+        "version_number": "forge-12.9.12",
+        "version_type": "release",
+        "published": "2025-02-22T23:56:08.960736Z",
+        "version_id": "U8JDlAX0",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.19.2"
+        ],
+        "matching_versions": 27
+      },
+      "AE2 Wireless Terminals": {
+        "slug": "ae2wtlib",
+        "available": false,
+        "error": "HTTP 404"
+      },
+      "ProjectE": {
+        "slug": "projecte",
+        "available": false,
+        "error": "HTTP 404"
+      },
+      "Artifacts": {
+        "slug": "artifacts",
+        "available": true,
+        "version_number": "5.0.6+forge",
+        "version_type": "release",
+        "published": "2024-05-30T16:54:02.701761Z",
+        "version_id": "Ua6Apv5x",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.19.2"
+        ],
+        "matching_versions": 7
+      },
+      "Mekanism": {
+        "slug": "mekanism",
+        "available": true,
+        "version_number": "10.3.9.13",
+        "version_type": "release",
+        "published": "2023-07-15T02:49:48.006392Z",
+        "version_id": "yj7d33HE",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.19.2"
+        ],
+        "matching_versions": 9
+      },
+      "Draconic Evolution": {
+        "slug": "draconic-evolution",
+        "available": false,
+        "matching_versions": 0
+      },
+      "Reliquary Reincarnations": {
+        "slug": "reliquary-reincarnations",
+        "available": true,
+        "version_number": "1.19.2-2.0.40.1198",
+        "version_type": "release",
+        "published": "2025-02-28T13:04:19.475004Z",
+        "version_id": "ZYC7gzKd",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.19.2"
+        ],
+        "matching_versions": 1
+      },
+      "Actually Additions": {
+        "slug": "actually-additions",
+        "available": false,
+        "matching_versions": 0
+      },
+      "Sophisticated Core": {
+        "slug": "sophisticated-core",
+        "available": true,
+        "version_number": "1.19.2-0.6.4.730",
+        "version_type": "release",
+        "published": "2024-11-17T12:49:20.669718Z",
+        "version_id": "LRDUyYPU",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.19.2"
+        ],
+        "matching_versions": 1
+      },
+      "Mob Grinding Utils": {
+        "slug": "mob-grinding-utils",
+        "available": false,
+        "error": "HTTP 404"
+      },
+      "Item Collectors": {
+        "slug": "item-collectors",
+        "available": true,
+        "version_number": "1.1.12-forge-mc1.19.2",
+        "version_type": "release",
+        "published": "2026-02-21T15:40:20.917090Z",
+        "version_id": "lQX2uPQQ",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.19",
+          "1.19.1",
+          "1.19.2"
+        ],
+        "matching_versions": 8
+      },
+      "Simple Magnets": {
+        "slug": "simple-magnets",
+        "available": true,
+        "version_number": "1.1.12-forge-mc1.19.2",
+        "version_type": "release",
+        "published": "2024-10-18T20:37:36.133964Z",
+        "version_id": "3kgrSkNM",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.19",
+          "1.19.1",
+          "1.19.2"
+        ],
+        "matching_versions": 5
+      },
+      "Modular Routers": {
+        "slug": "modular-routers",
+        "available": true,
+        "version_number": "1.19.2-10.2.1",
+        "version_type": "release",
+        "published": "2023-08-11T11:35:18.210554Z",
+        "version_id": "YjZfmiJU",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.19.2"
+        ],
+        "matching_versions": 2
+      },
+      "Industrial Foregoing": {
+        "slug": "industrial-foregoing",
+        "available": true,
+        "version_number": "3.3.2.3",
+        "version_type": "release",
+        "published": "2023-06-17T20:23:03.032848Z",
+        "version_id": "fZMC747p",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.19.2"
+        ],
+        "matching_versions": 5
+      },
+      "Ender IO": {
+        "slug": "enderio",
+        "available": false,
+        "matching_versions": 0
+      }
+    },
+    "1.18.2 Forge": {
+      "Applied Energistics 2": {
+        "slug": "ae2",
+        "available": true,
+        "version_number": "forge-11.7.6",
+        "version_type": "release",
+        "published": "2023-09-02T01:03:07.023470Z",
+        "version_id": "qBbqV301",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.18.2"
+        ],
+        "matching_versions": 33
+      },
+      "AE2 Wireless Terminals": {
+        "slug": "ae2wtlib",
+        "available": false,
+        "error": "HTTP 404"
+      },
+      "ProjectE": {
+        "slug": "projecte",
+        "available": false,
+        "error": "HTTP 404"
+      },
+      "Artifacts": {
+        "slug": "artifacts",
+        "available": false,
+        "matching_versions": 0
+      },
+      "Mekanism": {
+        "slug": "mekanism",
+        "available": true,
+        "version_number": "10.2.5.465",
+        "version_type": "release",
+        "published": "2022-07-14T23:44:20.077347Z",
+        "version_id": "zWt8Aemn",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.18.2"
+        ],
+        "matching_versions": 6
+      },
+      "Draconic Evolution": {
+        "slug": "draconic-evolution",
+        "available": true,
+        "version_number": "3.0.31.531",
+        "version_type": "beta",
+        "published": "2024-05-31T07:37:36.673332Z",
+        "version_id": "ASrbjsih",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.18.2"
+        ],
+        "matching_versions": 5
+      },
+      "Reliquary Reincarnations": {
+        "slug": "reliquary-reincarnations",
+        "available": true,
+        "version_number": "1.18.2-2.0.19.1161",
+        "version_type": "release",
+        "published": "2025-02-28T13:03:44.227089Z",
+        "version_id": "LbhMjrUe",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.18.2"
+        ],
+        "matching_versions": 1
+      },
+      "Actually Additions": {
+        "slug": "actually-additions",
+        "available": false,
+        "matching_versions": 0
+      },
+      "Sophisticated Core": {
+        "slug": "sophisticated-core",
+        "available": true,
+        "version_number": "1.18.2-0.6.4.604",
+        "version_type": "release",
+        "published": "2024-11-17T12:50:26.353876Z",
+        "version_id": "V4IQWqjA",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.18.2"
+        ],
+        "matching_versions": 1
+      },
+      "Mob Grinding Utils": {
+        "slug": "mob-grinding-utils",
+        "available": false,
+        "error": "HTTP 404"
+      },
+      "Item Collectors": {
+        "slug": "item-collectors",
+        "available": true,
+        "version_number": "1.1.12-forge-mc1.18",
+        "version_type": "release",
+        "published": "2026-02-21T15:40:03.450356Z",
+        "version_id": "kX7m2O24",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.18",
+          "1.18.1",
+          "1.18.2"
+        ],
+        "matching_versions": 8
+      },
+      "Simple Magnets": {
+        "slug": "simple-magnets",
+        "available": true,
+        "version_number": "1.1.12-forge-mc1.18",
+        "version_type": "release",
+        "published": "2024-10-18T20:36:59.857835Z",
+        "version_id": "NXm33Kje",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.18",
+          "1.18.1",
+          "1.18.2"
+        ],
+        "matching_versions": 5
+      },
+      "Modular Routers": {
+        "slug": "modular-routers",
+        "available": true,
+        "version_number": "9.1.2",
+        "version_type": "release",
+        "published": "2023-12-26T18:06:45.832063Z",
+        "version_id": "cWmgGCF5",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.18.2"
+        ],
+        "matching_versions": 2
+      },
+      "Industrial Foregoing": {
+        "slug": "industrial-foregoing",
+        "available": true,
+        "version_number": "3.3.1.6",
+        "version_type": "release",
+        "published": "2023-06-17T20:22:53.344087Z",
+        "version_id": "xrK5TYz5",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.18.2"
+        ],
+        "matching_versions": 7
+      },
+      "Ender IO": {
+        "slug": "enderio",
+        "available": false,
+        "matching_versions": 0
+      }
+    },
+    "1.16.5 Forge": {
+      "Applied Energistics 2": {
+        "slug": "ae2",
+        "available": false,
+        "matching_versions": 0
+      },
+      "AE2 Wireless Terminals": {
+        "slug": "ae2wtlib",
+        "available": false,
+        "error": "HTTP 404"
+      },
+      "ProjectE": {
+        "slug": "projecte",
+        "available": false,
+        "error": "HTTP 404"
+      },
+      "Artifacts": {
+        "slug": "artifacts",
+        "available": false,
+        "matching_versions": 0
+      },
+      "Mekanism": {
+        "slug": "mekanism",
+        "available": true,
+        "version_number": "10.1.2.457",
+        "version_type": "release",
+        "published": "2022-05-27T03:51:22.925725Z",
+        "version_id": "DlhxRTKL",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.16.5"
+        ],
+        "matching_versions": 2
+      },
+      "Draconic Evolution": {
+        "slug": "draconic-evolution",
+        "available": true,
+        "version_number": "3.0.29.518",
+        "version_type": "beta",
+        "published": "2024-05-31T07:37:11.020176Z",
+        "version_id": "CcXWgwLo",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.16.5"
+        ],
+        "matching_versions": 23
+      },
+      "Reliquary Reincarnations": {
+        "slug": "reliquary-reincarnations",
+        "available": true,
+        "version_number": "1.16.5-1.3.5.1124",
+        "version_type": "release",
+        "published": "2025-02-28T13:03:14.704883Z",
+        "version_id": "UPFWqKbe",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.16.5"
+        ],
+        "matching_versions": 1
+      },
+      "Actually Additions": {
+        "slug": "actually-additions",
+        "available": false,
+        "matching_versions": 0
+      },
+      "Sophisticated Core": {
+        "slug": "sophisticated-core",
+        "available": false,
+        "matching_versions": 0
+      },
+      "Mob Grinding Utils": {
+        "slug": "mob-grinding-utils",
+        "available": false,
+        "error": "HTTP 404"
+      },
+      "Item Collectors": {
+        "slug": "item-collectors",
+        "available": true,
+        "version_number": "1.1.12-forge-mc1.16",
+        "version_type": "release",
+        "published": "2026-02-21T15:39:28.396399Z",
+        "version_id": "JKIK35m3",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.16",
+          "1.16.1",
+          "1.16.2",
+          "1.16.3",
+          "1.16.4",
+          "1.16.5"
+        ],
+        "matching_versions": 8
+      },
+      "Simple Magnets": {
+        "slug": "simple-magnets",
+        "available": true,
+        "version_number": "1.1.12-forge-mc1.16",
+        "version_type": "release",
+        "published": "2024-10-18T20:32:47.152258Z",
+        "version_id": "Ay11J1nH",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.16",
+          "1.16.1",
+          "1.16.2",
+          "1.16.3",
+          "1.16.4",
+          "1.16.5"
+        ],
+        "matching_versions": 5
+      },
+      "Modular Routers": {
+        "slug": "modular-routers",
+        "available": true,
+        "version_number": "1.16.5-7.5.4",
+        "version_type": "release",
+        "published": "2023-04-08T08:25:57.399158Z",
+        "version_id": "OQS26uyk",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.16.5"
+        ],
+        "matching_versions": 1
+      },
+      "Industrial Foregoing": {
+        "slug": "industrial-foregoing",
+        "available": true,
+        "version_number": "3.2.14.7",
+        "version_type": "beta",
+        "published": "2023-06-17T20:22:06.980242Z",
+        "version_id": "bXOVIT2t",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.16.5"
+        ],
+        "matching_versions": 21
+      },
+      "Ender IO": {
+        "slug": "enderio",
+        "available": false,
+        "matching_versions": 0
+      }
+    },
+    "1.12.2 Forge": {
+      "Applied Energistics 2": {
+        "slug": "ae2",
+        "available": false,
+        "matching_versions": 0
+      },
+      "AE2 Wireless Terminals": {
+        "slug": "ae2wtlib",
+        "available": false,
+        "error": "HTTP 404"
+      },
+      "ProjectE": {
+        "slug": "projecte",
+        "available": false,
+        "error": "HTTP 404"
+      },
+      "Artifacts": {
+        "slug": "artifacts",
+        "available": false,
+        "matching_versions": 0
+      },
+      "Mekanism": {
+        "slug": "mekanism",
+        "available": true,
+        "version_number": "9.8.3.390",
+        "version_type": "release",
+        "published": "2022-05-27T03:45:36.437136Z",
+        "version_id": "KIzASRO5",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.12.2"
+        ],
+        "matching_versions": 2
+      },
+      "Draconic Evolution": {
+        "slug": "draconic-evolution",
+        "available": true,
+        "version_number": "2.3.28.354",
+        "version_type": "release",
+        "published": "2024-05-31T07:32:07.528025Z",
+        "version_id": "jGfLfP4K",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.12.2"
+        ],
+        "matching_versions": 23
+      },
+      "Reliquary Reincarnations": {
+        "slug": "reliquary-reincarnations",
+        "available": true,
+        "version_number": "1.12.2-1.3.4.796",
+        "version_type": "release",
+        "published": "2025-02-28T13:02:37.584461Z",
+        "version_id": "iEa6eLTv",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.12.2"
+        ],
+        "matching_versions": 1
+      },
+      "Actually Additions": {
+        "slug": "actually-additions",
+        "available": true,
+        "version_number": "1.12.2-r152",
+        "version_type": "release",
+        "published": "2025-03-15T14:49:49.675869Z",
+        "version_id": "iShpAIK6",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.12.2"
+        ],
+        "matching_versions": 1
+      },
+      "Sophisticated Core": {
+        "slug": "sophisticated-core",
+        "available": false,
+        "matching_versions": 0
+      },
+      "Mob Grinding Utils": {
+        "slug": "mob-grinding-utils",
+        "available": false,
+        "error": "HTTP 404"
+      },
+      "Item Collectors": {
+        "slug": "item-collectors",
+        "available": true,
+        "version_number": "1.1.12-forge-mc1.12",
+        "version_type": "release",
+        "published": "2026-02-21T15:37:59.956654Z",
+        "version_id": "Kve24Rrw",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.12",
+          "1.12.1",
+          "1.12.2"
+        ],
+        "matching_versions": 8
+      },
+      "Simple Magnets": {
+        "slug": "simple-magnets",
+        "available": true,
+        "version_number": "1.1.12-forge-mc1.12",
+        "version_type": "release",
+        "published": "2024-10-18T20:28:16.990488Z",
+        "version_id": "jvqx9L3y",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.12",
+          "1.12.1",
+          "1.12.2"
+        ],
+        "matching_versions": 5
+      },
+      "Modular Routers": {
+        "slug": "modular-routers",
+        "available": false,
+        "matching_versions": 0
+      },
+      "Industrial Foregoing": {
+        "slug": "industrial-foregoing",
+        "available": true,
+        "version_number": "1.12.13-237",
+        "version_type": "release",
+        "published": "2023-06-17T20:19:54.519535Z",
+        "version_id": "kCY68l3Y",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.12.2"
+        ],
+        "matching_versions": 76
+      },
+      "Ender IO": {
+        "slug": "enderio",
+        "available": true,
+        "version_number": "5.3.72",
+        "version_type": "release",
+        "published": "2024-07-03T21:58:28.315296Z",
+        "version_id": "ozde4Meh",
+        "loaders": [
+          "forge"
+        ],
+        "game_versions": [
+          "1.12.2"
+        ],
+        "matching_versions": 1
+      }
+    }
+  }
+}
