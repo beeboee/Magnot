@@ -11,9 +11,7 @@
     "portcompat.ModularRoutersMixin",
     "portcompat.MekanismMixin",
     "portcompat.DraconicEvolutionMixin",
-    "portcompat.ReliquaryMixin",
-    "portcompat.SophisticatedCoreMixin",
-    "portcompat.IndustrialForegoingBackpackMixin"
+    "portcompat.ReliquaryMixin"
   ],
   "injectors": {
     "defaultRequire": 0
