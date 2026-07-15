@@ -1,6 +1,66 @@
-retry_run_id=29378849143
+retry_run_id=29378790616
+head_sha=ed5dd4fb7f1e3f49441436c9a5acb8b9940b0479
 status=completed
-conclusion=skipped
-job_id=
+conclusion=failure
+job_id=87237709895
 
 Relevant log lines:
+2026-07-15T00:21:07.8507645Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260705.232/images/ubuntu/Ubuntu2404-Readme.md
+2026-07-15T00:21:07.8510302Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260705.232
+2026-07-15T00:21:07.8513576Z ##[group]GITHUB_TOKEN Permissions
+2026-07-15T00:21:07.8517275Z Metadata: read
+2026-07-15T00:21:09.1565987Z [36;1mif [[ -z "${CURSEFORGE_TOKEN:-}" ]]; then[0m
+2026-07-15T00:21:09.1566690Z [36;1m  echo '::error::Repository secret CURSEFORGE_TOKEN is missing or unavailable.'[0m
+2026-07-15T00:21:09.1703529Z   CURSEFORGE_TOKEN: ***
+2026-07-15T00:21:09.2004439Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-15T00:21:09.2015787Z   token: ***
+2026-07-15T00:21:09.2021716Z   CURSEFORGE_TOKEN: ***
+2026-07-15T00:21:09.3215307Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-07-15T00:21:09.3228740Z [command]/usr/bin/git remote add origin https://github.com/beeboee/Magnot
+2026-07-15T00:21:09.3684367Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-15T00:21:09.3729360Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-15T00:21:09.4315018Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-07-15T00:21:09.8356503Z From https://github.com/beeboee/Magnot
+2026-07-15T00:21:09.8937567Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-15T00:21:09.8943560Z   server-password: GITHUB_TOKEN
+2026-07-15T00:21:09.8948958Z   token: ***
+2026-07-15T00:21:09.8950011Z   CURSEFORGE_TOKEN: ***
+2026-07-15T00:21:10.0633682Z (node:2294) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-07-15T00:21:10.0634635Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-07-15T00:21:10.1070320Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-15T00:21:10.1085326Z   github-token: ***
+2026-07-15T00:21:10.1087066Z   CURSEFORGE_TOKEN: ***
+2026-07-15T00:21:19.1698127Z [36;1m  echo "::error::Expected version 1.0.1, found $version."[0m
+2026-07-15T00:21:19.1736846Z   CURSEFORGE_TOKEN: ***
+2026-07-15T00:21:19.7881626Z To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.8/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+2026-07-15T00:21:37.1871344Z /home/runner/work/Magnot/Magnot/src/main/java/com/beeboee/magnot/client/MagnotClientModEvents.java:10: warning: [removal] bus() in EventBusSubscriber has been deprecated and marked for removal
+2026-07-15T00:21:37.1878794Z /home/runner/work/Magnot/Magnot/src/main/java/com/beeboee/magnot/client/MagnotClientModEvents.java:10: warning: [removal] Bus in EventBusSubscriber has been deprecated and marked for removal
+2026-07-15T00:21:37.1883309Z 2 warnings
+2026-07-15T00:21:38.1867606Z [36;1mcat > /tmp/metadata.json <<'JSON'[0m
+2026-07-15T00:21:38.1870068Z [36;1m  "gameVersionNames": ["1.21.1", "NeoForge"],[0m
+2026-07-15T00:21:38.1873806Z [36;1mresponse="$(curl --fail-with-body --silent --show-error \[0m
+2026-07-15T00:21:38.1874245Z [36;1m  -H "X-Api-Token: ${CURSEFORGE_TOKEN}" \[0m
+2026-07-15T00:21:38.1874682Z [36;1m  -F 'metadata=@/tmp/metadata.json;type=application/json' \[0m
+2026-07-15T00:21:38.1875783Z [36;1m  'https://minecraft.curseforge.com/api/projects/1609524/upload-file')"[0m
+2026-07-15T00:21:38.1876451Z [36;1mecho "$response"[0m
+2026-07-15T00:21:38.1876783Z [36;1mfile_id="$(jq -r '.id // empty' <<< "$response")"[0m
+2026-07-15T00:21:38.1877147Z [36;1mif [[ -z "$file_id" ]]; then[0m
+2026-07-15T00:21:38.1877522Z [36;1m  echo '::error::CurseForge did not return a file ID.'[0m
+2026-07-15T00:21:38.1878399Z [36;1mecho "file_id=$file_id" >> "$GITHUB_OUTPUT"[0m
+2026-07-15T00:21:38.1914886Z   CURSEFORGE_TOKEN: ***
+2026-07-15T00:21:38.3805049Z curl: (22) The requested URL returned error: 400
+2026-07-15T00:21:38.3843294Z ##[error]Process completed with exit code 22.
+2026-07-15T00:21:38.4053601Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-15T00:21:42.9148964Z To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.11/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+2026-07-15T00:21:42.9176122Z Starting process 'Gradle build daemon'. Working directory: /home/runner/.gradle/daemon/8.11 Command: /usr/lib/jvm/temurin-21-jdk-amd64/bin/java --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.prefs/java.util.prefs=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.prefs/java.util.prefs=ALL-UNNAMED --add-opens=java.base/java.nio.charset=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.xml/javax.xml.namespace=ALL-UNNAMED -XX:MaxMetaspaceSize=384m -XX:+HeapDumpOnOutOfMemoryError -Xms256m -Xmx512m -Dfile.encoding=UTF-8 -Duser.country -Duser.language=en -Duser.variant -cp /home/runner/work/_temp/.gradle-actions/gradle-installations/installs/gradle-8.11/lib/gradle-daemon-main-8.11.jar -javaagent:/home/runner/work/_temp/.gradle-actions/gradle-installations/installs/gradle-8.11/lib/agents/gradle-instrumentation-agent-8.11.jar org.gradle.launcher.daemon.bootstrap.GradleDaemon 8.11
+2026-07-15T00:21:44.5152703Z Received JVM installation metadata from '/usr/lib/jvm/temurin-21-jdk-amd64': {JAVA_HOME=/usr/lib/jvm/temurin-21-jdk-amd64, JAVA_VERSION=21.0.11, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=21.0.11+10-LTS, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=21.0.11+10-LTS, VM_VENDOR=Eclipse Adoptium, OS_ARCH=amd64}
+2026-07-15T00:21:46.9045903Z artifact cache (/home/runner/.gradle/caches/modules-2) [subdir: /home/runner/.gradle/caches/modules-2/metadata-2.107] cleanup deleted 0 files/directories.
+2026-07-15T00:21:49.4496613Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-15T00:21:49.5766118Z (node:2898) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-07-15T00:21:49.5766985Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-07-15T00:21:49.5951709Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-15T00:21:49.7405857Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-15T00:21:49.7436840Z http.https://github.com/.extraheader
+2026-07-15T00:21:49.7448496Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-07-15T00:21:49.7484025Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-15T00:21:49.8477366Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, gradle/actions/setup-gradle@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
