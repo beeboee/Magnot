@@ -12,6 +12,7 @@ jobs:
   audit:
     if: github.event.head_commit.message == 'Audit integration targets'
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
         with:
@@ -30,6 +31,13 @@ jobs:
 
       - name: Remove downloaded jars
         run: rm -rf _audit/results/jars
+
+      - name: Back up audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: integration-target-audit
+          path: _audit/results
+          if-no-files-found: error
 
       - name: Commit audit report
         run: |
