@@ -1,0 +1,54 @@
+name: Inspect final audited port validation
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  inspect:
+    if: github.event.head_commit.message == 'Inspect final audited port validation'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect final validation run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          target_sha='8341043d8dc8a62eaab2082b9ef98de57142dceb'
+          run_id=''
+          for attempt in $(seq 1 80); do
+            run_id="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/workflows/validate-audited-ports.yml/runs?per_page=100" --jq ".workflow_runs[] | select(.head_sha == \"${target_sha}\") | .id" | head -n1)"
+            [[ -n "$run_id" ]] && break
+            sleep 3
+          done
+          [[ -n "$run_id" ]]
+          for attempt in $(seq 1 160); do
+            status="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.status')"
+            [[ "$status" == completed ]] && break
+            sleep 5
+          done
+          mkdir -p _audit/final-port-validation
+          {
+            echo "target_sha=$target_sha"
+            echo "run_id=$run_id"
+            echo "status=$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.status')"
+            echo "conclusion=$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.conclusion // empty')"
+            gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/jobs?per_page=100" --jq '.jobs[] | [.id,.name,.status,(.conclusion // "")] | @tsv'
+          } > _audit/final-port-validation/status.txt
+      - name: Commit final status
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add _audit/final-port-validation/status.txt
+          git commit -m 'Record final audited port validation'
+          git pull --rebase origin main
+          git push origin HEAD:main
