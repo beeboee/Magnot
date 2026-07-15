@@ -1,0 +1,225 @@
+Fabric 1.20.1 merged-port build failure
+===========================================
+26-2026-07-15T01:03:09.6087449Z Prepare workflow directory
+27-2026-07-15T01:03:09.6453810Z Prepare all required actions
+28-2026-07-15T01:03:09.6507391Z Getting action download info
+29-2026-07-15T01:03:09.8976721Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+30-2026-07-15T01:03:09.9785172Z Download action repository 'actions/setup-java@v4' (SHA:c1e323688fd81a25caa38c78aa6df2d33d3e20d9)
+31-2026-07-15T01:03:10.8619715Z Download action repository 'gradle/actions@v4' (SHA:ed408507eac070d1f99cc633dbcf757c94c7933a)
+32-2026-07-15T01:03:12.1764193Z Download action repository 'Kir-Antipov/mc-publish@v3.3' (SHA:52307b03863581dec6b652b83e597aec02ebb075)
+33-2026-07-15T01:03:12.7936814Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+34-2026-07-15T01:03:13.0484351Z Complete job name: publish (fabric-1.20.1, 1.20.1-fabric, 17, 8.8, fabric, 1.20.1, create-fabric(required), Simple M...
+35-2026-07-15T01:03:13.1201393Z ##[group]Run set -euo pipefail
+36-2026-07-15T01:03:13.1201844Z [36;1mset -euo pipefail[0m
+37-2026-07-15T01:03:13.1202184Z [36;1mif [[ -z "${CURSEFORGE_TOKEN:-}" ]]; then[0m
+38:2026-07-15T01:03:13.1202632Z [36;1m  echo '::error::Repository secret CURSEFORGE_TOKEN is missing.'[0m
+39-2026-07-15T01:03:13.1203002Z [36;1m  exit 1[0m
+40-2026-07-15T01:03:13.1203208Z [36;1mfi[0m
+41-2026-07-15T01:03:13.1347874Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+42-2026-07-15T01:03:13.1348486Z env:
+43-2026-07-15T01:03:13.1349460Z   CURSEFORGE_TOKEN: ***
+44-2026-07-15T01:03:13.1349722Z ##[endgroup]
+45-2026-07-15T01:03:13.1623931Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+46-2026-07-15T01:03:13.1630801Z ##[group]Run actions/checkout@v4
+47-2026-07-15T01:03:13.1631093Z with:
+48-2026-07-15T01:03:13.1631567Z   ref: 1.20.1-fabric
+49-2026-07-15T01:03:13.1631825Z   repository: beeboee/Magnot
+50-2026-07-15T01:03:13.1634462Z   token: ***
+51-2026-07-15T01:03:13.1634685Z   ssh-strict: true
+52-2026-07-15T01:03:13.1634917Z   ssh-user: git
+53-2026-07-15T01:03:13.1635154Z   persist-credentials: true
+54-2026-07-15T01:03:13.1635403Z   clean: true
+55-2026-07-15T01:03:13.1635635Z   sparse-checkout-cone-mode: true
+56-2026-07-15T01:03:13.1635909Z   fetch-depth: 1
+57-2026-07-15T01:03:13.1636136Z   fetch-tags: false
+58-2026-07-15T01:03:13.1636362Z   show-progress: true
+59-2026-07-15T01:03:13.1636622Z   lfs: false
+60-2026-07-15T01:03:13.1636834Z   submodules: false
+61-2026-07-15T01:03:13.1637329Z   set-safe-directory: true
+62-2026-07-15T01:03:13.1637571Z ##[endgroup]
+63-2026-07-15T01:03:13.2597694Z Syncing repository: beeboee/Magnot
+64-2026-07-15T01:03:13.2599396Z ##[group]Getting Git version info
+65-2026-07-15T01:03:13.2599803Z Working directory is '/home/runner/work/Magnot/Magnot'
+66-2026-07-15T01:03:13.2600363Z [command]/usr/bin/git version
+67-2026-07-15T01:03:13.2681611Z git version 2.54.0
+68-2026-07-15T01:03:13.2703924Z ##[endgroup]
+--
+235-2026-07-15T01:03:28.9134231Z [command]/usr/bin/unzip -o -q /home/runner/work/_temp/.gradle-actions/gradle-installations/downloads/gradle-8.8-bin.zip
+236-2026-07-15T01:03:30.0248042Z Extracted Gradle 8.8 to /home/runner/work/_temp/.gradle-actions/gradle-installations/installs/gradle-8.8
+237-2026-07-15T01:03:30.0250407Z Provisioned Gradle executable /home/runner/work/_temp/.gradle-actions/gradle-installations/installs/gradle-8.8/bin/gradle
+238-2026-07-15T01:03:30.0252238Z ##[endgroup]
+239-2026-07-15T01:03:30.0467066Z ##[group]Run set -euo pipefail
+240-2026-07-15T01:03:30.0467497Z [36;1mset -euo pipefail[0m
+241-2026-07-15T01:03:30.0467817Z [36;1mgradle build --stacktrace[0m
+242-2026-07-15T01:03:30.0468155Z [36;1mmkdir -p dist[0m
+243-2026-07-15T01:03:30.0468545Z [36;1mjar="$(find build/libs -maxdepth 1 -type f -name '*.jar' \[0m
+244-2026-07-15T01:03:30.0469075Z [36;1m  ! -name '*-sources.jar' ! -name '*-javadoc.jar' ! -name '*-dev.jar' \[0m
+245-2026-07-15T01:03:30.0469526Z [36;1m  | sort | head -n 1)"[0m
+246-2026-07-15T01:03:30.0469854Z [36;1mif [[ -z "$jar" || ! -s "$jar" ]]; then[0m
+247:2026-07-15T01:03:30.0470262Z [36;1m  echo '::error::No non-sources release jar was produced.'[0m
+248-2026-07-15T01:03:30.0470749Z [36;1m  find build/libs -maxdepth 1 -type f -printf '%f\n' || true[0m
+249-2026-07-15T01:03:30.0471395Z [36;1m  exit 1[0m
+250-2026-07-15T01:03:30.0471693Z [36;1mfi[0m
+251-2026-07-15T01:03:30.0472029Z [36;1moutput="dist/magnot-fabric-1.20.1-1.0.0-alpha.1.jar"[0m
+252-2026-07-15T01:03:30.0472483Z [36;1mcp "$jar" "$output"[0m
+253-2026-07-15T01:03:30.0472819Z [36;1mecho "path=$output" >> "$GITHUB_OUTPUT"[0m
+254-2026-07-15T01:03:30.0473184Z [36;1mecho "Selected $jar as $output"[0m
+255-2026-07-15T01:03:30.0508656Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+256-2026-07-15T01:03:30.0509043Z env:
+257-2026-07-15T01:03:30.0509400Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.19-10/x64
+258-2026-07-15T01:03:30.0509967Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.19-10/x64
+259-2026-07-15T01:03:30.0510625Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+260-2026-07-15T01:03:30.0511013Z   GRADLE_USER_HOME: /home/runner/.gradle
+261-2026-07-15T01:03:30.0511473Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+262-2026-07-15T01:03:30.0511832Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+263-2026-07-15T01:03:30.0512332Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+264-2026-07-15T01:03:30.0512859Z   DEVELOCITY_INJECTION_CUSTOM_VALUE: gradle-actions
+265-2026-07-15T01:03:30.0513240Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+266-2026-07-15T01:03:30.0513562Z ##[endgroup]
+267-2026-07-15T01:03:30.6950106Z To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.8/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+268-2026-07-15T01:03:32.2936106Z Daemon will be stopped at the end of the build 
+269-2026-07-15T01:03:40.5936953Z gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/artifact-1784077414703.json
+270-2026-07-15T01:03:40.5939092Z 
+271:2026-07-15T01:03:40.5952358Z FAILURE: Build failed with an exception.
+272-2026-07-15T01:03:40.5953039Z 
+273:2026-07-15T01:03:40.5953482Z * What went wrong:
+274-2026-07-15T01:03:40.5954182Z A problem occurred configuring root project 'Magnot'.
+275:2026-07-15T01:03:40.5955162Z > Could not resolve all artifacts for configuration ':classpath'.
+276:2026-07-15T01:03:40.5956139Z    > Could not resolve net.fabricmc:fabric-loom:1.10-SNAPSHOT.
+277-2026-07-15T01:03:40.5956962Z      Required by:
+278-2026-07-15T01:03:40.5957805Z          project : > fabric-loom:fabric-loom.gradle.plugin:1.10-SNAPSHOT:20250323.164030-5
+279-2026-07-15T01:03:40.5959482Z       > Plugin net.fabricmc:fabric-loom:1.10-SNAPSHOT:20250323.164030-5 requires at least Gradle 8.12. This build uses Gradle 8.8.
+280-2026-07-15T01:03:40.5960520Z 
+281-2026-07-15T01:03:40.5960828Z * Try:
+282-2026-07-15T01:03:40.5962206Z > Upgrade to at least Gradle 8.12. See the instructions at https://docs.gradle.org/8.8/userguide/upgrading_version_8.html#sub:updating-gradle.
+283-2026-07-15T01:03:40.5964041Z > Downgrade plugin net.fabricmc:fabric-loom:1.10-SNAPSHOT:20250323.164030-5 to an older version compatible with Gradle 8.8.
+284-2026-07-15T01:03:40.5965354Z > Run with --info or --debug option to get more log output.
+285-2026-07-15T01:03:40.5966173Z > Run with --scan to get full insights.
+286-2026-07-15T01:03:40.5966940Z > Get more help at https://help.gradle.org.
+287-2026-07-15T01:03:40.5967477Z 
+288:2026-07-15T01:03:40.5967805Z * Exception is:
+289:2026-07-15T01:03:40.5969415Z org.gradle.api.ProjectConfigurationException: A problem occurred configuring root project 'Magnot'.
+290:2026-07-15T01:03:40.5971503Z 	at org.gradle.configuration.project.LifecycleProjectEvaluator.wrapException(LifecycleProjectEvaluator.java:84)
+291-2026-07-15T01:03:40.5973442Z 	at org.gradle.configuration.project.LifecycleProjectEvaluator.addConfigurationFailure(LifecycleProjectEvaluator.java:77)
+292-2026-07-15T01:03:40.5975315Z 	at org.gradle.configuration.project.LifecycleProjectEvaluator.access$500(LifecycleProjectEvaluator.java:55)
+293-2026-07-15T01:03:40.5977320Z 	at org.gradle.configuration.project.LifecycleProjectEvaluator$EvaluateProject.lambda$run$0(LifecycleProjectEvaluator.java:111)
+294-2026-07-15T01:03:40.5979506Z 	at org.gradle.api.internal.project.DefaultProjectStateRegistry$ProjectStateImpl.lambda$applyToMutableState$1(DefaultProjectStateRegistry.java:407)
+295-2026-07-15T01:03:40.5995737Z 	at org.gradle.api.internal.project.DefaultProjectStateRegistry$ProjectStateImpl.lambda$fromMutableState$2(DefaultProjectStateRegistry.java:430)
+296-2026-07-15T01:03:40.5998081Z 	at org.gradle.internal.work.DefaultWorkerLeaseService.withReplacedLocks(DefaultWorkerLeaseService.java:360)
+297-2026-07-15T01:03:40.6000015Z 	at org.gradle.api.internal.project.DefaultProjectStateRegistry$ProjectStateImpl.fromMutableState(DefaultProjectStateRegistry.java:430)
+298-2026-07-15T01:03:40.6002295Z 	at org.gradle.api.internal.project.DefaultProjectStateRegistry$ProjectStateImpl.applyToMutableState(DefaultProjectStateRegistry.java:406)
+299-2026-07-15T01:03:40.6004574Z 	at org.gradle.configuration.project.LifecycleProjectEvaluator$EvaluateProject.run(LifecycleProjectEvaluator.java:100)
+300-2026-07-15T01:03:40.6006315Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+301-2026-07-15T01:03:40.6007985Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+302-2026-07-15T01:03:40.6009661Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+303-2026-07-15T01:03:40.6011576Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+304-2026-07-15T01:03:40.6013268Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+305-2026-07-15T01:03:40.6015038Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+306-2026-07-15T01:03:40.6016680Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+307-2026-07-15T01:03:40.6018591Z 	at org.gradle.configuration.project.LifecycleProjectEvaluator.evaluate(LifecycleProjectEvaluator.java:72)
+308-2026-07-15T01:03:40.6020392Z 	at org.gradle.api.internal.project.DefaultProject.evaluate(DefaultProject.java:785)
+309-2026-07-15T01:03:40.6021836Z 	at org.gradle.api.internal.project.DefaultProject.evaluate(DefaultProject.java:155)
+310-2026-07-15T01:03:40.6023437Z 	at org.gradle.api.internal.project.ProjectLifecycleController.lambda$ensureSelfConfigured$2(ProjectLifecycleController.java:84)
+311-2026-07-15T01:03:40.6025680Z 	at org.gradle.internal.model.StateTransitionController.lambda$doTransition$14(StateTransitionController.java:255)
+312-2026-07-15T01:03:40.6027617Z 	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:266)
+313-2026-07-15T01:03:40.6029220Z 	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:254)
+314-2026-07-15T01:03:40.6031431Z 	at org.gradle.internal.model.StateTransitionController.lambda$maybeTransitionIfNotCurrentlyTransitioning$10(StateTransitionController.java:199)
+315-2026-07-15T01:03:40.6033283Z 	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:34)
+316-2026-07-15T01:03:40.6035154Z 	at org.gradle.internal.model.StateTransitionController.maybeTransitionIfNotCurrentlyTransitioning(StateTransitionController.java:195)
+317-2026-07-15T01:03:40.6037598Z 	at org.gradle.api.internal.project.ProjectLifecycleController.ensureSelfConfigured(ProjectLifecycleController.java:84)
+318-2026-07-15T01:03:40.6039571Z 	at org.gradle.api.internal.project.DefaultProjectStateRegistry$ProjectStateImpl.ensureConfigured(DefaultProjectStateRegistry.java:381)
+319-2026-07-15T01:03:40.6041580Z 	at org.gradle.execution.TaskPathProjectEvaluator.configure(TaskPathProjectEvaluator.java:34)
+320-2026-07-15T01:03:40.6043211Z 	at org.gradle.execution.TaskPathProjectEvaluator.configureHierarchy(TaskPathProjectEvaluator.java:48)
+--
+420-2026-07-15T01:03:40.6466222Z 	at org.gradle.launcher.daemon.server.exec.LogAndCheckHealth.execute(LogAndCheckHealth.java:53)
+421-2026-07-15T01:03:40.6467853Z 	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+422-2026-07-15T01:03:40.6469419Z 	at org.gradle.launcher.daemon.server.exec.LogToClient.doBuild(LogToClient.java:63)
+423-2026-07-15T01:03:40.6470783Z 	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
+424-2026-07-15T01:03:40.6472563Z 	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+425-2026-07-15T01:03:40.6474281Z 	at org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment.doBuild(EstablishBuildEnvironment.java:84)
+426-2026-07-15T01:03:40.6475870Z 	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
+427-2026-07-15T01:03:40.6477405Z 	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+428-2026-07-15T01:03:40.6479084Z 	at org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy$1.run(StartBuildOrRespondWithBusy.java:52)
+429-2026-07-15T01:03:40.6480691Z 	at org.gradle.launcher.daemon.server.DaemonStateCoordinator$1.run(DaemonStateCoordinator.java:297)
+430-2026-07-15T01:03:40.6482531Z 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+431-2026-07-15T01:03:40.6484076Z 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+432:2026-07-15T01:03:40.6486291Z Caused by: org.gradle.api.internal.artifacts.ivyservice.DefaultLenientConfiguration$ArtifactResolveException: Could not resolve all artifacts for configuration ':classpath'.
+433:2026-07-15T01:03:40.6488534Z 	at org.gradle.api.internal.artifacts.ResolveExceptionContextualizer.mapFailure(ResolveExceptionContextualizer.java:81)
+434:2026-07-15T01:03:40.6490448Z 	at org.gradle.api.internal.artifacts.ResolveExceptionContextualizer.mapFailures(ResolveExceptionContextualizer.java:60)
+435-2026-07-15T01:03:40.6492658Z 	at org.gradle.api.internal.artifacts.configurations.DefaultConfiguration$DefaultResolutionHost.mapFailure(DefaultConfiguration.java:2109)
+436-2026-07-15T01:03:40.6494617Z 	at org.gradle.api.internal.artifacts.configurations.ResolutionHost.rethrowFailure(ResolutionHost.java:47)
+437-2026-07-15T01:03:40.6496478Z 	at org.gradle.api.internal.artifacts.configurations.DefaultArtifactCollection.lambda$new$0(DefaultArtifactCollection.java:52)
+438-2026-07-15T01:03:40.6498661Z 	at org.gradle.internal.model.CalculatedValueContainerFactory$SupplierBackedCalculator.calculateValue(CalculatedValueContainerFactory.java:74)
+439-2026-07-15T01:03:40.6500656Z 	at org.gradle.internal.model.CalculatedValueContainer$CalculationState.lambda$attachValue$0(CalculatedValueContainer.java:229)
+440-2026-07-15T01:03:40.6502219Z 	at org.gradle.internal.Try.ofFailable(Try.java:41)
+441-2026-07-15T01:03:40.6503515Z 	at org.gradle.internal.model.CalculatedValueContainer$CalculationState.attachValue(CalculatedValueContainer.java:224)
+442-2026-07-15T01:03:40.6505500Z 	at org.gradle.internal.model.CalculatedValueContainer.finalizeIfNotAlready(CalculatedValueContainer.java:197)
+443-2026-07-15T01:03:40.6507191Z 	at org.gradle.internal.model.CalculatedValueContainer.finalizeIfNotAlready(CalculatedValueContainer.java:188)
+444-2026-07-15T01:03:40.6509099Z 	at org.gradle.api.internal.artifacts.configurations.DefaultArtifactCollection.ensureResolved(DefaultArtifactCollection.java:103)
+445-2026-07-15T01:03:40.6511531Z 	at org.gradle.api.internal.artifacts.configurations.DefaultArtifactCollection.getArtifacts(DefaultArtifactCollection.java:75)
+446-2026-07-15T01:03:40.6513820Z 	at org.gradle.api.internal.initialization.transform.utils.InstrumentationClasspathMerger.mergeToClasspath(InstrumentationClasspathMerger.java:43)
+447-2026-07-15T01:03:40.6516097Z 	at org.gradle.api.internal.initialization.DefaultScriptClassPathResolver.resolveClassPath(DefaultScriptClassPathResolver.java:140)
+448-2026-07-15T01:03:40.6518163Z 	at org.gradle.api.internal.initialization.DefaultBuildLogicBuilder.lambda$resolveClassPath$0(DefaultBuildLogicBuilder.java:63)
+449-2026-07-15T01:03:40.6520074Z 	at org.gradle.api.internal.initialization.DefaultBuildLogicBuildQueue.build(DefaultBuildLogicBuildQueue.java:56)
+450-2026-07-15T01:03:40.6522077Z 	at org.gradle.api.internal.initialization.DefaultBuildLogicBuilder.resolveClassPath(DefaultBuildLogicBuilder.java:60)
+451-2026-07-15T01:03:40.6524100Z 	at org.gradle.api.internal.initialization.DefaultScriptHandler.lambda$getInstrumentedScriptClassPath$0(DefaultScriptHandler.java:106)
+452-2026-07-15T01:03:40.6526221Z 	at org.gradle.api.internal.artifacts.configurations.DefaultConfiguration.callAndResetResolutionState(DefaultConfiguration.java:918)
+453-2026-07-15T01:03:40.6528326Z 	at org.gradle.api.internal.initialization.DefaultScriptHandler.getInstrumentedScriptClassPath(DefaultScriptHandler.java:110)
+454-2026-07-15T01:03:40.6530308Z 	at org.gradle.plugin.use.internal.DefaultPluginRequestApplicator.applyPlugins(DefaultPluginRequestApplicator.java:125)
+455-2026-07-15T01:03:40.6532328Z 	at org.gradle.configuration.DefaultScriptPluginFactory$ScriptPluginImpl.apply(DefaultScriptPluginFactory.java:120)
+456-2026-07-15T01:03:40.6533985Z 	at org.gradle.configuration.BuildOperationScriptPlugin$1.run(BuildOperationScriptPlugin.java:68)
+457-2026-07-15T01:03:40.6535615Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+458-2026-07-15T01:03:40.6537293Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+459-2026-07-15T01:03:40.6539153Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+460-2026-07-15T01:03:40.6541000Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+461-2026-07-15T01:03:40.6542982Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+462-2026-07-15T01:03:40.6572587Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+463-2026-07-15T01:03:40.6574416Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+464-2026-07-15T01:03:40.6576190Z 	at org.gradle.configuration.BuildOperationScriptPlugin.lambda$apply$0(BuildOperationScriptPlugin.java:65)
+--
+600-2026-07-15T01:03:40.6909148Z 	at org.gradle.launcher.daemon.server.exec.LogAndCheckHealth.execute(LogAndCheckHealth.java:53)
+601-2026-07-15T01:03:40.6910798Z 	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+602-2026-07-15T01:03:40.6912259Z 	at org.gradle.launcher.daemon.server.exec.LogToClient.doBuild(LogToClient.java:63)
+603-2026-07-15T01:03:40.6913463Z 	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
+604-2026-07-15T01:03:40.6914816Z 	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+605-2026-07-15T01:03:40.6916317Z 	at org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment.doBuild(EstablishBuildEnvironment.java:84)
+606-2026-07-15T01:03:40.6917717Z 	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:37)
+607-2026-07-15T01:03:40.6919038Z 	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:104)
+608-2026-07-15T01:03:40.6920552Z 	at org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy$1.run(StartBuildOrRespondWithBusy.java:52)
+609-2026-07-15T01:03:40.6974343Z 	at org.gradle.launcher.daemon.server.DaemonStateCoordinator$1.run(DaemonStateCoordinator.java:297)
+610-2026-07-15T01:03:40.6975747Z 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+611-2026-07-15T01:03:40.6977125Z 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+612:2026-07-15T01:03:40.6978627Z Caused by: org.gradle.internal.resolve.ModuleVersionResolveException: Could not resolve net.fabricmc:fabric-loom:1.10-SNAPSHOT.
+613-2026-07-15T01:03:40.6980019Z Required by:
+614-2026-07-15T01:03:40.6980659Z     project : > fabric-loom:fabric-loom.gradle.plugin:1.10-SNAPSHOT:20250323.164030-5
+615:2026-07-15T01:03:40.6982767Z Caused by: org.gradle.internal.component.resolution.failure.exception.VariantSelectionException: Plugin net.fabricmc:fabric-loom:1.10-SNAPSHOT:20250323.164030-5 requires at least Gradle 8.12. This build uses Gradle 8.8.
+616-2026-07-15T01:03:40.6985493Z 	at org.gradle.api.internal.artifacts.dsl.dependencies.NewerGradleNeededByPluginFailureDescriber.describeFailure(NewerGradleNeededByPluginFailureDescriber.java:58)
+617-2026-07-15T01:03:40.6988128Z 	at org.gradle.api.internal.artifacts.dsl.dependencies.NewerGradleNeededByPluginFailureDescriber.describeFailure(NewerGradleNeededByPluginFailureDescriber.java:42)
+618-2026-07-15T01:03:40.6990266Z 	at org.gradle.internal.component.ResolutionFailureHandler.lambda$describeFailure$1(ResolutionFailureHandler.java:199)
+619-2026-07-15T01:03:40.6992102Z 	at org.gradle.internal.component.ResolutionFailureHandler.describeFailure(ResolutionFailureHandler.java:199)
+620-2026-07-15T01:03:40.6993680Z 	at org.gradle.internal.component.ResolutionFailureHandler.describeFailure(ResolutionFailureHandler.java:192)
+621-2026-07-15T01:03:40.6995402Z 	at org.gradle.internal.component.ResolutionFailureHandler.noMatchingGraphVariantFailure(ResolutionFailureHandler.java:141)
+622-2026-07-15T01:03:40.6997225Z 	at org.gradle.internal.component.model.GraphVariantSelector.selectByAttributeMatching(GraphVariantSelector.java:84)
+623-2026-07-15T01:03:40.6999114Z 	at org.gradle.internal.component.external.model.ExternalModuleDependencyMetadata.selectVariants(ExternalModuleDependencyMetadata.java:64)
+624-2026-07-15T01:03:40.7031636Z 	at org.gradle.api.internal.artifacts.ivyservice.resolveengine.graph.builder.EdgeState.calculateTargetConfigurations(EdgeState.java:262)
+625-2026-07-15T01:03:40.7034000Z 	at org.gradle.api.internal.artifacts.ivyservice.resolveengine.graph.builder.EdgeState.attachToTargetConfigurations(EdgeState.java:147)
+626-2026-07-15T01:03:40.7036502Z 	at org.gradle.api.internal.artifacts.ivyservice.resolveengine.graph.builder.DependencyGraphBuilder.attachToTargetRevisionsSerially(DependencyGraphBuilder.java:367)
+627-2026-07-15T01:03:40.7039037Z 	at org.gradle.api.internal.artifacts.ivyservice.resolveengine.graph.builder.DependencyGraphBuilder.resolveEdges(DependencyGraphBuilder.java:259)
+628-2026-07-15T01:03:40.7041854Z 	at org.gradle.api.internal.artifacts.ivyservice.resolveengine.graph.builder.DependencyGraphBuilder.traverseGraph(DependencyGraphBuilder.java:194)
+629-2026-07-15T01:03:40.7044130Z 	at org.gradle.api.internal.artifacts.ivyservice.resolveengine.graph.builder.DependencyGraphBuilder.resolve(DependencyGraphBuilder.java:164)
+630-2026-07-15T01:03:40.7046138Z 	at org.gradle.api.internal.artifacts.ivyservice.resolveengine.DependencyGraphResolver.resolve(DependencyGraphResolver.java:121)
+631-2026-07-15T01:03:40.7047955Z 	at org.gradle.api.internal.artifacts.ivyservice.DefaultConfigurationResolver.doResolve(DefaultConfigurationResolver.java:392)
+632-2026-07-15T01:03:40.7049773Z 	at org.gradle.api.internal.artifacts.ivyservice.DefaultConfigurationResolver.resolveGraph(DefaultConfigurationResolver.java:287)
+633-2026-07-15T01:03:40.7082100Z 	at org.gradle.api.internal.artifacts.ivyservice.ShortCircuitEmptyConfigurationResolver.resolveGraph(ShortCircuitEmptyConfigurationResolver.java:91)
+634-2026-07-15T01:03:40.7084139Z 	at org.gradle.api.internal.artifacts.configurations.DefaultConfiguration$1.call(DefaultConfiguration.java:757)
+635-2026-07-15T01:03:40.7085736Z 	at org.gradle.api.internal.artifacts.configurations.DefaultConfiguration$1.call(DefaultConfiguration.java:749)
+636-2026-07-15T01:03:40.7087500Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+637-2026-07-15T01:03:40.7089464Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+638-2026-07-15T01:03:40.7091642Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+639-2026-07-15T01:03:40.7093208Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+640-2026-07-15T01:03:40.7094797Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+641-2026-07-15T01:03:40.7096329Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+642-2026-07-15T01:03:40.7097841Z 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+643-2026-07-15T01:03:40.7099598Z 	at org.gradle.api.internal.artifacts.configurations.DefaultConfiguration.resolveGraphInBuildOperation(DefaultConfiguration.java:749)
+644-2026-07-15T01:03:40.7131959Z 	at org.gradle.api.internal.artifacts.configurations.DefaultConfiguration.lambda$resolveExclusivelyIfRequired$7(DefaultConfiguration.java:741)
+645-2026-07-15T01:03:40.7134060Z 	at org.gradle.api.internal.project.DefaultProjectStateRegistry$CalculatedModelValueImpl.update(DefaultProjectStateRegistry.java:505)
