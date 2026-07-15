@@ -9,7 +9,7 @@
     "itemcollectors.CollectorBlockEntityMixin",
     "sophisticatedcore.MagnetUpgradeWrapperMixin",
     "portcompat.Ae2wtlibMagnetHandlerMixin",
-    "portcompat.ArtifactsMagnetismMixin",
+    "portcompat.ArtifactsUniversalAttractorMixin",
     "portcompat.MekanismMagneticAttractionMixin",
     "portcompat.DraconicEvolutionMagnetMixin",
     "portcompat.ReliquaryFortuneCoinMixin",
