@@ -22,6 +22,6 @@ side="BOTH"
 [[dependencies.magnot]]
 modId="create"
 mandatory=true
-versionRange="[0.3.2,)"
+versionRange="[0.3.2g,0.4.0)"
 ordering="AFTER"
 side="BOTH"
