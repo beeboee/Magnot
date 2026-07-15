@@ -1,0 +1,353 @@
+Compiled from "MagnetHandler.java"
+public class de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler {
+  private static final java.util.WeakHashMap<net.minecraft.server.level.ServerPlayer, java.lang.Integer> players;
+    descriptor: Ljava/util/WeakHashMap;
+
+  public de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void handle(net.minecraft.server.level.ServerPlayer, net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/world/item/ItemStack;)V
+    Code:
+       0: getstatic     #7                  // Field players:Ljava/util/WeakHashMap;
+       3: aload_0
+       4: invokevirtual #13                 // Method java/util/WeakHashMap.containsKey:(Ljava/lang/Object;)Z
+       7: ifeq          31
+      10: getstatic     #7                  // Field players:Ljava/util/WeakHashMap;
+      13: aload_0
+      14: invokevirtual #19                 // Method java/util/WeakHashMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      17: checkcast     #23                 // class java/lang/Integer
+      20: invokevirtual #25                 // Method java/lang/Integer.intValue:()I
+      23: aload_0
+      24: invokestatic  #29                 // Method getTick:(Lnet/minecraft/server/level/ServerPlayer;)I
+      27: if_icmpne     31
+      30: return
+      31: aload_0
+      32: aload_1
+      33: invokestatic  #33                 // Method sendRestockAble:(Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/world/item/ItemStack;)V
+      36: aload_0
+      37: aload_1
+      38: invokestatic  #37                 // Method handleMagnet:(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/item/ItemStack;)V
+      41: getstatic     #7                  // Field players:Ljava/util/WeakHashMap;
+      44: aload_0
+      45: aload_0
+      46: invokestatic  #29                 // Method getTick:(Lnet/minecraft/server/level/ServerPlayer;)I
+      49: invokestatic  #41                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      52: invokevirtual #45                 // Method java/util/WeakHashMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      55: pop
+      56: return
+
+  private static int getTick(net.minecraft.server.level.ServerPlayer);
+    descriptor: (Lnet/minecraft/server/level/ServerPlayer;)I
+    Code:
+       0: aload_0
+       1: invokevirtual #49                 // Method net/minecraft/server/level/ServerPlayer.getServer:()Lnet/minecraft/server/MinecraftServer;
+       4: ifnonnull     9
+       7: iconst_m1
+       8: ireturn
+       9: aload_0
+      10: invokevirtual #49                 // Method net/minecraft/server/level/ServerPlayer.getServer:()Lnet/minecraft/server/MinecraftServer;
+      13: invokevirtual #55                 // Method net/minecraft/server/MinecraftServer.getTickCount:()I
+      16: ireturn
+
+  private static void sendRestockAble(net.minecraft.server.level.ServerPlayer, net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/world/item/ItemStack;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #60                 // Method net/minecraft/server/level/ServerPlayer.isCreative:()Z
+       4: ifeq          8
+       7: return
+       8: aload_1
+       9: getstatic     #64                 // Field de/mari_023/ae2wtlib/api/AE2wtlibComponents.RESTOCK:Lnet/minecraft/core/component/DataComponentType;
+      12: iconst_0
+      13: invokestatic  #70                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      16: invokevirtual #75                 // Method net/minecraft/world/item/ItemStack.getOrDefault:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Ljava/lang/Object;
+      19: checkcast     #71                 // class java/lang/Boolean
+      22: invokevirtual #81                 // Method java/lang/Boolean.booleanValue:()Z
+      25: ifne          29
+      28: return
+      29: aload_0
+      30: invokestatic  #84                 // Method sendRestockAble:(Lnet/minecraft/server/level/ServerPlayer;)V
+      33: return
+
+  private static void sendRestockAble(net.minecraft.server.level.ServerPlayer);
+    descriptor: (Lnet/minecraft/server/level/ServerPlayer;)V
+    Code:
+       0: aload_0
+       1: invokestatic  #87                 // Method de/mari_023/ae2wtlib/wct/CraftingTerminalHandler.getCraftingTerminalHandler:(Lnet/minecraft/world/entity/player/Player;)Lde/mari_023/ae2wtlib/wct/CraftingTerminalHandler;
+       4: astore_1
+       5: aload_1
+       6: invokevirtual #93                 // Method de/mari_023/ae2wtlib/wct/CraftingTerminalHandler.getCraftingTerminal:()Lnet/minecraft/world/item/ItemStack;
+       9: astore_2
+      10: aload_2
+      11: getstatic     #64                 // Field de/mari_023/ae2wtlib/api/AE2wtlibComponents.RESTOCK:Lnet/minecraft/core/component/DataComponentType;
+      14: iconst_0
+      15: invokestatic  #70                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      18: invokevirtual #75                 // Method net/minecraft/world/item/ItemStack.getOrDefault:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Ljava/lang/Object;
+      21: checkcast     #71                 // class java/lang/Boolean
+      24: invokevirtual #81                 // Method java/lang/Boolean.booleanValue:()Z
+      27: ifeq          37
+      30: aload_1
+      31: invokevirtual #97                 // Method de/mari_023/ae2wtlib/wct/CraftingTerminalHandler.inRange:()Z
+      34: ifne          38
+      37: return
+      38: new           #100                // class java/util/HashMap
+      41: dup
+      42: invokespecial #102                // Method java/util/HashMap."<init>":()V
+      45: astore_3
+      46: aload_1
+      47: invokevirtual #103                // Method de/mari_023/ae2wtlib/wct/CraftingTerminalHandler.getTargetGrid:()Lappeng/api/networking/IGrid;
+      50: ifnonnull     54
+      53: return
+      54: aload_1
+      55: invokevirtual #103                // Method de/mari_023/ae2wtlib/wct/CraftingTerminalHandler.getTargetGrid:()Lappeng/api/networking/IGrid;
+      58: invokeinterface #107,  1          // InterfaceMethod appeng/api/networking/IGrid.getStorageService:()Lappeng/api/networking/storage/IStorageService;
+      63: invokeinterface #113,  1          // InterfaceMethod appeng/api/networking/storage/IStorageService.getCachedInventory:()Lappeng/api/stacks/KeyCounter;
+      68: astore        4
+      70: iconst_0
+      71: istore        5
+      73: iload         5
+      75: aload_0
+      76: invokevirtual #119                // Method net/minecraft/server/level/ServerPlayer.getInventory:()Lnet/minecraft/world/entity/player/Inventory;
+      79: invokevirtual #123                // Method net/minecraft/world/entity/player/Inventory.getContainerSize:()I
+      82: if_icmpge     191
+      85: aload_0
+      86: invokevirtual #119                // Method net/minecraft/server/level/ServerPlayer.getInventory:()Lnet/minecraft/world/entity/player/Inventory;
+      89: iload         5
+      91: invokevirtual #128                // Method net/minecraft/world/entity/player/Inventory.getItem:(I)Lnet/minecraft/world/item/ItemStack;
+      94: astore        6
+      96: aload         6
+      98: invokevirtual #132                // Method net/minecraft/world/item/ItemStack.isEmpty:()Z
+     101: ifeq          107
+     104: goto          185
+     107: aload_3
+     108: aload         6
+     110: invokevirtual #135                // Method net/minecraft/world/item/ItemStack.getItem:()Lnet/minecraft/world/item/Item;
+     113: invokevirtual #138                // Method java/util/HashMap.containsKey:(Ljava/lang/Object;)Z
+     116: ifeq          122
+     119: goto          185
+     122: aload         6
+     124: getstatic     #139                // Field de/mari_023/ae2wtlib/api/AE2wtlibTags.NO_RESTOCK:Lnet/minecraft/tags/TagKey;
+     127: invokevirtual #145                // Method net/minecraft/world/item/ItemStack.is:(Lnet/minecraft/tags/TagKey;)Z
+     130: ifeq          136
+     133: goto          185
+     136: aload         6
+     138: invokestatic  #149                // Method appeng/api/stacks/AEItemKey.of:(Lnet/minecraft/world/item/ItemStack;)Lappeng/api/stacks/AEItemKey;
+     141: astore        7
+     143: aload         7
+     145: ifnonnull     165
+     148: aload_3
+     149: aload         6
+     151: invokevirtual #135                // Method net/minecraft/world/item/ItemStack.getItem:()Lnet/minecraft/world/item/Item;
+     154: lconst_0
+     155: invokestatic  #155                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+     158: invokevirtual #160                // Method java/util/HashMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     161: pop
+     162: goto          185
+     165: aload_3
+     166: aload         6
+     168: invokevirtual #135                // Method net/minecraft/world/item/ItemStack.getItem:()Lnet/minecraft/world/item/Item;
+     171: aload         4
+     173: aload         7
+     175: invokevirtual #161                // Method appeng/api/stacks/KeyCounter.get:(Lappeng/api/stacks/AEKey;)J
+     178: invokestatic  #155                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+     181: invokevirtual #160                // Method java/util/HashMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     184: pop
+     185: iinc          5, 1
+     188: goto          73
+     191: aload_3
+     192: invokevirtual #166                // Method java/util/HashMap.size:()I
+     195: invokestatic  #169                // Method com/google/common/collect/Maps.newHashMapWithExpectedSize:(I)Ljava/util/HashMap;
+     198: astore        5
+     200: aload_3
+     201: aload         5
+     203: invokedynamic #175,  0            // InvokeDynamic #0:accept:(Ljava/util/HashMap;)Ljava/util/function/BiConsumer;
+     208: invokevirtual #179                // Method java/util/HashMap.forEach:(Ljava/util/function/BiConsumer;)V
+     211: aload_0
+     212: new           #183                // class de/mari_023/ae2wtlib/networking/RestockAmountPacket
+     215: dup
+     216: aload         5
+     218: invokespecial #185                // Method de/mari_023/ae2wtlib/networking/RestockAmountPacket."<init>":(Ljava/util/HashMap;)V
+     221: iconst_0
+     222: anewarray     #188                // class net/minecraft/network/protocol/common/custom/CustomPacketPayload
+     225: invokestatic  #190                // Method net/neoforged/neoforge/network/PacketDistributor.sendToPlayer:(Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/network/protocol/common/custom/CustomPacketPayload;[Lnet/minecraft/network/protocol/common/custom/CustomPacketPayload;)V
+     228: return
+
+  private static void handleMagnet(net.minecraft.world.entity.player.Player, net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/item/ItemStack;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #196                // Method net/minecraft/world/entity/player/Player.isShiftKeyDown:()Z
+       4: ifeq          8
+       7: return
+       8: aload_1
+       9: invokestatic  #201                // Method getMagnetMode:(Lnet/minecraft/world/item/ItemStack;)Lde/mari_023/ae2wtlib/wct/magnet_card/MagnetMode;
+      12: invokevirtual #205                // Method de/mari_023/ae2wtlib/wct/magnet_card/MagnetMode.magnet:()Z
+      15: ifne          19
+      18: return
+      19: aload_0
+      20: invokestatic  #210                // Method handleMagnet:(Lnet/minecraft/world/entity/player/Player;)V
+      23: return
+
+  private static void handleMagnet(net.minecraft.world.entity.player.Player);
+    descriptor: (Lnet/minecraft/world/entity/player/Player;)V
+    Code:
+       0: aload_0
+       1: invokestatic  #87                 // Method de/mari_023/ae2wtlib/wct/CraftingTerminalHandler.getCraftingTerminalHandler:(Lnet/minecraft/world/entity/player/Player;)Lde/mari_023/ae2wtlib/wct/CraftingTerminalHandler;
+       4: astore_1
+       5: aload_1
+       6: invokevirtual #93                 // Method de/mari_023/ae2wtlib/wct/CraftingTerminalHandler.getCraftingTerminal:()Lnet/minecraft/world/item/ItemStack;
+       9: invokestatic  #201                // Method getMagnetMode:(Lnet/minecraft/world/item/ItemStack;)Lde/mari_023/ae2wtlib/wct/magnet_card/MagnetMode;
+      12: invokevirtual #205                // Method de/mari_023/ae2wtlib/wct/magnet_card/MagnetMode.magnet:()Z
+      15: ifne          19
+      18: return
+      19: aload_1
+      20: invokevirtual #213                // Method de/mari_023/ae2wtlib/wct/CraftingTerminalHandler.getMagnetHost:()Lde/mari_023/ae2wtlib/wct/magnet_card/MagnetHost;
+      23: astore_2
+      24: aload_2
+      25: ifnonnull     29
+      28: return
+      29: aload_2
+      30: invokevirtual #217                // Method de/mari_023/ae2wtlib/wct/magnet_card/MagnetHost.getPickupFilter:()Lappeng/util/prioritylist/IPartitionList;
+      33: invokeinterface #223,  1          // InterfaceMethod appeng/util/prioritylist/IPartitionList.isEmpty:()Z
+      38: ifeq          52
+      41: aload_2
+      42: invokevirtual #226                // Method de/mari_023/ae2wtlib/wct/magnet_card/MagnetHost.getPickupMode:()Lappeng/api/config/IncludeExclude;
+      45: getstatic     #230                // Field appeng/api/config/IncludeExclude.WHITELIST:Lappeng/api/config/IncludeExclude;
+      48: if_acmpne     52
+      51: return
+      52: aload_0
+      53: invokevirtual #236                // Method net/minecraft/world/entity/player/Player.level:()Lnet/minecraft/world/level/Level;
+      56: ldc           #240                // class net/minecraft/world/entity/item/ItemEntity
+      58: aload_0
+      59: invokevirtual #242                // Method net/minecraft/world/entity/player/Player.getBoundingBox:()Lnet/minecraft/world/phys/AABB;
+      62: getstatic     #246                // Field de/mari_023/ae2wtlib/AE2wtlibConfig.CONFIG:Lde/mari_023/ae2wtlib/AE2wtlibConfig;
+      65: invokevirtual #252                // Method de/mari_023/ae2wtlib/AE2wtlibConfig.magnetCardRange:()D
+      68: invokevirtual #256                // Method net/minecraft/world/phys/AABB.inflate:(D)Lnet/minecraft/world/phys/AABB;
+      71: getstatic     #262                // Field net/minecraft/world/entity/EntitySelector.ENTITY_STILL_ALIVE:Ljava/util/function/Predicate;
+      74: invokevirtual #268                // Method net/minecraft/world/level/Level.getEntitiesOfClass:(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;
+      77: astore_3
+      78: aload_3
+      79: invokeinterface #274,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      84: astore        4
+      86: aload         4
+      88: invokeinterface #280,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      93: ifeq          167
+      96: aload         4
+      98: invokeinterface #285,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     103: checkcast     #240                // class net/minecraft/world/entity/item/ItemEntity
+     106: astore        5
+     108: aload         5
+     110: invokevirtual #289                // Method net/minecraft/world/entity/item/ItemEntity.getItem:()Lnet/minecraft/world/item/ItemStack;
+     113: invokestatic  #149                // Method appeng/api/stacks/AEItemKey.of:(Lnet/minecraft/world/item/ItemStack;)Lappeng/api/stacks/AEItemKey;
+     116: astore        6
+     118: aload         6
+     120: ifnonnull     126
+     123: goto          86
+     126: aload_2
+     127: invokevirtual #217                // Method de/mari_023/ae2wtlib/wct/magnet_card/MagnetHost.getPickupFilter:()Lappeng/util/prioritylist/IPartitionList;
+     130: aload         6
+     132: aload_2
+     133: invokevirtual #226                // Method de/mari_023/ae2wtlib/wct/magnet_card/MagnetHost.getPickupMode:()Lappeng/api/config/IncludeExclude;
+     136: invokeinterface #291,  3          // InterfaceMethod appeng/util/prioritylist/IPartitionList.matchesFilter:(Lappeng/api/stacks/AEKey;Lappeng/api/config/IncludeExclude;)Z
+     141: ifeq          164
+     144: aload         5
+     146: invokevirtual #295                // Method net/minecraft/world/entity/item/ItemEntity.getPersistentData:()Lnet/minecraft/nbt/CompoundTag;
+     149: ldc_w         #299                // String PreventRemoteMovement
+     152: invokevirtual #301                // Method net/minecraft/nbt/CompoundTag.contains:(Ljava/lang/String;)Z
+     155: ifne          164
+     158: aload         5
+     160: aload_0
+     161: invokevirtual #307                // Method net/minecraft/world/entity/item/ItemEntity.playerTouch:(Lnet/minecraft/world/entity/player/Player;)V
+     164: goto          86
+     167: return
+
+  public static void saveMagnetMode(net.minecraft.world.item.ItemStack, de.mari_023.ae2wtlib.wct.magnet_card.MagnetMode);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lde/mari_023/ae2wtlib/wct/magnet_card/MagnetMode;)V
+    Code:
+       0: aload_1
+       1: getstatic     #310                // Field de/mari_023/ae2wtlib/wct/magnet_card/MagnetMode.INVALID:Lde/mari_023/ae2wtlib/wct/magnet_card/MagnetMode;
+       4: if_acmpeq     14
+       7: aload_1
+       8: getstatic     #314                // Field de/mari_023/ae2wtlib/wct/magnet_card/MagnetMode.NO_CARD:Lde/mari_023/ae2wtlib/wct/magnet_card/MagnetMode;
+      11: if_acmpne     15
+      14: return
+      15: aload_0
+      16: invokevirtual #135                // Method net/minecraft/world/item/ItemStack.getItem:()Lnet/minecraft/world/item/Item;
+      19: astore_3
+      20: aload_3
+      21: instanceof    #317                // class appeng/api/upgrades/IUpgradeableItem
+      24: ifeq          35
+      27: aload_3
+      28: checkcast     #317                // class appeng/api/upgrades/IUpgradeableItem
+      31: astore_2
+      32: goto          36
+      35: return
+      36: aload_2
+      37: aload_0
+      38: invokeinterface #319,  2          // InterfaceMethod appeng/api/upgrades/IUpgradeableItem.getUpgrades:(Lnet/minecraft/world/item/ItemStack;)Lappeng/api/upgrades/IUpgradeInventory;
+      43: getstatic     #323                // Field de/mari_023/ae2wtlib/AE2wtlibItems.MAGNET_CARD:Lnet/minecraft/world/item/Item;
+      46: invokeinterface #329,  2          // InterfaceMethod appeng/api/upgrades/IUpgradeInventory.isInstalled:(Lnet/minecraft/world/level/ItemLike;)Z
+      51: ifne          55
+      54: return
+      55: aload_0
+      56: getstatic     #335                // Field de/mari_023/ae2wtlib/AE2wtlibAdditionalComponents.MAGNET_SETTINGS:Lnet/minecraft/core/component/DataComponentType;
+      59: aload_1
+      60: invokevirtual #340                // Method net/minecraft/world/item/ItemStack.set:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Ljava/lang/Object;
+      63: pop
+      64: return
+
+  public static de.mari_023.ae2wtlib.wct.magnet_card.MagnetMode getMagnetMode(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Lde/mari_023/ae2wtlib/wct/magnet_card/MagnetMode;
+    Code:
+       0: aload_0
+       1: invokevirtual #135                // Method net/minecraft/world/item/ItemStack.getItem:()Lnet/minecraft/world/item/Item;
+       4: astore_2
+       5: aload_2
+       6: instanceof    #317                // class appeng/api/upgrades/IUpgradeableItem
+       9: ifeq          20
+      12: aload_2
+      13: checkcast     #317                // class appeng/api/upgrades/IUpgradeableItem
+      16: astore_1
+      17: goto          24
+      20: getstatic     #310                // Field de/mari_023/ae2wtlib/wct/magnet_card/MagnetMode.INVALID:Lde/mari_023/ae2wtlib/wct/magnet_card/MagnetMode;
+      23: areturn
+      24: aload_1
+      25: aload_0
+      26: invokeinterface #319,  2          // InterfaceMethod appeng/api/upgrades/IUpgradeableItem.getUpgrades:(Lnet/minecraft/world/item/ItemStack;)Lappeng/api/upgrades/IUpgradeInventory;
+      31: getstatic     #323                // Field de/mari_023/ae2wtlib/AE2wtlibItems.MAGNET_CARD:Lnet/minecraft/world/item/Item;
+      34: invokeinterface #329,  2          // InterfaceMethod appeng/api/upgrades/IUpgradeInventory.isInstalled:(Lnet/minecraft/world/level/ItemLike;)Z
+      39: ifne          46
+      42: getstatic     #314                // Field de/mari_023/ae2wtlib/wct/magnet_card/MagnetMode.NO_CARD:Lde/mari_023/ae2wtlib/wct/magnet_card/MagnetMode;
+      45: areturn
+      46: aload_0
+      47: getstatic     #335                // Field de/mari_023/ae2wtlib/AE2wtlibAdditionalComponents.MAGNET_SETTINGS:Lnet/minecraft/core/component/DataComponentType;
+      50: getstatic     #343                // Field de/mari_023/ae2wtlib/wct/magnet_card/MagnetMode.OFF:Lde/mari_023/ae2wtlib/wct/magnet_card/MagnetMode;
+      53: invokevirtual #75                 // Method net/minecraft/world/item/ItemStack.getOrDefault:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Ljava/lang/Object;
+      56: checkcast     #206                // class de/mari_023/ae2wtlib/wct/magnet_card/MagnetMode
+      59: areturn
+
+  private static void lambda$sendRestockAble$0(java.util.HashMap, net.minecraft.world.item.Item, java.lang.Long);
+    descriptor: (Ljava/util/HashMap;Lnet/minecraft/world/item/Item;Ljava/lang/Long;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #346                // Method net/minecraft/world/item/Item.builtInRegistryHolder:()Lnet/minecraft/core/Holder$Reference;
+       5: aload_2
+       6: invokevirtual #160                // Method java/util/HashMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+       9: pop
+      10: return
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: new           #14                 // class java/util/WeakHashMap
+       3: dup
+       4: invokespecial #352                // Method java/util/WeakHashMap."<init>":()V
+       7: putstatic     #7                  // Field players:Ljava/util/WeakHashMap;
+      10: return
+}

@@ -1,0 +1,748 @@
+Compiled from "CompiledVacuumModule.java"
+public class me.desht.modularrouters.logic.compiled.CompiledVacuumModule extends me.desht.modularrouters.logic.compiled.CompiledModule {
+  public static final java.lang.String NBT_XP_FLUID_TYPE;
+    descriptor: Ljava/lang/String;
+
+  public static final java.lang.String NBT_AUTO_EJECT;
+    descriptor: Ljava/lang/String;
+
+  private final me.desht.modularrouters.logic.compiled.CompiledVacuumModule$VacuumSettings settings;
+    descriptor: Lme/desht/modularrouters/logic/compiled/CompiledVacuumModule$VacuumSettings;
+
+  private final boolean fastPickup;
+    descriptor: Z
+
+  private final boolean xpMode;
+    descriptor: Z
+
+  private final net.neoforged.neoforge.fluids.FluidStack xpJuiceStack;
+    descriptor: Lnet/neoforged/neoforge/fluids/FluidStack;
+
+  private net.neoforged.neoforge.capabilities.BlockCapabilityCache<net.neoforged.neoforge.fluids.capability.IFluidHandler, net.minecraft.core.Direction> fluidReceiverCache;
+    descriptor: Lnet/neoforged/neoforge/capabilities/BlockCapabilityCache;
+
+  private int xpBuffered;
+    descriptor: I
+
+  public me.desht.modularrouters.logic.compiled.CompiledVacuumModule(me.desht.modularrouters.block.tile.ModularRouterBlockEntity, net.minecraft.world.item.ItemStack);
+    descriptor: (Lme/desht/modularrouters/block/tile/ModularRouterBlockEntity;Lnet/minecraft/world/item/ItemStack;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokespecial #1                  // Method me/desht/modularrouters/logic/compiled/CompiledModule."<init>":(Lme/desht/modularrouters/block/tile/ModularRouterBlockEntity;Lnet/minecraft/world/item/ItemStack;)V
+       6: aload_0
+       7: aconst_null
+       8: putfield      #7                  // Field fluidReceiverCache:Lnet/neoforged/neoforge/capabilities/BlockCapabilityCache;
+      11: aload_0
+      12: iconst_0
+      13: putfield      #13                 // Field xpBuffered:I
+      16: aload_0
+      17: aload_2
+      18: getstatic     #17                 // Field me/desht/modularrouters/core/ModDataComponents.VACUUM_SETTINGS:Ljava/util/function/Supplier;
+      21: getstatic     #23                 // Field me/desht/modularrouters/logic/compiled/CompiledVacuumModule$VacuumSettings.DEFAULT:Lme/desht/modularrouters/logic/compiled/CompiledVacuumModule$VacuumSettings;
+      24: invokevirtual #29                 // Method net/minecraft/world/item/ItemStack.getOrDefault:(Ljava/util/function/Supplier;Ljava/lang/Object;)Ljava/lang/Object;
+      27: checkcast     #24                 // class me/desht/modularrouters/logic/compiled/CompiledVacuumModule$VacuumSettings
+      30: putfield      #35                 // Field settings:Lme/desht/modularrouters/logic/compiled/CompiledVacuumModule$VacuumSettings;
+      33: aload_0
+      34: aload_0
+      35: getstatic     #38                 // Field me/desht/modularrouters/core/ModItems.FAST_PICKUP_AUGMENT:Lnet/neoforged/neoforge/registries/DeferredItem;
+      38: invokevirtual #44                 // Method getAugmentCount:(Ljava/util/function/Supplier;)I
+      41: ifle          48
+      44: iconst_1
+      45: goto          49
+      48: iconst_0
+      49: putfield      #48                 // Field fastPickup:Z
+      52: aload_0
+      53: aload_0
+      54: getstatic     #52                 // Field me/desht/modularrouters/core/ModItems.XP_VACUUM_AUGMENT:Lnet/neoforged/neoforge/registries/DeferredItem;
+      57: invokevirtual #44                 // Method getAugmentCount:(Ljava/util/function/Supplier;)I
+      60: ifle          67
+      63: iconst_1
+      64: goto          68
+      67: iconst_0
+      68: putfield      #55                 // Field xpMode:Z
+      71: aload_0
+      72: getfield      #55                 // Field xpMode:Z
+      75: ifeq          120
+      78: aload_0
+      79: getfield      #35                 // Field settings:Lme/desht/modularrouters/logic/compiled/CompiledVacuumModule$VacuumSettings;
+      82: getfield      #58                 // Field me/desht/modularrouters/logic/compiled/CompiledVacuumModule$VacuumSettings.collectionType:Lme/desht/modularrouters/integration/XPCollection$XPCollectionType;
+      85: invokevirtual #62                 // Method me/desht/modularrouters/integration/XPCollection$XPCollectionType.getFluid:()Lnet/minecraft/world/level/material/Fluid;
+      88: astore_3
+      89: aload_0
+      90: aload_3
+      91: getstatic     #68                 // Field net/minecraft/world/level/material/Fluids.EMPTY:Lnet/minecraft/world/level/material/Fluid;
+      94: if_acmpne     103
+      97: getstatic     #74                 // Field net/neoforged/neoforge/fluids/FluidStack.EMPTY:Lnet/neoforged/neoforge/fluids/FluidStack;
+     100: goto          114
+     103: new           #75                 // class net/neoforged/neoforge/fluids/FluidStack
+     106: dup
+     107: aload_3
+     108: sipush        1000
+     111: invokespecial #79                 // Method net/neoforged/neoforge/fluids/FluidStack."<init>":(Lnet/minecraft/world/level/material/Fluid;I)V
+     114: putfield      #82                 // Field xpJuiceStack:Lnet/neoforged/neoforge/fluids/FluidStack;
+     117: goto          127
+     120: aload_0
+     121: getstatic     #74                 // Field net/neoforged/neoforge/fluids/FluidStack.EMPTY:Lnet/neoforged/neoforge/fluids/FluidStack;
+     124: putfield      #82                 // Field xpJuiceStack:Lnet/neoforged/neoforge/fluids/FluidStack;
+     127: return
+
+  public boolean execute(me.desht.modularrouters.block.tile.ModularRouterBlockEntity);
+    descriptor: (Lme/desht/modularrouters/block/tile/ModularRouterBlockEntity;)Z
+    Code:
+       0: aload_0
+       1: getfield      #55                 // Field xpMode:Z
+       4: ifeq          13
+       7: aload_0
+       8: aload_1
+       9: invokevirtual #85                 // Method handleXpMode:(Lme/desht/modularrouters/block/tile/ModularRouterBlockEntity;)Z
+      12: ireturn
+      13: aload_0
+      14: aload_1
+      15: invokevirtual #89                 // Method handleItemMode:(Lme/desht/modularrouters/block/tile/ModularRouterBlockEntity;)Z
+      18: ireturn
+
+  public void onNeighbourChange(me.desht.modularrouters.block.tile.ModularRouterBlockEntity);
+    descriptor: (Lme/desht/modularrouters/block/tile/ModularRouterBlockEntity;)V
+    Code:
+       0: aload_0
+       1: aconst_null
+       2: putfield      #7                  // Field fluidReceiverCache:Lnet/neoforged/neoforge/capabilities/BlockCapabilityCache;
+       5: return
+
+  public java.util.List<me.desht.modularrouters.logic.ModuleTarget> setupTargets(me.desht.modularrouters.block.tile.ModularRouterBlockEntity, net.minecraft.world.item.ItemStack);
+    descriptor: (Lme/desht/modularrouters/block/tile/ModularRouterBlockEntity;Lnet/minecraft/world/item/ItemStack;)Ljava/util/List;
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: aconst_null
+       5: areturn
+       6: aload_0
+       7: invokevirtual #92                 // Method getDirection:()Lme/desht/modularrouters/logic/settings/RelativeDirection;
+      10: astore_3
+      11: aload_3
+      12: getstatic     #96                 // Field me/desht/modularrouters/logic/settings/RelativeDirection.NONE:Lme/desht/modularrouters/logic/settings/RelativeDirection;
+      15: if_acmpne     22
+      18: iconst_0
+      19: goto          28
+      22: aload_0
+      23: invokevirtual #102                // Method getRange:()I
+      26: iconst_1
+      27: iadd
+      28: istore        4
+      30: aload_1
+      31: aload_3
+      32: invokevirtual #106                // Method me/desht/modularrouters/block/tile/ModularRouterBlockEntity.getAbsoluteFacing:(Lme/desht/modularrouters/logic/settings/RelativeDirection;)Lnet/minecraft/core/Direction;
+      35: astore        5
+      37: aload_1
+      38: invokevirtual #112                // Method me/desht/modularrouters/block/tile/ModularRouterBlockEntity.nonNullLevel:()Lnet/minecraft/world/level/Level;
+      41: aload_1
+      42: invokevirtual #116                // Method me/desht/modularrouters/block/tile/ModularRouterBlockEntity.getBlockPos:()Lnet/minecraft/core/BlockPos;
+      45: aload         5
+      47: iload         4
+      49: invokevirtual #120                // Method net/minecraft/core/BlockPos.relative:(Lnet/minecraft/core/Direction;I)Lnet/minecraft/core/BlockPos;
+      52: invokestatic  #126                // Method me/desht/modularrouters/util/MiscUtil.makeGlobalPos:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/core/GlobalPos;
+      55: astore        6
+      57: new           #132                // class me/desht/modularrouters/logic/ModuleTarget
+      60: dup
+      61: aload         6
+      63: aload         5
+      65: invokespecial #134                // Method me/desht/modularrouters/logic/ModuleTarget."<init>":(Lnet/minecraft/core/GlobalPos;Lnet/minecraft/core/Direction;)V
+      68: invokestatic  #137                // InterfaceMethod java/util/List.of:(Ljava/lang/Object;)Ljava/util/List;
+      71: areturn
+
+  protected boolean isTargetValid(me.desht.modularrouters.block.tile.ModularRouterBlockEntity, me.desht.modularrouters.logic.ModuleTarget);
+    descriptor: (Lme/desht/modularrouters/block/tile/ModularRouterBlockEntity;Lme/desht/modularrouters/logic/ModuleTarget;)Z
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  private boolean handleItemMode(me.desht.modularrouters.block.tile.ModularRouterBlockEntity);
+    descriptor: (Lme/desht/modularrouters/block/tile/ModularRouterBlockEntity;)Z
+    Code:
+       0: aload_1
+       1: invokevirtual #143                // Method me/desht/modularrouters/block/tile/ModularRouterBlockEntity.isBufferFull:()Z
+       4: ifeq          9
+       7: iconst_0
+       8: ireturn
+       9: aload_1
+      10: invokevirtual #147                // Method me/desht/modularrouters/block/tile/ModularRouterBlockEntity.getBuffer:()Lnet/neoforged/neoforge/items/IItemHandler;
+      13: iconst_0
+      14: invokeinterface #151,  2          // InterfaceMethod net/neoforged/neoforge/items/IItemHandler.getStackInSlot:(I)Lnet/minecraft/world/item/ItemStack;
+      19: astore_2
+      20: aload_0
+      21: invokevirtual #157                // Method getTarget:()Lme/desht/modularrouters/logic/ModuleTarget;
+      24: getfield      #161                // Field me/desht/modularrouters/logic/ModuleTarget.gPos:Lnet/minecraft/core/GlobalPos;
+      27: invokevirtual #165                // Method net/minecraft/core/GlobalPos.pos:()Lnet/minecraft/core/BlockPos;
+      30: astore_3
+      31: aload_0
+      32: invokevirtual #102                // Method getRange:()I
+      35: istore        4
+      37: aload_1
+      38: invokevirtual #112                // Method me/desht/modularrouters/block/tile/ModularRouterBlockEntity.nonNullLevel:()Lnet/minecraft/world/level/Level;
+      41: ldc           #170                // class net/minecraft/world/entity/item/ItemEntity
+      43: new           #172                // class net/minecraft/world/phys/AABB
+      46: dup
+      47: aload_3
+      48: invokespecial #174                // Method net/minecraft/world/phys/AABB."<init>":(Lnet/minecraft/core/BlockPos;)V
+      51: iload         4
+      53: i2d
+      54: invokevirtual #177                // Method net/minecraft/world/phys/AABB.inflate:(D)Lnet/minecraft/world/phys/AABB;
+      57: invokevirtual #181                // Method net/minecraft/world/level/Level.getEntitiesOfClass:(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;
+      60: astore        5
+      62: aload_0
+      63: aload_1
+      64: invokevirtual #187                // Method getItemsPerTick:(Lme/desht/modularrouters/block/tile/ModularRouterBlockEntity;)I
+      67: istore        6
+      69: aload         5
+      71: invokeinterface #191,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      76: astore        7
+      78: aload         7
+      80: invokeinterface #195,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      85: ifeq          375
+      88: aload         7
+      90: invokeinterface #200,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      95: checkcast     #170                // class net/minecraft/world/entity/item/ItemEntity
+      98: astore        8
+     100: aload         8
+     102: invokevirtual #204                // Method net/minecraft/world/entity/item/ItemEntity.isAlive:()Z
+     105: ifeq          78
+     108: aload_0
+     109: getfield      #48                 // Field fastPickup:Z
+     112: ifne          126
+     115: aload         8
+     117: invokevirtual #207                // Method net/minecraft/world/entity/item/ItemEntity.hasPickUpDelay:()Z
+     120: ifeq          126
+     123: goto          78
+     126: aload         8
+     128: invokevirtual #210                // Method net/minecraft/world/entity/item/ItemEntity.getItem:()Lnet/minecraft/world/item/ItemStack;
+     131: astore        9
+     133: aload_2
+     134: invokevirtual #214                // Method net/minecraft/world/item/ItemStack.isEmpty:()Z
+     137: ifne          149
+     140: aload         9
+     142: aload_2
+     143: invokestatic  #217                // Method net/minecraft/world/item/ItemStack.isSameItemSameComponents:(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Z
+     146: ifeq          372
+     149: aload_0
+     150: invokevirtual #221                // Method getFilter:()Lme/desht/modularrouters/logic/filter/Filter;
+     153: aload         9
+     155: invokevirtual #225                // Method me/desht/modularrouters/logic/filter/Filter.test:(Lnet/minecraft/world/item/ItemStack;)Z
+     158: ifeq          372
+     161: aload_2
+     162: invokevirtual #231                // Method net/minecraft/world/item/ItemStack.getCount:()I
+     165: istore        10
+     167: aload_0
+     168: invokevirtual #234                // Method getRegulationAmount:()I
+     171: ifle          192
+     174: aload         9
+     176: invokevirtual #237                // Method net/minecraft/world/item/ItemStack.getMaxStackSize:()I
+     179: aload_0
+     180: invokevirtual #234                // Method getRegulationAmount:()I
+     183: invokestatic  #240                // Method java/lang/Math.min:(II)I
+     186: iload         10
+     188: isub
+     189: goto          200
+     192: aload         9
+     194: invokevirtual #237                // Method net/minecraft/world/item/ItemStack.getMaxStackSize:()I
+     197: iload         10
+     199: isub
+     200: istore        11
+     202: aload         9
+     204: aload_0
+     205: aload_1
+     206: invokevirtual #187                // Method getItemsPerTick:(Lme/desht/modularrouters/block/tile/ModularRouterBlockEntity;)I
+     209: iload         11
+     211: invokestatic  #240                // Method java/lang/Math.min:(II)I
+     214: invokevirtual #246                // Method net/minecraft/world/item/ItemStack.split:(I)Lnet/minecraft/world/item/ItemStack;
+     217: astore        12
+     219: aload_1
+     220: aload         12
+     222: invokevirtual #249                // Method me/desht/modularrouters/block/tile/ModularRouterBlockEntity.insertBuffer:(Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/item/ItemStack;
+     225: astore        13
+     227: aload         13
+     229: ifnonnull     236
+     232: iconst_0
+     233: goto          241
+     236: aload         13
+     238: invokevirtual #231                // Method net/minecraft/world/item/ItemStack.getCount:()I
+     241: istore        14
+     243: aload         9
+     245: iload         14
+     247: invokevirtual #253                // Method net/minecraft/world/item/ItemStack.grow:(I)V
+     250: aload         12
+     252: invokevirtual #231                // Method net/minecraft/world/item/ItemStack.getCount:()I
+     255: iload         14
+     257: isub
+     258: istore        15
+     260: iload         6
+     262: iload         15
+     264: isub
+     265: istore        6
+     267: aload         9
+     269: invokevirtual #214                // Method net/minecraft/world/item/ItemStack.isEmpty:()Z
+     272: ifeq          283
+     275: aload         8
+     277: getstatic     #257                // Field net/minecraft/world/entity/Entity$RemovalReason.DISCARDED:Lnet/minecraft/world/entity/Entity$RemovalReason;
+     280: invokevirtual #263                // Method net/minecraft/world/entity/item/ItemEntity.remove:(Lnet/minecraft/world/entity/Entity$RemovalReason;)V
+     283: iload         15
+     285: ifle          364
+     288: getstatic     #267                // Field me/desht/modularrouters/config/ConfigHolder.common:Lme/desht/modularrouters/config/CommonConfig;
+     291: getfield      #273                // Field me/desht/modularrouters/config/CommonConfig.module:Lme/desht/modularrouters/config/CommonConfig$Module;
+     294: getfield      #279                // Field me/desht/modularrouters/config/CommonConfig$Module.vacuumParticles:Lnet/neoforged/neoforge/common/ModConfigSpec$BooleanValue;
+     297: invokevirtual #285                // Method net/neoforged/neoforge/common/ModConfigSpec$BooleanValue.get:()Ljava/lang/Object;
+     300: checkcast     #290                // class java/lang/Boolean
+     303: invokevirtual #292                // Method java/lang/Boolean.booleanValue:()Z
+     306: ifeq          364
+     309: aload_1
+     310: getstatic     #295                // Field me/desht/modularrouters/core/ModItems.MUFFLER_UPGRADE:Lnet/neoforged/neoforge/registries/DeferredItem;
+     313: invokevirtual #298                // Method net/neoforged/neoforge/registries/DeferredItem.get:()Ljava/lang/Object;
+     316: checkcast     #301                // class me/desht/modularrouters/item/upgrade/UpgradeItem
+     319: invokevirtual #303                // Method me/desht/modularrouters/block/tile/ModularRouterBlockEntity.getUpgradeCount:(Lme/desht/modularrouters/item/upgrade/UpgradeItem;)I
+     322: iconst_2
+     323: if_icmpge     364
+     326: aload_1
+     327: invokevirtual #112                // Method me/desht/modularrouters/block/tile/ModularRouterBlockEntity.nonNullLevel:()Lnet/minecraft/world/level/Level;
+     330: checkcast     #307                // class net/minecraft/server/level/ServerLevel
+     333: getstatic     #309                // Field net/minecraft/core/particles/ParticleTypes.CLOUD:Lnet/minecraft/core/particles/SimpleParticleType;
+     336: aload         8
+     338: invokevirtual #315                // Method net/minecraft/world/entity/item/ItemEntity.getX:()D
+     341: aload         8
+     343: invokevirtual #319                // Method net/minecraft/world/entity/item/ItemEntity.getY:()D
+     346: ldc2_w        #322                // double 0.25d
+     349: dadd
+     350: aload         8
+     352: invokevirtual #324                // Method net/minecraft/world/entity/item/ItemEntity.getZ:()D
+     355: iconst_2
+     356: dconst_0
+     357: dconst_0
+     358: dconst_0
+     359: dconst_0
+     360: invokevirtual #327                // Method net/minecraft/server/level/ServerLevel.sendParticles:(Lnet/minecraft/core/particles/ParticleOptions;DDDIDDDD)I
+     363: pop
+     364: iload         6
+     366: ifgt          372
+     369: goto          375
+     372: goto          78
+     375: iload         6
+     377: aload_0
+     378: aload_1
+     379: invokevirtual #187                // Method getItemsPerTick:(Lme/desht/modularrouters/block/tile/ModularRouterBlockEntity;)I
+     382: if_icmpge     389
+     385: iconst_1
+     386: goto          390
+     389: iconst_0
+     390: ireturn
+
+  private boolean handleXpMode(me.desht.modularrouters.block.tile.ModularRouterBlockEntity);
+    descriptor: (Lme/desht/modularrouters/block/tile/ModularRouterBlockEntity;)Z
+    Code:
+       0: aconst_null
+       1: astore_3
+       2: aload_0
+       3: invokevirtual #331                // Method getXPCollectionType:()Lme/desht/modularrouters/integration/XPCollection$XPCollectionType;
+       6: invokevirtual #335                // Method me/desht/modularrouters/integration/XPCollection$XPCollectionType.isSolid:()Z
+       9: ifeq          84
+      12: aload_1
+      13: invokevirtual #338                // Method me/desht/modularrouters/block/tile/ModularRouterBlockEntity.getBufferItemStack:()Lnet/minecraft/world/item/ItemStack;
+      16: astore        4
+      18: aload         4
+      20: invokevirtual #214                // Method net/minecraft/world/item/ItemStack.isEmpty:()Z
+      23: ifne          43
+      26: aload         4
+      28: aload_0
+      29: invokevirtual #331                // Method getXPCollectionType:()Lme/desht/modularrouters/integration/XPCollection$XPCollectionType;
+      32: invokevirtual #341                // Method me/desht/modularrouters/integration/XPCollection$XPCollectionType.getIcon:()Lnet/minecraft/world/item/ItemStack;
+      35: invokestatic  #217                // Method net/minecraft/world/item/ItemStack.isSameItemSameComponents:(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Z
+      38: ifne          43
+      41: iconst_0
+      42: ireturn
+      43: aload         4
+      45: invokevirtual #214                // Method net/minecraft/world/item/ItemStack.isEmpty:()Z
+      48: ifeq          61
+      51: aload_0
+      52: invokevirtual #331                // Method getXPCollectionType:()Lme/desht/modularrouters/integration/XPCollection$XPCollectionType;
+      55: invokevirtual #341                // Method me/desht/modularrouters/integration/XPCollection$XPCollectionType.getIcon:()Lnet/minecraft/world/item/ItemStack;
+      58: goto          63
+      61: aload         4
+      63: invokevirtual #237                // Method net/minecraft/world/item/ItemStack.getMaxStackSize:()I
+      66: aload         4
+      68: invokevirtual #231                // Method net/minecraft/world/item/ItemStack.getCount:()I
+      71: isub
+      72: aload_0
+      73: invokevirtual #331                // Method getXPCollectionType:()Lme/desht/modularrouters/integration/XPCollection$XPCollectionType;
+      76: invokevirtual #344                // Method me/desht/modularrouters/integration/XPCollection$XPCollectionType.getXpRatio:()I
+      79: imul
+      80: istore_2
+      81: goto          105
+      84: aload_0
+      85: aload_1
+      86: invokevirtual #347                // Method getFluidReceiver:(Lme/desht/modularrouters/block/tile/ModularRouterBlockEntity;)Lnet/neoforged/neoforge/fluids/capability/IFluidHandler;
+      89: astore_3
+      90: aload_3
+      91: ifnonnull     99
+      94: aload_1
+      95: invokevirtual #351                // Method me/desht/modularrouters/block/tile/ModularRouterBlockEntity.getFluidHandler:()Lnet/neoforged/neoforge/fluids/capability/IFluidHandlerItem;
+      98: astore_3
+      99: aload_0
+     100: aload_3
+     101: invokevirtual #355                // Method findSpaceForXPFluid:(Lnet/neoforged/neoforge/fluids/capability/IFluidHandler;)I
+     104: istore_2
+     105: iload_2
+     106: ifne          111
+     109: iconst_0
+     110: ireturn
+     111: aload_1
+     112: invokevirtual #112                // Method me/desht/modularrouters/block/tile/ModularRouterBlockEntity.nonNullLevel:()Lnet/minecraft/world/level/Level;
+     115: ldc_w         #359                // class net/minecraft/world/entity/ExperienceOrb
+     118: new           #172                // class net/minecraft/world/phys/AABB
+     121: dup
+     122: aload_0
+     123: invokevirtual #157                // Method getTarget:()Lme/desht/modularrouters/logic/ModuleTarget;
+     126: getfield      #161                // Field me/desht/modularrouters/logic/ModuleTarget.gPos:Lnet/minecraft/core/GlobalPos;
+     129: invokevirtual #165                // Method net/minecraft/core/GlobalPos.pos:()Lnet/minecraft/core/BlockPos;
+     132: invokespecial #174                // Method net/minecraft/world/phys/AABB."<init>":(Lnet/minecraft/core/BlockPos;)V
+     135: aload_0
+     136: invokevirtual #102                // Method getRange:()I
+     139: i2d
+     140: invokevirtual #177                // Method net/minecraft/world/phys/AABB.inflate:(D)Lnet/minecraft/world/phys/AABB;
+     143: invokedynamic #361,  0            // InvokeDynamic #0:test:()Ljava/util/function/Predicate;
+     148: invokevirtual #364                // Method net/minecraft/world/level/Level.getEntitiesOfClass:(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;
+     151: astore        4
+     153: aload         4
+     155: invokeinterface #367,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+     160: ifeq          165
+     163: iconst_0
+     164: ireturn
+     165: aload_0
+     166: invokevirtual #331                // Method getXPCollectionType:()Lme/desht/modularrouters/integration/XPCollection$XPCollectionType;
+     169: astore        5
+     171: iload_2
+     172: istore        6
+     174: aload         4
+     176: invokeinterface #191,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+     181: astore        7
+     183: aload         7
+     185: invokeinterface #195,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     190: ifeq          396
+     193: aload         7
+     195: invokeinterface #200,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     200: checkcast     #359                // class net/minecraft/world/entity/ExperienceOrb
+     203: astore        8
+     205: aload_0
+     206: aload_1
+     207: invokevirtual #187                // Method getItemsPerTick:(Lme/desht/modularrouters/block/tile/ModularRouterBlockEntity;)I
+     210: istore        9
+     212: aload         8
+     214: invokevirtual #368                // Method net/minecraft/world/entity/ExperienceOrb.getValue:()I
+     217: iload_2
+     218: if_icmpgt     393
+     221: iload         9
+     223: ifle          393
+     226: aload         5
+     228: invokevirtual #335                // Method me/desht/modularrouters/integration/XPCollection$XPCollectionType.isSolid:()Z
+     231: ifeq          340
+     234: aload_0
+     235: dup
+     236: getfield      #13                 // Field xpBuffered:I
+     239: aload         8
+     241: invokevirtual #368                // Method net/minecraft/world/entity/ExperienceOrb.getValue:()I
+     244: iadd
+     245: putfield      #13                 // Field xpBuffered:I
+     248: aload_0
+     249: getfield      #13                 // Field xpBuffered:I
+     252: aload         5
+     254: invokevirtual #344                // Method me/desht/modularrouters/integration/XPCollection$XPCollectionType.getXpRatio:()I
+     257: if_icmple     352
+     260: aload_0
+     261: getfield      #13                 // Field xpBuffered:I
+     264: aload         5
+     266: invokevirtual #344                // Method me/desht/modularrouters/integration/XPCollection$XPCollectionType.getXpRatio:()I
+     269: idiv
+     270: istore        10
+     272: aload         5
+     274: invokevirtual #341                // Method me/desht/modularrouters/integration/XPCollection$XPCollectionType.getIcon:()Lnet/minecraft/world/item/ItemStack;
+     277: iload         10
+     279: invokevirtual #371                // Method net/minecraft/world/item/ItemStack.copyWithCount:(I)Lnet/minecraft/world/item/ItemStack;
+     282: astore        11
+     284: aload_1
+     285: aload         11
+     287: invokevirtual #249                // Method me/desht/modularrouters/block/tile/ModularRouterBlockEntity.insertBuffer:(Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/item/ItemStack;
+     290: astore        12
+     292: aload_0
+     293: dup
+     294: getfield      #13                 // Field xpBuffered:I
+     297: aload         11
+     299: invokevirtual #231                // Method net/minecraft/world/item/ItemStack.getCount:()I
+     302: aload         5
+     304: invokevirtual #344                // Method me/desht/modularrouters/integration/XPCollection$XPCollectionType.getXpRatio:()I
+     307: imul
+     308: isub
+     309: putfield      #13                 // Field xpBuffered:I
+     312: aload         12
+     314: invokevirtual #214                // Method net/minecraft/world/item/ItemStack.isEmpty:()Z
+     317: ifne          337
+     320: aload_1
+     321: invokevirtual #112                // Method me/desht/modularrouters/block/tile/ModularRouterBlockEntity.nonNullLevel:()Lnet/minecraft/world/level/Level;
+     324: aload_1
+     325: invokevirtual #116                // Method me/desht/modularrouters/block/tile/ModularRouterBlockEntity.getBlockPos:()Lnet/minecraft/core/BlockPos;
+     328: invokestatic  #374                // Method net/minecraft/world/phys/Vec3.atCenterOf:(Lnet/minecraft/core/Vec3i;)Lnet/minecraft/world/phys/Vec3;
+     331: aload         12
+     333: invokestatic  #380                // Method me/desht/modularrouters/util/InventoryUtils.dropItems:(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/phys/Vec3;Lnet/minecraft/world/item/ItemStack;)Z
+     336: pop
+     337: goto          352
+     340: aload_0
+     341: aload         8
+     343: aload_3
+     344: invokevirtual #386                // Method doFluidXPFill:(Lnet/minecraft/world/entity/ExperienceOrb;Lnet/neoforged/neoforge/fluids/capability/IFluidHandler;)Z
+     347: ifne          352
+     350: iconst_0
+     351: istore_2
+     352: iload_2
+     353: aload         8
+     355: invokevirtual #368                // Method net/minecraft/world/entity/ExperienceOrb.getValue:()I
+     358: isub
+     359: istore_2
+     360: aload         8
+     362: dup
+     363: getfield      #390                // Field net/minecraft/world/entity/ExperienceOrb.count:I
+     366: iconst_1
+     367: isub
+     368: putfield      #390                // Field net/minecraft/world/entity/ExperienceOrb.count:I
+     371: iinc          9, -1
+     374: aload         8
+     376: getfield      #390                // Field net/minecraft/world/entity/ExperienceOrb.count:I
+     379: ifgt          212
+     382: aload         8
+     384: getstatic     #257                // Field net/minecraft/world/entity/Entity$RemovalReason.DISCARDED:Lnet/minecraft/world/entity/Entity$RemovalReason;
+     387: invokevirtual #393                // Method net/minecraft/world/entity/ExperienceOrb.remove:(Lnet/minecraft/world/entity/Entity$RemovalReason;)V
+     390: goto          393
+     393: goto          183
+     396: iload         6
+     398: iload_2
+     399: isub
+     400: ifle          407
+     403: iconst_1
+     404: goto          408
+     407: iconst_0
+     408: ireturn
+
+  private net.neoforged.neoforge.fluids.capability.IFluidHandler getFluidReceiver(me.desht.modularrouters.block.tile.ModularRouterBlockEntity);
+    descriptor: (Lme/desht/modularrouters/block/tile/ModularRouterBlockEntity;)Lnet/neoforged/neoforge/fluids/capability/IFluidHandler;
+    Code:
+       0: aload_0
+       1: getfield      #55                 // Field xpMode:Z
+       4: ifeq          37
+       7: aload_0
+       8: getfield      #82                 // Field xpJuiceStack:Lnet/neoforged/neoforge/fluids/FluidStack;
+      11: invokevirtual #394                // Method net/neoforged/neoforge/fluids/FluidStack.isEmpty:()Z
+      14: ifne          37
+      17: aload_1
+      18: invokevirtual #395                // Method me/desht/modularrouters/block/tile/ModularRouterBlockEntity.getLevel:()Lnet/minecraft/world/level/Level;
+      21: astore_3
+      22: aload_3
+      23: instanceof    #307                // class net/minecraft/server/level/ServerLevel
+      26: ifeq          37
+      29: aload_3
+      30: checkcast     #307                // class net/minecraft/server/level/ServerLevel
+      33: astore_2
+      34: goto          39
+      37: aconst_null
+      38: areturn
+      39: aload_0
+      40: getfield      #7                  // Field fluidReceiverCache:Lnet/neoforged/neoforge/capabilities/BlockCapabilityCache;
+      43: ifnonnull     160
+      46: getstatic     #398                // Field me/desht/modularrouters/util/MiscUtil.DIRECTIONS:[Lnet/minecraft/core/Direction;
+      49: astore_3
+      50: aload_3
+      51: arraylength
+      52: istore        4
+      54: iconst_0
+      55: istore        5
+      57: iload         5
+      59: iload         4
+      61: if_icmpge     160
+      64: aload_3
+      65: iload         5
+      67: aaload
+      68: astore        6
+      70: aload_1
+      71: invokevirtual #116                // Method me/desht/modularrouters/block/tile/ModularRouterBlockEntity.getBlockPos:()Lnet/minecraft/core/BlockPos;
+      74: aload         6
+      76: invokevirtual #402                // Method net/minecraft/core/BlockPos.relative:(Lnet/minecraft/core/Direction;)Lnet/minecraft/core/BlockPos;
+      79: astore        7
+      81: aload_2
+      82: getstatic     #405                // Field net/neoforged/neoforge/capabilities/Capabilities$FluidHandler.BLOCK:Lnet/neoforged/neoforge/capabilities/BlockCapability;
+      85: aload         7
+      87: aload         6
+      89: invokevirtual #411                // Method net/minecraft/core/Direction.getOpposite:()Lnet/minecraft/core/Direction;
+      92: invokevirtual #417                // Method net/minecraft/server/level/ServerLevel.getCapability:(Lnet/neoforged/neoforge/capabilities/BlockCapability;Lnet/minecraft/core/BlockPos;Ljava/lang/Object;)Ljava/lang/Object;
+      95: checkcast     #421                // class net/neoforged/neoforge/fluids/capability/IFluidHandler
+      98: astore        8
+     100: aload         8
+     102: ifnull        154
+     105: aload         8
+     107: aload_0
+     108: getfield      #82                 // Field xpJuiceStack:Lnet/neoforged/neoforge/fluids/FluidStack;
+     111: getstatic     #423                // Field net/neoforged/neoforge/fluids/capability/IFluidHandler$FluidAction.SIMULATE:Lnet/neoforged/neoforge/fluids/capability/IFluidHandler$FluidAction;
+     114: invokeinterface #429,  3          // InterfaceMethod net/neoforged/neoforge/fluids/capability/IFluidHandler.fill:(Lnet/neoforged/neoforge/fluids/FluidStack;Lnet/neoforged/neoforge/fluids/capability/IFluidHandler$FluidAction;)I
+     119: ifle          154
+     122: aload_0
+     123: getstatic     #405                // Field net/neoforged/neoforge/capabilities/Capabilities$FluidHandler.BLOCK:Lnet/neoforged/neoforge/capabilities/BlockCapability;
+     126: aload_2
+     127: aload         7
+     129: aload         6
+     131: invokevirtual #411                // Method net/minecraft/core/Direction.getOpposite:()Lnet/minecraft/core/Direction;
+     134: invokedynamic #433,  0            // InvokeDynamic #1:getAsBoolean:()Ljava/util/function/BooleanSupplier;
+     139: aload_0
+     140: invokedynamic #437,  0            // InvokeDynamic #2:run:(Lme/desht/modularrouters/logic/compiled/CompiledVacuumModule;)Ljava/lang/Runnable;
+     145: invokestatic  #441                // Method net/neoforged/neoforge/capabilities/BlockCapabilityCache.create:(Lnet/neoforged/neoforge/capabilities/BlockCapability;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Ljava/lang/Object;Ljava/util/function/BooleanSupplier;Ljava/lang/Runnable;)Lnet/neoforged/neoforge/capabilities/BlockCapabilityCache;
+     148: putfield      #7                  // Field fluidReceiverCache:Lnet/neoforged/neoforge/capabilities/BlockCapabilityCache;
+     151: goto          160
+     154: iinc          5, 1
+     157: goto          57
+     160: aload_0
+     161: getfield      #7                  // Field fluidReceiverCache:Lnet/neoforged/neoforge/capabilities/BlockCapabilityCache;
+     164: ifnonnull     171
+     167: aconst_null
+     168: goto          181
+     171: aload_0
+     172: getfield      #7                  // Field fluidReceiverCache:Lnet/neoforged/neoforge/capabilities/BlockCapabilityCache;
+     175: invokevirtual #447                // Method net/neoforged/neoforge/capabilities/BlockCapabilityCache.getCapability:()Ljava/lang/Object;
+     178: checkcast     #421                // class net/neoforged/neoforge/fluids/capability/IFluidHandler
+     181: areturn
+
+  private boolean doFluidXPFill(net.minecraft.world.entity.ExperienceOrb, net.neoforged.neoforge.fluids.capability.IFluidHandler);
+    descriptor: (Lnet/minecraft/world/entity/ExperienceOrb;Lnet/neoforged/neoforge/fluids/capability/IFluidHandler;)Z
+    Code:
+       0: aload_2
+       1: ifnonnull     6
+       4: iconst_0
+       5: ireturn
+       6: new           #75                 // class net/neoforged/neoforge/fluids/FluidStack
+       9: dup
+      10: aload_0
+      11: getfield      #82                 // Field xpJuiceStack:Lnet/neoforged/neoforge/fluids/FluidStack;
+      14: invokevirtual #449                // Method net/neoforged/neoforge/fluids/FluidStack.getFluid:()Lnet/minecraft/world/level/material/Fluid;
+      17: aload_1
+      18: invokevirtual #368                // Method net/minecraft/world/entity/ExperienceOrb.getValue:()I
+      21: aload_0
+      22: invokevirtual #331                // Method getXPCollectionType:()Lme/desht/modularrouters/integration/XPCollection$XPCollectionType;
+      25: invokevirtual #344                // Method me/desht/modularrouters/integration/XPCollection$XPCollectionType.getXpRatio:()I
+      28: imul
+      29: aload_0
+      30: getfield      #13                 // Field xpBuffered:I
+      33: iadd
+      34: invokespecial #79                 // Method net/neoforged/neoforge/fluids/FluidStack."<init>":(Lnet/minecraft/world/level/material/Fluid;I)V
+      37: astore_3
+      38: aload_2
+      39: aload_3
+      40: getstatic     #450                // Field net/neoforged/neoforge/fluids/capability/IFluidHandler$FluidAction.EXECUTE:Lnet/neoforged/neoforge/fluids/capability/IFluidHandler$FluidAction;
+      43: invokeinterface #429,  3          // InterfaceMethod net/neoforged/neoforge/fluids/capability/IFluidHandler.fill:(Lnet/neoforged/neoforge/fluids/FluidStack;Lnet/neoforged/neoforge/fluids/capability/IFluidHandler$FluidAction;)I
+      48: istore        4
+      50: iload         4
+      52: aload_3
+      53: invokevirtual #453                // Method net/neoforged/neoforge/fluids/FluidStack.getAmount:()I
+      56: if_icmpge     72
+      59: aload_0
+      60: aload_3
+      61: invokevirtual #453                // Method net/neoforged/neoforge/fluids/FluidStack.getAmount:()I
+      64: iload         4
+      66: isub
+      67: putfield      #13                 // Field xpBuffered:I
+      70: iconst_0
+      71: ireturn
+      72: aload_0
+      73: iconst_0
+      74: putfield      #13                 // Field xpBuffered:I
+      77: iconst_1
+      78: ireturn
+
+  private int findSpaceForXPFluid(net.neoforged.neoforge.fluids.capability.IFluidHandler);
+    descriptor: (Lnet/neoforged/neoforge/fluids/capability/IFluidHandler;)I
+    Code:
+       0: iconst_0
+       1: istore_2
+       2: aload_1
+       3: ifnull        94
+       6: iconst_0
+       7: istore_3
+       8: iload_3
+       9: aload_1
+      10: invokeinterface #456,  1          // InterfaceMethod net/neoforged/neoforge/fluids/capability/IFluidHandler.getTanks:()I
+      15: if_icmpge     94
+      18: aload_1
+      19: iload_3
+      20: aload_0
+      21: getfield      #82                 // Field xpJuiceStack:Lnet/neoforged/neoforge/fluids/FluidStack;
+      24: invokeinterface #459,  3          // InterfaceMethod net/neoforged/neoforge/fluids/capability/IFluidHandler.isFluidValid:(ILnet/neoforged/neoforge/fluids/FluidStack;)Z
+      29: ifeq          88
+      32: aload_1
+      33: iload_3
+      34: invokeinterface #463,  2          // InterfaceMethod net/neoforged/neoforge/fluids/capability/IFluidHandler.getFluidInTank:(I)Lnet/neoforged/neoforge/fluids/FluidStack;
+      39: astore        4
+      41: aload         4
+      43: invokevirtual #394                // Method net/neoforged/neoforge/fluids/FluidStack.isEmpty:()Z
+      46: ifne          64
+      49: aload         4
+      51: invokevirtual #449                // Method net/neoforged/neoforge/fluids/FluidStack.getFluid:()Lnet/minecraft/world/level/material/Fluid;
+      54: aload_0
+      55: invokevirtual #331                // Method getXPCollectionType:()Lme/desht/modularrouters/integration/XPCollection$XPCollectionType;
+      58: invokevirtual #62                 // Method me/desht/modularrouters/integration/XPCollection$XPCollectionType.getFluid:()Lnet/minecraft/world/level/material/Fluid;
+      61: if_acmpne     88
+      64: iload_2
+      65: aload_1
+      66: iload_3
+      67: invokeinterface #467,  2          // InterfaceMethod net/neoforged/neoforge/fluids/capability/IFluidHandler.getTankCapacity:(I)I
+      72: aload         4
+      74: invokevirtual #453                // Method net/neoforged/neoforge/fluids/FluidStack.getAmount:()I
+      77: isub
+      78: aload_0
+      79: invokevirtual #331                // Method getXPCollectionType:()Lme/desht/modularrouters/integration/XPCollection$XPCollectionType;
+      82: invokevirtual #344                // Method me/desht/modularrouters/integration/XPCollection$XPCollectionType.getXpRatio:()I
+      85: idiv
+      86: iadd
+      87: istore_2
+      88: iinc          3, 1
+      91: goto          8
+      94: iload_2
+      95: ireturn
+
+  public me.desht.modularrouters.integration.XPCollection$XPCollectionType getXPCollectionType();
+    descriptor: ()Lme/desht/modularrouters/integration/XPCollection$XPCollectionType;
+    Code:
+       0: aload_0
+       1: getfield      #35                 // Field settings:Lme/desht/modularrouters/logic/compiled/CompiledVacuumModule$VacuumSettings;
+       4: getfield      #58                 // Field me/desht/modularrouters/logic/compiled/CompiledVacuumModule$VacuumSettings.collectionType:Lme/desht/modularrouters/integration/XPCollection$XPCollectionType;
+       7: areturn
+
+  public boolean isAutoEjecting();
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: getfield      #35                 // Field settings:Lme/desht/modularrouters/logic/compiled/CompiledVacuumModule$VacuumSettings;
+       4: getfield      #471                // Field me/desht/modularrouters/logic/compiled/CompiledVacuumModule$VacuumSettings.autoEject:Z
+       7: ireturn
+
+  public boolean isXpMode();
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: getfield      #55                 // Field xpMode:Z
+       4: ireturn
+
+  private void lambda$getFluidReceiver$1();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: aconst_null
+       2: putfield      #7                  // Field fluidReceiverCache:Lnet/neoforged/neoforge/capabilities/BlockCapabilityCache;
+       5: return
+
+  private static boolean lambda$getFluidReceiver$0();
+    descriptor: ()Z
+    Code:
+       0: iconst_1
+       1: ireturn
+}

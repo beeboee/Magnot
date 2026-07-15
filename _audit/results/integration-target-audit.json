@@ -1,0 +1,3144 @@
+{
+  "generated_at": "2026-07-15T01:59:15.614631+00:00",
+  "targets": {
+    "main-1.21.1-neoforge": {
+      "key": "main-1.21.1-neoforge",
+      "branch": "main",
+      "mc": "1.21.1",
+      "loader": "neoforge",
+      "declared_create": [
+        "build.gradle: def createCoordinates = \"com.simibubi.create:create-${minecraft_version}:${create_version}\"",
+        "build.gradle: implementation(\"net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}\")",
+        "build.gradle: runtimeOnly(\"maven.modrinth:oWaK0Q19:${create_aeronautics_modrinth_version}\")",
+        "build.gradle: create_version_range    : create_version_range,",
+        "gradle.properties: create_version=6.0.10-280",
+        "gradle.properties: create_aeronautics_modrinth_version=YhZLrAFC",
+        "gradle.properties: create_version_range=[6.0.10,6.1.0)",
+        "src/main/resources/META-INF/neoforge.mods.toml: modId=\"create\"",
+        "src/main/resources/META-INF/neoforge.mods.toml: versionRange=\"${create_version_range}\""
+      ],
+      "mixins": [
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/ae2wtlib/MagnetHandlerMixin.java",
+          "class": "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler",
+          "project": "ae2wtlib"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/artifacts/MagnetismMobEffectMixin.java",
+          "class": "artifacts.effect.MagnetismMobEffect",
+          "project": "artifacts"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/draconicevolution/MagnetMixin.java",
+          "class": "com.brandon3055.draconicevolution.items.tools.Magnet",
+          "project": "draconic-evolution"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/enderio/ElectromagnetItemMixin.java",
+          "class": "com.enderio.enderio.content.tools.ElectromagnetItem",
+          "project": "enderio"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/enderio/VacuumMachineBlockEntityMixin.java",
+          "class": "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity",
+          "project": "enderio"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/industrialforegoing/ItemInfinityBackpackMixin.java",
+          "class": "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack",
+          "project": "industrial-foregoing"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/itemcollectors/CollectorBlockEntityMixin.java",
+          "class": "com.supermartijn642.itemcollectors.CollectorBlockEntity",
+          "project": "item-collectors"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/mekanism/ModuleMagneticAttractionUnitMixin.java",
+          "class": "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit",
+          "project": "mekanism"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/mobgrindingutils/AbsorptionHopperMixin.java",
+          "class": "mob_grinding_utils.tile.TileEntityAbsorptionHopper",
+          "project": "mob-grinding-utils"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/modularrouters/CompiledVacuumModuleMixin.java",
+          "class": "me.desht.modularrouters.logic.compiled.CompiledVacuumModule",
+          "project": "modular-routers"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/projecte/BlackHoleBandMixin.java",
+          "class": "moze_intel.projecte.gameObjs.items.rings.BlackHoleBand",
+          "project": "projecte"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/reliquary/FortuneCoinItemMixin.java",
+          "class": "reliquary.item.FortuneCoinItem",
+          "project": "reliquary"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/simplemagnets/MagnetItemMixin.java",
+          "class": "com.supermartijn642.simplemagnets.MagnetItem",
+          "project": "simple-magnets"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/sophisticatedcore/MagnetUpgradeWrapperMixin.java",
+          "class": "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper",
+          "project": "sophisticated-core"
+        }
+      ],
+      "projects": {
+        "ae2wtlib": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "pNabrMMw",
+            "version": "19.5.0",
+            "version_id": "y9YgjcrO",
+            "published": "2026-05-06T16:02:30.437247Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/pNabrMMw/versions/y9YgjcrO/ae2wtlib-19.5.0.jar",
+            "filename": "ae2wtlib-19.5.0.jar",
+            "all_matching_versions": 17
+          },
+          "targets": [
+            "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler"
+          ],
+          "inspection": {
+            "jar": "ae2wtlib--ae2wtlib-19.5.0.jar",
+            "classes": {
+              "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler": {
+                "entry": "de/mari_023/ae2wtlib/wct/magnet_card/MagnetHandler.class",
+                "found": true,
+                "javap": "_audit/results/javap/main-1.21.1-neoforge/ae2wtlib-MagnetHandler.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "artifacts": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "artifacts",
+            "version": "13.2.1",
+            "version_id": "rGPw090r",
+            "published": "2026-04-04T18:57:09.432475Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/P0Mu4wcQ/versions/rGPw090r/artifacts-neoforge-13.2.1.jar",
+            "filename": "artifacts-neoforge-13.2.1.jar",
+            "all_matching_versions": 17
+          },
+          "targets": [
+            "artifacts.effect.MagnetismMobEffect"
+          ],
+          "inspection": {
+            "jar": "artifacts--artifacts-neoforge-13.2.1.jar",
+            "classes": {
+              "artifacts.effect.MagnetismMobEffect": {
+                "entry": "artifacts/effect/MagnetismMobEffect.class",
+                "found": true,
+                "javap": "_audit/results/javap/main-1.21.1-neoforge/artifacts-MagnetismMobEffect.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "draconic-evolution": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "draconic-evolution",
+            "version": "3.1.4.632",
+            "version_id": "lBMsiWyw",
+            "published": "2026-02-06T14:06:04.939332Z",
+            "version_type": "beta",
+            "download_url": "https://cdn.modrinth.com/data/nBqivi8H/versions/lBMsiWyw/Draconic-Evolution-1.21.1-3.1.4.632.jar",
+            "filename": "Draconic-Evolution-1.21.1-3.1.4.632.jar",
+            "all_matching_versions": 8
+          },
+          "targets": [
+            "com.brandon3055.draconicevolution.items.tools.Magnet"
+          ],
+          "inspection": {
+            "jar": "draconic-evolution--Draconic-Evolution-1.21.1-3.1.4.632.jar",
+            "classes": {
+              "com.brandon3055.draconicevolution.items.tools.Magnet": {
+                "entry": "com/brandon3055/draconicevolution/items/tools/Magnet.class",
+                "found": true,
+                "javap": "_audit/results/javap/main-1.21.1-neoforge/draconic-evolution-Magnet.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "enderio": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "enderio",
+            "version": "v8.2.11-beta",
+            "version_id": "Tfs8aJPH",
+            "published": "2026-06-03T19:42:24.348775Z",
+            "version_type": "beta",
+            "download_url": "https://cdn.modrinth.com/data/49ZofO4f/versions/Tfs8aJPH/enderio-8.2.11-beta.jar",
+            "filename": "enderio-8.2.11-beta.jar",
+            "all_matching_versions": 45
+          },
+          "targets": [
+            "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity",
+            "com.enderio.enderio.content.tools.ElectromagnetItem"
+          ],
+          "inspection": {
+            "jar": "enderio--enderio-8.2.11-beta.jar",
+            "classes": {
+              "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity": {
+                "entry": "com/enderio/enderio/content/machines/vacuum/VacuumMachineBlockEntity.class",
+                "found": true,
+                "javap": "_audit/results/javap/main-1.21.1-neoforge/enderio-VacuumMachineBlockEntity.txt",
+                "javap_exit": 0
+              },
+              "com.enderio.enderio.content.tools.ElectromagnetItem": {
+                "entry": "com/enderio/enderio/content/tools/ElectromagnetItem.class",
+                "found": true,
+                "javap": "_audit/results/javap/main-1.21.1-neoforge/enderio-ElectromagnetItem.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "industrial-foregoing": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "industrial-foregoing",
+            "version": "1.21-3.6.39",
+            "version_id": "7otXKx1D",
+            "published": "2026-07-04T18:27:38.806806Z",
+            "version_type": "beta",
+            "download_url": "https://cdn.modrinth.com/data/lWxpUd04/versions/7otXKx1D/industrialforegoing-1.21-3.6.39.jar",
+            "filename": "industrialforegoing-1.21-3.6.39.jar",
+            "all_matching_versions": 34
+          },
+          "targets": [
+            "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack"
+          ],
+          "inspection": {
+            "jar": "industrial-foregoing--industrialforegoing-1.21-3.6.39.jar",
+            "classes": {
+              "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack": {
+                "entry": "com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack.class",
+                "found": true,
+                "javap": "_audit/results/javap/main-1.21.1-neoforge/industrial-foregoing-ItemInfinityBackpack.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "item-collectors": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "item-collectors",
+            "version": "1.1.10-neoforge-mc1.21",
+            "version_id": "V19vXCQ0",
+            "published": "2024-07-21T02:58:31.153601Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/y9vDr4Th/versions/V19vXCQ0/itemcollectors-1.1.10-neoforge-mc1.21.jar",
+            "filename": "itemcollectors-1.1.10-neoforge-mc1.21.jar",
+            "all_matching_versions": 1
+          },
+          "targets": [
+            "com.supermartijn642.itemcollectors.CollectorBlockEntity"
+          ],
+          "inspection": {
+            "jar": "item-collectors--itemcollectors-1.1.10-neoforge-mc1.21.jar",
+            "classes": {
+              "com.supermartijn642.itemcollectors.CollectorBlockEntity": {
+                "entry": "com/supermartijn642/itemcollectors/CollectorBlockEntity.class",
+                "found": true,
+                "javap": "_audit/results/javap/main-1.21.1-neoforge/item-collectors-CollectorBlockEntity.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "mekanism": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "mekanism",
+            "version": "10.7.19.85",
+            "version_id": "5KzzycBT",
+            "published": "2026-04-10T10:30:24.782944Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/Ce6I4WUE/versions/5KzzycBT/Mekanism-1.21.1-10.7.19.85.jar",
+            "filename": "Mekanism-1.21.1-10.7.19.85.jar",
+            "all_matching_versions": 21
+          },
+          "targets": [
+            "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit"
+          ],
+          "inspection": {
+            "jar": "mekanism--Mekanism-1.21.1-10.7.19.85.jar",
+            "classes": {
+              "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit": {
+                "entry": "mekanism/common/content/gear/mekasuit/ModuleMagneticAttractionUnit.class",
+                "found": true,
+                "javap": "_audit/results/javap/main-1.21.1-neoforge/mekanism-ModuleMagneticAttractionUnit.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "mob-grinding-utils": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "mob-grinding-utils: HTTP 404",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "mob_grinding_utils.tile.TileEntityAbsorptionHopper"
+          ]
+        },
+        "modular-routers": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "modular-routers",
+            "version": "13.2.6",
+            "version_id": "HvFNharn",
+            "published": "2026-07-14T06:40:33.675485Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/EuTS81Z3/versions/HvFNharn/modular-routers-13.2.6%2Bmc1.21.1.jar",
+            "filename": "modular-routers-13.2.6+mc1.21.1.jar",
+            "all_matching_versions": 8
+          },
+          "targets": [
+            "me.desht.modularrouters.logic.compiled.CompiledVacuumModule"
+          ],
+          "inspection": {
+            "jar": "modular-routers--modular-routers-13.2.6+mc1.21.1.jar",
+            "classes": {
+              "me.desht.modularrouters.logic.compiled.CompiledVacuumModule": {
+                "entry": "me/desht/modularrouters/logic/compiled/CompiledVacuumModule.class",
+                "found": true,
+                "javap": "_audit/results/javap/main-1.21.1-neoforge/modular-routers-CompiledVacuumModule.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "projecte": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "a7yNQPzW",
+            "version": "1.21.1-1.0.6",
+            "version_id": "F5C1OobM",
+            "published": "2026-02-18T00:36:23.735321Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/a7yNQPzW/versions/F5C1OobM/projectexpansion-1.21.1-1.0.6.jar",
+            "filename": "projectexpansion-1.21.1-1.0.6.jar",
+            "all_matching_versions": 7
+          },
+          "targets": [
+            "moze_intel.projecte.gameObjs.items.rings.BlackHoleBand"
+          ],
+          "inspection": {
+            "jar": "projecte--projectexpansion-1.21.1-1.0.6.jar",
+            "classes": {
+              "moze_intel.projecte.gameObjs.items.rings.BlackHoleBand": {
+                "entry": "moze_intel/projecte/gameObjs/items/rings/BlackHoleBand.class",
+                "found": false,
+                "candidates": []
+              }
+            }
+          }
+        },
+        "reliquary": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "reliquary-reincarnations",
+            "version": "1.21.1-2.0.77.1537",
+            "version_id": "Ore7iCX1",
+            "published": "2026-07-09T07:50:42.674419Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/fQO83PId/versions/Ore7iCX1/reliquary-1.21.1-2.0.77.1537.jar",
+            "filename": "reliquary-1.21.1-2.0.77.1537.jar",
+            "all_matching_versions": 38
+          },
+          "targets": [
+            "reliquary.item.FortuneCoinItem"
+          ],
+          "inspection": {
+            "jar": "reliquary--reliquary-1.21.1-2.0.77.1537.jar",
+            "classes": {
+              "reliquary.item.FortuneCoinItem": {
+                "entry": "reliquary/item/FortuneCoinItem.class",
+                "found": true,
+                "javap": "_audit/results/javap/main-1.21.1-neoforge/reliquary-FortuneCoinItem.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "simple-magnets": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "simple-magnets",
+            "version": "1.1.12c-neoforge-mc1.21",
+            "version_id": "Rh4OaF2U",
+            "published": "2025-03-17T18:57:03.456303Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/YyNQVpOu/versions/Rh4OaF2U/simplemagnets-1.1.12c-neoforge-mc1.21.jar",
+            "filename": "simplemagnets-1.1.12c-neoforge-mc1.21.jar",
+            "all_matching_versions": 6
+          },
+          "targets": [
+            "com.supermartijn642.simplemagnets.MagnetItem"
+          ],
+          "inspection": {
+            "jar": "simple-magnets--simplemagnets-1.1.12c-neoforge-mc1.21.jar",
+            "classes": {
+              "com.supermartijn642.simplemagnets.MagnetItem": {
+                "entry": "com/supermartijn642/simplemagnets/MagnetItem.class",
+                "found": true,
+                "javap": "_audit/results/javap/main-1.21.1-neoforge/simple-magnets-MagnetItem.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "sophisticated-core": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "sophisticated-core",
+            "version": "1.21.1-1.4.73.2151",
+            "version_id": "AQHkvqxS",
+            "published": "2026-07-14T22:42:33.448166Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/nmoqTijg/versions/AQHkvqxS/sophisticatedcore-1.21.1-1.4.73.2151.jar",
+            "filename": "sophisticatedcore-1.21.1-1.4.73.2151.jar",
+            "all_matching_versions": 270
+          },
+          "targets": [
+            "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper"
+          ],
+          "inspection": {
+            "jar": "sophisticated-core--sophisticatedcore-1.21.1-1.4.73.2151.jar",
+            "classes": {
+              "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper": {
+                "entry": "net/p3pp3rf1y/sophisticatedcore/upgrades/magnet/MagnetUpgradeWrapper.class",
+                "found": true,
+                "javap": "_audit/results/javap/main-1.21.1-neoforge/sophisticated-core-MagnetUpgradeWrapper.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "forge-1.20.1": {
+      "key": "forge-1.20.1",
+      "branch": "1.20.1-forge",
+      "mc": "1.20.1",
+      "loader": "forge",
+      "declared_create": [
+        "ports/forge-1.20.1/src/main/resources/META-INF/mods.toml: modId=\"create\"",
+        "src/main/resources/META-INF/neoforge.mods.toml: modId=\"create\"",
+        "src/main/resources/META-INF/neoforge.mods.toml: versionRange=\"${create_version_range}\""
+      ],
+      "mixins": [
+        {
+          "path": "ports/forge-1.20.1/src/main/java/com/beeboee/magnot/mixin/itemcollectors/CollectorBlockEntityMixin.java",
+          "class": "com.supermartijn642.itemcollectors.CollectorBlockEntity",
+          "project": "item-collectors"
+        },
+        {
+          "path": "ports/forge-1.20.1/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler",
+          "project": "ae2wtlib"
+        },
+        {
+          "path": "ports/forge-1.20.1/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "artifacts.effect.MagnetismMobEffect",
+          "project": "artifacts"
+        },
+        {
+          "path": "ports/forge-1.20.1/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit",
+          "project": "mekanism"
+        },
+        {
+          "path": "ports/forge-1.20.1/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "com.brandon3055.draconicevolution.items.tools.Magnet",
+          "project": "draconic-evolution"
+        },
+        {
+          "path": "ports/forge-1.20.1/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "reliquary.item.FortuneCoinItem",
+          "project": "reliquary"
+        },
+        {
+          "path": "ports/forge-1.20.1/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "mob_grinding_utils.tile.TileEntityAbsorptionHopper",
+          "project": "mob-grinding-utils"
+        },
+        {
+          "path": "ports/forge-1.20.1/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "me.desht.modularrouters.logic.compiled.CompiledVacuumModule",
+          "project": "modular-routers"
+        },
+        {
+          "path": "ports/forge-1.20.1/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "com.enderio.enderio.content.tools.ElectromagnetItem",
+          "project": "enderio"
+        },
+        {
+          "path": "ports/forge-1.20.1/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity",
+          "project": "enderio"
+        },
+        {
+          "path": "ports/forge-1.20.1/src/main/java/com/beeboee/magnot/mixin/simplemagnets/MagnetItemMixin.java",
+          "class": "com.supermartijn642.simplemagnets.MagnetItem",
+          "project": "simple-magnets"
+        },
+        {
+          "path": "ports/forge-1.20.1/src/main/java/com/beeboee/magnot/mixin/sophisticatedcore/MagnetUpgradeWrapperMixin.java",
+          "class": "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper",
+          "project": "sophisticated-core"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/ae2wtlib/MagnetHandlerMixin.java",
+          "class": "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler",
+          "project": "ae2wtlib"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/artifacts/MagnetismMobEffectMixin.java",
+          "class": "artifacts.effect.MagnetismMobEffect",
+          "project": "artifacts"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/draconicevolution/MagnetMixin.java",
+          "class": "com.brandon3055.draconicevolution.items.tools.Magnet",
+          "project": "draconic-evolution"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/enderio/ElectromagnetItemMixin.java",
+          "class": "com.enderio.enderio.content.tools.ElectromagnetItem",
+          "project": "enderio"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/enderio/VacuumMachineBlockEntityMixin.java",
+          "class": "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity",
+          "project": "enderio"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/industrialforegoing/ItemInfinityBackpackMixin.java",
+          "class": "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack",
+          "project": "industrial-foregoing"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/itemcollectors/CollectorBlockEntityMixin.java",
+          "class": "com.supermartijn642.itemcollectors.CollectorBlockEntity",
+          "project": "item-collectors"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/mekanism/ModuleMagneticAttractionUnitMixin.java",
+          "class": "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit",
+          "project": "mekanism"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/mobgrindingutils/AbsorptionHopperMixin.java",
+          "class": "mob_grinding_utils.tile.TileEntityAbsorptionHopper",
+          "project": "mob-grinding-utils"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/modularrouters/CompiledVacuumModuleMixin.java",
+          "class": "me.desht.modularrouters.logic.compiled.CompiledVacuumModule",
+          "project": "modular-routers"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/projecte/BlackHoleBandMixin.java",
+          "class": "moze_intel.projecte.gameObjs.items.rings.BlackHoleBand",
+          "project": "projecte"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/reliquary/FortuneCoinItemMixin.java",
+          "class": "reliquary.item.FortuneCoinItem",
+          "project": "reliquary"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/simplemagnets/MagnetItemMixin.java",
+          "class": "com.supermartijn642.simplemagnets.MagnetItem",
+          "project": "simple-magnets"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/sophisticatedcore/MagnetUpgradeWrapperMixin.java",
+          "class": "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper",
+          "project": "sophisticated-core"
+        }
+      ],
+      "projects": {
+        "ae2wtlib": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "pNabrMMw",
+            "version": "15.3.3-forge",
+            "version_id": "z8QXeyI0",
+            "published": "2025-11-23T00:02:50.212750Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/pNabrMMw/versions/z8QXeyI0/ae2wtlib-15.3.3-forge.jar",
+            "filename": "ae2wtlib-15.3.3-forge.jar",
+            "all_matching_versions": 17
+          },
+          "targets": [
+            "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler"
+          ],
+          "inspection": {
+            "jar": "ae2wtlib--ae2wtlib-15.3.3-forge.jar",
+            "classes": {
+              "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler": {
+                "entry": "de/mari_023/ae2wtlib/wct/magnet_card/MagnetHandler.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.20.1/ae2wtlib-MagnetHandler.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "artifacts": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "artifacts",
+            "version": "9.5.19",
+            "version_id": "lrLPBSzq",
+            "published": "2026-04-10T09:23:04.410935Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/P0Mu4wcQ/versions/lrLPBSzq/artifacts-forge-9.5.19.jar",
+            "filename": "artifacts-forge-9.5.19.jar",
+            "all_matching_versions": 31
+          },
+          "targets": [
+            "artifacts.effect.MagnetismMobEffect"
+          ],
+          "inspection": {
+            "jar": "artifacts--artifacts-forge-9.5.19.jar",
+            "classes": {
+              "artifacts.effect.MagnetismMobEffect": {
+                "entry": "artifacts/effect/MagnetismMobEffect.class",
+                "found": false,
+                "candidates": [
+                  "artifacts/item/wearable/mobeffectitem.class"
+                ]
+              }
+            }
+          }
+        },
+        "draconic-evolution": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "draconic-evolution",
+            "version": "3.1.2.621",
+            "version_id": "YR33MHbk",
+            "published": "2025-07-21T04:16:38.746848Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/nBqivi8H/versions/YR33MHbk/Draconic-Evolution-1.20.1-3.1.2.621-universal.jar",
+            "filename": "Draconic-Evolution-1.20.1-3.1.2.621-universal.jar",
+            "all_matching_versions": 11
+          },
+          "targets": [
+            "com.brandon3055.draconicevolution.items.tools.Magnet"
+          ],
+          "inspection": {
+            "jar": "draconic-evolution--Draconic-Evolution-1.20.1-3.1.2.621-universal.jar",
+            "classes": {
+              "com.brandon3055.draconicevolution.items.tools.Magnet": {
+                "entry": "com/brandon3055/draconicevolution/items/tools/Magnet.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.20.1/draconic-evolution-Magnet.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "enderio": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "enderio",
+            "version": "6.2.18-beta",
+            "version_id": "nJnmg29v",
+            "published": "2026-03-08T01:00:52.057579Z",
+            "version_type": "beta",
+            "download_url": "https://cdn.modrinth.com/data/49ZofO4f/versions/nJnmg29v/EnderIO-1.20.1-6.2.18-beta-all.jar",
+            "filename": "EnderIO-1.20.1-6.2.18-beta-all.jar",
+            "all_matching_versions": 54
+          },
+          "targets": [
+            "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity",
+            "com.enderio.enderio.content.tools.ElectromagnetItem"
+          ],
+          "inspection": {
+            "jar": "enderio--EnderIO-1.20.1-6.2.18-beta-all.jar",
+            "classes": {
+              "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity": {
+                "entry": "com/enderio/enderio/content/machines/vacuum/VacuumMachineBlockEntity.class",
+                "found": false,
+                "candidates": [
+                  "com/enderio/machines/common/blockentity/base/vacuummachineblockentity.class"
+                ]
+              },
+              "com.enderio.enderio.content.tools.ElectromagnetItem": {
+                "entry": "com/enderio/enderio/content/tools/ElectromagnetItem.class",
+                "found": false,
+                "candidates": [
+                  "com/enderio/base/common/item/tool/electromagnetitem.class"
+                ]
+              }
+            }
+          }
+        },
+        "industrial-foregoing": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "industrial-foregoing",
+            "version": "1.20.1-3.5.22",
+            "version_id": "5XXYqEMK",
+            "published": "2026-04-19T12:03:12.256870Z",
+            "version_type": "beta",
+            "download_url": "https://cdn.modrinth.com/data/lWxpUd04/versions/5XXYqEMK/industrial-foregoing-1.20.1-3.5.22.jar",
+            "filename": "industrial-foregoing-1.20.1-3.5.22.jar",
+            "all_matching_versions": 19
+          },
+          "targets": [
+            "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack"
+          ],
+          "inspection": {
+            "jar": "industrial-foregoing--industrial-foregoing-1.20.1-3.5.22.jar",
+            "classes": {
+              "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack": {
+                "entry": "com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.20.1/industrial-foregoing-ItemInfinityBackpack.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "item-collectors": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "item-collectors",
+            "version": "1.1.12-forge-mc1.20.2",
+            "version_id": "VxDl7akr",
+            "published": "2026-02-21T15:40:49.256135Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/y9vDr4Th/versions/VxDl7akr/itemcollectors-1.1.12-forge-mc1.20.2.jar",
+            "filename": "itemcollectors-1.1.12-forge-mc1.20.2.jar",
+            "all_matching_versions": 6
+          },
+          "targets": [
+            "com.supermartijn642.itemcollectors.CollectorBlockEntity"
+          ],
+          "inspection": {
+            "jar": "item-collectors--itemcollectors-1.1.12-forge-mc1.20.2.jar",
+            "classes": {
+              "com.supermartijn642.itemcollectors.CollectorBlockEntity": {
+                "entry": "com/supermartijn642/itemcollectors/CollectorBlockEntity.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.20.1/item-collectors-CollectorBlockEntity.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "mekanism": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "mekanism",
+            "version": "10.4.16.80",
+            "version_id": "uxe1WQp4",
+            "published": "2025-05-21T13:09:52.248827Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/Ce6I4WUE/versions/uxe1WQp4/Mekanism-1.20.1-10.4.16.80.jar",
+            "filename": "Mekanism-1.20.1-10.4.16.80.jar",
+            "all_matching_versions": 16
+          },
+          "targets": [
+            "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit"
+          ],
+          "inspection": {
+            "jar": "mekanism--Mekanism-1.20.1-10.4.16.80.jar",
+            "classes": {
+              "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit": {
+                "entry": "mekanism/common/content/gear/mekasuit/ModuleMagneticAttractionUnit.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.20.1/mekanism-ModuleMagneticAttractionUnit.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "mob-grinding-utils": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "mob-grinding-utils: HTTP 404",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "mob_grinding_utils.tile.TileEntityAbsorptionHopper"
+          ]
+        },
+        "modular-routers": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "modular-routers",
+            "version": "12.1.1",
+            "version_id": "3QDNtJUd",
+            "published": "2024-01-24T15:15:37.142818Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/EuTS81Z3/versions/3QDNtJUd/modular-routers-12.1.1%2Bmc1.20.1.jar",
+            "filename": "modular-routers-12.1.1+mc1.20.1.jar",
+            "all_matching_versions": 4
+          },
+          "targets": [
+            "me.desht.modularrouters.logic.compiled.CompiledVacuumModule"
+          ],
+          "inspection": {
+            "jar": "modular-routers--modular-routers-12.1.1+mc1.20.1.jar",
+            "classes": {
+              "me.desht.modularrouters.logic.compiled.CompiledVacuumModule": {
+                "entry": "me/desht/modularrouters/logic/compiled/CompiledVacuumModule.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.20.1/modular-routers-CompiledVacuumModule.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "projecte": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "a7yNQPzW",
+            "version": "1.20.1-1.1.3",
+            "version_id": "ldFKkUfe",
+            "published": "2025-11-22T01:08:28.304707Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/a7yNQPzW/versions/ldFKkUfe/projectexpansion-1.20.1-1.1.3.jar",
+            "filename": "projectexpansion-1.20.1-1.1.3.jar",
+            "all_matching_versions": 5
+          },
+          "targets": [
+            "moze_intel.projecte.gameObjs.items.rings.BlackHoleBand"
+          ],
+          "inspection": {
+            "jar": "projecte--projectexpansion-1.20.1-1.1.3.jar",
+            "classes": {
+              "moze_intel.projecte.gameObjs.items.rings.BlackHoleBand": {
+                "entry": "moze_intel/projecte/gameObjs/items/rings/BlackHoleBand.class",
+                "found": false,
+                "candidates": []
+              }
+            }
+          }
+        },
+        "reliquary": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "reliquary-reincarnations",
+            "version": "1.20.1-2.0.62.1532",
+            "version_id": "vCP6UDyI",
+            "published": "2026-07-09T07:51:58.096225Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/fQO83PId/versions/vCP6UDyI/reliquary-1.20.1-2.0.62.1532.jar",
+            "filename": "reliquary-1.20.1-2.0.62.1532.jar",
+            "all_matching_versions": 22
+          },
+          "targets": [
+            "reliquary.item.FortuneCoinItem"
+          ],
+          "inspection": {
+            "jar": "reliquary--reliquary-1.20.1-2.0.62.1532.jar",
+            "classes": {
+              "reliquary.item.FortuneCoinItem": {
+                "entry": "reliquary/item/FortuneCoinItem.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.20.1/reliquary-FortuneCoinItem.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "simple-magnets": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "simple-magnets",
+            "version": "1.1.12-forge-mc1.20.1",
+            "version_id": "Sg3Svl6F",
+            "published": "2024-10-20T18:03:16.245353Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/YyNQVpOu/versions/Sg3Svl6F/simplemagnets-1.1.12-forge-mc1.20.1.jar",
+            "filename": "simplemagnets-1.1.12-forge-mc1.20.1.jar",
+            "all_matching_versions": 5
+          },
+          "targets": [
+            "com.supermartijn642.simplemagnets.MagnetItem"
+          ],
+          "inspection": {
+            "jar": "simple-magnets--simplemagnets-1.1.12-forge-mc1.20.1.jar",
+            "classes": {
+              "com.supermartijn642.simplemagnets.MagnetItem": {
+                "entry": "com/supermartijn642/simplemagnets/MagnetItem.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.20.1/simple-magnets-MagnetItem.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "sophisticated-core": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "sophisticated-core",
+            "version": "1.20.1-1.3.67.2148",
+            "version_id": "Zzum3Py1",
+            "published": "2026-07-14T22:39:14.253872Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/nmoqTijg/versions/Zzum3Py1/sophisticatedcore-1.20.1-1.3.67.2148.jar",
+            "filename": "sophisticatedcore-1.20.1-1.3.67.2148.jar",
+            "all_matching_versions": 247
+          },
+          "targets": [
+            "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper"
+          ],
+          "inspection": {
+            "jar": "sophisticated-core--sophisticatedcore-1.20.1-1.3.67.2148.jar",
+            "classes": {
+              "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper": {
+                "entry": "net/p3pp3rf1y/sophisticatedcore/upgrades/magnet/MagnetUpgradeWrapper.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.20.1/sophisticated-core-MagnetUpgradeWrapper.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "fabric-1.20.1": {
+      "key": "fabric-1.20.1",
+      "branch": "1.20.1-fabric",
+      "mc": "1.20.1",
+      "loader": "fabric",
+      "declared_create": [
+        "src/main/resources/META-INF/neoforge.mods.toml: modId=\"create\"",
+        "src/main/resources/META-INF/neoforge.mods.toml: versionRange=\"${create_version_range}\""
+      ],
+      "mixins": [
+        {
+          "path": "ports/fabric-1.20.1/src/main/java/com/beeboee/magnot/mixin/itemcollectors/CollectorBlockEntityMixin.java",
+          "class": "com.supermartijn642.itemcollectors.CollectorBlockEntity",
+          "project": "item-collectors"
+        },
+        {
+          "path": "ports/fabric-1.20.1/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler",
+          "project": "ae2wtlib"
+        },
+        {
+          "path": "ports/fabric-1.20.1/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "artifacts.effect.MagnetismMobEffect",
+          "project": "artifacts"
+        },
+        {
+          "path": "ports/fabric-1.20.1/src/main/java/com/beeboee/magnot/mixin/simplemagnets/MagnetItemMixin.java",
+          "class": "com.supermartijn642.simplemagnets.MagnetItem",
+          "project": "simple-magnets"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/ae2wtlib/MagnetHandlerMixin.java",
+          "class": "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler",
+          "project": "ae2wtlib"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/artifacts/MagnetismMobEffectMixin.java",
+          "class": "artifacts.effect.MagnetismMobEffect",
+          "project": "artifacts"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/draconicevolution/MagnetMixin.java",
+          "class": "com.brandon3055.draconicevolution.items.tools.Magnet",
+          "project": "draconic-evolution"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/enderio/ElectromagnetItemMixin.java",
+          "class": "com.enderio.enderio.content.tools.ElectromagnetItem",
+          "project": "enderio"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/enderio/VacuumMachineBlockEntityMixin.java",
+          "class": "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity",
+          "project": "enderio"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/industrialforegoing/ItemInfinityBackpackMixin.java",
+          "class": "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack",
+          "project": "industrial-foregoing"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/itemcollectors/CollectorBlockEntityMixin.java",
+          "class": "com.supermartijn642.itemcollectors.CollectorBlockEntity",
+          "project": "item-collectors"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/mekanism/ModuleMagneticAttractionUnitMixin.java",
+          "class": "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit",
+          "project": "mekanism"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/mobgrindingutils/AbsorptionHopperMixin.java",
+          "class": "mob_grinding_utils.tile.TileEntityAbsorptionHopper",
+          "project": "mob-grinding-utils"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/modularrouters/CompiledVacuumModuleMixin.java",
+          "class": "me.desht.modularrouters.logic.compiled.CompiledVacuumModule",
+          "project": "modular-routers"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/projecte/BlackHoleBandMixin.java",
+          "class": "moze_intel.projecte.gameObjs.items.rings.BlackHoleBand",
+          "project": "projecte"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/reliquary/FortuneCoinItemMixin.java",
+          "class": "reliquary.item.FortuneCoinItem",
+          "project": "reliquary"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/simplemagnets/MagnetItemMixin.java",
+          "class": "com.supermartijn642.simplemagnets.MagnetItem",
+          "project": "simple-magnets"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/sophisticatedcore/MagnetUpgradeWrapperMixin.java",
+          "class": "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper",
+          "project": "sophisticated-core"
+        }
+      ],
+      "projects": {
+        "ae2wtlib": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "pNabrMMw",
+            "version": "15.2.1-fabric",
+            "version_id": "QewbGM3G",
+            "published": "2023-12-07T13:54:56.235459Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/pNabrMMw/versions/QewbGM3G/ae2wtlib-15.2.1-fabric.jar",
+            "filename": "ae2wtlib-15.2.1-fabric.jar",
+            "all_matching_versions": 6
+          },
+          "targets": [
+            "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler"
+          ],
+          "inspection": {
+            "jar": "ae2wtlib--ae2wtlib-15.2.1-fabric.jar",
+            "classes": {
+              "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler": {
+                "entry": "de/mari_023/ae2wtlib/wct/magnet_card/MagnetHandler.class",
+                "found": true,
+                "javap": "_audit/results/javap/fabric-1.20.1/ae2wtlib-MagnetHandler.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "artifacts": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "artifacts",
+            "version": "9.5.17",
+            "version_id": "txBP6ArM",
+            "published": "2026-04-05T16:46:08.486115Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/P0Mu4wcQ/versions/txBP6ArM/artifacts-fabric-9.5.17.jar",
+            "filename": "artifacts-fabric-9.5.17.jar",
+            "all_matching_versions": 31
+          },
+          "targets": [
+            "artifacts.effect.MagnetismMobEffect"
+          ],
+          "inspection": {
+            "jar": "artifacts--artifacts-fabric-9.5.17.jar",
+            "classes": {
+              "artifacts.effect.MagnetismMobEffect": {
+                "entry": "artifacts/effect/MagnetismMobEffect.class",
+                "found": false,
+                "candidates": [
+                  "artifacts/item/wearable/mobeffectitem.class"
+                ]
+              }
+            }
+          }
+        },
+        "draconic-evolution": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "YNN1jXMF",
+            "version": "1.0.1",
+            "version_id": "yLSwbpmN",
+            "published": "2025-10-04T14:02:28.661067Z",
+            "version_type": "beta",
+            "download_url": null,
+            "filename": null,
+            "all_matching_versions": 2,
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "com.brandon3055.draconicevolution.items.tools.Magnet"
+          ]
+        },
+        "enderio": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "kwpnHlhf",
+            "version": "1.20.1-1.1",
+            "version_id": "OlXXoERL",
+            "published": "2024-03-16T20:07:47.085275Z",
+            "version_type": "beta",
+            "download_url": "https://cdn.modrinth.com/data/kwpnHlhf/versions/OlXXoERL/IndustrialReborn-1.20.1-1.1.jar",
+            "filename": "IndustrialReborn-1.20.1-1.1.jar",
+            "all_matching_versions": 1
+          },
+          "targets": [
+            "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity",
+            "com.enderio.enderio.content.tools.ElectromagnetItem"
+          ],
+          "inspection": {
+            "jar": "enderio--IndustrialReborn-1.20.1-1.1.jar",
+            "classes": {
+              "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity": {
+                "entry": "com/enderio/enderio/content/machines/vacuum/VacuumMachineBlockEntity.class",
+                "found": false,
+                "candidates": [
+                  "me/munchii/industrialreborn/blockentity/animalbabyseparatorblockentity.class",
+                  "me/munchii/industrialreborn/blockentity/animalfeederblockentity.class",
+                  "me/munchii/industrialreborn/blockentity/fluidtransposerblockentity.class",
+                  "me/munchii/industrialreborn/blockentity/irangedblockentity.class",
+                  "me/munchii/industrialreborn/blockentity/mobslaughterblockentity.class",
+                  "me/munchii/industrialreborn/blockentity/poweredspawnerblockentity$entitysoulstore.class",
+                  "me/munchii/industrialreborn/blockentity/poweredspawnerblockentity.class",
+                  "me/munchii/industrialreborn/blockentity/soulextractorblockentity.class",
+                  "me/munchii/industrialreborn/init/irblockentities.class",
+                  "me/munchii/industrialreborn/init/ircontent$machine.class",
+                  "me/munchii/industrialreborn/storage/entity/entitystorage.class",
+                  "me/munchii/industrialreborn/storage/entity/storedentitydata.class",
+                  "me/munchii/industrialreborn/utils/entitycaptureutils$capturablestatus.class",
+                  "me/munchii/industrialreborn/utils/entitycaptureutils.class",
+                  "me/munchii/industrialreborn/utils/industrialtags$entitytypes.class"
+                ]
+              },
+              "com.enderio.enderio.content.tools.ElectromagnetItem": {
+                "entry": "com/enderio/enderio/content/tools/ElectromagnetItem.class",
+                "found": false,
+                "candidates": [
+                  "me/munchii/industrialreborn/init/iritemgroup.class",
+                  "me/munchii/industrialreborn/items/soulvialitem.class"
+                ]
+              }
+            }
+          }
+        },
+        "industrial-foregoing": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "kwpnHlhf",
+            "version": "1.20.1-1.1",
+            "version_id": "OlXXoERL",
+            "published": "2024-03-16T20:07:47.085275Z",
+            "version_type": "beta",
+            "download_url": "https://cdn.modrinth.com/data/kwpnHlhf/versions/OlXXoERL/IndustrialReborn-1.20.1-1.1.jar",
+            "filename": "IndustrialReborn-1.20.1-1.1.jar",
+            "all_matching_versions": 1
+          },
+          "targets": [
+            "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack"
+          ],
+          "inspection": {
+            "jar": "industrial-foregoing--IndustrialReborn-1.20.1-1.1.jar",
+            "classes": {
+              "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack": {
+                "entry": "com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack.class",
+                "found": false,
+                "candidates": [
+                  "me/munchii/industrialreborn/init/iritemgroup.class",
+                  "me/munchii/industrialreborn/items/soulvialitem.class"
+                ]
+              }
+            }
+          }
+        },
+        "item-collectors": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "item-collectors",
+            "version": "1.1.12-fabric-mc1.20.2",
+            "version_id": "DcWenLH6",
+            "published": "2026-02-21T15:56:28.830393Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/y9vDr4Th/versions/DcWenLH6/itemcollectors-1.1.12-fabric-mc1.20.2.jar",
+            "filename": "itemcollectors-1.1.12-fabric-mc1.20.2.jar",
+            "all_matching_versions": 6
+          },
+          "targets": [
+            "com.supermartijn642.itemcollectors.CollectorBlockEntity"
+          ],
+          "inspection": {
+            "jar": "item-collectors--itemcollectors-1.1.12-fabric-mc1.20.2.jar",
+            "classes": {
+              "com.supermartijn642.itemcollectors.CollectorBlockEntity": {
+                "entry": "com/supermartijn642/itemcollectors/CollectorBlockEntity.class",
+                "found": true,
+                "javap": "_audit/results/javap/fabric-1.20.1/item-collectors-CollectorBlockEntity.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "mekanism": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "no matching version",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit"
+          ]
+        },
+        "mob-grinding-utils": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "mob-grinding-utils: HTTP 404",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "mob_grinding_utils.tile.TileEntityAbsorptionHopper"
+          ]
+        },
+        "modular-routers": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "no matching version",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "me.desht.modularrouters.logic.compiled.CompiledVacuumModule"
+          ]
+        },
+        "projecte": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "Nrh5pjBU",
+            "version": "1.1.0",
+            "version_id": "I7pq9jmT",
+            "published": "2024-10-30T16:15:36.766944Z",
+            "version_type": "release",
+            "download_url": null,
+            "filename": null,
+            "all_matching_versions": 1,
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "moze_intel.projecte.gameObjs.items.rings.BlackHoleBand"
+          ]
+        },
+        "reliquary": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "no matching version",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "reliquary.item.FortuneCoinItem"
+          ]
+        },
+        "simple-magnets": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "simple-magnets",
+            "version": "1.1.12-fabric-mc1.20.1",
+            "version_id": "Kh9ezZdR",
+            "published": "2024-10-20T18:08:19.693108Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/YyNQVpOu/versions/Kh9ezZdR/simplemagnets-1.1.12-fabric-mc1.20.1.jar",
+            "filename": "simplemagnets-1.1.12-fabric-mc1.20.1.jar",
+            "all_matching_versions": 5
+          },
+          "targets": [
+            "com.supermartijn642.simplemagnets.MagnetItem"
+          ],
+          "inspection": {
+            "jar": "simple-magnets--simplemagnets-1.1.12-fabric-mc1.20.1.jar",
+            "classes": {
+              "com.supermartijn642.simplemagnets.MagnetItem": {
+                "entry": "com/supermartijn642/simplemagnets/MagnetItem.class",
+                "found": true,
+                "javap": "_audit/results/javap/fabric-1.20.1/simple-magnets-MagnetItem.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "sophisticated-core": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "9jxwkYQL",
+            "version": "1.20.1-1.2.7.15.166",
+            "version_id": "BP3CQI2v",
+            "published": "2025-12-16T17:48:42.107693Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/9jxwkYQL/versions/BP3CQI2v/sophisticatedcore-1.20.1-1.2.7.15.166.jar",
+            "filename": "sophisticatedcore-1.20.1-1.2.7.15.166.jar",
+            "all_matching_versions": 18
+          },
+          "targets": [
+            "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper"
+          ],
+          "inspection": {
+            "jar": "sophisticated-core--sophisticatedcore-1.20.1-1.2.7.15.166.jar",
+            "classes": {
+              "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper": {
+                "entry": "net/p3pp3rf1y/sophisticatedcore/upgrades/magnet/MagnetUpgradeWrapper.class",
+                "found": true,
+                "javap": "_audit/results/javap/fabric-1.20.1/sophisticated-core-MagnetUpgradeWrapper.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "forge-1.19.2": {
+      "key": "forge-1.19.2",
+      "branch": "1.19.2-forge",
+      "mc": "1.19.2",
+      "loader": "forge",
+      "declared_create": [
+        "ports/forge-1.19.2/src/main/resources/META-INF/mods.toml: modId=\"create\"",
+        "src/main/resources/META-INF/neoforge.mods.toml: modId=\"create\"",
+        "src/main/resources/META-INF/neoforge.mods.toml: versionRange=\"${create_version_range}\""
+      ],
+      "mixins": [
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/itemcollectors/CollectorBlockEntityMixin.java",
+          "class": "com.supermartijn642.itemcollectors.CollectorBlockEntity",
+          "project": "item-collectors"
+        },
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler",
+          "project": "ae2wtlib"
+        },
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "artifacts.effect.MagnetismMobEffect",
+          "project": "artifacts"
+        },
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit",
+          "project": "mekanism"
+        },
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "com.brandon3055.draconicevolution.items.tools.Magnet",
+          "project": "draconic-evolution"
+        },
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "reliquary.item.FortuneCoinItem",
+          "project": "reliquary"
+        },
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "mob_grinding_utils.tile.TileEntityAbsorptionHopper",
+          "project": "mob-grinding-utils"
+        },
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "me.desht.modularrouters.logic.compiled.CompiledVacuumModule",
+          "project": "modular-routers"
+        },
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper",
+          "project": "sophisticated-core"
+        },
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/simplemagnets/MagnetItemMixin.java",
+          "class": "com.supermartijn642.simplemagnets.MagnetItem",
+          "project": "simple-magnets"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/ae2wtlib/MagnetHandlerMixin.java",
+          "class": "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler",
+          "project": "ae2wtlib"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/artifacts/MagnetismMobEffectMixin.java",
+          "class": "artifacts.effect.MagnetismMobEffect",
+          "project": "artifacts"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/draconicevolution/MagnetMixin.java",
+          "class": "com.brandon3055.draconicevolution.items.tools.Magnet",
+          "project": "draconic-evolution"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/enderio/ElectromagnetItemMixin.java",
+          "class": "com.enderio.enderio.content.tools.ElectromagnetItem",
+          "project": "enderio"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/enderio/VacuumMachineBlockEntityMixin.java",
+          "class": "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity",
+          "project": "enderio"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/industrialforegoing/ItemInfinityBackpackMixin.java",
+          "class": "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack",
+          "project": "industrial-foregoing"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/itemcollectors/CollectorBlockEntityMixin.java",
+          "class": "com.supermartijn642.itemcollectors.CollectorBlockEntity",
+          "project": "item-collectors"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/mekanism/ModuleMagneticAttractionUnitMixin.java",
+          "class": "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit",
+          "project": "mekanism"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/mobgrindingutils/AbsorptionHopperMixin.java",
+          "class": "mob_grinding_utils.tile.TileEntityAbsorptionHopper",
+          "project": "mob-grinding-utils"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/modularrouters/CompiledVacuumModuleMixin.java",
+          "class": "me.desht.modularrouters.logic.compiled.CompiledVacuumModule",
+          "project": "modular-routers"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/projecte/BlackHoleBandMixin.java",
+          "class": "moze_intel.projecte.gameObjs.items.rings.BlackHoleBand",
+          "project": "projecte"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/reliquary/FortuneCoinItemMixin.java",
+          "class": "reliquary.item.FortuneCoinItem",
+          "project": "reliquary"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/simplemagnets/MagnetItemMixin.java",
+          "class": "com.supermartijn642.simplemagnets.MagnetItem",
+          "project": "simple-magnets"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/sophisticatedcore/MagnetUpgradeWrapperMixin.java",
+          "class": "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper",
+          "project": "sophisticated-core"
+        }
+      ],
+      "projects": {
+        "ae2wtlib": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "pNabrMMw",
+            "version": "12.9.7-forge",
+            "version_id": "Sk6tHeLM",
+            "published": "2023-07-20T19:26:41.991441Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/pNabrMMw/versions/Sk6tHeLM/AE2WTLib-12.9.7.jar",
+            "filename": "AE2WTLib-12.9.7.jar",
+            "all_matching_versions": 14
+          },
+          "targets": [
+            "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler"
+          ],
+          "inspection": {
+            "jar": "ae2wtlib--AE2WTLib-12.9.7.jar",
+            "classes": {
+              "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler": {
+                "entry": "de/mari_023/ae2wtlib/wct/magnet_card/MagnetHandler.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.19.2/ae2wtlib-MagnetHandler.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "artifacts": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "artifacts",
+            "version": "5.0.6+forge",
+            "version_id": "Ua6Apv5x",
+            "published": "2024-05-30T16:54:02.701761Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/P0Mu4wcQ/versions/Ua6Apv5x/artifacts-1.19.2-5.0.6.jar",
+            "filename": "artifacts-1.19.2-5.0.6.jar",
+            "all_matching_versions": 7
+          },
+          "targets": [
+            "artifacts.effect.MagnetismMobEffect"
+          ],
+          "inspection": {
+            "jar": "artifacts--artifacts-1.19.2-5.0.6.jar",
+            "classes": {
+              "artifacts.effect.MagnetismMobEffect": {
+                "entry": "artifacts/effect/MagnetismMobEffect.class",
+                "found": false,
+                "candidates": [
+                  "artifacts/data/mobeffecttags.class"
+                ]
+              }
+            }
+          }
+        },
+        "draconic-evolution": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "no matching version",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "com.brandon3055.draconicevolution.items.tools.Magnet"
+          ]
+        },
+        "enderio": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "no matching version",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity",
+            "com.enderio.enderio.content.tools.ElectromagnetItem"
+          ]
+        },
+        "industrial-foregoing": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "industrial-foregoing",
+            "version": "3.3.2.3",
+            "version_id": "fZMC747p",
+            "published": "2023-06-17T20:23:03.032848Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/lWxpUd04/versions/fZMC747p/industrial-foregoing-1.19.2-3.3.2.3-5.jar",
+            "filename": "industrial-foregoing-1.19.2-3.3.2.3-5.jar",
+            "all_matching_versions": 5
+          },
+          "targets": [
+            "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack"
+          ],
+          "inspection": {
+            "jar": "industrial-foregoing--industrial-foregoing-1.19.2-3.3.2.3-5.jar",
+            "classes": {
+              "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack": {
+                "entry": "com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.19.2/industrial-foregoing-ItemInfinityBackpack.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "item-collectors": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "item-collectors",
+            "version": "1.1.12-forge-mc1.19.2",
+            "version_id": "lQX2uPQQ",
+            "published": "2026-02-21T15:40:20.917090Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/y9vDr4Th/versions/lQX2uPQQ/itemcollectors-1.1.12-forge-mc1.19.2.jar",
+            "filename": "itemcollectors-1.1.12-forge-mc1.19.2.jar",
+            "all_matching_versions": 8
+          },
+          "targets": [
+            "com.supermartijn642.itemcollectors.CollectorBlockEntity"
+          ],
+          "inspection": {
+            "jar": "item-collectors--itemcollectors-1.1.12-forge-mc1.19.2.jar",
+            "classes": {
+              "com.supermartijn642.itemcollectors.CollectorBlockEntity": {
+                "entry": "com/supermartijn642/itemcollectors/CollectorBlockEntity.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.19.2/item-collectors-CollectorBlockEntity.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "mekanism": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "mekanism",
+            "version": "10.3.9.13",
+            "version_id": "yj7d33HE",
+            "published": "2023-07-15T02:49:48.006392Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/Ce6I4WUE/versions/yj7d33HE/Mekanism-1.19.2-10.3.9.13.jar",
+            "filename": "Mekanism-1.19.2-10.3.9.13.jar",
+            "all_matching_versions": 9
+          },
+          "targets": [
+            "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit"
+          ],
+          "inspection": {
+            "jar": "mekanism--Mekanism-1.19.2-10.3.9.13.jar",
+            "classes": {
+              "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit": {
+                "entry": "mekanism/common/content/gear/mekasuit/ModuleMagneticAttractionUnit.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.19.2/mekanism-ModuleMagneticAttractionUnit.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "mob-grinding-utils": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "mob-grinding-utils: HTTP 404",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "mob_grinding_utils.tile.TileEntityAbsorptionHopper"
+          ]
+        },
+        "modular-routers": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "modular-routers",
+            "version": "1.19.2-10.2.1",
+            "version_id": "YjZfmiJU",
+            "published": "2023-08-11T11:35:18.210554Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/EuTS81Z3/versions/YjZfmiJU/modular-routers-1.19.2-10.2.19.jar",
+            "filename": "modular-routers-1.19.2-10.2.19.jar",
+            "all_matching_versions": 2
+          },
+          "targets": [
+            "me.desht.modularrouters.logic.compiled.CompiledVacuumModule"
+          ],
+          "inspection": {
+            "jar": "modular-routers--modular-routers-1.19.2-10.2.19.jar",
+            "classes": {
+              "me.desht.modularrouters.logic.compiled.CompiledVacuumModule": {
+                "entry": "me/desht/modularrouters/logic/compiled/CompiledVacuumModule.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.19.2/modular-routers-CompiledVacuumModule.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "projecte": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "a7yNQPzW",
+            "version": "1.19.2-1.1.1",
+            "version_id": "QUoEX6d6",
+            "published": "2024-10-01T03:03:43.887453Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/a7yNQPzW/versions/QUoEX6d6/ProjectExpansion-1.19.2-1.1.1.jar",
+            "filename": "ProjectExpansion-1.19.2-1.1.1.jar",
+            "all_matching_versions": 12
+          },
+          "targets": [
+            "moze_intel.projecte.gameObjs.items.rings.BlackHoleBand"
+          ],
+          "inspection": {
+            "jar": "projecte--ProjectExpansion-1.19.2-1.1.1.jar",
+            "classes": {
+              "moze_intel.projecte.gameObjs.items.rings.BlackHoleBand": {
+                "entry": "moze_intel/projecte/gameObjs/items/rings/BlackHoleBand.class",
+                "found": false,
+                "candidates": []
+              }
+            }
+          }
+        },
+        "reliquary": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "reliquary-reincarnations",
+            "version": "1.19.2-2.0.40.1198",
+            "version_id": "ZYC7gzKd",
+            "published": "2025-02-28T13:04:19.475004Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/fQO83PId/versions/ZYC7gzKd/reliquary-1.19.2-2.0.40.1198.jar",
+            "filename": "reliquary-1.19.2-2.0.40.1198.jar",
+            "all_matching_versions": 1
+          },
+          "targets": [
+            "reliquary.item.FortuneCoinItem"
+          ],
+          "inspection": {
+            "jar": "reliquary--reliquary-1.19.2-2.0.40.1198.jar",
+            "classes": {
+              "reliquary.item.FortuneCoinItem": {
+                "entry": "reliquary/item/FortuneCoinItem.class",
+                "found": false,
+                "candidates": [
+                  "reliquary/items/fortunecoinitem$ifortunecoinpickupchecker.class",
+                  "reliquary/items/fortunecoinitem.class"
+                ]
+              }
+            }
+          }
+        },
+        "simple-magnets": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "simple-magnets",
+            "version": "1.1.12-forge-mc1.19.2",
+            "version_id": "3kgrSkNM",
+            "published": "2024-10-18T20:37:36.133964Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/YyNQVpOu/versions/3kgrSkNM/simplemagnets-1.1.12-forge-mc1.19.2.jar",
+            "filename": "simplemagnets-1.1.12-forge-mc1.19.2.jar",
+            "all_matching_versions": 5
+          },
+          "targets": [
+            "com.supermartijn642.simplemagnets.MagnetItem"
+          ],
+          "inspection": {
+            "jar": "simple-magnets--simplemagnets-1.1.12-forge-mc1.19.2.jar",
+            "classes": {
+              "com.supermartijn642.simplemagnets.MagnetItem": {
+                "entry": "com/supermartijn642/simplemagnets/MagnetItem.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.19.2/simple-magnets-MagnetItem.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "sophisticated-core": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "sophisticated-core",
+            "version": "1.19.2-0.6.4.730",
+            "version_id": "LRDUyYPU",
+            "published": "2024-11-17T12:49:20.669718Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/nmoqTijg/versions/LRDUyYPU/sophisticatedcore-1.19.2-0.6.4.730.jar",
+            "filename": "sophisticatedcore-1.19.2-0.6.4.730.jar",
+            "all_matching_versions": 1
+          },
+          "targets": [
+            "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper"
+          ],
+          "inspection": {
+            "jar": "sophisticated-core--sophisticatedcore-1.19.2-0.6.4.730.jar",
+            "classes": {
+              "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper": {
+                "entry": "net/p3pp3rf1y/sophisticatedcore/upgrades/magnet/MagnetUpgradeWrapper.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.19.2/sophisticated-core-MagnetUpgradeWrapper.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "forge-1.18.2": {
+      "key": "forge-1.18.2",
+      "branch": "1.18.2-forge",
+      "mc": "1.18.2",
+      "loader": "forge",
+      "declared_create": [
+        "ports/forge-1.19.2/src/main/resources/META-INF/mods.toml: modId=\"create\"",
+        "src/main/resources/META-INF/neoforge.mods.toml: modId=\"create\"",
+        "src/main/resources/META-INF/neoforge.mods.toml: versionRange=\"${create_version_range}\""
+      ],
+      "mixins": [
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/itemcollectors/CollectorBlockEntityMixin.java",
+          "class": "com.supermartijn642.itemcollectors.CollectorBlockEntity",
+          "project": "item-collectors"
+        },
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler",
+          "project": "ae2wtlib"
+        },
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "artifacts.effect.MagnetismMobEffect",
+          "project": "artifacts"
+        },
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit",
+          "project": "mekanism"
+        },
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "com.brandon3055.draconicevolution.items.tools.Magnet",
+          "project": "draconic-evolution"
+        },
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "reliquary.item.FortuneCoinItem",
+          "project": "reliquary"
+        },
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "mob_grinding_utils.tile.TileEntityAbsorptionHopper",
+          "project": "mob-grinding-utils"
+        },
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "me.desht.modularrouters.logic.compiled.CompiledVacuumModule",
+          "project": "modular-routers"
+        },
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper",
+          "project": "sophisticated-core"
+        },
+        {
+          "path": "ports/forge-1.19.2/src/main/java/com/beeboee/magnot/mixin/simplemagnets/MagnetItemMixin.java",
+          "class": "com.supermartijn642.simplemagnets.MagnetItem",
+          "project": "simple-magnets"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/ae2wtlib/MagnetHandlerMixin.java",
+          "class": "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler",
+          "project": "ae2wtlib"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/artifacts/MagnetismMobEffectMixin.java",
+          "class": "artifacts.effect.MagnetismMobEffect",
+          "project": "artifacts"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/draconicevolution/MagnetMixin.java",
+          "class": "com.brandon3055.draconicevolution.items.tools.Magnet",
+          "project": "draconic-evolution"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/enderio/ElectromagnetItemMixin.java",
+          "class": "com.enderio.enderio.content.tools.ElectromagnetItem",
+          "project": "enderio"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/enderio/VacuumMachineBlockEntityMixin.java",
+          "class": "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity",
+          "project": "enderio"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/industrialforegoing/ItemInfinityBackpackMixin.java",
+          "class": "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack",
+          "project": "industrial-foregoing"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/itemcollectors/CollectorBlockEntityMixin.java",
+          "class": "com.supermartijn642.itemcollectors.CollectorBlockEntity",
+          "project": "item-collectors"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/mekanism/ModuleMagneticAttractionUnitMixin.java",
+          "class": "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit",
+          "project": "mekanism"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/mobgrindingutils/AbsorptionHopperMixin.java",
+          "class": "mob_grinding_utils.tile.TileEntityAbsorptionHopper",
+          "project": "mob-grinding-utils"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/modularrouters/CompiledVacuumModuleMixin.java",
+          "class": "me.desht.modularrouters.logic.compiled.CompiledVacuumModule",
+          "project": "modular-routers"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/projecte/BlackHoleBandMixin.java",
+          "class": "moze_intel.projecte.gameObjs.items.rings.BlackHoleBand",
+          "project": "projecte"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/reliquary/FortuneCoinItemMixin.java",
+          "class": "reliquary.item.FortuneCoinItem",
+          "project": "reliquary"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/simplemagnets/MagnetItemMixin.java",
+          "class": "com.supermartijn642.simplemagnets.MagnetItem",
+          "project": "simple-magnets"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/sophisticatedcore/MagnetUpgradeWrapperMixin.java",
+          "class": "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper",
+          "project": "sophisticated-core"
+        }
+      ],
+      "projects": {
+        "ae2wtlib": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "pNabrMMw",
+            "version": "11.6.3-forge",
+            "version_id": "Dd1XwvRa",
+            "published": "2022-11-06T23:40:07.615969Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/pNabrMMw/versions/Dd1XwvRa/AE2WTLib-11.6.3.jar",
+            "filename": "AE2WTLib-11.6.3.jar",
+            "all_matching_versions": 13
+          },
+          "targets": [
+            "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler"
+          ],
+          "inspection": {
+            "jar": "ae2wtlib--AE2WTLib-11.6.3.jar",
+            "classes": {
+              "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler": {
+                "entry": "de/mari_023/ae2wtlib/wct/magnet_card/MagnetHandler.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.18.2/ae2wtlib-MagnetHandler.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "artifacts": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "GFqBpmHU",
+            "version": "1.0.0",
+            "version_id": "bHdJBqRq",
+            "published": "2025-07-12T12:27:09.970572Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/GFqBpmHU/versions/bHdJBqRq/artifacscrafting-1.0.0-forge-1.18.2.jar",
+            "filename": "artifacscrafting-1.0.0-forge-1.18.2.jar",
+            "all_matching_versions": 1
+          },
+          "targets": [
+            "artifacts.effect.MagnetismMobEffect"
+          ],
+          "inspection": {
+            "jar": "artifacts--artifacscrafting-1.0.0-forge-1.18.2.jar",
+            "classes": {
+              "artifacts.effect.MagnetismMobEffect": {
+                "entry": "artifacts/effect/MagnetismMobEffect.class",
+                "found": false,
+                "candidates": []
+              }
+            }
+          }
+        },
+        "draconic-evolution": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "draconic-evolution",
+            "version": "3.0.31.531",
+            "version_id": "ASrbjsih",
+            "published": "2024-05-31T07:37:36.673332Z",
+            "version_type": "beta",
+            "download_url": "https://cdn.modrinth.com/data/nBqivi8H/versions/ASrbjsih/Draconic-Evolution-1.18.2-3.0.31.531-universal.jar",
+            "filename": "Draconic-Evolution-1.18.2-3.0.31.531-universal.jar",
+            "all_matching_versions": 5
+          },
+          "targets": [
+            "com.brandon3055.draconicevolution.items.tools.Magnet"
+          ],
+          "inspection": {
+            "jar": "draconic-evolution--Draconic-Evolution-1.18.2-3.0.31.531-universal.jar",
+            "classes": {
+              "com.brandon3055.draconicevolution.items.tools.Magnet": {
+                "entry": "com/brandon3055/draconicevolution/items/tools/Magnet.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.18.2/draconic-evolution-Magnet.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "enderio": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "no matching version",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity",
+            "com.enderio.enderio.content.tools.ElectromagnetItem"
+          ]
+        },
+        "industrial-foregoing": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "industrial-foregoing",
+            "version": "3.3.1.6",
+            "version_id": "xrK5TYz5",
+            "published": "2023-06-17T20:22:53.344087Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/lWxpUd04/versions/xrK5TYz5/industrial-foregoing-1.18.2-3.3.1.6-10.jar",
+            "filename": "industrial-foregoing-1.18.2-3.3.1.6-10.jar",
+            "all_matching_versions": 7
+          },
+          "targets": [
+            "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack"
+          ],
+          "inspection": {
+            "jar": "industrial-foregoing--industrial-foregoing-1.18.2-3.3.1.6-10.jar",
+            "classes": {
+              "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack": {
+                "entry": "com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.18.2/industrial-foregoing-ItemInfinityBackpack.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "item-collectors": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "item-collectors",
+            "version": "1.1.12-forge-mc1.18",
+            "version_id": "kX7m2O24",
+            "published": "2026-02-21T15:40:03.450356Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/y9vDr4Th/versions/kX7m2O24/itemcollectors-1.1.12-forge-mc1.18.jar",
+            "filename": "itemcollectors-1.1.12-forge-mc1.18.jar",
+            "all_matching_versions": 8
+          },
+          "targets": [
+            "com.supermartijn642.itemcollectors.CollectorBlockEntity"
+          ],
+          "inspection": {
+            "jar": "item-collectors--itemcollectors-1.1.12-forge-mc1.18.jar",
+            "classes": {
+              "com.supermartijn642.itemcollectors.CollectorBlockEntity": {
+                "entry": "com/supermartijn642/itemcollectors/CollectorBlockEntity.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.18.2/item-collectors-CollectorBlockEntity.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "mekanism": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "mekanism",
+            "version": "10.2.5.465",
+            "version_id": "zWt8Aemn",
+            "published": "2022-07-14T23:44:20.077347Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/Ce6I4WUE/versions/10.2.5.465/Mekanism-1.18.2-10.2.5.465.jar",
+            "filename": "Mekanism-1.18.2-10.2.5.465.jar",
+            "all_matching_versions": 6
+          },
+          "targets": [
+            "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit"
+          ],
+          "inspection": {
+            "jar": "mekanism--Mekanism-1.18.2-10.2.5.465.jar",
+            "classes": {
+              "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit": {
+                "entry": "mekanism/common/content/gear/mekasuit/ModuleMagneticAttractionUnit.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.18.2/mekanism-ModuleMagneticAttractionUnit.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "mob-grinding-utils": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "mob-grinding-utils: HTTP 404",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "mob_grinding_utils.tile.TileEntityAbsorptionHopper"
+          ]
+        },
+        "modular-routers": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "modular-routers",
+            "version": "9.1.2",
+            "version_id": "cWmgGCF5",
+            "published": "2023-12-26T18:06:45.832063Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/EuTS81Z3/versions/cWmgGCF5/modular-routers-1.18.2-9.1.2.jar",
+            "filename": "modular-routers-1.18.2-9.1.2.jar",
+            "all_matching_versions": 2
+          },
+          "targets": [
+            "me.desht.modularrouters.logic.compiled.CompiledVacuumModule"
+          ],
+          "inspection": {
+            "jar": "modular-routers--modular-routers-1.18.2-9.1.2.jar",
+            "classes": {
+              "me.desht.modularrouters.logic.compiled.CompiledVacuumModule": {
+                "entry": "me/desht/modularrouters/logic/compiled/CompiledVacuumModule.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.18.2/modular-routers-CompiledVacuumModule.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "projecte": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "a7yNQPzW",
+            "version": "1.18.2-1.1.1",
+            "version_id": "zTquBXG6",
+            "published": "2024-10-01T02:59:49.574631Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/a7yNQPzW/versions/zTquBXG6/ProjectExpansion-1.18.2-1.1.1.jar",
+            "filename": "ProjectExpansion-1.18.2-1.1.1.jar",
+            "all_matching_versions": 24
+          },
+          "targets": [
+            "moze_intel.projecte.gameObjs.items.rings.BlackHoleBand"
+          ],
+          "inspection": {
+            "jar": "projecte--ProjectExpansion-1.18.2-1.1.1.jar",
+            "classes": {
+              "moze_intel.projecte.gameObjs.items.rings.BlackHoleBand": {
+                "entry": "moze_intel/projecte/gameObjs/items/rings/BlackHoleBand.class",
+                "found": false,
+                "candidates": []
+              }
+            }
+          }
+        },
+        "reliquary": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "reliquary-reincarnations",
+            "version": "1.18.2-2.0.19.1161",
+            "version_id": "LbhMjrUe",
+            "published": "2025-02-28T13:03:44.227089Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/fQO83PId/versions/LbhMjrUe/reliquary-1.18.2-2.0.19.1161.jar",
+            "filename": "reliquary-1.18.2-2.0.19.1161.jar",
+            "all_matching_versions": 1
+          },
+          "targets": [
+            "reliquary.item.FortuneCoinItem"
+          ],
+          "inspection": {
+            "jar": "reliquary--reliquary-1.18.2-2.0.19.1161.jar",
+            "classes": {
+              "reliquary.item.FortuneCoinItem": {
+                "entry": "reliquary/item/FortuneCoinItem.class",
+                "found": false,
+                "candidates": [
+                  "reliquary/items/fortunecoinitem$ifortunecoinpickupchecker.class",
+                  "reliquary/items/fortunecoinitem.class"
+                ]
+              }
+            }
+          }
+        },
+        "simple-magnets": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "simple-magnets",
+            "version": "1.1.12-forge-mc1.18",
+            "version_id": "NXm33Kje",
+            "published": "2024-10-18T20:36:59.857835Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/YyNQVpOu/versions/NXm33Kje/simplemagnets-1.1.12-forge-mc1.18.jar",
+            "filename": "simplemagnets-1.1.12-forge-mc1.18.jar",
+            "all_matching_versions": 5
+          },
+          "targets": [
+            "com.supermartijn642.simplemagnets.MagnetItem"
+          ],
+          "inspection": {
+            "jar": "simple-magnets--simplemagnets-1.1.12-forge-mc1.18.jar",
+            "classes": {
+              "com.supermartijn642.simplemagnets.MagnetItem": {
+                "entry": "com/supermartijn642/simplemagnets/MagnetItem.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.18.2/simple-magnets-MagnetItem.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "sophisticated-core": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "sophisticated-core",
+            "version": "1.18.2-0.6.4.604",
+            "version_id": "V4IQWqjA",
+            "published": "2024-11-17T12:50:26.353876Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/nmoqTijg/versions/V4IQWqjA/sophisticatedcore-1.18.2-0.6.4.604.jar",
+            "filename": "sophisticatedcore-1.18.2-0.6.4.604.jar",
+            "all_matching_versions": 1
+          },
+          "targets": [
+            "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper"
+          ],
+          "inspection": {
+            "jar": "sophisticated-core--sophisticatedcore-1.18.2-0.6.4.604.jar",
+            "classes": {
+              "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper": {
+                "entry": "net/p3pp3rf1y/sophisticatedcore/upgrades/magnet/MagnetUpgradeWrapper.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.18.2/sophisticated-core-MagnetUpgradeWrapper.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "forge-1.16.5": {
+      "key": "forge-1.16.5",
+      "branch": "1.16.5-forge",
+      "mc": "1.16.5",
+      "loader": "forge",
+      "declared_create": [
+        "ports/forge-1.16.5/src/main/resources/META-INF/mods.toml: modId=\"create\"",
+        "src/main/resources/META-INF/neoforge.mods.toml: modId=\"create\"",
+        "src/main/resources/META-INF/neoforge.mods.toml: versionRange=\"${create_version_range}\""
+      ],
+      "mixins": [
+        {
+          "path": "ports/forge-1.16.5/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "com.supermartijn642.itemcollectors.CollectorBlockEntity",
+          "project": "item-collectors"
+        },
+        {
+          "path": "ports/forge-1.16.5/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "mob_grinding_utils.tile.TileEntityAbsorptionHopper",
+          "project": "mob-grinding-utils"
+        },
+        {
+          "path": "ports/forge-1.16.5/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "me.desht.modularrouters.logic.compiled.CompiledVacuumModule",
+          "project": "modular-routers"
+        },
+        {
+          "path": "ports/forge-1.16.5/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit",
+          "project": "mekanism"
+        },
+        {
+          "path": "ports/forge-1.16.5/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "com.brandon3055.draconicevolution.items.tools.Magnet",
+          "project": "draconic-evolution"
+        },
+        {
+          "path": "ports/forge-1.16.5/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "reliquary.item.FortuneCoinItem",
+          "project": "reliquary"
+        },
+        {
+          "path": "ports/forge-1.16.5/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper",
+          "project": "sophisticated-core"
+        },
+        {
+          "path": "ports/forge-1.16.5/src/main/java/com/beeboee/magnot/mixin/portcompat/PortCompatibilityMixins.java",
+          "class": "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack",
+          "project": "industrial-foregoing"
+        },
+        {
+          "path": "ports/forge-1.16.5/src/main/java/com/beeboee/magnot/mixin/simplemagnets/MagnetItemMixin.java",
+          "class": "com.supermartijn642.simplemagnets.MagnetItem",
+          "project": "simple-magnets"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/ae2wtlib/MagnetHandlerMixin.java",
+          "class": "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler",
+          "project": "ae2wtlib"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/artifacts/MagnetismMobEffectMixin.java",
+          "class": "artifacts.effect.MagnetismMobEffect",
+          "project": "artifacts"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/draconicevolution/MagnetMixin.java",
+          "class": "com.brandon3055.draconicevolution.items.tools.Magnet",
+          "project": "draconic-evolution"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/enderio/ElectromagnetItemMixin.java",
+          "class": "com.enderio.enderio.content.tools.ElectromagnetItem",
+          "project": "enderio"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/enderio/VacuumMachineBlockEntityMixin.java",
+          "class": "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity",
+          "project": "enderio"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/industrialforegoing/ItemInfinityBackpackMixin.java",
+          "class": "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack",
+          "project": "industrial-foregoing"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/itemcollectors/CollectorBlockEntityMixin.java",
+          "class": "com.supermartijn642.itemcollectors.CollectorBlockEntity",
+          "project": "item-collectors"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/mekanism/ModuleMagneticAttractionUnitMixin.java",
+          "class": "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit",
+          "project": "mekanism"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/mobgrindingutils/AbsorptionHopperMixin.java",
+          "class": "mob_grinding_utils.tile.TileEntityAbsorptionHopper",
+          "project": "mob-grinding-utils"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/modularrouters/CompiledVacuumModuleMixin.java",
+          "class": "me.desht.modularrouters.logic.compiled.CompiledVacuumModule",
+          "project": "modular-routers"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/projecte/BlackHoleBandMixin.java",
+          "class": "moze_intel.projecte.gameObjs.items.rings.BlackHoleBand",
+          "project": "projecte"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/reliquary/FortuneCoinItemMixin.java",
+          "class": "reliquary.item.FortuneCoinItem",
+          "project": "reliquary"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/simplemagnets/MagnetItemMixin.java",
+          "class": "com.supermartijn642.simplemagnets.MagnetItem",
+          "project": "simple-magnets"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/sophisticatedcore/MagnetUpgradeWrapperMixin.java",
+          "class": "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper",
+          "project": "sophisticated-core"
+        }
+      ],
+      "projects": {
+        "ae2wtlib": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "ae2wtlib: HTTP 404",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler"
+          ]
+        },
+        "artifacts": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "GFqBpmHU",
+            "version": "1.0.0",
+            "version_id": "52L6UJXd",
+            "published": "2025-07-12T12:18:43.712390Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/GFqBpmHU/versions/52L6UJXd/artifacscrafting-1.0.0-forge-1.16.5.jar",
+            "filename": "artifacscrafting-1.0.0-forge-1.16.5.jar",
+            "all_matching_versions": 1
+          },
+          "targets": [
+            "artifacts.effect.MagnetismMobEffect"
+          ],
+          "inspection": {
+            "jar": "artifacts--artifacscrafting-1.0.0-forge-1.16.5.jar",
+            "classes": {
+              "artifacts.effect.MagnetismMobEffect": {
+                "entry": "artifacts/effect/MagnetismMobEffect.class",
+                "found": false,
+                "candidates": []
+              }
+            }
+          }
+        },
+        "draconic-evolution": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "draconic-evolution",
+            "version": "3.0.29.518",
+            "version_id": "CcXWgwLo",
+            "published": "2024-05-31T07:37:11.020176Z",
+            "version_type": "beta",
+            "download_url": "https://cdn.modrinth.com/data/nBqivi8H/versions/CcXWgwLo/Draconic-Evolution-1.16.5-3.0.29.518-universal.jar",
+            "filename": "Draconic-Evolution-1.16.5-3.0.29.518-universal.jar",
+            "all_matching_versions": 23
+          },
+          "targets": [
+            "com.brandon3055.draconicevolution.items.tools.Magnet"
+          ],
+          "inspection": {
+            "jar": "draconic-evolution--Draconic-Evolution-1.16.5-3.0.29.518-universal.jar",
+            "classes": {
+              "com.brandon3055.draconicevolution.items.tools.Magnet": {
+                "entry": "com/brandon3055/draconicevolution/items/tools/Magnet.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.16.5/draconic-evolution-Magnet.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "enderio": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "no matching version",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity",
+            "com.enderio.enderio.content.tools.ElectromagnetItem"
+          ]
+        },
+        "industrial-foregoing": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "industrial-foregoing",
+            "version": "3.2.14.7",
+            "version_id": "bXOVIT2t",
+            "published": "2023-06-17T20:22:06.980242Z",
+            "version_type": "beta",
+            "download_url": "https://cdn.modrinth.com/data/lWxpUd04/versions/bXOVIT2t/industrial-foregoing-1.16.5-3.2.14.7-16.jar",
+            "filename": "industrial-foregoing-1.16.5-3.2.14.7-16.jar",
+            "all_matching_versions": 21
+          },
+          "targets": [
+            "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack"
+          ],
+          "inspection": {
+            "jar": "industrial-foregoing--industrial-foregoing-1.16.5-3.2.14.7-16.jar",
+            "classes": {
+              "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack": {
+                "entry": "com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.16.5/industrial-foregoing-ItemInfinityBackpack.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "item-collectors": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "item-collectors",
+            "version": "1.1.12-forge-mc1.16",
+            "version_id": "JKIK35m3",
+            "published": "2026-02-21T15:39:28.396399Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/y9vDr4Th/versions/JKIK35m3/itemcollectors-1.1.12-forge-mc1.16.jar",
+            "filename": "itemcollectors-1.1.12-forge-mc1.16.jar",
+            "all_matching_versions": 8
+          },
+          "targets": [
+            "com.supermartijn642.itemcollectors.CollectorBlockEntity"
+          ],
+          "inspection": {
+            "jar": "item-collectors--itemcollectors-1.1.12-forge-mc1.16.jar",
+            "classes": {
+              "com.supermartijn642.itemcollectors.CollectorBlockEntity": {
+                "entry": "com/supermartijn642/itemcollectors/CollectorBlockEntity.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.16.5/item-collectors-CollectorBlockEntity.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "mekanism": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "mekanism",
+            "version": "10.1.2.457",
+            "version_id": "DlhxRTKL",
+            "published": "2022-05-27T03:51:22.925725Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/Ce6I4WUE/versions/10.1.2.457/Mekanism-1.16.5-10.1.2.457.jar",
+            "filename": "Mekanism-1.16.5-10.1.2.457.jar",
+            "all_matching_versions": 2
+          },
+          "targets": [
+            "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit"
+          ],
+          "inspection": {
+            "jar": "mekanism--Mekanism-1.16.5-10.1.2.457.jar",
+            "classes": {
+              "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit": {
+                "entry": "mekanism/common/content/gear/mekasuit/ModuleMagneticAttractionUnit.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.16.5/mekanism-ModuleMagneticAttractionUnit.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "mob-grinding-utils": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "mob-grinding-utils: HTTP 404",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "mob_grinding_utils.tile.TileEntityAbsorptionHopper"
+          ]
+        },
+        "modular-routers": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "modular-routers",
+            "version": "1.16.5-7.5.4",
+            "version_id": "OQS26uyk",
+            "published": "2023-04-08T08:25:57.399158Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/EuTS81Z3/versions/OQS26uyk/modular-routers-1.16.5-7.5.46.jar",
+            "filename": "modular-routers-1.16.5-7.5.46.jar",
+            "all_matching_versions": 1
+          },
+          "targets": [
+            "me.desht.modularrouters.logic.compiled.CompiledVacuumModule"
+          ],
+          "inspection": {
+            "jar": "modular-routers--modular-routers-1.16.5-7.5.46.jar",
+            "classes": {
+              "me.desht.modularrouters.logic.compiled.CompiledVacuumModule": {
+                "entry": "me/desht/modularrouters/logic/compiled/CompiledVacuumModule.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.16.5/modular-routers-CompiledVacuumModule.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "projecte": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "a7yNQPzW",
+            "version": "1.16.5-1.0.41",
+            "version_id": "EMnd1mNs",
+            "published": "2023-10-17T11:03:54.988397Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/a7yNQPzW/versions/EMnd1mNs/ProjectExpansion-1.16.5-1.0.41.jar",
+            "filename": "ProjectExpansion-1.16.5-1.0.41.jar",
+            "all_matching_versions": 42
+          },
+          "targets": [
+            "moze_intel.projecte.gameObjs.items.rings.BlackHoleBand"
+          ],
+          "inspection": {
+            "jar": "projecte--ProjectExpansion-1.16.5-1.0.41.jar",
+            "classes": {
+              "moze_intel.projecte.gameObjs.items.rings.BlackHoleBand": {
+                "entry": "moze_intel/projecte/gameObjs/items/rings/BlackHoleBand.class",
+                "found": false,
+                "candidates": []
+              }
+            }
+          }
+        },
+        "reliquary": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "reliquary-reincarnations",
+            "version": "1.16.5-1.3.5.1124",
+            "version_id": "UPFWqKbe",
+            "published": "2025-02-28T13:03:14.704883Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/fQO83PId/versions/UPFWqKbe/reliquary-1.16.5-1.3.5.1124.jar",
+            "filename": "reliquary-1.16.5-1.3.5.1124.jar",
+            "all_matching_versions": 1
+          },
+          "targets": [
+            "reliquary.item.FortuneCoinItem"
+          ],
+          "inspection": {
+            "jar": "reliquary--reliquary-1.16.5-1.3.5.1124.jar",
+            "classes": {
+              "reliquary.item.FortuneCoinItem": {
+                "entry": "reliquary/item/FortuneCoinItem.class",
+                "found": false,
+                "candidates": [
+                  "xreliquary/items/fortunecoinitem.class",
+                  "xreliquary/items/fortunecoinitem$ifortunecoinpickupchecker.class"
+                ]
+              }
+            }
+          }
+        },
+        "simple-magnets": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "simple-magnets",
+            "version": "1.1.12-forge-mc1.16",
+            "version_id": "Ay11J1nH",
+            "published": "2024-10-18T20:32:47.152258Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/YyNQVpOu/versions/Ay11J1nH/simplemagnets-1.1.12-forge-mc1.16.jar",
+            "filename": "simplemagnets-1.1.12-forge-mc1.16.jar",
+            "all_matching_versions": 5
+          },
+          "targets": [
+            "com.supermartijn642.simplemagnets.MagnetItem"
+          ],
+          "inspection": {
+            "jar": "simple-magnets--simplemagnets-1.1.12-forge-mc1.16.jar",
+            "classes": {
+              "com.supermartijn642.simplemagnets.MagnetItem": {
+                "entry": "com/supermartijn642/simplemagnets/MagnetItem.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.16.5/simple-magnets-MagnetItem.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "sophisticated-core": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "no matching version",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper"
+          ]
+        }
+      }
+    },
+    "forge-1.12.2": {
+      "key": "forge-1.12.2",
+      "branch": "1.12.2-forge-legacy",
+      "mc": "1.12.2",
+      "loader": "forge",
+      "declared_create": [
+        "src/main/resources/META-INF/neoforge.mods.toml: modId=\"create\"",
+        "src/main/resources/META-INF/neoforge.mods.toml: versionRange=\"${create_version_range}\""
+      ],
+      "mixins": [
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/ae2wtlib/MagnetHandlerMixin.java",
+          "class": "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler",
+          "project": "ae2wtlib"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/artifacts/MagnetismMobEffectMixin.java",
+          "class": "artifacts.effect.MagnetismMobEffect",
+          "project": "artifacts"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/draconicevolution/MagnetMixin.java",
+          "class": "com.brandon3055.draconicevolution.items.tools.Magnet",
+          "project": "draconic-evolution"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/enderio/ElectromagnetItemMixin.java",
+          "class": "com.enderio.enderio.content.tools.ElectromagnetItem",
+          "project": "enderio"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/enderio/VacuumMachineBlockEntityMixin.java",
+          "class": "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity",
+          "project": "enderio"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/industrialforegoing/ItemInfinityBackpackMixin.java",
+          "class": "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack",
+          "project": "industrial-foregoing"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/itemcollectors/CollectorBlockEntityMixin.java",
+          "class": "com.supermartijn642.itemcollectors.CollectorBlockEntity",
+          "project": "item-collectors"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/mekanism/ModuleMagneticAttractionUnitMixin.java",
+          "class": "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit",
+          "project": "mekanism"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/mobgrindingutils/AbsorptionHopperMixin.java",
+          "class": "mob_grinding_utils.tile.TileEntityAbsorptionHopper",
+          "project": "mob-grinding-utils"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/modularrouters/CompiledVacuumModuleMixin.java",
+          "class": "me.desht.modularrouters.logic.compiled.CompiledVacuumModule",
+          "project": "modular-routers"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/projecte/BlackHoleBandMixin.java",
+          "class": "moze_intel.projecte.gameObjs.items.rings.BlackHoleBand",
+          "project": "projecte"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/reliquary/FortuneCoinItemMixin.java",
+          "class": "reliquary.item.FortuneCoinItem",
+          "project": "reliquary"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/simplemagnets/MagnetItemMixin.java",
+          "class": "com.supermartijn642.simplemagnets.MagnetItem",
+          "project": "simple-magnets"
+        },
+        {
+          "path": "src/main/java/com/beeboee/magnot/mixin/sophisticatedcore/MagnetUpgradeWrapperMixin.java",
+          "class": "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper",
+          "project": "sophisticated-core"
+        }
+      ],
+      "projects": {
+        "ae2wtlib": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "ae2wtlib: HTTP 404",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "de.mari_023.ae2wtlib.wct.magnet_card.MagnetHandler"
+          ]
+        },
+        "artifacts": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "no matching version",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "artifacts.effect.MagnetismMobEffect"
+          ]
+        },
+        "draconic-evolution": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "draconic-evolution",
+            "version": "2.3.28.354",
+            "version_id": "jGfLfP4K",
+            "published": "2024-05-31T07:32:07.528025Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/nBqivi8H/versions/jGfLfP4K/Draconic-Evolution-1.12.2-2.3.28.354-universal.jar",
+            "filename": "Draconic-Evolution-1.12.2-2.3.28.354-universal.jar",
+            "all_matching_versions": 23
+          },
+          "targets": [
+            "com.brandon3055.draconicevolution.items.tools.Magnet"
+          ],
+          "inspection": {
+            "jar": "draconic-evolution--Draconic-Evolution-1.12.2-2.3.28.354-universal.jar",
+            "classes": {
+              "com.brandon3055.draconicevolution.items.tools.Magnet": {
+                "entry": "com/brandon3055/draconicevolution/items/tools/Magnet.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.12.2/draconic-evolution-Magnet.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "enderio": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "enderio",
+            "version": "5.3.72",
+            "version_id": "ozde4Meh",
+            "published": "2024-07-03T21:58:28.315296Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/49ZofO4f/versions/ozde4Meh/EnderIO-1.12.2-5.3.72.jar",
+            "filename": "EnderIO-1.12.2-5.3.72.jar",
+            "all_matching_versions": 1
+          },
+          "targets": [
+            "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity",
+            "com.enderio.enderio.content.tools.ElectromagnetItem"
+          ],
+          "inspection": {
+            "jar": "enderio--EnderIO-1.12.2-5.3.72.jar",
+            "classes": {
+              "com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity": {
+                "entry": "com/enderio/enderio/content/machines/vacuum/VacuumMachineBlockEntity.class",
+                "found": false,
+                "candidates": [
+                  "crazypants/enderio/api/imodobject$withblockitem.class",
+                  "crazypants/enderio/api/imodtileentity.class",
+                  "crazypants/enderio/api/teleport/teleportentityevent.class",
+                  "crazypants/enderio/base/blockeio$1.class",
+                  "crazypants/enderio/base/blockeio$2.class",
+                  "crazypants/enderio/base/blockeio$3.class",
+                  "crazypants/enderio/base/blockeio$4.class",
+                  "crazypants/enderio/base/blockeio.class",
+                  "crazypants/enderio/base/tileentityeio.class",
+                  "crazypants/enderio/base/autosave/enderio/handleimachinerecipe.class",
+                  "crazypants/enderio/base/block/charge/blockconcussioncharge.class",
+                  "crazypants/enderio/base/block/charge/blockconfusioncharge.class",
+                  "crazypants/enderio/base/block/charge/blockendercharge.class",
+                  "crazypants/enderio/base/block/charge/entityprimedcharge.class",
+                  "crazypants/enderio/base/block/coldfire/blockcoldfire.class",
+                  "crazypants/enderio/base/block/darksteel/blastresistantitemblock.class",
+                  "crazypants/enderio/base/block/darksteel/anvil/blockblackpaperanvil.class",
+                  "crazypants/enderio/base/block/darksteel/anvil/blockbrokenanvil.class",
+                  "crazypants/enderio/base/block/darksteel/anvil/blockdarksteelanvil.class",
+                  "crazypants/enderio/base/block/darksteel/bars/blockdarkironbars.class",
+                  "crazypants/enderio/base/block/darksteel/bars/blockendironbars.class",
+                  "crazypants/enderio/base/block/darksteel/door/blockdarksteeldoor.class",
+                  "crazypants/enderio/base/block/darksteel/door/blockitemdarksteeldoor.class",
+                  "crazypants/enderio/base/block/darksteel/ladder/blockdarksteelladder$1.class",
+                  "crazypants/enderio/base/block/darksteel/ladder/blockdarksteelladder$data.class"
+                ]
+              },
+              "com.enderio.enderio.content.tools.ElectromagnetItem": {
+                "entry": "com/enderio/enderio/content/tools/ElectromagnetItem.class",
+                "found": false,
+                "candidates": [
+                  "crazypants/enderio/api/imodobject$withblockitem.class",
+                  "crazypants/enderio/api/teleport/iitemoftravel.class",
+                  "crazypants/enderio/api/upgrades/idarksteelitem.class",
+                  "crazypants/enderio/api/upgrades/irule$itemtype$static.class",
+                  "crazypants/enderio/api/upgrades/irule$itemtype.class",
+                  "crazypants/enderio/base/itemeio.class",
+                  "crazypants/enderio/base/block/darksteel/blastresistantitemblock.class",
+                  "crazypants/enderio/base/block/darksteel/door/blockitemdarksteeldoor.class",
+                  "crazypants/enderio/base/block/decoration/itemblockdecoration.class",
+                  "crazypants/enderio/base/block/infinity/itemblockinfinity.class",
+                  "crazypants/enderio/base/block/painted/blockitempaintedblock$inamedsubblocks.class",
+                  "crazypants/enderio/base/block/painted/blockitempaintedblock.class",
+                  "crazypants/enderio/base/block/painted/blockitempainteddoor.class",
+                  "crazypants/enderio/base/block/painted/blockitempaintedpressureplate.class",
+                  "crazypants/enderio/base/block/painted/blockitempaintedslab.class",
+                  "crazypants/enderio/base/block/skull/itemendermanskull.class",
+                  "crazypants/enderio/base/capability/itemtools$1.class",
+                  "crazypants/enderio/base/capability/itemtools$callbackpull.class",
+                  "crazypants/enderio/base/capability/itemtools$callbackpush.class",
+                  "crazypants/enderio/base/capability/itemtools$limit.class",
+                  "crazypants/enderio/base/capability/itemtools$moveresult.class",
+                  "crazypants/enderio/base/capability/itemtools.class",
+                  "crazypants/enderio/base/capacitor/itemcapacitor$1.class",
+                  "crazypants/enderio/base/capacitor/itemcapacitor$2.class",
+                  "crazypants/enderio/base/capacitor/itemcapacitor.class"
+                ]
+              }
+            }
+          }
+        },
+        "industrial-foregoing": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "industrial-foregoing",
+            "version": "1.12.13-237",
+            "version_id": "kCY68l3Y",
+            "published": "2023-06-17T20:19:54.519535Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/lWxpUd04/versions/kCY68l3Y/industrialforegoing-1.12.2-1.12.13-237.jar",
+            "filename": "industrialforegoing-1.12.2-1.12.13-237.jar",
+            "all_matching_versions": 76
+          },
+          "targets": [
+            "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack"
+          ],
+          "inspection": {
+            "jar": "industrial-foregoing--industrialforegoing-1.12.2-1.12.13-237.jar",
+            "classes": {
+              "com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack": {
+                "entry": "com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack.class",
+                "found": false,
+                "candidates": [
+                  "com/buuz135/industrial/proxy/client/itemrenderregistry.class",
+                  "com/buuz135/industrial/proxy/block/blockconveyor$conveyoritem.class",
+                  "com/buuz135/industrial/proxy/block/filter/itemstackfilter.class",
+                  "com/buuz135/industrial/proxy/itemregistry.class",
+                  "com/buuz135/industrial/api/book/button/itemstackbutton.class",
+                  "com/buuz135/industrial/api/book/page/pageitemlist.class",
+                  "com/buuz135/industrial/tile/misc/itemsplittertile$2.class",
+                  "com/buuz135/industrial/tile/misc/itemsplittertile.class",
+                  "com/buuz135/industrial/tile/misc/itemsplittertile$1.class",
+                  "com/buuz135/industrial/tile/misc/blackholecontrollertilereworked$blackholecontrolleritemhandler.class",
+                  "com/buuz135/industrial/tile/customcoloreditemhandler.class",
+                  "com/buuz135/industrial/tile/block/blackholeunitblock$storageitemhandler$1.class",
+                  "com/buuz135/industrial/tile/block/itemsplitterblock.class",
+                  "com/buuz135/industrial/tile/block/blackholeunitblock$storageitemhandler.class",
+                  "com/buuz135/industrial/tile/block/blackholetankblock$blocktankitem.class",
+                  "com/buuz135/industrial/tile/block/blackholeunitblock$blockstorageitem.class",
+                  "com/buuz135/industrial/item/addon/fortuneaddonitem.class",
+                  "com/buuz135/industrial/item/addon/rangeaddonitem.class",
+                  "com/buuz135/industrial/item/addon/leafshearingaddonitem.class",
+                  "com/buuz135/industrial/item/addon/adultfilteraddonitem.class",
+                  "com/buuz135/industrial/item/addon/movility/itemstacktransferaddon.class",
+                  "com/buuz135/industrial/item/meatfeederitem.class",
+                  "com/buuz135/industrial/item/itemconveyorupgrade.class",
+                  "com/buuz135/industrial/item/itemartificaldye.class",
+                  "com/buuz135/industrial/item/ifcustomitem.class"
+                ]
+              }
+            }
+          }
+        },
+        "item-collectors": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "item-collectors",
+            "version": "1.1.12-forge-mc1.12",
+            "version_id": "Kve24Rrw",
+            "published": "2026-02-21T15:37:59.956654Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/y9vDr4Th/versions/Kve24Rrw/itemcollectors-1.1.12-forge-mc1.12.jar",
+            "filename": "itemcollectors-1.1.12-forge-mc1.12.jar",
+            "all_matching_versions": 8
+          },
+          "targets": [
+            "com.supermartijn642.itemcollectors.CollectorBlockEntity"
+          ],
+          "inspection": {
+            "jar": "item-collectors--itemcollectors-1.1.12-forge-mc1.12.jar",
+            "classes": {
+              "com.supermartijn642.itemcollectors.CollectorBlockEntity": {
+                "entry": "com/supermartijn642/itemcollectors/CollectorBlockEntity.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.12.2/item-collectors-CollectorBlockEntity.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "mekanism": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "mekanism",
+            "version": "9.8.3.390",
+            "version_id": "KIzASRO5",
+            "published": "2022-05-27T03:45:36.437136Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/Ce6I4WUE/versions/9.8.3/Mekanism-1.12.2-9.8.3.390.jar",
+            "filename": "Mekanism-1.12.2-9.8.3.390.jar",
+            "all_matching_versions": 2
+          },
+          "targets": [
+            "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit"
+          ],
+          "inspection": {
+            "jar": "mekanism--Mekanism-1.12.2-9.8.3.390.jar",
+            "classes": {
+              "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit": {
+                "entry": "mekanism/common/content/gear/mekasuit/ModuleMagneticAttractionUnit.class",
+                "found": false,
+                "candidates": [
+                  "mekanism/common/base/imodule.class",
+                  "mekanism/common/util/unitdisplayutils$electricunit.class",
+                  "mekanism/common/util/unitdisplayutils$energytype.class",
+                  "mekanism/common/util/unitdisplayutils$measurementunit.class",
+                  "mekanism/common/util/unitdisplayutils$temptype.class",
+                  "mekanism/common/util/unitdisplayutils$temperatureunit.class",
+                  "mekanism/common/util/unitdisplayutils.class"
+                ]
+              }
+            }
+          }
+        },
+        "mob-grinding-utils": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "mob-grinding-utils: HTTP 404",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "mob_grinding_utils.tile.TileEntityAbsorptionHopper"
+          ]
+        },
+        "modular-routers": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "no matching version",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "me.desht.modularrouters.logic.compiled.CompiledVacuumModule"
+          ]
+        },
+        "projecte": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "Or9UFKR8",
+            "version": "7.0.3",
+            "version_id": "ndm0obMO",
+            "published": "2023-07-03T13:41:04.873431Z",
+            "version_type": "release",
+            "download_url": null,
+            "filename": null,
+            "all_matching_versions": 2,
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "moze_intel.projecte.gameObjs.items.rings.BlackHoleBand"
+          ]
+        },
+        "reliquary": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "reliquary-reincarnations",
+            "version": "1.12.2-1.3.4.796",
+            "version_id": "iEa6eLTv",
+            "published": "2025-02-28T13:02:37.584461Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/fQO83PId/versions/iEa6eLTv/Reliquary-1.12.2-1.3.4.796.jar",
+            "filename": "Reliquary-1.12.2-1.3.4.796.jar",
+            "all_matching_versions": 1
+          },
+          "targets": [
+            "reliquary.item.FortuneCoinItem"
+          ],
+          "inspection": {
+            "jar": "reliquary--Reliquary-1.12.2-1.3.4.796.jar",
+            "classes": {
+              "reliquary.item.FortuneCoinItem": {
+                "entry": "reliquary/item/FortuneCoinItem.class",
+                "found": false,
+                "candidates": [
+                  "xreliquary/items/itemshearsofwinter.class",
+                  "xreliquary/items/itemsalamandereye.class",
+                  "xreliquary/items/iteminfernalchalice.class",
+                  "xreliquary/items/itemglowingbread.class",
+                  "xreliquary/items/itemmagazine.class",
+                  "xreliquary/items/itemharvestrod.class",
+                  "xreliquary/items/itememperorchalice.class",
+                  "xreliquary/items/itemxrpotion.class",
+                  "xreliquary/items/itemfertilepotion.class",
+                  "xreliquary/items/iteminfernalclaws.class",
+                  "xreliquary/items/iteminfernalchalice$1.class",
+                  "xreliquary/items/itembullet$1.class",
+                  "xreliquary/items/itemmagazine$2.class",
+                  "xreliquary/items/itemglowingwater.class",
+                  "xreliquary/items/itemmagicbane.class",
+                  "xreliquary/items/itemvoidtear.class",
+                  "xreliquary/items/itemmobingredient.class",
+                  "xreliquary/items/itemsojournerstaff.class",
+                  "xreliquary/items/itemangelheartvial.class",
+                  "xreliquary/items/itembullet.class",
+                  "xreliquary/items/itemvoidtear$mode.class",
+                  "xreliquary/items/itemphoenixdown.class",
+                  "xreliquary/items/itemgunpart.class",
+                  "xreliquary/items/itemwitherlessrose$1.class",
+                  "xreliquary/items/block/itemblockpedestal.class"
+                ]
+              }
+            }
+          }
+        },
+        "simple-magnets": {
+          "resolution": {
+            "source": "modrinth",
+            "project": "simple-magnets",
+            "version": "1.1.12-forge-mc1.12",
+            "version_id": "jvqx9L3y",
+            "published": "2024-10-18T20:28:16.990488Z",
+            "version_type": "release",
+            "download_url": "https://cdn.modrinth.com/data/YyNQVpOu/versions/jvqx9L3y/simplemagnets-1.1.12-forge-mc1.12.jar",
+            "filename": "simplemagnets-1.1.12-forge-mc1.12.jar",
+            "all_matching_versions": 5
+          },
+          "targets": [
+            "com.supermartijn642.simplemagnets.MagnetItem"
+          ],
+          "inspection": {
+            "jar": "simple-magnets--simplemagnets-1.1.12-forge-mc1.12.jar",
+            "classes": {
+              "com.supermartijn642.simplemagnets.MagnetItem": {
+                "entry": "com/supermartijn642/simplemagnets/MagnetItem.class",
+                "found": true,
+                "javap": "_audit/results/javap/forge-1.12.2/simple-magnets-MagnetItem.txt",
+                "javap_exit": 0
+              }
+            }
+          }
+        },
+        "sophisticated-core": {
+          "resolution": {
+            "source": "modrinth",
+            "error": "no matching version",
+            "curseforge_error": "HTTP Error 403: Forbidden"
+          },
+          "targets": [
+            "net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper"
+          ]
+        }
+      }
+    }
+  },
+  "create": {
+    "main-1.21.1-neoforge": {
+      "source": "modrinth",
+      "project": "create",
+      "version": "6.0.10+mc1.21.1",
+      "version_id": "UjX6dr61",
+      "published": "2026-04-21T22:20:03.579201Z",
+      "version_type": "release",
+      "download_url": "https://cdn.modrinth.com/data/LNytGWDc/versions/UjX6dr61/create-1.21.1-6.0.10.jar",
+      "filename": "create-1.21.1-6.0.10.jar",
+      "all_matching_versions": 11
+    },
+    "forge-1.20.1": {
+      "source": "modrinth",
+      "project": "create",
+      "version": "mc1.20.1-6.0.8",
+      "version_id": "8amzvn9x",
+      "published": "2025-11-02T16:10:25.364809Z",
+      "version_type": "release",
+      "download_url": "https://cdn.modrinth.com/data/LNytGWDc/versions/8amzvn9x/create-1.20.1-6.0.8.jar",
+      "filename": "create-1.20.1-6.0.8.jar",
+      "all_matching_versions": 17
+    },
+    "fabric-1.20.1": {
+      "source": "modrinth",
+      "project": "create-fabric",
+      "version": "6.0.8.1+build.1744-mc1.20.1",
+      "version_id": "HAqwA6X1",
+      "published": "2025-12-02T17:58:03.504148Z",
+      "version_type": "release",
+      "download_url": "https://cdn.modrinth.com/data/Xbc0uyRg/versions/HAqwA6X1/create-fabric-6.0.8.1%2Bbuild.1744-mc1.20.1.jar",
+      "filename": "create-fabric-6.0.8.1+build.1744-mc1.20.1.jar",
+      "all_matching_versions": 10
+    },
+    "forge-1.19.2": {
+      "source": "modrinth",
+      "project": "create",
+      "version": "1.19.2-0.5.1.i",
+      "version_id": "tJVykywJ",
+      "published": "2024-10-09T19:41:38.289272Z",
+      "version_type": "release",
+      "download_url": "https://cdn.modrinth.com/data/LNytGWDc/versions/tJVykywJ/create-1.19.2-0.5.1.i.jar",
+      "filename": "create-1.19.2-0.5.1.i.jar",
+      "all_matching_versions": 13
+    },
+    "forge-1.18.2": {
+      "source": "modrinth",
+      "project": "create",
+      "version": "1.18.2-0.5.1.i",
+      "version_id": "7BIftSin",
+      "published": "2024-10-09T19:40:39.712712Z",
+      "version_type": "release",
+      "download_url": "https://cdn.modrinth.com/data/LNytGWDc/versions/7BIftSin/create-1.18.2-0.5.1.i.jar",
+      "filename": "create-1.18.2-0.5.1.i.jar",
+      "all_matching_versions": 17
+    },
+    "forge-1.16.5": {
+      "source": "modrinth",
+      "error": "no matching version",
+      "curseforge_error": "HTTP Error 403: Forbidden"
+    },
+    "forge-1.12.2": {
+      "source": "modrinth",
+      "error": "no matching version",
+      "curseforge_error": "HTTP Error 403: Forbidden"
+    }
+  }
+}

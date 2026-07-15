@@ -1,0 +1,217 @@
+Compiled from "ElectromagnetItem.java"
+public class com.enderio.enderio.content.tools.ElectromagnetItem extends com.enderio.enderio.content.tools.PoweredToggledItem {
+  private static final double COLLISION_DISTANCE_SQ;
+    descriptor: D
+
+  private static final double SPEED;
+    descriptor: D
+
+  private static final double SPEED_4;
+    descriptor: D
+
+  public com.enderio.enderio.content.tools.ElectromagnetItem(net.minecraft.world.item.Item$Properties);
+    descriptor: (Lnet/minecraft/world/item/Item$Properties;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #3                  // Method com/enderio/enderio/content/tools/PoweredToggledItem."<init>":(Lnet/minecraft/world/item/Item$Properties;)V
+       5: return
+
+  protected int getEnergyUse();
+    descriptor: ()I
+    Code:
+       0: getstatic     #9                  // Field com/enderio/enderio/config/base/BaseConfig.COMMON:Lcom/enderio/enderio/config/base/common/BaseCommonConfig;
+       3: getfield      #15                 // Field com/enderio/enderio/config/base/common/BaseCommonConfig.ITEMS:Lcom/enderio/enderio/config/base/common/ItemsConfig;
+       6: getfield      #21                 // Field com/enderio/enderio/config/base/common/ItemsConfig.ELECTROMAGNET_ENERGY_USE:Lnet/neoforged/neoforge/common/ModConfigSpec$IntValue;
+       9: invokevirtual #27                 // Method net/neoforged/neoforge/common/ModConfigSpec$IntValue.get:()Ljava/lang/Object;
+      12: checkcast     #33                 // class java/lang/Integer
+      15: invokevirtual #35                 // Method java/lang/Integer.intValue:()I
+      18: ireturn
+
+  public int getMaxEnergy();
+    descriptor: ()I
+    Code:
+       0: getstatic     #9                  // Field com/enderio/enderio/config/base/BaseConfig.COMMON:Lcom/enderio/enderio/config/base/common/BaseCommonConfig;
+       3: getfield      #15                 // Field com/enderio/enderio/config/base/common/BaseCommonConfig.ITEMS:Lcom/enderio/enderio/config/base/common/ItemsConfig;
+       6: getfield      #39                 // Field com/enderio/enderio/config/base/common/ItemsConfig.ELECTROMAGNET_MAX_ENERGY:Lnet/neoforged/neoforge/common/ModConfigSpec$IntValue;
+       9: invokevirtual #27                 // Method net/neoforged/neoforge/common/ModConfigSpec$IntValue.get:()Ljava/lang/Object;
+      12: checkcast     #33                 // class java/lang/Integer
+      15: invokevirtual #35                 // Method java/lang/Integer.intValue:()I
+      18: ireturn
+
+  private int getRange();
+    descriptor: ()I
+    Code:
+       0: getstatic     #9                  // Field com/enderio/enderio/config/base/BaseConfig.COMMON:Lcom/enderio/enderio/config/base/common/BaseCommonConfig;
+       3: getfield      #15                 // Field com/enderio/enderio/config/base/common/BaseCommonConfig.ITEMS:Lcom/enderio/enderio/config/base/common/ItemsConfig;
+       6: getfield      #42                 // Field com/enderio/enderio/config/base/common/ItemsConfig.ELECTROMAGNET_RANGE:Lnet/neoforged/neoforge/common/ModConfigSpec$IntValue;
+       9: invokevirtual #27                 // Method net/neoforged/neoforge/common/ModConfigSpec$IntValue.get:()Ljava/lang/Object;
+      12: checkcast     #33                 // class java/lang/Integer
+      15: invokevirtual #35                 // Method java/lang/Integer.intValue:()I
+      18: ireturn
+
+  private int getMaxItems();
+    descriptor: ()I
+    Code:
+       0: getstatic     #9                  // Field com/enderio/enderio/config/base/BaseConfig.COMMON:Lcom/enderio/enderio/config/base/common/BaseCommonConfig;
+       3: getfield      #15                 // Field com/enderio/enderio/config/base/common/BaseCommonConfig.ITEMS:Lcom/enderio/enderio/config/base/common/ItemsConfig;
+       6: getfield      #45                 // Field com/enderio/enderio/config/base/common/ItemsConfig.ELECTROMAGNET_MAX_ITEMS:Lnet/neoforged/neoforge/common/ModConfigSpec$IntValue;
+       9: invokevirtual #27                 // Method net/neoforged/neoforge/common/ModConfigSpec$IntValue.get:()Ljava/lang/Object;
+      12: checkcast     #33                 // class java/lang/Integer
+      15: invokevirtual #35                 // Method java/lang/Integer.intValue:()I
+      18: ireturn
+
+  private boolean isBlacklisted(net.minecraft.world.entity.item.ItemEntity);
+    descriptor: (Lnet/minecraft/world/entity/item/ItemEntity;)Z
+    Code:
+       0: aload_1
+       1: invokevirtual #48                 // Method net/minecraft/world/entity/item/ItemEntity.getItem:()Lnet/minecraft/world/item/ItemStack;
+       4: getstatic     #54                 // Field com/enderio/enderio/foundation/tag/EIOTags$Items.ELECTROMAGNET_BLACKLIST:Lnet/minecraft/tags/TagKey;
+       7: invokevirtual #60                 // Method net/minecraft/world/item/ItemStack.is:(Lnet/minecraft/tags/TagKey;)Z
+      10: ireturn
+
+  private boolean isMagnetable(net.minecraft.world.entity.Entity);
+    descriptor: (Lnet/minecraft/world/entity/Entity;)Z
+    Code:
+       0: aload_1
+       1: instanceof    #49                 // class net/minecraft/world/entity/item/ItemEntity
+       4: ifeq          26
+       7: aload_1
+       8: checkcast     #49                 // class net/minecraft/world/entity/item/ItemEntity
+      11: astore_2
+      12: aload_0
+      13: aload_2
+      14: invokevirtual #66                 // Method isBlacklisted:(Lnet/minecraft/world/entity/item/ItemEntity;)Z
+      17: ifne          24
+      20: iconst_1
+      21: goto          25
+      24: iconst_0
+      25: ireturn
+      26: aload_1
+      27: instanceof    #70                 // class net/minecraft/world/entity/ExperienceOrb
+      30: ireturn
+
+  protected void onTickWhenActive(net.minecraft.world.entity.player.Player, net.minecraft.world.item.ItemStack, net.minecraft.world.level.Level, net.minecraft.world.entity.Entity, int, boolean);
+    descriptor: (Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;IZ)V
+    Code:
+       0: aload_1
+       1: invokevirtual #72                 // Method net/minecraft/world/entity/player/Player.isSpectator:()Z
+       4: ifeq          8
+       7: return
+       8: aload_0
+       9: invokevirtual #78                 // Method getRange:()I
+      12: istore        7
+      14: new           #81                 // class net/minecraft/world/phys/AABB
+      17: dup
+      18: aload_1
+      19: invokevirtual #83                 // Method net/minecraft/world/entity/player/Player.getX:()D
+      22: iload         7
+      24: i2d
+      25: dsub
+      26: aload_1
+      27: invokevirtual #87                 // Method net/minecraft/world/entity/player/Player.getY:()D
+      30: iload         7
+      32: i2d
+      33: dsub
+      34: aload_1
+      35: invokevirtual #90                 // Method net/minecraft/world/entity/player/Player.getZ:()D
+      38: iload         7
+      40: i2d
+      41: dsub
+      42: aload_1
+      43: invokevirtual #83                 // Method net/minecraft/world/entity/player/Player.getX:()D
+      46: iload         7
+      48: i2d
+      49: dadd
+      50: aload_1
+      51: invokevirtual #87                 // Method net/minecraft/world/entity/player/Player.getY:()D
+      54: iload         7
+      56: i2d
+      57: dadd
+      58: aload_1
+      59: invokevirtual #90                 // Method net/minecraft/world/entity/player/Player.getZ:()D
+      62: iload         7
+      64: i2d
+      65: dadd
+      66: invokespecial #93                 // Method net/minecraft/world/phys/AABB."<init>":(DDDDDD)V
+      69: astore        8
+      71: aload_3
+      72: aload_1
+      73: aload         8
+      75: aload_0
+      76: invokedynamic #96,  0             // InvokeDynamic #0:test:(Lcom/enderio/enderio/content/tools/ElectromagnetItem;)Ljava/util/function/Predicate;
+      81: invokevirtual #100                // Method net/minecraft/world/level/Level.getEntities:(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;
+      84: astore        9
+      86: aload_0
+      87: invokevirtual #106                // Method getMaxItems:()I
+      90: istore        10
+      92: iload         10
+      94: ifgt          101
+      97: ldc           #109                // int 2147483647
+      99: istore        10
+     101: aload         9
+     103: invokeinterface #110,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+     108: astore        11
+     110: aload         11
+     112: invokeinterface #116,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     117: ifeq          188
+     120: aload         11
+     122: invokeinterface #121,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     127: checkcast     #124                // class net/minecraft/world/entity/Entity
+     130: astore        12
+     132: aload         12
+     134: aload_1
+     135: invokevirtual #83                 // Method net/minecraft/world/entity/player/Player.getX:()D
+     138: aload_1
+     139: invokevirtual #87                 // Method net/minecraft/world/entity/player/Player.getY:()D
+     142: aload_1
+     143: invokevirtual #126                // Method net/minecraft/world/entity/player/Player.getEyeHeight:()F
+     146: ldc           #130                // float 0.75f
+     148: fmul
+     149: f2d
+     150: dadd
+     151: aload_1
+     152: invokevirtual #90                 // Method net/minecraft/world/entity/player/Player.getZ:()D
+     155: ldc2_w        #131                // double 0.035d
+     158: ldc2_w        #133                // double 0.14d
+     161: ldc2_w        #135                // double 1.5625d
+     164: invokestatic  #137                // Method com/enderio/enderio/foundation/util/AttractionUtil.moveToPos:(Lnet/minecraft/world/entity/Entity;DDDDDD)Z
+     167: ifeq          176
+     170: aload         12
+     172: aload_1
+     173: invokevirtual #143                // Method net/minecraft/world/entity/Entity.playerTouch:(Lnet/minecraft/world/entity/player/Player;)V
+     176: iload         10
+     178: iinc          10, -1
+     181: ifgt          185
+     184: return
+     185: goto          110
+     188: return
+
+  public boolean shouldCauseReequipAnimation(net.minecraft.world.item.ItemStack, net.minecraft.world.item.ItemStack, boolean);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;Z)Z
+    Code:
+       0: iload_3
+       1: ifne          15
+       4: aload_1
+       5: invokevirtual #147                // Method net/minecraft/world/item/ItemStack.getItem:()Lnet/minecraft/world/item/Item;
+       8: aload_2
+       9: invokevirtual #147                // Method net/minecraft/world/item/ItemStack.getItem:()Lnet/minecraft/world/item/Item;
+      12: if_acmpeq     19
+      15: iconst_1
+      16: goto          20
+      19: iconst_0
+      20: ireturn
+
+  public boolean shouldCauseBlockBreakReset(net.minecraft.world.item.ItemStack, net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Z
+    Code:
+       0: aload_1
+       1: invokevirtual #147                // Method net/minecraft/world/item/ItemStack.getItem:()Lnet/minecraft/world/item/Item;
+       4: aload_2
+       5: invokevirtual #147                // Method net/minecraft/world/item/ItemStack.getItem:()Lnet/minecraft/world/item/Item;
+       8: if_acmpeq     15
+      11: iconst_1
+      12: goto          16
+      15: iconst_0
+      16: ireturn
+}

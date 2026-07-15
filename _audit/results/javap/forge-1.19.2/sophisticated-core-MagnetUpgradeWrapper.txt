@@ -1,0 +1,592 @@
+Compiled from "MagnetUpgradeWrapper.java"
+public class net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper extends net.p3pp3rf1y.sophisticatedcore.upgrades.UpgradeWrapperBase<net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper, net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeItem> implements net.p3pp3rf1y.sophisticatedcore.upgrades.IContentsFilteredUpgrade, net.p3pp3rf1y.sophisticatedcore.upgrades.ITickableUpgrade, net.p3pp3rf1y.sophisticatedcore.upgrades.IPickupResponseUpgrade {
+  private static final java.lang.String PREVENT_REMOTE_MOVEMENT;
+    descriptor: Ljava/lang/String;
+
+  private static final java.lang.String ALLOW_MACHINE_MOVEMENT;
+    descriptor: Ljava/lang/String;
+
+  private static final int COOLDOWN_TICKS;
+    descriptor: I
+
+  private static final int FULL_COOLDOWN_TICKS;
+    descriptor: I
+
+  private final net.p3pp3rf1y.sophisticatedcore.upgrades.ContentsFilterLogic filterLogic;
+    descriptor: Lnet/p3pp3rf1y/sophisticatedcore/upgrades/ContentsFilterLogic;
+
+  private static final java.util.Set<net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.IMagnetPreventionChecker> magnetCheckers;
+    descriptor: Ljava/util/Set;
+
+  public static void addMagnetPreventionChecker(net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.IMagnetPreventionChecker);
+    descriptor: (Lnet/p3pp3rf1y/sophisticatedcore/upgrades/magnet/IMagnetPreventionChecker;)V
+    Code:
+       0: getstatic     #43                 // Field magnetCheckers:Ljava/util/Set;
+       3: aload_0
+       4: invokeinterface #49,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+       9: pop
+      10: return
+
+  public net.p3pp3rf1y.sophisticatedcore.upgrades.magnet.MagnetUpgradeWrapper(net.p3pp3rf1y.sophisticatedcore.api.IStorageWrapper, net.minecraft.world.item.ItemStack, java.util.function.Consumer<net.minecraft.world.item.ItemStack>);
+    descriptor: (Lnet/p3pp3rf1y/sophisticatedcore/api/IStorageWrapper;Lnet/minecraft/world/item/ItemStack;Ljava/util/function/Consumer;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: invokespecial #56                 // Method net/p3pp3rf1y/sophisticatedcore/upgrades/UpgradeWrapperBase."<init>":(Lnet/p3pp3rf1y/sophisticatedcore/api/IStorageWrapper;Lnet/minecraft/world/item/ItemStack;Ljava/util/function/Consumer;)V
+       7: aload_0
+       8: new           #58                 // class net/p3pp3rf1y/sophisticatedcore/upgrades/ContentsFilterLogic
+      11: dup
+      12: aload_2
+      13: aload_3
+      14: aload_0
+      15: getfield      #62                 // Field upgradeItem:Lnet/p3pp3rf1y/sophisticatedcore/upgrades/UpgradeItemBase;
+      18: checkcast     #64                 // class net/p3pp3rf1y/sophisticatedcore/upgrades/magnet/MagnetUpgradeItem
+      21: invokevirtual #68                 // Method net/p3pp3rf1y/sophisticatedcore/upgrades/magnet/MagnetUpgradeItem.getFilterSlotCount:()I
+      24: aload_1
+      25: dup
+      26: invokestatic  #74                 // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+      29: pop
+      30: invokedynamic #95,  0             // InvokeDynamic #0:get:(Lnet/p3pp3rf1y/sophisticatedcore/api/IStorageWrapper;)Ljava/util/function/Supplier;
+      35: aload_1
+      36: invokeinterface #99,  1           // InterfaceMethod net/p3pp3rf1y/sophisticatedcore/api/IStorageWrapper.getSettingsHandler:()Lnet/p3pp3rf1y/sophisticatedcore/settings/SettingsHandler;
+      41: ldc           #101                // class net/p3pp3rf1y/sophisticatedcore/settings/memory/MemorySettingsCategory
+      43: invokevirtual #107                // Method net/p3pp3rf1y/sophisticatedcore/settings/SettingsHandler.getTypeCategory:(Ljava/lang/Class;)Lnet/p3pp3rf1y/sophisticatedcore/settings/ISettingsCategory;
+      46: checkcast     #101                // class net/p3pp3rf1y/sophisticatedcore/settings/memory/MemorySettingsCategory
+      49: invokespecial #110                // Method net/p3pp3rf1y/sophisticatedcore/upgrades/ContentsFilterLogic."<init>":(Lnet/minecraft/world/item/ItemStack;Ljava/util/function/Consumer;ILjava/util/function/Supplier;Lnet/p3pp3rf1y/sophisticatedcore/settings/memory/MemorySettingsCategory;)V
+      52: putfield      #112                // Field filterLogic:Lnet/p3pp3rf1y/sophisticatedcore/upgrades/ContentsFilterLogic;
+      55: return
+
+  public net.p3pp3rf1y.sophisticatedcore.upgrades.ContentsFilterLogic getFilterLogic();
+    descriptor: ()Lnet/p3pp3rf1y/sophisticatedcore/upgrades/ContentsFilterLogic;
+    Code:
+       0: aload_0
+       1: getfield      #112                // Field filterLogic:Lnet/p3pp3rf1y/sophisticatedcore/upgrades/ContentsFilterLogic;
+       4: areturn
+
+  public net.minecraft.world.item.ItemStack pickup(net.minecraft.world.level.Level, net.minecraft.world.item.ItemStack, boolean);
+    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/item/ItemStack;Z)Lnet/minecraft/world/item/ItemStack;
+    Code:
+       0: aload_0
+       1: invokevirtual #129                // Method shouldPickupItems:()Z
+       4: ifeq          18
+       7: aload_0
+       8: getfield      #112                // Field filterLogic:Lnet/p3pp3rf1y/sophisticatedcore/upgrades/ContentsFilterLogic;
+      11: aload_2
+      12: invokevirtual #133                // Method net/p3pp3rf1y/sophisticatedcore/upgrades/ContentsFilterLogic.matchesFilter:(Lnet/minecraft/world/item/ItemStack;)Z
+      15: ifne          20
+      18: aload_2
+      19: areturn
+      20: aload_0
+      21: getfield      #135                // Field storageWrapper:Lnet/p3pp3rf1y/sophisticatedcore/api/IStorageWrapper;
+      24: invokeinterface #139,  1          // InterfaceMethod net/p3pp3rf1y/sophisticatedcore/api/IStorageWrapper.getInventoryForUpgradeProcessing:()Lnet/p3pp3rf1y/sophisticatedcore/inventory/ITrackedContentsItemHandler;
+      29: aload_2
+      30: iload_3
+      31: invokeinterface #145,  3          // InterfaceMethod net/p3pp3rf1y/sophisticatedcore/inventory/ITrackedContentsItemHandler.insertItem:(Lnet/minecraft/world/item/ItemStack;Z)Lnet/minecraft/world/item/ItemStack;
+      36: areturn
+
+  public void tick(net.minecraft.world.entity.LivingEntity, net.minecraft.world.level.Level, net.minecraft.core.BlockPos);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)V
+    Code:
+       0: aload_0
+       1: aload_2
+       2: invokevirtual #157                // Method isInCooldown:(Lnet/minecraft/world/level/Level;)Z
+       5: ifeq          9
+       8: return
+       9: aload_0
+      10: invokevirtual #129                // Method shouldPickupItems:()Z
+      13: ifeq          26
+      16: aload_0
+      17: aload_1
+      18: aload_2
+      19: aload_3
+      20: invokevirtual #161                // Method pickupItems:(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)I
+      23: goto          28
+      26: bipush        40
+      28: istore        4
+      30: aload_0
+      31: invokevirtual #164                // Method shouldPickupXp:()Z
+      34: ifeq          58
+      37: aload_0
+      38: invokevirtual #167                // Method canFillStorageWithXp:()Z
+      41: ifeq          58
+      44: iload         4
+      46: aload_0
+      47: aload_1
+      48: aload_2
+      49: aload_3
+      50: invokevirtual #170                // Method pickupXpOrbs:(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)I
+      53: invokestatic  #176                // Method java/lang/Math.min:(II)I
+      56: istore        4
+      58: aload_0
+      59: aload_2
+      60: iload         4
+      62: invokevirtual #180                // Method setCooldown:(Lnet/minecraft/world/level/Level;I)V
+      65: return
+
+  private boolean canFillStorageWithXp();
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: getfield      #135                // Field storageWrapper:Lnet/p3pp3rf1y/sophisticatedcore/api/IStorageWrapper;
+       4: invokeinterface #189,  1          // InterfaceMethod net/p3pp3rf1y/sophisticatedcore/api/IStorageWrapper.getFluidHandler:()Ljava/util/Optional;
+       9: invokedynamic #200,  0            // InvokeDynamic #1:apply:()Ljava/util/function/Function;
+      14: invokevirtual #206                // Method java/util/Optional.map:(Ljava/util/function/Function;)Ljava/util/Optional;
+      17: iconst_0
+      18: invokestatic  #212                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      21: invokevirtual #215                // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      24: checkcast     #208                // class java/lang/Boolean
+      27: invokevirtual #218                // Method java/lang/Boolean.booleanValue:()Z
+      30: ireturn
+
+  private int pickupXpOrbs(net.minecraft.world.entity.LivingEntity, net.minecraft.world.level.Level, net.minecraft.core.BlockPos);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)I
+    Code:
+       0: aload_2
+       1: ldc           #220                // class net/minecraft/world/entity/ExperienceOrb
+       3: new           #222                // class net/minecraft/world/phys/AABB
+       6: dup
+       7: aload_3
+       8: invokespecial #225                // Method net/minecraft/world/phys/AABB."<init>":(Lnet/minecraft/core/BlockPos;)V
+      11: aload_0
+      12: getfield      #62                 // Field upgradeItem:Lnet/p3pp3rf1y/sophisticatedcore/upgrades/UpgradeItemBase;
+      15: checkcast     #64                 // class net/p3pp3rf1y/sophisticatedcore/upgrades/magnet/MagnetUpgradeItem
+      18: invokevirtual #228                // Method net/p3pp3rf1y/sophisticatedcore/upgrades/magnet/MagnetUpgradeItem.getRadius:()I
+      21: i2d
+      22: invokevirtual #232                // Method net/minecraft/world/phys/AABB.m_82400_:(D)Lnet/minecraft/world/phys/AABB;
+      25: invokedynamic #243,  0            // InvokeDynamic #2:test:()Ljava/util/function/Predicate;
+      30: invokevirtual #249                // Method net/minecraft/world/level/Level.m_6443_:(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;
+      33: astore        4
+      35: aload         4
+      37: invokeinterface #254,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+      42: ifeq          48
+      45: bipush        10
+      47: ireturn
+      48: bipush        10
+      50: istore        5
+      52: aload         4
+      54: invokeinterface #258,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      59: astore        6
+      61: aload         6
+      63: invokeinterface #263,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      68: ifeq          122
+      71: aload         6
+      73: invokeinterface #266,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      78: checkcast     #220                // class net/minecraft/world/entity/ExperienceOrb
+      81: astore        7
+      83: aload         7
+      85: invokevirtual #269                // Method net/minecraft/world/entity/ExperienceOrb.m_6084_:()Z
+      88: ifeq          119
+      91: aload_0
+      92: aload         7
+      94: aload_1
+      95: invokevirtual #273                // Method canNotPickup:(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/entity/LivingEntity;)Z
+      98: ifne          119
+     101: aload_0
+     102: aload         7
+     104: aload_1
+     105: aload_2
+     106: invokevirtual #277                // Method tryToFillTank:(Lnet/minecraft/world/entity/ExperienceOrb;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/level/Level;)Z
+     109: ifne          119
+     112: bipush        40
+     114: istore        5
+     116: goto          122
+     119: goto          61
+     122: iload         5
+     124: ireturn
+
+  private boolean tryToFillTank(net.minecraft.world.entity.ExperienceOrb, net.minecraft.world.entity.LivingEntity, net.minecraft.world.level.Level);
+    descriptor: (Lnet/minecraft/world/entity/ExperienceOrb;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/level/Level;)Z
+    Code:
+       0: aload_1
+       1: invokevirtual #285                // Method net/minecraft/world/entity/ExperienceOrb.m_20801_:()I
+       4: i2f
+       5: invokestatic  #291                // Method net/p3pp3rf1y/sophisticatedcore/util/XpHelper.experienceToLiquid:(F)I
+       8: istore        4
+      10: aload_0
+      11: getfield      #135                // Field storageWrapper:Lnet/p3pp3rf1y/sophisticatedcore/api/IStorageWrapper;
+      14: invokeinterface #189,  1          // InterfaceMethod net/p3pp3rf1y/sophisticatedcore/api/IStorageWrapper.getFluidHandler:()Ljava/util/Optional;
+      19: iload         4
+      21: aload_1
+      22: aload_2
+      23: aload_3
+      24: invokedynamic #299,  0            // InvokeDynamic #3:apply:(ILnet/minecraft/world/entity/ExperienceOrb;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/level/Level;)Ljava/util/function/Function;
+      29: invokevirtual #206                // Method java/util/Optional.map:(Ljava/util/function/Function;)Ljava/util/Optional;
+      32: iconst_0
+      33: invokestatic  #212                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      36: invokevirtual #215                // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      39: checkcast     #208                // class java/lang/Boolean
+      42: invokevirtual #218                // Method java/lang/Boolean.booleanValue:()Z
+      45: ireturn
+
+  private int pickupItems(net.minecraft.world.entity.LivingEntity, net.minecraft.world.level.Level, net.minecraft.core.BlockPos);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)I
+    Code:
+       0: aload_2
+       1: getstatic     #306                // Field net/minecraft/world/entity/EntityType.f_20461_:Lnet/minecraft/world/entity/EntityType;
+       4: new           #222                // class net/minecraft/world/phys/AABB
+       7: dup
+       8: aload_3
+       9: invokespecial #225                // Method net/minecraft/world/phys/AABB."<init>":(Lnet/minecraft/core/BlockPos;)V
+      12: aload_0
+      13: getfield      #62                 // Field upgradeItem:Lnet/p3pp3rf1y/sophisticatedcore/upgrades/UpgradeItemBase;
+      16: checkcast     #64                 // class net/p3pp3rf1y/sophisticatedcore/upgrades/magnet/MagnetUpgradeItem
+      19: invokevirtual #228                // Method net/p3pp3rf1y/sophisticatedcore/upgrades/magnet/MagnetUpgradeItem.getRadius:()I
+      22: i2d
+      23: invokevirtual #232                // Method net/minecraft/world/phys/AABB.m_82400_:(D)Lnet/minecraft/world/phys/AABB;
+      26: invokedynamic #313,  0            // InvokeDynamic #4:test:()Ljava/util/function/Predicate;
+      31: invokevirtual #317                // Method net/minecraft/world/level/Level.m_142425_:(Lnet/minecraft/world/level/entity/EntityTypeTest;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;
+      34: astore        4
+      36: aload         4
+      38: invokeinterface #254,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+      43: ifeq          49
+      46: bipush        10
+      48: ireturn
+      49: bipush        10
+      51: istore        5
+      53: aload_1
+      54: checkcast     #319                // class net/minecraft/world/entity/player/Player
+      57: astore        6
+      59: aload         4
+      61: invokeinterface #258,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      66: astore        7
+      68: aload         7
+      70: invokeinterface #263,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      75: ifeq          156
+      78: aload         7
+      80: invokeinterface #266,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      85: checkcast     #321                // class net/minecraft/world/entity/item/ItemEntity
+      88: astore        8
+      90: aload         8
+      92: invokevirtual #322                // Method net/minecraft/world/entity/item/ItemEntity.m_6084_:()Z
+      95: ifeq          68
+      98: aload_0
+      99: getfield      #112                // Field filterLogic:Lnet/p3pp3rf1y/sophisticatedcore/upgrades/ContentsFilterLogic;
+     102: aload         8
+     104: invokevirtual #326                // Method net/minecraft/world/entity/item/ItemEntity.m_32055_:()Lnet/minecraft/world/item/ItemStack;
+     107: invokevirtual #133                // Method net/p3pp3rf1y/sophisticatedcore/upgrades/ContentsFilterLogic.matchesFilter:(Lnet/minecraft/world/item/ItemStack;)Z
+     110: ifeq          68
+     113: aload_0
+     114: aload         8
+     116: aload_1
+     117: invokevirtual #273                // Method canNotPickup:(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/entity/LivingEntity;)Z
+     120: ifeq          126
+     123: goto          68
+     126: aload_0
+     127: aload         8
+     129: invokevirtual #329                // Method tryToInsertItem:(Lnet/minecraft/world/entity/item/ItemEntity;)Z
+     132: ifeq          149
+     135: aload         6
+     137: ifnull        153
+     140: aload_2
+     141: aload         6
+     143: invokestatic  #333                // Method playItemPickupSound:(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;)V
+     146: goto          153
+     149: bipush        40
+     151: istore        5
+     153: goto          68
+     156: iload         5
+     158: ireturn
+
+  private static void playItemPickupSound(net.minecraft.world.level.Level, net.minecraft.world.entity.player.Player);
+    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;)V
+    Code:
+       0: aload_0
+       1: aconst_null
+       2: aload_1
+       3: invokevirtual #344                // Method net/minecraft/world/entity/player/Player.m_20185_:()D
+       6: aload_1
+       7: invokevirtual #347                // Method net/minecraft/world/entity/player/Player.m_20186_:()D
+      10: aload_1
+      11: invokevirtual #350                // Method net/minecraft/world/entity/player/Player.m_20189_:()D
+      14: getstatic     #356                // Field net/minecraft/sounds/SoundEvents.f_12019_:Lnet/minecraft/sounds/SoundEvent;
+      17: getstatic     #362                // Field net/minecraft/sounds/SoundSource.PLAYERS:Lnet/minecraft/sounds/SoundSource;
+      20: ldc_w         #363                // float 0.2f
+      23: aload_0
+      24: getfield      #367                // Field net/minecraft/world/level/Level.f_46441_:Lnet/minecraft/util/RandomSource;
+      27: invokeinterface #373,  1          // InterfaceMethod net/minecraft/util/RandomSource.m_188501_:()F
+      32: aload_0
+      33: getfield      #367                // Field net/minecraft/world/level/Level.f_46441_:Lnet/minecraft/util/RandomSource;
+      36: invokeinterface #373,  1          // InterfaceMethod net/minecraft/util/RandomSource.m_188501_:()F
+      41: fsub
+      42: ldc_w         #374                // float 1.4f
+      45: fmul
+      46: fconst_2
+      47: fadd
+      48: invokevirtual #378                // Method net/minecraft/world/level/Level.m_6263_:(Lnet/minecraft/world/entity/player/Player;DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V
+      51: return
+
+  private static void playXpPickupSound(net.minecraft.world.level.Level, net.minecraft.world.entity.player.Player);
+    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;)V
+    Code:
+       0: aload_0
+       1: aconst_null
+       2: aload_1
+       3: invokevirtual #344                // Method net/minecraft/world/entity/player/Player.m_20185_:()D
+       6: aload_1
+       7: invokevirtual #347                // Method net/minecraft/world/entity/player/Player.m_20186_:()D
+      10: aload_1
+      11: invokevirtual #350                // Method net/minecraft/world/entity/player/Player.m_20189_:()D
+      14: getstatic     #382                // Field net/minecraft/sounds/SoundEvents.f_11871_:Lnet/minecraft/sounds/SoundEvent;
+      17: getstatic     #362                // Field net/minecraft/sounds/SoundSource.PLAYERS:Lnet/minecraft/sounds/SoundSource;
+      20: ldc_w         #383                // float 0.1f
+      23: aload_0
+      24: getfield      #367                // Field net/minecraft/world/level/Level.f_46441_:Lnet/minecraft/util/RandomSource;
+      27: invokeinterface #373,  1          // InterfaceMethod net/minecraft/util/RandomSource.m_188501_:()F
+      32: aload_0
+      33: getfield      #367                // Field net/minecraft/world/level/Level.f_46441_:Lnet/minecraft/util/RandomSource;
+      36: invokeinterface #373,  1          // InterfaceMethod net/minecraft/util/RandomSource.m_188501_:()F
+      41: fsub
+      42: ldc_w         #384                // float 0.35f
+      45: fmul
+      46: ldc_w         #385                // float 0.9f
+      49: fadd
+      50: invokevirtual #378                // Method net/minecraft/world/level/Level.m_6263_:(Lnet/minecraft/world/entity/player/Player;DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V
+      53: return
+
+  private boolean isBlockedBySomething(net.minecraft.world.entity.Entity);
+    descriptor: (Lnet/minecraft/world/entity/Entity;)Z
+    Code:
+       0: getstatic     #43                 // Field magnetCheckers:Ljava/util/Set;
+       3: invokeinterface #388,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+       8: astore_2
+       9: aload_2
+      10: invokeinterface #263,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      15: ifeq          43
+      18: aload_2
+      19: invokeinterface #266,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      24: checkcast     #390                // class net/p3pp3rf1y/sophisticatedcore/upgrades/magnet/IMagnetPreventionChecker
+      27: astore_3
+      28: aload_3
+      29: aload_1
+      30: invokeinterface #393,  2          // InterfaceMethod net/p3pp3rf1y/sophisticatedcore/upgrades/magnet/IMagnetPreventionChecker.isBlocked:(Lnet/minecraft/world/entity/Entity;)Z
+      35: ifeq          40
+      38: iconst_1
+      39: ireturn
+      40: goto          9
+      43: iconst_0
+      44: ireturn
+
+  private boolean canNotPickup(net.minecraft.world.entity.Entity, net.minecraft.world.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/entity/LivingEntity;)Z
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #396                // Method isBlockedBySomething:(Lnet/minecraft/world/entity/Entity;)Z
+       5: ifeq          10
+       8: iconst_1
+       9: ireturn
+      10: aload_1
+      11: invokevirtual #402                // Method net/minecraft/world/entity/Entity.getPersistentData:()Lnet/minecraft/nbt/CompoundTag;
+      14: astore_3
+      15: aload_2
+      16: ifnull        28
+      19: aload_3
+      20: ldc           #26                 // String PreventRemoteMovement
+      22: invokevirtual #408                // Method net/minecraft/nbt/CompoundTag.m_128441_:(Ljava/lang/String;)Z
+      25: goto          51
+      28: aload_3
+      29: ldc           #26                 // String PreventRemoteMovement
+      31: invokevirtual #408                // Method net/minecraft/nbt/CompoundTag.m_128441_:(Ljava/lang/String;)Z
+      34: ifeq          50
+      37: aload_3
+      38: ldc           #29                 // String AllowMachineRemoteMovement
+      40: invokevirtual #408                // Method net/minecraft/nbt/CompoundTag.m_128441_:(Ljava/lang/String;)Z
+      43: ifne          50
+      46: iconst_1
+      47: goto          51
+      50: iconst_0
+      51: ireturn
+
+  private boolean tryToInsertItem(net.minecraft.world.entity.item.ItemEntity);
+    descriptor: (Lnet/minecraft/world/entity/item/ItemEntity;)Z
+    Code:
+       0: aload_1
+       1: invokevirtual #326                // Method net/minecraft/world/entity/item/ItemEntity.m_32055_:()Lnet/minecraft/world/item/ItemStack;
+       4: astore_2
+       5: aload_0
+       6: getfield      #135                // Field storageWrapper:Lnet/p3pp3rf1y/sophisticatedcore/api/IStorageWrapper;
+       9: invokeinterface #139,  1          // InterfaceMethod net/p3pp3rf1y/sophisticatedcore/api/IStorageWrapper.getInventoryForUpgradeProcessing:()Lnet/p3pp3rf1y/sophisticatedcore/inventory/ITrackedContentsItemHandler;
+      14: astore_3
+      15: aload_3
+      16: aload_2
+      17: iconst_1
+      18: invokeinterface #413,  3          // InterfaceMethod net/p3pp3rf1y/sophisticatedcore/inventory/IItemHandlerSimpleInserter.insertItem:(Lnet/minecraft/world/item/ItemStack;Z)Lnet/minecraft/world/item/ItemStack;
+      23: astore        4
+      25: iconst_0
+      26: istore        5
+      28: aload         4
+      30: invokevirtual #418                // Method net/minecraft/world/item/ItemStack.m_41613_:()I
+      33: aload_2
+      34: invokevirtual #418                // Method net/minecraft/world/item/ItemStack.m_41613_:()I
+      37: if_icmpeq     59
+      40: iconst_1
+      41: istore        5
+      43: aload_3
+      44: aload_2
+      45: iconst_0
+      46: invokeinterface #413,  3          // InterfaceMethod net/p3pp3rf1y/sophisticatedcore/inventory/IItemHandlerSimpleInserter.insertItem:(Lnet/minecraft/world/item/ItemStack;Z)Lnet/minecraft/world/item/ItemStack;
+      51: astore        4
+      53: aload_1
+      54: aload         4
+      56: invokevirtual #422                // Method net/minecraft/world/entity/item/ItemEntity.m_32045_:(Lnet/minecraft/world/item/ItemStack;)V
+      59: iload         5
+      61: ireturn
+
+  public void setPickupItems(boolean);
+    descriptor: (Z)V
+    Code:
+       0: aload_0
+       1: getfield      #430                // Field upgrade:Lnet/minecraft/world/item/ItemStack;
+       4: ldc_w         #431                // String pickupItems
+       7: iload_1
+       8: invokestatic  #437                // Method net/p3pp3rf1y/sophisticatedcore/util/NBTHelper.setBoolean:(Lnet/minecraft/world/item/ItemStack;Ljava/lang/String;Z)V
+      11: aload_0
+      12: invokevirtual #441                // Method save:()V
+      15: return
+
+  public boolean shouldPickupItems();
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: getfield      #430                // Field upgrade:Lnet/minecraft/world/item/ItemStack;
+       4: ldc_w         #431                // String pickupItems
+       7: invokestatic  #445                // Method net/p3pp3rf1y/sophisticatedcore/util/NBTHelper.getBoolean:(Lnet/minecraft/world/item/ItemStack;Ljava/lang/String;)Ljava/util/Optional;
+      10: iconst_1
+      11: invokestatic  #212                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      14: invokevirtual #215                // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      17: checkcast     #208                // class java/lang/Boolean
+      20: invokevirtual #218                // Method java/lang/Boolean.booleanValue:()Z
+      23: ireturn
+
+  public void setPickupXp(boolean);
+    descriptor: (Z)V
+    Code:
+       0: aload_0
+       1: getfield      #430                // Field upgrade:Lnet/minecraft/world/item/ItemStack;
+       4: ldc_w         #448                // String pickupXp
+       7: iload_1
+       8: invokestatic  #437                // Method net/p3pp3rf1y/sophisticatedcore/util/NBTHelper.setBoolean:(Lnet/minecraft/world/item/ItemStack;Ljava/lang/String;Z)V
+      11: aload_0
+      12: invokevirtual #441                // Method save:()V
+      15: return
+
+  public boolean shouldPickupXp();
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: getfield      #430                // Field upgrade:Lnet/minecraft/world/item/ItemStack;
+       4: ldc_w         #448                // String pickupXp
+       7: invokestatic  #445                // Method net/p3pp3rf1y/sophisticatedcore/util/NBTHelper.getBoolean:(Lnet/minecraft/world/item/ItemStack;Ljava/lang/String;)Ljava/util/Optional;
+      10: iconst_1
+      11: invokestatic  #212                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      14: invokevirtual #215                // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      17: checkcast     #208                // class java/lang/Boolean
+      20: invokevirtual #218                // Method java/lang/Boolean.booleanValue:()Z
+      23: ireturn
+
+  public net.p3pp3rf1y.sophisticatedcore.upgrades.FilterLogic getFilterLogic();
+    descriptor: ()Lnet/p3pp3rf1y/sophisticatedcore/upgrades/FilterLogic;
+    Code:
+       0: aload_0
+       1: invokevirtual #451                // Method getFilterLogic:()Lnet/p3pp3rf1y/sophisticatedcore/upgrades/ContentsFilterLogic;
+       4: areturn
+
+  private static boolean lambda$pickupItems$3(net.minecraft.world.entity.item.ItemEntity);
+    descriptor: (Lnet/minecraft/world/entity/item/ItemEntity;)Z
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  private static java.lang.Boolean lambda$tryToFillTank$2(int, net.minecraft.world.entity.ExperienceOrb, net.minecraft.world.entity.LivingEntity, net.minecraft.world.level.Level, net.p3pp3rf1y.sophisticatedcore.api.IStorageFluidHandler);
+    descriptor: (ILnet/minecraft/world/entity/ExperienceOrb;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/level/Level;Lnet/p3pp3rf1y/sophisticatedcore/api/IStorageFluidHandler;)Ljava/lang/Boolean;
+    Code:
+       0: aload         4
+       2: getstatic     #458                // Field net/p3pp3rf1y/sophisticatedcore/init/ModFluids.EXPERIENCE_TAG:Lnet/minecraft/tags/TagKey;
+       5: iload_0
+       6: getstatic     #462                // Field net/p3pp3rf1y/sophisticatedcore/init/ModFluids.XP_STILL:Lnet/minecraftforge/registries/RegistryObject;
+       9: invokevirtual #466                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      12: checkcast     #468                // class net/minecraft/world/level/material/Fluid
+      15: getstatic     #472                // Field net/minecraftforge/fluids/capability/IFluidHandler$FluidAction.EXECUTE:Lnet/minecraftforge/fluids/capability/IFluidHandler$FluidAction;
+      18: invokeinterface #478,  5          // InterfaceMethod net/p3pp3rf1y/sophisticatedcore/api/IStorageFluidHandler.fill:(Lnet/minecraft/tags/TagKey;ILnet/minecraft/world/level/material/Fluid;Lnet/minecraftforge/fluids/capability/IFluidHandler$FluidAction;)I
+      23: istore        5
+      25: iload         5
+      27: ifle          109
+      30: aload_1
+      31: invokevirtual #482                // Method net/minecraft/world/entity/ExperienceOrb.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+      34: astore        6
+      36: aload_1
+      37: iconst_0
+      38: putfield      #485                // Field net/minecraft/world/entity/ExperienceOrb.f_20770_:I
+      41: aload_1
+      42: invokevirtual #488                // Method net/minecraft/world/entity/ExperienceOrb.m_146870_:()V
+      45: aload_2
+      46: checkcast     #319                // class net/minecraft/world/entity/player/Player
+      49: astore        7
+      51: aload         7
+      53: ifnull        62
+      56: aload_3
+      57: aload         7
+      59: invokestatic  #490                // Method playXpPickupSound:(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;)V
+      62: iload_0
+      63: iload         5
+      65: if_icmple     104
+      68: aload_3
+      69: new           #220                // class net/minecraft/world/entity/ExperienceOrb
+      72: dup
+      73: aload_3
+      74: aload         6
+      76: invokevirtual #495                // Method net/minecraft/world/phys/Vec3.m_7096_:()D
+      79: aload         6
+      81: invokevirtual #498                // Method net/minecraft/world/phys/Vec3.m_7098_:()D
+      84: aload         6
+      86: invokevirtual #501                // Method net/minecraft/world/phys/Vec3.m_7094_:()D
+      89: iload_0
+      90: iload         5
+      92: isub
+      93: invokestatic  #505                // Method net/p3pp3rf1y/sophisticatedcore/util/XpHelper.liquidToExperience:(I)F
+      96: f2i
+      97: invokespecial #508                // Method net/minecraft/world/entity/ExperienceOrb."<init>":(Lnet/minecraft/world/level/Level;DDDI)V
+     100: invokevirtual #511                // Method net/minecraft/world/level/Level.m_7967_:(Lnet/minecraft/world/entity/Entity;)Z
+     103: pop
+     104: iconst_1
+     105: invokestatic  #212                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+     108: areturn
+     109: iconst_0
+     110: invokestatic  #212                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+     113: areturn
+
+  private static boolean lambda$pickupXpOrbs$1(net.minecraft.world.entity.ExperienceOrb);
+    descriptor: (Lnet/minecraft/world/entity/ExperienceOrb;)Z
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  private static java.lang.Boolean lambda$canFillStorageWithXp$0(net.p3pp3rf1y.sophisticatedcore.api.IStorageFluidHandler);
+    descriptor: (Lnet/p3pp3rf1y/sophisticatedcore/api/IStorageFluidHandler;)Ljava/lang/Boolean;
+    Code:
+       0: aload_0
+       1: getstatic     #458                // Field net/p3pp3rf1y/sophisticatedcore/init/ModFluids.EXPERIENCE_TAG:Lnet/minecraft/tags/TagKey;
+       4: iconst_1
+       5: getstatic     #462                // Field net/p3pp3rf1y/sophisticatedcore/init/ModFluids.XP_STILL:Lnet/minecraftforge/registries/RegistryObject;
+       8: invokevirtual #466                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      11: checkcast     #468                // class net/minecraft/world/level/material/Fluid
+      14: getstatic     #518                // Field net/minecraftforge/fluids/capability/IFluidHandler$FluidAction.SIMULATE:Lnet/minecraftforge/fluids/capability/IFluidHandler$FluidAction;
+      17: invokeinterface #478,  5          // InterfaceMethod net/p3pp3rf1y/sophisticatedcore/api/IStorageFluidHandler.fill:(Lnet/minecraft/tags/TagKey;ILnet/minecraft/world/level/material/Fluid;Lnet/minecraftforge/fluids/capability/IFluidHandler$FluidAction;)I
+      22: ifle          29
+      25: iconst_1
+      26: goto          30
+      29: iconst_0
+      30: invokestatic  #212                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      33: areturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: new           #521                // class java/util/HashSet
+       3: dup
+       4: invokespecial #523                // Method java/util/HashSet."<init>":()V
+       7: putstatic     #43                 // Field magnetCheckers:Ljava/util/Set;
+      10: return
+}

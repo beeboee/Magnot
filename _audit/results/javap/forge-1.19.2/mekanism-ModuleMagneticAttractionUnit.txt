@@ -1,0 +1,244 @@
+Compiled from "ModuleMagneticAttractionUnit.java"
+public class mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit implements mekanism.api.gear.ICustomModule<mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit> {
+  private mekanism.api.gear.config.IModuleConfigItem<mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit$Range> range;
+    descriptor: Lmekanism/api/gear/config/IModuleConfigItem;
+
+  public mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #29                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public void init(mekanism.api.gear.IModule<mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit>, mekanism.api.gear.config.ModuleConfigItemCreator);
+    descriptor: (Lmekanism/api/gear/IModule;Lmekanism/api/gear/config/ModuleConfigItemCreator;)V
+    Code:
+       0: aload_0
+       1: aload_2
+       2: ldc           #35                 // String range
+       4: getstatic     #41                 // Field mekanism/common/MekanismLang.MODULE_RANGE:Lmekanism/common/MekanismLang;
+       7: new           #43                 // class mekanism/api/gear/config/ModuleEnumData
+      10: dup
+      11: getstatic     #47                 // Field mekanism/common/content/gear/mekasuit/ModuleMagneticAttractionUnit$Range.LOW:Lmekanism/common/content/gear/mekasuit/ModuleMagneticAttractionUnit$Range;
+      14: aload_1
+      15: invokeinterface #53,  1           // InterfaceMethod mekanism/api/gear/IModule.getInstalledCount:()I
+      20: iconst_1
+      21: iadd
+      22: invokespecial #56                 // Method mekanism/api/gear/config/ModuleEnumData."<init>":(Ljava/lang/Enum;I)V
+      25: invokeinterface #62,  4           // InterfaceMethod mekanism/api/gear/config/ModuleConfigItemCreator.createConfigItem:(Ljava/lang/String;Lmekanism/api/text/ILangEntry;Lmekanism/api/gear/config/ModuleConfigData;)Lmekanism/api/gear/config/IModuleConfigItem;
+      30: putfield      #64                 // Field range:Lmekanism/api/gear/config/IModuleConfigItem;
+      33: return
+
+  public void tickServer(mekanism.api.gear.IModule<mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit>, net.minecraft.world.entity.player.Player);
+    descriptor: (Lmekanism/api/gear/IModule;Lnet/minecraft/world/entity/player/Player;)V
+    Code:
+       0: aload_0
+       1: getfield      #64                 // Field range:Lmekanism/api/gear/config/IModuleConfigItem;
+       4: invokeinterface #78,  1           // InterfaceMethod mekanism/api/gear/config/IModuleConfigItem.get:()Ljava/lang/Object;
+       9: getstatic     #81                 // Field mekanism/common/content/gear/mekasuit/ModuleMagneticAttractionUnit$Range.OFF:Lmekanism/common/content/gear/mekasuit/ModuleMagneticAttractionUnit$Range;
+      12: if_acmpeq     269
+      15: ldc           #82                 // float 4.0f
+      17: aload_0
+      18: getfield      #64                 // Field range:Lmekanism/api/gear/config/IModuleConfigItem;
+      21: invokeinterface #78,  1           // InterfaceMethod mekanism/api/gear/config/IModuleConfigItem.get:()Ljava/lang/Object;
+      26: checkcast     #11                 // class mekanism/common/content/gear/mekasuit/ModuleMagneticAttractionUnit$Range
+      29: invokevirtual #86                 // Method mekanism/common/content/gear/mekasuit/ModuleMagneticAttractionUnit$Range.getRange:()F
+      32: fadd
+      33: fstore_3
+      34: getstatic     #92                 // Field mekanism/common/config/MekanismConfig.gear:Lmekanism/common/config/GearConfig;
+      37: getfield      #98                 // Field mekanism/common/config/GearConfig.mekaSuitEnergyUsageItemAttraction:Lmekanism/common/config/value/CachedFloatingLongValue;
+      40: invokevirtual #101                // Method mekanism/common/config/value/CachedFloatingLongValue.get:()Ljava/lang/Object;
+      43: checkcast     #103                // class mekanism/api/math/FloatingLong
+      46: aload_0
+      47: getfield      #64                 // Field range:Lmekanism/api/gear/config/IModuleConfigItem;
+      50: invokeinterface #78,  1           // InterfaceMethod mekanism/api/gear/config/IModuleConfigItem.get:()Ljava/lang/Object;
+      55: checkcast     #11                 // class mekanism/common/content/gear/mekasuit/ModuleMagneticAttractionUnit$Range
+      58: invokevirtual #86                 // Method mekanism/common/content/gear/mekasuit/ModuleMagneticAttractionUnit$Range.getRange:()F
+      61: f2d
+      62: invokevirtual #107                // Method mekanism/api/math/FloatingLong.multiply:(D)Lmekanism/api/math/FloatingLong;
+      65: astore        4
+      67: aload         4
+      69: invokevirtual #111                // Method mekanism/api/math/FloatingLong.isZero:()Z
+      72: ifne          82
+      75: aload_2
+      76: invokevirtual #116                // Method net/minecraft/world/entity/player/Player.m_7500_:()Z
+      79: ifeq          86
+      82: iconst_1
+      83: goto          87
+      86: iconst_0
+      87: istore        5
+      89: iload         5
+      91: ifeq          98
+      94: aconst_null
+      95: goto          104
+      98: aload_1
+      99: invokeinterface #120,  1          // InterfaceMethod mekanism/api/gear/IModule.getEnergyContainer:()Lmekanism/api/energy/IEnergyContainer;
+     104: astore        6
+     106: iload         5
+     108: ifne          131
+     111: aload         6
+     113: ifnull        269
+     116: aload         6
+     118: invokeinterface #126,  1          // InterfaceMethod mekanism/api/energy/IEnergyContainer.getEnergy:()Lmekanism/api/math/FloatingLong;
+     123: aload         4
+     125: invokevirtual #130                // Method mekanism/api/math/FloatingLong.greaterOrEqual:(Lmekanism/api/math/FloatingLong;)Z
+     128: ifeq          269
+     131: aload_2
+     132: getfield      #134                // Field net/minecraft/world/entity/player/Player.f_19853_:Lnet/minecraft/world/level/Level;
+     135: ldc           #136                // class net/minecraft/world/entity/item/ItemEntity
+     137: aload_2
+     138: invokevirtual #140                // Method net/minecraft/world/entity/player/Player.m_20191_:()Lnet/minecraft/world/phys/AABB;
+     141: fload_3
+     142: f2d
+     143: fload_3
+     144: f2d
+     145: fload_3
+     146: f2d
+     147: invokevirtual #146                // Method net/minecraft/world/phys/AABB.m_82377_:(DDD)Lnet/minecraft/world/phys/AABB;
+     150: invokedynamic #165,  0            // InvokeDynamic #0:test:()Ljava/util/function/Predicate;
+     155: invokevirtual #171                // Method net/minecraft/world/level/Level.m_6443_:(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;
+     158: astore        7
+     160: aload         7
+     162: invokeinterface #177,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+     167: astore        8
+     169: aload         8
+     171: invokeinterface #182,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     176: ifeq          269
+     179: aload         8
+     181: invokeinterface #185,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     186: checkcast     #136                // class net/minecraft/world/entity/item/ItemEntity
+     189: astore        9
+     191: aload         9
+     193: aload_2
+     194: invokevirtual #189                // Method net/minecraft/world/entity/item/ItemEntity.m_20270_:(Lnet/minecraft/world/entity/Entity;)F
+     197: f2d
+     198: ldc2_w        #190                // double 0.001d
+     201: dcmpl
+     202: ifle          266
+     205: iload         5
+     207: ifeq          220
+     210: aload_0
+     211: aload_2
+     212: aload         9
+     214: invokevirtual #195                // Method pullItem:(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/item/ItemEntity;)V
+     217: goto          266
+     220: aload_1
+     221: aload_2
+     222: aload         6
+     224: aload         4
+     226: iconst_1
+     227: invokeinterface #199,  5          // InterfaceMethod mekanism/api/gear/IModule.useEnergy:(Lnet/minecraft/world/entity/LivingEntity;Lmekanism/api/energy/IEnergyContainer;Lmekanism/api/math/FloatingLong;Z)Lmekanism/api/math/FloatingLong;
+     232: invokevirtual #111                // Method mekanism/api/math/FloatingLong.isZero:()Z
+     235: ifeq          241
+     238: goto          269
+     241: aload_0
+     242: aload_2
+     243: aload         9
+     245: invokevirtual #195                // Method pullItem:(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/item/ItemEntity;)V
+     248: aload         6
+     250: invokeinterface #126,  1          // InterfaceMethod mekanism/api/energy/IEnergyContainer.getEnergy:()Lmekanism/api/math/FloatingLong;
+     255: aload         4
+     257: invokevirtual #202                // Method mekanism/api/math/FloatingLong.smallerThan:(Lmekanism/api/math/FloatingLong;)Z
+     260: ifeq          266
+     263: goto          269
+     266: goto          169
+     269: return
+
+  private void pullItem(net.minecraft.world.entity.player.Player, net.minecraft.world.entity.item.ItemEntity);
+    descriptor: (Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/item/ItemEntity;)V
+    Code:
+       0: aload_1
+       1: invokevirtual #221                // Method net/minecraft/world/entity/player/Player.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+       4: aload_2
+       5: invokevirtual #222                // Method net/minecraft/world/entity/item/ItemEntity.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+       8: invokevirtual #228                // Method net/minecraft/world/phys/Vec3.m_82546_:(Lnet/minecraft/world/phys/Vec3;)Lnet/minecraft/world/phys/Vec3;
+      11: astore_3
+      12: new           #224                // class net/minecraft/world/phys/Vec3
+      15: dup
+      16: aload_3
+      17: getfield      #232                // Field net/minecraft/world/phys/Vec3.f_82479_:D
+      20: dconst_1
+      21: invokestatic  #238                // Method java/lang/Math.min:(DD)D
+      24: aload_3
+      25: getfield      #241                // Field net/minecraft/world/phys/Vec3.f_82480_:D
+      28: dconst_1
+      29: invokestatic  #238                // Method java/lang/Math.min:(DD)D
+      32: aload_3
+      33: getfield      #244                // Field net/minecraft/world/phys/Vec3.f_82481_:D
+      36: dconst_1
+      37: invokestatic  #238                // Method java/lang/Math.min:(DD)D
+      40: invokespecial #247                // Method net/minecraft/world/phys/Vec3."<init>":(DDD)V
+      43: astore        4
+      45: aload         4
+      47: aload_1
+      48: invokevirtual #250                // Method net/minecraft/world/entity/player/Player.m_20184_:()Lnet/minecraft/world/phys/Vec3;
+      51: invokevirtual #228                // Method net/minecraft/world/phys/Vec3.m_82546_:(Lnet/minecraft/world/phys/Vec3;)Lnet/minecraft/world/phys/Vec3;
+      54: astore        5
+      56: aload_2
+      57: aload         5
+      59: ldc2_w        #251                // double 0.2d
+      62: invokevirtual #256                // Method net/minecraft/world/phys/Vec3.m_82490_:(D)Lnet/minecraft/world/phys/Vec3;
+      65: invokevirtual #260                // Method net/minecraft/world/entity/item/ItemEntity.m_20256_:(Lnet/minecraft/world/phys/Vec3;)V
+      68: invokestatic  #266                // Method mekanism/common/Mekanism.packetHandler:()Lmekanism/common/network/PacketHandler;
+      71: new           #16                 // class mekanism/common/network/to_client/PacketLightningRender
+      74: dup
+      75: getstatic     #270                // Field mekanism/common/network/to_client/PacketLightningRender$LightningPreset.MAGNETIC_ATTRACTION:Lmekanism/common/network/to_client/PacketLightningRender$LightningPreset;
+      78: iconst_2
+      79: anewarray     #5                  // class java/lang/Object
+      82: dup
+      83: iconst_0
+      84: aload_1
+      85: invokevirtual #274                // Method net/minecraft/world/entity/player/Player.m_20148_:()Ljava/util/UUID;
+      88: aastore
+      89: dup
+      90: iconst_1
+      91: aload_2
+      92: aastore
+      93: invokestatic  #280                // Method java/util/Objects.hash:([Ljava/lang/Object;)I
+      96: aload_1
+      97: invokevirtual #221                // Method net/minecraft/world/entity/player/Player.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+     100: dconst_0
+     101: ldc2_w        #251                // double 0.2d
+     104: dconst_0
+     105: invokevirtual #284                // Method net/minecraft/world/phys/Vec3.m_82520_:(DDD)Lnet/minecraft/world/phys/Vec3;
+     108: aload_2
+     109: invokevirtual #222                // Method net/minecraft/world/entity/item/ItemEntity.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+     112: aload_3
+     113: invokevirtual #288                // Method net/minecraft/world/phys/Vec3.m_82553_:()D
+     116: ldc2_w        #289                // double 4.0d
+     119: dmul
+     120: d2i
+     121: invokespecial #293                // Method mekanism/common/network/to_client/PacketLightningRender."<init>":(Lmekanism/common/network/to_client/PacketLightningRender$LightningPreset;ILnet/minecraft/world/phys/Vec3;Lnet/minecraft/world/phys/Vec3;I)V
+     124: aload_1
+     125: invokevirtual #299                // Method mekanism/common/network/PacketHandler.sendToAllTrackingAndSelf:(Ljava/lang/Object;Lnet/minecraft/world/entity/Entity;)V
+     128: return
+
+  public boolean canChangeModeWhenDisabled(mekanism.api.gear.IModule<mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit>);
+    descriptor: (Lmekanism/api/gear/IModule;)Z
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public void changeMode(mekanism.api.gear.IModule<mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit>, net.minecraft.world.entity.player.Player, net.minecraft.world.item.ItemStack, int, boolean);
+    descriptor: (Lmekanism/api/gear/IModule;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/item/ItemStack;IZ)V
+    Code:
+       0: aload_1
+       1: aload_2
+       2: getstatic     #312                // Field mekanism/common/MekanismLang.MODULE_MAGNETIC_ATTRACTION:Lmekanism/common/MekanismLang;
+       5: iconst_0
+       6: anewarray     #5                  // class java/lang/Object
+       9: invokevirtual #316                // Method mekanism/common/MekanismLang.translate:([Ljava/lang/Object;)Lnet/minecraft/network/chat/MutableComponent;
+      12: invokeinterface #320,  3          // InterfaceMethod mekanism/api/gear/IModule.toggleEnabled:(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/network/chat/Component;)V
+      17: return
+
+  private static boolean lambda$tickServer$0(net.minecraft.world.entity.item.ItemEntity);
+    descriptor: (Lnet/minecraft/world/entity/item/ItemEntity;)Z
+    Code:
+       0: aload_0
+       1: invokevirtual #328                // Method net/minecraft/world/entity/item/ItemEntity.m_32063_:()Z
+       4: ifne          11
+       7: iconst_1
+       8: goto          12
+      11: iconst_0
+      12: ireturn
+}

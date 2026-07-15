@@ -1,0 +1,446 @@
+Compiled from "MagnetItem.java"
+public abstract class com.supermartijn642.simplemagnets.MagnetItem extends com.supermartijn642.core.item.BaseItem {
+  public com.supermartijn642.simplemagnets.MagnetItem();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokestatic  #38                 // Method com/supermartijn642/core/item/ItemProperties.create:()Lcom/supermartijn642/core/item/ItemProperties;
+       4: getstatic     #44                 // Field com/supermartijn642/simplemagnets/SimpleMagnets.GROUP:Lcom/supermartijn642/core/item/CreativeItemGroup;
+       7: invokevirtual #48                 // Method com/supermartijn642/core/item/ItemProperties.group:(Lnet/minecraft/world/item/CreativeModeTab;)Lcom/supermartijn642/core/item/ItemProperties;
+      10: iconst_1
+      11: invokevirtual #52                 // Method com/supermartijn642/core/item/ItemProperties.maxStackSize:(I)Lcom/supermartijn642/core/item/ItemProperties;
+      14: invokespecial #55                 // Method com/supermartijn642/core/item/BaseItem."<init>":(Lcom/supermartijn642/core/item/ItemProperties;)V
+      17: return
+
+  public com.supermartijn642.core.item.BaseItem$ItemUseResult interact(net.minecraft.world.item.ItemStack, net.minecraft.world.entity.player.Player, net.minecraft.world.InteractionHand, net.minecraft.world.level.Level);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/level/Level;)Lcom/supermartijn642/core/item/BaseItem$ItemUseResult;
+    Code:
+       0: aload_2
+       1: aload_1
+       2: invokestatic  #67                 // Method toggleMagnet:(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/item/ItemStack;)V
+       5: aload_1
+       6: invokestatic  #71                 // Method com/supermartijn642/core/item/BaseItem$ItemUseResult.success:(Lnet/minecraft/world/item/ItemStack;)Lcom/supermartijn642/core/item/BaseItem$ItemUseResult;
+       9: areturn
+
+  public static void toggleMagnet(net.minecraft.world.entity.player.Player, net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/item/ItemStack;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #81                 // Method net/minecraft/world/entity/player/Player.m_9236_:()Lnet/minecraft/world/level/Level;
+       4: getfield      #87                 // Field net/minecraft/world/level/Level.f_46443_:Z
+       7: ifne          83
+      10: aload_1
+      11: invokevirtual #93                 // Method net/minecraft/world/item/ItemStack.m_41720_:()Lnet/minecraft/world/item/Item;
+      14: instanceof    #2                  // class com/supermartijn642/simplemagnets/MagnetItem
+      17: ifeq          83
+      20: aload_1
+      21: invokevirtual #97                 // Method net/minecraft/world/item/ItemStack.m_41784_:()Lnet/minecraft/nbt/CompoundTag;
+      24: ldc           #99                 // String active
+      26: invokevirtual #105                // Method net/minecraft/nbt/CompoundTag.m_128441_:(Ljava/lang/String;)Z
+      29: ifeq          48
+      32: aload_1
+      33: invokevirtual #97                 // Method net/minecraft/world/item/ItemStack.m_41784_:()Lnet/minecraft/nbt/CompoundTag;
+      36: ldc           #99                 // String active
+      38: invokevirtual #108                // Method net/minecraft/nbt/CompoundTag.m_128471_:(Ljava/lang/String;)Z
+      41: ifeq          48
+      44: iconst_1
+      45: goto          49
+      48: iconst_0
+      49: istore_2
+      50: aload_1
+      51: invokevirtual #97                 // Method net/minecraft/world/item/ItemStack.m_41784_:()Lnet/minecraft/nbt/CompoundTag;
+      54: ldc           #99                 // String active
+      56: iload_2
+      57: ifne          64
+      60: iconst_1
+      61: goto          65
+      64: iconst_0
+      65: invokevirtual #114                // Method net/minecraft/nbt/CompoundTag.m_128379_:(Ljava/lang/String;Z)V
+      68: getstatic     #118                // Field com/supermartijn642/simplemagnets/SimpleMagnets.CHANNEL:Lcom/supermartijn642/core/network/PacketChannel;
+      71: aload_0
+      72: new           #120                // class com/supermartijn642/simplemagnets/packets/magnet/PacketToggleMagnetMessage
+      75: dup
+      76: iload_2
+      77: invokespecial #123                // Method com/supermartijn642/simplemagnets/packets/magnet/PacketToggleMagnetMessage."<init>":(Z)V
+      80: invokevirtual #129                // Method com/supermartijn642/core/network/PacketChannel.sendToPlayer:(Lnet/minecraft/world/entity/player/Player;Lcom/supermartijn642/core/network/BasePacket;)V
+      83: return
+
+  public void inventoryUpdate(net.minecraft.world.item.ItemStack, net.minecraft.world.level.Level, net.minecraft.world.entity.Entity, int, boolean);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;IZ)V
+    Code:
+       0: aload_3
+       1: invokevirtual #140                // Method net/minecraft/world/entity/Entity.m_5833_:()Z
+       4: ifeq          8
+       7: return
+       8: aload_1
+       9: invokevirtual #97                 // Method net/minecraft/world/item/ItemStack.m_41784_:()Lnet/minecraft/nbt/CompoundTag;
+      12: astore        6
+      14: aload         6
+      16: ldc           #99                 // String active
+      18: invokevirtual #105                // Method net/minecraft/nbt/CompoundTag.m_128441_:(Ljava/lang/String;)Z
+      21: ifeq          269
+      24: aload         6
+      26: ldc           #99                 // String active
+      28: invokevirtual #108                // Method net/minecraft/nbt/CompoundTag.m_128471_:(Ljava/lang/String;)Z
+      31: ifeq          269
+      34: aload_0
+      35: aload         6
+      37: invokevirtual #144                // Method canPickupItems:(Lnet/minecraft/nbt/CompoundTag;)Z
+      40: ifeq          164
+      43: aload_0
+      44: aload         6
+      46: invokevirtual #148                // Method getRangeItems:(Lnet/minecraft/nbt/CompoundTag;)I
+      49: istore        7
+      51: new           #150                // class net/minecraft/world/phys/AABB
+      54: dup
+      55: aload_3
+      56: invokevirtual #154                // Method net/minecraft/world/entity/Entity.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+      59: iload         7
+      61: ineg
+      62: i2d
+      63: iload         7
+      65: ineg
+      66: i2d
+      67: iload         7
+      69: ineg
+      70: i2d
+      71: invokevirtual #160                // Method net/minecraft/world/phys/Vec3.m_82520_:(DDD)Lnet/minecraft/world/phys/Vec3;
+      74: aload_3
+      75: invokevirtual #154                // Method net/minecraft/world/entity/Entity.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+      78: iload         7
+      80: i2d
+      81: iload         7
+      83: i2d
+      84: iload         7
+      86: i2d
+      87: invokevirtual #160                // Method net/minecraft/world/phys/Vec3.m_82520_:(DDD)Lnet/minecraft/world/phys/Vec3;
+      90: invokespecial #163                // Method net/minecraft/world/phys/AABB."<init>":(Lnet/minecraft/world/phys/Vec3;Lnet/minecraft/world/phys/Vec3;)V
+      93: astore        8
+      95: aload_2
+      96: getstatic     #169                // Field net/minecraft/world/entity/EntityType.f_20461_:Lnet/minecraft/world/entity/EntityType;
+      99: aload         8
+     101: aload_0
+     102: aload_2
+     103: aload_3
+     104: aload         6
+     106: invokedynamic #189,  0            // InvokeDynamic #0:test:(Lcom/supermartijn642/simplemagnets/MagnetItem;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/nbt/CompoundTag;)Ljava/util/function/Predicate;
+     111: invokevirtual #193                // Method net/minecraft/world/level/Level.m_142425_:(Lnet/minecraft/world/level/entity/EntityTypeTest;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;
+     114: astore        9
+     116: aload         9
+     118: aload_3
+     119: invokedynamic #206,  0            // InvokeDynamic #1:accept:(Lnet/minecraft/world/entity/Entity;)Ljava/util/function/Consumer;
+     124: invokeinterface #212,  2          // InterfaceMethod java/util/List.forEach:(Ljava/util/function/Consumer;)V
+     129: aload_2
+     130: getfield      #87                 // Field net/minecraft/world/level/Level.f_46443_:Z
+     133: ifne          164
+     136: aload_3
+     137: instanceof    #77                 // class net/minecraft/world/entity/player/Player
+     140: ifeq          164
+     143: ldc           #214                // String itemphysic
+     145: invokestatic  #219                // Method com/supermartijn642/core/CommonUtils.isModLoaded:(Ljava/lang/String;)Z
+     148: ifeq          164
+     151: aload         9
+     153: aload_3
+     154: invokedynamic #224,  0            // InvokeDynamic #2:accept:(Lnet/minecraft/world/entity/Entity;)Ljava/util/function/Consumer;
+     159: invokeinterface #212,  2          // InterfaceMethod java/util/List.forEach:(Ljava/util/function/Consumer;)V
+     164: aload_2
+     165: getfield      #87                 // Field net/minecraft/world/level/Level.f_46443_:Z
+     168: ifne          269
+     171: aload_0
+     172: aload         6
+     174: invokevirtual #227                // Method canPickupXp:(Lnet/minecraft/nbt/CompoundTag;)Z
+     177: ifeq          269
+     180: aload_3
+     181: instanceof    #77                 // class net/minecraft/world/entity/player/Player
+     184: ifeq          269
+     187: aload_0
+     188: aload         6
+     190: invokevirtual #230                // Method getRangeXp:(Lnet/minecraft/nbt/CompoundTag;)I
+     193: istore        7
+     195: new           #150                // class net/minecraft/world/phys/AABB
+     198: dup
+     199: aload_3
+     200: invokevirtual #154                // Method net/minecraft/world/entity/Entity.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+     203: iload         7
+     205: ineg
+     206: i2d
+     207: iload         7
+     209: ineg
+     210: i2d
+     211: iload         7
+     213: ineg
+     214: i2d
+     215: invokevirtual #160                // Method net/minecraft/world/phys/Vec3.m_82520_:(DDD)Lnet/minecraft/world/phys/Vec3;
+     218: aload_3
+     219: invokevirtual #154                // Method net/minecraft/world/entity/Entity.m_20182_:()Lnet/minecraft/world/phys/Vec3;
+     222: iload         7
+     224: i2d
+     225: iload         7
+     227: i2d
+     228: iload         7
+     230: i2d
+     231: invokevirtual #160                // Method net/minecraft/world/phys/Vec3.m_82520_:(DDD)Lnet/minecraft/world/phys/Vec3;
+     234: invokespecial #163                // Method net/minecraft/world/phys/AABB."<init>":(Lnet/minecraft/world/phys/Vec3;Lnet/minecraft/world/phys/Vec3;)V
+     237: astore        8
+     239: aload_3
+     240: checkcast     #77                 // class net/minecraft/world/entity/player/Player
+     243: astore        9
+     245: aload_2
+     246: ldc           #232                // class net/minecraft/world/entity/ExperienceOrb
+     248: aload         8
+     250: invokevirtual #236                // Method net/minecraft/world/level/Level.m_45976_:(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;
+     253: astore        10
+     255: aload         10
+     257: aload         9
+     259: invokedynamic #246,  0            // InvokeDynamic #3:accept:(Lnet/minecraft/world/entity/player/Player;)Ljava/util/function/Consumer;
+     264: invokeinterface #212,  2          // InterfaceMethod java/util/List.forEach:(Ljava/util/function/Consumer;)V
+     269: return
+
+  private static void playerTouch(net.minecraft.world.entity.item.ItemEntity, net.minecraft.world.entity.player.Player);
+    descriptor: (Lnet/minecraft/world/entity/item/ItemEntity;Lnet/minecraft/world/entity/player/Player;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #264                // Method net/minecraft/world/entity/item/ItemEntity.m_9236_:()Lnet/minecraft/world/level/Level;
+       4: getfield      #87                 // Field net/minecraft/world/level/Level.f_46443_:Z
+       7: ifne          182
+      10: aload_0
+      11: invokevirtual #267                // Method net/minecraft/world/entity/item/ItemEntity.m_32063_:()Z
+      14: ifeq          18
+      17: return
+      18: aload_0
+      19: invokevirtual #271                // Method net/minecraft/world/entity/item/ItemEntity.m_32055_:()Lnet/minecraft/world/item/ItemStack;
+      22: astore_2
+      23: aload_2
+      24: invokevirtual #93                 // Method net/minecraft/world/item/ItemStack.m_41720_:()Lnet/minecraft/world/item/Item;
+      27: astore_3
+      28: aload_2
+      29: invokevirtual #275                // Method net/minecraft/world/item/ItemStack.m_41613_:()I
+      32: istore        4
+      34: aload_0
+      35: aload_1
+      36: invokestatic  #281                // Method net/minecraftforge/event/ForgeEventFactory.onItemPickup:(Lnet/minecraft/world/entity/item/ItemEntity;Lnet/minecraft/world/entity/player/Player;)I
+      39: istore        5
+      41: iload         5
+      43: ifge          47
+      46: return
+      47: aload_2
+      48: invokevirtual #286                // Method net/minecraft/world/item/ItemStack.m_41777_:()Lnet/minecraft/world/item/ItemStack;
+      51: astore        6
+      53: aload_0
+      54: invokevirtual #267                // Method net/minecraft/world/entity/item/ItemEntity.m_32063_:()Z
+      57: ifne          182
+      60: aload_0
+      61: invokevirtual #290                // Method net/minecraft/world/entity/item/ItemEntity.m_19749_:()Lnet/minecraft/world/entity/Entity;
+      64: ifnull        96
+      67: aload_0
+      68: getfield      #293                // Field net/minecraft/world/entity/item/ItemEntity.lifespan:I
+      71: aload_0
+      72: invokevirtual #296                // Method net/minecraft/world/entity/item/ItemEntity.m_32059_:()I
+      75: isub
+      76: sipush        200
+      79: if_icmple     96
+      82: aload_0
+      83: invokevirtual #290                // Method net/minecraft/world/entity/item/ItemEntity.m_19749_:()Lnet/minecraft/world/entity/Entity;
+      86: aload_1
+      87: invokevirtual #300                // Method net/minecraft/world/entity/player/Player.m_20148_:()Ljava/util/UUID;
+      90: invokevirtual #303                // Method net/minecraft/world/entity/Entity.equals:(Ljava/lang/Object;)Z
+      93: ifeq          182
+      96: iload         5
+      98: iconst_1
+      99: if_icmpeq     118
+     102: iload         4
+     104: ifle          118
+     107: aload_1
+     108: invokevirtual #307                // Method net/minecraft/world/entity/player/Player.m_150109_:()Lnet/minecraft/world/entity/player/Inventory;
+     111: aload_2
+     112: invokevirtual #313                // Method net/minecraft/world/entity/player/Inventory.m_36054_:(Lnet/minecraft/world/item/ItemStack;)Z
+     115: ifeq          182
+     118: aload         6
+     120: aload         6
+     122: invokevirtual #275                // Method net/minecraft/world/item/ItemStack.m_41613_:()I
+     125: aload_2
+     126: invokevirtual #275                // Method net/minecraft/world/item/ItemStack.m_41613_:()I
+     129: isub
+     130: invokevirtual #317                // Method net/minecraft/world/item/ItemStack.m_41764_:(I)V
+     133: aload_1
+     134: aload_0
+     135: aload         6
+     137: invokestatic  #321                // Method net/minecraftforge/event/ForgeEventFactory.firePlayerItemPickupEvent:(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/item/ItemEntity;Lnet/minecraft/world/item/ItemStack;)V
+     140: aload_1
+     141: aload_0
+     142: iload         4
+     144: invokevirtual #325                // Method net/minecraft/world/entity/player/Player.m_7938_:(Lnet/minecraft/world/entity/Entity;I)V
+     147: aload_2
+     148: invokevirtual #328                // Method net/minecraft/world/item/ItemStack.m_41619_:()Z
+     151: ifeq          164
+     154: aload_0
+     155: invokevirtual #331                // Method net/minecraft/world/entity/item/ItemEntity.m_146870_:()V
+     158: aload_2
+     159: iload         4
+     161: invokevirtual #317                // Method net/minecraft/world/item/ItemStack.m_41764_:(I)V
+     164: aload_1
+     165: getstatic     #337                // Field net/minecraft/stats/Stats.f_12984_:Lnet/minecraft/stats/StatType;
+     168: aload_3
+     169: invokevirtual #343                // Method net/minecraft/stats/StatType.m_12902_:(Ljava/lang/Object;)Lnet/minecraft/stats/Stat;
+     172: iload         4
+     174: invokevirtual #347                // Method net/minecraft/world/entity/player/Player.m_6278_:(Lnet/minecraft/stats/Stat;I)V
+     177: aload_1
+     178: aload_0
+     179: invokevirtual #350                // Method net/minecraft/world/entity/player/Player.m_21053_:(Lnet/minecraft/world/entity/item/ItemEntity;)V
+     182: return
+
+  protected abstract boolean canPickupItems(net.minecraft.nbt.CompoundTag);
+    descriptor: (Lnet/minecraft/nbt/CompoundTag;)Z
+
+  protected abstract boolean canPickupStack(net.minecraft.nbt.CompoundTag, net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/world/item/ItemStack;)Z
+
+  protected abstract boolean canPickupXp(net.minecraft.nbt.CompoundTag);
+    descriptor: (Lnet/minecraft/nbt/CompoundTag;)Z
+
+  protected abstract int getRangeItems(net.minecraft.nbt.CompoundTag);
+    descriptor: (Lnet/minecraft/nbt/CompoundTag;)I
+
+  protected abstract int getRangeXp(net.minecraft.nbt.CompoundTag);
+    descriptor: (Lnet/minecraft/nbt/CompoundTag;)I
+
+  public boolean m_5812_(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Z
+    Code:
+       0: aload_1
+       1: invokevirtual #97                 // Method net/minecraft/world/item/ItemStack.m_41784_:()Lnet/minecraft/nbt/CompoundTag;
+       4: ldc           #99                 // String active
+       6: invokevirtual #105                // Method net/minecraft/nbt/CompoundTag.m_128441_:(Ljava/lang/String;)Z
+       9: ifeq          28
+      12: aload_1
+      13: invokevirtual #97                 // Method net/minecraft/world/item/ItemStack.m_41784_:()Lnet/minecraft/nbt/CompoundTag;
+      16: ldc           #99                 // String active
+      18: invokevirtual #108                // Method net/minecraft/nbt/CompoundTag.m_128471_:(Ljava/lang/String;)Z
+      21: ifeq          28
+      24: iconst_1
+      25: goto          29
+      28: iconst_0
+      29: ireturn
+
+  protected void appendItemInformation(net.minecraft.world.item.ItemStack, net.minecraft.world.level.BlockGetter, java.util.function.Consumer<net.minecraft.network.chat.Component>, boolean);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/BlockGetter;Ljava/util/function/Consumer;Z)V
+    Code:
+       0: aload_3
+       1: aload_0
+       2: invokevirtual #370                // Method getTooltip:()Lnet/minecraft/network/chat/Component;
+       5: invokeinterface #374,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+      10: return
+
+  protected abstract net.minecraft.network.chat.Component getTooltip();
+    descriptor: ()Lnet/minecraft/network/chat/Component;
+
+  public static void onStartTracking(net.minecraftforge.event.entity.player.PlayerEvent$StartTracking);
+    descriptor: (Lnet/minecraftforge/event/entity/player/PlayerEvent$StartTracking;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #385                // Method net/minecraftforge/event/entity/player/PlayerEvent$StartTracking.getEntity:()Lnet/minecraft/world/entity/player/Player;
+       4: invokevirtual #81                 // Method net/minecraft/world/entity/player/Player.m_9236_:()Lnet/minecraft/world/level/Level;
+       7: getfield      #87                 // Field net/minecraft/world/level/Level.f_46443_:Z
+      10: ifne          60
+      13: aload_0
+      14: invokevirtual #388                // Method net/minecraftforge/event/entity/player/PlayerEvent$StartTracking.getTarget:()Lnet/minecraft/world/entity/Entity;
+      17: instanceof    #263                // class net/minecraft/world/entity/item/ItemEntity
+      20: ifeq          60
+      23: aload_0
+      24: invokevirtual #388                // Method net/minecraftforge/event/entity/player/PlayerEvent$StartTracking.getTarget:()Lnet/minecraft/world/entity/Entity;
+      27: checkcast     #263                // class net/minecraft/world/entity/item/ItemEntity
+      30: getfield      #392                // Field net/minecraft/world/entity/item/ItemEntity.f_31988_:Ljava/util/UUID;
+      33: ifnull        60
+      36: getstatic     #118                // Field com/supermartijn642/simplemagnets/SimpleMagnets.CHANNEL:Lcom/supermartijn642/core/network/PacketChannel;
+      39: aload_0
+      40: invokevirtual #385                // Method net/minecraftforge/event/entity/player/PlayerEvent$StartTracking.getEntity:()Lnet/minecraft/world/entity/player/Player;
+      43: new           #394                // class com/supermartijn642/simplemagnets/packets/magnet/PacketItemInfo
+      46: dup
+      47: aload_0
+      48: invokevirtual #388                // Method net/minecraftforge/event/entity/player/PlayerEvent$StartTracking.getTarget:()Lnet/minecraft/world/entity/Entity;
+      51: checkcast     #263                // class net/minecraft/world/entity/item/ItemEntity
+      54: invokespecial #396                // Method com/supermartijn642/simplemagnets/packets/magnet/PacketItemInfo."<init>":(Lnet/minecraft/world/entity/item/ItemEntity;)V
+      57: invokevirtual #129                // Method com/supermartijn642/core/network/PacketChannel.sendToPlayer:(Lnet/minecraft/world/entity/player/Player;Lcom/supermartijn642/core/network/BasePacket;)V
+      60: return
+
+  private static void lambda$inventoryUpdate$3(net.minecraft.world.entity.player.Player, net.minecraft.world.entity.ExperienceOrb);
+    descriptor: (Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/ExperienceOrb;)V
+    Code:
+       0: aload_1
+       1: iconst_0
+       2: putfield      #400                // Field net/minecraft/world/entity/ExperienceOrb.f_19802_:I
+       5: aload_0
+       6: iconst_0
+       7: putfield      #403                // Field net/minecraft/world/entity/player/Player.f_36101_:I
+      10: aload_1
+      11: aload_0
+      12: invokevirtual #407                // Method net/minecraft/world/entity/ExperienceOrb.m_6123_:(Lnet/minecraft/world/entity/player/Player;)V
+      15: return
+
+  private static void lambda$inventoryUpdate$2(net.minecraft.world.entity.Entity, net.minecraft.world.entity.item.ItemEntity);
+    descriptor: (Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/entity/item/ItemEntity;)V
+    Code:
+       0: aload_1
+       1: aload_0
+       2: checkcast     #77                 // class net/minecraft/world/entity/player/Player
+       5: invokestatic  #411                // Method playerTouch:(Lnet/minecraft/world/entity/item/ItemEntity;Lnet/minecraft/world/entity/player/Player;)V
+       8: return
+
+  private static void lambda$inventoryUpdate$1(net.minecraft.world.entity.Entity, net.minecraft.world.entity.item.ItemEntity);
+    descriptor: (Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/entity/item/ItemEntity;)V
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokevirtual #415                // Method net/minecraft/world/entity/Entity.m_20185_:()D
+       5: aload_0
+       6: invokevirtual #418                // Method net/minecraft/world/entity/Entity.m_20186_:()D
+       9: aload_0
+      10: invokevirtual #421                // Method net/minecraft/world/entity/Entity.m_20189_:()D
+      13: invokevirtual #425                // Method net/minecraft/world/entity/item/ItemEntity.m_6034_:(DDD)V
+      16: return
+
+  private boolean lambda$inventoryUpdate$0(net.minecraft.world.level.Level, net.minecraft.world.entity.Entity, net.minecraft.nbt.CompoundTag, net.minecraft.world.entity.item.ItemEntity);
+    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/world/entity/item/ItemEntity;)Z
+    Code:
+       0: aload         4
+       2: invokevirtual #428                // Method net/minecraft/world/entity/item/ItemEntity.m_6084_:()Z
+       5: ifeq          97
+       8: aload_1
+       9: getfield      #87                 // Field net/minecraft/world/level/Level.f_46443_:Z
+      12: ifeq          24
+      15: aload         4
+      17: getfield      #431                // Field net/minecraft/world/entity/item/ItemEntity.f_19797_:I
+      20: iconst_1
+      21: if_icmple     97
+      24: aload         4
+      26: getfield      #392                // Field net/minecraft/world/entity/item/ItemEntity.f_31988_:Ljava/util/UUID;
+      29: ifnull        55
+      32: aload         4
+      34: getfield      #392                // Field net/minecraft/world/entity/item/ItemEntity.f_31988_:Ljava/util/UUID;
+      37: aload_2
+      38: invokevirtual #432                // Method net/minecraft/world/entity/Entity.m_20148_:()Ljava/util/UUID;
+      41: invokevirtual #435                // Method java/util/UUID.equals:(Ljava/lang/Object;)Z
+      44: ifeq          55
+      47: aload         4
+      49: invokevirtual #267                // Method net/minecraft/world/entity/item/ItemEntity.m_32063_:()Z
+      52: ifne          97
+      55: aload         4
+      57: invokevirtual #271                // Method net/minecraft/world/entity/item/ItemEntity.m_32055_:()Lnet/minecraft/world/item/ItemStack;
+      60: invokevirtual #328                // Method net/minecraft/world/item/ItemStack.m_41619_:()Z
+      63: ifne          97
+      66: aload         4
+      68: invokevirtual #438                // Method net/minecraft/world/entity/item/ItemEntity.getPersistentData:()Lnet/minecraft/nbt/CompoundTag;
+      71: ldc_w         #440                // String PreventRemoteMovement
+      74: invokevirtual #105                // Method net/minecraft/nbt/CompoundTag.m_128441_:(Ljava/lang/String;)Z
+      77: ifne          97
+      80: aload_0
+      81: aload_3
+      82: aload         4
+      84: invokevirtual #271                // Method net/minecraft/world/entity/item/ItemEntity.m_32055_:()Lnet/minecraft/world/item/ItemStack;
+      87: invokevirtual #442                // Method canPickupStack:(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/world/item/ItemStack;)Z
+      90: ifeq          97
+      93: iconst_1
+      94: goto          98
+      97: iconst_0
+      98: ireturn
+}

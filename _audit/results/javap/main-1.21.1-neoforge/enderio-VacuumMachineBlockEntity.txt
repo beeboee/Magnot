@@ -1,0 +1,419 @@
+Compiled from "VacuumMachineBlockEntity.java"
+public abstract class com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity<T extends net.minecraft.world.entity.Entity> extends com.enderio.enderio.foundation.block.entity.MachineBlockEntity implements com.enderio.enderio.foundation.attachment.RangedActor {
+  private static final double COLLISION_DISTANCE_SQ;
+    descriptor: D
+
+  protected static final double SPEED;
+    descriptor: D
+
+  protected static final double SPEED_4;
+    descriptor: D
+
+  private final java.util.List<java.lang.ref.WeakReference<T>> entities;
+    descriptor: Ljava/util/List;
+
+  private final java.lang.Class<T> targetClass;
+    descriptor: Ljava/lang/Class;
+
+  public static final com.enderio.enderio.foundation.inventory.SingleSlotAccess FILTER;
+    descriptor: Lcom/enderio/enderio/foundation/inventory/SingleSlotAccess;
+
+  private static final com.enderio.enderio.foundation.attachment.ActionRange DEFAULT_RANGE;
+    descriptor: Lcom/enderio/enderio/foundation/attachment/ActionRange;
+
+  private com.enderio.enderio.foundation.attachment.ActionRange actionRange;
+    descriptor: Lcom/enderio/enderio/foundation/attachment/ActionRange;
+
+  public com.enderio.enderio.content.machines.vacuum.VacuumMachineBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?>, net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState, java.lang.Class<T>);
+    descriptor: (Lnet/minecraft/world/level/block/entity/BlockEntityType;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Ljava/lang/Class;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: iconst_0
+       5: invokespecial #3                  // Method com/enderio/enderio/foundation/block/entity/MachineBlockEntity."<init>":(Lnet/minecraft/world/level/block/entity/BlockEntityType;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Z)V
+       8: aload_0
+       9: new           #9                  // class java/util/ArrayList
+      12: dup
+      13: invokespecial #11                 // Method java/util/ArrayList."<init>":()V
+      16: putfield      #14                 // Field entities:Ljava/util/List;
+      19: aload_0
+      20: getstatic     #18                 // Field DEFAULT_RANGE:Lcom/enderio/enderio/foundation/attachment/ActionRange;
+      23: putfield      #22                 // Field actionRange:Lcom/enderio/enderio/foundation/attachment/ActionRange;
+      26: aload_0
+      27: aload         4
+      29: putfield      #25                 // Field targetClass:Ljava/lang/Class;
+      32: return
+
+  public boolean isActive();
+    descriptor: ()Z
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public abstract java.lang.String getColor();
+    descriptor: ()Ljava/lang/String;
+
+  public void serverTick();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokevirtual #29                 // Method isRedstoneBlocked:()Z
+       4: ifne          23
+       7: aload_0
+       8: aload_0
+       9: invokevirtual #33                 // Method getLevel:()Lnet/minecraft/world/level/Level;
+      12: aload_0
+      13: invokevirtual #37                 // Method getBlockPos:()Lnet/minecraft/core/BlockPos;
+      16: aload_0
+      17: invokevirtual #41                 // Method getRange:()I
+      20: invokevirtual #45                 // Method attractEntities:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;I)V
+      23: aload_0
+      24: invokespecial #49                 // Method com/enderio/enderio/foundation/block/entity/MachineBlockEntity.serverTick:()V
+      27: return
+
+  public void clientTick();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokevirtual #29                 // Method isRedstoneBlocked:()Z
+       4: ifne          23
+       7: aload_0
+       8: aload_0
+       9: invokevirtual #33                 // Method getLevel:()Lnet/minecraft/world/level/Level;
+      12: aload_0
+      13: invokevirtual #37                 // Method getBlockPos:()Lnet/minecraft/core/BlockPos;
+      16: aload_0
+      17: invokevirtual #41                 // Method getRange:()I
+      20: invokevirtual #45                 // Method attractEntities:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;I)V
+      23: aload_0
+      24: getfield      #52                 // Field level:Lnet/minecraft/world/level/Level;
+      27: getfield      #56                 // Field net/minecraft/world/level/Level.isClientSide:Z
+      30: ifeq          66
+      33: aload_0
+      34: getfield      #52                 // Field level:Lnet/minecraft/world/level/Level;
+      37: astore_2
+      38: aload_2
+      39: instanceof    #62                 // class net/minecraft/client/multiplayer/ClientLevel
+      42: ifeq          66
+      45: aload_2
+      46: checkcast     #62                 // class net/minecraft/client/multiplayer/ClientLevel
+      49: astore_1
+      50: aload_0
+      51: invokevirtual #64                 // Method getActionRange:()Lcom/enderio/enderio/foundation/attachment/ActionRange;
+      54: aload_1
+      55: aload_0
+      56: invokevirtual #37                 // Method getBlockPos:()Lnet/minecraft/core/BlockPos;
+      59: aload_0
+      60: invokevirtual #68                 // Method getColor:()Ljava/lang/String;
+      63: invokevirtual #72                 // Method com/enderio/enderio/foundation/attachment/ActionRange.addClientParticle:(Lnet/minecraft/client/multiplayer/ClientLevel;Lnet/minecraft/core/BlockPos;Ljava/lang/String;)V
+      66: aload_0
+      67: invokespecial #78                 // Method com/enderio/enderio/foundation/block/entity/MachineBlockEntity.clientTick:()V
+      70: return
+
+  public com.enderio.enderio.foundation.io.IOConfig getDefaultIOConfig();
+    descriptor: ()Lcom/enderio/enderio/foundation/io/IOConfig;
+    Code:
+       0: getstatic     #81                 // Field com/enderio/enderio/api/io/IOMode.PUSH:Lcom/enderio/enderio/api/io/IOMode;
+       3: invokestatic  #87                 // Method com/enderio/enderio/foundation/io/IOConfig.of:(Lcom/enderio/enderio/api/io/IOMode;)Lcom/enderio/enderio/foundation/io/IOConfig;
+       6: areturn
+
+  public java.util.function.Predicate<T> getFilter();
+    descriptor: ()Ljava/util/function/Predicate;
+    Code:
+       0: invokedynamic #93,  0             // InvokeDynamic #0:test:()Ljava/util/function/Predicate;
+       5: areturn
+
+  private void attractEntities(net.minecraft.world.level.Level, net.minecraft.core.BlockPos, int);
+    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;I)V
+    Code:
+       0: aload_1
+       1: invokevirtual #97                 // Method net/minecraft/world/level/Level.getGameTime:()J
+       4: aload_2
+       5: invokevirtual #101                // Method net/minecraft/core/BlockPos.asLong:()J
+       8: ladd
+       9: ldc2_w        #106                // long 5l
+      12: lrem
+      13: lconst_0
+      14: lcmp
+      15: ifne          29
+      18: aload_0
+      19: aload_1
+      20: aload_2
+      21: iload_3
+      22: aload_0
+      23: invokevirtual #108                // Method getFilter:()Ljava/util/function/Predicate;
+      26: invokevirtual #111                // Method getEntities:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;ILjava/util/function/Predicate;)V
+      29: aload_0
+      30: getfield      #14                 // Field entities:Ljava/util/List;
+      33: invokeinterface #115,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      38: astore        4
+      40: aload         4
+      42: invokeinterface #121,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      47: ifeq          135
+      50: aload         4
+      52: invokeinterface #126,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      57: checkcast     #130                // class java/lang/ref/WeakReference
+      60: astore        5
+      62: aload         5
+      64: invokevirtual #132                // Method java/lang/ref/WeakReference.get:()Ljava/lang/Object;
+      67: ifnonnull     80
+      70: aload         4
+      72: invokeinterface #135,  1          // InterfaceMethod java/util/Iterator.remove:()V
+      77: goto          40
+      80: aload         5
+      82: invokevirtual #132                // Method java/lang/ref/WeakReference.get:()Ljava/lang/Object;
+      85: checkcast     #138                // class net/minecraft/world/entity/Entity
+      88: astore        6
+      90: aload         6
+      92: invokevirtual #140                // Method net/minecraft/world/entity/Entity.isRemoved:()Z
+      95: ifeq          108
+      98: aload         4
+     100: invokeinterface #135,  1          // InterfaceMethod java/util/Iterator.remove:()V
+     105: goto          40
+     108: aload         6
+     110: aload_2
+     111: ldc2_w        #143                // double 0.025d
+     114: ldc2_w        #145                // double 0.1d
+     117: ldc2_w        #147                // double 1.6900000000000002d
+     120: invokestatic  #149                // Method com/enderio/enderio/foundation/util/AttractionUtil.moveToPos:(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/core/BlockPos;DDD)Z
+     123: ifeq          132
+     126: aload_0
+     127: aload         6
+     129: invokevirtual #155                // Method handleEntity:(Lnet/minecraft/world/entity/Entity;)V
+     132: goto          40
+     135: return
+
+  public abstract void handleEntity(T);
+    descriptor: (Lnet/minecraft/world/entity/Entity;)V
+
+  private void getEntities(net.minecraft.world.level.Level, net.minecraft.core.BlockPos, int, java.util.function.Predicate<T>);
+    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;ILjava/util/function/Predicate;)V
+    Code:
+       0: aload_0
+       1: getfield      #14                 // Field entities:Ljava/util/List;
+       4: invokeinterface #159,  1          // InterfaceMethod java/util/List.clear:()V
+       9: new           #162                // class net/minecraft/world/phys/AABB
+      12: dup
+      13: aload_2
+      14: invokespecial #164                // Method net/minecraft/world/phys/AABB."<init>":(Lnet/minecraft/core/BlockPos;)V
+      17: iload_3
+      18: i2d
+      19: invokevirtual #167                // Method net/minecraft/world/phys/AABB.inflate:(D)Lnet/minecraft/world/phys/AABB;
+      22: astore        5
+      24: aload_1
+      25: aload_0
+      26: getfield      #25                 // Field targetClass:Ljava/lang/Class;
+      29: aload         5
+      31: aload         4
+      33: invokevirtual #171                // Method net/minecraft/world/level/Level.getEntitiesOfClass:(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;
+      36: invokeinterface #115,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      41: astore        6
+      43: aload         6
+      45: invokeinterface #121,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      50: ifeq          87
+      53: aload         6
+      55: invokeinterface #126,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      60: checkcast     #138                // class net/minecraft/world/entity/Entity
+      63: astore        7
+      65: aload_0
+      66: getfield      #14                 // Field entities:Ljava/util/List;
+      69: new           #130                // class java/lang/ref/WeakReference
+      72: dup
+      73: aload         7
+      75: invokespecial #175                // Method java/lang/ref/WeakReference."<init>":(Ljava/lang/Object;)V
+      78: invokeinterface #178,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      83: pop
+      84: goto          43
+      87: return
+
+  public com.enderio.enderio.foundation.attachment.ActionRange getActionRange();
+    descriptor: ()Lcom/enderio/enderio/foundation/attachment/ActionRange;
+    Code:
+       0: aload_0
+       1: getfield      #22                 // Field actionRange:Lcom/enderio/enderio/foundation/attachment/ActionRange;
+       4: areturn
+
+  public void setActionRange(com.enderio.enderio.foundation.attachment.ActionRange);
+    descriptor: (Lcom/enderio/enderio/foundation/attachment/ActionRange;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #22                 // Field actionRange:Lcom/enderio/enderio/foundation/attachment/ActionRange;
+       5: aload_0
+       6: invokevirtual #182                // Method setChanged:()V
+       9: aload_0
+      10: getfield      #52                 // Field level:Lnet/minecraft/world/level/Level;
+      13: ifnull        36
+      16: aload_0
+      17: getfield      #52                 // Field level:Lnet/minecraft/world/level/Level;
+      20: aload_0
+      21: invokevirtual #37                 // Method getBlockPos:()Lnet/minecraft/core/BlockPos;
+      24: aload_0
+      25: invokevirtual #185                // Method getBlockState:()Lnet/minecraft/world/level/block/state/BlockState;
+      28: aload_0
+      29: invokevirtual #185                // Method getBlockState:()Lnet/minecraft/world/level/block/state/BlockState;
+      32: iconst_3
+      33: invokevirtual #191                // Method net/minecraft/world/level/Level.sendBlockUpdated:(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;I)V
+      36: return
+
+  public int getMaxRange();
+    descriptor: ()I
+    Code:
+       0: bipush        6
+       2: ireturn
+
+  public void onLoad();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: getfield      #14                 // Field entities:Ljava/util/List;
+       4: invokeinterface #195,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+       9: ifeq          32
+      12: aload_0
+      13: aload_0
+      14: invokevirtual #33                 // Method getLevel:()Lnet/minecraft/world/level/Level;
+      17: aload_0
+      18: invokevirtual #37                 // Method getBlockPos:()Lnet/minecraft/core/BlockPos;
+      21: aload_0
+      22: invokevirtual #41                 // Method getRange:()I
+      25: aload_0
+      26: invokevirtual #108                // Method getFilter:()Ljava/util/function/Predicate;
+      29: invokevirtual #111                // Method getEntities:(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;ILjava/util/function/Predicate;)V
+      32: aload_0
+      33: invokespecial #198                // Method com/enderio/enderio/foundation/block/entity/MachineBlockEntity.onLoad:()V
+      36: return
+
+  protected void saveAdditionalSynced(net.minecraft.nbt.CompoundTag, net.minecraft.core.HolderLookup$Provider);
+    descriptor: (Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/core/HolderLookup$Provider;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokespecial #201                // Method com/enderio/enderio/foundation/block/entity/MachineBlockEntity.saveAdditionalSynced:(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/core/HolderLookup$Provider;)V
+       6: aload_0
+       7: getfield      #22                 // Field actionRange:Lcom/enderio/enderio/foundation/attachment/ActionRange;
+      10: getstatic     #18                 // Field DEFAULT_RANGE:Lcom/enderio/enderio/foundation/attachment/ActionRange;
+      13: invokevirtual #205                // Method com/enderio/enderio/foundation/attachment/ActionRange.equals:(Ljava/lang/Object;)Z
+      16: ifne          34
+      19: aload_1
+      20: ldc           #210                // String ActionRange
+      22: aload_0
+      23: getfield      #22                 // Field actionRange:Lcom/enderio/enderio/foundation/attachment/ActionRange;
+      26: aload_2
+      27: invokevirtual #212                // Method com/enderio/enderio/foundation/attachment/ActionRange.save:(Lnet/minecraft/core/HolderLookup$Provider;)Lnet/minecraft/nbt/Tag;
+      30: invokevirtual #216                // Method net/minecraft/nbt/CompoundTag.put:(Ljava/lang/String;Lnet/minecraft/nbt/Tag;)Lnet/minecraft/nbt/Tag;
+      33: pop
+      34: return
+
+  protected void loadAdditional(net.minecraft.nbt.CompoundTag, net.minecraft.core.HolderLookup$Provider);
+    descriptor: (Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/core/HolderLookup$Provider;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokespecial #222                // Method com/enderio/enderio/foundation/block/entity/MachineBlockEntity.loadAdditional:(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/core/HolderLookup$Provider;)V
+       6: aload_0
+       7: getstatic     #225                // Field com/enderio/enderio/init/EIOAttachments.ACTION_RANGE:Ljava/util/function/Supplier;
+      10: invokevirtual #231                // Method hasData:(Ljava/util/function/Supplier;)Z
+      13: ifeq          41
+      16: aload_0
+      17: aload_0
+      18: getstatic     #225                // Field com/enderio/enderio/init/EIOAttachments.ACTION_RANGE:Ljava/util/function/Supplier;
+      21: invokevirtual #235                // Method getData:(Ljava/util/function/Supplier;)Ljava/lang/Object;
+      24: checkcast     #73                 // class com/enderio/enderio/foundation/attachment/ActionRange
+      27: putfield      #22                 // Field actionRange:Lcom/enderio/enderio/foundation/attachment/ActionRange;
+      30: aload_0
+      31: getstatic     #225                // Field com/enderio/enderio/init/EIOAttachments.ACTION_RANGE:Ljava/util/function/Supplier;
+      34: invokevirtual #239                // Method removeData:(Ljava/util/function/Supplier;)Ljava/lang/Object;
+      37: pop
+      38: goto          80
+      41: aload_1
+      42: ldc           #210                // String ActionRange
+      44: invokevirtual #242                // Method net/minecraft/nbt/CompoundTag.contains:(Ljava/lang/String;)Z
+      47: ifeq          73
+      50: aload_0
+      51: aload_2
+      52: aload_1
+      53: ldc           #210                // String ActionRange
+      55: invokevirtual #246                // Method net/minecraft/nbt/CompoundTag.get:(Ljava/lang/String;)Lnet/minecraft/nbt/Tag;
+      58: invokestatic  #249                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+      61: checkcast     #255                // class net/minecraft/nbt/Tag
+      64: invokestatic  #257                // Method com/enderio/enderio/foundation/attachment/ActionRange.parse:(Lnet/minecraft/core/HolderLookup$Provider;Lnet/minecraft/nbt/Tag;)Lcom/enderio/enderio/foundation/attachment/ActionRange;
+      67: putfield      #22                 // Field actionRange:Lcom/enderio/enderio/foundation/attachment/ActionRange;
+      70: goto          80
+      73: aload_0
+      74: getstatic     #18                 // Field DEFAULT_RANGE:Lcom/enderio/enderio/foundation/attachment/ActionRange;
+      77: putfield      #22                 // Field actionRange:Lcom/enderio/enderio/foundation/attachment/ActionRange;
+      80: return
+
+  protected void applyImplicitComponents(net.minecraft.world.level.block.entity.BlockEntity$DataComponentInput);
+    descriptor: (Lnet/minecraft/world/level/block/entity/BlockEntity$DataComponentInput;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #261                // Method com/enderio/enderio/foundation/block/entity/MachineBlockEntity.applyImplicitComponents:(Lnet/minecraft/world/level/block/entity/BlockEntity$DataComponentInput;)V
+       5: aload_1
+       6: getstatic     #265                // Field com/enderio/enderio/init/EIODataComponents.ACTION_RANGE:Lnet/minecraft/core/component/DataComponentType;
+       9: invokeinterface #270,  2          // InterfaceMethod net/minecraft/world/level/block/entity/BlockEntity$DataComponentInput.get:(Lnet/minecraft/core/component/DataComponentType;)Ljava/lang/Object;
+      14: checkcast     #73                 // class com/enderio/enderio/foundation/attachment/ActionRange
+      17: astore_2
+      18: aload_2
+      19: ifnull        27
+      22: aload_0
+      23: aload_2
+      24: putfield      #22                 // Field actionRange:Lcom/enderio/enderio/foundation/attachment/ActionRange;
+      27: return
+
+  protected void collectImplicitComponents(net.minecraft.core.component.DataComponentMap$Builder);
+    descriptor: (Lnet/minecraft/core/component/DataComponentMap$Builder;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #275                // Method com/enderio/enderio/foundation/block/entity/MachineBlockEntity.collectImplicitComponents:(Lnet/minecraft/core/component/DataComponentMap$Builder;)V
+       5: aload_0
+       6: getfield      #22                 // Field actionRange:Lcom/enderio/enderio/foundation/attachment/ActionRange;
+       9: getstatic     #18                 // Field DEFAULT_RANGE:Lcom/enderio/enderio/foundation/attachment/ActionRange;
+      12: invokevirtual #205                // Method com/enderio/enderio/foundation/attachment/ActionRange.equals:(Ljava/lang/Object;)Z
+      15: ifne          30
+      18: aload_1
+      19: getstatic     #265                // Field com/enderio/enderio/init/EIODataComponents.ACTION_RANGE:Lnet/minecraft/core/component/DataComponentType;
+      22: aload_0
+      23: getfield      #22                 // Field actionRange:Lcom/enderio/enderio/foundation/attachment/ActionRange;
+      26: invokevirtual #279                // Method net/minecraft/core/component/DataComponentMap$Builder.set:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lnet/minecraft/core/component/DataComponentMap$Builder;
+      29: pop
+      30: return
+
+  public void removeComponentsFromTag(net.minecraft.nbt.CompoundTag);
+    descriptor: (Lnet/minecraft/nbt/CompoundTag;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #285                // Method com/enderio/enderio/foundation/block/entity/MachineBlockEntity.removeComponentsFromTag:(Lnet/minecraft/nbt/CompoundTag;)V
+       5: aload_1
+       6: ldc           #210                // String ActionRange
+       8: invokevirtual #289                // Method net/minecraft/nbt/CompoundTag.remove:(Ljava/lang/String;)V
+      11: return
+
+  private static boolean lambda$getFilter$0(net.minecraft.world.entity.Entity);
+    descriptor: (Lnet/minecraft/world/entity/Entity;)Z
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: new           #292                // class com/enderio/enderio/foundation/inventory/SingleSlotAccess
+       3: dup
+       4: invokespecial #294                // Method com/enderio/enderio/foundation/inventory/SingleSlotAccess."<init>":()V
+       7: putstatic     #295                // Field FILTER:Lcom/enderio/enderio/foundation/inventory/SingleSlotAccess;
+      10: new           #73                 // class com/enderio/enderio/foundation/attachment/ActionRange
+      13: dup
+      14: iconst_5
+      15: iconst_0
+      16: invokespecial #299                // Method com/enderio/enderio/foundation/attachment/ActionRange."<init>":(IZ)V
+      19: putstatic     #18                 // Field DEFAULT_RANGE:Lcom/enderio/enderio/foundation/attachment/ActionRange;
+      22: return
+}

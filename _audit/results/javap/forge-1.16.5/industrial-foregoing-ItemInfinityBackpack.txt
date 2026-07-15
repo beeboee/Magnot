@@ -1,0 +1,2324 @@
+Compiled from "ItemInfinityBackpack.java"
+public class com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack extends com.buuz135.industrial.item.infinity.ItemInfinity {
+  public static int POWER_CONSUMPTION;
+    descriptor: I
+
+  public static int FUEL_CONSUMPTION;
+    descriptor: I
+
+  private static java.lang.String NBT_MAGNET;
+    descriptor: Ljava/lang/String;
+
+  private static java.lang.String NBT_PICKUP;
+    descriptor: Ljava/lang/String;
+
+  public com.buuz135.industrial.item.infinity.item.ItemInfinityBackpack();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: ldc           #114                // String infinity_backpack
+       3: getstatic     #120                // Field com/buuz135/industrial/module/ModuleTool.TAB_TOOL:Lcom/hrznstudio/titanium/tab/AdvancedTitaniumTab;
+       6: new           #44                 // class net/minecraft/item/Item$Properties
+       9: dup
+      10: invokespecial #122                // Method net/minecraft/item/Item$Properties."<init>":()V
+      13: iconst_1
+      14: invokevirtual #126                // Method net/minecraft/item/Item$Properties.func_200917_a:(I)Lnet/minecraft/item/Item$Properties;
+      17: getstatic     #128                // Field POWER_CONSUMPTION:I
+      20: getstatic     #130                // Field FUEL_CONSUMPTION:I
+      23: iconst_0
+      24: invokespecial #133                // Method com/buuz135/industrial/item/infinity/ItemInfinity."<init>":(Ljava/lang/String;Lnet/minecraft/item/ItemGroup;Lnet/minecraft/item/Item$Properties;IIZ)V
+      27: aload_0
+      28: invokevirtual #136                // Method disableArea:()V
+      31: ldc           #138                // class net/minecraftforge/event/entity/player/EntityItemPickupEvent
+      33: invokestatic  #142                // Method com/hrznstudio/titanium/event/handler/EventManager.forge:(Ljava/lang/Class;)Lcom/hrznstudio/titanium/event/handler/EventManager$FilteredEventManager;
+      36: invokedynamic #161,  0            // InvokeDynamic #0:test:()Ljava/util/function/Predicate;
+      41: invokevirtual #165                // Method com/hrznstudio/titanium/event/handler/EventManager$FilteredEventManager.filter:(Ljava/util/function/Predicate;)Lcom/hrznstudio/titanium/event/handler/EventManager$FilteredEventManager;
+      44: invokedynamic #177,  0            // InvokeDynamic #1:accept:()Ljava/util/function/Consumer;
+      49: invokevirtual #181                // Method com/hrznstudio/titanium/event/handler/EventManager$FilteredEventManager.process:(Ljava/util/function/Consumer;)Lcom/hrznstudio/titanium/event/handler/EventManager$FilteredEventManager;
+      52: invokevirtual #184                // Method com/hrznstudio/titanium/event/handler/EventManager$FilteredEventManager.subscribe:()V
+      55: ldc           #39                 // class net/minecraftforge/event/entity/player/PlayerXpEvent$PickupXp
+      57: invokestatic  #142                // Method com/hrznstudio/titanium/event/handler/EventManager.forge:(Ljava/lang/Class;)Lcom/hrznstudio/titanium/event/handler/EventManager$FilteredEventManager;
+      60: invokedynamic #191,  0            // InvokeDynamic #2:test:()Ljava/util/function/Predicate;
+      65: invokevirtual #165                // Method com/hrznstudio/titanium/event/handler/EventManager$FilteredEventManager.filter:(Ljava/util/function/Predicate;)Lcom/hrznstudio/titanium/event/handler/EventManager$FilteredEventManager;
+      68: invokedynamic #198,  0            // InvokeDynamic #3:accept:()Ljava/util/function/Consumer;
+      73: invokevirtual #181                // Method com/hrznstudio/titanium/event/handler/EventManager$FilteredEventManager.process:(Ljava/util/function/Consumer;)Lcom/hrznstudio/titanium/event/handler/EventManager$FilteredEventManager;
+      76: invokevirtual #184                // Method com/hrznstudio/titanium/event/handler/EventManager$FilteredEventManager.subscribe:()V
+      79: return
+
+  public static int getSlotSize(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)I
+    Code:
+       0: aload_0
+       1: invokestatic  #206                // Method getPowerFromStack:(Lnet/minecraft/item/ItemStack;)J
+       4: invokestatic  #212                // Method com/buuz135/industrial/item/infinity/InfinityTier.getTierBraquet:(J)Lorg/apache/commons/lang3/tuple/Pair;
+       7: invokevirtual #218                // Method org/apache/commons/lang3/tuple/Pair.getLeft:()Ljava/lang/Object;
+      10: checkcast     #208                // class com/buuz135/industrial/item/infinity/InfinityTier
+      13: astore_1
+      14: aload_1
+      15: getstatic     #222                // Field com/buuz135/industrial/item/infinity/InfinityTier.ARTIFACT:Lcom/buuz135/industrial/item/infinity/InfinityTier;
+      18: if_acmpne     26
+      21: ldc           #223                // int 2147483647
+      23: goto          42
+      26: ldc2_w        #224                // double 2048.0d
+      29: ldc2_w        #226                // double 8.0d
+      32: aload_1
+      33: invokevirtual #231                // Method com/buuz135/industrial/item/infinity/InfinityTier.getRadius:()I
+      36: i2d
+      37: invokestatic  #237                // Method java/lang/Math.pow:(DD)D
+      40: dmul
+      41: d2i
+      42: ireturn
+
+  public static void sync(net.minecraft.world.World, java.lang.String, net.minecraft.entity.player.ServerPlayerEntity);
+    descriptor: (Lnet/minecraft/world/World;Ljava/lang/String;Lnet/minecraft/entity/player/ServerPlayerEntity;)V
+    Code:
+       0: getstatic     #248                // Field com/buuz135/industrial/IndustrialForegoing.NETWORK:Lcom/hrznstudio/titanium/network/NetworkHandler;
+       3: invokevirtual #254                // Method com/hrznstudio/titanium/network/NetworkHandler.get:()Lnet/minecraftforge/fml/network/simple/SimpleChannel;
+       6: new           #256                // class com/buuz135/industrial/proxy/network/BackpackSyncMessage
+       9: dup
+      10: aload_1
+      11: aload_0
+      12: invokestatic  #260                // Method com/buuz135/industrial/worlddata/BackpackDataManager.getData:(Lnet/minecraft/world/IWorld;)Lcom/buuz135/industrial/worlddata/BackpackDataManager;
+      15: aload_1
+      16: invokevirtual #264                // Method com/buuz135/industrial/worlddata/BackpackDataManager.getBackpack:(Ljava/lang/String;)Lcom/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler;
+      19: invokevirtual #268                // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.serializeNBT:()Lnet/minecraft/nbt/CompoundNBT;
+      22: invokespecial #271                // Method com/buuz135/industrial/proxy/network/BackpackSyncMessage."<init>":(Ljava/lang/String;Lnet/minecraft/nbt/CompoundNBT;)V
+      25: aload_2
+      26: getfield      #277                // Field net/minecraft/entity/player/ServerPlayerEntity.field_71135_a:Lnet/minecraft/network/play/ServerPlayNetHandler;
+      29: invokevirtual #283                // Method net/minecraft/network/play/ServerPlayNetHandler.func_147298_b:()Lnet/minecraft/network/NetworkManager;
+      32: getstatic     #289                // Field net/minecraftforge/fml/network/NetworkDirection.PLAY_TO_CLIENT:Lnet/minecraftforge/fml/network/NetworkDirection;
+      35: invokevirtual #295                // Method net/minecraftforge/fml/network/simple/SimpleChannel.sendTo:(Ljava/lang/Object;Lnet/minecraft/network/NetworkManager;Lnet/minecraftforge/fml/network/NetworkDirection;)V
+      38: return
+
+  public static boolean isMagnetEnabled(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)Z
+    Code:
+       0: aload_0
+       1: invokevirtual #307                // Method net/minecraft/item/ItemStack.func_196082_o:()Lnet/minecraft/nbt/CompoundNBT;
+       4: getstatic     #309                // Field NBT_MAGNET:Ljava/lang/String;
+       7: invokevirtual #315                // Method net/minecraft/nbt/CompoundNBT.func_74767_n:(Ljava/lang/String;)Z
+      10: ireturn
+
+  public static void setMagnet(net.minecraft.item.ItemStack, boolean);
+    descriptor: (Lnet/minecraft/item/ItemStack;Z)V
+    Code:
+       0: aload_0
+       1: invokevirtual #307                // Method net/minecraft/item/ItemStack.func_196082_o:()Lnet/minecraft/nbt/CompoundNBT;
+       4: getstatic     #309                // Field NBT_MAGNET:Ljava/lang/String;
+       7: iload_1
+       8: invokevirtual #321                // Method net/minecraft/nbt/CompoundNBT.func_74757_a:(Ljava/lang/String;Z)V
+      11: return
+
+  public static int getPickUpMode(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)I
+    Code:
+       0: aload_0
+       1: invokevirtual #307                // Method net/minecraft/item/ItemStack.func_196082_o:()Lnet/minecraft/nbt/CompoundNBT;
+       4: getstatic     #326                // Field NBT_PICKUP:Ljava/lang/String;
+       7: invokevirtual #330                // Method net/minecraft/nbt/CompoundNBT.func_74762_e:(Ljava/lang/String;)I
+      10: ireturn
+
+  public static void setPickUpMode(net.minecraft.item.ItemStack, int);
+    descriptor: (Lnet/minecraft/item/ItemStack;I)V
+    Code:
+       0: aload_0
+       1: invokevirtual #307                // Method net/minecraft/item/ItemStack.func_196082_o:()Lnet/minecraft/nbt/CompoundNBT;
+       4: getstatic     #326                // Field NBT_PICKUP:Ljava/lang/String;
+       7: iload_1
+       8: invokevirtual #336                // Method net/minecraft/nbt/CompoundNBT.func_74768_a:(Ljava/lang/String;I)V
+      11: return
+
+  public static java.util.List<com.hrznstudio.titanium.network.locator.PlayerInventoryFinder$Target> findAllBackpacks(net.minecraft.entity.player.PlayerEntity);
+    descriptor: (Lnet/minecraft/entity/player/PlayerEntity;)Ljava/util/List;
+    Code:
+       0: new           #342                // class java/util/ArrayList
+       3: dup
+       4: invokespecial #343                // Method java/util/ArrayList."<init>":()V
+       7: astore_1
+       8: getstatic     #347                // Field com/hrznstudio/titanium/network/locator/PlayerInventoryFinder.FINDERS:Ljava/util/HashMap;
+      11: invokevirtual #353                // Method java/util/HashMap.keySet:()Ljava/util/Set;
+      14: invokeinterface #359,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+      19: astore_2
+      20: aload_2
+      21: invokeinterface #367,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      26: ifeq          132
+      29: aload_2
+      30: invokeinterface #370,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      35: checkcast     #372                // class java/lang/String
+      38: astore_3
+      39: getstatic     #347                // Field com/hrznstudio/titanium/network/locator/PlayerInventoryFinder.FINDERS:Ljava/util/HashMap;
+      42: aload_3
+      43: invokevirtual #375                // Method java/util/HashMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      46: checkcast     #23                 // class com/hrznstudio/titanium/network/locator/PlayerInventoryFinder
+      49: astore        4
+      51: iconst_0
+      52: istore        5
+      54: iload         5
+      56: aload         4
+      58: invokevirtual #379                // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder.getSlotAmountGetter:()Ljava/util/function/Function;
+      61: aload_0
+      62: invokeinterface #384,  2          // InterfaceMethod java/util/function/Function.apply:(Ljava/lang/Object;)Ljava/lang/Object;
+      67: checkcast     #386                // class java/lang/Integer
+      70: invokevirtual #389                // Method java/lang/Integer.intValue:()I
+      73: if_icmpge     129
+      76: aload         4
+      78: invokevirtual #393                // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder.getStackGetter:()Ljava/util/function/BiFunction;
+      81: aload_0
+      82: iload         5
+      84: invokestatic  #397                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      87: invokeinterface #402,  3          // InterfaceMethod java/util/function/BiFunction.apply:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      92: checkcast     #304                // class net/minecraft/item/ItemStack
+      95: invokevirtual #406                // Method net/minecraft/item/ItemStack.func_77973_b:()Lnet/minecraft/item/Item;
+      98: instanceof    #2                  // class com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack
+     101: ifeq          123
+     104: aload_1
+     105: new           #21                 // class com/hrznstudio/titanium/network/locator/PlayerInventoryFinder$Target
+     108: dup
+     109: aload_3
+     110: aload         4
+     112: iload         5
+     114: invokespecial #409                // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder$Target."<init>":(Ljava/lang/String;Lcom/hrznstudio/titanium/network/locator/PlayerInventoryFinder;I)V
+     117: invokeinterface #412,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     122: pop
+     123: iinc          5, 1
+     126: goto          54
+     129: goto          20
+     132: aload_1
+     133: invokestatic  #418                // Method java/util/Collections.unmodifiableList:(Ljava/util/List;)Ljava/util/List;
+     136: areturn
+
+  public static java.util.Optional<com.hrznstudio.titanium.network.locator.PlayerInventoryFinder$Target> findFirstBackpack(net.minecraft.entity.player.PlayerEntity);
+    descriptor: (Lnet/minecraft/entity/player/PlayerEntity;)Ljava/util/Optional;
+    Code:
+       0: getstatic     #347                // Field com/hrznstudio/titanium/network/locator/PlayerInventoryFinder.FINDERS:Ljava/util/HashMap;
+       3: invokevirtual #353                // Method java/util/HashMap.keySet:()Ljava/util/Set;
+       6: invokeinterface #359,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+      11: astore_1
+      12: aload_1
+      13: invokeinterface #367,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      18: ifeq          117
+      21: aload_1
+      22: invokeinterface #370,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      27: checkcast     #372                // class java/lang/String
+      30: astore_2
+      31: getstatic     #347                // Field com/hrznstudio/titanium/network/locator/PlayerInventoryFinder.FINDERS:Ljava/util/HashMap;
+      34: aload_2
+      35: invokevirtual #375                // Method java/util/HashMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      38: checkcast     #23                 // class com/hrznstudio/titanium/network/locator/PlayerInventoryFinder
+      41: astore_3
+      42: iconst_0
+      43: istore        4
+      45: iload         4
+      47: aload_3
+      48: invokevirtual #379                // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder.getSlotAmountGetter:()Ljava/util/function/Function;
+      51: aload_0
+      52: invokeinterface #384,  2          // InterfaceMethod java/util/function/Function.apply:(Ljava/lang/Object;)Ljava/lang/Object;
+      57: checkcast     #386                // class java/lang/Integer
+      60: invokevirtual #389                // Method java/lang/Integer.intValue:()I
+      63: if_icmpge     114
+      66: aload_3
+      67: invokevirtual #393                // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder.getStackGetter:()Ljava/util/function/BiFunction;
+      70: aload_0
+      71: iload         4
+      73: invokestatic  #397                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      76: invokeinterface #402,  3          // InterfaceMethod java/util/function/BiFunction.apply:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      81: checkcast     #304                // class net/minecraft/item/ItemStack
+      84: invokevirtual #406                // Method net/minecraft/item/ItemStack.func_77973_b:()Lnet/minecraft/item/Item;
+      87: instanceof    #2                  // class com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack
+      90: ifeq          108
+      93: new           #21                 // class com/hrznstudio/titanium/network/locator/PlayerInventoryFinder$Target
+      96: dup
+      97: aload_2
+      98: aload_3
+      99: iload         4
+     101: invokespecial #409                // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder$Target."<init>":(Ljava/lang/String;Lcom/hrznstudio/titanium/network/locator/PlayerInventoryFinder;I)V
+     104: invokestatic  #436                // Method java/util/Optional.of:(Ljava/lang/Object;)Ljava/util/Optional;
+     107: areturn
+     108: iinc          4, 1
+     111: goto          45
+     114: goto          12
+     117: invokestatic  #440                // Method java/util/Optional.empty:()Ljava/util/Optional;
+     120: areturn
+
+  public net.minecraftforge.common.capabilities.ICapabilityProvider initCapabilities(net.minecraft.item.ItemStack, net.minecraft.nbt.CompoundNBT);
+    descriptor: (Lnet/minecraft/item/ItemStack;Lnet/minecraft/nbt/CompoundNBT;)Lnet/minecraftforge/common/capabilities/ICapabilityProvider;
+    Code:
+       0: new           #445                // class com/buuz135/industrial/capability/BackpackCapabilityProvider
+       3: dup
+       4: aload_1
+       5: aload_0
+       6: aload_1
+       7: invokevirtual #449                // Method getTankConstructor:(Lnet/minecraft/item/ItemStack;)Lcom/hrznstudio/titanium/api/IFactory;
+      10: aload_0
+      11: aload_1
+      12: invokevirtual #452                // Method getEnergyConstructor:(Lnet/minecraft/item/ItemStack;)Lcom/hrznstudio/titanium/api/IFactory;
+      15: invokespecial #455                // Method com/buuz135/industrial/capability/BackpackCapabilityProvider."<init>":(Lnet/minecraft/item/ItemStack;Lcom/hrznstudio/titanium/api/IFactory;Lcom/hrznstudio/titanium/api/IFactory;)V
+      18: areturn
+
+  public net.minecraft.util.ActionResult<net.minecraft.item.ItemStack> func_77659_a(net.minecraft.world.World, net.minecraft.entity.player.PlayerEntity, net.minecraft.util.Hand);
+    descriptor: (Lnet/minecraft/world/World;Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/util/Hand;)Lnet/minecraft/util/ActionResult;
+    Code:
+       0: aload_2
+       1: aload_3
+       2: invokevirtual #466                // Method net/minecraft/entity/player/PlayerEntity.func_184586_b:(Lnet/minecraft/util/Hand;)Lnet/minecraft/item/ItemStack;
+       5: astore        4
+       7: aload_2
+       8: instanceof    #273                // class net/minecraft/entity/player/ServerPlayerEntity
+      11: ifeq          162
+      14: aload         4
+      16: invokevirtual #469                // Method net/minecraft/item/ItemStack.func_77942_o:()Z
+      19: ifeq          36
+      22: aload         4
+      24: invokevirtual #472                // Method net/minecraft/item/ItemStack.func_77978_p:()Lnet/minecraft/nbt/CompoundNBT;
+      27: ldc_w         #474                // String Id
+      30: invokevirtual #477                // Method net/minecraft/nbt/CompoundNBT.func_74764_b:(Ljava/lang/String;)Z
+      33: ifne          77
+      36: invokestatic  #483                // Method java/util/UUID.randomUUID:()Ljava/util/UUID;
+      39: astore        5
+      41: aload         4
+      43: invokevirtual #307                // Method net/minecraft/item/ItemStack.func_196082_o:()Lnet/minecraft/nbt/CompoundNBT;
+      46: astore        6
+      48: aload         6
+      50: ldc_w         #474                // String Id
+      53: aload         5
+      55: invokevirtual #487                // Method java/util/UUID.toString:()Ljava/lang/String;
+      58: invokevirtual #491                // Method net/minecraft/nbt/CompoundNBT.func_74778_a:(Ljava/lang/String;Ljava/lang/String;)V
+      61: aload_1
+      62: invokestatic  #260                // Method com/buuz135/industrial/worlddata/BackpackDataManager.getData:(Lnet/minecraft/world/IWorld;)Lcom/buuz135/industrial/worlddata/BackpackDataManager;
+      65: aload         5
+      67: invokevirtual #495                // Method com/buuz135/industrial/worlddata/BackpackDataManager.createBackPack:(Ljava/util/UUID;)V
+      70: aload         4
+      72: aload         6
+      74: invokevirtual #499                // Method net/minecraft/item/ItemStack.func_77982_d:(Lnet/minecraft/nbt/CompoundNBT;)V
+      77: aload         4
+      79: invokevirtual #472                // Method net/minecraft/item/ItemStack.func_77978_p:()Lnet/minecraft/nbt/CompoundNBT;
+      82: ldc_w         #474                // String Id
+      85: invokevirtual #503                // Method net/minecraft/nbt/CompoundNBT.func_74779_i:(Ljava/lang/String;)Ljava/lang/String;
+      88: astore        5
+      90: getstatic     #248                // Field com/buuz135/industrial/IndustrialForegoing.NETWORK:Lcom/hrznstudio/titanium/network/NetworkHandler;
+      93: invokevirtual #254                // Method com/hrznstudio/titanium/network/NetworkHandler.get:()Lnet/minecraftforge/fml/network/simple/SimpleChannel;
+      96: new           #505                // class com/buuz135/industrial/proxy/network/BackpackOpenedMessage
+      99: dup
+     100: aload_2
+     101: getfield      #509                // Field net/minecraft/entity/player/PlayerEntity.field_71071_by:Lnet/minecraft/entity/player/PlayerInventory;
+     104: getfield      #514                // Field net/minecraft/entity/player/PlayerInventory.field_70461_c:I
+     107: getstatic     #517                // Field com/hrznstudio/titanium/network/locator/PlayerInventoryFinder.MAIN:Ljava/lang/String;
+     110: invokespecial #520                // Method com/buuz135/industrial/proxy/network/BackpackOpenedMessage."<init>":(ILjava/lang/String;)V
+     113: aload_2
+     114: checkcast     #273                // class net/minecraft/entity/player/ServerPlayerEntity
+     117: getfield      #277                // Field net/minecraft/entity/player/ServerPlayerEntity.field_71135_a:Lnet/minecraft/network/play/ServerPlayNetHandler;
+     120: invokevirtual #283                // Method net/minecraft/network/play/ServerPlayNetHandler.func_147298_b:()Lnet/minecraft/network/NetworkManager;
+     123: getstatic     #289                // Field net/minecraftforge/fml/network/NetworkDirection.PLAY_TO_CLIENT:Lnet/minecraftforge/fml/network/NetworkDirection;
+     126: invokevirtual #295                // Method net/minecraftforge/fml/network/simple/SimpleChannel.sendTo:(Ljava/lang/Object;Lnet/minecraft/network/NetworkManager;Lnet/minecraftforge/fml/network/NetworkDirection;)V
+     129: aload_1
+     130: aload         5
+     132: aload_2
+     133: checkcast     #273                // class net/minecraft/entity/player/ServerPlayerEntity
+     136: invokestatic  #522                // Method sync:(Lnet/minecraft/world/World;Ljava/lang/String;Lnet/minecraft/entity/player/ServerPlayerEntity;)V
+     139: aload_2
+     140: checkcast     #273                // class net/minecraft/entity/player/ServerPlayerEntity
+     143: aload_0
+     144: aload_3
+     145: invokedynamic #532,  0            // InvokeDynamic #4:accept:(Lnet/minecraft/util/Hand;)Ljava/util/function/Consumer;
+     150: invokestatic  #538                // Method net/minecraftforge/fml/network/NetworkHooks.openGui:(Lnet/minecraft/entity/player/ServerPlayerEntity;Lnet/minecraft/inventory/container/INamedContainerProvider;Ljava/util/function/Consumer;)V
+     153: aload_2
+     154: aload_3
+     155: invokevirtual #466                // Method net/minecraft/entity/player/PlayerEntity.func_184586_b:(Lnet/minecraft/util/Hand;)Lnet/minecraft/item/ItemStack;
+     158: invokestatic  #544                // Method net/minecraft/util/ActionResult.func_226248_a_:(Ljava/lang/Object;)Lnet/minecraft/util/ActionResult;
+     161: areturn
+     162: getstatic     #549                // Field com/buuz135/industrial/proxy/CommonProxy.CONTRIBUTORS:Ljava/util/List;
+     165: aload_2
+     166: invokevirtual #552                // Method net/minecraft/entity/player/PlayerEntity.func_110124_au:()Ljava/util/UUID;
+     169: invokevirtual #487                // Method java/util/UUID.toString:()Ljava/lang/String;
+     172: invokeinterface #555,  2          // InterfaceMethod java/util/List.contains:(Ljava/lang/Object;)Z
+     177: ifeq          195
+     180: aload_2
+     181: aload_3
+     182: invokevirtual #466                // Method net/minecraft/entity/player/PlayerEntity.func_184586_b:(Lnet/minecraft/util/Hand;)Lnet/minecraft/item/ItemStack;
+     185: invokevirtual #307                // Method net/minecraft/item/ItemStack.func_196082_o:()Lnet/minecraft/nbt/CompoundNBT;
+     188: ldc_w         #557                // String Special
+     191: iconst_1
+     192: invokevirtual #321                // Method net/minecraft/nbt/CompoundNBT.func_74757_a:(Ljava/lang/String;Z)V
+     195: aload_0
+     196: aload_1
+     197: aload_2
+     198: aload_3
+     199: invokespecial #559                // Method com/buuz135/industrial/item/infinity/ItemInfinity.func_77659_a:(Lnet/minecraft/world/World;Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/util/Hand;)Lnet/minecraft/util/ActionResult;
+     202: areturn
+
+  public void func_77663_a(net.minecraft.item.ItemStack, net.minecraft.world.World, net.minecraft.entity.Entity, int, boolean);
+    descriptor: (Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;IZ)V
+    Code:
+       0: aload_1
+       1: invokestatic  #567                // Method isMagnetEnabled:(Lnet/minecraft/item/ItemStack;)Z
+       4: ifeq          192
+       7: aload_3
+       8: getfield      #572                // Field net/minecraft/entity/Entity.field_70170_p:Lnet/minecraft/world/World;
+      11: ldc_w         #574                // class net/minecraft/entity/item/ItemEntity
+      14: new           #576                // class net/minecraft/util/math/AxisAlignedBB
+      17: dup
+      18: aload_3
+      19: invokevirtual #580                // Method net/minecraft/entity/Entity.func_226277_ct_:()D
+      22: aload_3
+      23: invokevirtual #583                // Method net/minecraft/entity/Entity.func_226278_cu_:()D
+      26: aload_3
+      27: invokevirtual #583                // Method net/minecraft/entity/Entity.func_226278_cu_:()D
+      30: aload_3
+      31: invokevirtual #580                // Method net/minecraft/entity/Entity.func_226277_ct_:()D
+      34: aload_3
+      35: invokevirtual #583                // Method net/minecraft/entity/Entity.func_226278_cu_:()D
+      38: aload_3
+      39: invokevirtual #586                // Method net/minecraft/entity/Entity.func_226281_cx_:()D
+      42: invokespecial #589                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(DDDDDD)V
+      45: ldc2_w        #590                // double 5.0d
+      48: invokevirtual #595                // Method net/minecraft/util/math/AxisAlignedBB.func_186662_g:(D)Lnet/minecraft/util/math/AxisAlignedBB;
+      51: invokevirtual #601                // Method net/minecraft/world/World.func_217357_a:(Ljava/lang/Class;Lnet/minecraft/util/math/AxisAlignedBB;)Ljava/util/List;
+      54: invokeinterface #602,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      59: astore        6
+      61: aload         6
+      63: invokeinterface #367,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      68: ifeq          192
+      71: aload         6
+      73: invokeinterface #370,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      78: checkcast     #574                // class net/minecraft/entity/item/ItemEntity
+      81: astore        7
+      83: aload_3
+      84: getfield      #572                // Field net/minecraft/entity/Entity.field_70170_p:Lnet/minecraft/world/World;
+      87: getfield      #605                // Field net/minecraft/world/World.field_72995_K:Z
+      90: ifeq          151
+      93: aload         7
+      95: invokevirtual #608                // Method net/minecraft/entity/item/ItemEntity.func_233570_aj_:()Z
+      98: ifeq          189
+     101: aload_2
+     102: getfield      #612                // Field net/minecraft/world/World.field_73012_v:Ljava/util/Random;
+     105: iconst_5
+     106: invokevirtual #618                // Method java/util/Random.nextInt:(I)I
+     109: iconst_1
+     110: if_icmpge     189
+     113: aload         7
+     115: getfield      #619                // Field net/minecraft/entity/item/ItemEntity.field_70170_p:Lnet/minecraft/world/World;
+     118: getstatic     #625                // Field net/minecraft/particles/ParticleTypes.field_197599_J:Lnet/minecraft/particles/BasicParticleType;
+     121: aload         7
+     123: invokevirtual #626                // Method net/minecraft/entity/item/ItemEntity.func_226277_ct_:()D
+     126: aload         7
+     128: invokevirtual #627                // Method net/minecraft/entity/item/ItemEntity.func_226278_cu_:()D
+     131: ldc2_w        #628                // double 0.5d
+     134: dadd
+     135: aload         7
+     137: invokevirtual #630                // Method net/minecraft/entity/item/ItemEntity.func_226281_cx_:()D
+     140: dconst_0
+     141: ldc2_w        #631                // double -0.5d
+     144: dconst_0
+     145: invokevirtual #636                // Method net/minecraft/world/World.func_195594_a:(Lnet/minecraft/particles/IParticleData;DDDDDD)V
+     148: goto          189
+     151: aload         7
+     153: invokevirtual #639                // Method net/minecraft/entity/item/ItemEntity.func_174874_s:()Z
+     156: ifne          189
+     159: aload_0
+     160: aload_1
+     161: invokevirtual #642                // Method enoughFuel:(Lnet/minecraft/item/ItemStack;)Z
+     164: ifeq          189
+     167: aload         7
+     169: aload_3
+     170: invokevirtual #580                // Method net/minecraft/entity/Entity.func_226277_ct_:()D
+     173: aload_3
+     174: invokevirtual #583                // Method net/minecraft/entity/Entity.func_226278_cu_:()D
+     177: aload_3
+     178: invokevirtual #586                // Method net/minecraft/entity/Entity.func_226281_cx_:()D
+     181: invokevirtual #646                // Method net/minecraft/entity/item/ItemEntity.func_70634_a:(DDD)V
+     184: aload_0
+     185: aload_1
+     186: invokevirtual #650                // Method consumeFuel:(Lnet/minecraft/item/ItemStack;)V
+     189: goto          61
+     192: aload_3
+     193: getfield      #572                // Field net/minecraft/entity/Entity.field_70170_p:Lnet/minecraft/world/World;
+     196: getfield      #605                // Field net/minecraft/world/World.field_72995_K:Z
+     199: ifne          648
+     202: aload_3
+     203: instanceof    #462                // class net/minecraft/entity/player/PlayerEntity
+     206: ifeq          648
+     209: aload_0
+     210: aload_1
+     211: invokevirtual #642                // Method enoughFuel:(Lnet/minecraft/item/ItemStack;)Z
+     214: ifeq          361
+     217: aload_3
+     218: checkcast     #462                // class net/minecraft/entity/player/PlayerEntity
+     221: invokevirtual #654                // Method net/minecraft/entity/player/PlayerEntity.func_71024_bL:()Lnet/minecraft/util/FoodStats;
+     224: invokevirtual #659                // Method net/minecraft/util/FoodStats.func_75121_c:()Z
+     227: ifne          247
+     230: aload_3
+     231: checkcast     #462                // class net/minecraft/entity/player/PlayerEntity
+     234: invokevirtual #654                // Method net/minecraft/entity/player/PlayerEntity.func_71024_bL:()Lnet/minecraft/util/FoodStats;
+     237: invokevirtual #663                // Method net/minecraft/util/FoodStats.func_75115_e:()F
+     240: ldc_w         #664                // float 10.0f
+     243: fcmpg
+     244: ifge          361
+     247: aload_1
+     248: getstatic     #670                // Field net/minecraftforge/fluids/capability/CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY:Lnet/minecraftforge/common/capabilities/Capability;
+     251: invokevirtual #674                // Method net/minecraft/item/ItemStack.getCapability:(Lnet/minecraftforge/common/capabilities/Capability;)Lnet/minecraftforge/common/util/LazyOptional;
+     254: invokevirtual #679                // Method net/minecraftforge/common/util/LazyOptional.isPresent:()Z
+     257: ifeq          361
+     260: aload_1
+     261: getstatic     #670                // Field net/minecraftforge/fluids/capability/CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY:Lnet/minecraftforge/common/capabilities/Capability;
+     264: invokevirtual #674                // Method net/minecraft/item/ItemStack.getCapability:(Lnet/minecraftforge/common/capabilities/Capability;)Lnet/minecraftforge/common/util/LazyOptional;
+     267: aconst_null
+     268: invokevirtual #683                // Method net/minecraftforge/common/util/LazyOptional.orElseGet:(Lnet/minecraftforge/common/util/NonNullSupplier;)Ljava/lang/Object;
+     271: checkcast     #685                // class net/minecraftforge/fluids/capability/IFluidHandlerItem
+     274: astore        6
+     276: aload         6
+     278: instanceof    #62                 // class com/buuz135/industrial/capability/MultipleFluidHandlerScreenProviderItemStack
+     281: ifeq          361
+     284: aload         6
+     286: iconst_2
+     287: invokeinterface #689,  2          // InterfaceMethod net/minecraftforge/fluids/capability/IFluidHandlerItem.getFluidInTank:(I)Lnet/minecraftforge/fluids/FluidStack;
+     292: astore        7
+     294: aload         7
+     296: invokevirtual #694                // Method net/minecraftforge/fluids/FluidStack.isEmpty:()Z
+     299: ifne          361
+     302: aload         7
+     304: invokevirtual #697                // Method net/minecraftforge/fluids/FluidStack.getAmount:()I
+     307: sipush        400
+     310: if_icmplt     361
+     313: aload         6
+     315: checkcast     #62                 // class com/buuz135/industrial/capability/MultipleFluidHandlerScreenProviderItemStack
+     318: iconst_2
+     319: new           #691                // class net/minecraftforge/fluids/FluidStack
+     322: dup
+     323: getstatic     #703                // Field com/buuz135/industrial/module/ModuleCore.MEAT:Lcom/hrznstudio/titanium/fluid/TitaniumFluidInstance;
+     326: invokevirtual #709                // Method com/hrznstudio/titanium/fluid/TitaniumFluidInstance.getSourceFluid:()Lcom/hrznstudio/titanium/fluid/TitaniumFluid;
+     329: aload         7
+     331: invokevirtual #697                // Method net/minecraftforge/fluids/FluidStack.getAmount:()I
+     334: sipush        400
+     337: isub
+     338: invokespecial #712                // Method net/minecraftforge/fluids/FluidStack."<init>":(Lnet/minecraft/fluid/Fluid;I)V
+     341: invokevirtual #716                // Method com/buuz135/industrial/capability/MultipleFluidHandlerScreenProviderItemStack.setFluidInTank:(ILnet/minecraftforge/fluids/FluidStack;)V
+     344: aload_3
+     345: checkcast     #462                // class net/minecraft/entity/player/PlayerEntity
+     348: invokevirtual #654                // Method net/minecraft/entity/player/PlayerEntity.func_71024_bL:()Lnet/minecraft/util/FoodStats;
+     351: iconst_1
+     352: fconst_1
+     353: invokevirtual #720                // Method net/minecraft/util/FoodStats.func_75122_a:(IF)V
+     356: aload_0
+     357: aload_1
+     358: invokevirtual #650                // Method consumeFuel:(Lnet/minecraft/item/ItemStack;)V
+     361: aload_3
+     362: getfield      #572                // Field net/minecraft/entity/Entity.field_70170_p:Lnet/minecraft/world/World;
+     365: invokevirtual #724                // Method net/minecraft/world/World.func_82737_E:()J
+     368: ldc2_w        #725                // long 10l
+     371: lrem
+     372: lconst_0
+     373: lcmp
+     374: ifne          648
+     377: aload_3
+     378: getfield      #572                // Field net/minecraft/entity/Entity.field_70170_p:Lnet/minecraft/world/World;
+     381: invokestatic  #260                // Method com/buuz135/industrial/worlddata/BackpackDataManager.getData:(Lnet/minecraft/world/IWorld;)Lcom/buuz135/industrial/worlddata/BackpackDataManager;
+     384: astore        6
+     386: aload         6
+     388: ifnull        648
+     391: aload_1
+     392: invokevirtual #307                // Method net/minecraft/item/ItemStack.func_196082_o:()Lnet/minecraft/nbt/CompoundNBT;
+     395: ldc_w         #474                // String Id
+     398: invokevirtual #477                // Method net/minecraft/nbt/CompoundNBT.func_74764_b:(Ljava/lang/String;)Z
+     401: ifeq          648
+     404: aload         6
+     406: aload_1
+     407: invokevirtual #307                // Method net/minecraft/item/ItemStack.func_196082_o:()Lnet/minecraft/nbt/CompoundNBT;
+     410: ldc_w         #474                // String Id
+     413: invokevirtual #503                // Method net/minecraft/nbt/CompoundNBT.func_74779_i:(Ljava/lang/String;)Ljava/lang/String;
+     416: invokevirtual #264                // Method com/buuz135/industrial/worlddata/BackpackDataManager.getBackpack:(Ljava/lang/String;)Lcom/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler;
+     419: astore        7
+     421: aload         7
+     423: ifnull        648
+     426: aload_1
+     427: invokestatic  #728                // Method getSlotSize:(Lnet/minecraft/item/ItemStack;)I
+     430: aload         7
+     432: iconst_0
+     433: invokevirtual #731                // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.getSlotLimit:(I)I
+     436: if_icmpeq     448
+     439: aload         7
+     441: aload_1
+     442: invokestatic  #728                // Method getSlotSize:(Lnet/minecraft/item/ItemStack;)I
+     445: invokevirtual #735                // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.setMaxAmount:(I)V
+     448: aload_0
+     449: aload_1
+     450: invokevirtual #642                // Method enoughFuel:(Lnet/minecraft/item/ItemStack;)Z
+     453: ifeq          648
+     456: iconst_0
+     457: istore        8
+     459: iload         8
+     461: bipush        32
+     463: if_icmpge     648
+     466: aload         7
+     468: iload         8
+     470: invokevirtual #739                // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.getStackInSlot:(I)Lnet/minecraft/item/ItemStack;
+     473: invokevirtual #742                // Method net/minecraft/item/ItemStack.func_190926_b:()Z
+     476: ifne          642
+     479: aload         7
+     481: iload         8
+     483: invokevirtual #746                // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.getSlotDefinition:(I)Lcom/buuz135/industrial/worlddata/BackpackDataManager$SlotDefinition;
+     486: invokevirtual #749                // Method com/buuz135/industrial/worlddata/BackpackDataManager$SlotDefinition.isRefillItems:()Z
+     489: ifeq          642
+     492: aload_3
+     493: checkcast     #462                // class net/minecraft/entity/player/PlayerEntity
+     496: getfield      #509                // Field net/minecraft/entity/player/PlayerEntity.field_71071_by:Lnet/minecraft/entity/player/PlayerInventory;
+     499: astore        9
+     501: iconst_0
+     502: istore        10
+     504: iload         10
+     506: bipush        35
+     508: if_icmpgt     642
+     511: aload         9
+     513: iload         10
+     515: invokevirtual #752                // Method net/minecraft/entity/player/PlayerInventory.func_70301_a:(I)Lnet/minecraft/item/ItemStack;
+     518: astore        11
+     520: aload         11
+     522: invokevirtual #742                // Method net/minecraft/item/ItemStack.func_190926_b:()Z
+     525: ifne          636
+     528: aload         11
+     530: invokevirtual #755                // Method net/minecraft/item/ItemStack.func_190916_E:()I
+     533: aload         11
+     535: invokevirtual #758                // Method net/minecraft/item/ItemStack.func_77976_d:()I
+     538: if_icmpge     636
+     541: aload         7
+     543: iload         8
+     545: aload         11
+     547: invokevirtual #762                // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.isItemValid:(ILnet/minecraft/item/ItemStack;)Z
+     550: ifeq          636
+     553: aload_0
+     554: aload_1
+     555: invokevirtual #642                // Method enoughFuel:(Lnet/minecraft/item/ItemStack;)Z
+     558: ifeq          636
+     561: aload         11
+     563: invokevirtual #758                // Method net/minecraft/item/ItemStack.func_77976_d:()I
+     566: aload         11
+     568: invokevirtual #755                // Method net/minecraft/item/ItemStack.func_190916_E:()I
+     571: isub
+     572: istore        12
+     574: aload         7
+     576: iload         8
+     578: iload         12
+     580: iconst_0
+     581: invokevirtual #766                // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.extractItem:(IIZ)Lnet/minecraft/item/ItemStack;
+     584: astore        13
+     586: aload         11
+     588: aload         11
+     590: invokevirtual #755                // Method net/minecraft/item/ItemStack.func_190916_E:()I
+     593: aload         13
+     595: invokevirtual #755                // Method net/minecraft/item/ItemStack.func_190916_E:()I
+     598: iadd
+     599: invokevirtual #769                // Method net/minecraft/item/ItemStack.func_190920_e:(I)V
+     602: aload_3
+     603: instanceof    #273                // class net/minecraft/entity/player/ServerPlayerEntity
+     606: ifeq          630
+     609: aload_3
+     610: getfield      #572                // Field net/minecraft/entity/Entity.field_70170_p:Lnet/minecraft/world/World;
+     613: aload_1
+     614: invokevirtual #307                // Method net/minecraft/item/ItemStack.func_196082_o:()Lnet/minecraft/nbt/CompoundNBT;
+     617: ldc_w         #474                // String Id
+     620: invokevirtual #503                // Method net/minecraft/nbt/CompoundNBT.func_74779_i:(Ljava/lang/String;)Ljava/lang/String;
+     623: aload_3
+     624: checkcast     #273                // class net/minecraft/entity/player/ServerPlayerEntity
+     627: invokestatic  #522                // Method sync:(Lnet/minecraft/world/World;Ljava/lang/String;Lnet/minecraft/entity/player/ServerPlayerEntity;)V
+     630: aload_0
+     631: aload_1
+     632: invokevirtual #650                // Method consumeFuel:(Lnet/minecraft/item/ItemStack;)V
+     635: return
+     636: iinc          10, 1
+     639: goto          504
+     642: iinc          8, 1
+     645: goto          459
+     648: aload_0
+     649: aload_1
+     650: aload_2
+     651: aload_3
+     652: iload         4
+     654: iload         5
+     656: invokespecial #771                // Method com/buuz135/industrial/item/infinity/ItemInfinity.func_77663_a:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;IZ)V
+     659: return
+
+  public com.hrznstudio.titanium.api.IFactory<com.hrznstudio.titanium.capability.FluidHandlerScreenProviderItemStack> getTankConstructor(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)Lcom/hrznstudio/titanium/api/IFactory;
+    Code:
+       0: bipush        88
+       2: istore_2
+       3: aload_1
+       4: iload_2
+       5: invokedynamic #803,  0            // InvokeDynamic #5:create:(Lnet/minecraft/item/ItemStack;I)Lcom/hrznstudio/titanium/api/IFactory;
+      10: areturn
+
+  public com.hrznstudio.titanium.api.IFactory<com.buuz135.industrial.item.infinity.InfinityEnergyStorage> getEnergyConstructor(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)Lcom/hrznstudio/titanium/api/IFactory;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokedynamic #815,  0            // InvokeDynamic #6:create:(Lcom/buuz135/industrial/item/infinity/item/ItemInfinityBackpack;Lnet/minecraft/item/ItemStack;)Lcom/hrznstudio/titanium/api/IFactory;
+       7: areturn
+
+  public void handleButtonMessage(int, net.minecraft.entity.player.PlayerEntity, net.minecraft.nbt.CompoundNBT);
+    descriptor: (ILnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/nbt/CompoundNBT;)V
+    Code:
+       0: aload_2
+       1: invokestatic  #819                // Method findFirstBackpack:(Lnet/minecraft/entity/player/PlayerEntity;)Ljava/util/Optional;
+       4: aload_0
+       5: aload_2
+       6: iload_1
+       7: aload_3
+       8: invokedynamic #829,  0            // InvokeDynamic #7:accept:(Lcom/buuz135/industrial/item/infinity/item/ItemInfinityBackpack;Lnet/minecraft/entity/player/PlayerEntity;ILnet/minecraft/nbt/CompoundNBT;)Ljava/util/function/Consumer;
+      13: invokevirtual #833                // Method java/util/Optional.ifPresent:(Ljava/util/function/Consumer;)V
+      16: return
+
+  public void addNbt(net.minecraft.item.ItemStack, long, int, boolean);
+    descriptor: (Lnet/minecraft/item/ItemStack;JIZ)V
+    Code:
+       0: new           #311                // class net/minecraft/nbt/CompoundNBT
+       3: dup
+       4: invokespecial #838                // Method net/minecraft/nbt/CompoundNBT."<init>":()V
+       7: astore        6
+       9: aload         6
+      11: ldc_w         #840                // String Energy
+      14: lload_2
+      15: invokevirtual #844                // Method net/minecraft/nbt/CompoundNBT.func_74772_a:(Ljava/lang/String;J)V
+      18: aload         6
+      20: ldc_w         #557                // String Special
+      23: iload         5
+      25: invokevirtual #321                // Method net/minecraft/nbt/CompoundNBT.func_74757_a:(Ljava/lang/String;Z)V
+      28: aload         6
+      30: ldc_w         #846                // String Selected
+      33: lload_2
+      34: invokestatic  #212                // Method com/buuz135/industrial/item/infinity/InfinityTier.getTierBraquet:(J)Lorg/apache/commons/lang3/tuple/Pair;
+      37: invokevirtual #218                // Method org/apache/commons/lang3/tuple/Pair.getLeft:()Ljava/lang/Object;
+      40: checkcast     #208                // class com/buuz135/industrial/item/infinity/InfinityTier
+      43: invokevirtual #848                // Method com/buuz135/industrial/item/infinity/InfinityTier.name:()Ljava/lang/String;
+      46: invokevirtual #491                // Method net/minecraft/nbt/CompoundNBT.func_74778_a:(Ljava/lang/String;Ljava/lang/String;)V
+      49: aload         6
+      51: ldc_w         #850                // String CanCharge
+      54: iconst_1
+      55: invokevirtual #321                // Method net/minecraft/nbt/CompoundNBT.func_74757_a:(Ljava/lang/String;Z)V
+      58: aload_1
+      59: aload         6
+      61: invokevirtual #499                // Method net/minecraft/item/ItemStack.func_77982_d:(Lnet/minecraft/nbt/CompoundNBT;)V
+      64: return
+
+  public void addTooltipDetails(com.hrznstudio.titanium.item.BasicItem$Key, net.minecraft.item.ItemStack, java.util.List<net.minecraft.util.text.ITextComponent>, boolean);
+    descriptor: (Lcom/hrznstudio/titanium/item/BasicItem$Key;Lnet/minecraft/item/ItemStack;Ljava/util/List;Z)V
+    Code:
+       0: aload_3
+       1: new           #860                // class net/minecraft/util/text/StringTextComponent
+       4: dup
+       5: new           #862                // class java/lang/StringBuilder
+       8: dup
+       9: invokespecial #863                // Method java/lang/StringBuilder."<init>":()V
+      12: getstatic     #869                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+      15: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      18: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+      21: dup
+      22: ldc_w         #877                // String text.industrialforegoing.tooltip.can_hold
+      25: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+      28: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+      31: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      34: ldc_w         #888                // String :
+      37: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      40: getstatic     #891                // Field net/minecraft/util/text/TextFormatting.DARK_AQUA:Lnet/minecraft/util/text/TextFormatting;
+      43: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      46: getstatic     #897                // Field java/util/Locale.ROOT:Ljava/util/Locale;
+      49: invokestatic  #903                // Method java/text/NumberFormat.getInstance:(Ljava/util/Locale;)Ljava/text/NumberFormat;
+      52: aload_2
+      53: invokestatic  #728                // Method getSlotSize:(Lnet/minecraft/item/ItemStack;)I
+      56: i2l
+      57: invokevirtual #907                // Method java/text/NumberFormat.format:(J)Ljava/lang/String;
+      60: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      63: getstatic     #869                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+      66: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      69: ldc_w         #909                // String
+      72: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      75: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+      78: dup
+      79: ldc_w         #911                // String text.industrialforegoing.tooltip.items
+      82: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+      85: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+      88: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      91: invokevirtual #912                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      94: invokespecial #913                // Method net/minecraft/util/text/StringTextComponent."<init>":(Ljava/lang/String;)V
+      97: invokeinterface #412,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     102: pop
+     103: aload_0
+     104: aload_1
+     105: aload_2
+     106: aload_3
+     107: iload         4
+     109: invokespecial #915                // Method com/buuz135/industrial/item/infinity/ItemInfinity.addTooltipDetails:(Lcom/hrznstudio/titanium/item/BasicItem$Key;Lnet/minecraft/item/ItemStack;Ljava/util/List;Z)V
+     112: return
+
+  public int getFuelFromStack(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)I
+    Code:
+       0: iconst_0
+       1: istore_2
+       2: aload_1
+       3: invokevirtual #469                // Method net/minecraft/item/ItemStack.func_77942_o:()Z
+       6: ifeq          64
+       9: aload_1
+      10: invokevirtual #472                // Method net/minecraft/item/ItemStack.func_77978_p:()Lnet/minecraft/nbt/CompoundNBT;
+      13: ldc_w         #923                // String Tanks
+      16: invokevirtual #477                // Method net/minecraft/nbt/CompoundNBT.func_74764_b:(Ljava/lang/String;)Z
+      19: ifeq          64
+      22: aload_1
+      23: invokevirtual #472                // Method net/minecraft/item/ItemStack.func_77978_p:()Lnet/minecraft/nbt/CompoundNBT;
+      26: ldc_w         #923                // String Tanks
+      29: invokevirtual #927                // Method net/minecraft/nbt/CompoundNBT.func_74775_l:(Ljava/lang/String;)Lnet/minecraft/nbt/CompoundNBT;
+      32: ldc_w         #929                // String biofuel
+      35: invokevirtual #477                // Method net/minecraft/nbt/CompoundNBT.func_74764_b:(Ljava/lang/String;)Z
+      38: ifeq          64
+      41: aload_1
+      42: invokevirtual #472                // Method net/minecraft/item/ItemStack.func_77978_p:()Lnet/minecraft/nbt/CompoundNBT;
+      45: ldc_w         #923                // String Tanks
+      48: invokevirtual #927                // Method net/minecraft/nbt/CompoundNBT.func_74775_l:(Ljava/lang/String;)Lnet/minecraft/nbt/CompoundNBT;
+      51: ldc_w         #929                // String biofuel
+      54: invokevirtual #927                // Method net/minecraft/nbt/CompoundNBT.func_74775_l:(Ljava/lang/String;)Lnet/minecraft/nbt/CompoundNBT;
+      57: ldc_w         #931                // String Amount
+      60: invokevirtual #330                // Method net/minecraft/nbt/CompoundNBT.func_74762_e:(Ljava/lang/String;)I
+      63: istore_2
+      64: iload_2
+      65: ireturn
+
+  public boolean enoughFuel(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)Z
+    Code:
+       0: getstatic     #938                // Field net/minecraft/enchantment/Enchantments.field_185307_s:Lnet/minecraft/enchantment/Enchantment;
+       3: aload_1
+       4: invokestatic  #944                // Method net/minecraft/enchantment/EnchantmentHelper.func_77506_a:(Lnet/minecraft/enchantment/Enchantment;Lnet/minecraft/item/ItemStack;)I
+       7: istore_2
+       8: aload_0
+       9: aload_1
+      10: invokevirtual #946                // Method getFuelFromStack:(Lnet/minecraft/item/ItemStack;)I
+      13: getstatic     #130                // Field FUEL_CONSUMPTION:I
+      16: iconst_1
+      17: iload_2
+      18: iconst_1
+      19: iadd
+      20: idiv
+      21: imul
+      22: if_icmplt     29
+      25: iconst_1
+      26: goto          30
+      29: iconst_0
+      30: ireturn
+
+  public void consumeFuel(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)V
+    Code:
+       0: getstatic     #938                // Field net/minecraft/enchantment/Enchantments.field_185307_s:Lnet/minecraft/enchantment/Enchantment;
+       3: aload_1
+       4: invokestatic  #944                // Method net/minecraft/enchantment/EnchantmentHelper.func_77506_a:(Lnet/minecraft/enchantment/Enchantment;Lnet/minecraft/item/ItemStack;)I
+       7: istore_2
+       8: aload_0
+       9: aload_1
+      10: invokevirtual #946                // Method getFuelFromStack:(Lnet/minecraft/item/ItemStack;)I
+      13: getstatic     #130                // Field FUEL_CONSUMPTION:I
+      16: iconst_1
+      17: iload_2
+      18: iconst_1
+      19: iadd
+      20: idiv
+      21: imul
+      22: if_icmplt     66
+      25: aload_1
+      26: invokevirtual #472                // Method net/minecraft/item/ItemStack.func_77978_p:()Lnet/minecraft/nbt/CompoundNBT;
+      29: ldc_w         #923                // String Tanks
+      32: invokevirtual #927                // Method net/minecraft/nbt/CompoundNBT.func_74775_l:(Ljava/lang/String;)Lnet/minecraft/nbt/CompoundNBT;
+      35: ldc_w         #929                // String biofuel
+      38: invokevirtual #927                // Method net/minecraft/nbt/CompoundNBT.func_74775_l:(Ljava/lang/String;)Lnet/minecraft/nbt/CompoundNBT;
+      41: ldc_w         #931                // String Amount
+      44: iconst_0
+      45: aload_0
+      46: aload_1
+      47: invokevirtual #946                // Method getFuelFromStack:(Lnet/minecraft/item/ItemStack;)I
+      50: getstatic     #130                // Field FUEL_CONSUMPTION:I
+      53: iconst_1
+      54: iload_2
+      55: iconst_1
+      56: iadd
+      57: idiv
+      58: imul
+      59: isub
+      60: invokestatic  #950                // Method java/lang/Math.max:(II)I
+      63: invokevirtual #336                // Method net/minecraft/nbt/CompoundNBT.func_74768_a:(Ljava/lang/String;I)V
+      66: return
+
+  public com.google.common.collect.Multimap<net.minecraft.entity.ai.attributes.Attribute, net.minecraft.entity.ai.attributes.AttributeModifier> getAttributeModifiers(net.minecraft.inventory.EquipmentSlotType, net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/inventory/EquipmentSlotType;Lnet/minecraft/item/ItemStack;)Lcom/google/common/collect/Multimap;
+    Code:
+       0: invokestatic  #957                // Method com/google/common/collect/MultimapBuilder.hashKeys:()Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;
+       3: invokevirtual #961                // Method com/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys.arrayListValues:()Lcom/google/common/collect/MultimapBuilder$ListMultimapBuilder;
+       6: invokevirtual #965                // Method com/google/common/collect/MultimapBuilder$ListMultimapBuilder.build:()Lcom/google/common/collect/ListMultimap;
+       9: astore_3
+      10: aload_3
+      11: areturn
+
+  public boolean func_77616_k(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)Z
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public boolean canApplyAtEnchantingTable(net.minecraft.item.ItemStack, net.minecraft.enchantment.Enchantment);
+    descriptor: (Lnet/minecraft/item/ItemStack;Lnet/minecraft/enchantment/Enchantment;)Z
+    Code:
+       0: getstatic     #938                // Field net/minecraft/enchantment/Enchantments.field_185307_s:Lnet/minecraft/enchantment/Enchantment;
+       3: aload_2
+       4: if_acmpne     11
+       7: iconst_1
+       8: goto          12
+      11: iconst_0
+      12: ireturn
+
+  public float func_150893_a(net.minecraft.item.ItemStack, net.minecraft.block.BlockState);
+    descriptor: (Lnet/minecraft/item/ItemStack;Lnet/minecraft/block/BlockState;)F
+    Code:
+       0: fconst_1
+       1: freturn
+
+  public net.minecraft.inventory.container.Container createMenu(int, net.minecraft.entity.player.PlayerInventory, net.minecraft.entity.player.PlayerEntity);
+    descriptor: (ILnet/minecraft/entity/player/PlayerInventory;Lnet/minecraft/entity/player/PlayerEntity;)Lnet/minecraft/inventory/container/Container;
+    Code:
+       0: aload_3
+       1: invokestatic  #819                // Method findFirstBackpack:(Lnet/minecraft/entity/player/PlayerEntity;)Ljava/util/Optional;
+       4: aload_0
+       5: aload_3
+       6: iload_1
+       7: invokedynamic #991,  0            // InvokeDynamic #8:apply:(Lcom/buuz135/industrial/item/infinity/item/ItemInfinityBackpack;Lnet/minecraft/entity/player/PlayerEntity;I)Ljava/util/function/Function;
+      12: invokevirtual #995                // Method java/util/Optional.map:(Ljava/util/function/Function;)Ljava/util/Optional;
+      15: aconst_null
+      16: invokevirtual #998                // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      19: checkcast     #1000               // class net/minecraft/inventory/container/Container
+      22: areturn
+
+  public java.util.List<com.hrznstudio.titanium.api.IFactory<? extends com.hrznstudio.titanium.api.client.IScreenAddon>> getScreenAddons(java.util.function.Supplier<net.minecraft.item.ItemStack>);
+    descriptor: (Ljava/util/function/Supplier;)Ljava/util/List;
+    Code:
+       0: new           #342                // class java/util/ArrayList
+       3: dup
+       4: invokespecial #343                // Method java/util/ArrayList."<init>":()V
+       7: astore_2
+       8: iconst_0
+       9: istore_3
+      10: iload_3
+      11: bipush        32
+      13: if_icmpge     57
+      16: iload_3
+      17: bipush        8
+      19: irem
+      20: istore        4
+      22: iload_3
+      23: bipush        8
+      25: idiv
+      26: istore        5
+      28: iload_3
+      29: istore        6
+      31: aload_2
+      32: aload_0
+      33: iload         4
+      35: iload         5
+      37: iload         6
+      39: aload_1
+      40: invokedynamic #1015,  0           // InvokeDynamic #9:create:(Lcom/buuz135/industrial/item/infinity/item/ItemInfinityBackpack;IIILjava/util/function/Supplier;)Lcom/hrznstudio/titanium/api/IFactory;
+      45: invokeinterface #412,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      50: pop
+      51: iinc          3, 1
+      54: goto          10
+      57: aload_2
+      58: invokedynamic #1022,  0           // InvokeDynamic #10:create:()Lcom/hrznstudio/titanium/api/IFactory;
+      63: invokeinterface #412,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      68: pop
+      69: aload_2
+      70: invokedynamic #1027,  0           // InvokeDynamic #11:create:()Lcom/hrznstudio/titanium/api/IFactory;
+      75: invokeinterface #412,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      80: pop
+      81: sipush        181
+      84: istore_3
+      85: bipush        19
+      87: istore        4
+      89: aload_2
+      90: aload_0
+      91: iload_3
+      92: iload         4
+      94: aload_1
+      95: invokedynamic #1035,  0           // InvokeDynamic #12:create:(Lcom/buuz135/industrial/item/infinity/item/ItemInfinityBackpack;IILjava/util/function/Supplier;)Lcom/hrznstudio/titanium/api/IFactory;
+     100: invokeinterface #412,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     105: pop
+     106: aload_2
+     107: aload_0
+     108: iload_3
+     109: iload         4
+     111: aload_1
+     112: invokedynamic #1040,  0           // InvokeDynamic #13:create:(Lcom/buuz135/industrial/item/infinity/item/ItemInfinityBackpack;IILjava/util/function/Supplier;)Lcom/hrznstudio/titanium/api/IFactory;
+     117: invokeinterface #412,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     122: pop
+     123: aload_2
+     124: aload_0
+     125: iload_3
+     126: iload         4
+     128: aload_1
+     129: invokedynamic #1045,  0           // InvokeDynamic #14:create:(Lcom/buuz135/industrial/item/infinity/item/ItemInfinityBackpack;IILjava/util/function/Supplier;)Lcom/hrznstudio/titanium/api/IFactory;
+     134: invokeinterface #412,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     139: pop
+     140: aload_0
+     141: aload_1
+     142: invokeinterface #1049,  1         // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+     147: checkcast     #304                // class net/minecraft/item/ItemStack
+     150: invokevirtual #1052               // Method isSpecial:(Lnet/minecraft/item/ItemStack;)Z
+     153: ifeq          173
+     156: aload_2
+     157: aload_0
+     158: iload_3
+     159: iload         4
+     161: aload_1
+     162: invokedynamic #1057,  0           // InvokeDynamic #15:create:(Lcom/buuz135/industrial/item/infinity/item/ItemInfinityBackpack;IILjava/util/function/Supplier;)Lcom/hrznstudio/titanium/api/IFactory;
+     167: invokeinterface #412,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     172: pop
+     173: aload_2
+     174: areturn
+
+  public void registerRecipe(java.util.function.Consumer<net.minecraft.data.IFinishedRecipe>);
+    descriptor: (Ljava/util/function/Consumer;)V
+    Code:
+       0: new           #1067               // class com/buuz135/industrial/recipe/DissolutionChamberRecipe
+       3: dup
+       4: aload_0
+       5: invokevirtual #1071               // Method getRegistryName:()Lnet/minecraft/util/ResourceLocation;
+       8: bipush        8
+      10: anewarray     #49                 // class net/minecraft/item/crafting/Ingredient$IItemList
+      13: dup
+      14: iconst_0
+      15: new           #54                 // class net/minecraft/item/crafting/Ingredient$SingleItemList
+      18: dup
+      19: new           #304                // class net/minecraft/item/ItemStack
+      22: dup
+      23: getstatic     #1077               // Field com/buuz135/industrial/module/ModuleTransportStorage.BLACK_HOLE_UNIT_COMMON:Lcom/buuz135/industrial/block/transportstorage/BlackHoleUnitBlock;
+      26: invokespecial #1080               // Method net/minecraft/item/ItemStack."<init>":(Lnet/minecraft/util/IItemProvider;)V
+      29: invokespecial #1082               // Method net/minecraft/item/crafting/Ingredient$SingleItemList."<init>":(Lnet/minecraft/item/ItemStack;)V
+      32: aastore
+      33: dup
+      34: iconst_1
+      35: new           #57                 // class net/minecraft/item/crafting/Ingredient$TagList
+      38: dup
+      39: getstatic     #1086               // Field com/buuz135/industrial/utils/IndustrialTags$Items.GEAR_DIAMOND:Lnet/minecraft/tags/ITag;
+      42: invokespecial #1089               // Method net/minecraft/item/crafting/Ingredient$TagList."<init>":(Lnet/minecraft/tags/ITag;)V
+      45: aastore
+      46: dup
+      47: iconst_2
+      48: new           #54                 // class net/minecraft/item/crafting/Ingredient$SingleItemList
+      51: dup
+      52: new           #304                // class net/minecraft/item/ItemStack
+      55: dup
+      56: getstatic     #1077               // Field com/buuz135/industrial/module/ModuleTransportStorage.BLACK_HOLE_UNIT_COMMON:Lcom/buuz135/industrial/block/transportstorage/BlackHoleUnitBlock;
+      59: invokespecial #1080               // Method net/minecraft/item/ItemStack."<init>":(Lnet/minecraft/util/IItemProvider;)V
+      62: invokespecial #1082               // Method net/minecraft/item/crafting/Ingredient$SingleItemList."<init>":(Lnet/minecraft/item/ItemStack;)V
+      65: aastore
+      66: dup
+      67: iconst_3
+      68: new           #54                 // class net/minecraft/item/crafting/Ingredient$SingleItemList
+      71: dup
+      72: new           #304                // class net/minecraft/item/ItemStack
+      75: dup
+      76: getstatic     #1093               // Field com/buuz135/industrial/module/ModuleTransportStorage.BLACK_HOLE_TANK_COMMON:Lcom/buuz135/industrial/block/transportstorage/BlackHoleTankBlock;
+      79: invokespecial #1080               // Method net/minecraft/item/ItemStack."<init>":(Lnet/minecraft/util/IItemProvider;)V
+      82: invokespecial #1082               // Method net/minecraft/item/crafting/Ingredient$SingleItemList."<init>":(Lnet/minecraft/item/ItemStack;)V
+      85: aastore
+      86: dup
+      87: iconst_4
+      88: new           #54                 // class net/minecraft/item/crafting/Ingredient$SingleItemList
+      91: dup
+      92: new           #304                // class net/minecraft/item/ItemStack
+      95: dup
+      96: getstatic     #1093               // Field com/buuz135/industrial/module/ModuleTransportStorage.BLACK_HOLE_TANK_COMMON:Lcom/buuz135/industrial/block/transportstorage/BlackHoleTankBlock;
+      99: invokespecial #1080               // Method net/minecraft/item/ItemStack."<init>":(Lnet/minecraft/util/IItemProvider;)V
+     102: invokespecial #1082               // Method net/minecraft/item/crafting/Ingredient$SingleItemList."<init>":(Lnet/minecraft/item/ItemStack;)V
+     105: aastore
+     106: dup
+     107: iconst_5
+     108: new           #57                 // class net/minecraft/item/crafting/Ingredient$TagList
+     111: dup
+     112: getstatic     #1096               // Field com/buuz135/industrial/utils/IndustrialTags$Items.GEAR_GOLD:Lnet/minecraft/tags/ITag;
+     115: invokespecial #1089               // Method net/minecraft/item/crafting/Ingredient$TagList."<init>":(Lnet/minecraft/tags/ITag;)V
+     118: aastore
+     119: dup
+     120: bipush        6
+     122: new           #57                 // class net/minecraft/item/crafting/Ingredient$TagList
+     125: dup
+     126: getstatic     #1096               // Field com/buuz135/industrial/utils/IndustrialTags$Items.GEAR_GOLD:Lnet/minecraft/tags/ITag;
+     129: invokespecial #1089               // Method net/minecraft/item/crafting/Ingredient$TagList."<init>":(Lnet/minecraft/tags/ITag;)V
+     132: aastore
+     133: dup
+     134: bipush        7
+     136: new           #57                 // class net/minecraft/item/crafting/Ingredient$TagList
+     139: dup
+     140: getstatic     #1096               // Field com/buuz135/industrial/utils/IndustrialTags$Items.GEAR_GOLD:Lnet/minecraft/tags/ITag;
+     143: invokespecial #1089               // Method net/minecraft/item/crafting/Ingredient$TagList."<init>":(Lnet/minecraft/tags/ITag;)V
+     146: aastore
+     147: new           #691                // class net/minecraftforge/fluids/FluidStack
+     150: dup
+     151: getstatic     #1099               // Field com/buuz135/industrial/module/ModuleCore.PINK_SLIME:Lcom/hrznstudio/titanium/fluid/TitaniumFluidInstance;
+     154: invokevirtual #709                // Method com/hrznstudio/titanium/fluid/TitaniumFluidInstance.getSourceFluid:()Lcom/hrznstudio/titanium/fluid/TitaniumFluid;
+     157: sipush        2000
+     160: invokespecial #712                // Method net/minecraftforge/fluids/FluidStack."<init>":(Lnet/minecraft/fluid/Fluid;I)V
+     163: sipush        400
+     166: new           #304                // class net/minecraft/item/ItemStack
+     169: dup
+     170: aload_0
+     171: invokespecial #1080               // Method net/minecraft/item/ItemStack."<init>":(Lnet/minecraft/util/IItemProvider;)V
+     174: getstatic     #1102               // Field net/minecraftforge/fluids/FluidStack.EMPTY:Lnet/minecraftforge/fluids/FluidStack;
+     177: invokespecial #1105               // Method com/buuz135/industrial/recipe/DissolutionChamberRecipe."<init>":(Lnet/minecraft/util/ResourceLocation;[Lnet/minecraft/item/crafting/Ingredient$IItemList;Lnet/minecraftforge/fluids/FluidStack;ILnet/minecraft/item/ItemStack;Lnet/minecraftforge/fluids/FluidStack;)V
+     180: pop
+     181: return
+
+  private com.hrznstudio.titanium.api.client.IScreenAddon lambda$getScreenAddons$19(int, int, java.util.function.Supplier);
+    descriptor: (IILjava/util/function/Supplier;)Lcom/hrznstudio/titanium/api/client/IScreenAddon;
+    Code:
+       0: new           #19                 // class com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack$7
+       3: dup
+       4: aload_0
+       5: new           #1110               // class com/hrznstudio/titanium/component/button/ButtonComponent
+       8: dup
+       9: iload_1
+      10: bipush        16
+      12: iload_2
+      13: iconst_3
+      14: imul
+      15: iadd
+      16: bipush        14
+      18: bipush        14
+      20: invokespecial #1113               // Method com/hrznstudio/titanium/component/button/ButtonComponent."<init>":(IIII)V
+      23: bipush        -10
+      25: invokevirtual #1117               // Method com/hrznstudio/titanium/component/button/ButtonComponent.setId:(I)Lcom/hrznstudio/titanium/component/button/ButtonComponent;
+      28: iconst_2
+      29: anewarray     #1119               // class com/hrznstudio/titanium/client/screen/addon/StateButtonInfo
+      32: dup
+      33: iconst_0
+      34: new           #1119               // class com/hrznstudio/titanium/client/screen/addon/StateButtonInfo
+      37: dup
+      38: iconst_0
+      39: getstatic     #1125               // Field com/hrznstudio/titanium/api/client/AssetTypes.BUTTON_SIDENESS_ENABLED:Lcom/hrznstudio/titanium/api/client/IAssetType;
+      42: iconst_1
+      43: anewarray     #372                // class java/lang/String
+      46: dup
+      47: iconst_0
+      48: new           #862                // class java/lang/StringBuilder
+      51: dup
+      52: invokespecial #863                // Method java/lang/StringBuilder."<init>":()V
+      55: getstatic     #1128               // Field net/minecraft/util/text/TextFormatting.GOLD:Lnet/minecraft/util/text/TextFormatting;
+      58: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      61: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+      64: dup
+      65: ldc_w         #1130               // String text.industrialforegoing.display.special
+      68: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+      71: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+      74: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      77: invokevirtual #912                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      80: aastore
+      81: invokespecial #1133               // Method com/hrznstudio/titanium/client/screen/addon/StateButtonInfo."<init>":(ILcom/hrznstudio/titanium/api/client/IAssetType;[Ljava/lang/String;)V
+      84: aastore
+      85: dup
+      86: iconst_1
+      87: new           #1119               // class com/hrznstudio/titanium/client/screen/addon/StateButtonInfo
+      90: dup
+      91: iconst_1
+      92: getstatic     #1136               // Field com/hrznstudio/titanium/api/client/AssetTypes.BUTTON_SIDENESS_DISABLED:Lcom/hrznstudio/titanium/api/client/IAssetType;
+      95: iconst_1
+      96: anewarray     #372                // class java/lang/String
+      99: dup
+     100: iconst_0
+     101: new           #862                // class java/lang/StringBuilder
+     104: dup
+     105: invokespecial #863                // Method java/lang/StringBuilder."<init>":()V
+     108: getstatic     #1128               // Field net/minecraft/util/text/TextFormatting.GOLD:Lnet/minecraft/util/text/TextFormatting;
+     111: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     114: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+     117: dup
+     118: ldc_w         #1130               // String text.industrialforegoing.display.special
+     121: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+     124: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+     127: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     130: invokevirtual #912                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     133: aastore
+     134: invokespecial #1133               // Method com/hrznstudio/titanium/client/screen/addon/StateButtonInfo."<init>":(ILcom/hrznstudio/titanium/api/client/IAssetType;[Ljava/lang/String;)V
+     137: aastore
+     138: aload_3
+     139: invokespecial #1139               // Method com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack$7."<init>":(Lcom/buuz135/industrial/item/infinity/item/ItemInfinityBackpack;Lcom/hrznstudio/titanium/component/button/ButtonComponent;[Lcom/hrznstudio/titanium/client/screen/addon/StateButtonInfo;Ljava/util/function/Supplier;)V
+     142: areturn
+
+  private com.hrznstudio.titanium.api.client.IScreenAddon lambda$getScreenAddons$18(int, int, java.util.function.Supplier);
+    descriptor: (IILjava/util/function/Supplier;)Lcom/hrznstudio/titanium/api/client/IScreenAddon;
+    Code:
+       0: new           #17                 // class com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack$6
+       3: dup
+       4: aload_0
+       5: new           #1110               // class com/hrznstudio/titanium/component/button/ButtonComponent
+       8: dup
+       9: iload_1
+      10: bipush        16
+      12: iload_2
+      13: iconst_2
+      14: imul
+      15: iadd
+      16: bipush        14
+      18: bipush        14
+      20: invokespecial #1113               // Method com/hrznstudio/titanium/component/button/ButtonComponent."<init>":(IIII)V
+      23: iconst_3
+      24: invokevirtual #1117               // Method com/hrznstudio/titanium/component/button/ButtonComponent.setId:(I)Lcom/hrznstudio/titanium/component/button/ButtonComponent;
+      27: iconst_2
+      28: anewarray     #1119               // class com/hrznstudio/titanium/client/screen/addon/StateButtonInfo
+      31: dup
+      32: iconst_0
+      33: new           #1119               // class com/hrznstudio/titanium/client/screen/addon/StateButtonInfo
+      36: dup
+      37: iconst_0
+      38: getstatic     #1125               // Field com/hrznstudio/titanium/api/client/AssetTypes.BUTTON_SIDENESS_ENABLED:Lcom/hrznstudio/titanium/api/client/IAssetType;
+      41: iconst_1
+      42: anewarray     #372                // class java/lang/String
+      45: dup
+      46: iconst_0
+      47: new           #862                // class java/lang/StringBuilder
+      50: dup
+      51: invokespecial #863                // Method java/lang/StringBuilder."<init>":()V
+      54: getstatic     #1142               // Field net/minecraft/util/text/TextFormatting.GREEN:Lnet/minecraft/util/text/TextFormatting;
+      57: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      60: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+      63: dup
+      64: ldc_w         #1144               // String text.industrialforegoing.display.charging
+      67: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+      70: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+      73: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      76: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+      79: dup
+      80: ldc_w         #1146               // String text.industrialforegoing.display.enabled
+      83: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+      86: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+      89: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      92: invokevirtual #912                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      95: aastore
+      96: invokespecial #1133               // Method com/hrznstudio/titanium/client/screen/addon/StateButtonInfo."<init>":(ILcom/hrznstudio/titanium/api/client/IAssetType;[Ljava/lang/String;)V
+      99: aastore
+     100: dup
+     101: iconst_1
+     102: new           #1119               // class com/hrznstudio/titanium/client/screen/addon/StateButtonInfo
+     105: dup
+     106: iconst_1
+     107: getstatic     #1136               // Field com/hrznstudio/titanium/api/client/AssetTypes.BUTTON_SIDENESS_DISABLED:Lcom/hrznstudio/titanium/api/client/IAssetType;
+     110: iconst_1
+     111: anewarray     #372                // class java/lang/String
+     114: dup
+     115: iconst_0
+     116: new           #862                // class java/lang/StringBuilder
+     119: dup
+     120: invokespecial #863                // Method java/lang/StringBuilder."<init>":()V
+     123: getstatic     #1149               // Field net/minecraft/util/text/TextFormatting.RED:Lnet/minecraft/util/text/TextFormatting;
+     126: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     129: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+     132: dup
+     133: ldc_w         #1144               // String text.industrialforegoing.display.charging
+     136: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+     139: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+     142: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     145: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+     148: dup
+     149: ldc_w         #1151               // String text.industrialforegoing.display.disabled
+     152: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+     155: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+     158: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     161: invokevirtual #912                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     164: aastore
+     165: invokespecial #1133               // Method com/hrznstudio/titanium/client/screen/addon/StateButtonInfo."<init>":(ILcom/hrznstudio/titanium/api/client/IAssetType;[Ljava/lang/String;)V
+     168: aastore
+     169: aload_3
+     170: invokespecial #1152               // Method com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack$6."<init>":(Lcom/buuz135/industrial/item/infinity/item/ItemInfinityBackpack;Lcom/hrznstudio/titanium/component/button/ButtonComponent;[Lcom/hrznstudio/titanium/client/screen/addon/StateButtonInfo;Ljava/util/function/Supplier;)V
+     173: areturn
+
+  private com.hrznstudio.titanium.api.client.IScreenAddon lambda$getScreenAddons$17(int, int, java.util.function.Supplier);
+    descriptor: (IILjava/util/function/Supplier;)Lcom/hrznstudio/titanium/api/client/IScreenAddon;
+    Code:
+       0: new           #15                 // class com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack$5
+       3: dup
+       4: aload_0
+       5: new           #1110               // class com/hrznstudio/titanium/component/button/ButtonComponent
+       8: dup
+       9: iload_1
+      10: bipush        16
+      12: iload_2
+      13: iconst_1
+      14: imul
+      15: iadd
+      16: bipush        14
+      18: bipush        14
+      20: invokespecial #1113               // Method com/hrznstudio/titanium/component/button/ButtonComponent."<init>":(IIII)V
+      23: bipush        11
+      25: invokevirtual #1117               // Method com/hrznstudio/titanium/component/button/ButtonComponent.setId:(I)Lcom/hrznstudio/titanium/component/button/ButtonComponent;
+      28: iconst_4
+      29: anewarray     #1119               // class com/hrznstudio/titanium/client/screen/addon/StateButtonInfo
+      32: dup
+      33: iconst_0
+      34: new           #1119               // class com/hrznstudio/titanium/client/screen/addon/StateButtonInfo
+      37: dup
+      38: iconst_0
+      39: getstatic     #1125               // Field com/hrznstudio/titanium/api/client/AssetTypes.BUTTON_SIDENESS_ENABLED:Lcom/hrznstudio/titanium/api/client/IAssetType;
+      42: iconst_3
+      43: anewarray     #372                // class java/lang/String
+      46: dup
+      47: iconst_0
+      48: new           #862                // class java/lang/StringBuilder
+      51: dup
+      52: invokespecial #863                // Method java/lang/StringBuilder."<init>":()V
+      55: getstatic     #1142               // Field net/minecraft/util/text/TextFormatting.GREEN:Lnet/minecraft/util/text/TextFormatting;
+      58: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      61: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+      64: dup
+      65: ldc_w         #1154               // String tooltip.industrialforegoing.backpack.pickup_all
+      68: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+      71: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+      74: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      77: invokevirtual #912                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      80: aastore
+      81: dup
+      82: iconst_1
+      83: new           #862                // class java/lang/StringBuilder
+      86: dup
+      87: invokespecial #863                // Method java/lang/StringBuilder."<init>":()V
+      90: getstatic     #869                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+      93: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      96: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+      99: dup
+     100: ldc_w         #1156               // String tooltip.industrialforegoing.backpack.pickup_extra
+     103: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+     106: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+     109: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     112: invokevirtual #912                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     115: aastore
+     116: dup
+     117: iconst_2
+     118: new           #862                // class java/lang/StringBuilder
+     121: dup
+     122: invokespecial #863                // Method java/lang/StringBuilder."<init>":()V
+     125: getstatic     #869                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+     128: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     131: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+     134: dup
+     135: ldc_w         #1158               // String tooltip.industrialforegoing.backpack.pickup_extra_1
+     138: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+     141: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+     144: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     147: invokevirtual #912                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     150: aastore
+     151: invokespecial #1133               // Method com/hrznstudio/titanium/client/screen/addon/StateButtonInfo."<init>":(ILcom/hrznstudio/titanium/api/client/IAssetType;[Ljava/lang/String;)V
+     154: aastore
+     155: dup
+     156: iconst_1
+     157: new           #1119               // class com/hrznstudio/titanium/client/screen/addon/StateButtonInfo
+     160: dup
+     161: iconst_1
+     162: getstatic     #1161               // Field com/hrznstudio/titanium/api/client/AssetTypes.BUTTON_SIDENESS_PULL:Lcom/hrznstudio/titanium/api/client/IAssetType;
+     165: iconst_3
+     166: anewarray     #372                // class java/lang/String
+     169: dup
+     170: iconst_0
+     171: new           #862                // class java/lang/StringBuilder
+     174: dup
+     175: invokespecial #863                // Method java/lang/StringBuilder."<init>":()V
+     178: getstatic     #1142               // Field net/minecraft/util/text/TextFormatting.GREEN:Lnet/minecraft/util/text/TextFormatting;
+     181: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     184: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+     187: dup
+     188: ldc_w         #1163               // String tooltip.industrialforegoing.backpack.item_pickup_enabled
+     191: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+     194: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+     197: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     200: invokevirtual #912                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     203: aastore
+     204: dup
+     205: iconst_1
+     206: new           #862                // class java/lang/StringBuilder
+     209: dup
+     210: invokespecial #863                // Method java/lang/StringBuilder."<init>":()V
+     213: getstatic     #869                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+     216: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     219: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+     222: dup
+     223: ldc_w         #1156               // String tooltip.industrialforegoing.backpack.pickup_extra
+     226: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+     229: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+     232: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     235: invokevirtual #912                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     238: aastore
+     239: dup
+     240: iconst_2
+     241: new           #862                // class java/lang/StringBuilder
+     244: dup
+     245: invokespecial #863                // Method java/lang/StringBuilder."<init>":()V
+     248: getstatic     #869                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+     251: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     254: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+     257: dup
+     258: ldc_w         #1158               // String tooltip.industrialforegoing.backpack.pickup_extra_1
+     261: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+     264: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+     267: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     270: invokevirtual #912                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     273: aastore
+     274: invokespecial #1133               // Method com/hrznstudio/titanium/client/screen/addon/StateButtonInfo."<init>":(ILcom/hrznstudio/titanium/api/client/IAssetType;[Ljava/lang/String;)V
+     277: aastore
+     278: dup
+     279: iconst_2
+     280: new           #1119               // class com/hrznstudio/titanium/client/screen/addon/StateButtonInfo
+     283: dup
+     284: iconst_2
+     285: getstatic     #1166               // Field com/hrznstudio/titanium/api/client/AssetTypes.BUTTON_SIDENESS_PUSH:Lcom/hrznstudio/titanium/api/client/IAssetType;
+     288: iconst_3
+     289: anewarray     #372                // class java/lang/String
+     292: dup
+     293: iconst_0
+     294: new           #862                // class java/lang/StringBuilder
+     297: dup
+     298: invokespecial #863                // Method java/lang/StringBuilder."<init>":()V
+     301: getstatic     #1142               // Field net/minecraft/util/text/TextFormatting.GREEN:Lnet/minecraft/util/text/TextFormatting;
+     304: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     307: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+     310: dup
+     311: ldc_w         #1168               // String tooltip.industrialforegoing.backpack.xp_pickup_enabled
+     314: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+     317: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+     320: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     323: invokevirtual #912                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     326: aastore
+     327: dup
+     328: iconst_1
+     329: new           #862                // class java/lang/StringBuilder
+     332: dup
+     333: invokespecial #863                // Method java/lang/StringBuilder."<init>":()V
+     336: getstatic     #869                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+     339: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     342: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+     345: dup
+     346: ldc_w         #1156               // String tooltip.industrialforegoing.backpack.pickup_extra
+     349: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+     352: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+     355: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     358: invokevirtual #912                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     361: aastore
+     362: dup
+     363: iconst_2
+     364: new           #862                // class java/lang/StringBuilder
+     367: dup
+     368: invokespecial #863                // Method java/lang/StringBuilder."<init>":()V
+     371: getstatic     #869                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+     374: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     377: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+     380: dup
+     381: ldc_w         #1158               // String tooltip.industrialforegoing.backpack.pickup_extra_1
+     384: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+     387: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+     390: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     393: invokevirtual #912                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     396: aastore
+     397: invokespecial #1133               // Method com/hrznstudio/titanium/client/screen/addon/StateButtonInfo."<init>":(ILcom/hrznstudio/titanium/api/client/IAssetType;[Ljava/lang/String;)V
+     400: aastore
+     401: dup
+     402: iconst_3
+     403: new           #1119               // class com/hrznstudio/titanium/client/screen/addon/StateButtonInfo
+     406: dup
+     407: iconst_3
+     408: getstatic     #1136               // Field com/hrznstudio/titanium/api/client/AssetTypes.BUTTON_SIDENESS_DISABLED:Lcom/hrznstudio/titanium/api/client/IAssetType;
+     411: iconst_3
+     412: anewarray     #372                // class java/lang/String
+     415: dup
+     416: iconst_0
+     417: new           #862                // class java/lang/StringBuilder
+     420: dup
+     421: invokespecial #863                // Method java/lang/StringBuilder."<init>":()V
+     424: getstatic     #1149               // Field net/minecraft/util/text/TextFormatting.RED:Lnet/minecraft/util/text/TextFormatting;
+     427: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     430: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+     433: dup
+     434: ldc_w         #1170               // String tooltip.industrialforegoing.backpack.pickup_disabled
+     437: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+     440: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+     443: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     446: invokevirtual #912                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     449: aastore
+     450: dup
+     451: iconst_1
+     452: new           #862                // class java/lang/StringBuilder
+     455: dup
+     456: invokespecial #863                // Method java/lang/StringBuilder."<init>":()V
+     459: getstatic     #869                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+     462: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     465: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+     468: dup
+     469: ldc_w         #1156               // String tooltip.industrialforegoing.backpack.pickup_extra
+     472: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+     475: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+     478: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     481: invokevirtual #912                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     484: aastore
+     485: dup
+     486: iconst_2
+     487: new           #862                // class java/lang/StringBuilder
+     490: dup
+     491: invokespecial #863                // Method java/lang/StringBuilder."<init>":()V
+     494: getstatic     #869                // Field net/minecraft/util/text/TextFormatting.GRAY:Lnet/minecraft/util/text/TextFormatting;
+     497: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     500: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+     503: dup
+     504: ldc_w         #1158               // String tooltip.industrialforegoing.backpack.pickup_extra_1
+     507: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+     510: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+     513: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     516: invokevirtual #912                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     519: aastore
+     520: invokespecial #1133               // Method com/hrznstudio/titanium/client/screen/addon/StateButtonInfo."<init>":(ILcom/hrznstudio/titanium/api/client/IAssetType;[Ljava/lang/String;)V
+     523: aastore
+     524: aload_3
+     525: invokespecial #1171               // Method com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack$5."<init>":(Lcom/buuz135/industrial/item/infinity/item/ItemInfinityBackpack;Lcom/hrznstudio/titanium/component/button/ButtonComponent;[Lcom/hrznstudio/titanium/client/screen/addon/StateButtonInfo;Ljava/util/function/Supplier;)V
+     528: areturn
+
+  private com.hrznstudio.titanium.api.client.IScreenAddon lambda$getScreenAddons$16(int, int, java.util.function.Supplier);
+    descriptor: (IILjava/util/function/Supplier;)Lcom/hrznstudio/titanium/api/client/IScreenAddon;
+    Code:
+       0: new           #13                 // class com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack$4
+       3: dup
+       4: aload_0
+       5: new           #1110               // class com/hrznstudio/titanium/component/button/ButtonComponent
+       8: dup
+       9: iload_1
+      10: bipush        16
+      12: iload_2
+      13: iconst_0
+      14: imul
+      15: iadd
+      16: bipush        14
+      18: bipush        14
+      20: invokespecial #1113               // Method com/hrznstudio/titanium/component/button/ButtonComponent."<init>":(IIII)V
+      23: bipush        10
+      25: invokevirtual #1117               // Method com/hrznstudio/titanium/component/button/ButtonComponent.setId:(I)Lcom/hrznstudio/titanium/component/button/ButtonComponent;
+      28: iconst_2
+      29: anewarray     #1119               // class com/hrznstudio/titanium/client/screen/addon/StateButtonInfo
+      32: dup
+      33: iconst_0
+      34: new           #1119               // class com/hrznstudio/titanium/client/screen/addon/StateButtonInfo
+      37: dup
+      38: iconst_0
+      39: getstatic     #1125               // Field com/hrznstudio/titanium/api/client/AssetTypes.BUTTON_SIDENESS_ENABLED:Lcom/hrznstudio/titanium/api/client/IAssetType;
+      42: iconst_1
+      43: anewarray     #372                // class java/lang/String
+      46: dup
+      47: iconst_0
+      48: new           #862                // class java/lang/StringBuilder
+      51: dup
+      52: invokespecial #863                // Method java/lang/StringBuilder."<init>":()V
+      55: getstatic     #1142               // Field net/minecraft/util/text/TextFormatting.GREEN:Lnet/minecraft/util/text/TextFormatting;
+      58: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      61: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+      64: dup
+      65: ldc_w         #1173               // String tooltip.industrialforegoing.backpack.magnet_enabled
+      68: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+      71: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+      74: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      77: invokevirtual #912                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      80: aastore
+      81: invokespecial #1133               // Method com/hrznstudio/titanium/client/screen/addon/StateButtonInfo."<init>":(ILcom/hrznstudio/titanium/api/client/IAssetType;[Ljava/lang/String;)V
+      84: aastore
+      85: dup
+      86: iconst_1
+      87: new           #1119               // class com/hrznstudio/titanium/client/screen/addon/StateButtonInfo
+      90: dup
+      91: iconst_1
+      92: getstatic     #1136               // Field com/hrznstudio/titanium/api/client/AssetTypes.BUTTON_SIDENESS_DISABLED:Lcom/hrznstudio/titanium/api/client/IAssetType;
+      95: iconst_1
+      96: anewarray     #372                // class java/lang/String
+      99: dup
+     100: iconst_0
+     101: new           #862                // class java/lang/StringBuilder
+     104: dup
+     105: invokespecial #863                // Method java/lang/StringBuilder."<init>":()V
+     108: getstatic     #1149               // Field net/minecraft/util/text/TextFormatting.RED:Lnet/minecraft/util/text/TextFormatting;
+     111: invokevirtual #873                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     114: new           #875                // class net/minecraft/util/text/TranslationTextComponent
+     117: dup
+     118: ldc_w         #1175               // String tooltip.industrialforegoing.backpack.magnet_disabled
+     121: invokespecial #880                // Method net/minecraft/util/text/TranslationTextComponent."<init>":(Ljava/lang/String;)V
+     124: invokevirtual #883                // Method net/minecraft/util/text/TranslationTextComponent.getString:()Ljava/lang/String;
+     127: invokevirtual #886                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     130: invokevirtual #912                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     133: aastore
+     134: invokespecial #1133               // Method com/hrznstudio/titanium/client/screen/addon/StateButtonInfo."<init>":(ILcom/hrznstudio/titanium/api/client/IAssetType;[Ljava/lang/String;)V
+     137: aastore
+     138: aload_3
+     139: invokespecial #1176               // Method com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack$4."<init>":(Lcom/buuz135/industrial/item/infinity/item/ItemInfinityBackpack;Lcom/hrznstudio/titanium/component/button/ButtonComponent;[Lcom/hrznstudio/titanium/client/screen/addon/StateButtonInfo;Ljava/util/function/Supplier;)V
+     142: areturn
+
+  private static com.hrznstudio.titanium.api.client.IScreenAddon lambda$getScreenAddons$15();
+    descriptor: ()Lcom/hrznstudio/titanium/api/client/IScreenAddon;
+    Code:
+       0: new           #1178               // class com/hrznstudio/titanium/client/screen/addon/AssetScreenAddon
+       3: dup
+       4: getstatic     #1181               // Field com/hrznstudio/titanium/api/client/AssetTypes.AUGMENT_BACKGROUND:Lcom/hrznstudio/titanium/api/client/IAssetType;
+       7: sipush        175
+      10: bipush        10
+      12: iconst_1
+      13: invokespecial #1184               // Method com/hrznstudio/titanium/client/screen/addon/AssetScreenAddon."<init>":(Lcom/hrznstudio/titanium/api/client/IAssetType;IIZ)V
+      16: areturn
+
+  private static com.hrznstudio.titanium.api.client.IScreenAddon lambda$getScreenAddons$14();
+    descriptor: ()Lcom/hrznstudio/titanium/api/client/IScreenAddon;
+    Code:
+       0: new           #1178               // class com/hrznstudio/titanium/client/screen/addon/AssetScreenAddon
+       3: dup
+       4: getstatic     #1187               // Field com/hrznstudio/titanium/api/client/AssetTypes.AUGMENT_BACKGROUND_LEFT_TALL:Lcom/hrznstudio/titanium/api/client/IAssetType;
+       7: bipush        -27
+       9: bipush        10
+      11: iconst_1
+      12: invokespecial #1184               // Method com/hrznstudio/titanium/client/screen/addon/AssetScreenAddon."<init>":(Lcom/hrznstudio/titanium/api/client/IAssetType;IIZ)V
+      15: areturn
+
+  private com.hrznstudio.titanium.api.client.IScreenAddon lambda$getScreenAddons$13(int, int, int, java.util.function.Supplier);
+    descriptor: (IIILjava/util/function/Supplier;)Lcom/hrznstudio/titanium/api/client/IScreenAddon;
+    Code:
+       0: new           #11                 // class com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack$3
+       3: dup
+       4: aload_0
+       5: new           #1110               // class com/hrznstudio/titanium/component/button/ButtonComponent
+       8: dup
+       9: bipush        16
+      11: bipush        18
+      13: iload_1
+      14: imul
+      15: iadd
+      16: bipush        21
+      18: bipush        18
+      20: iload_2
+      21: imul
+      22: iadd
+      23: bipush        18
+      25: bipush        18
+      27: invokespecial #1113               // Method com/hrznstudio/titanium/component/button/ButtonComponent."<init>":(IIII)V
+      30: iconst_4
+      31: invokevirtual #1117               // Method com/hrznstudio/titanium/component/button/ButtonComponent.setId:(I)Lcom/hrznstudio/titanium/component/button/ButtonComponent;
+      34: iload_3
+      35: aload         4
+      37: invokespecial #1190               // Method com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack$3."<init>":(Lcom/buuz135/industrial/item/infinity/item/ItemInfinityBackpack;Lcom/hrznstudio/titanium/component/button/ButtonComponent;ILjava/util/function/Supplier;)V
+      40: areturn
+
+  private com.buuz135.industrial.container.BackpackContainer lambda$createMenu$12(net.minecraft.entity.player.PlayerEntity, int, com.hrznstudio.titanium.network.locator.PlayerInventoryFinder$Target);
+    descriptor: (Lnet/minecraft/entity/player/PlayerEntity;ILcom/hrznstudio/titanium/network/locator/PlayerInventoryFinder$Target;)Lcom/buuz135/industrial/container/BackpackContainer;
+    Code:
+       0: aload_3
+       1: invokevirtual #1194               // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder$Target.getFinder:()Lcom/hrznstudio/titanium/network/locator/PlayerInventoryFinder;
+       4: invokevirtual #393                // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder.getStackGetter:()Ljava/util/function/BiFunction;
+       7: aload_1
+       8: aload_3
+       9: invokevirtual #1197               // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder$Target.getSlot:()I
+      12: invokestatic  #397                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      15: invokeinterface #402,  3          // InterfaceMethod java/util/function/BiFunction.apply:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      20: checkcast     #304                // class net/minecraft/item/ItemStack
+      23: astore        4
+      25: aload         4
+      27: invokevirtual #742                // Method net/minecraft/item/ItemStack.func_190926_b:()Z
+      30: ifne          169
+      33: aload         4
+      35: invokevirtual #469                // Method net/minecraft/item/ItemStack.func_77942_o:()Z
+      38: ifeq          55
+      41: aload         4
+      43: invokevirtual #472                // Method net/minecraft/item/ItemStack.func_77978_p:()Lnet/minecraft/nbt/CompoundNBT;
+      46: ldc_w         #474                // String Id
+      49: invokevirtual #477                // Method net/minecraft/nbt/CompoundNBT.func_74764_b:(Ljava/lang/String;)Z
+      52: ifne          99
+      55: invokestatic  #483                // Method java/util/UUID.randomUUID:()Ljava/util/UUID;
+      58: astore        5
+      60: aload         4
+      62: invokevirtual #307                // Method net/minecraft/item/ItemStack.func_196082_o:()Lnet/minecraft/nbt/CompoundNBT;
+      65: astore        6
+      67: aload         6
+      69: ldc_w         #474                // String Id
+      72: aload         5
+      74: invokevirtual #487                // Method java/util/UUID.toString:()Ljava/lang/String;
+      77: invokevirtual #491                // Method net/minecraft/nbt/CompoundNBT.func_74778_a:(Ljava/lang/String;Ljava/lang/String;)V
+      80: aload_1
+      81: getfield      #1198               // Field net/minecraft/entity/player/PlayerEntity.field_70170_p:Lnet/minecraft/world/World;
+      84: invokestatic  #260                // Method com/buuz135/industrial/worlddata/BackpackDataManager.getData:(Lnet/minecraft/world/IWorld;)Lcom/buuz135/industrial/worlddata/BackpackDataManager;
+      87: aload         5
+      89: invokevirtual #495                // Method com/buuz135/industrial/worlddata/BackpackDataManager.createBackPack:(Ljava/util/UUID;)V
+      92: aload         4
+      94: aload         6
+      96: invokevirtual #499                // Method net/minecraft/item/ItemStack.func_77982_d:(Lnet/minecraft/nbt/CompoundNBT;)V
+      99: aload         4
+     101: invokevirtual #472                // Method net/minecraft/item/ItemStack.func_77978_p:()Lnet/minecraft/nbt/CompoundNBT;
+     104: ldc_w         #474                // String Id
+     107: invokevirtual #503                // Method net/minecraft/nbt/CompoundNBT.func_74779_i:(Ljava/lang/String;)Ljava/lang/String;
+     110: astore        5
+     112: new           #1200               // class com/buuz135/industrial/container/BackpackContainer
+     115: dup
+     116: invokestatic  #1206               // Method com/hrznstudio/titanium/itemstack/ItemStackHarnessRegistry.getHarnessCreators:()Ljava/util/Map;
+     119: aload_0
+     120: invokeinterface #1209,  2         // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     125: checkcast     #381                // class java/util/function/Function
+     128: aload         4
+     130: invokeinterface #384,  2          // InterfaceMethod java/util/function/Function.apply:(Ljava/lang/Object;)Ljava/lang/Object;
+     135: new           #1211               // class com/hrznstudio/titanium/network/locator/instance/InventoryStackLocatorInstance
+     138: dup
+     139: aload_3
+     140: invokevirtual #1214               // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder$Target.getName:()Ljava/lang/String;
+     143: aload_3
+     144: invokevirtual #1197               // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder$Target.getSlot:()I
+     147: invokespecial #1216               // Method com/hrznstudio/titanium/network/locator/instance/InventoryStackLocatorInstance."<init>":(Ljava/lang/String;I)V
+     150: new           #9                  // class com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack$2
+     153: dup
+     154: aload_0
+     155: invokespecial #1219               // Method com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack$2."<init>":(Lcom/buuz135/industrial/item/infinity/item/ItemInfinityBackpack;)V
+     158: aload_1
+     159: getfield      #509                // Field net/minecraft/entity/player/PlayerEntity.field_71071_by:Lnet/minecraft/entity/player/PlayerInventory;
+     162: iload_2
+     163: aload         5
+     165: invokespecial #1222               // Method com/buuz135/industrial/container/BackpackContainer."<init>":(Ljava/lang/Object;Lcom/hrznstudio/titanium/network/locator/LocatorInstance;Lnet/minecraft/util/IWorldPosCallable;Lnet/minecraft/entity/player/PlayerInventory;ILjava/lang/String;)V
+     168: areturn
+     169: aconst_null
+     170: areturn
+
+  private void lambda$handleButtonMessage$11(net.minecraft.entity.player.PlayerEntity, int, net.minecraft.nbt.CompoundNBT, com.hrznstudio.titanium.network.locator.PlayerInventoryFinder$Target);
+    descriptor: (Lnet/minecraft/entity/player/PlayerEntity;ILnet/minecraft/nbt/CompoundNBT;Lcom/hrznstudio/titanium/network/locator/PlayerInventoryFinder$Target;)V
+    Code:
+       0: aload         4
+       2: invokevirtual #1194               // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder$Target.getFinder:()Lcom/hrznstudio/titanium/network/locator/PlayerInventoryFinder;
+       5: invokevirtual #393                // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder.getStackGetter:()Ljava/util/function/BiFunction;
+       8: aload_1
+       9: aload         4
+      11: invokevirtual #1197               // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder$Target.getSlot:()I
+      14: invokestatic  #397                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      17: invokeinterface #402,  3          // InterfaceMethod java/util/function/BiFunction.apply:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      22: checkcast     #304                // class net/minecraft/item/ItemStack
+      25: astore        5
+      27: aload         5
+      29: invokevirtual #742                // Method net/minecraft/item/ItemStack.func_190926_b:()Z
+      32: ifne          590
+      35: iload_2
+      36: iconst_4
+      37: if_icmpne     496
+      40: aload_1
+      41: instanceof    #273                // class net/minecraft/entity/player/ServerPlayerEntity
+      44: ifeq          496
+      47: aload_3
+      48: ldc_w         #474                // String Id
+      51: invokevirtual #503                // Method net/minecraft/nbt/CompoundNBT.func_74779_i:(Ljava/lang/String;)Ljava/lang/String;
+      54: astore        6
+      56: aload_1
+      57: getfield      #509                // Field net/minecraft/entity/player/PlayerEntity.field_71071_by:Lnet/minecraft/entity/player/PlayerInventory;
+      60: invokevirtual #1228               // Method net/minecraft/entity/player/PlayerInventory.func_70445_o:()Lnet/minecraft/item/ItemStack;
+      63: astore        7
+      65: aload_3
+      66: ldc_w         #1230               // String Shift
+      69: invokevirtual #315                // Method net/minecraft/nbt/CompoundNBT.func_74767_n:(Ljava/lang/String;)Z
+      72: istore        8
+      74: aload_3
+      75: ldc_w         #1232               // String Ctrl
+      78: invokevirtual #315                // Method net/minecraft/nbt/CompoundNBT.func_74767_n:(Ljava/lang/String;)Z
+      81: istore        9
+      83: aload_3
+      84: ldc_w         #1234               // String Button
+      87: invokevirtual #330                // Method net/minecraft/nbt/CompoundNBT.func_74762_e:(Ljava/lang/String;)I
+      90: istore        10
+      92: aload_3
+      93: ldc_w         #1236               // String Slot
+      96: invokevirtual #330                // Method net/minecraft/nbt/CompoundNBT.func_74762_e:(Ljava/lang/String;)I
+      99: istore        11
+     101: aload_1
+     102: getfield      #1198               // Field net/minecraft/entity/player/PlayerEntity.field_70170_p:Lnet/minecraft/world/World;
+     105: invokestatic  #260                // Method com/buuz135/industrial/worlddata/BackpackDataManager.getData:(Lnet/minecraft/world/IWorld;)Lcom/buuz135/industrial/worlddata/BackpackDataManager;
+     108: astore        12
+     110: aload         12
+     112: aload         6
+     114: invokevirtual #264                // Method com/buuz135/industrial/worlddata/BackpackDataManager.getBackpack:(Ljava/lang/String;)Lcom/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler;
+     117: astore        13
+     119: getstatic     #1239               // Field net/minecraft/item/ItemStack.field_190927_a:Lnet/minecraft/item/ItemStack;
+     122: astore        14
+     124: iconst_0
+     125: istore        15
+     127: iload         10
+     129: iconst_2
+     130: if_icmpne     199
+     133: aload         13
+     135: iload         11
+     137: iconst_1
+     138: iconst_1
+     139: invokevirtual #766                // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.extractItem:(IIZ)Lnet/minecraft/item/ItemStack;
+     142: astore        16
+     144: aload         16
+     146: invokevirtual #742                // Method net/minecraft/item/ItemStack.func_190926_b:()Z
+     149: ifne          196
+     152: aload         7
+     154: invokevirtual #742                // Method net/minecraft/item/ItemStack.func_190926_b:()Z
+     157: ifne          170
+     160: aload         16
+     162: aload         7
+     164: invokestatic  #1245               // Method net/minecraftforge/items/ItemHandlerHelper.canItemStacksStack:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/item/ItemStack;)Z
+     167: ifeq          196
+     170: aload         13
+     172: iload         11
+     174: iconst_1
+     175: iconst_0
+     176: invokevirtual #766                // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.extractItem:(IIZ)Lnet/minecraft/item/ItemStack;
+     179: astore        14
+     181: aload         14
+     183: aload         7
+     185: invokevirtual #755                // Method net/minecraft/item/ItemStack.func_190916_E:()I
+     188: iconst_1
+     189: iadd
+     190: invokevirtual #769                // Method net/minecraft/item/ItemStack.func_190920_e:(I)V
+     193: iconst_1
+     194: istore        15
+     196: goto          462
+     199: aload         7
+     201: invokevirtual #742                // Method net/minecraft/item/ItemStack.func_190926_b:()Z
+     204: ifeq          400
+     207: aload         13
+     209: iload         11
+     211: invokevirtual #739                // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.getStackInSlot:(I)Lnet/minecraft/item/ItemStack;
+     214: invokevirtual #758                // Method net/minecraft/item/ItemStack.func_77976_d:()I
+     217: istore        16
+     219: iload         10
+     221: ifne          339
+     224: iload         9
+     226: ifeq          259
+     229: aload         13
+     231: iload         11
+     233: invokevirtual #746                // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.getSlotDefinition:(I)Lcom/buuz135/industrial/worlddata/BackpackDataManager$SlotDefinition;
+     236: astore        17
+     238: aload         17
+     240: aload         17
+     242: invokevirtual #1248               // Method com/buuz135/industrial/worlddata/BackpackDataManager$SlotDefinition.isVoidItems:()Z
+     245: ifne          252
+     248: iconst_1
+     249: goto          253
+     252: iconst_0
+     253: invokevirtual #1252               // Method com/buuz135/industrial/worlddata/BackpackDataManager$SlotDefinition.setVoidItems:(Z)V
+     256: goto          397
+     259: iload         8
+     261: ifeq          321
+     264: aload         13
+     266: iload         11
+     268: invokevirtual #746                // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.getSlotDefinition:(I)Lcom/buuz135/industrial/worlddata/BackpackDataManager$SlotDefinition;
+     271: invokevirtual #1253               // Method com/buuz135/industrial/worlddata/BackpackDataManager$SlotDefinition.getAmount:()I
+     274: ifne          304
+     277: aload         13
+     279: iload         11
+     281: invokevirtual #746                // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.getSlotDefinition:(I)Lcom/buuz135/industrial/worlddata/BackpackDataManager$SlotDefinition;
+     284: getstatic     #1239               // Field net/minecraft/item/ItemStack.field_190927_a:Lnet/minecraft/item/ItemStack;
+     287: invokevirtual #1256               // Method com/buuz135/industrial/worlddata/BackpackDataManager$SlotDefinition.setStack:(Lnet/minecraft/item/ItemStack;)V
+     290: aload         13
+     292: iload         11
+     294: invokevirtual #746                // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.getSlotDefinition:(I)Lcom/buuz135/industrial/worlddata/BackpackDataManager$SlotDefinition;
+     297: iconst_0
+     298: invokevirtual #1259               // Method com/buuz135/industrial/worlddata/BackpackDataManager$SlotDefinition.setAmount:(I)V
+     301: goto          397
+     304: aload_1
+     305: aload         13
+     307: iload         11
+     309: iload         16
+     311: iconst_0
+     312: invokevirtual #766                // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.extractItem:(IIZ)Lnet/minecraft/item/ItemStack;
+     315: invokestatic  #1263               // Method net/minecraftforge/items/ItemHandlerHelper.giveItemToPlayer:(Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/item/ItemStack;)V
+     318: goto          397
+     321: aload         13
+     323: iload         11
+     325: iload         16
+     327: iconst_0
+     328: invokevirtual #766                // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.extractItem:(IIZ)Lnet/minecraft/item/ItemStack;
+     331: astore        14
+     333: iconst_1
+     334: istore        15
+     336: goto          397
+     339: iload         10
+     341: iconst_1
+     342: if_icmpne     397
+     345: iload         9
+     347: ifeq          380
+     350: aload         13
+     352: iload         11
+     354: invokevirtual #746                // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.getSlotDefinition:(I)Lcom/buuz135/industrial/worlddata/BackpackDataManager$SlotDefinition;
+     357: astore        17
+     359: aload         17
+     361: aload         17
+     363: invokevirtual #749                // Method com/buuz135/industrial/worlddata/BackpackDataManager$SlotDefinition.isRefillItems:()Z
+     366: ifne          373
+     369: iconst_1
+     370: goto          374
+     373: iconst_0
+     374: invokevirtual #1266               // Method com/buuz135/industrial/worlddata/BackpackDataManager$SlotDefinition.setRefillItems:(Z)V
+     377: goto          397
+     380: aload         13
+     382: iload         11
+     384: iload         16
+     386: iconst_2
+     387: idiv
+     388: iconst_0
+     389: invokevirtual #766                // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.extractItem:(IIZ)Lnet/minecraft/item/ItemStack;
+     392: astore        14
+     394: iconst_1
+     395: istore        15
+     397: goto          462
+     400: iload         10
+     402: ifne          423
+     405: aload         13
+     407: iload         11
+     409: aload         7
+     411: iconst_0
+     412: invokevirtual #1270               // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.insertItem:(ILnet/minecraft/item/ItemStack;Z)Lnet/minecraft/item/ItemStack;
+     415: astore        14
+     417: iconst_1
+     418: istore        15
+     420: goto          462
+     423: iload         10
+     425: iconst_1
+     426: if_icmpne     462
+     429: aload         13
+     431: iload         11
+     433: aload         7
+     435: iconst_1
+     436: invokestatic  #1274               // Method net/minecraftforge/items/ItemHandlerHelper.copyStackWithSize:(Lnet/minecraft/item/ItemStack;I)Lnet/minecraft/item/ItemStack;
+     439: iconst_0
+     440: invokevirtual #1270               // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.insertItem:(ILnet/minecraft/item/ItemStack;Z)Lnet/minecraft/item/ItemStack;
+     443: invokevirtual #742                // Method net/minecraft/item/ItemStack.func_190926_b:()Z
+     446: ifeq          462
+     449: aload         7
+     451: iconst_1
+     452: invokevirtual #1277               // Method net/minecraft/item/ItemStack.func_190918_g:(I)V
+     455: aload         7
+     457: astore        14
+     459: iconst_1
+     460: istore        15
+     462: iload         15
+     464: ifeq          483
+     467: aload_1
+     468: getfield      #509                // Field net/minecraft/entity/player/PlayerEntity.field_71071_by:Lnet/minecraft/entity/player/PlayerInventory;
+     471: aload         14
+     473: invokevirtual #1280               // Method net/minecraft/entity/player/PlayerInventory.func_70437_b:(Lnet/minecraft/item/ItemStack;)V
+     476: aload_1
+     477: checkcast     #273                // class net/minecraft/entity/player/ServerPlayerEntity
+     480: invokevirtual #1283               // Method net/minecraft/entity/player/ServerPlayerEntity.func_71113_k:()V
+     483: aload_1
+     484: getfield      #1198               // Field net/minecraft/entity/player/PlayerEntity.field_70170_p:Lnet/minecraft/world/World;
+     487: aload         6
+     489: aload_1
+     490: checkcast     #273                // class net/minecraft/entity/player/ServerPlayerEntity
+     493: invokestatic  #522                // Method sync:(Lnet/minecraft/world/World;Ljava/lang/String;Lnet/minecraft/entity/player/ServerPlayerEntity;)V
+     496: iload_2
+     497: bipush        10
+     499: if_icmpne     520
+     502: aload         5
+     504: aload         5
+     506: invokestatic  #567                // Method isMagnetEnabled:(Lnet/minecraft/item/ItemStack;)Z
+     509: ifne          516
+     512: iconst_1
+     513: goto          517
+     516: iconst_0
+     517: invokestatic  #1285               // Method setMagnet:(Lnet/minecraft/item/ItemStack;Z)V
+     520: iload_2
+     521: bipush        11
+     523: if_icmpne     540
+     526: aload         5
+     528: aload         5
+     530: invokestatic  #1287               // Method getPickUpMode:(Lnet/minecraft/item/ItemStack;)I
+     533: iconst_1
+     534: iadd
+     535: iconst_4
+     536: irem
+     537: invokestatic  #1289               // Method setPickUpMode:(Lnet/minecraft/item/ItemStack;I)V
+     540: iload_2
+     541: iconst_3
+     542: if_icmpne     564
+     545: aload_0
+     546: aload         5
+     548: aload         5
+     550: invokestatic  #1292               // Method canCharge:(Lnet/minecraft/item/ItemStack;)Z
+     553: ifne          560
+     556: iconst_1
+     557: goto          561
+     560: iconst_0
+     561: invokevirtual #1295               // Method setCanCharge:(Lnet/minecraft/item/ItemStack;Z)V
+     564: iload_2
+     565: bipush        -10
+     567: if_icmpne     590
+     570: aload_0
+     571: aload         5
+     573: aload_0
+     574: aload         5
+     576: invokevirtual #1298               // Method isSpecialEnabled:(Lnet/minecraft/item/ItemStack;)Z
+     579: ifne          586
+     582: iconst_1
+     583: goto          587
+     586: iconst_0
+     587: invokevirtual #1301               // Method setSpecialEnabled:(Lnet/minecraft/item/ItemStack;Z)V
+     590: return
+
+  private com.buuz135.industrial.item.infinity.InfinityEnergyStorage lambda$getEnergyConstructor$10(net.minecraft.item.ItemStack);
+    descriptor: (Lnet/minecraft/item/ItemStack;)Lcom/buuz135/industrial/item/infinity/InfinityEnergyStorage;
+    Code:
+       0: new           #7                  // class com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack$1
+       3: dup
+       4: aload_0
+       5: getstatic     #222                // Field com/buuz135/industrial/item/infinity/InfinityTier.ARTIFACT:Lcom/buuz135/industrial/item/infinity/InfinityTier;
+       8: invokevirtual #1316               // Method com/buuz135/industrial/item/infinity/InfinityTier.getPowerNeeded:()J
+      11: bipush        -21
+      13: bipush        24
+      15: aload_1
+      16: invokespecial #1319               // Method com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack$1."<init>":(Lcom/buuz135/industrial/item/infinity/item/ItemInfinityBackpack;JIILnet/minecraft/item/ItemStack;)V
+      19: areturn
+
+  private static com.hrznstudio.titanium.capability.FluidHandlerScreenProviderItemStack lambda$getTankConstructor$9(net.minecraft.item.ItemStack, int);
+    descriptor: (Lnet/minecraft/item/ItemStack;I)Lcom/hrznstudio/titanium/capability/FluidHandlerScreenProviderItemStack;
+    Code:
+       0: new           #62                 // class com/buuz135/industrial/capability/MultipleFluidHandlerScreenProviderItemStack
+       3: dup
+       4: aload_0
+       5: ldc_w         #1320               // int 1000000
+       8: iconst_3
+       9: anewarray     #60                 // class com/buuz135/industrial/capability/MultipleFluidHandlerScreenProviderItemStack$TankDefinition
+      12: dup
+      13: iconst_0
+      14: new           #60                 // class com/buuz135/industrial/capability/MultipleFluidHandlerScreenProviderItemStack$TankDefinition
+      17: dup
+      18: ldc_w         #929                // String biofuel
+      21: bipush        -21
+      23: iload_1
+      24: iconst_0
+      25: iadd
+      26: invokedynamic #1327,  0           // InvokeDynamic #16:test:()Ljava/util/function/Predicate;
+      31: iconst_0
+      32: iconst_1
+      33: getstatic     #1331               // Field com/hrznstudio/titanium/component/fluid/FluidTankComponent$Type.SMALL:Lcom/hrznstudio/titanium/component/fluid/FluidTankComponent$Type;
+      36: invokespecial #1334               // Method com/buuz135/industrial/capability/MultipleFluidHandlerScreenProviderItemStack$TankDefinition."<init>":(Ljava/lang/String;IILjava/util/function/Predicate;ZZLcom/hrznstudio/titanium/component/fluid/FluidTankComponent$Type;)V
+      39: aastore
+      40: dup
+      41: iconst_1
+      42: new           #60                 // class com/buuz135/industrial/capability/MultipleFluidHandlerScreenProviderItemStack$TankDefinition
+      45: dup
+      46: ldc_w         #1336               // String essence
+      49: bipush        -21
+      51: iload_1
+      52: bipush        25
+      54: iadd
+      55: invokedynamic #1341,  0           // InvokeDynamic #17:test:()Ljava/util/function/Predicate;
+      60: iconst_1
+      61: iconst_1
+      62: getstatic     #1331               // Field com/hrznstudio/titanium/component/fluid/FluidTankComponent$Type.SMALL:Lcom/hrznstudio/titanium/component/fluid/FluidTankComponent$Type;
+      65: invokespecial #1334               // Method com/buuz135/industrial/capability/MultipleFluidHandlerScreenProviderItemStack$TankDefinition."<init>":(Ljava/lang/String;IILjava/util/function/Predicate;ZZLcom/hrznstudio/titanium/component/fluid/FluidTankComponent$Type;)V
+      68: aastore
+      69: dup
+      70: iconst_2
+      71: new           #60                 // class com/buuz135/industrial/capability/MultipleFluidHandlerScreenProviderItemStack$TankDefinition
+      74: dup
+      75: ldc_w         #1343               // String meat
+      78: bipush        -21
+      80: iload_1
+      81: bipush        50
+      83: iadd
+      84: invokedynamic #1348,  0           // InvokeDynamic #18:test:()Ljava/util/function/Predicate;
+      89: iconst_0
+      90: iconst_1
+      91: getstatic     #1331               // Field com/hrznstudio/titanium/component/fluid/FluidTankComponent$Type.SMALL:Lcom/hrznstudio/titanium/component/fluid/FluidTankComponent$Type;
+      94: invokespecial #1334               // Method com/buuz135/industrial/capability/MultipleFluidHandlerScreenProviderItemStack$TankDefinition."<init>":(Ljava/lang/String;IILjava/util/function/Predicate;ZZLcom/hrznstudio/titanium/component/fluid/FluidTankComponent$Type;)V
+      97: aastore
+      98: invokespecial #1351               // Method com/buuz135/industrial/capability/MultipleFluidHandlerScreenProviderItemStack."<init>":(Lnet/minecraft/item/ItemStack;I[Lcom/buuz135/industrial/capability/MultipleFluidHandlerScreenProviderItemStack$TankDefinition;)V
+     101: areturn
+
+  private static boolean lambda$null$8(net.minecraftforge.fluids.FluidStack);
+    descriptor: (Lnet/minecraftforge/fluids/FluidStack;)Z
+    Code:
+       0: aload_0
+       1: invokevirtual #1355               // Method net/minecraftforge/fluids/FluidStack.getFluid:()Lnet/minecraft/fluid/Fluid;
+       4: getstatic     #703                // Field com/buuz135/industrial/module/ModuleCore.MEAT:Lcom/hrznstudio/titanium/fluid/TitaniumFluidInstance;
+       7: invokevirtual #709                // Method com/hrznstudio/titanium/fluid/TitaniumFluidInstance.getSourceFluid:()Lcom/hrznstudio/titanium/fluid/TitaniumFluid;
+      10: invokevirtual #1361               // Method net/minecraft/fluid/Fluid.func_207187_a:(Lnet/minecraft/fluid/Fluid;)Z
+      13: ireturn
+
+  private static boolean lambda$null$7(net.minecraftforge.fluids.FluidStack);
+    descriptor: (Lnet/minecraftforge/fluids/FluidStack;)Z
+    Code:
+       0: aload_0
+       1: invokevirtual #1355               // Method net/minecraftforge/fluids/FluidStack.getFluid:()Lnet/minecraft/fluid/Fluid;
+       4: getstatic     #1364               // Field com/buuz135/industrial/utils/IndustrialTags$Fluids.EXPERIENCE:Lnet/minecraft/tags/ITag;
+       7: invokevirtual #1368               // Method net/minecraft/fluid/Fluid.func_207185_a:(Lnet/minecraft/tags/ITag;)Z
+      10: ireturn
+
+  private static boolean lambda$null$6(net.minecraftforge.fluids.FluidStack);
+    descriptor: (Lnet/minecraftforge/fluids/FluidStack;)Z
+    Code:
+       0: aload_0
+       1: invokevirtual #1355               // Method net/minecraftforge/fluids/FluidStack.getFluid:()Lnet/minecraft/fluid/Fluid;
+       4: getstatic     #1371               // Field com/buuz135/industrial/module/ModuleCore.BIOFUEL:Lcom/hrznstudio/titanium/fluid/TitaniumFluidInstance;
+       7: invokevirtual #709                // Method com/hrznstudio/titanium/fluid/TitaniumFluidInstance.getSourceFluid:()Lcom/hrznstudio/titanium/fluid/TitaniumFluid;
+      10: invokevirtual #1361               // Method net/minecraft/fluid/Fluid.func_207187_a:(Lnet/minecraft/fluid/Fluid;)Z
+      13: ireturn
+
+  private static void lambda$onItemRightClick$5(net.minecraft.util.Hand, net.minecraft.network.PacketBuffer);
+    descriptor: (Lnet/minecraft/util/Hand;Lnet/minecraft/network/PacketBuffer;)V
+    Code:
+       0: aload_1
+       1: new           #1373               // class com/hrznstudio/titanium/network/locator/instance/HeldStackLocatorInstance
+       4: dup
+       5: aload_0
+       6: getstatic     #1378               // Field net/minecraft/util/Hand.MAIN_HAND:Lnet/minecraft/util/Hand;
+       9: if_acmpne     16
+      12: iconst_1
+      13: goto          17
+      16: iconst_0
+      17: invokespecial #1382               // Method com/hrznstudio/titanium/network/locator/instance/HeldStackLocatorInstance."<init>":(Z)V
+      20: invokestatic  #1388               // Method com/hrznstudio/titanium/network/locator/LocatorFactory.writePacketBuffer:(Lnet/minecraft/network/PacketBuffer;Lcom/hrznstudio/titanium/network/locator/LocatorInstance;)V
+      23: return
+
+  private static void lambda$new$4(net.minecraftforge.event.entity.player.PlayerXpEvent$PickupXp);
+    descriptor: (Lnet/minecraftforge/event/entity/player/PlayerXpEvent$PickupXp;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #1394               // Method net/minecraftforge/event/entity/player/PlayerXpEvent$PickupXp.getPlayer:()Lnet/minecraft/entity/player/PlayerEntity;
+       4: invokestatic  #819                // Method findFirstBackpack:(Lnet/minecraft/entity/player/PlayerEntity;)Ljava/util/Optional;
+       7: aload_0
+       8: invokedynamic #1402,  0           // InvokeDynamic #19:accept:(Lnet/minecraftforge/event/entity/player/PlayerXpEvent$PickupXp;)Ljava/util/function/Consumer;
+      13: invokevirtual #833                // Method java/util/Optional.ifPresent:(Ljava/util/function/Consumer;)V
+      16: return
+
+  private static void lambda$null$3(net.minecraftforge.event.entity.player.PlayerXpEvent$PickupXp, com.hrznstudio.titanium.network.locator.PlayerInventoryFinder$Target);
+    descriptor: (Lnet/minecraftforge/event/entity/player/PlayerXpEvent$PickupXp;Lcom/hrznstudio/titanium/network/locator/PlayerInventoryFinder$Target;)V
+    Code:
+       0: aload_1
+       1: invokevirtual #1194               // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder$Target.getFinder:()Lcom/hrznstudio/titanium/network/locator/PlayerInventoryFinder;
+       4: invokevirtual #393                // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder.getStackGetter:()Ljava/util/function/BiFunction;
+       7: aload_0
+       8: invokevirtual #1394               // Method net/minecraftforge/event/entity/player/PlayerXpEvent$PickupXp.getPlayer:()Lnet/minecraft/entity/player/PlayerEntity;
+      11: aload_1
+      12: invokevirtual #1197               // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder$Target.getSlot:()I
+      15: invokestatic  #397                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      18: invokeinterface #402,  3          // InterfaceMethod java/util/function/BiFunction.apply:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      23: checkcast     #304                // class net/minecraft/item/ItemStack
+      26: astore_2
+      27: aload_2
+      28: invokevirtual #742                // Method net/minecraft/item/ItemStack.func_190926_b:()Z
+      31: ifne          171
+      34: aload_2
+      35: invokevirtual #406                // Method net/minecraft/item/ItemStack.func_77973_b:()Lnet/minecraft/item/Item;
+      38: instanceof    #2                  // class com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack
+      41: ifeq          171
+      44: aload_2
+      45: invokestatic  #1287               // Method getPickUpMode:(Lnet/minecraft/item/ItemStack;)I
+      48: iconst_2
+      49: if_icmpeq     59
+      52: aload_2
+      53: invokestatic  #1287               // Method getPickUpMode:(Lnet/minecraft/item/ItemStack;)I
+      56: ifne          171
+      59: aload_2
+      60: getstatic     #670                // Field net/minecraftforge/fluids/capability/CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY:Lnet/minecraftforge/common/capabilities/Capability;
+      63: invokevirtual #674                // Method net/minecraft/item/ItemStack.getCapability:(Lnet/minecraftforge/common/capabilities/Capability;)Lnet/minecraftforge/common/util/LazyOptional;
+      66: invokevirtual #679                // Method net/minecraftforge/common/util/LazyOptional.isPresent:()Z
+      69: ifeq          171
+      72: aload_0
+      73: invokevirtual #1408               // Method net/minecraftforge/event/entity/player/PlayerXpEvent$PickupXp.getOrb:()Lnet/minecraft/entity/item/ExperienceOrbEntity;
+      76: astore_3
+      77: aload_2
+      78: getstatic     #670                // Field net/minecraftforge/fluids/capability/CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY:Lnet/minecraftforge/common/capabilities/Capability;
+      81: invokevirtual #674                // Method net/minecraft/item/ItemStack.getCapability:(Lnet/minecraftforge/common/capabilities/Capability;)Lnet/minecraftforge/common/util/LazyOptional;
+      84: aconst_null
+      85: invokevirtual #1409               // Method net/minecraftforge/common/util/LazyOptional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      88: checkcast     #685                // class net/minecraftforge/fluids/capability/IFluidHandlerItem
+      91: astore        4
+      93: aload         4
+      95: ifnull        171
+      98: aload         4
+     100: new           #691                // class net/minecraftforge/fluids/FluidStack
+     103: dup
+     104: getstatic     #1412               // Field com/buuz135/industrial/module/ModuleCore.ESSENCE:Lcom/hrznstudio/titanium/fluid/TitaniumFluidInstance;
+     107: invokevirtual #709                // Method com/hrznstudio/titanium/fluid/TitaniumFluidInstance.getSourceFluid:()Lcom/hrznstudio/titanium/fluid/TitaniumFluid;
+     110: aload_3
+     111: invokevirtual #1417               // Method net/minecraft/entity/item/ExperienceOrbEntity.func_70526_d:()I
+     114: bipush        20
+     116: imul
+     117: invokespecial #712                // Method net/minecraftforge/fluids/FluidStack."<init>":(Lnet/minecraft/fluid/Fluid;I)V
+     120: getstatic     #1421               // Field net/minecraftforge/fluids/capability/IFluidHandler$FluidAction.SIMULATE:Lnet/minecraftforge/fluids/capability/IFluidHandler$FluidAction;
+     123: invokeinterface #1425,  3         // InterfaceMethod net/minecraftforge/fluids/capability/IFluidHandlerItem.fill:(Lnet/minecraftforge/fluids/FluidStack;Lnet/minecraftforge/fluids/capability/IFluidHandler$FluidAction;)I
+     128: ifle          171
+     131: aload         4
+     133: new           #691                // class net/minecraftforge/fluids/FluidStack
+     136: dup
+     137: getstatic     #1412               // Field com/buuz135/industrial/module/ModuleCore.ESSENCE:Lcom/hrznstudio/titanium/fluid/TitaniumFluidInstance;
+     140: invokevirtual #709                // Method com/hrznstudio/titanium/fluid/TitaniumFluidInstance.getSourceFluid:()Lcom/hrznstudio/titanium/fluid/TitaniumFluid;
+     143: aload_3
+     144: invokevirtual #1417               // Method net/minecraft/entity/item/ExperienceOrbEntity.func_70526_d:()I
+     147: bipush        20
+     149: imul
+     150: invokespecial #712                // Method net/minecraftforge/fluids/FluidStack."<init>":(Lnet/minecraft/fluid/Fluid;I)V
+     153: getstatic     #1428               // Field net/minecraftforge/fluids/capability/IFluidHandler$FluidAction.EXECUTE:Lnet/minecraftforge/fluids/capability/IFluidHandler$FluidAction;
+     156: invokeinterface #1425,  3         // InterfaceMethod net/minecraftforge/fluids/capability/IFluidHandlerItem.fill:(Lnet/minecraftforge/fluids/FluidStack;Lnet/minecraftforge/fluids/capability/IFluidHandler$FluidAction;)I
+     161: pop
+     162: aload_3
+     163: invokevirtual #1431               // Method net/minecraft/entity/item/ExperienceOrbEntity.func_70106_y:()V
+     166: aload_0
+     167: iconst_1
+     168: invokevirtual #1434               // Method net/minecraftforge/event/entity/player/PlayerXpEvent$PickupXp.setCanceled:(Z)V
+     171: return
+
+  private static boolean lambda$new$2(net.minecraftforge.event.entity.player.PlayerXpEvent$PickupXp);
+    descriptor: (Lnet/minecraftforge/event/entity/player/PlayerXpEvent$PickupXp;)Z
+    Code:
+       0: aload_0
+       1: invokevirtual #1408               // Method net/minecraftforge/event/entity/player/PlayerXpEvent$PickupXp.getOrb:()Lnet/minecraft/entity/item/ExperienceOrbEntity;
+       4: invokevirtual #1438               // Method net/minecraft/entity/item/ExperienceOrbEntity.func_70089_S:()Z
+       7: ireturn
+
+  private static void lambda$new$1(net.minecraftforge.event.entity.player.EntityItemPickupEvent);
+    descriptor: (Lnet/minecraftforge/event/entity/player/EntityItemPickupEvent;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #1439               // Method net/minecraftforge/event/entity/player/EntityItemPickupEvent.getPlayer:()Lnet/minecraft/entity/player/PlayerEntity;
+       4: invokestatic  #1441               // Method findAllBackpacks:(Lnet/minecraft/entity/player/PlayerEntity;)Ljava/util/List;
+       7: invokeinterface #602,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      12: astore_1
+      13: aload_1
+      14: invokeinterface #367,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      19: ifeq          296
+      22: aload_1
+      23: invokeinterface #370,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      28: checkcast     #21                 // class com/hrznstudio/titanium/network/locator/PlayerInventoryFinder$Target
+      31: astore_2
+      32: aload_2
+      33: invokevirtual #1194               // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder$Target.getFinder:()Lcom/hrznstudio/titanium/network/locator/PlayerInventoryFinder;
+      36: invokevirtual #393                // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder.getStackGetter:()Ljava/util/function/BiFunction;
+      39: aload_0
+      40: invokevirtual #1439               // Method net/minecraftforge/event/entity/player/EntityItemPickupEvent.getPlayer:()Lnet/minecraft/entity/player/PlayerEntity;
+      43: aload_2
+      44: invokevirtual #1197               // Method com/hrznstudio/titanium/network/locator/PlayerInventoryFinder$Target.getSlot:()I
+      47: invokestatic  #397                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      50: invokeinterface #402,  3          // InterfaceMethod java/util/function/BiFunction.apply:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      55: checkcast     #304                // class net/minecraft/item/ItemStack
+      58: astore_3
+      59: aload_3
+      60: invokevirtual #742                // Method net/minecraft/item/ItemStack.func_190926_b:()Z
+      63: ifne          293
+      66: aload_3
+      67: invokevirtual #406                // Method net/minecraft/item/ItemStack.func_77973_b:()Lnet/minecraft/item/Item;
+      70: instanceof    #2                  // class com/buuz135/industrial/item/infinity/item/ItemInfinityBackpack
+      73: ifeq          293
+      76: aload_3
+      77: invokestatic  #1287               // Method getPickUpMode:(Lnet/minecraft/item/ItemStack;)I
+      80: iconst_1
+      81: if_icmpeq     91
+      84: aload_3
+      85: invokestatic  #1287               // Method getPickUpMode:(Lnet/minecraft/item/ItemStack;)I
+      88: ifne          293
+      91: aload_0
+      92: invokevirtual #1445               // Method net/minecraftforge/event/entity/player/EntityItemPickupEvent.getItem:()Lnet/minecraft/entity/item/ItemEntity;
+      95: getfield      #619                // Field net/minecraft/entity/item/ItemEntity.field_70170_p:Lnet/minecraft/world/World;
+      98: invokestatic  #260                // Method com/buuz135/industrial/worlddata/BackpackDataManager.getData:(Lnet/minecraft/world/IWorld;)Lcom/buuz135/industrial/worlddata/BackpackDataManager;
+     101: astore        4
+     103: aload         4
+     105: ifnull        293
+     108: aload_3
+     109: invokevirtual #307                // Method net/minecraft/item/ItemStack.func_196082_o:()Lnet/minecraft/nbt/CompoundNBT;
+     112: ldc_w         #474                // String Id
+     115: invokevirtual #477                // Method net/minecraft/nbt/CompoundNBT.func_74764_b:(Ljava/lang/String;)Z
+     118: ifeq          293
+     121: aload         4
+     123: aload_3
+     124: invokevirtual #307                // Method net/minecraft/item/ItemStack.func_196082_o:()Lnet/minecraft/nbt/CompoundNBT;
+     127: ldc_w         #474                // String Id
+     130: invokevirtual #503                // Method net/minecraft/nbt/CompoundNBT.func_74779_i:(Ljava/lang/String;)Ljava/lang/String;
+     133: invokevirtual #264                // Method com/buuz135/industrial/worlddata/BackpackDataManager.getBackpack:(Ljava/lang/String;)Lcom/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler;
+     136: astore        5
+     138: aload         5
+     140: ifnull        293
+     143: aload_0
+     144: invokevirtual #1445               // Method net/minecraftforge/event/entity/player/EntityItemPickupEvent.getItem:()Lnet/minecraft/entity/item/ItemEntity;
+     147: invokevirtual #1448               // Method net/minecraft/entity/item/ItemEntity.func_92059_d:()Lnet/minecraft/item/ItemStack;
+     150: astore        6
+     152: iconst_0
+     153: istore        7
+     155: iload         7
+     157: aload         5
+     159: invokevirtual #1451               // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.getSlots:()I
+     162: if_icmpge     293
+     165: aload         5
+     167: iload         7
+     169: invokevirtual #746                // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.getSlotDefinition:(I)Lcom/buuz135/industrial/worlddata/BackpackDataManager$SlotDefinition;
+     172: invokevirtual #1454               // Method com/buuz135/industrial/worlddata/BackpackDataManager$SlotDefinition.getStack:()Lnet/minecraft/item/ItemStack;
+     175: invokevirtual #1457               // Method net/minecraft/item/ItemStack.func_77946_l:()Lnet/minecraft/item/ItemStack;
+     178: astore        8
+     180: aload         8
+     182: iconst_1
+     183: invokevirtual #769                // Method net/minecraft/item/ItemStack.func_190920_e:(I)V
+     186: aload         8
+     188: invokevirtual #742                // Method net/minecraft/item/ItemStack.func_190926_b:()Z
+     191: ifne          287
+     194: aload         8
+     196: invokevirtual #1458               // Method net/minecraft/item/ItemStack.getStack:()Lnet/minecraft/item/ItemStack;
+     199: aload         6
+     201: invokevirtual #1461               // Method net/minecraft/item/ItemStack.func_77969_a:(Lnet/minecraft/item/ItemStack;)Z
+     204: ifeq          287
+     207: aload         8
+     209: aload         6
+     211: invokestatic  #1464               // Method net/minecraft/item/ItemStack.func_77970_a:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/item/ItemStack;)Z
+     214: ifeq          287
+     217: aload         5
+     219: iload         7
+     221: aload         6
+     223: invokevirtual #1457               // Method net/minecraft/item/ItemStack.func_77946_l:()Lnet/minecraft/item/ItemStack;
+     226: iconst_0
+     227: invokevirtual #1270               // Method com/buuz135/industrial/worlddata/BackpackDataManager$BackpackItemHandler.insertItem:(ILnet/minecraft/item/ItemStack;Z)Lnet/minecraft/item/ItemStack;
+     230: astore        9
+     232: aload         6
+     234: aload         9
+     236: invokevirtual #755                // Method net/minecraft/item/ItemStack.func_190916_E:()I
+     239: invokevirtual #769                // Method net/minecraft/item/ItemStack.func_190920_e:(I)V
+     242: aload_0
+     243: getstatic     #1468               // Field net/minecraftforge/eventbus/api/Event$Result.ALLOW:Lnet/minecraftforge/eventbus/api/Event$Result;
+     246: invokevirtual #1472               // Method net/minecraftforge/event/entity/player/EntityItemPickupEvent.setResult:(Lnet/minecraftforge/eventbus/api/Event$Result;)V
+     249: aload_0
+     250: invokevirtual #1439               // Method net/minecraftforge/event/entity/player/EntityItemPickupEvent.getPlayer:()Lnet/minecraft/entity/player/PlayerEntity;
+     253: instanceof    #273                // class net/minecraft/entity/player/ServerPlayerEntity
+     256: ifeq          286
+     259: aload_0
+     260: invokevirtual #1439               // Method net/minecraftforge/event/entity/player/EntityItemPickupEvent.getPlayer:()Lnet/minecraft/entity/player/PlayerEntity;
+     263: getfield      #1198               // Field net/minecraft/entity/player/PlayerEntity.field_70170_p:Lnet/minecraft/world/World;
+     266: aload_3
+     267: invokevirtual #307                // Method net/minecraft/item/ItemStack.func_196082_o:()Lnet/minecraft/nbt/CompoundNBT;
+     270: ldc_w         #474                // String Id
+     273: invokevirtual #503                // Method net/minecraft/nbt/CompoundNBT.func_74779_i:(Ljava/lang/String;)Ljava/lang/String;
+     276: aload_0
+     277: invokevirtual #1439               // Method net/minecraftforge/event/entity/player/EntityItemPickupEvent.getPlayer:()Lnet/minecraft/entity/player/PlayerEntity;
+     280: checkcast     #273                // class net/minecraft/entity/player/ServerPlayerEntity
+     283: invokestatic  #522                // Method sync:(Lnet/minecraft/world/World;Ljava/lang/String;Lnet/minecraft/entity/player/ServerPlayerEntity;)V
+     286: return
+     287: iinc          7, 1
+     290: goto          155
+     293: goto          13
+     296: return
+
+  private static boolean lambda$new$0(net.minecraftforge.event.entity.player.EntityItemPickupEvent);
+    descriptor: (Lnet/minecraftforge/event/entity/player/EntityItemPickupEvent;)Z
+    Code:
+       0: aload_0
+       1: invokevirtual #1445               // Method net/minecraftforge/event/entity/player/EntityItemPickupEvent.getItem:()Lnet/minecraft/entity/item/ItemEntity;
+       4: invokevirtual #1448               // Method net/minecraft/entity/item/ItemEntity.func_92059_d:()Lnet/minecraft/item/ItemStack;
+       7: invokevirtual #742                // Method net/minecraft/item/ItemStack.func_190926_b:()Z
+      10: ifne          17
+      13: iconst_1
+      14: goto          18
+      17: iconst_0
+      18: ireturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: iconst_0
+       1: putstatic     #128                // Field POWER_CONSUMPTION:I
+       4: iconst_1
+       5: putstatic     #130                // Field FUEL_CONSUMPTION:I
+       8: ldc_w         #1481               // String Magnet
+      11: putstatic     #309                // Field NBT_MAGNET:Ljava/lang/String;
+      14: ldc_w         #1483               // String AutoPickUpMode
+      17: putstatic     #326                // Field NBT_PICKUP:Ljava/lang/String;
+      20: return
+}

@@ -1,0 +1,748 @@
+Compiled from "CollectorBlockEntity.java"
+public class com.supermartijn642.itemcollectors.CollectorBlockEntity extends com.supermartijn642.core.block.BaseBlockEntity implements com.supermartijn642.core.block.TickableBlockEntity {
+  private static final int MIN_RANGE;
+    descriptor: I
+
+  private final java.util.function.Supplier<java.lang.Integer> maxRange;
+    descriptor: Ljava/util/function/Supplier;
+
+  private final java.util.function.Supplier<java.lang.Boolean> hasFilter;
+    descriptor: Ljava/util/function/Supplier;
+
+  private int rangeX;
+    descriptor: I
+
+  private int rangeY;
+    descriptor: I
+
+  private int rangeZ;
+    descriptor: I
+
+  private final java.util.List<net.minecraft.item.ItemStack> filter;
+    descriptor: Ljava/util/List;
+
+  private boolean filterWhitelist;
+    descriptor: Z
+
+  private boolean filterDurability;
+    descriptor: Z
+
+  private boolean showArea;
+    descriptor: Z
+
+  public static com.supermartijn642.itemcollectors.CollectorBlockEntity basicCollectorEntity();
+    descriptor: ()Lcom/supermartijn642/itemcollectors/CollectorBlockEntity;
+    Code:
+       0: new           #2                  // class com/supermartijn642/itemcollectors/CollectorBlockEntity
+       3: dup
+       4: getstatic     #38                 // Field com/supermartijn642/itemcollectors/ItemCollectors.basic_collector_tile:Lcom/supermartijn642/core/block/BaseBlockEntityType;
+       7: getstatic     #43                 // Field com/supermartijn642/itemcollectors/ItemCollectorsConfig.basicCollectorMaxRange:Ljava/util/function/Supplier;
+      10: getstatic     #46                 // Field com/supermartijn642/itemcollectors/ItemCollectorsConfig.basicCollectorFilter:Ljava/util/function/Supplier;
+      13: invokespecial #50                 // Method "<init>":(Lcom/supermartijn642/core/block/BaseBlockEntityType;Ljava/util/function/Supplier;Ljava/util/function/Supplier;)V
+      16: areturn
+
+  public static com.supermartijn642.itemcollectors.CollectorBlockEntity advancedCollectorEntity();
+    descriptor: ()Lcom/supermartijn642/itemcollectors/CollectorBlockEntity;
+    Code:
+       0: new           #2                  // class com/supermartijn642/itemcollectors/CollectorBlockEntity
+       3: dup
+       4: getstatic     #54                 // Field com/supermartijn642/itemcollectors/ItemCollectors.advanced_collector_tile:Lcom/supermartijn642/core/block/BaseBlockEntityType;
+       7: getstatic     #57                 // Field com/supermartijn642/itemcollectors/ItemCollectorsConfig.advancedCollectorMaxRange:Ljava/util/function/Supplier;
+      10: getstatic     #60                 // Field com/supermartijn642/itemcollectors/ItemCollectorsConfig.advancedCollectorFilter:Ljava/util/function/Supplier;
+      13: invokespecial #50                 // Method "<init>":(Lcom/supermartijn642/core/block/BaseBlockEntityType;Ljava/util/function/Supplier;Ljava/util/function/Supplier;)V
+      16: areturn
+
+  public com.supermartijn642.itemcollectors.CollectorBlockEntity(com.supermartijn642.core.block.BaseBlockEntityType<com.supermartijn642.itemcollectors.CollectorBlockEntity>, java.util.function.Supplier<java.lang.Integer>, java.util.function.Supplier<java.lang.Boolean>);
+    descriptor: (Lcom/supermartijn642/core/block/BaseBlockEntityType;Ljava/util/function/Supplier;Ljava/util/function/Supplier;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #65                 // Method com/supermartijn642/core/block/BaseBlockEntity."<init>":(Lcom/supermartijn642/core/block/BaseBlockEntityType;)V
+       5: aload_0
+       6: new           #67                 // class java/util/ArrayList
+       9: dup
+      10: bipush        9
+      12: invokespecial #70                 // Method java/util/ArrayList."<init>":(I)V
+      15: putfield      #72                 // Field filter:Ljava/util/List;
+      18: aload_0
+      19: iconst_1
+      20: putfield      #74                 // Field filterDurability:Z
+      23: aload_0
+      24: iconst_0
+      25: putfield      #76                 // Field showArea:Z
+      28: aload_0
+      29: aload_2
+      30: putfield      #78                 // Field maxRange:Ljava/util/function/Supplier;
+      33: aload_0
+      34: aload_0
+      35: aload_0
+      36: aload_2
+      37: invokeinterface #84,  1           // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      42: checkcast     #86                 // class java/lang/Integer
+      45: invokevirtual #90                 // Method java/lang/Integer.intValue:()I
+      48: i2f
+      49: fconst_2
+      50: fdiv
+      51: f2d
+      52: invokestatic  #96                 // Method java/lang/Math.ceil:(D)D
+      55: d2i
+      56: dup_x1
+      57: putfield      #98                 // Field rangeZ:I
+      60: dup_x1
+      61: putfield      #100                // Field rangeY:I
+      64: putfield      #102                // Field rangeX:I
+      67: aload_0
+      68: aload_3
+      69: putfield      #104                // Field hasFilter:Ljava/util/function/Supplier;
+      72: iconst_0
+      73: istore        4
+      75: iload         4
+      77: bipush        9
+      79: if_icmpge     101
+      82: aload_0
+      83: getfield      #72                 // Field filter:Ljava/util/List;
+      86: getstatic     #112                // Field net/minecraft/item/ItemStack.field_190927_a:Lnet/minecraft/item/ItemStack;
+      89: invokeinterface #118,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      94: pop
+      95: iinc          4, 1
+      98: goto          75
+     101: return
+
+  public void func_73660_a();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: getfield      #128                // Field field_145850_b:Lnet/minecraft/world/World;
+       4: getfield      #133                // Field net/minecraft/world/World.field_72995_K:Z
+       7: ifne          23
+      10: aload_0
+      11: invokespecial #137                // Method getOutputItemHandler:()Ljava/util/Optional;
+      14: aload_0
+      15: invokedynamic #156,  0            // InvokeDynamic #0:accept:(Lcom/supermartijn642/itemcollectors/CollectorBlockEntity;)Ljava/util/function/Consumer;
+      20: invokevirtual #162                // Method java/util/Optional.ifPresent:(Ljava/util/function/Consumer;)V
+      23: return
+
+  public net.minecraft.util.math.AxisAlignedBB getAffectedArea();
+    descriptor: ()Lnet/minecraft/util/math/AxisAlignedBB;
+    Code:
+       0: new           #166                // class net/minecraft/util/math/AxisAlignedBB
+       3: dup
+       4: aload_0
+       5: getfield      #170                // Field field_174879_c:Lnet/minecraft/util/math/BlockPos;
+       8: aload_0
+       9: getfield      #102                // Field rangeX:I
+      12: ineg
+      13: aload_0
+      14: getfield      #100                // Field rangeY:I
+      17: ineg
+      18: aload_0
+      19: getfield      #98                 // Field rangeZ:I
+      22: ineg
+      23: invokevirtual #176                // Method net/minecraft/util/math/BlockPos.func_177982_a:(III)Lnet/minecraft/util/math/BlockPos;
+      26: aload_0
+      27: getfield      #170                // Field field_174879_c:Lnet/minecraft/util/math/BlockPos;
+      30: aload_0
+      31: getfield      #102                // Field rangeX:I
+      34: iconst_1
+      35: iadd
+      36: aload_0
+      37: getfield      #100                // Field rangeY:I
+      40: iconst_1
+      41: iadd
+      42: aload_0
+      43: getfield      #98                 // Field rangeZ:I
+      46: iconst_1
+      47: iadd
+      48: invokevirtual #176                // Method net/minecraft/util/math/BlockPos.func_177982_a:(III)Lnet/minecraft/util/math/BlockPos;
+      51: invokespecial #179                // Method net/minecraft/util/math/AxisAlignedBB."<init>":(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/BlockPos;)V
+      54: areturn
+
+  private java.util.Optional<net.minecraftforge.items.IItemHandler> getOutputItemHandler();
+    descriptor: ()Ljava/util/Optional;
+    Code:
+       0: aload_0
+       1: invokevirtual #184                // Method getBlockState:()Lnet/minecraft/block/state/IBlockState;
+       4: astore_1
+       5: aload_1
+       6: invokeinterface #190,  1          // InterfaceMethod net/minecraft/block/state/IBlockState.func_177227_a:()Ljava/util/Collection;
+      11: getstatic     #196                // Field com/supermartijn642/itemcollectors/CollectorBlock.DIRECTION:Lnet/minecraft/block/properties/PropertyEnum;
+      14: invokeinterface #201,  2          // InterfaceMethod java/util/Collection.contains:(Ljava/lang/Object;)Z
+      19: ifne          26
+      22: invokestatic  #204                // Method java/util/Optional.empty:()Ljava/util/Optional;
+      25: areturn
+      26: aload_1
+      27: getstatic     #196                // Field com/supermartijn642/itemcollectors/CollectorBlock.DIRECTION:Lnet/minecraft/block/properties/PropertyEnum;
+      30: invokeinterface #208,  2          // InterfaceMethod net/minecraft/block/state/IBlockState.func_177229_b:(Lnet/minecraft/block/properties/IProperty;)Ljava/lang/Comparable;
+      35: checkcast     #210                // class net/minecraft/util/EnumFacing
+      38: astore_2
+      39: aload_0
+      40: getfield      #128                // Field field_145850_b:Lnet/minecraft/world/World;
+      43: aload_0
+      44: getfield      #170                // Field field_174879_c:Lnet/minecraft/util/math/BlockPos;
+      47: aload_2
+      48: invokevirtual #214                // Method net/minecraft/util/math/BlockPos.func_177972_a:(Lnet/minecraft/util/EnumFacing;)Lnet/minecraft/util/math/BlockPos;
+      51: invokevirtual #218                // Method net/minecraft/world/World.func_175625_s:(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/tileentity/TileEntity;
+      54: astore_3
+      55: aload_3
+      56: ifnull        73
+      59: aload_3
+      60: getstatic     #224                // Field net/minecraftforge/items/CapabilityItemHandler.ITEM_HANDLER_CAPABILITY:Lnet/minecraftforge/common/capabilities/Capability;
+      63: aload_2
+      64: invokevirtual #228                // Method net/minecraft/util/EnumFacing.func_176734_d:()Lnet/minecraft/util/EnumFacing;
+      67: invokevirtual #234                // Method net/minecraft/tileentity/TileEntity.hasCapability:(Lnet/minecraftforge/common/capabilities/Capability;Lnet/minecraft/util/EnumFacing;)Z
+      70: ifne          77
+      73: invokestatic  #204                // Method java/util/Optional.empty:()Ljava/util/Optional;
+      76: areturn
+      77: aload_3
+      78: getstatic     #224                // Field net/minecraftforge/items/CapabilityItemHandler.ITEM_HANDLER_CAPABILITY:Lnet/minecraftforge/common/capabilities/Capability;
+      81: aload_2
+      82: invokevirtual #228                // Method net/minecraft/util/EnumFacing.func_176734_d:()Lnet/minecraft/util/EnumFacing;
+      85: invokevirtual #238                // Method net/minecraft/tileentity/TileEntity.getCapability:(Lnet/minecraftforge/common/capabilities/Capability;Lnet/minecraft/util/EnumFacing;)Ljava/lang/Object;
+      88: invokestatic  #242                // Method java/util/Optional.ofNullable:(Ljava/lang/Object;)Ljava/util/Optional;
+      91: areturn
+
+  public int getRangeX();
+    descriptor: ()I
+    Code:
+       0: aload_0
+       1: getfield      #102                // Field rangeX:I
+       4: ireturn
+
+  public void increaseRangeX(int);
+    descriptor: (I)V
+    Code:
+       0: aload_0
+       1: getfield      #102                // Field rangeX:I
+       4: istore_2
+       5: aload_0
+       6: aload_0
+       7: getfield      #102                // Field rangeX:I
+      10: iload_1
+      11: iadd
+      12: iconst_1
+      13: invokestatic  #255                // Method java/lang/Math.max:(II)I
+      16: aload_0
+      17: getfield      #78                 // Field maxRange:Ljava/util/function/Supplier;
+      20: invokeinterface #84,  1           // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      25: checkcast     #86                 // class java/lang/Integer
+      28: invokevirtual #90                 // Method java/lang/Integer.intValue:()I
+      31: invokestatic  #258                // Method java/lang/Math.min:(II)I
+      34: putfield      #102                // Field rangeX:I
+      37: aload_0
+      38: getfield      #102                // Field rangeX:I
+      41: iload_2
+      42: if_icmpeq     49
+      45: aload_0
+      46: invokevirtual #261                // Method dataChanged:()V
+      49: return
+
+  public int getRangeY();
+    descriptor: ()I
+    Code:
+       0: aload_0
+       1: getfield      #100                // Field rangeY:I
+       4: ireturn
+
+  public void increaseRangeY(int);
+    descriptor: (I)V
+    Code:
+       0: aload_0
+       1: getfield      #100                // Field rangeY:I
+       4: istore_2
+       5: aload_0
+       6: aload_0
+       7: getfield      #100                // Field rangeY:I
+      10: iload_1
+      11: iadd
+      12: iconst_1
+      13: invokestatic  #255                // Method java/lang/Math.max:(II)I
+      16: aload_0
+      17: getfield      #78                 // Field maxRange:Ljava/util/function/Supplier;
+      20: invokeinterface #84,  1           // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      25: checkcast     #86                 // class java/lang/Integer
+      28: invokevirtual #90                 // Method java/lang/Integer.intValue:()I
+      31: invokestatic  #258                // Method java/lang/Math.min:(II)I
+      34: putfield      #100                // Field rangeY:I
+      37: aload_0
+      38: getfield      #100                // Field rangeY:I
+      41: iload_2
+      42: if_icmpeq     49
+      45: aload_0
+      46: invokevirtual #261                // Method dataChanged:()V
+      49: return
+
+  public int getRangeZ();
+    descriptor: ()I
+    Code:
+       0: aload_0
+       1: getfield      #98                 // Field rangeZ:I
+       4: ireturn
+
+  public void increaseRangeZ(int);
+    descriptor: (I)V
+    Code:
+       0: aload_0
+       1: getfield      #98                 // Field rangeZ:I
+       4: istore_2
+       5: aload_0
+       6: aload_0
+       7: getfield      #98                 // Field rangeZ:I
+      10: iload_1
+      11: iadd
+      12: iconst_1
+      13: invokestatic  #255                // Method java/lang/Math.max:(II)I
+      16: aload_0
+      17: getfield      #78                 // Field maxRange:Ljava/util/function/Supplier;
+      20: invokeinterface #84,  1           // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      25: checkcast     #86                 // class java/lang/Integer
+      28: invokevirtual #90                 // Method java/lang/Integer.intValue:()I
+      31: invokestatic  #258                // Method java/lang/Math.min:(II)I
+      34: putfield      #98                 // Field rangeZ:I
+      37: aload_0
+      38: getfield      #98                 // Field rangeZ:I
+      41: iload_2
+      42: if_icmpeq     49
+      45: aload_0
+      46: invokevirtual #261                // Method dataChanged:()V
+      49: return
+
+  public net.minecraft.item.ItemStack getFilterStack(int);
+    descriptor: (I)Lnet/minecraft/item/ItemStack;
+    Code:
+       0: aload_0
+       1: getfield      #72                 // Field filter:Ljava/util/List;
+       4: iload_1
+       5: invokeinterface #272,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+      10: checkcast     #108                // class net/minecraft/item/ItemStack
+      13: areturn
+
+  public void setFilterStack(int, net.minecraft.item.ItemStack);
+    descriptor: (ILnet/minecraft/item/ItemStack;)V
+    Code:
+       0: aload_0
+       1: getfield      #72                 // Field filter:Ljava/util/List;
+       4: iload_1
+       5: aload_2
+       6: invokeinterface #279,  3          // InterfaceMethod java/util/List.set:(ILjava/lang/Object;)Ljava/lang/Object;
+      11: pop
+      12: aload_0
+      13: invokevirtual #261                // Method dataChanged:()V
+      16: return
+
+  public boolean getFilterWhitelist();
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: getfield      #283                // Field filterWhitelist:Z
+       4: ireturn
+
+  public void toggleFilterWhitelist();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: aload_0
+       2: getfield      #283                // Field filterWhitelist:Z
+       5: ifne          12
+       8: iconst_1
+       9: goto          13
+      12: iconst_0
+      13: putfield      #283                // Field filterWhitelist:Z
+      16: aload_0
+      17: invokevirtual #261                // Method dataChanged:()V
+      20: return
+
+  public boolean getFilterDurability();
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: getfield      #74                 // Field filterDurability:Z
+       4: ireturn
+
+  public void toggleFilterDurability();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: aload_0
+       2: getfield      #74                 // Field filterDurability:Z
+       5: ifne          12
+       8: iconst_1
+       9: goto          13
+      12: iconst_0
+      13: putfield      #74                 // Field filterDurability:Z
+      16: aload_0
+      17: invokevirtual #261                // Method dataChanged:()V
+      20: return
+
+  public boolean shouldShowArea();
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: getfield      #76                 // Field showArea:Z
+       4: ireturn
+
+  public void toggleShowArea();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: aload_0
+       2: getfield      #76                 // Field showArea:Z
+       5: ifne          12
+       8: iconst_1
+       9: goto          13
+      12: iconst_0
+      13: putfield      #76                 // Field showArea:Z
+      16: aload_0
+      17: invokevirtual #261                // Method dataChanged:()V
+      20: return
+
+  protected net.minecraft.nbt.NBTTagCompound writeData();
+    descriptor: ()Lnet/minecraft/nbt/NBTTagCompound;
+    Code:
+       0: new           #292                // class net/minecraft/nbt/NBTTagCompound
+       3: dup
+       4: invokespecial #294                // Method net/minecraft/nbt/NBTTagCompound."<init>":()V
+       7: astore_1
+       8: aload_1
+       9: ldc_w         #295                // String rangeX
+      12: aload_0
+      13: getfield      #102                // Field rangeX:I
+      16: invokevirtual #299                // Method net/minecraft/nbt/NBTTagCompound.func_74768_a:(Ljava/lang/String;I)V
+      19: aload_1
+      20: ldc_w         #300                // String rangeY
+      23: aload_0
+      24: getfield      #100                // Field rangeY:I
+      27: invokevirtual #299                // Method net/minecraft/nbt/NBTTagCompound.func_74768_a:(Ljava/lang/String;I)V
+      30: aload_1
+      31: ldc_w         #301                // String rangeZ
+      34: aload_0
+      35: getfield      #98                 // Field rangeZ:I
+      38: invokevirtual #299                // Method net/minecraft/nbt/NBTTagCompound.func_74768_a:(Ljava/lang/String;I)V
+      41: iconst_0
+      42: istore_2
+      43: iload_2
+      44: bipush        9
+      46: if_icmpge     121
+      49: aload_0
+      50: getfield      #72                 // Field filter:Ljava/util/List;
+      53: iload_2
+      54: invokeinterface #272,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+      59: checkcast     #108                // class net/minecraft/item/ItemStack
+      62: invokevirtual #304                // Method net/minecraft/item/ItemStack.func_190926_b:()Z
+      65: ifne          115
+      68: aload_1
+      69: new           #306                // class java/lang/StringBuilder
+      72: dup
+      73: invokespecial #307                // Method java/lang/StringBuilder."<init>":()V
+      76: ldc_w         #308                // String filter
+      79: invokevirtual #312                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      82: iload_2
+      83: invokevirtual #315                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      86: invokevirtual #319                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      89: aload_0
+      90: getfield      #72                 // Field filter:Ljava/util/List;
+      93: iload_2
+      94: invokeinterface #272,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+      99: checkcast     #108                // class net/minecraft/item/ItemStack
+     102: new           #292                // class net/minecraft/nbt/NBTTagCompound
+     105: dup
+     106: invokespecial #294                // Method net/minecraft/nbt/NBTTagCompound."<init>":()V
+     109: invokevirtual #323                // Method net/minecraft/item/ItemStack.func_77955_b:(Lnet/minecraft/nbt/NBTTagCompound;)Lnet/minecraft/nbt/NBTTagCompound;
+     112: invokevirtual #327                // Method net/minecraft/nbt/NBTTagCompound.func_74782_a:(Ljava/lang/String;Lnet/minecraft/nbt/NBTBase;)V
+     115: iinc          2, 1
+     118: goto          43
+     121: aload_1
+     122: ldc_w         #328                // String filterWhitelist
+     125: aload_0
+     126: getfield      #283                // Field filterWhitelist:Z
+     129: invokevirtual #332                // Method net/minecraft/nbt/NBTTagCompound.func_74757_a:(Ljava/lang/String;Z)V
+     132: aload_1
+     133: ldc_w         #333                // String filterDurability
+     136: aload_0
+     137: getfield      #74                 // Field filterDurability:Z
+     140: invokevirtual #332                // Method net/minecraft/nbt/NBTTagCompound.func_74757_a:(Ljava/lang/String;Z)V
+     143: aload_1
+     144: ldc_w         #334                // String showArea
+     147: aload_0
+     148: getfield      #76                 // Field showArea:Z
+     151: invokevirtual #332                // Method net/minecraft/nbt/NBTTagCompound.func_74757_a:(Ljava/lang/String;Z)V
+     154: aload_1
+     155: areturn
+
+  protected void readData(net.minecraft.nbt.NBTTagCompound);
+    descriptor: (Lnet/minecraft/nbt/NBTTagCompound;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: ldc_w         #295                // String rangeX
+       5: invokevirtual #342                // Method net/minecraft/nbt/NBTTagCompound.func_74764_b:(Ljava/lang/String;)Z
+       8: ifeq          21
+      11: aload_1
+      12: ldc_w         #295                // String rangeX
+      15: invokevirtual #346                // Method net/minecraft/nbt/NBTTagCompound.func_74762_e:(Ljava/lang/String;)I
+      18: goto          22
+      21: iconst_1
+      22: putfield      #102                // Field rangeX:I
+      25: aload_0
+      26: aload_1
+      27: ldc_w         #300                // String rangeY
+      30: invokevirtual #342                // Method net/minecraft/nbt/NBTTagCompound.func_74764_b:(Ljava/lang/String;)Z
+      33: ifeq          46
+      36: aload_1
+      37: ldc_w         #300                // String rangeY
+      40: invokevirtual #346                // Method net/minecraft/nbt/NBTTagCompound.func_74762_e:(Ljava/lang/String;)I
+      43: goto          47
+      46: iconst_1
+      47: putfield      #100                // Field rangeY:I
+      50: aload_0
+      51: aload_1
+      52: ldc_w         #301                // String rangeZ
+      55: invokevirtual #342                // Method net/minecraft/nbt/NBTTagCompound.func_74764_b:(Ljava/lang/String;)Z
+      58: ifeq          71
+      61: aload_1
+      62: ldc_w         #301                // String rangeZ
+      65: invokevirtual #346                // Method net/minecraft/nbt/NBTTagCompound.func_74762_e:(Ljava/lang/String;)I
+      68: goto          72
+      71: iconst_1
+      72: putfield      #98                 // Field rangeZ:I
+      75: iconst_0
+      76: istore_2
+      77: iload_2
+      78: bipush        9
+      80: if_icmpge     164
+      83: aload_0
+      84: getfield      #72                 // Field filter:Ljava/util/List;
+      87: iload_2
+      88: aload_1
+      89: new           #306                // class java/lang/StringBuilder
+      92: dup
+      93: invokespecial #307                // Method java/lang/StringBuilder."<init>":()V
+      96: ldc_w         #308                // String filter
+      99: invokevirtual #312                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     102: iload_2
+     103: invokevirtual #315                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     106: invokevirtual #319                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     109: invokevirtual #342                // Method net/minecraft/nbt/NBTTagCompound.func_74764_b:(Ljava/lang/String;)Z
+     112: ifeq          149
+     115: new           #108                // class net/minecraft/item/ItemStack
+     118: dup
+     119: aload_1
+     120: new           #306                // class java/lang/StringBuilder
+     123: dup
+     124: invokespecial #307                // Method java/lang/StringBuilder."<init>":()V
+     127: ldc_w         #308                // String filter
+     130: invokevirtual #312                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     133: iload_2
+     134: invokevirtual #315                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     137: invokevirtual #319                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     140: invokevirtual #350                // Method net/minecraft/nbt/NBTTagCompound.func_74775_l:(Ljava/lang/String;)Lnet/minecraft/nbt/NBTTagCompound;
+     143: invokespecial #352                // Method net/minecraft/item/ItemStack."<init>":(Lnet/minecraft/nbt/NBTTagCompound;)V
+     146: goto          152
+     149: getstatic     #112                // Field net/minecraft/item/ItemStack.field_190927_a:Lnet/minecraft/item/ItemStack;
+     152: invokeinterface #279,  3          // InterfaceMethod java/util/List.set:(ILjava/lang/Object;)Ljava/lang/Object;
+     157: pop
+     158: iinc          2, 1
+     161: goto          77
+     164: aload_0
+     165: aload_1
+     166: ldc_w         #328                // String filterWhitelist
+     169: invokevirtual #342                // Method net/minecraft/nbt/NBTTagCompound.func_74764_b:(Ljava/lang/String;)Z
+     172: ifeq          189
+     175: aload_1
+     176: ldc_w         #328                // String filterWhitelist
+     179: invokevirtual #355                // Method net/minecraft/nbt/NBTTagCompound.func_74767_n:(Ljava/lang/String;)Z
+     182: ifeq          189
+     185: iconst_1
+     186: goto          190
+     189: iconst_0
+     190: putfield      #283                // Field filterWhitelist:Z
+     193: aload_0
+     194: aload_1
+     195: ldc_w         #333                // String filterDurability
+     198: invokevirtual #342                // Method net/minecraft/nbt/NBTTagCompound.func_74764_b:(Ljava/lang/String;)Z
+     201: ifeq          218
+     204: aload_1
+     205: ldc_w         #333                // String filterDurability
+     208: invokevirtual #355                // Method net/minecraft/nbt/NBTTagCompound.func_74767_n:(Ljava/lang/String;)Z
+     211: ifeq          218
+     214: iconst_1
+     215: goto          219
+     218: iconst_0
+     219: putfield      #74                 // Field filterDurability:Z
+     222: aload_0
+     223: aload_1
+     224: ldc_w         #334                // String showArea
+     227: invokevirtual #342                // Method net/minecraft/nbt/NBTTagCompound.func_74764_b:(Ljava/lang/String;)Z
+     230: ifeq          247
+     233: aload_1
+     234: ldc_w         #334                // String showArea
+     237: invokevirtual #355                // Method net/minecraft/nbt/NBTTagCompound.func_74767_n:(Ljava/lang/String;)Z
+     240: ifeq          247
+     243: iconst_1
+     244: goto          248
+     247: iconst_0
+     248: putfield      #76                 // Field showArea:Z
+     251: return
+
+  public net.minecraft.util.math.AxisAlignedBB getRenderBoundingBox();
+    descriptor: ()Lnet/minecraft/util/math/AxisAlignedBB;
+    Code:
+       0: aload_0
+       1: invokevirtual #358                // Method getAffectedArea:()Lnet/minecraft/util/math/AxisAlignedBB;
+       4: areturn
+
+  private void lambda$update$0(net.minecraftforge.items.IItemHandler);
+    descriptor: (Lnet/minecraftforge/items/IItemHandler;)V
+    Code:
+       0: aload_1
+       1: invokeinterface #364,  1          // InterfaceMethod net/minecraftforge/items/IItemHandler.getSlots:()I
+       6: ifgt          10
+       9: return
+      10: aload_0
+      11: invokevirtual #358                // Method getAffectedArea:()Lnet/minecraft/util/math/AxisAlignedBB;
+      14: astore_2
+      15: aload_0
+      16: getfield      #128                // Field field_145850_b:Lnet/minecraft/world/World;
+      19: ldc_w         #366                // class net/minecraft/entity/item/EntityItem
+      22: aload_2
+      23: invokevirtual #370                // Method net/minecraft/world/World.func_72872_a:(Ljava/lang/Class;Lnet/minecraft/util/math/AxisAlignedBB;)Ljava/util/List;
+      26: astore_3
+      27: aload_3
+      28: invokeinterface #373,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+      33: ifeq          37
+      36: return
+      37: getstatic     #376                // Field com/supermartijn642/itemcollectors/ItemCollectorsConfig.maxInsertions:Ljava/util/function/Supplier;
+      40: invokeinterface #84,  1           // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      45: checkcast     #86                 // class java/lang/Integer
+      48: invokevirtual #90                 // Method java/lang/Integer.intValue:()I
+      51: istore        4
+      53: iload         4
+      55: ifgt          66
+      58: aload_3
+      59: invokeinterface #379,  1          // InterfaceMethod java/util/List.size:()I
+      64: istore        4
+      66: iload         4
+      68: istore        5
+      70: iconst_0
+      71: istore        6
+      73: iload         6
+      75: aload_3
+      76: invokeinterface #379,  1          // InterfaceMethod java/util/List.size:()I
+      81: if_icmpge     377
+      84: iload         5
+      86: ifle          377
+      89: iload         6
+      91: iload         4
+      93: bipush        10
+      95: imul
+      96: if_icmpge     377
+      99: aload_3
+     100: iload         6
+     102: invokeinterface #272,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+     107: checkcast     #366                // class net/minecraft/entity/item/EntityItem
+     110: astore        7
+     112: aload         7
+     114: invokevirtual #382                // Method net/minecraft/entity/item/EntityItem.func_70089_S:()Z
+     117: ifeq          371
+     120: aload         7
+     122: invokevirtual #385                // Method net/minecraft/entity/item/EntityItem.getEntityData:()Lnet/minecraft/nbt/NBTTagCompound;
+     125: ldc_w         #387                // String PreventRemoteMovement
+     128: invokevirtual #342                // Method net/minecraft/nbt/NBTTagCompound.func_74764_b:(Ljava/lang/String;)Z
+     131: ifeq          151
+     134: aload         7
+     136: invokevirtual #385                // Method net/minecraft/entity/item/EntityItem.getEntityData:()Lnet/minecraft/nbt/NBTTagCompound;
+     139: ldc_w         #389                // String AllowMachineRemoteMovement
+     142: invokevirtual #342                // Method net/minecraft/nbt/NBTTagCompound.func_74764_b:(Ljava/lang/String;)Z
+     145: ifne          151
+     148: goto          371
+     151: aload         7
+     153: invokevirtual #393                // Method net/minecraft/entity/item/EntityItem.func_92059_d:()Lnet/minecraft/item/ItemStack;
+     156: invokevirtual #396                // Method net/minecraft/item/ItemStack.func_77946_l:()Lnet/minecraft/item/ItemStack;
+     159: astore        8
+     161: aload         8
+     163: invokevirtual #304                // Method net/minecraft/item/ItemStack.func_190926_b:()Z
+     166: ifeq          172
+     169: goto          371
+     172: aload_0
+     173: getfield      #104                // Field hasFilter:Ljava/util/function/Supplier;
+     176: invokeinterface #84,  1           // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+     181: checkcast     #398                // class java/lang/Boolean
+     184: invokevirtual #401                // Method java/lang/Boolean.booleanValue:()Z
+     187: ifeq          291
+     190: iconst_0
+     191: istore        9
+     193: iconst_0
+     194: istore        10
+     196: iload         10
+     198: bipush        9
+     200: if_icmpge     279
+     203: aload_0
+     204: getfield      #72                 // Field filter:Ljava/util/List;
+     207: iload         10
+     209: invokeinterface #272,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+     214: checkcast     #108                // class net/minecraft/item/ItemStack
+     217: astore        11
+     219: aload         11
+     221: invokevirtual #304                // Method net/minecraft/item/ItemStack.func_190926_b:()Z
+     224: ifne          273
+     227: aload_0
+     228: getfield      #74                 // Field filterDurability:Z
+     231: ifeq          247
+     234: aload         11
+     236: aload         8
+     238: invokestatic  #405                // Method net/minecraft/item/ItemStack.func_179545_c:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/item/ItemStack;)Z
+     241: ifeq          273
+     244: goto          257
+     247: aload         11
+     249: aload         8
+     251: invokestatic  #408                // Method net/minecraft/item/ItemStack.func_185132_d:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/item/ItemStack;)Z
+     254: ifeq          273
+     257: aload         11
+     259: aload         8
+     261: invokestatic  #411                // Method net/minecraft/item/ItemStack.func_77970_a:(Lnet/minecraft/item/ItemStack;Lnet/minecraft/item/ItemStack;)Z
+     264: ifeq          273
+     267: iconst_1
+     268: istore        9
+     270: goto          279
+     273: iinc          10, 1
+     276: goto          196
+     279: iload         9
+     281: aload_0
+     282: getfield      #283                // Field filterWhitelist:Z
+     285: if_icmpeq     291
+     288: goto          371
+     291: iinc          5, -1
+     294: iconst_0
+     295: istore        9
+     297: iload         9
+     299: aload_1
+     300: invokeinterface #364,  1          // InterfaceMethod net/minecraftforge/items/IItemHandler.getSlots:()I
+     305: if_icmpge     364
+     308: aload_1
+     309: iload         9
+     311: aload         8
+     313: invokeinterface #415,  3          // InterfaceMethod net/minecraftforge/items/IItemHandler.isItemValid:(ILnet/minecraft/item/ItemStack;)Z
+     318: ifeq          358
+     321: aload_1
+     322: iload         9
+     324: aload         8
+     326: iconst_0
+     327: invokeinterface #419,  4          // InterfaceMethod net/minecraftforge/items/IItemHandler.insertItem:(ILnet/minecraft/item/ItemStack;Z)Lnet/minecraft/item/ItemStack;
+     332: astore        8
+     334: aload         8
+     336: invokevirtual #304                // Method net/minecraft/item/ItemStack.func_190926_b:()Z
+     339: ifeq          358
+     342: aload         7
+     344: getstatic     #112                // Field net/minecraft/item/ItemStack.field_190927_a:Lnet/minecraft/item/ItemStack;
+     347: invokevirtual #423                // Method net/minecraft/entity/item/EntityItem.func_92058_a:(Lnet/minecraft/item/ItemStack;)V
+     350: aload         7
+     352: invokevirtual #426                // Method net/minecraft/entity/item/EntityItem.func_70106_y:()V
+     355: goto          371
+     358: iinc          9, 1
+     361: goto          297
+     364: aload         7
+     366: aload         8
+     368: invokevirtual #423                // Method net/minecraft/entity/item/EntityItem.func_92058_a:(Lnet/minecraft/item/ItemStack;)V
+     371: iinc          6, 1
+     374: goto          73
+     377: return
+}

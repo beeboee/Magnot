@@ -1,0 +1,436 @@
+Compiled from "Magnet.java"
+public class com.brandon3055.draconicevolution.items.tools.Magnet extends net.minecraft.world.item.Item {
+  private final int range;
+    descriptor: I
+
+  public com.brandon3055.draconicevolution.items.tools.Magnet(net.minecraft.world.item.Item$Properties, int);
+    descriptor: (Lnet/minecraft/world/item/Item$Properties;I)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #1                  // Method net/minecraft/world/item/Item."<init>":(Lnet/minecraft/world/item/Item$Properties;)V
+       5: aload_0
+       6: iload_2
+       7: putfield      #7                  // Field range:I
+      10: return
+
+  public boolean isFoil(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Z
+    Code:
+       0: aload_1
+       1: invokestatic  #13                 // Method isEnabled:(Lnet/minecraft/world/item/ItemStack;)Z
+       4: ireturn
+
+  public void inventoryTick(net.minecraft.world.item.ItemStack, net.minecraft.world.level.Level, net.minecraft.world.entity.Entity, int, boolean);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;IZ)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_3
+       3: invokevirtual #17                 // Method updateMagnet:(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/Entity;)V
+       6: return
+
+  private void updateMagnet(net.minecraft.world.item.ItemStack, net.minecraft.world.entity.Entity);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/Entity;)V
+    Code:
+       0: aload_2
+       1: invokevirtual #21                 // Method net/minecraft/world/entity/Entity.isShiftKeyDown:()Z
+       4: ifne          767
+       7: aload_1
+       8: invokestatic  #13                 // Method isEnabled:(Lnet/minecraft/world/item/ItemStack;)Z
+      11: ifeq          767
+      14: aload_2
+      15: instanceof    #27                 // class net/minecraft/world/entity/player/Player
+      18: ifeq          767
+      21: aload_2
+      22: checkcast     #27                 // class net/minecraft/world/entity/player/Player
+      25: astore_3
+      26: aload_2
+      27: invokevirtual #29                 // Method net/minecraft/world/entity/Entity.getCommandSenderWorld:()Lnet/minecraft/world/level/Level;
+      30: astore        4
+      32: aload_2
+      33: getfield      #33                 // Field net/minecraft/world/entity/Entity.tickCount:I
+      36: bipush        10
+      38: irem
+      39: ifne          103
+      42: aload         4
+      44: ldc           #36                 // class net/minecraft/world/entity/item/ItemEntity
+      46: new           #38                 // class net/minecraft/world/phys/AABB
+      49: dup
+      50: aload_2
+      51: invokevirtual #40                 // Method net/minecraft/world/entity/Entity.getX:()D
+      54: aload_2
+      55: invokevirtual #44                 // Method net/minecraft/world/entity/Entity.getY:()D
+      58: aload_2
+      59: invokevirtual #47                 // Method net/minecraft/world/entity/Entity.getZ:()D
+      62: aload_2
+      63: invokevirtual #40                 // Method net/minecraft/world/entity/Entity.getX:()D
+      66: aload_2
+      67: invokevirtual #44                 // Method net/minecraft/world/entity/Entity.getY:()D
+      70: aload_2
+      71: invokevirtual #47                 // Method net/minecraft/world/entity/Entity.getZ:()D
+      74: invokespecial #50                 // Method net/minecraft/world/phys/AABB."<init>":(DDDDDD)V
+      77: aload_0
+      78: getfield      #7                  // Field range:I
+      81: i2d
+      82: aload_0
+      83: getfield      #7                  // Field range:I
+      86: i2d
+      87: aload_0
+      88: getfield      #7                  // Field range:I
+      91: i2d
+      92: invokevirtual #53                 // Method net/minecraft/world/phys/AABB.inflate:(DDD)Lnet/minecraft/world/phys/AABB;
+      95: invokevirtual #57                 // Method net/minecraft/world/level/Level.getEntitiesOfClass:(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;
+      98: astore        5
+     100: goto          155
+     103: aload         4
+     105: ldc           #36                 // class net/minecraft/world/entity/item/ItemEntity
+     107: new           #38                 // class net/minecraft/world/phys/AABB
+     110: dup
+     111: aload_2
+     112: invokevirtual #40                 // Method net/minecraft/world/entity/Entity.getX:()D
+     115: aload_2
+     116: invokevirtual #44                 // Method net/minecraft/world/entity/Entity.getY:()D
+     119: aload_2
+     120: invokevirtual #47                 // Method net/minecraft/world/entity/Entity.getZ:()D
+     123: aload_2
+     124: invokevirtual #40                 // Method net/minecraft/world/entity/Entity.getX:()D
+     127: aload_2
+     128: invokevirtual #44                 // Method net/minecraft/world/entity/Entity.getY:()D
+     131: aload_2
+     132: invokevirtual #47                 // Method net/minecraft/world/entity/Entity.getZ:()D
+     135: invokespecial #50                 // Method net/minecraft/world/phys/AABB."<init>":(DDDDDD)V
+     138: ldc2_w        #63                 // double 5.0d
+     141: ldc2_w        #63                 // double 5.0d
+     144: ldc2_w        #63                 // double 5.0d
+     147: invokevirtual #53                 // Method net/minecraft/world/phys/AABB.inflate:(DDD)Lnet/minecraft/world/phys/AABB;
+     150: invokevirtual #57                 // Method net/minecraft/world/level/Level.getEntitiesOfClass:(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;
+     153: astore        5
+     155: iconst_0
+     156: istore        6
+     158: aload         5
+     160: invokeinterface #65,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+     165: astore        7
+     167: aload         7
+     169: invokeinterface #71,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+     174: ifeq          496
+     177: aload         7
+     179: invokeinterface #76,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     184: checkcast     #36                 // class net/minecraft/world/entity/item/ItemEntity
+     187: astore        8
+     189: aload         8
+     191: invokevirtual #80                 // Method net/minecraft/world/entity/item/ItemEntity.isAlive:()Z
+     194: ifne          200
+     197: goto          167
+     200: aload         8
+     202: invokevirtual #83                 // Method net/minecraft/world/entity/item/ItemEntity.getPersistentData:()Lnet/minecraft/nbt/CompoundTag;
+     205: astore        9
+     207: aload         9
+     209: ifnull        225
+     212: aload         9
+     214: ldc           #87                 // String PreventRemoteMovement
+     216: invokevirtual #89                 // Method net/minecraft/nbt/CompoundTag.contains:(Ljava/lang/String;)Z
+     219: ifeq          225
+     222: goto          167
+     225: aload         8
+     227: invokevirtual #95                 // Method net/minecraft/world/entity/item/ItemEntity.getOwner:()Lnet/minecraft/world/entity/Entity;
+     230: ifnull        259
+     233: aload         8
+     235: invokevirtual #95                 // Method net/minecraft/world/entity/item/ItemEntity.getOwner:()Lnet/minecraft/world/entity/Entity;
+     238: aload_2
+     239: invokevirtual #99                 // Method net/minecraft/world/entity/Entity.getUUID:()Ljava/util/UUID;
+     242: invokevirtual #103                // Method net/minecraft/world/entity/Entity.equals:(Ljava/lang/Object;)Z
+     245: ifeq          259
+     248: aload         8
+     250: getfield      #107                // Field net/minecraft/world/entity/item/ItemEntity.pickupDelay:I
+     253: ifle          259
+     256: goto          167
+     259: aload         4
+     261: aload         8
+     263: ldc2_w        #110                // double 4.0d
+     266: invokevirtual #112                // Method net/minecraft/world/level/Level.getNearestPlayer:(Lnet/minecraft/world/entity/Entity;D)Lnet/minecraft/world/entity/player/Player;
+     269: astore        10
+     271: aload         10
+     273: ifnull        285
+     276: aload         10
+     278: aload_2
+     279: if_acmpeq     285
+     282: goto          167
+     285: aload         8
+     287: invokevirtual #116                // Method net/minecraft/world/entity/item/ItemEntity.blockPosition:()Lnet/minecraft/core/BlockPos;
+     290: astore        11
+     292: iconst_0
+     293: istore        12
+     295: aload         11
+     297: bipush        -5
+     299: bipush        -5
+     301: bipush        -5
+     303: invokevirtual #120                // Method net/minecraft/core/BlockPos.offset:(III)Lnet/minecraft/core/BlockPos;
+     306: aload         11
+     308: iconst_5
+     309: iconst_5
+     310: iconst_5
+     311: invokevirtual #120                // Method net/minecraft/core/BlockPos.offset:(III)Lnet/minecraft/core/BlockPos;
+     314: invokestatic  #126                // Method net/minecraft/core/BlockPos.betweenClosed:(Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/BlockPos;)Ljava/lang/Iterable;
+     317: invokeinterface #130,  1          // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+     322: astore        13
+     324: aload         13
+     326: invokeinterface #71,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+     331: ifeq          374
+     334: aload         13
+     336: invokeinterface #76,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     341: checkcast     #121                // class net/minecraft/core/BlockPos
+     344: astore        14
+     346: aload         4
+     348: aload         14
+     350: invokevirtual #133                // Method net/minecraft/world/level/Level.getBlockState:(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;
+     353: invokevirtual #137                // Method net/minecraft/world/level/block/state/BlockState.getBlock:()Lnet/minecraft/world/level/block/Block;
+     356: getstatic     #143                // Field com/brandon3055/draconicevolution/init/DEContent.DISLOCATION_INHIBITOR:Lnet/neoforged/neoforge/registries/DeferredHolder;
+     359: invokevirtual #149                // Method net/neoforged/neoforge/registries/DeferredHolder.get:()Ljava/lang/Object;
+     362: if_acmpne     371
+     365: iconst_1
+     366: istore        12
+     368: goto          374
+     371: goto          324
+     374: iload         12
+     376: ifeq          382
+     379: goto          167
+     382: aload_2
+     383: aload         8
+     385: invokevirtual #154                // Method net/minecraft/world/entity/Entity.distanceToSqr:(Lnet/minecraft/world/entity/Entity;)D
+     388: ldc2_w        #110                // double 4.0d
+     391: dcmpl
+     392: ifle          398
+     395: iconst_1
+     396: istore        6
+     398: aload         4
+     400: getfield      #158                // Field net/minecraft/world/level/Level.isClientSide:Z
+     403: ifne          493
+     406: aload         8
+     408: getfield      #107                // Field net/minecraft/world/entity/item/ItemEntity.pickupDelay:I
+     411: ifle          420
+     414: aload         8
+     416: iconst_0
+     417: putfield      #107                // Field net/minecraft/world/entity/item/ItemEntity.pickupDelay:I
+     420: aload         8
+     422: dconst_0
+     423: dconst_0
+     424: dconst_0
+     425: invokevirtual #162                // Method net/minecraft/world/entity/item/ItemEntity.setDeltaMovement:(DDD)V
+     428: aload         8
+     430: fconst_0
+     431: putfield      #166                // Field net/minecraft/world/entity/item/ItemEntity.fallDistance:F
+     434: aload         8
+     436: aload_2
+     437: invokevirtual #40                 // Method net/minecraft/world/entity/Entity.getX:()D
+     440: ldc2_w        #170                // double 0.2d
+     443: dsub
+     444: aload         4
+     446: getfield      #172                // Field net/minecraft/world/level/Level.random:Lnet/minecraft/util/RandomSource;
+     449: invokeinterface #176,  1          // InterfaceMethod net/minecraft/util/RandomSource.nextDouble:()D
+     454: ldc2_w        #181                // double 0.4d
+     457: dmul
+     458: dadd
+     459: aload_2
+     460: invokevirtual #44                 // Method net/minecraft/world/entity/Entity.getY:()D
+     463: ldc2_w        #183                // double 0.6d
+     466: dsub
+     467: aload_2
+     468: invokevirtual #47                 // Method net/minecraft/world/entity/Entity.getZ:()D
+     471: ldc2_w        #170                // double 0.2d
+     474: dsub
+     475: aload         4
+     477: getfield      #172                // Field net/minecraft/world/level/Level.random:Lnet/minecraft/util/RandomSource;
+     480: invokeinterface #176,  1          // InterfaceMethod net/minecraft/util/RandomSource.nextDouble:()D
+     485: ldc2_w        #181                // double 0.4d
+     488: dmul
+     489: dadd
+     490: invokevirtual #185                // Method net/minecraft/world/entity/item/ItemEntity.setPos:(DDD)V
+     493: goto          167
+     496: iload         6
+     498: ifeq          548
+     501: getstatic     #188                // Field com/brandon3055/draconicevolution/DEConfig.itemDislocatorSound:Z
+     504: ifeq          548
+     507: aload         4
+     509: aconst_null
+     510: aload_2
+     511: invokevirtual #40                 // Method net/minecraft/world/entity/Entity.getX:()D
+     514: aload_2
+     515: invokevirtual #44                 // Method net/minecraft/world/entity/Entity.getY:()D
+     518: aload_2
+     519: invokevirtual #47                 // Method net/minecraft/world/entity/Entity.getZ:()D
+     522: getstatic     #193                // Field net/minecraft/sounds/SoundEvents.EXPERIENCE_ORB_PICKUP:Lnet/minecraft/sounds/SoundEvent;
+     525: getstatic     #199                // Field net/minecraft/sounds/SoundSource.PLAYERS:Lnet/minecraft/sounds/SoundSource;
+     528: ldc           #205                // float 0.1f
+     530: fconst_1
+     531: aload         4
+     533: getfield      #172                // Field net/minecraft/world/level/Level.random:Lnet/minecraft/util/RandomSource;
+     536: invokeinterface #206,  1          // InterfaceMethod net/minecraft/util/RandomSource.nextFloat:()F
+     541: ldc           #205                // float 0.1f
+     543: fmul
+     544: fadd
+     545: invokevirtual #210                // Method net/minecraft/world/level/Level.playSound:(Lnet/minecraft/world/entity/player/Player;DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V
+     548: aload         4
+     550: ldc           #214                // class net/minecraft/world/entity/ExperienceOrb
+     552: new           #38                 // class net/minecraft/world/phys/AABB
+     555: dup
+     556: aload_2
+     557: invokevirtual #40                 // Method net/minecraft/world/entity/Entity.getX:()D
+     560: aload_2
+     561: invokevirtual #44                 // Method net/minecraft/world/entity/Entity.getY:()D
+     564: aload_2
+     565: invokevirtual #47                 // Method net/minecraft/world/entity/Entity.getZ:()D
+     568: aload_2
+     569: invokevirtual #40                 // Method net/minecraft/world/entity/Entity.getX:()D
+     572: aload_2
+     573: invokevirtual #44                 // Method net/minecraft/world/entity/Entity.getY:()D
+     576: aload_2
+     577: invokevirtual #47                 // Method net/minecraft/world/entity/Entity.getZ:()D
+     580: invokespecial #50                 // Method net/minecraft/world/phys/AABB."<init>":(DDDDDD)V
+     583: ldc2_w        #110                // double 4.0d
+     586: ldc2_w        #110                // double 4.0d
+     589: ldc2_w        #110                // double 4.0d
+     592: invokevirtual #53                 // Method net/minecraft/world/phys/AABB.inflate:(DDD)Lnet/minecraft/world/phys/AABB;
+     595: invokevirtual #57                 // Method net/minecraft/world/level/Level.getEntitiesOfClass:(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;
+     598: astore        7
+     600: aload         7
+     602: invokeinterface #65,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+     607: astore        8
+     609: aload         8
+     611: invokeinterface #71,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+     616: ifeq          767
+     619: aload         8
+     621: invokeinterface #76,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     626: checkcast     #214                // class net/minecraft/world/entity/ExperienceOrb
+     629: astore        9
+     631: aload         4
+     633: getfield      #158                // Field net/minecraft/world/level/Level.isClientSide:Z
+     636: ifne          764
+     639: aload         9
+     641: invokevirtual #216                // Method net/minecraft/world/entity/ExperienceOrb.isAlive:()Z
+     644: ifeq          764
+     647: getstatic     #217                // Field net/neoforged/neoforge/common/NeoForge.EVENT_BUS:Lnet/neoforged/bus/api/IEventBus;
+     650: new           #223                // class net/neoforged/neoforge/event/entity/player/PlayerXpEvent$PickupXp
+     653: dup
+     654: aload_3
+     655: aload         9
+     657: invokespecial #225                // Method net/neoforged/neoforge/event/entity/player/PlayerXpEvent$PickupXp."<init>":(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/ExperienceOrb;)V
+     660: invokeinterface #228,  2          // InterfaceMethod net/neoforged/bus/api/IEventBus.post:(Lnet/neoforged/bus/api/Event;)Lnet/neoforged/bus/api/Event;
+     665: checkcast     #223                // class net/neoforged/neoforge/event/entity/player/PlayerXpEvent$PickupXp
+     668: astore        10
+     670: aload         10
+     672: invokevirtual #234                // Method net/neoforged/neoforge/event/entity/player/PlayerXpEvent$PickupXp.isCanceled:()Z
+     675: ifeq          681
+     678: goto          609
+     681: getstatic     #188                // Field com/brandon3055/draconicevolution/DEConfig.itemDislocatorSound:Z
+     684: ifeq          743
+     687: aload         4
+     689: aconst_null
+     690: aload_2
+     691: invokevirtual #40                 // Method net/minecraft/world/entity/Entity.getX:()D
+     694: aload_2
+     695: invokevirtual #44                 // Method net/minecraft/world/entity/Entity.getY:()D
+     698: aload_2
+     699: invokevirtual #47                 // Method net/minecraft/world/entity/Entity.getZ:()D
+     702: getstatic     #193                // Field net/minecraft/sounds/SoundEvents.EXPERIENCE_ORB_PICKUP:Lnet/minecraft/sounds/SoundEvent;
+     705: getstatic     #199                // Field net/minecraft/sounds/SoundSource.PLAYERS:Lnet/minecraft/sounds/SoundSource;
+     708: ldc           #205                // float 0.1f
+     710: ldc           #237                // float 0.5f
+     712: aload         4
+     714: getfield      #172                // Field net/minecraft/world/level/Level.random:Lnet/minecraft/util/RandomSource;
+     717: invokeinterface #206,  1          // InterfaceMethod net/minecraft/util/RandomSource.nextFloat:()F
+     722: aload         4
+     724: getfield      #172                // Field net/minecraft/world/level/Level.random:Lnet/minecraft/util/RandomSource;
+     727: invokeinterface #206,  1          // InterfaceMethod net/minecraft/util/RandomSource.nextFloat:()F
+     732: fsub
+     733: ldc           #238                // float 0.7f
+     735: fmul
+     736: ldc           #239                // float 1.8f
+     738: fadd
+     739: fmul
+     740: invokevirtual #210                // Method net/minecraft/world/level/Level.playSound:(Lnet/minecraft/world/entity/player/Player;DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V
+     743: aload_3
+     744: aload         9
+     746: iconst_1
+     747: invokevirtual #240                // Method net/minecraft/world/entity/player/Player.take:(Lnet/minecraft/world/entity/Entity;I)V
+     750: aload_3
+     751: aload         9
+     753: getfield      #244                // Field net/minecraft/world/entity/ExperienceOrb.value:I
+     756: invokevirtual #247                // Method net/minecraft/world/entity/player/Player.giveExperiencePoints:(I)V
+     759: aload         9
+     761: invokevirtual #251                // Method net/minecraft/world/entity/ExperienceOrb.discard:()V
+     764: goto          609
+     767: return
+
+  public net.minecraft.world.InteractionResultHolder<net.minecraft.world.item.ItemStack> use(net.minecraft.world.level.Level, net.minecraft.world.entity.player.Player, net.minecraft.world.InteractionHand);
+    descriptor: (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;
+    Code:
+       0: aload_2
+       1: aload_3
+       2: invokevirtual #255                // Method net/minecraft/world/entity/player/Player.getItemInHand:(Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/item/ItemStack;
+       5: astore        4
+       7: aload_2
+       8: invokevirtual #259                // Method net/minecraft/world/entity/player/Player.isShiftKeyDown:()Z
+      11: ifeq          20
+      14: aload         4
+      16: aload_2
+      17: invokestatic  #260                // Method toggleEnabled:(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/player/Player;)V
+      20: aload_0
+      21: aload_1
+      22: aload_2
+      23: aload_3
+      24: invokespecial #264                // Method net/minecraft/world/item/Item.use:(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResultHolder;
+      27: areturn
+
+  public void appendHoverText(net.minecraft.world.item.ItemStack, net.minecraft.world.item.Item$TooltipContext, java.util.List, net.minecraft.world.item.TooltipFlag);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/Item$TooltipContext;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V
+    Code:
+       0: return
+
+  public static boolean isEnabled(net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;)Z
+    Code:
+       0: aload_0
+       1: getstatic     #268                // Field com/brandon3055/draconicevolution/init/ItemData.MAGNET_ACTIVE:Lnet/neoforged/neoforge/registries/DeferredHolder;
+       4: iconst_0
+       5: invokestatic  #273                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+       8: invokevirtual #279                // Method net/minecraft/world/item/ItemStack.getOrDefault:(Ljava/util/function/Supplier;Ljava/lang/Object;)Ljava/lang/Object;
+      11: checkcast     #274                // class java/lang/Boolean
+      14: invokevirtual #285                // Method java/lang/Boolean.booleanValue:()Z
+      17: ireturn
+
+  public static void toggleEnabled(net.minecraft.world.item.ItemStack, net.minecraft.world.entity.player.Player);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/player/Player;)V
+    Code:
+       0: aload_0
+       1: getstatic     #268                // Field com/brandon3055/draconicevolution/init/ItemData.MAGNET_ACTIVE:Lnet/neoforged/neoforge/registries/DeferredHolder;
+       4: aload_0
+       5: invokestatic  #13                 // Method isEnabled:(Lnet/minecraft/world/item/ItemStack;)Z
+       8: ifne          15
+      11: iconst_1
+      12: goto          16
+      15: iconst_0
+      16: invokestatic  #273                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      19: invokevirtual #288                // Method net/minecraft/world/item/ItemStack.set:(Ljava/util/function/Supplier;Ljava/lang/Object;)Ljava/lang/Object;
+      22: pop
+      23: aload_1
+      24: invokevirtual #291                // Method net/minecraft/world/entity/player/Player.level:()Lnet/minecraft/world/level/Level;
+      27: aconst_null
+      28: aload_1
+      29: invokevirtual #294                // Method net/minecraft/world/entity/player/Player.getX:()D
+      32: aload_1
+      33: invokevirtual #295                // Method net/minecraft/world/entity/player/Player.getY:()D
+      36: aload_1
+      37: invokevirtual #296                // Method net/minecraft/world/entity/player/Player.getZ:()D
+      40: getstatic     #193                // Field net/minecraft/sounds/SoundEvents.EXPERIENCE_ORB_PICKUP:Lnet/minecraft/sounds/SoundEvent;
+      43: getstatic     #199                // Field net/minecraft/sounds/SoundSource.PLAYERS:Lnet/minecraft/sounds/SoundSource;
+      46: ldc           #205                // float 0.1f
+      48: aload_0
+      49: invokestatic  #13                 // Method isEnabled:(Lnet/minecraft/world/item/ItemStack;)Z
+      52: ifeq          59
+      55: fconst_1
+      56: goto          61
+      59: ldc           #237                // float 0.5f
+      61: invokevirtual #210                // Method net/minecraft/world/level/Level.playSound:(Lnet/minecraft/world/entity/player/Player;DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V
+      64: return
+}
