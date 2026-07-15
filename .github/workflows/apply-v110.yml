@@ -3,6 +3,8 @@ name: Apply v1.1.0 implementation
 on:
   push:
     branches: [v1.1.0]
+  pull_request:
+    branches: [main]
 
 permissions:
   contents: write
