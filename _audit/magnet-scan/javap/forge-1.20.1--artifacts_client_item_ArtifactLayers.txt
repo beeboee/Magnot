@@ -1,0 +1,721 @@
+Compiled from "ArtifactLayers.java"
+public class artifacts.client.item.ArtifactLayers {
+  public static final net.minecraft.client.model.geom.ModelLayerLocation DRINKING_HAT;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation SNORKEL;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation NIGHT_VISION_GOGGLES;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation SUPERSTITIOUS_HAT;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation BRIMMED_HAT;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation COWBOY_HAT;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation ANGLERS_HAT;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation SCARF;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation CROSS_NECKLACE;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation PANIC_NECKLACE;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation PENDANT;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation CHARM_OF_SINKING;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation CLOUD_IN_A_BOTTLE;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation OBSIDIAN_SKULL;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation ANTIDOTE_VESSEL;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation UNIVERSAL_ATTRACTOR;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation CRYSTAL_HEART;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation HELIUM_FLAMINGO;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation CHORUS_TOTEM;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation CLAWS_WIDE;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation CLAWS_SLIM;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation GLOVE_WIDE;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation GLOVE_SLIM;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation GOLDEN_HOOK_WIDE;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation GOLDEN_HOOK_SLIM;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation POCKET_PISTON_WIDE;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation POCKET_PISTON_SLIM;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation ONION_RING_WIDE;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation ONION_RING_SLIM;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation PICKAXE_HEATER_WIDE;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation PICKAXE_HEATER_SLIM;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation AQUA_DASHERS_SMALL;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation AQUA_DASHERS_LARGE;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation BUNNY_HOPPERS;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation KITTY_SLIPPERS;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation BOOTS_SMALL;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation BOOTS_LARGE;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation SNOWSHOES;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation STEADFAST_SPIKES;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation FLIPPERS;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public static final net.minecraft.client.model.geom.ModelLayerLocation WHOOPEE_CUSHION;
+    descriptor: Lnet/minecraft/client/model/geom/ModelLayerLocation;
+
+  public artifacts.client.item.ArtifactLayers();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #56                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static net.minecraft.client.model.geom.ModelLayerLocation claws(boolean);
+    descriptor: (Z)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+    Code:
+       0: iload_0
+       1: ifeq          10
+       4: getstatic     #63                 // Field CLAWS_SLIM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+       7: goto          13
+      10: getstatic     #65                 // Field CLAWS_WIDE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      13: areturn
+
+  public static net.minecraft.client.model.geom.ModelLayerLocation glove(boolean);
+    descriptor: (Z)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+    Code:
+       0: iload_0
+       1: ifeq          10
+       4: getstatic     #71                 // Field GLOVE_SLIM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+       7: goto          13
+      10: getstatic     #73                 // Field GLOVE_WIDE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      13: areturn
+
+  public static net.minecraft.client.model.geom.ModelLayerLocation goldenHook(boolean);
+    descriptor: (Z)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+    Code:
+       0: iload_0
+       1: ifeq          10
+       4: getstatic     #76                 // Field GOLDEN_HOOK_SLIM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+       7: goto          13
+      10: getstatic     #78                 // Field GOLDEN_HOOK_WIDE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      13: areturn
+
+  public static net.minecraft.client.model.geom.ModelLayerLocation pocketPiston(boolean);
+    descriptor: (Z)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+    Code:
+       0: iload_0
+       1: ifeq          10
+       4: getstatic     #81                 // Field POCKET_PISTON_SLIM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+       7: goto          13
+      10: getstatic     #83                 // Field POCKET_PISTON_WIDE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      13: areturn
+
+  public static net.minecraft.client.model.geom.ModelLayerLocation onionRing(boolean);
+    descriptor: (Z)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+    Code:
+       0: iload_0
+       1: ifeq          10
+       4: getstatic     #86                 // Field ONION_RING_SLIM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+       7: goto          13
+      10: getstatic     #88                 // Field ONION_RING_WIDE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      13: areturn
+
+  public static net.minecraft.client.model.geom.ModelLayerLocation pickaxeHeater(boolean);
+    descriptor: (Z)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+    Code:
+       0: iload_0
+       1: ifeq          10
+       4: getstatic     #91                 // Field PICKAXE_HEATER_SLIM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+       7: goto          13
+      10: getstatic     #93                 // Field PICKAXE_HEATER_WIDE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      13: areturn
+
+  public static net.minecraft.client.model.geom.ModelLayerLocation createLayerLocation(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+    Code:
+       0: new           #67                 // class net/minecraft/client/model/geom/ModelLayerLocation
+       3: dup
+       4: aload_0
+       5: invokestatic  #102                // Method artifacts/Artifacts.id:(Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+       8: aload_0
+       9: invokespecial #105                // Method net/minecraft/client/model/geom/ModelLayerLocation."<init>":(Lnet/minecraft/resources/ResourceLocation;Ljava/lang/String;)V
+      12: areturn
+
+  private static java.util.function.Supplier<net.minecraft.client.model.geom.builders.LayerDefinition> layer(java.util.function.Supplier<net.minecraft.client.model.geom.builders.MeshDefinition>, int, int);
+    descriptor: (Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+    Code:
+       0: aload_0
+       1: iload_1
+       2: iload_2
+       3: invokedynamic #131,  0            // InvokeDynamic #0:get:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+       8: areturn
+
+  public static void register();
+    descriptor: ()V
+    Code:
+       0: getstatic     #137                // Field DRINKING_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+       3: invokedynamic #148,  0            // InvokeDynamic #1:get:()Ljava/util/function/Supplier;
+       8: bipush        64
+      10: bipush        32
+      12: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+      15: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+      18: getstatic     #157                // Field SNORKEL:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      21: invokedynamic #162,  0            // InvokeDynamic #2:get:()Ljava/util/function/Supplier;
+      26: bipush        64
+      28: bipush        32
+      30: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+      33: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+      36: getstatic     #164                // Field NIGHT_VISION_GOGGLES:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      39: invokedynamic #169,  0            // InvokeDynamic #3:get:()Ljava/util/function/Supplier;
+      44: bipush        32
+      46: bipush        32
+      48: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+      51: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+      54: getstatic     #171                // Field SUPERSTITIOUS_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      57: invokedynamic #176,  0            // InvokeDynamic #4:get:()Ljava/util/function/Supplier;
+      62: bipush        64
+      64: bipush        32
+      66: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+      69: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+      72: getstatic     #178                // Field BRIMMED_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      75: invokedynamic #183,  0            // InvokeDynamic #5:get:()Ljava/util/function/Supplier;
+      80: bipush        32
+      82: bipush        32
+      84: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+      87: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+      90: getstatic     #185                // Field COWBOY_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      93: invokedynamic #190,  0            // InvokeDynamic #6:get:()Ljava/util/function/Supplier;
+      98: bipush        32
+     100: bipush        32
+     102: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     105: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     108: getstatic     #192                // Field ANGLERS_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     111: invokedynamic #197,  0            // InvokeDynamic #7:get:()Ljava/util/function/Supplier;
+     116: bipush        32
+     118: bipush        32
+     120: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     123: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     126: getstatic     #199                // Field SCARF:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     129: invokedynamic #206,  0            // InvokeDynamic #8:get:()Ljava/util/function/Supplier;
+     134: bipush        64
+     136: bipush        32
+     138: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     141: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     144: getstatic     #208                // Field CROSS_NECKLACE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     147: invokedynamic #215,  0            // InvokeDynamic #9:get:()Ljava/util/function/Supplier;
+     152: bipush        64
+     154: bipush        48
+     156: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     159: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     162: getstatic     #217                // Field PANIC_NECKLACE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     165: invokedynamic #222,  0            // InvokeDynamic #10:get:()Ljava/util/function/Supplier;
+     170: bipush        64
+     172: bipush        48
+     174: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     177: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     180: getstatic     #224                // Field PENDANT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     183: invokedynamic #229,  0            // InvokeDynamic #11:get:()Ljava/util/function/Supplier;
+     188: bipush        64
+     190: bipush        48
+     192: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     195: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     198: getstatic     #231                // Field CHARM_OF_SINKING:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     201: invokedynamic #236,  0            // InvokeDynamic #12:get:()Ljava/util/function/Supplier;
+     206: bipush        64
+     208: bipush        48
+     210: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     213: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     216: getstatic     #238                // Field CLOUD_IN_A_BOTTLE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     219: invokedynamic #245,  0            // InvokeDynamic #13:get:()Ljava/util/function/Supplier;
+     224: bipush        32
+     226: bipush        32
+     228: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     231: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     234: getstatic     #247                // Field OBSIDIAN_SKULL:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     237: invokedynamic #252,  0            // InvokeDynamic #14:get:()Ljava/util/function/Supplier;
+     242: bipush        32
+     244: bipush        32
+     246: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     249: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     252: getstatic     #254                // Field ANTIDOTE_VESSEL:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     255: invokedynamic #259,  0            // InvokeDynamic #15:get:()Ljava/util/function/Supplier;
+     260: bipush        32
+     262: bipush        32
+     264: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     267: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     270: getstatic     #261                // Field UNIVERSAL_ATTRACTOR:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     273: invokedynamic #266,  0            // InvokeDynamic #16:get:()Ljava/util/function/Supplier;
+     278: bipush        32
+     280: bipush        32
+     282: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     285: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     288: getstatic     #268                // Field CRYSTAL_HEART:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     291: invokedynamic #273,  0            // InvokeDynamic #17:get:()Ljava/util/function/Supplier;
+     296: bipush        32
+     298: bipush        32
+     300: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     303: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     306: getstatic     #275                // Field HELIUM_FLAMINGO:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     309: invokedynamic #280,  0            // InvokeDynamic #18:get:()Ljava/util/function/Supplier;
+     314: bipush        64
+     316: bipush        64
+     318: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     321: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     324: getstatic     #282                // Field CHORUS_TOTEM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     327: invokedynamic #287,  0            // InvokeDynamic #19:get:()Ljava/util/function/Supplier;
+     332: bipush        32
+     334: bipush        32
+     336: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     339: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     342: getstatic     #65                 // Field CLAWS_WIDE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     345: invokedynamic #292,  0            // InvokeDynamic #20:get:()Ljava/util/function/Supplier;
+     350: bipush        32
+     352: bipush        16
+     354: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     357: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     360: getstatic     #63                 // Field CLAWS_SLIM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     363: invokedynamic #297,  0            // InvokeDynamic #21:get:()Ljava/util/function/Supplier;
+     368: bipush        32
+     370: bipush        16
+     372: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     375: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     378: getstatic     #73                 // Field GLOVE_WIDE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     381: invokedynamic #302,  0            // InvokeDynamic #22:get:()Ljava/util/function/Supplier;
+     386: bipush        32
+     388: bipush        32
+     390: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     393: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     396: getstatic     #71                 // Field GLOVE_SLIM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     399: invokedynamic #307,  0            // InvokeDynamic #23:get:()Ljava/util/function/Supplier;
+     404: bipush        32
+     406: bipush        32
+     408: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     411: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     414: getstatic     #78                 // Field GOLDEN_HOOK_WIDE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     417: invokedynamic #312,  0            // InvokeDynamic #24:get:()Ljava/util/function/Supplier;
+     422: bipush        64
+     424: bipush        32
+     426: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     429: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     432: getstatic     #76                 // Field GOLDEN_HOOK_SLIM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     435: invokedynamic #317,  0            // InvokeDynamic #25:get:()Ljava/util/function/Supplier;
+     440: bipush        64
+     442: bipush        32
+     444: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     447: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     450: getstatic     #83                 // Field POCKET_PISTON_WIDE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     453: invokedynamic #322,  0            // InvokeDynamic #26:get:()Ljava/util/function/Supplier;
+     458: bipush        32
+     460: bipush        16
+     462: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     465: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     468: getstatic     #81                 // Field POCKET_PISTON_SLIM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     471: invokedynamic #327,  0            // InvokeDynamic #27:get:()Ljava/util/function/Supplier;
+     476: bipush        32
+     478: bipush        16
+     480: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     483: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     486: getstatic     #88                 // Field ONION_RING_WIDE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     489: invokedynamic #332,  0            // InvokeDynamic #28:get:()Ljava/util/function/Supplier;
+     494: bipush        32
+     496: bipush        32
+     498: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     501: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     504: getstatic     #86                 // Field ONION_RING_SLIM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     507: invokedynamic #337,  0            // InvokeDynamic #29:get:()Ljava/util/function/Supplier;
+     512: bipush        32
+     514: bipush        32
+     516: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     519: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     522: getstatic     #93                 // Field PICKAXE_HEATER_WIDE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     525: invokedynamic #342,  0            // InvokeDynamic #30:get:()Ljava/util/function/Supplier;
+     530: bipush        64
+     532: bipush        32
+     534: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     537: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     540: getstatic     #91                 // Field PICKAXE_HEATER_SLIM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     543: invokedynamic #347,  0            // InvokeDynamic #31:get:()Ljava/util/function/Supplier;
+     548: bipush        64
+     550: bipush        32
+     552: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     555: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     558: getstatic     #349                // Field AQUA_DASHERS_SMALL:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     561: invokedynamic #354,  0            // InvokeDynamic #32:get:()Ljava/util/function/Supplier;
+     566: bipush        32
+     568: bipush        32
+     570: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     573: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     576: getstatic     #356                // Field AQUA_DASHERS_LARGE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     579: invokedynamic #361,  0            // InvokeDynamic #33:get:()Ljava/util/function/Supplier;
+     584: bipush        32
+     586: bipush        32
+     588: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     591: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     594: getstatic     #363                // Field BUNNY_HOPPERS:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     597: invokedynamic #370,  0            // InvokeDynamic #34:get:()Ljava/util/function/Supplier;
+     602: bipush        64
+     604: bipush        32
+     606: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     609: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     612: getstatic     #372                // Field KITTY_SLIPPERS:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     615: invokedynamic #377,  0            // InvokeDynamic #35:get:()Ljava/util/function/Supplier;
+     620: bipush        64
+     622: bipush        32
+     624: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     627: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     630: getstatic     #379                // Field BOOTS_SMALL:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     633: invokedynamic #384,  0            // InvokeDynamic #36:get:()Ljava/util/function/Supplier;
+     638: bipush        32
+     640: bipush        32
+     642: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     645: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     648: getstatic     #386                // Field BOOTS_LARGE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     651: invokedynamic #391,  0            // InvokeDynamic #37:get:()Ljava/util/function/Supplier;
+     656: bipush        32
+     658: bipush        32
+     660: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     663: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     666: getstatic     #393                // Field SNOWSHOES:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     669: invokedynamic #398,  0            // InvokeDynamic #38:get:()Ljava/util/function/Supplier;
+     674: bipush        64
+     676: bipush        64
+     678: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     681: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     684: getstatic     #400                // Field STEADFAST_SPIKES:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     687: invokedynamic #405,  0            // InvokeDynamic #39:get:()Ljava/util/function/Supplier;
+     692: bipush        64
+     694: bipush        32
+     696: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     699: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     702: getstatic     #407                // Field FLIPPERS:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     705: invokedynamic #412,  0            // InvokeDynamic #40:get:()Ljava/util/function/Supplier;
+     710: bipush        64
+     712: bipush        64
+     714: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     717: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     720: getstatic     #414                // Field WHOOPEE_CUSHION:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     723: invokedynamic #419,  0            // InvokeDynamic #41:get:()Ljava/util/function/Supplier;
+     728: bipush        32
+     730: bipush        16
+     732: invokestatic  #150                // Method layer:(Ljava/util/function/Supplier;II)Ljava/util/function/Supplier;
+     735: invokestatic  #155                // Method dev/architectury/registry/client/level/entity/EntityModelLayerRegistry.register:(Lnet/minecraft/client/model/geom/ModelLayerLocation;Ljava/util/function/Supplier;)V
+     738: return
+
+  private static net.minecraft.client.model.geom.builders.MeshDefinition lambda$register$17();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: ldc_w         #420                // float 1.25f
+       3: invokestatic  #424                // Method artifacts/client/item/model/LegsModel.createBoots:(F)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+       6: areturn
+
+  private static net.minecraft.client.model.geom.builders.MeshDefinition lambda$register$16();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: ldc_w         #425                // float 0.5f
+       3: invokestatic  #424                // Method artifacts/client/item/model/LegsModel.createBoots:(F)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+       6: areturn
+
+  private static net.minecraft.client.model.geom.builders.MeshDefinition lambda$register$15();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: ldc_w         #420                // float 1.25f
+       3: invokestatic  #428                // Method artifacts/client/item/model/LegsModel.createAquaDashers:(F)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+       6: areturn
+
+  private static net.minecraft.client.model.geom.builders.MeshDefinition lambda$register$14();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: ldc_w         #425                // float 0.5f
+       3: invokestatic  #428                // Method artifacts/client/item/model/LegsModel.createAquaDashers:(F)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+       6: areturn
+
+  private static net.minecraft.client.model.geom.builders.MeshDefinition lambda$register$13();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: iconst_1
+       1: invokestatic  #434                // Method artifacts/client/item/model/ArmsModel.createPickaxeHeater:(Z)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+       4: areturn
+
+  private static net.minecraft.client.model.geom.builders.MeshDefinition lambda$register$12();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: iconst_0
+       1: invokestatic  #434                // Method artifacts/client/item/model/ArmsModel.createPickaxeHeater:(Z)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+       4: areturn
+
+  private static net.minecraft.client.model.geom.builders.MeshDefinition lambda$register$11();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: iconst_1
+       1: invokestatic  #437                // Method artifacts/client/item/model/ArmsModel.createOnionRing:(Z)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+       4: areturn
+
+  private static net.minecraft.client.model.geom.builders.MeshDefinition lambda$register$10();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: iconst_0
+       1: invokestatic  #437                // Method artifacts/client/item/model/ArmsModel.createOnionRing:(Z)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+       4: areturn
+
+  private static net.minecraft.client.model.geom.builders.MeshDefinition lambda$register$9();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: iconst_1
+       1: invokestatic  #440                // Method artifacts/client/item/model/ArmsModel.createPocketPiston:(Z)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+       4: areturn
+
+  private static net.minecraft.client.model.geom.builders.MeshDefinition lambda$register$8();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: iconst_0
+       1: invokestatic  #440                // Method artifacts/client/item/model/ArmsModel.createPocketPiston:(Z)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+       4: areturn
+
+  private static net.minecraft.client.model.geom.builders.MeshDefinition lambda$register$7();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: iconst_1
+       1: invokestatic  #443                // Method artifacts/client/item/model/ArmsModel.createGoldenHook:(Z)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+       4: areturn
+
+  private static net.minecraft.client.model.geom.builders.MeshDefinition lambda$register$6();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: iconst_0
+       1: invokestatic  #443                // Method artifacts/client/item/model/ArmsModel.createGoldenHook:(Z)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+       4: areturn
+
+  private static net.minecraft.client.model.geom.builders.MeshDefinition lambda$register$5();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: iconst_1
+       1: invokestatic  #446                // Method artifacts/client/item/model/ArmsModel.createSleevedArms:(Z)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+       4: areturn
+
+  private static net.minecraft.client.model.geom.builders.MeshDefinition lambda$register$4();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: iconst_0
+       1: invokestatic  #446                // Method artifacts/client/item/model/ArmsModel.createSleevedArms:(Z)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+       4: areturn
+
+  private static net.minecraft.client.model.geom.builders.MeshDefinition lambda$register$3();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: iconst_1
+       1: invokestatic  #449                // Method artifacts/client/item/model/ArmsModel.createClaws:(Z)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+       4: areturn
+
+  private static net.minecraft.client.model.geom.builders.MeshDefinition lambda$register$2();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: iconst_0
+       1: invokestatic  #449                // Method artifacts/client/item/model/ArmsModel.createClaws:(Z)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+       4: areturn
+
+  private static net.minecraft.client.model.geom.builders.MeshDefinition lambda$register$1();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: invokestatic  #455                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171558_:()Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+       3: invokestatic  #459                // Method artifacts/client/item/model/HeadModel.createBrimmedHat:(Lnet/minecraft/client/model/geom/builders/CubeListBuilder;)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+       6: areturn
+
+  private static net.minecraft.client.model.geom.builders.LayerDefinition lambda$layer$0(java.util.function.Supplier, int, int);
+    descriptor: (Ljava/util/function/Supplier;II)Lnet/minecraft/client/model/geom/builders/LayerDefinition;
+    Code:
+       0: aload_0
+       1: invokeinterface #463,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       6: checkcast     #465                // class net/minecraft/client/model/geom/builders/MeshDefinition
+       9: iload_1
+      10: iload_2
+      11: invokestatic  #471                // Method net/minecraft/client/model/geom/builders/LayerDefinition.m_171565_:(Lnet/minecraft/client/model/geom/builders/MeshDefinition;II)Lnet/minecraft/client/model/geom/builders/LayerDefinition;
+      14: areturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: ldc_w         #474                // String drinking_hat
+       3: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+       6: putstatic     #137                // Field DRINKING_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+       9: ldc_w         #478                // String snorkel
+      12: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      15: putstatic     #157                // Field SNORKEL:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      18: ldc_w         #480                // String night_vision_goggles
+      21: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      24: putstatic     #164                // Field NIGHT_VISION_GOGGLES:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      27: ldc_w         #482                // String superstitious_hat
+      30: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      33: putstatic     #171                // Field SUPERSTITIOUS_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      36: ldc_w         #484                // String brimmed_hat
+      39: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      42: putstatic     #178                // Field BRIMMED_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      45: ldc_w         #486                // String cowboy_hat
+      48: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      51: putstatic     #185                // Field COWBOY_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      54: ldc_w         #488                // String anglers_hat
+      57: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      60: putstatic     #192                // Field ANGLERS_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      63: ldc_w         #490                // String scarf
+      66: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      69: putstatic     #199                // Field SCARF:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      72: ldc_w         #492                // String cross_necklace
+      75: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      78: putstatic     #208                // Field CROSS_NECKLACE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      81: ldc_w         #494                // String panic_necklace
+      84: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      87: putstatic     #217                // Field PANIC_NECKLACE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      90: ldc_w         #496                // String pendant
+      93: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      96: putstatic     #224                // Field PENDANT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      99: ldc_w         #498                // String charm_of_sinking
+     102: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     105: putstatic     #231                // Field CHARM_OF_SINKING:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     108: ldc_w         #500                // String cloud_in_a_bottle
+     111: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     114: putstatic     #238                // Field CLOUD_IN_A_BOTTLE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     117: ldc_w         #502                // String obsidian_skull
+     120: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     123: putstatic     #247                // Field OBSIDIAN_SKULL:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     126: ldc_w         #504                // String antidote_vessel
+     129: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     132: putstatic     #254                // Field ANTIDOTE_VESSEL:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     135: ldc_w         #506                // String universal_attractor
+     138: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     141: putstatic     #261                // Field UNIVERSAL_ATTRACTOR:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     144: ldc_w         #508                // String crystal_heart
+     147: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     150: putstatic     #268                // Field CRYSTAL_HEART:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     153: ldc_w         #510                // String helium_flamingo
+     156: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     159: putstatic     #275                // Field HELIUM_FLAMINGO:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     162: ldc_w         #512                // String chorus_totem
+     165: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     168: putstatic     #282                // Field CHORUS_TOTEM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     171: ldc_w         #514                // String claws_wide
+     174: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     177: putstatic     #65                 // Field CLAWS_WIDE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     180: ldc_w         #516                // String claws_slim
+     183: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     186: putstatic     #63                 // Field CLAWS_SLIM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     189: ldc_w         #518                // String glove_wide
+     192: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     195: putstatic     #73                 // Field GLOVE_WIDE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     198: ldc_w         #520                // String glove_slim
+     201: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     204: putstatic     #71                 // Field GLOVE_SLIM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     207: ldc_w         #522                // String golden_hook_wide
+     210: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     213: putstatic     #78                 // Field GOLDEN_HOOK_WIDE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     216: ldc_w         #524                // String golden_hook_slim
+     219: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     222: putstatic     #76                 // Field GOLDEN_HOOK_SLIM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     225: ldc_w         #526                // String pocket_piston_wide
+     228: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     231: putstatic     #83                 // Field POCKET_PISTON_WIDE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     234: ldc_w         #528                // String pocket_piston_slim
+     237: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     240: putstatic     #81                 // Field POCKET_PISTON_SLIM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     243: ldc_w         #530                // String onion_ring_wide
+     246: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     249: putstatic     #88                 // Field ONION_RING_WIDE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     252: ldc_w         #532                // String onion_ring_slim
+     255: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     258: putstatic     #86                 // Field ONION_RING_SLIM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     261: ldc_w         #534                // String pickaxe_heater_wide
+     264: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     267: putstatic     #93                 // Field PICKAXE_HEATER_WIDE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     270: ldc_w         #536                // String pickaxe_heater_slim
+     273: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     276: putstatic     #91                 // Field PICKAXE_HEATER_SLIM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     279: ldc_w         #538                // String aqua_dashers_small
+     282: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     285: putstatic     #349                // Field AQUA_DASHERS_SMALL:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     288: ldc_w         #540                // String aqua_dashers_large
+     291: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     294: putstatic     #356                // Field AQUA_DASHERS_LARGE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     297: ldc_w         #542                // String bunny_hoppers
+     300: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     303: putstatic     #363                // Field BUNNY_HOPPERS:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     306: ldc_w         #544                // String kitty_slippers
+     309: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     312: putstatic     #372                // Field KITTY_SLIPPERS:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     315: ldc_w         #546                // String boots_small
+     318: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     321: putstatic     #379                // Field BOOTS_SMALL:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     324: ldc_w         #548                // String boots_large
+     327: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     330: putstatic     #386                // Field BOOTS_LARGE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     333: ldc_w         #550                // String snowshoes
+     336: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     339: putstatic     #393                // Field SNOWSHOES:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     342: ldc_w         #552                // String steadfast_spikes
+     345: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     348: putstatic     #400                // Field STEADFAST_SPIKES:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     351: ldc_w         #554                // String flippers
+     354: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     357: putstatic     #407                // Field FLIPPERS:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     360: ldc_w         #556                // String whoopee_cushion
+     363: invokestatic  #476                // Method createLayerLocation:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     366: putstatic     #414                // Field WHOOPEE_CUSHION:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+     369: return
+}

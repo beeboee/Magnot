@@ -1,0 +1,645 @@
+Compiled from "CurioRenderers.java"
+public class artifacts.client.render.curio.CurioRenderers {
+  public artifacts.client.render.curio.CurioRenderers();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void register();
+    descriptor: ()V
+    Code:
+       0: getstatic     #23                 // Field artifacts/common/init/ModItems.PLASTIC_DRINKING_HAT:Lnet/minecraftforge/registries/RegistryObject;
+       3: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+       6: checkcast     #31                 // class net/minecraft/world/item/Item
+       9: invokedynamic #48,  0             // InvokeDynamic #0:get:()Ljava/util/function/Supplier;
+      14: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+      17: getstatic     #56                 // Field artifacts/common/init/ModItems.NOVELTY_DRINKING_HAT:Lnet/minecraftforge/registries/RegistryObject;
+      20: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      23: checkcast     #31                 // class net/minecraft/world/item/Item
+      26: invokedynamic #61,  0             // InvokeDynamic #1:get:()Ljava/util/function/Supplier;
+      31: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+      34: getstatic     #64                 // Field artifacts/common/init/ModItems.SNORKEL:Lnet/minecraftforge/registries/RegistryObject;
+      37: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      40: checkcast     #31                 // class net/minecraft/world/item/Item
+      43: invokedynamic #69,  0             // InvokeDynamic #2:get:()Ljava/util/function/Supplier;
+      48: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+      51: getstatic     #72                 // Field artifacts/common/init/ModItems.NIGHT_VISION_GOGGLES:Lnet/minecraftforge/registries/RegistryObject;
+      54: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      57: checkcast     #31                 // class net/minecraft/world/item/Item
+      60: invokedynamic #77,  0             // InvokeDynamic #3:get:()Ljava/util/function/Supplier;
+      65: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+      68: getstatic     #80                 // Field artifacts/common/init/ModItems.SUPERSTITIOUS_HAT:Lnet/minecraftforge/registries/RegistryObject;
+      71: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      74: checkcast     #31                 // class net/minecraft/world/item/Item
+      77: invokedynamic #85,  0             // InvokeDynamic #4:get:()Ljava/util/function/Supplier;
+      82: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+      85: getstatic     #88                 // Field artifacts/common/init/ModItems.VILLAGER_HAT:Lnet/minecraftforge/registries/RegistryObject;
+      88: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      91: checkcast     #31                 // class net/minecraft/world/item/Item
+      94: invokedynamic #93,  0             // InvokeDynamic #5:get:()Ljava/util/function/Supplier;
+      99: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     102: getstatic     #96                 // Field artifacts/common/init/ModItems.LUCKY_SCARF:Lnet/minecraftforge/registries/RegistryObject;
+     105: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     108: checkcast     #31                 // class net/minecraft/world/item/Item
+     111: invokedynamic #101,  0            // InvokeDynamic #6:get:()Ljava/util/function/Supplier;
+     116: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     119: getstatic     #104                // Field artifacts/common/init/ModItems.SCARF_OF_INVISIBILITY:Lnet/minecraftforge/registries/RegistryObject;
+     122: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     125: checkcast     #31                 // class net/minecraft/world/item/Item
+     128: invokedynamic #109,  0            // InvokeDynamic #7:get:()Ljava/util/function/Supplier;
+     133: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     136: getstatic     #112                // Field artifacts/common/init/ModItems.CROSS_NECKLACE:Lnet/minecraftforge/registries/RegistryObject;
+     139: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     142: checkcast     #31                 // class net/minecraft/world/item/Item
+     145: invokedynamic #117,  0            // InvokeDynamic #8:get:()Ljava/util/function/Supplier;
+     150: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     153: getstatic     #120                // Field artifacts/common/init/ModItems.PANIC_NECKLACE:Lnet/minecraftforge/registries/RegistryObject;
+     156: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     159: checkcast     #31                 // class net/minecraft/world/item/Item
+     162: invokedynamic #125,  0            // InvokeDynamic #9:get:()Ljava/util/function/Supplier;
+     167: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     170: getstatic     #128                // Field artifacts/common/init/ModItems.SHOCK_PENDANT:Lnet/minecraftforge/registries/RegistryObject;
+     173: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     176: checkcast     #31                 // class net/minecraft/world/item/Item
+     179: invokedynamic #133,  0            // InvokeDynamic #10:get:()Ljava/util/function/Supplier;
+     184: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     187: getstatic     #136                // Field artifacts/common/init/ModItems.FLAME_PENDANT:Lnet/minecraftforge/registries/RegistryObject;
+     190: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     193: checkcast     #31                 // class net/minecraft/world/item/Item
+     196: invokedynamic #141,  0            // InvokeDynamic #11:get:()Ljava/util/function/Supplier;
+     201: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     204: getstatic     #144                // Field artifacts/common/init/ModItems.THORN_PENDANT:Lnet/minecraftforge/registries/RegistryObject;
+     207: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     210: checkcast     #31                 // class net/minecraft/world/item/Item
+     213: invokedynamic #149,  0            // InvokeDynamic #12:get:()Ljava/util/function/Supplier;
+     218: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     221: getstatic     #152                // Field artifacts/common/init/ModItems.CHARM_OF_SINKING:Lnet/minecraftforge/registries/RegistryObject;
+     224: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     227: checkcast     #31                 // class net/minecraft/world/item/Item
+     230: invokedynamic #157,  0            // InvokeDynamic #13:get:()Ljava/util/function/Supplier;
+     235: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     238: getstatic     #160                // Field artifacts/common/init/ModItems.CLOUD_IN_A_BOTTLE:Lnet/minecraftforge/registries/RegistryObject;
+     241: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     244: checkcast     #31                 // class net/minecraft/world/item/Item
+     247: invokedynamic #165,  0            // InvokeDynamic #14:get:()Ljava/util/function/Supplier;
+     252: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     255: getstatic     #168                // Field artifacts/common/init/ModItems.OBSIDIAN_SKULL:Lnet/minecraftforge/registries/RegistryObject;
+     258: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     261: checkcast     #31                 // class net/minecraft/world/item/Item
+     264: invokedynamic #173,  0            // InvokeDynamic #15:get:()Ljava/util/function/Supplier;
+     269: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     272: getstatic     #176                // Field artifacts/common/init/ModItems.ANTIDOTE_VESSEL:Lnet/minecraftforge/registries/RegistryObject;
+     275: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     278: checkcast     #31                 // class net/minecraft/world/item/Item
+     281: invokedynamic #181,  0            // InvokeDynamic #16:get:()Ljava/util/function/Supplier;
+     286: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     289: getstatic     #184                // Field artifacts/common/init/ModItems.UNIVERSAL_ATTRACTOR:Lnet/minecraftforge/registries/RegistryObject;
+     292: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     295: checkcast     #31                 // class net/minecraft/world/item/Item
+     298: invokedynamic #189,  0            // InvokeDynamic #17:get:()Ljava/util/function/Supplier;
+     303: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     306: getstatic     #192                // Field artifacts/common/init/ModItems.CRYSTAL_HEART:Lnet/minecraftforge/registries/RegistryObject;
+     309: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     312: checkcast     #31                 // class net/minecraft/world/item/Item
+     315: invokedynamic #197,  0            // InvokeDynamic #18:get:()Ljava/util/function/Supplier;
+     320: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     323: getstatic     #200                // Field artifacts/common/init/ModItems.HELIUM_FLAMINGO:Lnet/minecraftforge/registries/RegistryObject;
+     326: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     329: checkcast     #31                 // class net/minecraft/world/item/Item
+     332: invokedynamic #205,  0            // InvokeDynamic #19:get:()Ljava/util/function/Supplier;
+     337: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     340: getstatic     #208                // Field artifacts/common/init/ModItems.DIGGING_CLAWS:Lnet/minecraftforge/registries/RegistryObject;
+     343: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     346: checkcast     #31                 // class net/minecraft/world/item/Item
+     349: invokedynamic #213,  0            // InvokeDynamic #20:get:()Ljava/util/function/Supplier;
+     354: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     357: getstatic     #216                // Field artifacts/common/init/ModItems.FERAL_CLAWS:Lnet/minecraftforge/registries/RegistryObject;
+     360: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     363: checkcast     #31                 // class net/minecraft/world/item/Item
+     366: invokedynamic #221,  0            // InvokeDynamic #21:get:()Ljava/util/function/Supplier;
+     371: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     374: getstatic     #224                // Field artifacts/common/init/ModItems.POWER_GLOVE:Lnet/minecraftforge/registries/RegistryObject;
+     377: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     380: checkcast     #31                 // class net/minecraft/world/item/Item
+     383: invokedynamic #229,  0            // InvokeDynamic #22:get:()Ljava/util/function/Supplier;
+     388: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     391: getstatic     #232                // Field artifacts/common/init/ModItems.FIRE_GAUNTLET:Lnet/minecraftforge/registries/RegistryObject;
+     394: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     397: checkcast     #31                 // class net/minecraft/world/item/Item
+     400: invokedynamic #237,  0            // InvokeDynamic #23:get:()Ljava/util/function/Supplier;
+     405: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     408: getstatic     #240                // Field artifacts/common/init/ModItems.POCKET_PISTON:Lnet/minecraftforge/registries/RegistryObject;
+     411: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     414: checkcast     #31                 // class net/minecraft/world/item/Item
+     417: invokedynamic #245,  0            // InvokeDynamic #24:get:()Ljava/util/function/Supplier;
+     422: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     425: getstatic     #248                // Field artifacts/common/init/ModItems.VAMPIRIC_GLOVE:Lnet/minecraftforge/registries/RegistryObject;
+     428: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     431: checkcast     #31                 // class net/minecraft/world/item/Item
+     434: invokedynamic #253,  0            // InvokeDynamic #25:get:()Ljava/util/function/Supplier;
+     439: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     442: getstatic     #256                // Field artifacts/common/init/ModItems.GOLDEN_HOOK:Lnet/minecraftforge/registries/RegistryObject;
+     445: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     448: checkcast     #31                 // class net/minecraft/world/item/Item
+     451: invokedynamic #261,  0            // InvokeDynamic #26:get:()Ljava/util/function/Supplier;
+     456: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     459: getstatic     #264                // Field artifacts/common/init/ModItems.AQUA_DASHERS:Lnet/minecraftforge/registries/RegistryObject;
+     462: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     465: checkcast     #31                 // class net/minecraft/world/item/Item
+     468: invokedynamic #269,  0            // InvokeDynamic #27:get:()Ljava/util/function/Supplier;
+     473: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     476: getstatic     #272                // Field artifacts/common/init/ModItems.BUNNY_HOPPERS:Lnet/minecraftforge/registries/RegistryObject;
+     479: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     482: checkcast     #31                 // class net/minecraft/world/item/Item
+     485: invokedynamic #277,  0            // InvokeDynamic #28:get:()Ljava/util/function/Supplier;
+     490: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     493: getstatic     #280                // Field artifacts/common/init/ModItems.KITTY_SLIPPERS:Lnet/minecraftforge/registries/RegistryObject;
+     496: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     499: checkcast     #31                 // class net/minecraft/world/item/Item
+     502: invokedynamic #285,  0            // InvokeDynamic #29:get:()Ljava/util/function/Supplier;
+     507: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     510: getstatic     #288                // Field artifacts/common/init/ModItems.RUNNING_SHOES:Lnet/minecraftforge/registries/RegistryObject;
+     513: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     516: checkcast     #31                 // class net/minecraft/world/item/Item
+     519: invokedynamic #293,  0            // InvokeDynamic #30:get:()Ljava/util/function/Supplier;
+     524: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     527: getstatic     #296                // Field artifacts/common/init/ModItems.STEADFAST_SPIKES:Lnet/minecraftforge/registries/RegistryObject;
+     530: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     533: checkcast     #31                 // class net/minecraft/world/item/Item
+     536: invokedynamic #301,  0            // InvokeDynamic #31:get:()Ljava/util/function/Supplier;
+     541: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     544: getstatic     #304                // Field artifacts/common/init/ModItems.FLIPPERS:Lnet/minecraftforge/registries/RegistryObject;
+     547: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     550: checkcast     #31                 // class net/minecraft/world/item/Item
+     553: invokedynamic #309,  0            // InvokeDynamic #32:get:()Ljava/util/function/Supplier;
+     558: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     561: getstatic     #312                // Field artifacts/common/init/ModItems.WHOOPEE_CUSHION:Lnet/minecraftforge/registries/RegistryObject;
+     564: invokevirtual #29                 // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     567: checkcast     #31                 // class net/minecraft/world/item/Item
+     570: invokedynamic #317,  0            // InvokeDynamic #33:get:()Ljava/util/function/Supplier;
+     575: invokestatic  #53                 // Method top/theillusivec4/curios/api/client/CuriosRendererRegistry.register:(Lnet/minecraft/world/item/Item;Ljava/util/function/Supplier;)V
+     578: return
+
+  public static net.minecraft.client.model.geom.ModelPart bakeLayer(net.minecraft.client.model.geom.ModelLayerLocation);
+    descriptor: (Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+    Code:
+       0: invokestatic  #325                // Method net/minecraft/client/Minecraft.m_91087_:()Lnet/minecraft/client/Minecraft;
+       3: invokevirtual #329                // Method net/minecraft/client/Minecraft.m_167973_:()Lnet/minecraft/client/model/geom/EntityModelSet;
+       6: aload_0
+       7: invokevirtual #334                // Method net/minecraft/client/model/geom/EntityModelSet.m_171103_:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      10: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$33();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #340                // String whoopee_cushion
+       7: new           #342                // class artifacts/client/render/curio/model/HeadModel
+      10: dup
+      11: getstatic     #346                // Field artifacts/client/render/curio/CurioLayers.WHOOPEE_CUSHION:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #351                // Method artifacts/client/render/curio/model/HeadModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$32();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #356                // String flippers
+       7: new           #358                // class artifacts/client/render/curio/model/LegsModel
+      10: dup
+      11: getstatic     #360                // Field artifacts/client/render/curio/CurioLayers.FLIPPERS:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #361                // Method artifacts/client/render/curio/model/LegsModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$31();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #363                // String steadfast_spikes
+       7: new           #358                // class artifacts/client/render/curio/model/LegsModel
+      10: dup
+      11: getstatic     #365                // Field artifacts/client/render/curio/CurioLayers.STEADFAST_SPIKES:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #361                // Method artifacts/client/render/curio/model/LegsModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$30();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #367                // String running_shoes
+       7: new           #358                // class artifacts/client/render/curio/model/LegsModel
+      10: dup
+      11: getstatic     #369                // Field artifacts/client/render/curio/CurioLayers.RUNNING_SHOES:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #361                // Method artifacts/client/render/curio/model/LegsModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$29();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #371                // String kitty_slippers
+       7: new           #358                // class artifacts/client/render/curio/model/LegsModel
+      10: dup
+      11: getstatic     #373                // Field artifacts/client/render/curio/CurioLayers.KITTY_SLIPPERS:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #361                // Method artifacts/client/render/curio/model/LegsModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$28();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #375                // String bunny_hoppers
+       7: new           #358                // class artifacts/client/render/curio/model/LegsModel
+      10: dup
+      11: getstatic     #377                // Field artifacts/client/render/curio/CurioLayers.BUNNY_HOPPERS:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #361                // Method artifacts/client/render/curio/model/LegsModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$27();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #379                // String aqua_dashers
+       7: new           #358                // class artifacts/client/render/curio/model/LegsModel
+      10: dup
+      11: getstatic     #381                // Field artifacts/client/render/curio/CurioLayers.AQUA_DASHERS:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #361                // Method artifacts/client/render/curio/model/LegsModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$26();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #383                // class artifacts/client/render/curio/renderer/GloveCurioRenderer
+       3: dup
+       4: ldc_w         #385                // String golden_hook/golden_hook_default
+       7: ldc_w         #387                // String golden_hook/golden_hook_slim
+      10: iconst_0
+      11: invokestatic  #393                // Method artifacts/client/render/curio/model/ArmsModel.createGoldenHookModel:(Z)Lartifacts/client/render/curio/model/ArmsModel;
+      14: iconst_1
+      15: invokestatic  #393                // Method artifacts/client/render/curio/model/ArmsModel.createGoldenHookModel:(Z)Lartifacts/client/render/curio/model/ArmsModel;
+      18: invokespecial #396                // Method artifacts/client/render/curio/renderer/GloveCurioRenderer."<init>":(Ljava/lang/String;Ljava/lang/String;Lartifacts/client/render/curio/model/ArmsModel;Lartifacts/client/render/curio/model/ArmsModel;)V
+      21: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$25();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #383                // class artifacts/client/render/curio/renderer/GloveCurioRenderer
+       3: dup
+       4: ldc_w         #398                // String vampiric_glove
+       7: iconst_0
+       8: invokestatic  #401                // Method artifacts/client/render/curio/model/ArmsModel.createGloveModel:(Z)Lartifacts/client/render/curio/model/ArmsModel;
+      11: iconst_1
+      12: invokestatic  #401                // Method artifacts/client/render/curio/model/ArmsModel.createGloveModel:(Z)Lartifacts/client/render/curio/model/ArmsModel;
+      15: invokespecial #404                // Method artifacts/client/render/curio/renderer/GloveCurioRenderer."<init>":(Ljava/lang/String;Lartifacts/client/render/curio/model/ArmsModel;Lartifacts/client/render/curio/model/ArmsModel;)V
+      18: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$24();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #383                // class artifacts/client/render/curio/renderer/GloveCurioRenderer
+       3: dup
+       4: ldc_w         #406                // String pocket_piston
+       7: iconst_0
+       8: invokestatic  #401                // Method artifacts/client/render/curio/model/ArmsModel.createGloveModel:(Z)Lartifacts/client/render/curio/model/ArmsModel;
+      11: iconst_1
+      12: invokestatic  #401                // Method artifacts/client/render/curio/model/ArmsModel.createGloveModel:(Z)Lartifacts/client/render/curio/model/ArmsModel;
+      15: invokespecial #404                // Method artifacts/client/render/curio/renderer/GloveCurioRenderer."<init>":(Ljava/lang/String;Lartifacts/client/render/curio/model/ArmsModel;Lartifacts/client/render/curio/model/ArmsModel;)V
+      18: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$23();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #408                // class artifacts/client/render/curio/renderer/GlowingGloveCurioRenderer
+       3: dup
+       4: ldc_w         #410                // String fire_gauntlet
+       7: iconst_0
+       8: invokestatic  #401                // Method artifacts/client/render/curio/model/ArmsModel.createGloveModel:(Z)Lartifacts/client/render/curio/model/ArmsModel;
+      11: iconst_1
+      12: invokestatic  #401                // Method artifacts/client/render/curio/model/ArmsModel.createGloveModel:(Z)Lartifacts/client/render/curio/model/ArmsModel;
+      15: invokespecial #411                // Method artifacts/client/render/curio/renderer/GlowingGloveCurioRenderer."<init>":(Ljava/lang/String;Lartifacts/client/render/curio/model/ArmsModel;Lartifacts/client/render/curio/model/ArmsModel;)V
+      18: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$22();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #383                // class artifacts/client/render/curio/renderer/GloveCurioRenderer
+       3: dup
+       4: ldc_w         #413                // String power_glove
+       7: iconst_0
+       8: invokestatic  #401                // Method artifacts/client/render/curio/model/ArmsModel.createGloveModel:(Z)Lartifacts/client/render/curio/model/ArmsModel;
+      11: iconst_1
+      12: invokestatic  #401                // Method artifacts/client/render/curio/model/ArmsModel.createGloveModel:(Z)Lartifacts/client/render/curio/model/ArmsModel;
+      15: invokespecial #404                // Method artifacts/client/render/curio/renderer/GloveCurioRenderer."<init>":(Ljava/lang/String;Lartifacts/client/render/curio/model/ArmsModel;Lartifacts/client/render/curio/model/ArmsModel;)V
+      18: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$21();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #383                // class artifacts/client/render/curio/renderer/GloveCurioRenderer
+       3: dup
+       4: ldc_w         #415                // String claws/feral_claws
+       7: ldc_w         #415                // String claws/feral_claws
+      10: iconst_0
+      11: invokestatic  #418                // Method artifacts/client/render/curio/model/ArmsModel.createClawsModel:(Z)Lartifacts/client/render/curio/model/ArmsModel;
+      14: iconst_1
+      15: invokestatic  #418                // Method artifacts/client/render/curio/model/ArmsModel.createClawsModel:(Z)Lartifacts/client/render/curio/model/ArmsModel;
+      18: invokespecial #396                // Method artifacts/client/render/curio/renderer/GloveCurioRenderer."<init>":(Ljava/lang/String;Ljava/lang/String;Lartifacts/client/render/curio/model/ArmsModel;Lartifacts/client/render/curio/model/ArmsModel;)V
+      21: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$20();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #383                // class artifacts/client/render/curio/renderer/GloveCurioRenderer
+       3: dup
+       4: ldc_w         #420                // String claws/digging_claws
+       7: ldc_w         #420                // String claws/digging_claws
+      10: iconst_0
+      11: invokestatic  #418                // Method artifacts/client/render/curio/model/ArmsModel.createClawsModel:(Z)Lartifacts/client/render/curio/model/ArmsModel;
+      14: iconst_1
+      15: invokestatic  #418                // Method artifacts/client/render/curio/model/ArmsModel.createClawsModel:(Z)Lartifacts/client/render/curio/model/ArmsModel;
+      18: invokespecial #396                // Method artifacts/client/render/curio/renderer/GloveCurioRenderer."<init>":(Ljava/lang/String;Ljava/lang/String;Lartifacts/client/render/curio/model/ArmsModel;Lartifacts/client/render/curio/model/ArmsModel;)V
+      21: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$19();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #422                // String helium_flamingo
+       7: invokestatic  #428                // Method artifacts/client/render/curio/model/BeltModel.createHeliumFlamingoModel:()Lnet/minecraft/client/model/HumanoidModel;
+      10: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      13: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$18();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #430                // class artifacts/client/render/curio/renderer/BeltCurioRenderer
+       3: dup
+       4: ldc_w         #432                // String crystal_heart
+       7: invokestatic  #436                // Method artifacts/client/render/curio/model/BeltModel.createCrystalHeartModel:()Lartifacts/client/render/curio/model/BeltModel;
+      10: invokespecial #439                // Method artifacts/client/render/curio/renderer/BeltCurioRenderer."<init>":(Ljava/lang/String;Lartifacts/client/render/curio/model/BeltModel;)V
+      13: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$17();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #430                // class artifacts/client/render/curio/renderer/BeltCurioRenderer
+       3: dup
+       4: ldc_w         #441                // String universal_attractor
+       7: invokestatic  #444                // Method artifacts/client/render/curio/model/BeltModel.createUniversalAttractorModel:()Lartifacts/client/render/curio/model/BeltModel;
+      10: invokespecial #439                // Method artifacts/client/render/curio/renderer/BeltCurioRenderer."<init>":(Ljava/lang/String;Lartifacts/client/render/curio/model/BeltModel;)V
+      13: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$16();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #430                // class artifacts/client/render/curio/renderer/BeltCurioRenderer
+       3: dup
+       4: ldc_w         #446                // String antidote_vessel
+       7: invokestatic  #449                // Method artifacts/client/render/curio/model/BeltModel.createAntidoteVesselModel:()Lartifacts/client/render/curio/model/BeltModel;
+      10: invokespecial #439                // Method artifacts/client/render/curio/renderer/BeltCurioRenderer."<init>":(Ljava/lang/String;Lartifacts/client/render/curio/model/BeltModel;)V
+      13: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$15();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #430                // class artifacts/client/render/curio/renderer/BeltCurioRenderer
+       3: dup
+       4: ldc_w         #451                // String obsidian_skull
+       7: invokestatic  #454                // Method artifacts/client/render/curio/model/BeltModel.createObsidianSkullModel:()Lartifacts/client/render/curio/model/BeltModel;
+      10: invokespecial #439                // Method artifacts/client/render/curio/renderer/BeltCurioRenderer."<init>":(Ljava/lang/String;Lartifacts/client/render/curio/model/BeltModel;)V
+      13: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$14();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #430                // class artifacts/client/render/curio/renderer/BeltCurioRenderer
+       3: dup
+       4: ldc_w         #456                // String cloud_in_a_bottle
+       7: invokestatic  #459                // Method artifacts/client/render/curio/model/BeltModel.createCloudInABottleModel:()Lartifacts/client/render/curio/model/BeltModel;
+      10: invokespecial #439                // Method artifacts/client/render/curio/renderer/BeltCurioRenderer."<init>":(Ljava/lang/String;Lartifacts/client/render/curio/model/BeltModel;)V
+      13: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$13();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #461                // String charm_of_sinking
+       7: new           #463                // class artifacts/client/render/curio/model/NecklaceModel
+      10: dup
+      11: getstatic     #465                // Field artifacts/client/render/curio/CurioLayers.CHARM_OF_SINKING:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #466                // Method artifacts/client/render/curio/model/NecklaceModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$12();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #468                // String pendant/thorn_pendant
+       7: new           #463                // class artifacts/client/render/curio/model/NecklaceModel
+      10: dup
+      11: getstatic     #471                // Field artifacts/client/render/curio/CurioLayers.PENDANT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #466                // Method artifacts/client/render/curio/model/NecklaceModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$11();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #473                // String pendant/flame_pendant
+       7: new           #463                // class artifacts/client/render/curio/model/NecklaceModel
+      10: dup
+      11: getstatic     #471                // Field artifacts/client/render/curio/CurioLayers.PENDANT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #466                // Method artifacts/client/render/curio/model/NecklaceModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$10();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #475                // String pendant/shock_pendant
+       7: new           #463                // class artifacts/client/render/curio/model/NecklaceModel
+      10: dup
+      11: getstatic     #471                // Field artifacts/client/render/curio/CurioLayers.PENDANT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #466                // Method artifacts/client/render/curio/model/NecklaceModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$9();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #477                // String panic_necklace
+       7: new           #463                // class artifacts/client/render/curio/model/NecklaceModel
+      10: dup
+      11: getstatic     #479                // Field artifacts/client/render/curio/CurioLayers.PANIC_NECKLACE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #466                // Method artifacts/client/render/curio/model/NecklaceModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$8();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #481                // String cross_necklace
+       7: new           #463                // class artifacts/client/render/curio/model/NecklaceModel
+      10: dup
+      11: getstatic     #483                // Field artifacts/client/render/curio/CurioLayers.CROSS_NECKLACE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #466                // Method artifacts/client/render/curio/model/NecklaceModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$7();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #485                // String scarf/scarf_of_invisibility
+       7: new           #487                // class artifacts/client/render/curio/model/ScarfModel
+      10: dup
+      11: getstatic     #490                // Field artifacts/client/render/curio/CurioLayers.SCARF:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokedynamic #504,  0            // InvokeDynamic #34:apply:()Ljava/util/function/Function;
+      22: invokespecial #507                // Method artifacts/client/render/curio/model/ScarfModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;Ljava/util/function/Function;)V
+      25: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      28: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$6();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #509                // String scarf/lucky_scarf
+       7: new           #487                // class artifacts/client/render/curio/model/ScarfModel
+      10: dup
+      11: getstatic     #490                // Field artifacts/client/render/curio/CurioLayers.SCARF:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokedynamic #514,  0            // InvokeDynamic #35:apply:()Ljava/util/function/Function;
+      22: invokespecial #507                // Method artifacts/client/render/curio/model/ScarfModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;Ljava/util/function/Function;)V
+      25: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      28: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$5();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #516                // String villager_hat
+       7: new           #342                // class artifacts/client/render/curio/model/HeadModel
+      10: dup
+      11: getstatic     #518                // Field artifacts/client/render/curio/CurioLayers.VILLAGER_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #351                // Method artifacts/client/render/curio/model/HeadModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$4();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #520                // String superstitious_hat
+       7: new           #342                // class artifacts/client/render/curio/model/HeadModel
+      10: dup
+      11: getstatic     #522                // Field artifacts/client/render/curio/CurioLayers.SUPERSTITIOUS_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokedynamic #514,  0            // InvokeDynamic #35:apply:()Ljava/util/function/Function;
+      22: invokespecial #523                // Method artifacts/client/render/curio/model/HeadModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;Ljava/util/function/Function;)V
+      25: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      28: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$3();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #525                // class artifacts/client/render/curio/renderer/GlowingCurioRenderer
+       3: dup
+       4: ldc_w         #527                // String night_vision_goggles
+       7: new           #342                // class artifacts/client/render/curio/model/HeadModel
+      10: dup
+      11: getstatic     #529                // Field artifacts/client/render/curio/CurioLayers.NIGHT_VISION_GOGGLES:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #351                // Method artifacts/client/render/curio/model/HeadModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #530                // Method artifacts/client/render/curio/renderer/GlowingCurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$2();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #532                // String snorkel
+       7: new           #342                // class artifacts/client/render/curio/model/HeadModel
+      10: dup
+      11: getstatic     #534                // Field artifacts/client/render/curio/CurioLayers.SNORKEL:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokedynamic #504,  0            // InvokeDynamic #34:apply:()Ljava/util/function/Function;
+      22: invokespecial #523                // Method artifacts/client/render/curio/model/HeadModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;Ljava/util/function/Function;)V
+      25: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      28: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$1();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #536                // String drinking_hat/novelty_drinking_hat
+       7: new           #342                // class artifacts/client/render/curio/model/HeadModel
+      10: dup
+      11: getstatic     #539                // Field artifacts/client/render/curio/CurioLayers.DRINKING_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #351                // Method artifacts/client/render/curio/model/HeadModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static top.theillusivec4.curios.api.client.ICurioRenderer lambda$register$0();
+    descriptor: ()Ltop/theillusivec4/curios/api/client/ICurioRenderer;
+    Code:
+       0: new           #338                // class artifacts/client/render/curio/renderer/CurioRenderer
+       3: dup
+       4: ldc_w         #541                // String drinking_hat/plastic_drinking_hat
+       7: new           #342                // class artifacts/client/render/curio/model/HeadModel
+      10: dup
+      11: getstatic     #539                // Field artifacts/client/render/curio/CurioLayers.DRINKING_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #348                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #351                // Method artifacts/client/render/curio/model/HeadModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #354                // Method artifacts/client/render/curio/renderer/CurioRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+}

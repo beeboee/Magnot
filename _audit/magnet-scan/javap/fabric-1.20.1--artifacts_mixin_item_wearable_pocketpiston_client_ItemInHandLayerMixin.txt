@@ -1,0 +1,55 @@
+Compiled from "ItemInHandLayerMixin.java"
+public class artifacts.mixin.item.wearable.pocketpiston.client.ItemInHandLayerMixin {
+  public artifacts.mixin.item.wearable.pocketpiston.client.ItemInHandLayerMixin();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #12                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  private void renderArmWithItem(net.minecraft.class_1309, net.minecraft.class_1799, net.minecraft.class_811, net.minecraft.class_1306, net.minecraft.class_4587, net.minecraft.class_4597, int, org.spongepowered.asm.mixin.injection.callback.CallbackInfo);
+    descriptor: (Lnet/minecraft/class_1309;Lnet/minecraft/class_1799;Lnet/minecraft/class_811;Lnet/minecraft/class_1306;Lnet/minecraft/class_4587;Lnet/minecraft/class_4597;ILorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V
+    Code:
+       0: aload_1
+       1: aload         4
+       3: invokestatic  #37                 // Method artifacts/client/item/RendererUtil.getInteractionHand:(Lnet/minecraft/class_1309;Lnet/minecraft/class_1306;)Lnet/minecraft/class_1268;
+       6: astore        9
+       8: aload_1
+       9: instanceof    #39                 // class net/minecraft/class_1657
+      12: ifeq          91
+      15: aload_1
+      16: checkcast     #39                 // class net/minecraft/class_1657
+      19: astore        10
+      21: getstatic     #45                 // Field artifacts/platform/PlatformServices.platformHelper:Lartifacts/platform/PlatformHelper;
+      24: aload         10
+      26: aload         9
+      28: getstatic     #51                 // Field artifacts/registry/ModItems.POCKET_PISTON:Lartifacts/registry/RegistrySupplier;
+      31: invokevirtual #57                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+      34: checkcast     #59                 // class artifacts/item/wearable/WearableArtifactItem
+      37: invokeinterface #65,  4           // InterfaceMethod artifacts/platform/PlatformHelper.isVisibleOnHand:(Lnet/minecraft/class_1309;Lnet/minecraft/class_1268;Lartifacts/item/wearable/WearableArtifactItem;)Z
+      42: ifeq          91
+      45: aload         5
+      47: dconst_0
+      48: dconst_0
+      49: ldc2_w        #66                 // double -0.09375d
+      52: invokevirtual #73                 // Method net/minecraft/class_4587.method_22904:(DDD)V
+      55: aload         10
+      57: getfield      #77                 // Field net/minecraft/class_1657.field_6266:Lnet/minecraft/class_1268;
+      60: aload         9
+      62: if_acmpne     91
+      65: aload_1
+      66: checkcast     #79                 // class artifacts/extensions/pocketpiston/LivingEntityExtensions
+      69: invokeinterface #83,  1           // InterfaceMethod artifacts/extensions/pocketpiston/LivingEntityExtensions.artifacts$getPocketPistonLength:()F
+      74: fconst_2
+      75: fmul
+      76: fstore        11
+      78: aload         5
+      80: fconst_0
+      81: fconst_0
+      82: fload         11
+      84: fneg
+      85: ldc           #84                 // float 16.0f
+      87: fdiv
+      88: invokevirtual #88                 // Method net/minecraft/class_4587.method_46416:(FFF)V
+      91: return
+}

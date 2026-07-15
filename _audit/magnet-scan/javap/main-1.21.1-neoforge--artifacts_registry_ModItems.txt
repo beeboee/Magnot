@@ -1,0 +1,1696 @@
+Compiled from "ModItems.java"
+public class artifacts.registry.ModItems {
+  public static final artifacts.registry.Register<net.minecraft.world.item.Item> ITEMS;
+    descriptor: Lartifacts/registry/Register;
+
+  public static final artifacts.registry.Register<net.minecraft.world.item.CreativeModeTab> CREATIVE_MODE_TABS;
+    descriptor: Lartifacts/registry/Register;
+
+  public static final artifacts.registry.RegistryHolder<net.minecraft.world.item.CreativeModeTab, net.minecraft.world.item.CreativeModeTab> CREATIVE_TAB;
+    descriptor: Lartifacts/registry/RegistryHolder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> MIMIC_SPAWN_EGG;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> UMBRELLA;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> EVERLASTING_BEEF;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> ETERNAL_STEAK;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> PLASTIC_DRINKING_HAT;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> NOVELTY_DRINKING_HAT;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> SNORKEL;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> NIGHT_VISION_GOGGLES;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> VILLAGER_HAT;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> SUPERSTITIOUS_HAT;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> COWBOY_HAT;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> ANGLERS_HAT;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> LUCKY_SCARF;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> SCARF_OF_INVISIBILITY;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> CROSS_NECKLACE;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> PANIC_NECKLACE;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> SHOCK_PENDANT;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> FLAME_PENDANT;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> THORN_PENDANT;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> CHARM_OF_SINKING;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> CHARM_OF_SHRINKING;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> CLOUD_IN_A_BOTTLE;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> OBSIDIAN_SKULL;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> ANTIDOTE_VESSEL;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> UNIVERSAL_ATTRACTOR;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> CRYSTAL_HEART;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> HELIUM_FLAMINGO;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> CHORUS_TOTEM;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> WARP_DRIVE;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> DIGGING_CLAWS;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> FERAL_CLAWS;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> POWER_GLOVE;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> FIRE_GAUNTLET;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> POCKET_PISTON;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> VAMPIRIC_GLOVE;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> GOLDEN_HOOK;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> ONION_RING;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> PICKAXE_HEATER;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> WITHERED_BRACELET;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> AQUA_DASHERS;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> BUNNY_HOPPERS;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> KITTY_SLIPPERS;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> RUNNING_SHOES;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> SNOWSHOES;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> STEADFAST_SPIKES;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> FLIPPERS;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> ROOTED_BOOTS;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> STRIDER_SHOES;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.item.Item> WHOOPEE_CUSHION;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public artifacts.registry.ModItems();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #126                // Method java/lang/Object."<init>":()V
+       4: return
+
+  private static net.minecraft.core.Holder<net.minecraft.world.item.Item> wearableItem(java.lang.String, java.util.function.Consumer<artifacts.item.WearableArtifactItem$Builder>);
+    descriptor: (Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+    Code:
+       0: aload_0
+       1: aload_0
+       2: aload_1
+       3: invokedynamic #153,  0            // InvokeDynamic #0:get:(Ljava/lang/String;Ljava/util/function/Consumer;)Ljava/util/function/Supplier;
+       8: invokestatic  #157                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraft/core/Holder;
+      11: areturn
+
+  private static net.minecraft.core.Holder<net.minecraft.world.item.Item> register(java.lang.String, java.util.function.Supplier<? extends net.minecraft.world.item.Item>);
+    descriptor: (Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraft/core/Holder;
+    Code:
+       0: getstatic     #164                // Field ITEMS:Lartifacts/registry/Register;
+       3: aload_0
+       4: aload_1
+       5: invokevirtual #169                // Method artifacts/registry/Register.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistryHolder;
+       8: areturn
+
+  private static net.minecraft.world.item.Item lambda$wearableItem$52(java.lang.String, java.util.function.Consumer);
+    descriptor: (Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/world/item/Item;
+    Code:
+       0: new           #7                  // class artifacts/item/WearableArtifactItem$Builder
+       3: dup
+       4: aload_0
+       5: invokespecial #174                // Method artifacts/item/WearableArtifactItem$Builder."<init>":(Ljava/lang/String;)V
+       8: astore_2
+       9: aload_1
+      10: aload_2
+      11: invokeinterface #180,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+      16: aload_2
+      17: invokevirtual #184                // Method artifacts/item/WearableArtifactItem$Builder.build:()Lartifacts/item/WearableArtifactItem;
+      20: areturn
+
+  private static void lambda$static$51(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #193                // Field artifacts/registry/ModSoundEvents.FART:Lnet/minecraft/core/Holder;
+       4: invokevirtual #197                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/core/Holder;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #202                // Field artifacts/registry/ModAttributes.FLATULENCE:Lnet/minecraft/core/Holder;
+      10: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      13: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      16: getfield      #220                // Field artifacts/config/ItemConfigs.whoopeeCushionFartChance:Lartifacts/config/value/Value$ConfigValue;
+      19: getstatic     #224                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_VALUE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      22: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      25: pop
+      26: return
+
+  private static void lambda$static$50(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #234                // Field net/minecraft/sounds/SoundEvents.ARMOR_EQUIP_LEATHER:Lnet/minecraft/core/Holder;
+       4: invokevirtual #197                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/core/Holder;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #239                // Field artifacts/registry/ModDataComponents.FLUID_COLLISION:Ljava/util/function/Supplier;
+      10: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      15: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      18: new           #247                // class artifacts/component/ability/FluidCollision
+      21: dup
+      22: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      25: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      28: getfield      #250                // Field artifacts/config/ItemConfigs.striderShoesEnabled:Lartifacts/config/value/Value$ConfigValue;
+      31: getstatic     #256                // Field net/minecraft/tags/FluidTags.LAVA:Lnet/minecraft/tags/TagKey;
+      34: invokestatic  #262                // Method java/util/Optional.of:(Ljava/lang/Object;)Ljava/util/Optional;
+      37: getstatic     #268                // Field artifacts/component/ability/EntityCondition.SNEAKING:Lartifacts/component/ability/EntityCondition;
+      40: invokespecial #271                // Method artifacts/component/ability/FluidCollision."<init>":(Lartifacts/config/value/Value;Ljava/util/Optional;Lartifacts/component/ability/EntityCondition;)V
+      43: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      46: getstatic     #278                // Field artifacts/registry/ModDataComponents.DAMAGE_IMMUNITY:Ljava/util/function/Supplier;
+      49: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      54: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      57: new           #280                // class artifacts/component/ability/DamageImmunity
+      60: dup
+      61: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      64: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      67: getfield      #283                // Field artifacts/config/ItemConfigs.striderShoesCancelHotFloorDamage:Lartifacts/config/value/Value$ConfigValue;
+      70: getstatic     #288                // Field artifacts/registry/ModTags.IS_HOT_FLOOR:Lnet/minecraft/tags/TagKey;
+      73: getstatic     #291                // Field artifacts/component/ability/EntityCondition.ALWAYS:Lartifacts/component/ability/EntityCondition;
+      76: invokespecial #294                // Method artifacts/component/ability/DamageImmunity."<init>":(Lartifacts/config/value/Value;Lnet/minecraft/tags/TagKey;Lartifacts/component/ability/EntityCondition;)V
+      79: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      82: pop
+      83: return
+
+  private static void lambda$static$49(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #234                // Field net/minecraft/sounds/SoundEvents.ARMOR_EQUIP_LEATHER:Lnet/minecraft/core/Holder;
+       4: invokevirtual #197                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/core/Holder;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #298                // Field artifacts/registry/ModDataComponents.REPLENISH_HUNGER_ON_GRASS:Ljava/util/function/Supplier;
+      10: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      15: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      18: new           #300                // class artifacts/component/ability/ReplenishHungerOnGrass
+      21: dup
+      22: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      25: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      28: getfield      #303                // Field artifacts/config/ItemConfigs.rootedBootsEnabled:Lartifacts/config/value/Value$ConfigValue;
+      31: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      34: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      37: getfield      #306                // Field artifacts/config/ItemConfigs.rootedBootsHungerReplenishingDuration:Lartifacts/config/value/Value$ConfigValue;
+      40: invokespecial #309                // Method artifacts/component/ability/ReplenishHungerOnGrass."<init>":(Lartifacts/config/value/Value;Lartifacts/config/value/Value;)V
+      43: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      46: getstatic     #312                // Field artifacts/registry/ModDataComponents.POST_EATING_PLANT_GROWTH:Ljava/util/function/Supplier;
+      49: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      54: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      57: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      60: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      63: getfield      #315                // Field artifacts/config/ItemConfigs.rootedBootsGrowPlantsAfterEating:Lartifacts/config/value/Value$ConfigValue;
+      66: invokevirtual #318                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Lartifacts/config/value/Value;)Lartifacts/item/WearableArtifactItem$Builder;
+      69: pop
+      70: return
+
+  private static void lambda$static$48(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #322                // Field artifacts/registry/ModAttributes.SWIM_SPEED:Lnet/minecraft/core/Holder;
+       4: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+       7: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      10: getfield      #325                // Field artifacts/config/ItemConfigs.flippersSwimSpeedBonus:Lartifacts/config/value/Value$ConfigValue;
+      13: getstatic     #328                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_MULTIPLIED_BASE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      16: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      19: pop
+      20: return
+
+  private static void lambda$static$47(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #334                // Field net/minecraft/world/entity/ai/attributes/Attributes.KNOCKBACK_RESISTANCE:Lnet/minecraft/core/Holder;
+       4: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+       7: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      10: getfield      #337                // Field artifacts/config/ItemConfigs.steadfastSpikesKnockbackResistance:Lartifacts/config/value/Value$ConfigValue;
+      13: getstatic     #224                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_VALUE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      16: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      19: getstatic     #340                // Field artifacts/registry/ModAttributes.SLIP_RESISTANCE:Lnet/minecraft/core/Holder;
+      22: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      25: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      28: getfield      #343                // Field artifacts/config/ItemConfigs.steadfastSpikesSlipperinessReduction:Lartifacts/config/value/Value$ConfigValue;
+      31: getstatic     #224                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_VALUE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      34: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      37: pop
+      38: return
+
+  private static void lambda$static$46(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #347                // Field artifacts/registry/ModDataComponents.WALK_ON_POWDER_SNOW:Ljava/util/function/Supplier;
+       4: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       9: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      12: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      15: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      18: getfield      #350                // Field artifacts/config/ItemConfigs.snowshoesAllowWalkingOnPowderedSnow:Lartifacts/config/value/Value$ConfigValue;
+      21: invokevirtual #318                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Lartifacts/config/value/Value;)Lartifacts/item/WearableArtifactItem$Builder;
+      24: getstatic     #353                // Field artifacts/registry/ModAttributes.MOVEMENT_SPEED_ON_SNOW:Lnet/minecraft/core/Holder;
+      27: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      30: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      33: getfield      #356                // Field artifacts/config/ItemConfigs.snowshoesMovementSpeedOnSnowBonus:Lartifacts/config/value/Value$ConfigValue;
+      36: getstatic     #328                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_MULTIPLIED_BASE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      39: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      42: pop
+      43: return
+
+  private static void lambda$static$45(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #360                // Field artifacts/registry/ModAttributes.SPRINTING_SPEED:Lnet/minecraft/core/Holder;
+       4: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+       7: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      10: getfield      #363                // Field artifacts/config/ItemConfigs.runningShoesSprintingSpeedBonus:Lartifacts/config/value/Value$ConfigValue;
+      13: getstatic     #328                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_MULTIPLIED_BASE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      16: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      19: getstatic     #366                // Field artifacts/registry/ModAttributes.SPRINTING_STEP_HEIGHT:Lnet/minecraft/core/Holder;
+      22: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      25: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      28: getfield      #369                // Field artifacts/config/ItemConfigs.runningShoesSprintingStepHeightBonus:Lartifacts/config/value/Value$ConfigValue;
+      31: getstatic     #224                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_VALUE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      34: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      37: pop
+      38: return
+
+  private static void lambda$static$44(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #374                // Field net/minecraft/sounds/SoundEvents.CAT_AMBIENT:Lnet/minecraft/sounds/SoundEvent;
+       4: invokevirtual #377                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/sounds/SoundEvent;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #380                // Field artifacts/registry/ModDataComponents.CREEPER_REPELLENT:Ljava/util/function/Supplier;
+      10: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      15: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      18: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      21: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      24: getfield      #383                // Field artifacts/config/ItemConfigs.kittySlippersRepelCreepers:Lartifacts/config/value/Value$ConfigValue;
+      27: invokevirtual #318                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Lartifacts/config/value/Value;)Lartifacts/item/WearableArtifactItem$Builder;
+      30: getstatic     #386                // Field artifacts/registry/ModDataComponents.PHANTOM_REPELLENT:Ljava/util/function/Supplier;
+      33: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      38: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      41: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      44: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      47: getfield      #389                // Field artifacts/config/ItemConfigs.kittySlippersRepelPhantoms:Lartifacts/config/value/Value$ConfigValue;
+      50: invokevirtual #318                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Lartifacts/config/value/Value;)Lartifacts/item/WearableArtifactItem$Builder;
+      53: getstatic     #392                // Field artifacts/registry/ModDataComponents.HURT_SOUND:Ljava/util/function/Supplier;
+      56: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      61: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      64: new           #394                // class artifacts/component/HurtSound
+      67: dup
+      68: getstatic     #400                // Field net/minecraft/core/registries/BuiltInRegistries.SOUND_EVENT:Lnet/minecraft/core/Registry;
+      71: getstatic     #403                // Field net/minecraft/sounds/SoundEvents.CAT_HURT:Lnet/minecraft/sounds/SoundEvent;
+      74: invokeinterface #409,  2          // InterfaceMethod net/minecraft/core/Registry.wrapAsHolder:(Ljava/lang/Object;)Lnet/minecraft/core/Holder;
+      79: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      82: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      85: getfield      #412                // Field artifacts/config/ItemConfigs.kittySlippersModifyHurtSounds:Lartifacts/config/value/Value$ConfigValue;
+      88: invokespecial #415                // Method artifacts/component/HurtSound."<init>":(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;)V
+      91: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      94: pop
+      95: return
+
+  private static void lambda$static$43(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #419                // Field net/minecraft/world/entity/ai/attributes/Attributes.JUMP_STRENGTH:Lnet/minecraft/core/Holder;
+       4: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+       7: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      10: getfield      #422                // Field artifacts/config/ItemConfigs.bunnyHoppersJumpStrengthBonus:Lartifacts/config/value/Value$ConfigValue;
+      13: getstatic     #328                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_MULTIPLIED_BASE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      16: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      19: getstatic     #425                // Field net/minecraft/world/entity/ai/attributes/Attributes.FALL_DAMAGE_MULTIPLIER:Lnet/minecraft/core/Holder;
+      22: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      25: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      28: getfield      #428                // Field artifacts/config/ItemConfigs.bunnyHoppersFallDamageMultiplier:Lartifacts/config/value/Value$ConfigValue;
+      31: getstatic     #328                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_MULTIPLIED_BASE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      34: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      37: getstatic     #431                // Field net/minecraft/world/entity/ai/attributes/Attributes.SAFE_FALL_DISTANCE:Lnet/minecraft/core/Holder;
+      40: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      43: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      46: getfield      #434                // Field artifacts/config/ItemConfigs.bunnyHoppersSafeFallDistanceBonus:Lartifacts/config/value/Value$ConfigValue;
+      49: getstatic     #224                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_VALUE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      52: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      55: getstatic     #392                // Field artifacts/registry/ModDataComponents.HURT_SOUND:Ljava/util/function/Supplier;
+      58: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      63: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      66: new           #394                // class artifacts/component/HurtSound
+      69: dup
+      70: getstatic     #400                // Field net/minecraft/core/registries/BuiltInRegistries.SOUND_EVENT:Lnet/minecraft/core/Registry;
+      73: getstatic     #437                // Field net/minecraft/sounds/SoundEvents.RABBIT_HURT:Lnet/minecraft/sounds/SoundEvent;
+      76: invokeinterface #409,  2          // InterfaceMethod net/minecraft/core/Registry.wrapAsHolder:(Ljava/lang/Object;)Lnet/minecraft/core/Holder;
+      81: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      84: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      87: getfield      #440                // Field artifacts/config/ItemConfigs.bunnyHoppersModifyHurtSounds:Lartifacts/config/value/Value$ConfigValue;
+      90: invokespecial #415                // Method artifacts/component/HurtSound."<init>":(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;)V
+      93: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      96: pop
+      97: return
+
+  private static void lambda$static$42(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #239                // Field artifacts/registry/ModDataComponents.FLUID_COLLISION:Ljava/util/function/Supplier;
+       4: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       9: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      12: new           #247                // class artifacts/component/ability/FluidCollision
+      15: dup
+      16: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      19: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      22: getfield      #444                // Field artifacts/config/ItemConfigs.aquaDashersEnabled:Lartifacts/config/value/Value$ConfigValue;
+      25: invokestatic  #448                // Method java/util/Optional.empty:()Ljava/util/Optional;
+      28: getstatic     #451                // Field artifacts/component/ability/EntityCondition.SPRINTING:Lartifacts/component/ability/EntityCondition;
+      31: invokespecial #271                // Method artifacts/component/ability/FluidCollision."<init>":(Lartifacts/config/value/Value;Ljava/util/Optional;Lartifacts/component/ability/EntityCondition;)V
+      34: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      37: pop
+      38: return
+
+  private static void lambda$static$41(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #455                // Field artifacts/registry/ModDataComponents.ATTACK_EFFECTS:Ljava/util/function/Supplier;
+       4: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       9: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      12: new           #24                 // class artifacts/component/ability/mobeffect/AttackEffects
+      15: dup
+      16: new           #22                 // class artifacts/component/ability/mobeffect/AttackEffects$Entry
+      19: dup
+      20: new           #457                // class artifacts/component/ability/mobeffect/MobEffectProvider
+      23: dup
+      24: getstatic     #462                // Field net/minecraft/world/effect/MobEffects.WITHER:Lnet/minecraft/core/Holder;
+      27: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      30: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      33: getfield      #465                // Field artifacts/config/ItemConfigs.witheredBraceletWitherLevel:Lartifacts/config/value/Value$ConfigValue;
+      36: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      39: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      42: getfield      #468                // Field artifacts/config/ItemConfigs.witheredBraceletWitherDuration:Lartifacts/config/value/Value$ConfigValue;
+      45: iconst_1
+      46: invokestatic  #474                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      49: invokestatic  #477                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      52: iconst_1
+      53: invokestatic  #474                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      56: invokestatic  #477                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      59: getstatic     #291                // Field artifacts/component/ability/EntityCondition.ALWAYS:Lartifacts/component/ability/EntityCondition;
+      62: invokespecial #480                // Method artifacts/component/ability/mobeffect/MobEffectProvider."<init>":(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/component/ability/EntityCondition;)V
+      65: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      68: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      71: getfield      #483                // Field artifacts/config/ItemConfigs.witheredBraceletWitherChance:Lartifacts/config/value/Value$ConfigValue;
+      74: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      77: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      80: getfield      #486                // Field artifacts/config/ItemConfigs.witheredBraceletCooldown:Lartifacts/config/value/Value$ConfigValue;
+      83: invokespecial #489                // Method artifacts/component/ability/mobeffect/AttackEffects$Entry."<init>":(Lartifacts/component/ability/mobeffect/MobEffectProvider;Lartifacts/config/value/Value;Lartifacts/config/value/Value;)V
+      86: invokestatic  #494                // InterfaceMethod java/util/List.of:(Ljava/lang/Object;)Ljava/util/List;
+      89: invokespecial #497                // Method artifacts/component/ability/mobeffect/AttackEffects."<init>":(Ljava/util/List;)V
+      92: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      95: pop
+      96: return
+
+  private static void lambda$static$40(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #501                // Field net/minecraft/sounds/SoundEvents.ARMOR_EQUIP_IRON:Lnet/minecraft/core/Holder;
+       4: invokevirtual #197                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/core/Holder;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #504                // Field artifacts/registry/ModDataComponents.AUTO_SMELT:Ljava/util/function/Supplier;
+      10: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      15: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      18: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      21: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      24: getfield      #507                // Field artifacts/config/ItemConfigs.pickaxeHeaterEnabled:Lartifacts/config/value/Value$ConfigValue;
+      27: invokevirtual #318                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Lartifacts/config/value/Value;)Lartifacts/item/WearableArtifactItem$Builder;
+      30: pop
+      31: return
+
+  private static void lambda$static$39(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: invokedynamic #518,  0            // InvokeDynamic #1:accept:()Ljava/util/function/Consumer;
+       6: invokevirtual #522                // Method artifacts/item/WearableArtifactItem$Builder.properties:(Ljava/util/function/Consumer;)Lartifacts/item/WearableArtifactItem$Builder;
+       9: getstatic     #525                // Field artifacts/registry/ModDataComponents.POST_EATING_EFFECTS:Ljava/util/function/Supplier;
+      12: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      17: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      20: new           #29                 // class artifacts/component/ability/mobeffect/PostEatingEffects
+      23: dup
+      24: new           #27                 // class artifacts/component/ability/mobeffect/PostEatingEffects$Entry
+      27: dup
+      28: new           #457                // class artifacts/component/ability/mobeffect/MobEffectProvider
+      31: dup
+      32: getstatic     #528                // Field net/minecraft/world/effect/MobEffects.DIG_SPEED:Lnet/minecraft/core/Holder;
+      35: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      38: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      41: getfield      #531                // Field artifacts/config/ItemConfigs.onionRingHasteLevel:Lartifacts/config/value/Value$ConfigValue;
+      44: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      47: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      50: getfield      #534                // Field artifacts/config/ItemConfigs.onionRingHasteDurationPerFoodPoint:Lartifacts/config/value/Value$ConfigValue;
+      53: iconst_1
+      54: invokestatic  #474                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      57: invokestatic  #477                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      60: iconst_1
+      61: invokestatic  #474                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      64: invokestatic  #477                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      67: getstatic     #291                // Field artifacts/component/ability/EntityCondition.ALWAYS:Lartifacts/component/ability/EntityCondition;
+      70: invokespecial #480                // Method artifacts/component/ability/mobeffect/MobEffectProvider."<init>":(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/component/ability/EntityCondition;)V
+      73: invokespecial #537                // Method artifacts/component/ability/mobeffect/PostEatingEffects$Entry."<init>":(Lartifacts/component/ability/mobeffect/MobEffectProvider;)V
+      76: invokestatic  #494                // InterfaceMethod java/util/List.of:(Ljava/lang/Object;)Ljava/util/List;
+      79: invokespecial #538                // Method artifacts/component/ability/mobeffect/PostEatingEffects."<init>":(Ljava/util/List;)V
+      82: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      85: pop
+      86: return
+
+  private static void lambda$static$38(net.minecraft.world.item.Item$Properties);
+    descriptor: (Lnet/minecraft/world/item/Item$Properties;)V
+    Code:
+       0: aload_0
+       1: new           #31                 // class net/minecraft/world/food/FoodProperties$Builder
+       4: dup
+       5: invokespecial #539                // Method net/minecraft/world/food/FoodProperties$Builder."<init>":()V
+       8: iconst_2
+       9: invokevirtual #543                // Method net/minecraft/world/food/FoodProperties$Builder.nutrition:(I)Lnet/minecraft/world/food/FoodProperties$Builder;
+      12: invokevirtual #546                // Method net/minecraft/world/food/FoodProperties$Builder.build:()Lnet/minecraft/world/food/FoodProperties;
+      15: invokevirtual #550                // Method net/minecraft/world/item/Item$Properties.food:(Lnet/minecraft/world/food/FoodProperties;)Lnet/minecraft/world/item/Item$Properties;
+      18: pop
+      19: return
+
+  private static void lambda$static$37(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #555                // Field artifacts/registry/ModAttributes.ENTITY_EXPERIENCE:Lnet/minecraft/core/Holder;
+       4: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+       7: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      10: getfield      #558                // Field artifacts/config/ItemConfigs.goldenHookEntityExperienceBonus:Lartifacts/config/value/Value$ConfigValue;
+      13: getstatic     #328                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_MULTIPLIED_BASE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      16: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      19: getstatic     #561                // Field artifacts/registry/ModDataComponents.PIGLIN_LOVED:Ljava/util/function/Supplier;
+      22: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      27: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      30: invokevirtual #564                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;)Lartifacts/item/WearableArtifactItem$Builder;
+      33: pop
+      34: return
+
+  private static void lambda$static$36(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #568                // Field artifacts/registry/ModDataComponents.DAMAGE_ABSORPTION:Ljava/util/function/Supplier;
+       4: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       9: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      12: new           #570                // class artifacts/component/ability/DamageAbsorption
+      15: dup
+      16: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      19: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      22: getfield      #573                // Field artifacts/config/ItemConfigs.vampiricGloveAbsorptionRatio:Lartifacts/config/value/Value$ConfigValue;
+      25: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      28: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      31: getfield      #576                // Field artifacts/config/ItemConfigs.vampiricGloveAbsorptionChance:Lartifacts/config/value/Value$ConfigValue;
+      34: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      37: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      40: getfield      #579                // Field artifacts/config/ItemConfigs.vampiricGloveMaxHealingPerHit:Lartifacts/config/value/Value$ConfigValue;
+      43: invokespecial #582                // Method artifacts/component/ability/DamageAbsorption."<init>":(Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;)V
+      46: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      49: pop
+      50: return
+
+  private static void lambda$static$35(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #586                // Field net/minecraft/sounds/SoundEvents.PISTON_EXTEND:Lnet/minecraft/sounds/SoundEvent;
+       4: invokevirtual #377                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/sounds/SoundEvent;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #589                // Field net/minecraft/world/entity/ai/attributes/Attributes.ATTACK_KNOCKBACK:Lnet/minecraft/core/Holder;
+      10: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      13: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      16: getfield      #592                // Field artifacts/config/ItemConfigs.pocketPistonAttackKnockbackBonus:Lartifacts/config/value/Value$ConfigValue;
+      19: getstatic     #224                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_VALUE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      22: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      25: pop
+      26: return
+
+  private static void lambda$static$34(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #501                // Field net/minecraft/sounds/SoundEvents.ARMOR_EQUIP_IRON:Lnet/minecraft/core/Holder;
+       4: invokevirtual #197                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/core/Holder;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #596                // Field artifacts/registry/ModAttributes.ATTACK_BURNING_DURATION:Lnet/minecraft/core/Holder;
+      10: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      13: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      16: getfield      #599                // Field artifacts/config/ItemConfigs.fireGauntletFireDuration:Lartifacts/config/value/Value$ConfigValue;
+      19: getstatic     #224                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_VALUE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      22: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      25: pop
+      26: return
+
+  private static void lambda$static$33(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #603                // Field net/minecraft/world/entity/ai/attributes/Attributes.ATTACK_DAMAGE:Lnet/minecraft/core/Holder;
+       4: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+       7: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      10: getfield      #606                // Field artifacts/config/ItemConfigs.powerGloveAttackDamageBonus:Lartifacts/config/value/Value$ConfigValue;
+      13: getstatic     #224                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_VALUE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      16: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      19: pop
+      20: return
+
+  private static void lambda$static$32(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #610                // Field net/minecraft/sounds/SoundEvents.ARMOR_EQUIP_NETHERITE:Lnet/minecraft/core/Holder;
+       4: invokevirtual #197                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/core/Holder;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #613                // Field net/minecraft/world/entity/ai/attributes/Attributes.ATTACK_SPEED:Lnet/minecraft/core/Holder;
+      10: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      13: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      16: getfield      #616                // Field artifacts/config/ItemConfigs.feralClawsAttackSpeedBonus:Lartifacts/config/value/Value$ConfigValue;
+      19: getstatic     #328                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_MULTIPLIED_BASE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      22: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      25: pop
+      26: return
+
+  private static void lambda$static$31(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #610                // Field net/minecraft/sounds/SoundEvents.ARMOR_EQUIP_NETHERITE:Lnet/minecraft/core/Holder;
+       4: invokevirtual #197                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/core/Holder;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #620                // Field net/minecraft/world/entity/ai/attributes/Attributes.BLOCK_BREAK_SPEED:Lnet/minecraft/core/Holder;
+      10: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      13: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      16: getfield      #623                // Field artifacts/config/ItemConfigs.diggingClawsBlockBreakSpeedBonus:Lartifacts/config/value/Value$ConfigValue;
+      19: getstatic     #328                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_MULTIPLIED_BASE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      22: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      25: getstatic     #626                // Field artifacts/registry/ModDataComponents.TOOL_TIER_UPGRADE:Ljava/util/function/Supplier;
+      28: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      33: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      36: new           #628                // class artifacts/component/ability/ToolTierUpgrade
+      39: dup
+      40: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      43: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      46: getfield      #631                // Field artifacts/config/ItemConfigs.diggingClawsToolTier:Lartifacts/config/value/Value$ConfigValue;
+      49: invokespecial #634                // Method artifacts/component/ability/ToolTierUpgrade."<init>":(Lartifacts/config/value/Value;)V
+      52: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      55: pop
+      56: return
+
+  private static void lambda$static$30(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #638                // Field artifacts/registry/ModDataComponents.ENDER_PEARL_HUNGER_COST:Ljava/util/function/Supplier;
+       4: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       9: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      12: new           #640                // class artifacts/component/ability/EnderPearlHungerCost
+      15: dup
+      16: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      19: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      22: getfield      #643                // Field artifacts/config/ItemConfigs.warpDriveEnabled:Lartifacts/config/value/Value$ConfigValue;
+      25: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      28: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      31: getfield      #646                // Field artifacts/config/ItemConfigs.warpDriveHungerCost:Lartifacts/config/value/Value$ConfigValue;
+      34: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      37: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      40: getfield      #649                // Field artifacts/config/ItemConfigs.warpDriveCooldown:Lartifacts/config/value/Value$ConfigValue;
+      43: invokespecial #650                // Method artifacts/component/ability/EnderPearlHungerCost."<init>":(Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;)V
+      46: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      49: getstatic     #653                // Field artifacts/registry/ModDataComponents.ENDER_PEARL_DAMAGE_IMMUNITY:Ljava/util/function/Supplier;
+      52: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      57: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      60: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      63: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      66: getfield      #656                // Field artifacts/config/ItemConfigs.warpDriveNullifyEnderPearlDamage:Lartifacts/config/value/Value$ConfigValue;
+      69: invokevirtual #318                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Lartifacts/config/value/Value;)Lartifacts/item/WearableArtifactItem$Builder;
+      72: pop
+      73: return
+
+  private static void lambda$static$29(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #660                // Field artifacts/registry/ModDataComponents.DEATH_PROTECTION_TELEPORT:Ljava/util/function/Supplier;
+       4: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       9: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      12: new           #662                // class artifacts/component/ability/DeathProtectionTeleport
+      15: dup
+      16: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      19: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      22: getfield      #665                // Field artifacts/config/ItemConfigs.chorusTotemTeleportationChance:Lartifacts/config/value/Value$ConfigValue;
+      25: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      28: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      31: getfield      #668                // Field artifacts/config/ItemConfigs.chorusTotemHealthRestored:Lartifacts/config/value/Value$ConfigValue;
+      34: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      37: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      40: getfield      #671                // Field artifacts/config/ItemConfigs.chorusTotemCooldown:Lartifacts/config/value/Value$ConfigValue;
+      43: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      46: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      49: getfield      #674                // Field artifacts/config/ItemConfigs.chorusTotemConsumeOnUse:Lartifacts/config/value/Value$ConfigValue;
+      52: invokespecial #677                // Method artifacts/component/ability/DeathProtectionTeleport."<init>":(Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;)V
+      55: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      58: pop
+      59: return
+
+  private static void lambda$static$28(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #681                // Field artifacts/registry/ModSoundEvents.POP:Lnet/minecraft/core/Holder;
+       4: invokevirtual #197                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/core/Holder;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #684                // Field artifacts/registry/ModDataComponents.SWIM_IN_AIR:Ljava/util/function/Supplier;
+      10: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      15: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      18: new           #686                // class artifacts/component/ability/SwimInAir
+      21: dup
+      22: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      25: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      28: getfield      #689                // Field artifacts/config/ItemConfigs.heliumFlamingoFlightDuration:Lartifacts/config/value/Value$ConfigValue;
+      31: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      34: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      37: getfield      #692                // Field artifacts/config/ItemConfigs.heliumFlamingoRechargeDuration:Lartifacts/config/value/Value$ConfigValue;
+      40: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      43: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      46: getfield      #695                // Field artifacts/config/ItemConfigs.heliumFlamingoCooldown:Lartifacts/config/value/Value$ConfigValue;
+      49: invokespecial #696                // Method artifacts/component/ability/SwimInAir."<init>":(Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;)V
+      52: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      55: pop
+      56: return
+
+  private static void lambda$static$27(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #700                // Field net/minecraft/sounds/SoundEvents.ARMOR_EQUIP_DIAMOND:Lnet/minecraft/core/Holder;
+       4: invokevirtual #197                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/core/Holder;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #703                // Field net/minecraft/world/entity/ai/attributes/Attributes.MAX_HEALTH:Lnet/minecraft/core/Holder;
+      10: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      13: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      16: getfield      #706                // Field artifacts/config/ItemConfigs.crystalHeartHealthBonus:Lartifacts/config/value/Value$ConfigValue;
+      19: getstatic     #224                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_VALUE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      22: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      25: pop
+      26: return
+
+  private static void lambda$static$26(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #561                // Field artifacts/registry/ModDataComponents.PIGLIN_LOVED:Ljava/util/function/Supplier;
+       4: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       9: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      12: invokevirtual #564                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;)Lartifacts/item/WearableArtifactItem$Builder;
+      15: getstatic     #712                // Field artifacts/registry/ModMobEffects.MAGNETISM:Lnet/minecraft/core/Holder;
+      18: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      21: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      24: getfield      #715                // Field artifacts/config/ItemConfigs.universalAttractorMagnetismLevel:Lartifacts/config/value/Value$ConfigValue;
+      27: bipush        10
+      29: invokestatic  #720                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      32: invokestatic  #477                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      35: getstatic     #291                // Field artifacts/component/ability/EntityCondition.ALWAYS:Lartifacts/component/ability/EntityCondition;
+      38: invokevirtual #724                // Method artifacts/item/WearableArtifactItem$Builder.mobEffect:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/component/ability/EntityCondition;)Lartifacts/item/WearableArtifactItem$Builder;
+      41: getstatic     #727                // Field artifacts/registry/ModDataComponents.TOGGLE_KEY:Ljava/util/function/Supplier;
+      44: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      49: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      52: getstatic     #732                // Field artifacts/component/ToggleIdentifier.UNIVERSAL_ATTRACTOR:Lartifacts/component/ToggleIdentifier;
+      55: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      58: pop
+      59: return
+
+  private static void lambda$static$25(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #736                // Field net/minecraft/sounds/SoundEvents.BOTTLE_FILL:Lnet/minecraft/sounds/SoundEvent;
+       4: invokevirtual #377                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/sounds/SoundEvent;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #561                // Field artifacts/registry/ModDataComponents.PIGLIN_LOVED:Ljava/util/function/Supplier;
+      10: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      15: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      18: invokevirtual #564                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;)Lartifacts/item/WearableArtifactItem$Builder;
+      21: getstatic     #739                // Field artifacts/registry/ModDataComponents.CURE_EFFECTS:Ljava/util/function/Supplier;
+      24: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      29: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      32: new           #741                // class artifacts/component/ability/CureEffects
+      35: dup
+      36: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      39: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      42: getfield      #744                // Field artifacts/config/ItemConfigs.antidoteVesselEnabled:Lartifacts/config/value/Value$ConfigValue;
+      45: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      48: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      51: getfield      #747                // Field artifacts/config/ItemConfigs.antidoteVesselMaxEffectDuration:Lartifacts/config/value/Value$ConfigValue;
+      54: invokespecial #748                // Method artifacts/component/ability/CureEffects."<init>":(Lartifacts/config/value/Value;Lartifacts/config/value/Value;)V
+      57: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      60: pop
+      61: return
+
+  private static void lambda$static$24(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #501                // Field net/minecraft/sounds/SoundEvents.ARMOR_EQUIP_IRON:Lnet/minecraft/core/Holder;
+       4: invokevirtual #197                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/core/Holder;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #752                // Field artifacts/registry/ModDataComponents.POST_DAMAGE_EFFECTS:Ljava/util/function/Supplier;
+      10: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      15: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      18: new           #42                 // class artifacts/component/ability/mobeffect/PostDamageEffects
+      21: dup
+      22: new           #40                 // class artifacts/component/ability/mobeffect/PostDamageEffects$Entry
+      25: dup
+      26: new           #457                // class artifacts/component/ability/mobeffect/MobEffectProvider
+      29: dup
+      30: getstatic     #755                // Field net/minecraft/world/effect/MobEffects.FIRE_RESISTANCE:Lnet/minecraft/core/Holder;
+      33: iconst_1
+      34: invokestatic  #720                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      37: invokestatic  #477                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      40: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      43: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      46: getfield      #758                // Field artifacts/config/ItemConfigs.obsidianSkullFireResistanceDuration:Lartifacts/config/value/Value$ConfigValue;
+      49: iconst_1
+      50: invokestatic  #474                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      53: invokestatic  #477                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      56: iconst_1
+      57: invokestatic  #474                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      60: invokestatic  #477                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      63: getstatic     #291                // Field artifacts/component/ability/EntityCondition.ALWAYS:Lartifacts/component/ability/EntityCondition;
+      66: invokespecial #480                // Method artifacts/component/ability/mobeffect/MobEffectProvider."<init>":(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/component/ability/EntityCondition;)V
+      69: getstatic     #763                // Field net/minecraft/tags/DamageTypeTags.IS_FIRE:Lnet/minecraft/tags/TagKey;
+      72: invokestatic  #262                // Method java/util/Optional.of:(Ljava/lang/Object;)Ljava/util/Optional;
+      75: dconst_1
+      76: invokestatic  #768                // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+      79: invokestatic  #477                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      82: invokespecial #771                // Method artifacts/component/ability/mobeffect/PostDamageEffects$Entry."<init>":(Lartifacts/component/ability/mobeffect/MobEffectProvider;Ljava/util/Optional;Lartifacts/config/value/Value;)V
+      85: invokestatic  #494                // InterfaceMethod java/util/List.of:(Ljava/lang/Object;)Ljava/util/List;
+      88: invokespecial #772                // Method artifacts/component/ability/mobeffect/PostDamageEffects."<init>":(Ljava/util/List;)V
+      91: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      94: getstatic     #775                // Field artifacts/registry/ModDataComponents.POST_DAMAGE_COOLDOWN:Ljava/util/function/Supplier;
+      97: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+     102: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+     105: new           #777                // class artifacts/component/ability/PostDamageCooldown
+     108: dup
+     109: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+     112: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+     115: getfield      #780                // Field artifacts/config/ItemConfigs.obsidianSkullCooldown:Lartifacts/config/value/Value$ConfigValue;
+     118: getstatic     #763                // Field net/minecraft/tags/DamageTypeTags.IS_FIRE:Lnet/minecraft/tags/TagKey;
+     121: invokestatic  #262                // Method java/util/Optional.of:(Ljava/lang/Object;)Ljava/util/Optional;
+     124: invokespecial #783                // Method artifacts/component/ability/PostDamageCooldown."<init>":(Lartifacts/config/value/Value;Ljava/util/Optional;)V
+     127: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+     130: pop
+     131: return
+
+  private static void lambda$static$23(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #787                // Field net/minecraft/sounds/SoundEvents.BOTTLE_FILL_DRAGONBREATH:Lnet/minecraft/sounds/SoundEvent;
+       4: invokevirtual #377                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/sounds/SoundEvent;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #790                // Field artifacts/registry/ModDataComponents.DOUBLE_JUMP:Ljava/util/function/Supplier;
+      10: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      15: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      18: new           #792                // class artifacts/component/ability/DoubleJump
+      21: dup
+      22: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      25: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      28: getfield      #795                // Field artifacts/config/ItemConfigs.cloudInABottleEnabled:Lartifacts/config/value/Value$ConfigValue;
+      31: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      34: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      37: getfield      #798                // Field artifacts/config/ItemConfigs.cloudInABottleFallDamageMultiplier:Lartifacts/config/value/Value$ConfigValue;
+      40: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      43: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      46: getfield      #801                // Field artifacts/config/ItemConfigs.cloudInABottleSprintJumpHorizontalVelocity:Lartifacts/config/value/Value$ConfigValue;
+      49: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      52: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      55: getfield      #804                // Field artifacts/config/ItemConfigs.cloudInABottleSprintJumpVerticalVelocity:Lartifacts/config/value/Value$ConfigValue;
+      58: invokespecial #805                // Method artifacts/component/ability/DoubleJump."<init>":(Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;)V
+      61: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      64: getstatic     #431                // Field net/minecraft/world/entity/ai/attributes/Attributes.SAFE_FALL_DISTANCE:Lnet/minecraft/core/Holder;
+      67: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      70: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      73: getfield      #808                // Field artifacts/config/ItemConfigs.cloudInABottleSafeFallDistanceBonus:Lartifacts/config/value/Value$ConfigValue;
+      76: getstatic     #224                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_VALUE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      79: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      82: pop
+      83: return
+
+  private static void lambda$static$22(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #812                // Field net/minecraft/world/entity/ai/attributes/Attributes.SCALE:Lnet/minecraft/core/Holder;
+       4: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+       7: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      10: getfield      #815                // Field artifacts/config/ItemConfigs.charmOfShrinkingScaleModifier:Lartifacts/config/value/Value$ConfigValue;
+      13: getstatic     #818                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_MULTIPLIED_TOTAL:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      16: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      19: getstatic     #727                // Field artifacts/registry/ModDataComponents.TOGGLE_KEY:Ljava/util/function/Supplier;
+      22: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      27: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      30: getstatic     #820                // Field artifacts/component/ToggleIdentifier.CHARM_OF_SHRINKING:Lartifacts/component/ToggleIdentifier;
+      33: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      36: pop
+      37: return
+
+  private static void lambda$static$21(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #824                // Field artifacts/registry/ModDataComponents.SINKING:Ljava/util/function/Supplier;
+       4: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       9: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      12: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      15: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      18: getfield      #827                // Field artifacts/config/ItemConfigs.charmOfSinkingEnabled:Lartifacts/config/value/Value$ConfigValue;
+      21: invokevirtual #318                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Lartifacts/config/value/Value;)Lartifacts/item/WearableArtifactItem$Builder;
+      24: getstatic     #278                // Field artifacts/registry/ModDataComponents.DAMAGE_IMMUNITY:Ljava/util/function/Supplier;
+      27: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      32: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      35: new           #280                // class artifacts/component/ability/DamageImmunity
+      38: dup
+      39: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      42: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      45: getfield      #827                // Field artifacts/config/ItemConfigs.charmOfSinkingEnabled:Lartifacts/config/value/Value$ConfigValue;
+      48: getstatic     #830                // Field net/minecraft/tags/DamageTypeTags.IS_FALL:Lnet/minecraft/tags/TagKey;
+      51: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      54: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      57: getfield      #833                // Field artifacts/config/ItemConfigs.charmOfSinkingUnderwaterFallDamage:Lartifacts/config/value/Value$ConfigValue;
+      60: invokevirtual #834                // Method artifacts/config/value/Value$ConfigValue.get:()Ljava/lang/Object;
+      63: checkcast     #470                // class java/lang/Boolean
+      66: invokevirtual #838                // Method java/lang/Boolean.booleanValue:()Z
+      69: ifeq          78
+      72: getstatic     #841                // Field artifacts/component/ability/EntityCondition.NEVER:Lartifacts/component/ability/EntityCondition;
+      75: goto          81
+      78: getstatic     #846                // Field artifacts/component/ability/EntityCondition.IN_WATER:Lartifacts/component/ability/EntityCondition;
+      81: invokespecial #294                // Method artifacts/component/ability/DamageImmunity."<init>":(Lartifacts/config/value/Value;Lnet/minecraft/tags/TagKey;Lartifacts/component/ability/EntityCondition;)V
+      84: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      87: getstatic     #849                // Field net/minecraft/world/entity/ai/attributes/Attributes.OXYGEN_BONUS:Lnet/minecraft/core/Holder;
+      90: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      93: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      96: getfield      #827                // Field artifacts/config/ItemConfigs.charmOfSinkingEnabled:Lartifacts/config/value/Value$ConfigValue;
+      99: invokevirtual #834                // Method artifacts/config/value/Value$ConfigValue.get:()Ljava/lang/Object;
+     102: checkcast     #470                // class java/lang/Boolean
+     105: invokevirtual #838                // Method java/lang/Boolean.booleanValue:()Z
+     108: ifeq          123
+     111: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+     114: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+     117: getfield      #852                // Field artifacts/config/ItemConfigs.charmOfSinkingOxygenBonus:Lartifacts/config/value/Value$ConfigValue;
+     120: goto          130
+     123: dconst_0
+     124: invokestatic  #768                // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+     127: invokestatic  #477                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+     130: getstatic     #224                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_VALUE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+     133: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+     136: getstatic     #727                // Field artifacts/registry/ModDataComponents.TOGGLE_KEY:Ljava/util/function/Supplier;
+     139: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+     144: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+     147: getstatic     #856                // Field artifacts/component/ToggleIdentifier.CHARM_OF_SINKING:Lartifacts/component/ToggleIdentifier;
+     150: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+     153: pop
+     154: return
+
+  private static void lambda$static$20(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #860                // Field artifacts/registry/ModDataComponents.RETALIATION_EFFECTS:Ljava/util/function/Supplier;
+       4: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       9: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      12: new           #862                // class artifacts/component/ability/retaliation/RetaliationEffects
+      15: dup
+      16: new           #864                // class artifacts/component/ability/retaliation/ThornsEffect
+      19: dup
+      20: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      23: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      26: getfield      #867                // Field artifacts/config/ItemConfigs.thornPendantStrikeChance:Lartifacts/config/value/Value$ConfigValue;
+      29: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      32: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      35: getfield      #870                // Field artifacts/config/ItemConfigs.thornPendantCooldown:Lartifacts/config/value/Value$ConfigValue;
+      38: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      41: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      44: getfield      #873                // Field artifacts/config/ItemConfigs.thornPendantMinDamage:Lartifacts/config/value/Value$ConfigValue;
+      47: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      50: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      53: getfield      #876                // Field artifacts/config/ItemConfigs.thornPendantMaxDamage:Lartifacts/config/value/Value$ConfigValue;
+      56: invokespecial #877                // Method artifacts/component/ability/retaliation/ThornsEffect."<init>":(Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;)V
+      59: invokestatic  #262                // Method java/util/Optional.of:(Ljava/lang/Object;)Ljava/util/Optional;
+      62: invokestatic  #448                // Method java/util/Optional.empty:()Ljava/util/Optional;
+      65: invokestatic  #448                // Method java/util/Optional.empty:()Ljava/util/Optional;
+      68: invokespecial #880                // Method artifacts/component/ability/retaliation/RetaliationEffects."<init>":(Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;)V
+      71: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      74: pop
+      75: return
+
+  private static void lambda$static$19(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #860                // Field artifacts/registry/ModDataComponents.RETALIATION_EFFECTS:Ljava/util/function/Supplier;
+       4: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       9: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      12: new           #862                // class artifacts/component/ability/retaliation/RetaliationEffects
+      15: dup
+      16: invokestatic  #448                // Method java/util/Optional.empty:()Ljava/util/Optional;
+      19: new           #883                // class artifacts/component/ability/retaliation/FireEffect
+      22: dup
+      23: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      26: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      29: getfield      #886                // Field artifacts/config/ItemConfigs.flamePendantStrikeChance:Lartifacts/config/value/Value$ConfigValue;
+      32: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      35: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      38: getfield      #889                // Field artifacts/config/ItemConfigs.flamePendantCooldown:Lartifacts/config/value/Value$ConfigValue;
+      41: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      44: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      47: getfield      #892                // Field artifacts/config/ItemConfigs.flamePendantFireDuration:Lartifacts/config/value/Value$ConfigValue;
+      50: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      53: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      56: getfield      #895                // Field artifacts/config/ItemConfigs.flamePendantGrantFireResistance:Lartifacts/config/value/Value$ConfigValue;
+      59: invokespecial #896                // Method artifacts/component/ability/retaliation/FireEffect."<init>":(Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;)V
+      62: invokestatic  #262                // Method java/util/Optional.of:(Ljava/lang/Object;)Ljava/util/Optional;
+      65: invokestatic  #448                // Method java/util/Optional.empty:()Ljava/util/Optional;
+      68: invokespecial #880                // Method artifacts/component/ability/retaliation/RetaliationEffects."<init>":(Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;)V
+      71: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      74: pop
+      75: return
+
+  private static void lambda$static$18(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #860                // Field artifacts/registry/ModDataComponents.RETALIATION_EFFECTS:Ljava/util/function/Supplier;
+       4: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       9: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      12: new           #862                // class artifacts/component/ability/retaliation/RetaliationEffects
+      15: dup
+      16: invokestatic  #448                // Method java/util/Optional.empty:()Ljava/util/Optional;
+      19: invokestatic  #448                // Method java/util/Optional.empty:()Ljava/util/Optional;
+      22: new           #899                // class artifacts/component/ability/retaliation/LightningEffect
+      25: dup
+      26: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      29: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      32: getfield      #902                // Field artifacts/config/ItemConfigs.shockPendantStrikeChance:Lartifacts/config/value/Value$ConfigValue;
+      35: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      38: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      41: getfield      #905                // Field artifacts/config/ItemConfigs.shockPendantCooldown:Lartifacts/config/value/Value$ConfigValue;
+      44: invokespecial #906                // Method artifacts/component/ability/retaliation/LightningEffect."<init>":(Lartifacts/config/value/Value;Lartifacts/config/value/Value;)V
+      47: invokestatic  #262                // Method java/util/Optional.of:(Ljava/lang/Object;)Ljava/util/Optional;
+      50: invokespecial #880                // Method artifacts/component/ability/retaliation/RetaliationEffects."<init>":(Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;)V
+      53: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      56: getstatic     #278                // Field artifacts/registry/ModDataComponents.DAMAGE_IMMUNITY:Ljava/util/function/Supplier;
+      59: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      64: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      67: new           #280                // class artifacts/component/ability/DamageImmunity
+      70: dup
+      71: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      74: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      77: getfield      #909                // Field artifacts/config/ItemConfigs.shockPendantCancelLightningDamage:Lartifacts/config/value/Value$ConfigValue;
+      80: getstatic     #912                // Field net/minecraft/tags/DamageTypeTags.IS_LIGHTNING:Lnet/minecraft/tags/TagKey;
+      83: getstatic     #291                // Field artifacts/component/ability/EntityCondition.ALWAYS:Lartifacts/component/ability/EntityCondition;
+      86: invokespecial #294                // Method artifacts/component/ability/DamageImmunity."<init>":(Lartifacts/config/value/Value;Lnet/minecraft/tags/TagKey;Lartifacts/component/ability/EntityCondition;)V
+      89: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      92: pop
+      93: return
+
+  private static void lambda$static$17(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #700                // Field net/minecraft/sounds/SoundEvents.ARMOR_EQUIP_DIAMOND:Lnet/minecraft/core/Holder;
+       4: invokevirtual #197                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/core/Holder;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #752                // Field artifacts/registry/ModDataComponents.POST_DAMAGE_EFFECTS:Ljava/util/function/Supplier;
+      10: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      15: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      18: new           #42                 // class artifacts/component/ability/mobeffect/PostDamageEffects
+      21: dup
+      22: new           #40                 // class artifacts/component/ability/mobeffect/PostDamageEffects$Entry
+      25: dup
+      26: new           #457                // class artifacts/component/ability/mobeffect/MobEffectProvider
+      29: dup
+      30: getstatic     #916                // Field net/minecraft/world/effect/MobEffects.MOVEMENT_SPEED:Lnet/minecraft/core/Holder;
+      33: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      36: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      39: getfield      #919                // Field artifacts/config/ItemConfigs.panicNecklaceSpeedLevel:Lartifacts/config/value/Value$ConfigValue;
+      42: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      45: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      48: getfield      #922                // Field artifacts/config/ItemConfigs.panicNecklaceSpeedDuration:Lartifacts/config/value/Value$ConfigValue;
+      51: iconst_1
+      52: invokestatic  #474                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      55: invokestatic  #477                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      58: iconst_1
+      59: invokestatic  #474                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      62: invokestatic  #477                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      65: getstatic     #291                // Field artifacts/component/ability/EntityCondition.ALWAYS:Lartifacts/component/ability/EntityCondition;
+      68: invokespecial #480                // Method artifacts/component/ability/mobeffect/MobEffectProvider."<init>":(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/component/ability/EntityCondition;)V
+      71: invokestatic  #448                // Method java/util/Optional.empty:()Ljava/util/Optional;
+      74: dconst_1
+      75: invokestatic  #768                // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+      78: invokestatic  #477                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      81: invokespecial #771                // Method artifacts/component/ability/mobeffect/PostDamageEffects$Entry."<init>":(Lartifacts/component/ability/mobeffect/MobEffectProvider;Ljava/util/Optional;Lartifacts/config/value/Value;)V
+      84: invokestatic  #494                // InterfaceMethod java/util/List.of:(Ljava/lang/Object;)Ljava/util/List;
+      87: invokespecial #772                // Method artifacts/component/ability/mobeffect/PostDamageEffects."<init>":(Ljava/util/List;)V
+      90: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      93: getstatic     #775                // Field artifacts/registry/ModDataComponents.POST_DAMAGE_COOLDOWN:Ljava/util/function/Supplier;
+      96: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+     101: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+     104: new           #777                // class artifacts/component/ability/PostDamageCooldown
+     107: dup
+     108: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+     111: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+     114: getfield      #925                // Field artifacts/config/ItemConfigs.panicNecklaceCooldown:Lartifacts/config/value/Value$ConfigValue;
+     117: invokestatic  #448                // Method java/util/Optional.empty:()Ljava/util/Optional;
+     120: invokespecial #783                // Method artifacts/component/ability/PostDamageCooldown."<init>":(Lartifacts/config/value/Value;Ljava/util/Optional;)V
+     123: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+     126: pop
+     127: return
+
+  private static void lambda$static$16(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #700                // Field net/minecraft/sounds/SoundEvents.ARMOR_EQUIP_DIAMOND:Lnet/minecraft/core/Holder;
+       4: invokevirtual #197                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/core/Holder;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #561                // Field artifacts/registry/ModDataComponents.PIGLIN_LOVED:Ljava/util/function/Supplier;
+      10: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      15: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      18: invokevirtual #564                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;)Lartifacts/item/WearableArtifactItem$Builder;
+      21: getstatic     #775                // Field artifacts/registry/ModDataComponents.POST_DAMAGE_COOLDOWN:Ljava/util/function/Supplier;
+      24: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      29: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      32: new           #777                // class artifacts/component/ability/PostDamageCooldown
+      35: dup
+      36: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      39: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      42: getfield      #929                // Field artifacts/config/ItemConfigs.crossNecklaceCooldown:Lartifacts/config/value/Value$ConfigValue;
+      45: invokestatic  #448                // Method java/util/Optional.empty:()Ljava/util/Optional;
+      48: invokespecial #783                // Method artifacts/component/ability/PostDamageCooldown."<init>":(Lartifacts/config/value/Value;Ljava/util/Optional;)V
+      51: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      54: getstatic     #932                // Field artifacts/registry/ModAttributes.INVINCIBILITY_TICKS:Lnet/minecraft/core/Holder;
+      57: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      60: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      63: getfield      #935                // Field artifacts/config/ItemConfigs.crossNecklaceBonusInvincibilityTicks:Lartifacts/config/value/Value$ConfigValue;
+      66: getstatic     #224                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_VALUE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      69: iconst_0
+      70: invokevirtual #938                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;Z)Lartifacts/item/WearableArtifactItem$Builder;
+      73: pop
+      74: return
+
+  private static void lambda$static$15(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #942                // Field net/minecraft/world/effect/MobEffects.INVISIBILITY:Lnet/minecraft/core/Holder;
+       4: iconst_1
+       5: invokestatic  #720                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       8: invokestatic  #477                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      11: bipush        10
+      13: invokestatic  #720                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      16: invokestatic  #477                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      19: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      22: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      25: getfield      #945                // Field artifacts/config/ItemConfigs.scarfOfInvisibilityEnabled:Lartifacts/config/value/Value$ConfigValue;
+      28: invokevirtual #834                // Method artifacts/config/value/Value$ConfigValue.get:()Ljava/lang/Object;
+      31: checkcast     #470                // class java/lang/Boolean
+      34: invokevirtual #838                // Method java/lang/Boolean.booleanValue:()Z
+      37: ifeq          46
+      40: getstatic     #291                // Field artifacts/component/ability/EntityCondition.ALWAYS:Lartifacts/component/ability/EntityCondition;
+      43: goto          49
+      46: getstatic     #841                // Field artifacts/component/ability/EntityCondition.NEVER:Lartifacts/component/ability/EntityCondition;
+      49: invokevirtual #724                // Method artifacts/item/WearableArtifactItem$Builder.mobEffect:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/component/ability/EntityCondition;)Lartifacts/item/WearableArtifactItem$Builder;
+      52: getstatic     #727                // Field artifacts/registry/ModDataComponents.TOGGLE_KEY:Ljava/util/function/Supplier;
+      55: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      60: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      63: getstatic     #947                // Field artifacts/component/ToggleIdentifier.SCARF_OF_INVISIBILITY:Lartifacts/component/ToggleIdentifier;
+      66: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      69: getstatic     #950                // Field artifacts/registry/ModDataComponents.HIDE_WHEN_INVISIBLE:Ljava/util/function/Supplier;
+      72: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      77: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      80: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      83: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      86: getfield      #953                // Field artifacts/config/ItemConfigs.scarfOfInvisibilityHideWhenInvisible:Lartifacts/config/value/Value$ConfigValue;
+      89: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      92: pop
+      93: return
+
+  private static void lambda$static$14(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #960                // Field net/minecraft/world/item/enchantment/Enchantments.FORTUNE:Lnet/minecraft/resources/ResourceKey;
+       4: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+       7: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      10: getfield      #963                // Field artifacts/config/ItemConfigs.luckScarfFortuneBonus:Lartifacts/config/value/Value$ConfigValue;
+      13: invokevirtual #967                // Method artifacts/item/WearableArtifactItem$Builder.increasesEnchantment:(Lnet/minecraft/resources/ResourceKey;Lartifacts/config/value/Value;)Lartifacts/item/WearableArtifactItem$Builder;
+      16: pop
+      17: return
+
+  private static void lambda$static$13(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #234                // Field net/minecraft/sounds/SoundEvents.ARMOR_EQUIP_LEATHER:Lnet/minecraft/core/Holder;
+       4: invokevirtual #197                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/core/Holder;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #971                // Field net/minecraft/world/item/enchantment/Enchantments.LUCK_OF_THE_SEA:Lnet/minecraft/resources/ResourceKey;
+      10: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      13: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      16: getfield      #974                // Field artifacts/config/ItemConfigs.anglersHatLuckOfTheSeaLevelBonus:Lartifacts/config/value/Value$ConfigValue;
+      19: invokevirtual #967                // Method artifacts/item/WearableArtifactItem$Builder.increasesEnchantment:(Lnet/minecraft/resources/ResourceKey;Lartifacts/config/value/Value;)Lartifacts/item/WearableArtifactItem$Builder;
+      22: getstatic     #977                // Field net/minecraft/world/item/enchantment/Enchantments.LURE:Lnet/minecraft/resources/ResourceKey;
+      25: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      28: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      31: getfield      #980                // Field artifacts/config/ItemConfigs.anglersHatLureLevelBonus:Lartifacts/config/value/Value$ConfigValue;
+      34: invokevirtual #967                // Method artifacts/item/WearableArtifactItem$Builder.increasesEnchantment:(Lnet/minecraft/resources/ResourceKey;Lartifacts/config/value/Value;)Lartifacts/item/WearableArtifactItem$Builder;
+      37: pop
+      38: return
+
+  private static void lambda$static$12(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #234                // Field net/minecraft/sounds/SoundEvents.ARMOR_EQUIP_LEATHER:Lnet/minecraft/core/Holder;
+       4: invokevirtual #197                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/core/Holder;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #984                // Field artifacts/registry/ModAttributes.MOUNT_SPEED:Lnet/minecraft/core/Holder;
+      10: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      13: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      16: getfield      #987                // Field artifacts/config/ItemConfigs.cowboyHatMountSpeedBonus:Lartifacts/config/value/Value$ConfigValue;
+      19: getstatic     #328                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_MULTIPLIED_BASE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      22: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      25: pop
+      26: return
+
+  private static void lambda$static$11(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #991                // Field net/minecraft/world/item/enchantment/Enchantments.LOOTING:Lnet/minecraft/resources/ResourceKey;
+       4: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+       7: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      10: getfield      #994                // Field artifacts/config/ItemConfigs.superstitiousHatLootingLevelBonus:Lartifacts/config/value/Value$ConfigValue;
+      13: invokevirtual #967                // Method artifacts/item/WearableArtifactItem$Builder.increasesEnchantment:(Lnet/minecraft/resources/ResourceKey;Lartifacts/config/value/Value;)Lartifacts/item/WearableArtifactItem$Builder;
+      16: pop
+      17: return
+
+  private static void lambda$static$10(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #998                // Field artifacts/registry/ModAttributes.VILLAGER_REPUTATION:Lnet/minecraft/core/Holder;
+       4: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+       7: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      10: getfield      #1001               // Field artifacts/config/ItemConfigs.villagerHatReputationBonus:Lartifacts/config/value/Value$ConfigValue;
+      13: getstatic     #224                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_VALUE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      16: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      19: pop
+      20: return
+
+  private static void lambda$static$9(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #1005               // Field net/minecraft/world/effect/MobEffects.NIGHT_VISION:Lnet/minecraft/core/Holder;
+       4: iconst_1
+       5: invokestatic  #720                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       8: invokestatic  #477                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      11: bipush        10
+      13: invokestatic  #720                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      16: invokestatic  #477                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      19: getstatic     #291                // Field artifacts/component/ability/EntityCondition.ALWAYS:Lartifacts/component/ability/EntityCondition;
+      22: invokevirtual #724                // Method artifacts/item/WearableArtifactItem$Builder.mobEffect:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/component/ability/EntityCondition;)Lartifacts/item/WearableArtifactItem$Builder;
+      25: getstatic     #1008               // Field artifacts/registry/ModDataComponents.REDUCED_NIGHT_VISION:Ljava/util/function/Supplier;
+      28: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      33: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      36: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      39: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      42: getfield      #1011               // Field artifacts/config/ItemConfigs.nightVisionGogglesStrength:Lartifacts/config/value/Value$ConfigValue;
+      45: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      48: getstatic     #727                // Field artifacts/registry/ModDataComponents.TOGGLE_KEY:Ljava/util/function/Supplier;
+      51: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      56: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      59: getstatic     #1013               // Field artifacts/component/ToggleIdentifier.NIGHT_VISION_GOGGLES:Lartifacts/component/ToggleIdentifier;
+      62: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      65: pop
+      66: return
+
+  private static void lambda$static$8(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #1017               // Field net/minecraft/world/effect/MobEffects.WATER_BREATHING:Lnet/minecraft/core/Holder;
+       4: iconst_1
+       5: invokestatic  #720                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       8: invokestatic  #477                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      11: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      14: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      17: getfield      #1020               // Field artifacts/config/ItemConfigs.snorkelWaterBreathingDuration:Lartifacts/config/value/Value$ConfigValue;
+      20: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      23: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      26: getfield      #1023               // Field artifacts/config/ItemConfigs.snorkelIsInfinite:Lartifacts/config/value/Value$ConfigValue;
+      29: invokevirtual #834                // Method artifacts/config/value/Value$ConfigValue.get:()Ljava/lang/Object;
+      32: checkcast     #470                // class java/lang/Boolean
+      35: invokevirtual #838                // Method java/lang/Boolean.booleanValue:()Z
+      38: ifeq          47
+      41: getstatic     #291                // Field artifacts/component/ability/EntityCondition.ALWAYS:Lartifacts/component/ability/EntityCondition;
+      44: goto          50
+      47: getstatic     #1026               // Field artifacts/component/ability/EntityCondition.ABOVE_WATER:Lartifacts/component/ability/EntityCondition;
+      50: invokevirtual #724                // Method artifacts/item/WearableArtifactItem$Builder.mobEffect:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/component/ability/EntityCondition;)Lartifacts/item/WearableArtifactItem$Builder;
+      53: pop
+      54: return
+
+  private static void lambda$static$7(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #736                // Field net/minecraft/sounds/SoundEvents.BOTTLE_FILL:Lnet/minecraft/sounds/SoundEvent;
+       4: invokevirtual #377                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/sounds/SoundEvent;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #1030               // Field artifacts/registry/ModDataComponents.ABILITY_LORE:Ljava/util/function/Supplier;
+      10: invokeinterface #243,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      15: checkcast     #245                // class net/minecraft/core/component/DataComponentType
+      18: new           #1032               // class net/minecraft/world/item/component/ItemLore
+      21: dup
+      22: ldc_w         #1034               // String artifacts.tooltip.item.novelty_drinking_hat
+      25: invokestatic  #1040               // InterfaceMethod net/minecraft/network/chat/Component.translatable:(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+      28: getstatic     #1046               // Field net/minecraft/ChatFormatting.GRAY:Lnet/minecraft/ChatFormatting;
+      31: invokevirtual #1052               // Method net/minecraft/network/chat/MutableComponent.withStyle:(Lnet/minecraft/ChatFormatting;)Lnet/minecraft/network/chat/MutableComponent;
+      34: invokestatic  #494                // InterfaceMethod java/util/List.of:(Ljava/lang/Object;)Ljava/util/List;
+      37: invokespecial #1053               // Method net/minecraft/world/item/component/ItemLore."<init>":(Ljava/util/List;)V
+      40: invokevirtual #275                // Method artifacts/item/WearableArtifactItem$Builder.component:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lartifacts/item/WearableArtifactItem$Builder;
+      43: getstatic     #1056               // Field artifacts/registry/ModAttributes.DRINKING_SPEED:Lnet/minecraft/core/Holder;
+      46: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      49: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      52: getfield      #1059               // Field artifacts/config/ItemConfigs.noveltyDrinkingHatDrinkingSpeedBonus:Lartifacts/config/value/Value$ConfigValue;
+      55: getstatic     #328                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_MULTIPLIED_BASE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      58: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      61: getstatic     #1062               // Field artifacts/registry/ModAttributes.EATING_SPEED:Lnet/minecraft/core/Holder;
+      64: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      67: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      70: getfield      #1065               // Field artifacts/config/ItemConfigs.noveltyDrinkingHatEatingSpeedBonus:Lartifacts/config/value/Value$ConfigValue;
+      73: getstatic     #328                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_MULTIPLIED_BASE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      76: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      79: pop
+      80: return
+
+  private static void lambda$static$6(artifacts.item.WearableArtifactItem$Builder);
+    descriptor: (Lartifacts/item/WearableArtifactItem$Builder;)V
+    Code:
+       0: aload_0
+       1: getstatic     #736                // Field net/minecraft/sounds/SoundEvents.BOTTLE_FILL:Lnet/minecraft/sounds/SoundEvent;
+       4: invokevirtual #377                // Method artifacts/item/WearableArtifactItem$Builder.equipSound:(Lnet/minecraft/sounds/SoundEvent;)Lartifacts/item/WearableArtifactItem$Builder;
+       7: getstatic     #1056               // Field artifacts/registry/ModAttributes.DRINKING_SPEED:Lnet/minecraft/core/Holder;
+      10: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      13: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      16: getfield      #1069               // Field artifacts/config/ItemConfigs.plasticDrinkingHatDrinkingSpeedBonus:Lartifacts/config/value/Value$ConfigValue;
+      19: getstatic     #328                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_MULTIPLIED_BASE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      22: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      25: getstatic     #1062               // Field artifacts/registry/ModAttributes.EATING_SPEED:Lnet/minecraft/core/Holder;
+      28: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      31: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      34: getfield      #1072               // Field artifacts/config/ItemConfigs.plasticDrinkingHatEatingSpeedBonus:Lartifacts/config/value/Value$ConfigValue;
+      37: getstatic     #328                // Field net/minecraft/world/entity/ai/attributes/AttributeModifier$Operation.ADD_MULTIPLIED_BASE:Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;
+      40: invokevirtual #228                // Method artifacts/item/WearableArtifactItem$Builder.addAttributeModifier:(Lnet/minecraft/core/Holder;Lartifacts/config/value/Value;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;)Lartifacts/item/WearableArtifactItem$Builder;
+      43: pop
+      44: return
+
+  private static net.minecraft.world.item.Item lambda$static$5();
+    descriptor: ()Lnet/minecraft/world/item/Item;
+    Code:
+       0: new           #1075               // class artifacts/item/EverlastingFoodItem
+       3: dup
+       4: new           #31                 // class net/minecraft/world/food/FoodProperties$Builder
+       7: dup
+       8: invokespecial #539                // Method net/minecraft/world/food/FoodProperties$Builder."<init>":()V
+      11: bipush        8
+      13: invokevirtual #543                // Method net/minecraft/world/food/FoodProperties$Builder.nutrition:(I)Lnet/minecraft/world/food/FoodProperties$Builder;
+      16: ldc_w         #1076               // float 0.8f
+      19: invokevirtual #1080               // Method net/minecraft/world/food/FoodProperties$Builder.saturationModifier:(F)Lnet/minecraft/world/food/FoodProperties$Builder;
+      22: invokevirtual #546                // Method net/minecraft/world/food/FoodProperties$Builder.build:()Lnet/minecraft/world/food/FoodProperties;
+      25: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      28: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      31: getfield      #1083               // Field artifacts/config/ItemConfigs.eternalSteakCooldown:Lartifacts/config/value/Value$ConfigValue;
+      34: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      37: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      40: getfield      #1086               // Field artifacts/config/ItemConfigs.eternalSteakEnabled:Lartifacts/config/value/Value$ConfigValue;
+      43: invokespecial #1089               // Method artifacts/item/EverlastingFoodItem."<init>":(Lnet/minecraft/world/food/FoodProperties;Ljava/util/function/Supplier;Ljava/util/function/Supplier;)V
+      46: areturn
+
+  private static net.minecraft.world.item.Item lambda$static$4();
+    descriptor: ()Lnet/minecraft/world/item/Item;
+    Code:
+       0: new           #1075               // class artifacts/item/EverlastingFoodItem
+       3: dup
+       4: new           #31                 // class net/minecraft/world/food/FoodProperties$Builder
+       7: dup
+       8: invokespecial #539                // Method net/minecraft/world/food/FoodProperties$Builder."<init>":()V
+      11: iconst_3
+      12: invokevirtual #543                // Method net/minecraft/world/food/FoodProperties$Builder.nutrition:(I)Lnet/minecraft/world/food/FoodProperties$Builder;
+      15: ldc_w         #1091               // float 0.3f
+      18: invokevirtual #1080               // Method net/minecraft/world/food/FoodProperties$Builder.saturationModifier:(F)Lnet/minecraft/world/food/FoodProperties$Builder;
+      21: invokevirtual #546                // Method net/minecraft/world/food/FoodProperties$Builder.build:()Lnet/minecraft/world/food/FoodProperties;
+      24: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      27: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      30: getfield      #1094               // Field artifacts/config/ItemConfigs.everlastingBeefCooldown:Lartifacts/config/value/Value$ConfigValue;
+      33: getstatic     #208                // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+      36: getfield      #214                // Field artifacts/config/ModConfig.items:Lartifacts/config/ItemConfigs;
+      39: getfield      #1097               // Field artifacts/config/ItemConfigs.everlastingBeefEnabled:Lartifacts/config/value/Value$ConfigValue;
+      42: invokespecial #1089               // Method artifacts/item/EverlastingFoodItem."<init>":(Lnet/minecraft/world/food/FoodProperties;Ljava/util/function/Supplier;Ljava/util/function/Supplier;)V
+      45: areturn
+
+  private static net.minecraft.world.item.Item lambda$static$3();
+    descriptor: ()Lnet/minecraft/world/item/Item;
+    Code:
+       0: invokestatic  #1104               // Method artifacts/platform/PlatformServices.getPlatformHelper:()Lartifacts/platform/PlatformHelper;
+       3: new           #35                 // class net/minecraft/world/item/Item$Properties
+       6: dup
+       7: invokespecial #1105               // Method net/minecraft/world/item/Item$Properties."<init>":()V
+      10: invokeinterface #1111,  2         // InterfaceMethod artifacts/platform/PlatformHelper.createMimicSpawnEgg:(Lnet/minecraft/world/item/Item$Properties;)Lnet/minecraft/world/item/SpawnEggItem;
+      15: areturn
+
+  private static net.minecraft.world.item.CreativeModeTab lambda$static$2();
+    descriptor: ()Lnet/minecraft/world/item/CreativeModeTab;
+    Code:
+       0: new           #44                 // class net/minecraft/world/item/CreativeModeTab$Builder
+       3: dup
+       4: aconst_null
+       5: iconst_0
+       6: invokespecial #1116               // Method net/minecraft/world/item/CreativeModeTab$Builder."<init>":(Lnet/minecraft/world/item/CreativeModeTab$Row;I)V
+       9: ldc_w         #1118               // String %s.creative_tab
+      12: iconst_1
+      13: anewarray     #4                  // class java/lang/Object
+      16: dup
+      17: iconst_0
+      18: ldc_w         #1120               // String artifacts
+      21: aastore
+      22: invokevirtual #1126               // Method java/lang/String.formatted:([Ljava/lang/Object;)Ljava/lang/String;
+      25: invokestatic  #1040               // InterfaceMethod net/minecraft/network/chat/Component.translatable:(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+      28: invokevirtual #1130               // Method net/minecraft/world/item/CreativeModeTab$Builder.title:(Lnet/minecraft/network/chat/Component;)Lnet/minecraft/world/item/CreativeModeTab$Builder;
+      31: invokedynamic #1139,  0           // InvokeDynamic #2:get:()Ljava/util/function/Supplier;
+      36: invokevirtual #1143               // Method net/minecraft/world/item/CreativeModeTab$Builder.icon:(Ljava/util/function/Supplier;)Lnet/minecraft/world/item/CreativeModeTab$Builder;
+      39: invokedynamic #1152,  0           // InvokeDynamic #3:accept:()Lnet/minecraft/world/item/CreativeModeTab$DisplayItemsGenerator;
+      44: invokevirtual #1156               // Method net/minecraft/world/item/CreativeModeTab$Builder.displayItems:(Lnet/minecraft/world/item/CreativeModeTab$DisplayItemsGenerator;)Lnet/minecraft/world/item/CreativeModeTab$Builder;
+      47: invokevirtual #1158               // Method net/minecraft/world/item/CreativeModeTab$Builder.build:()Lnet/minecraft/world/item/CreativeModeTab;
+      50: areturn
+
+  private static void lambda$static$1(net.minecraft.world.item.CreativeModeTab$ItemDisplayParameters, net.minecraft.world.item.CreativeModeTab$Output);
+    descriptor: (Lnet/minecraft/world/item/CreativeModeTab$ItemDisplayParameters;Lnet/minecraft/world/item/CreativeModeTab$Output;)V
+    Code:
+       0: getstatic     #164                // Field ITEMS:Lartifacts/registry/Register;
+       3: aload_1
+       4: dup
+       5: invokestatic  #1166               // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+       8: pop
+       9: invokedynamic #1175,  0           // InvokeDynamic #4:accept:(Lnet/minecraft/world/item/CreativeModeTab$Output;)Ljava/util/function/Consumer;
+      14: invokevirtual #1179               // Method artifacts/registry/Register.forEach:(Ljava/util/function/Consumer;)V
+      17: return
+
+  private static net.minecraft.world.item.ItemStack lambda$static$0();
+    descriptor: ()Lnet/minecraft/world/item/ItemStack;
+    Code:
+       0: new           #1183               // class net/minecraft/world/item/ItemStack
+       3: dup
+       4: getstatic     #1185               // Field BUNNY_HOPPERS:Lnet/minecraft/core/Holder;
+       7: invokeinterface #1188,  1         // InterfaceMethod net/minecraft/core/Holder.value:()Ljava/lang/Object;
+      12: checkcast     #1190               // class net/minecraft/world/level/ItemLike
+      15: invokespecial #1192               // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+      18: areturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: getstatic     #1198               // Field net/minecraft/core/registries/Registries.ITEM:Lnet/minecraft/resources/ResourceKey;
+       3: invokestatic  #1202               // Method artifacts/registry/Register.create:(Lnet/minecraft/resources/ResourceKey;)Lartifacts/registry/Register;
+       6: putstatic     #164                // Field ITEMS:Lartifacts/registry/Register;
+       9: getstatic     #1205               // Field net/minecraft/core/registries/Registries.CREATIVE_MODE_TAB:Lnet/minecraft/resources/ResourceKey;
+      12: invokestatic  #1202               // Method artifacts/registry/Register.create:(Lnet/minecraft/resources/ResourceKey;)Lartifacts/registry/Register;
+      15: putstatic     #1207               // Field CREATIVE_MODE_TABS:Lartifacts/registry/Register;
+      18: getstatic     #1207               // Field CREATIVE_MODE_TABS:Lartifacts/registry/Register;
+      21: ldc_w         #1209               // String main
+      24: invokedynamic #1214,  0           // InvokeDynamic #5:get:()Ljava/util/function/Supplier;
+      29: invokevirtual #169                // Method artifacts/registry/Register.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistryHolder;
+      32: putstatic     #1216               // Field CREATIVE_TAB:Lartifacts/registry/RegistryHolder;
+      35: ldc_w         #1218               // String mimic_spawn_egg
+      38: invokedynamic #1222,  0           // InvokeDynamic #6:get:()Ljava/util/function/Supplier;
+      43: invokestatic  #157                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraft/core/Holder;
+      46: putstatic     #1224               // Field MIMIC_SPAWN_EGG:Lnet/minecraft/core/Holder;
+      49: ldc_w         #1226               // String umbrella
+      52: invokedynamic #1231,  0           // InvokeDynamic #7:get:()Ljava/util/function/Supplier;
+      57: invokestatic  #157                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraft/core/Holder;
+      60: putstatic     #1233               // Field UMBRELLA:Lnet/minecraft/core/Holder;
+      63: ldc_w         #1235               // String everlasting_beef
+      66: invokedynamic #1239,  0           // InvokeDynamic #8:get:()Ljava/util/function/Supplier;
+      71: invokestatic  #157                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraft/core/Holder;
+      74: putstatic     #1241               // Field EVERLASTING_BEEF:Lnet/minecraft/core/Holder;
+      77: ldc_w         #1243               // String eternal_steak
+      80: invokedynamic #1247,  0           // InvokeDynamic #9:get:()Ljava/util/function/Supplier;
+      85: invokestatic  #157                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraft/core/Holder;
+      88: putstatic     #1249               // Field ETERNAL_STEAK:Lnet/minecraft/core/Holder;
+      91: ldc_w         #1251               // String plastic_drinking_hat
+      94: invokedynamic #1256,  0           // InvokeDynamic #10:accept:()Ljava/util/function/Consumer;
+      99: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     102: putstatic     #1260               // Field PLASTIC_DRINKING_HAT:Lnet/minecraft/core/Holder;
+     105: ldc_w         #1262               // String novelty_drinking_hat
+     108: invokedynamic #1266,  0           // InvokeDynamic #11:accept:()Ljava/util/function/Consumer;
+     113: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     116: putstatic     #1268               // Field NOVELTY_DRINKING_HAT:Lnet/minecraft/core/Holder;
+     119: ldc_w         #1270               // String snorkel
+     122: invokedynamic #1274,  0           // InvokeDynamic #12:accept:()Ljava/util/function/Consumer;
+     127: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     130: putstatic     #1276               // Field SNORKEL:Lnet/minecraft/core/Holder;
+     133: ldc_w         #1278               // String night_vision_goggles
+     136: invokedynamic #1282,  0           // InvokeDynamic #13:accept:()Ljava/util/function/Consumer;
+     141: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     144: putstatic     #1284               // Field NIGHT_VISION_GOGGLES:Lnet/minecraft/core/Holder;
+     147: ldc_w         #1286               // String villager_hat
+     150: invokedynamic #1290,  0           // InvokeDynamic #14:accept:()Ljava/util/function/Consumer;
+     155: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     158: putstatic     #1292               // Field VILLAGER_HAT:Lnet/minecraft/core/Holder;
+     161: ldc_w         #1294               // String superstitious_hat
+     164: invokedynamic #1298,  0           // InvokeDynamic #15:accept:()Ljava/util/function/Consumer;
+     169: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     172: putstatic     #1300               // Field SUPERSTITIOUS_HAT:Lnet/minecraft/core/Holder;
+     175: ldc_w         #1302               // String cowboy_hat
+     178: invokedynamic #1306,  0           // InvokeDynamic #16:accept:()Ljava/util/function/Consumer;
+     183: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     186: putstatic     #1308               // Field COWBOY_HAT:Lnet/minecraft/core/Holder;
+     189: ldc_w         #1310               // String anglers_hat
+     192: invokedynamic #1314,  0           // InvokeDynamic #17:accept:()Ljava/util/function/Consumer;
+     197: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     200: putstatic     #1316               // Field ANGLERS_HAT:Lnet/minecraft/core/Holder;
+     203: ldc_w         #1318               // String lucky_scarf
+     206: invokedynamic #1322,  0           // InvokeDynamic #18:accept:()Ljava/util/function/Consumer;
+     211: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     214: putstatic     #1324               // Field LUCKY_SCARF:Lnet/minecraft/core/Holder;
+     217: ldc_w         #1326               // String scarf_of_invisibility
+     220: invokedynamic #1330,  0           // InvokeDynamic #19:accept:()Ljava/util/function/Consumer;
+     225: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     228: putstatic     #1332               // Field SCARF_OF_INVISIBILITY:Lnet/minecraft/core/Holder;
+     231: ldc_w         #1334               // String cross_necklace
+     234: invokedynamic #1338,  0           // InvokeDynamic #20:accept:()Ljava/util/function/Consumer;
+     239: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     242: putstatic     #1340               // Field CROSS_NECKLACE:Lnet/minecraft/core/Holder;
+     245: ldc_w         #1342               // String panic_necklace
+     248: invokedynamic #1346,  0           // InvokeDynamic #21:accept:()Ljava/util/function/Consumer;
+     253: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     256: putstatic     #1348               // Field PANIC_NECKLACE:Lnet/minecraft/core/Holder;
+     259: ldc_w         #1350               // String shock_pendant
+     262: invokedynamic #1354,  0           // InvokeDynamic #22:accept:()Ljava/util/function/Consumer;
+     267: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     270: putstatic     #1356               // Field SHOCK_PENDANT:Lnet/minecraft/core/Holder;
+     273: ldc_w         #1358               // String flame_pendant
+     276: invokedynamic #1362,  0           // InvokeDynamic #23:accept:()Ljava/util/function/Consumer;
+     281: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     284: putstatic     #1364               // Field FLAME_PENDANT:Lnet/minecraft/core/Holder;
+     287: ldc_w         #1366               // String thorn_pendant
+     290: invokedynamic #1370,  0           // InvokeDynamic #24:accept:()Ljava/util/function/Consumer;
+     295: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     298: putstatic     #1372               // Field THORN_PENDANT:Lnet/minecraft/core/Holder;
+     301: ldc_w         #1374               // String charm_of_sinking
+     304: invokedynamic #1378,  0           // InvokeDynamic #25:accept:()Ljava/util/function/Consumer;
+     309: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     312: putstatic     #1380               // Field CHARM_OF_SINKING:Lnet/minecraft/core/Holder;
+     315: ldc_w         #1382               // String charm_of_shrinking
+     318: invokedynamic #1386,  0           // InvokeDynamic #26:accept:()Ljava/util/function/Consumer;
+     323: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     326: putstatic     #1388               // Field CHARM_OF_SHRINKING:Lnet/minecraft/core/Holder;
+     329: ldc_w         #1390               // String cloud_in_a_bottle
+     332: invokedynamic #1394,  0           // InvokeDynamic #27:accept:()Ljava/util/function/Consumer;
+     337: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     340: putstatic     #1396               // Field CLOUD_IN_A_BOTTLE:Lnet/minecraft/core/Holder;
+     343: ldc_w         #1398               // String obsidian_skull
+     346: invokedynamic #1402,  0           // InvokeDynamic #28:accept:()Ljava/util/function/Consumer;
+     351: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     354: putstatic     #1404               // Field OBSIDIAN_SKULL:Lnet/minecraft/core/Holder;
+     357: ldc_w         #1406               // String antidote_vessel
+     360: invokedynamic #1410,  0           // InvokeDynamic #29:accept:()Ljava/util/function/Consumer;
+     365: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     368: putstatic     #1412               // Field ANTIDOTE_VESSEL:Lnet/minecraft/core/Holder;
+     371: ldc_w         #1414               // String universal_attractor
+     374: invokedynamic #1418,  0           // InvokeDynamic #30:accept:()Ljava/util/function/Consumer;
+     379: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     382: putstatic     #1420               // Field UNIVERSAL_ATTRACTOR:Lnet/minecraft/core/Holder;
+     385: ldc_w         #1422               // String crystal_heart
+     388: invokedynamic #1426,  0           // InvokeDynamic #31:accept:()Ljava/util/function/Consumer;
+     393: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     396: putstatic     #1428               // Field CRYSTAL_HEART:Lnet/minecraft/core/Holder;
+     399: ldc_w         #1430               // String helium_flamingo
+     402: invokedynamic #1434,  0           // InvokeDynamic #32:accept:()Ljava/util/function/Consumer;
+     407: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     410: putstatic     #1436               // Field HELIUM_FLAMINGO:Lnet/minecraft/core/Holder;
+     413: ldc_w         #1438               // String chorus_totem
+     416: invokedynamic #1442,  0           // InvokeDynamic #33:accept:()Ljava/util/function/Consumer;
+     421: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     424: putstatic     #1444               // Field CHORUS_TOTEM:Lnet/minecraft/core/Holder;
+     427: ldc_w         #1446               // String warp_drive
+     430: invokedynamic #1450,  0           // InvokeDynamic #34:accept:()Ljava/util/function/Consumer;
+     435: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     438: putstatic     #1452               // Field WARP_DRIVE:Lnet/minecraft/core/Holder;
+     441: ldc_w         #1454               // String digging_claws
+     444: invokedynamic #1458,  0           // InvokeDynamic #35:accept:()Ljava/util/function/Consumer;
+     449: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     452: putstatic     #1460               // Field DIGGING_CLAWS:Lnet/minecraft/core/Holder;
+     455: ldc_w         #1462               // String feral_claws
+     458: invokedynamic #1466,  0           // InvokeDynamic #36:accept:()Ljava/util/function/Consumer;
+     463: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     466: putstatic     #1468               // Field FERAL_CLAWS:Lnet/minecraft/core/Holder;
+     469: ldc_w         #1470               // String power_glove
+     472: invokedynamic #1474,  0           // InvokeDynamic #37:accept:()Ljava/util/function/Consumer;
+     477: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     480: putstatic     #1476               // Field POWER_GLOVE:Lnet/minecraft/core/Holder;
+     483: ldc_w         #1478               // String fire_gauntlet
+     486: invokedynamic #1482,  0           // InvokeDynamic #38:accept:()Ljava/util/function/Consumer;
+     491: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     494: putstatic     #1484               // Field FIRE_GAUNTLET:Lnet/minecraft/core/Holder;
+     497: ldc_w         #1486               // String pocket_piston
+     500: invokedynamic #1490,  0           // InvokeDynamic #39:accept:()Ljava/util/function/Consumer;
+     505: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     508: putstatic     #1492               // Field POCKET_PISTON:Lnet/minecraft/core/Holder;
+     511: ldc_w         #1494               // String vampiric_glove
+     514: invokedynamic #1498,  0           // InvokeDynamic #40:accept:()Ljava/util/function/Consumer;
+     519: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     522: putstatic     #1500               // Field VAMPIRIC_GLOVE:Lnet/minecraft/core/Holder;
+     525: ldc_w         #1502               // String golden_hook
+     528: invokedynamic #1506,  0           // InvokeDynamic #41:accept:()Ljava/util/function/Consumer;
+     533: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     536: putstatic     #1508               // Field GOLDEN_HOOK:Lnet/minecraft/core/Holder;
+     539: ldc_w         #1510               // String onion_ring
+     542: invokedynamic #1514,  0           // InvokeDynamic #42:accept:()Ljava/util/function/Consumer;
+     547: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     550: putstatic     #1516               // Field ONION_RING:Lnet/minecraft/core/Holder;
+     553: ldc_w         #1518               // String pickaxe_heater
+     556: invokedynamic #1522,  0           // InvokeDynamic #43:accept:()Ljava/util/function/Consumer;
+     561: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     564: putstatic     #1524               // Field PICKAXE_HEATER:Lnet/minecraft/core/Holder;
+     567: ldc_w         #1526               // String withered_bracelet
+     570: invokedynamic #1530,  0           // InvokeDynamic #44:accept:()Ljava/util/function/Consumer;
+     575: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     578: putstatic     #1532               // Field WITHERED_BRACELET:Lnet/minecraft/core/Holder;
+     581: ldc_w         #1534               // String aqua_dashers
+     584: invokedynamic #1538,  0           // InvokeDynamic #45:accept:()Ljava/util/function/Consumer;
+     589: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     592: putstatic     #1540               // Field AQUA_DASHERS:Lnet/minecraft/core/Holder;
+     595: ldc_w         #1542               // String bunny_hoppers
+     598: invokedynamic #1546,  0           // InvokeDynamic #46:accept:()Ljava/util/function/Consumer;
+     603: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     606: putstatic     #1185               // Field BUNNY_HOPPERS:Lnet/minecraft/core/Holder;
+     609: ldc_w         #1548               // String kitty_slippers
+     612: invokedynamic #1552,  0           // InvokeDynamic #47:accept:()Ljava/util/function/Consumer;
+     617: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     620: putstatic     #1554               // Field KITTY_SLIPPERS:Lnet/minecraft/core/Holder;
+     623: ldc_w         #1556               // String running_shoes
+     626: invokedynamic #1560,  0           // InvokeDynamic #48:accept:()Ljava/util/function/Consumer;
+     631: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     634: putstatic     #1562               // Field RUNNING_SHOES:Lnet/minecraft/core/Holder;
+     637: ldc_w         #1564               // String snowshoes
+     640: invokedynamic #1568,  0           // InvokeDynamic #49:accept:()Ljava/util/function/Consumer;
+     645: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     648: putstatic     #1570               // Field SNOWSHOES:Lnet/minecraft/core/Holder;
+     651: ldc_w         #1572               // String steadfast_spikes
+     654: invokedynamic #1576,  0           // InvokeDynamic #50:accept:()Ljava/util/function/Consumer;
+     659: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     662: putstatic     #1578               // Field STEADFAST_SPIKES:Lnet/minecraft/core/Holder;
+     665: ldc_w         #1580               // String flippers
+     668: invokedynamic #1584,  0           // InvokeDynamic #51:accept:()Ljava/util/function/Consumer;
+     673: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     676: putstatic     #1586               // Field FLIPPERS:Lnet/minecraft/core/Holder;
+     679: ldc_w         #1588               // String rooted_boots
+     682: invokedynamic #1592,  0           // InvokeDynamic #52:accept:()Ljava/util/function/Consumer;
+     687: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     690: putstatic     #1594               // Field ROOTED_BOOTS:Lnet/minecraft/core/Holder;
+     693: ldc_w         #1596               // String strider_shoes
+     696: invokedynamic #1600,  0           // InvokeDynamic #53:accept:()Ljava/util/function/Consumer;
+     701: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     704: putstatic     #1602               // Field STRIDER_SHOES:Lnet/minecraft/core/Holder;
+     707: ldc_w         #1604               // String whoopee_cushion
+     710: invokedynamic #1608,  0           // InvokeDynamic #54:accept:()Ljava/util/function/Consumer;
+     715: invokestatic  #1258               // Method wearableItem:(Ljava/lang/String;Ljava/util/function/Consumer;)Lnet/minecraft/core/Holder;
+     718: putstatic     #1610               // Field WHOOPEE_CUSHION:Lnet/minecraft/core/Holder;
+     721: return
+}

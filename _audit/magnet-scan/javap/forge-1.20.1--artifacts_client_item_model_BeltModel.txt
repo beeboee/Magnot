@@ -1,0 +1,692 @@
+Compiled from "BeltModel.java"
+public class artifacts.client.item.model.BeltModel extends net.minecraft.client.model.HumanoidModel<net.minecraft.world.entity.LivingEntity> {
+  protected final net.minecraft.client.model.geom.ModelPart charm;
+    descriptor: Lnet/minecraft/client/model/geom/ModelPart;
+
+  private final float xOffset;
+    descriptor: F
+
+  private final float zOffset;
+    descriptor: F
+
+  private final float rotation;
+    descriptor: F
+
+  public artifacts.client.item.model.BeltModel(net.minecraft.client.model.geom.ModelPart, java.util.function.Function<net.minecraft.resources.ResourceLocation, net.minecraft.client.renderer.RenderType>, float, float, float);
+    descriptor: (Lnet/minecraft/client/model/geom/ModelPart;Ljava/util/function/Function;FFF)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokespecial #29                 // Method net/minecraft/client/model/HumanoidModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;Ljava/util/function/Function;)V
+       6: aload_0
+       7: aload_0
+       8: getfield      #32                 // Field f_102810_:Lnet/minecraft/client/model/geom/ModelPart;
+      11: ldc           #33                 // String charm
+      13: invokevirtual #39                 // Method net/minecraft/client/model/geom/ModelPart.m_171324_:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/ModelPart;
+      16: putfield      #41                 // Field charm:Lnet/minecraft/client/model/geom/ModelPart;
+      19: aload_0
+      20: fload_3
+      21: putfield      #43                 // Field xOffset:F
+      24: aload_0
+      25: fload         4
+      27: putfield      #45                 // Field zOffset:F
+      30: aload_0
+      31: fload         5
+      33: putfield      #47                 // Field rotation:F
+      36: return
+
+  public artifacts.client.item.model.BeltModel(net.minecraft.client.model.geom.ModelPart, float, float, float);
+    descriptor: (Lnet/minecraft/client/model/geom/ModelPart;FFF)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokedynamic #73,  0             // InvokeDynamic #0:apply:()Ljava/util/function/Function;
+       7: fload_2
+       8: fload_3
+       9: fload         4
+      11: invokespecial #75                 // Method "<init>":(Lnet/minecraft/client/model/geom/ModelPart;Ljava/util/function/Function;FFF)V
+      14: return
+
+  public void setCharmPosition(int);
+    descriptor: (I)V
+    Code:
+       0: iload_1
+       1: iconst_2
+       2: irem
+       3: ifne          13
+       6: aload_0
+       7: getfield      #43                 // Field xOffset:F
+      10: goto          18
+      13: aload_0
+      14: getfield      #43                 // Field xOffset:F
+      17: fneg
+      18: fstore_2
+      19: iload_1
+      20: iconst_4
+      21: irem
+      22: iconst_2
+      23: if_icmpge     33
+      26: aload_0
+      27: getfield      #45                 // Field zOffset:F
+      30: goto          38
+      33: aload_0
+      34: getfield      #45                 // Field zOffset:F
+      37: fneg
+      38: fstore_3
+      39: aload_0
+      40: getfield      #41                 // Field charm:Lnet/minecraft/client/model/geom/ModelPart;
+      43: fload_2
+      44: ldc           #79                 // float 9.0f
+      46: fload_3
+      47: invokevirtual #83                 // Method net/minecraft/client/model/geom/ModelPart.m_104227_:(FFF)V
+      50: iload_1
+      51: iconst_4
+      52: irem
+      53: iconst_2
+      54: if_icmpge     61
+      57: fconst_0
+      58: goto          63
+      61: ldc           #84                 // float -3.1415927f
+      63: fstore        4
+      65: fload         4
+      67: iload_1
+      68: iconst_2
+      69: irem
+      70: ifne          77
+      73: iconst_1
+      74: goto          78
+      77: iconst_0
+      78: iload_1
+      79: iconst_4
+      80: irem
+      81: iconst_2
+      82: if_icmplt     89
+      85: iconst_1
+      86: goto          90
+      89: iconst_0
+      90: ixor
+      91: ifeq          101
+      94: aload_0
+      95: getfield      #47                 // Field rotation:F
+      98: goto          106
+     101: aload_0
+     102: getfield      #47                 // Field rotation:F
+     105: fneg
+     106: fadd
+     107: fstore        4
+     109: aload_0
+     110: getfield      #41                 // Field charm:Lnet/minecraft/client/model/geom/ModelPart;
+     113: fload         4
+     115: putfield      #87                 // Field net/minecraft/client/model/geom/ModelPart.f_104204_:F
+     118: return
+
+  protected java.lang.Iterable<net.minecraft.client.model.geom.ModelPart> m_5607_();
+    descriptor: ()Ljava/lang/Iterable;
+    Code:
+       0: invokestatic  #97                 // Method com/google/common/collect/ImmutableList.of:()Lcom/google/common/collect/ImmutableList;
+       3: areturn
+
+  protected java.lang.Iterable<net.minecraft.client.model.geom.ModelPart> m_5608_();
+    descriptor: ()Ljava/lang/Iterable;
+    Code:
+       0: aload_0
+       1: getfield      #32                 // Field f_102810_:Lnet/minecraft/client/model/geom/ModelPart;
+       4: invokestatic  #101                // Method com/google/common/collect/ImmutableList.of:(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
+       7: areturn
+
+  public static artifacts.client.item.model.BeltModel createCloudInABottleModel();
+    descriptor: ()Lartifacts/client/item/model/BeltModel;
+    Code:
+       0: new           #10                 // class artifacts/client/item/model/BeltModel$1
+       3: dup
+       4: getstatic     #109                // Field artifacts/client/item/ArtifactLayers.CLOUD_IN_A_BOTTLE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+       7: invokestatic  #115                // Method artifacts/client/item/RendererUtil.bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      10: invokedynamic #120,  0            // InvokeDynamic #1:apply:()Ljava/util/function/Function;
+      15: ldc           #121                // float 3.0f
+      17: ldc           #122                // float -3.0f
+      19: ldc           #123                // float -0.5f
+      21: invokespecial #124                // Method artifacts/client/item/model/BeltModel$1."<init>":(Lnet/minecraft/client/model/geom/ModelPart;Ljava/util/function/Function;FFF)V
+      24: areturn
+
+  public static net.minecraft.client.model.HumanoidModel<net.minecraft.world.entity.LivingEntity> createHeliumFlamingoModel();
+    descriptor: ()Lnet/minecraft/client/model/HumanoidModel;
+    Code:
+       0: getstatic     #130                // Field artifacts/client/item/ArtifactLayers.HELIUM_FLAMINGO:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+       3: invokestatic  #115                // Method artifacts/client/item/RendererUtil.bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+       6: astore_0
+       7: new           #8                  // class artifacts/client/item/model/BeltModel$2
+      10: dup
+      11: aload_0
+      12: invokedynamic #73,  0             // InvokeDynamic #0:apply:()Ljava/util/function/Function;
+      17: invokespecial #131                // Method artifacts/client/item/model/BeltModel$2."<init>":(Lnet/minecraft/client/model/geom/ModelPart;Ljava/util/function/Function;)V
+      20: areturn
+
+  public static artifacts.client.item.model.BeltModel createObsidianSkullModel();
+    descriptor: ()Lartifacts/client/item/model/BeltModel;
+    Code:
+       0: new           #2                  // class artifacts/client/item/model/BeltModel
+       3: dup
+       4: getstatic     #135                // Field artifacts/client/item/ArtifactLayers.OBSIDIAN_SKULL:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+       7: invokestatic  #115                // Method artifacts/client/item/RendererUtil.bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      10: ldc           #136                // float 4.5f
+      12: ldc           #137                // float -4.0f
+      14: ldc           #123                // float -0.5f
+      16: invokespecial #139                // Method "<init>":(Lnet/minecraft/client/model/geom/ModelPart;FFF)V
+      19: areturn
+
+  public static artifacts.client.item.model.BeltModel createAntidoteVesselModel();
+    descriptor: ()Lartifacts/client/item/model/BeltModel;
+    Code:
+       0: new           #2                  // class artifacts/client/item/model/BeltModel
+       3: dup
+       4: getstatic     #143                // Field artifacts/client/item/ArtifactLayers.ANTIDOTE_VESSEL:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+       7: invokestatic  #115                // Method artifacts/client/item/RendererUtil.bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      10: ldc           #144                // float 4.0f
+      12: ldc           #122                // float -3.0f
+      14: ldc           #123                // float -0.5f
+      16: invokespecial #139                // Method "<init>":(Lnet/minecraft/client/model/geom/ModelPart;FFF)V
+      19: areturn
+
+  public static artifacts.client.item.model.BeltModel createUniversalAttractorModel();
+    descriptor: ()Lartifacts/client/item/model/BeltModel;
+    Code:
+       0: new           #2                  // class artifacts/client/item/model/BeltModel
+       3: dup
+       4: getstatic     #148                // Field artifacts/client/item/ArtifactLayers.UNIVERSAL_ATTRACTOR:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+       7: invokestatic  #115                // Method artifacts/client/item/RendererUtil.bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      10: ldc           #149                // float 2.5f
+      12: ldc           #122                // float -3.0f
+      14: fconst_0
+      15: invokespecial #139                // Method "<init>":(Lnet/minecraft/client/model/geom/ModelPart;FFF)V
+      18: areturn
+
+  public static artifacts.client.item.model.BeltModel createCrystalHeartModel();
+    descriptor: ()Lartifacts/client/item/model/BeltModel;
+    Code:
+       0: new           #2                  // class artifacts/client/item/model/BeltModel
+       3: dup
+       4: getstatic     #153                // Field artifacts/client/item/ArtifactLayers.CRYSTAL_HEART:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+       7: invokestatic  #115                // Method artifacts/client/item/RendererUtil.bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      10: invokedynamic #120,  0            // InvokeDynamic #1:apply:()Ljava/util/function/Function;
+      15: ldc           #149                // float 2.5f
+      17: ldc           #154                // float -3.01f
+      19: fconst_0
+      20: invokespecial #75                 // Method "<init>":(Lnet/minecraft/client/model/geom/ModelPart;Ljava/util/function/Function;FFF)V
+      23: areturn
+
+  public static artifacts.client.item.model.BeltModel createChorusTotemModel();
+    descriptor: ()Lartifacts/client/item/model/BeltModel;
+    Code:
+       0: new           #2                  // class artifacts/client/item/model/BeltModel
+       3: dup
+       4: getstatic     #158                // Field artifacts/client/item/ArtifactLayers.CHORUS_TOTEM:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+       7: invokestatic  #115                // Method artifacts/client/item/RendererUtil.bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      10: ldc           #144                // float 4.0f
+      12: ldc           #122                // float -3.0f
+      14: ldc           #123                // float -0.5f
+      16: invokespecial #139                // Method "<init>":(Lnet/minecraft/client/model/geom/ModelPart;FFF)V
+      19: areturn
+
+  private static net.minecraft.client.model.geom.builders.MeshDefinition createBelt(net.minecraft.client.model.geom.builders.CubeListBuilder);
+    descriptor: (Lnet/minecraft/client/model/geom/builders/CubeListBuilder;)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: new           #162                // class net/minecraft/client/model/geom/builders/CubeDeformation
+       3: dup
+       4: ldc           #163                // float 0.5f
+       6: invokespecial #166                // Method net/minecraft/client/model/geom/builders/CubeDeformation."<init>":(F)V
+       9: astore_1
+      10: getstatic     #170                // Field net/minecraft/client/model/geom/builders/CubeDeformation.f_171458_:Lnet/minecraft/client/model/geom/builders/CubeDeformation;
+      13: fconst_0
+      14: invokestatic  #174                // Method m_170681_:(Lnet/minecraft/client/model/geom/builders/CubeDeformation;F)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+      17: astore_2
+      18: aload_2
+      19: invokevirtual #180                // Method net/minecraft/client/model/geom/builders/MeshDefinition.m_171576_:()Lnet/minecraft/client/model/geom/builders/PartDefinition;
+      22: ldc           #182                // String body
+      24: invokestatic  #188                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171558_:()Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      27: iconst_0
+      28: iconst_0
+      29: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      32: ldc           #137                // float -4.0f
+      34: fconst_0
+      35: ldc           #193                // float -2.0f
+      37: ldc           #194                // float 8.0f
+      39: ldc           #195                // float 12.0f
+      41: ldc           #144                // float 4.0f
+      43: aload_1
+      44: invokevirtual #199                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171488_:(FFFFFFLnet/minecraft/client/model/geom/builders/CubeDeformation;)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      47: getstatic     #205                // Field net/minecraft/client/model/geom/PartPose.f_171404_:Lnet/minecraft/client/model/geom/PartPose;
+      50: invokevirtual #211                // Method net/minecraft/client/model/geom/builders/PartDefinition.m_171599_:(Ljava/lang/String;Lnet/minecraft/client/model/geom/builders/CubeListBuilder;Lnet/minecraft/client/model/geom/PartPose;)Lnet/minecraft/client/model/geom/builders/PartDefinition;
+      53: pop
+      54: aload_2
+      55: invokevirtual #180                // Method net/minecraft/client/model/geom/builders/MeshDefinition.m_171576_:()Lnet/minecraft/client/model/geom/builders/PartDefinition;
+      58: ldc           #182                // String body
+      60: invokevirtual #215                // Method net/minecraft/client/model/geom/builders/PartDefinition.m_171597_:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/builders/PartDefinition;
+      63: ldc           #33                 // String charm
+      65: aload_0
+      66: getstatic     #205                // Field net/minecraft/client/model/geom/PartPose.f_171404_:Lnet/minecraft/client/model/geom/PartPose;
+      69: invokevirtual #211                // Method net/minecraft/client/model/geom/builders/PartDefinition.m_171599_:(Ljava/lang/String;Lnet/minecraft/client/model/geom/builders/CubeListBuilder;Lnet/minecraft/client/model/geom/PartPose;)Lnet/minecraft/client/model/geom/builders/PartDefinition;
+      72: pop
+      73: aload_2
+      74: areturn
+
+  public static net.minecraft.client.model.geom.builders.MeshDefinition createAntidoteVessel();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: invokestatic  #188                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171558_:()Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+       3: astore_0
+       4: aload_0
+       5: iconst_0
+       6: bipush        16
+       8: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      11: pop
+      12: aload_0
+      13: ldc           #193                // float -2.0f
+      15: fconst_0
+      16: ldc           #193                // float -2.0f
+      18: ldc           #144                // float 4.0f
+      20: ldc           #222                // float 6.0f
+      22: ldc           #144                // float 4.0f
+      24: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      27: pop
+      28: aload_0
+      29: iconst_0
+      30: bipush        26
+      32: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      35: pop
+      36: aload_0
+      37: ldc           #227                // float -1.0f
+      39: ldc           #227                // float -1.0f
+      41: ldc           #227                // float -1.0f
+      43: fconst_2
+      44: fconst_1
+      45: fconst_2
+      46: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      49: pop
+      50: aload_0
+      51: invokestatic  #229                // Method createBelt:(Lnet/minecraft/client/model/geom/builders/CubeListBuilder;)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+      54: areturn
+
+  public static net.minecraft.client.model.geom.builders.MeshDefinition createCloudInABottle();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: invokestatic  #188                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171558_:()Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+       3: astore_0
+       4: aload_0
+       5: iconst_0
+       6: bipush        16
+       8: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      11: pop
+      12: aload_0
+      13: ldc           #193                // float -2.0f
+      15: fconst_0
+      16: ldc           #193                // float -2.0f
+      18: ldc           #144                // float 4.0f
+      20: ldc           #231                // float 5.0f
+      22: ldc           #144                // float 4.0f
+      24: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      27: pop
+      28: aload_0
+      29: iconst_0
+      30: bipush        25
+      32: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      35: pop
+      36: aload_0
+      37: ldc           #227                // float -1.0f
+      39: ldc           #227                // float -1.0f
+      41: ldc           #227                // float -1.0f
+      43: fconst_2
+      44: fconst_1
+      45: fconst_2
+      46: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      49: pop
+      50: aload_0
+      51: invokestatic  #229                // Method createBelt:(Lnet/minecraft/client/model/geom/builders/CubeListBuilder;)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+      54: astore_1
+      55: aload_1
+      56: invokevirtual #180                // Method net/minecraft/client/model/geom/builders/MeshDefinition.m_171576_:()Lnet/minecraft/client/model/geom/builders/PartDefinition;
+      59: ldc           #182                // String body
+      61: invokevirtual #215                // Method net/minecraft/client/model/geom/builders/PartDefinition.m_171597_:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/builders/PartDefinition;
+      64: ldc           #33                 // String charm
+      66: invokevirtual #215                // Method net/minecraft/client/model/geom/builders/PartDefinition.m_171597_:(Ljava/lang/String;)Lnet/minecraft/client/model/geom/builders/PartDefinition;
+      69: ldc           #233                // String cloud
+      71: invokestatic  #188                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171558_:()Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      74: bipush        8
+      76: bipush        25
+      78: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      81: ldc           #227                // float -1.0f
+      83: ldc           #234                // float 1.5f
+      85: ldc           #227                // float -1.0f
+      87: fconst_2
+      88: fconst_2
+      89: fconst_2
+      90: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      93: getstatic     #205                // Field net/minecraft/client/model/geom/PartPose.f_171404_:Lnet/minecraft/client/model/geom/PartPose;
+      96: invokevirtual #211                // Method net/minecraft/client/model/geom/builders/PartDefinition.m_171599_:(Ljava/lang/String;Lnet/minecraft/client/model/geom/builders/CubeListBuilder;Lnet/minecraft/client/model/geom/PartPose;)Lnet/minecraft/client/model/geom/builders/PartDefinition;
+      99: pop
+     100: aload_1
+     101: areturn
+
+  public static net.minecraft.client.model.geom.builders.MeshDefinition createCrystalHeart();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: invokestatic  #188                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171558_:()Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+       3: astore_0
+       4: aload_0
+       5: iconst_0
+       6: bipush        16
+       8: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      11: pop
+      12: aload_0
+      13: ldc           #236                // float -2.5f
+      15: fconst_0
+      16: fconst_0
+      17: fconst_2
+      18: ldc           #121                // float 3.0f
+      20: fconst_1
+      21: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      24: pop
+      25: aload_0
+      26: bipush        6
+      28: bipush        16
+      30: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      33: pop
+      34: aload_0
+      35: ldc           #163                // float 0.5f
+      37: fconst_0
+      38: fconst_0
+      39: fconst_2
+      40: ldc           #121                // float 3.0f
+      42: fconst_1
+      43: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      46: pop
+      47: aload_0
+      48: iconst_0
+      49: bipush        20
+      51: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      54: pop
+      55: aload_0
+      56: ldc           #123                // float -0.5f
+      58: fconst_1
+      59: fconst_0
+      60: fconst_1
+      61: ldc           #144                // float 4.0f
+      63: fconst_1
+      64: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      67: pop
+      68: aload_0
+      69: iconst_4
+      70: bipush        20
+      72: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      75: pop
+      76: aload_0
+      77: ldc           #237                // float -1.5f
+      79: ldc           #121                // float 3.0f
+      81: fconst_0
+      82: fconst_1
+      83: fconst_1
+      84: fconst_1
+      85: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      88: pop
+      89: aload_0
+      90: bipush        8
+      92: bipush        20
+      94: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      97: pop
+      98: aload_0
+      99: ldc           #163                // float 0.5f
+     101: ldc           #121                // float 3.0f
+     103: fconst_0
+     104: fconst_1
+     105: fconst_1
+     106: fconst_1
+     107: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+     110: pop
+     111: aload_0
+     112: invokestatic  #229                // Method createBelt:(Lnet/minecraft/client/model/geom/builders/CubeListBuilder;)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+     115: areturn
+
+  public static net.minecraft.client.model.geom.builders.MeshDefinition createHeliumFlamingo();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: getstatic     #170                // Field net/minecraft/client/model/geom/builders/CubeDeformation.f_171458_:Lnet/minecraft/client/model/geom/builders/CubeDeformation;
+       3: fconst_0
+       4: invokestatic  #174                // Method m_170681_:(Lnet/minecraft/client/model/geom/builders/CubeDeformation;F)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+       7: astore_0
+       8: aload_0
+       9: invokevirtual #180                // Method net/minecraft/client/model/geom/builders/MeshDefinition.m_171576_:()Lnet/minecraft/client/model/geom/builders/PartDefinition;
+      12: ldc           #182                // String body
+      14: invokestatic  #188                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171558_:()Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      17: bipush        16
+      19: bipush        36
+      21: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      24: ldc           #227                // float -1.0f
+      26: fconst_1
+      27: ldc           #239                // float -14.0f
+      29: fconst_2
+      30: ldc           #121                // float 3.0f
+      32: ldc           #231                // float 5.0f
+      34: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      37: iconst_0
+      38: bipush        18
+      40: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      43: ldc           #144                // float 4.0f
+      45: ldc           #79                 // float 9.0f
+      47: ldc           #240                // float -7.0f
+      49: ldc           #144                // float 4.0f
+      51: ldc           #144                // float 4.0f
+      53: ldc           #241                // float 14.0f
+      55: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      58: iconst_0
+      59: iconst_0
+      60: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      63: ldc           #242                // float -8.0f
+      65: ldc           #79                 // float 9.0f
+      67: ldc           #240                // float -7.0f
+      69: ldc           #144                // float 4.0f
+      71: ldc           #144                // float 4.0f
+      73: ldc           #241                // float 14.0f
+      75: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      78: bipush        36
+      80: iconst_0
+      81: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      84: ldc           #137                // float -4.0f
+      86: ldc           #79                 // float 9.0f
+      88: ldc           #121                // float 3.0f
+      90: ldc           #194                // float 8.0f
+      92: ldc           #144                // float 4.0f
+      94: ldc           #144                // float 4.0f
+      96: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      99: bipush        36
+     101: bipush        8
+     103: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+     106: ldc           #137                // float -4.0f
+     108: ldc           #79                 // float 9.0f
+     110: ldc           #240                // float -7.0f
+     112: ldc           #194                // float 8.0f
+     114: ldc           #144                // float 4.0f
+     116: ldc           #144                // float 4.0f
+     118: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+     121: iconst_0
+     122: bipush        36
+     124: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+     127: ldc           #193                // float -2.0f
+     129: fconst_1
+     130: ldc           #243                // float -9.0f
+     132: ldc           #144                // float 4.0f
+     134: ldc           #244                // float 11.0f
+     136: ldc           #144                // float 4.0f
+     138: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+     141: getstatic     #205                // Field net/minecraft/client/model/geom/PartPose.f_171404_:Lnet/minecraft/client/model/geom/PartPose;
+     144: invokevirtual #211                // Method net/minecraft/client/model/geom/builders/PartDefinition.m_171599_:(Ljava/lang/String;Lnet/minecraft/client/model/geom/builders/CubeListBuilder;Lnet/minecraft/client/model/geom/PartPose;)Lnet/minecraft/client/model/geom/builders/PartDefinition;
+     147: pop
+     148: aload_0
+     149: areturn
+
+  public static net.minecraft.client.model.geom.builders.MeshDefinition createObsidianSkull();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: invokestatic  #188                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171558_:()Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+       3: astore_0
+       4: aload_0
+       5: iconst_0
+       6: bipush        16
+       8: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      11: pop
+      12: aload_0
+      13: ldc           #236                // float -2.5f
+      15: fconst_0
+      16: fconst_0
+      17: ldc           #231                // float 5.0f
+      19: ldc           #121                // float 3.0f
+      21: ldc           #144                // float 4.0f
+      23: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      26: pop
+      27: aload_0
+      28: bipush        18
+      30: bipush        16
+      32: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      35: pop
+      36: aload_0
+      37: ldc           #237                // float -1.5f
+      39: ldc           #121                // float 3.0f
+      41: fconst_0
+      42: fconst_1
+      43: fconst_1
+      44: fconst_2
+      45: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      48: pop
+      49: aload_0
+      50: bipush        18
+      52: bipush        19
+      54: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      57: pop
+      58: aload_0
+      59: ldc           #163                // float 0.5f
+      61: ldc           #121                // float 3.0f
+      63: fconst_0
+      64: fconst_1
+      65: fconst_1
+      66: fconst_2
+      67: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      70: pop
+      71: aload_0
+      72: invokestatic  #229                // Method createBelt:(Lnet/minecraft/client/model/geom/builders/CubeListBuilder;)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+      75: areturn
+
+  public static net.minecraft.client.model.geom.builders.MeshDefinition createUniversalAttractor();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: invokestatic  #188                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171558_:()Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+       3: astore_0
+       4: aload_0
+       5: iconst_0
+       6: bipush        16
+       8: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      11: pop
+      12: aload_0
+      13: ldc           #236                // float -2.5f
+      15: fconst_0
+      16: fconst_0
+      17: ldc           #231                // float 5.0f
+      19: fconst_2
+      20: fconst_1
+      21: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      24: pop
+      25: aload_0
+      26: iconst_0
+      27: bipush        19
+      29: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      32: pop
+      33: aload_0
+      34: ldc           #236                // float -2.5f
+      36: fconst_2
+      37: fconst_0
+      38: fconst_2
+      39: ldc           #144                // float 4.0f
+      41: fconst_1
+      42: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      45: pop
+      46: aload_0
+      47: bipush        6
+      49: bipush        19
+      51: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      54: pop
+      55: aload_0
+      56: ldc           #163                // float 0.5f
+      58: fconst_2
+      59: fconst_0
+      60: fconst_2
+      61: ldc           #144                // float 4.0f
+      63: fconst_1
+      64: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      67: pop
+      68: aload_0
+      69: invokestatic  #229                // Method createBelt:(Lnet/minecraft/client/model/geom/builders/CubeListBuilder;)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+      72: areturn
+
+  public static net.minecraft.client.model.geom.builders.MeshDefinition createChorusTotem();
+    descriptor: ()Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+    Code:
+       0: invokestatic  #188                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171558_:()Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+       3: astore_0
+       4: aload_0
+       5: iconst_0
+       6: bipush        16
+       8: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      11: pop
+      12: aload_0
+      13: ldc           #237                // float -1.5f
+      15: ldc           #227                // float -1.0f
+      17: ldc           #227                // float -1.0f
+      19: ldc           #121                // float 3.0f
+      21: ldc           #248                // float 7.0f
+      23: fconst_2
+      24: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      27: pop
+      28: aload_0
+      29: bipush        10
+      31: bipush        16
+      33: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      36: pop
+      37: aload_0
+      38: ldc           #249                // float -3.5f
+      40: fconst_0
+      41: fconst_1
+      42: ldc           #248                // float 7.0f
+      44: ldc           #144                // float 4.0f
+      46: fconst_0
+      47: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      50: pop
+      51: aload_0
+      52: iconst_0
+      53: bipush        25
+      55: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      58: pop
+      59: aload_0
+      60: ldc           #236                // float -2.5f
+      62: ldc           #121                // float 3.0f
+      64: ldc           #193                // float -2.0f
+      66: ldc           #231                // float 5.0f
+      68: fconst_2
+      69: fconst_2
+      70: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      73: pop
+      74: aload_0
+      75: bipush        10
+      77: bipush        20
+      79: invokevirtual #192                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171514_:(II)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      82: pop
+      83: aload_0
+      84: ldc           #227                // float -1.0f
+      86: fconst_1
+      87: ldc           #237                // float -1.5f
+      89: fconst_2
+      90: fconst_2
+      91: fconst_0
+      92: invokevirtual #226                // Method net/minecraft/client/model/geom/builders/CubeListBuilder.m_171481_:(FFFFFF)Lnet/minecraft/client/model/geom/builders/CubeListBuilder;
+      95: pop
+      96: aload_0
+      97: invokestatic  #229                // Method createBelt:(Lnet/minecraft/client/model/geom/builders/CubeListBuilder;)Lnet/minecraft/client/model/geom/builders/MeshDefinition;
+     100: areturn
+}

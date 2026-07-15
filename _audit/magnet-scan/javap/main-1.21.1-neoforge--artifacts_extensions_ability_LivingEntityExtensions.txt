@@ -1,0 +1,8 @@
+Compiled from "LivingEntityExtensions.java"
+public interface artifacts.extensions.ability.LivingEntityExtensions {
+  public abstract boolean artifacts$hasTickingAbilities();
+    descriptor: ()Z
+
+  public abstract void artifacts$setTickingAbilities(boolean);
+    descriptor: (Z)V
+}

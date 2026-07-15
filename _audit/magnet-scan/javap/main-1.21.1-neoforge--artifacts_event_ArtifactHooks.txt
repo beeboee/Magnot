@@ -1,0 +1,743 @@
+Compiled from "ArtifactHooks.java"
+public class artifacts.event.ArtifactHooks {
+  public artifacts.event.ArtifactHooks();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #24                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void livingUpdate(net.minecraft.world.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;)V
+    Code:
+       0: aload_0
+       1: instanceof    #31                 // class net/minecraft/world/entity/player/Player
+       4: ifeq          31
+       7: aload_0
+       8: checkcast     #31                 // class net/minecraft/world/entity/player/Player
+      11: astore_1
+      12: invokestatic  #37                 // Method artifacts/platform/PlatformServices.getPlatformHelper:()Lartifacts/platform/PlatformHelper;
+      15: aload_0
+      16: invokeinterface #43,  2           // InterfaceMethod artifacts/platform/PlatformHelper.getSwimData:(Lnet/minecraft/world/entity/LivingEntity;)Lartifacts/component/SwimData;
+      21: astore_2
+      22: aload_2
+      23: ifnull        31
+      26: aload_2
+      27: aload_1
+      28: invokevirtual #49                 // Method artifacts/component/SwimData.update:(Lnet/minecraft/world/entity/player/Player;)V
+      31: aload_0
+      32: invokestatic  #52                 // Method onItemTick:(Lnet/minecraft/world/entity/LivingEntity;)V
+      35: aload_0
+      36: invokestatic  #57                 // Method artifacts/attribute/DynamicAttributeModifier.tickModifiers:(Lnet/minecraft/world/entity/LivingEntity;)V
+      39: aload_0
+      40: invokevirtual #63                 // Method net/minecraft/world/entity/LivingEntity.onGround:()Z
+      43: ifne          50
+      46: aload_0
+      47: invokestatic  #68                 // Method artifacts/item/UmbrellaItem.onLivingUpdate:(Lnet/minecraft/world/entity/LivingEntity;)V
+      50: return
+
+  public static void onLivingDamaged(net.minecraft.world.entity.LivingEntity, net.minecraft.world.damagesource.DamageSource, float);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/damagesource/DamageSource;F)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: fload_2
+       3: invokestatic  #80                 // Method absorbDamage:(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/damagesource/DamageSource;F)V
+       6: aload_0
+       7: aload_1
+       8: invokestatic  #85                 // Method artifacts/component/ability/mobeffect/PostDamageEffects.onLivingDamaged:(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/damagesource/DamageSource;)V
+      11: aload_0
+      12: aload_1
+      13: invokestatic  #88                 // Method artifacts/component/ability/PostDamageCooldown.onLivingDamaged:(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/damagesource/DamageSource;)V
+      16: return
+
+  public static void onItemChanged(net.minecraft.world.entity.LivingEntity, net.minecraft.world.item.ItemStack, net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #98                 // Method net/minecraft/world/entity/LivingEntity.level:()Lnet/minecraft/world/level/Level;
+       4: invokevirtual #103                // Method net/minecraft/world/level/Level.isClientSide:()Z
+       7: ifne          15
+      10: aload_1
+      11: aload_2
+      12: if_acmpne     16
+      15: return
+      16: aload_1
+      17: getstatic     #109                // Field artifacts/registry/ModDataComponents.DISABLED_BY_TOGGLE:Ljava/util/function/Supplier;
+      20: invokeinterface #115,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      25: checkcast     #117                // class net/minecraft/core/component/DataComponentType
+      28: invokevirtual #123                // Method net/minecraft/world/item/ItemStack.has:(Lnet/minecraft/core/component/DataComponentType;)Z
+      31: istore_3
+      32: aload_2
+      33: getstatic     #109                // Field artifacts/registry/ModDataComponents.DISABLED_BY_TOGGLE:Ljava/util/function/Supplier;
+      36: invokeinterface #115,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      41: checkcast     #117                // class net/minecraft/core/component/DataComponentType
+      44: invokevirtual #123                // Method net/minecraft/world/item/ItemStack.has:(Lnet/minecraft/core/component/DataComponentType;)Z
+      47: istore        4
+      49: iload_3
+      50: iload         4
+      52: ixor
+      53: ifeq          65
+      56: iload         4
+      58: ifeq          65
+      61: iconst_1
+      62: goto          66
+      65: iconst_0
+      66: istore        5
+      68: getstatic     #127                // Field artifacts/registry/ModDataComponents.TICKING_COMPONENTS:Ljava/util/Set;
+      71: invokeinterface #133,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+      76: astore        6
+      78: aload         6
+      80: invokeinterface #138,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      85: ifeq          174
+      88: aload         6
+      90: invokeinterface #141,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      95: checkcast     #111                // class java/util/function/Supplier
+      98: astore        7
+     100: aload_1
+     101: aload         7
+     103: invokeinterface #115,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+     108: checkcast     #117                // class net/minecraft/core/component/DataComponentType
+     111: invokevirtual #144                // Method net/minecraft/world/item/ItemStack.get:(Lnet/minecraft/core/component/DataComponentType;)Ljava/lang/Object;
+     114: checkcast     #146                // class artifacts/component/ability/TickingAbility
+     117: astore        8
+     119: aload         8
+     121: ifnull        171
+     124: aload         8
+     126: invokeinterface #149,  1          // InterfaceMethod artifacts/component/ability/TickingAbility.isNonCosmetic:()Z
+     131: ifeq          171
+     134: iload         5
+     136: ifne          163
+     139: aload         8
+     141: aload_2
+     142: aload         7
+     144: invokeinterface #115,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+     149: checkcast     #117                // class net/minecraft/core/component/DataComponentType
+     152: invokevirtual #144                // Method net/minecraft/world/item/ItemStack.get:(Lnet/minecraft/core/component/DataComponentType;)Ljava/lang/Object;
+     155: invokeinterface #153,  2          // InterfaceMethod artifacts/component/ability/TickingAbility.equals:(Ljava/lang/Object;)Z
+     160: ifne          171
+     163: aload         8
+     165: aload_0
+     166: invokeinterface #156,  2          // InterfaceMethod artifacts/component/ability/TickingAbility.onUnequip:(Lnet/minecraft/world/entity/LivingEntity;)V
+     171: goto          78
+     174: aload_0
+     175: invokestatic  #159                // Method refreshTickingAbilities:(Lnet/minecraft/world/entity/LivingEntity;)V
+     178: return
+
+  public static void refreshTickingAbilities(net.minecraft.world.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;)V
+    Code:
+       0: aload_0
+       1: iconst_0
+       2: invokestatic  #174                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+       5: invokedynamic #193,  0            // InvokeDynamic #0:apply:()Ljava/util/function/BiFunction;
+      10: invokestatic  #197                // Method artifacts/equipment/EquipmentHelper.reduceEquipment:(Lnet/minecraft/world/entity/LivingEntity;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;
+      13: checkcast     #170                // class java/lang/Boolean
+      16: invokevirtual #200                // Method java/lang/Boolean.booleanValue:()Z
+      19: istore_1
+      20: aload_0
+      21: checkcast     #202                // class artifacts/extensions/ability/LivingEntityExtensions
+      24: iload_1
+      25: invokeinterface #206,  2          // InterfaceMethod artifacts/extensions/ability/LivingEntityExtensions.artifacts$setTickingAbilities:(Z)V
+      30: return
+
+  public static void onItemTick(net.minecraft.world.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;)V
+    Code:
+       0: aload_0
+       1: instanceof    #31                 // class net/minecraft/world/entity/player/Player
+       4: ifne          20
+       7: aload_0
+       8: checkcast     #202                // class artifacts/extensions/ability/LivingEntityExtensions
+      11: invokeinterface #210,  1          // InterfaceMethod artifacts/extensions/ability/LivingEntityExtensions.artifacts$hasTickingAbilities:()Z
+      16: ifne          20
+      19: return
+      20: getstatic     #127                // Field artifacts/registry/ModDataComponents.TICKING_COMPONENTS:Ljava/util/Set;
+      23: invokeinterface #133,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+      28: astore_1
+      29: aload_1
+      30: invokeinterface #138,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      35: ifeq          72
+      38: aload_1
+      39: invokeinterface #141,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      44: checkcast     #111                // class java/util/function/Supplier
+      47: astore_2
+      48: aload_2
+      49: invokeinterface #115,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      54: checkcast     #117                // class net/minecraft/core/component/DataComponentType
+      57: aload_0
+      58: iconst_0
+      59: iconst_0
+      60: aload_0
+      61: invokedynamic #223,  0            // InvokeDynamic #1:accept:(Lnet/minecraft/world/entity/LivingEntity;)Ljava/util/function/BiConsumer;
+      66: invokestatic  #227                // Method artifacts/equipment/EquipmentHelper.iterateAbilities:(Lnet/minecraft/core/component/DataComponentType;Lnet/minecraft/world/entity/LivingEntity;ZZLjava/util/function/BiConsumer;)V
+      69: goto          29
+      72: return
+
+  public static void onAttackBurningLivingHurt(net.minecraft.world.entity.LivingEntity, net.minecraft.world.damagesource.DamageSource);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/damagesource/DamageSource;)V
+    Code:
+       0: aload_1
+       1: invokestatic  #235                // Method artifacts/util/DamageSourceHelper.getAttacker:(Lnet/minecraft/world/damagesource/DamageSource;)Lnet/minecraft/world/entity/LivingEntity;
+       4: astore_2
+       5: aload_2
+       6: ifnull        38
+       9: aload_1
+      10: invokestatic  #239                // Method artifacts/util/DamageSourceHelper.isMeleeAttack:(Lnet/minecraft/world/damagesource/DamageSource;)Z
+      13: ifeq          38
+      16: aload_0
+      17: invokevirtual #242                // Method net/minecraft/world/entity/LivingEntity.fireImmune:()Z
+      20: ifne          38
+      23: aload_2
+      24: getstatic     #248                // Field artifacts/registry/ModAttributes.ATTACK_BURNING_DURATION:Lnet/minecraft/core/Holder;
+      27: invokevirtual #252                // Method net/minecraft/world/entity/LivingEntity.getAttributeValue:(Lnet/minecraft/core/Holder;)D
+      30: d2i
+      31: istore_3
+      32: aload_0
+      33: iload_3
+      34: i2f
+      35: invokevirtual #256                // Method net/minecraft/world/entity/LivingEntity.igniteForSeconds:(F)V
+      38: return
+
+  public static void doPostAttackEffects(net.minecraft.world.entity.LivingEntity, net.minecraft.world.damagesource.DamageSource);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/damagesource/DamageSource;)V
+    Code:
+       0: getstatic     #263                // Field artifacts/registry/ModDataComponents.RETALIATION_EFFECTS:Ljava/util/function/Supplier;
+       3: invokeinterface #115,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       8: checkcast     #117                // class net/minecraft/core/component/DataComponentType
+      11: aload_0
+      12: iconst_1
+      13: iconst_1
+      14: aload_0
+      15: aload_1
+      16: invokedynamic #273,  0            // InvokeDynamic #2:accept:(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/damagesource/DamageSource;)Ljava/util/function/BiConsumer;
+      21: invokestatic  #227                // Method artifacts/equipment/EquipmentHelper.iterateAbilities:(Lnet/minecraft/core/component/DataComponentType;Lnet/minecraft/world/entity/LivingEntity;ZZLjava/util/function/BiConsumer;)V
+      24: aload_0
+      25: aload_1
+      26: invokestatic  #278                // Method artifacts/component/ability/mobeffect/AttackEffects.onLivingHurt:(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/damagesource/DamageSource;)V
+      29: aload_0
+      30: aload_1
+      31: invokestatic  #280                // Method onAttackBurningLivingHurt:(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/damagesource/DamageSource;)V
+      34: return
+
+  public static void onEntityAdded(net.minecraft.world.entity.Entity);
+    descriptor: (Lnet/minecraft/world/entity/Entity;)V
+    Code:
+       0: aload_0
+       1: instanceof    #59                 // class net/minecraft/world/entity/LivingEntity
+       4: ifeq          16
+       7: aload_0
+       8: checkcast     #59                 // class net/minecraft/world/entity/LivingEntity
+      11: astore_1
+      12: aload_1
+      13: invokestatic  #159                // Method refreshTickingAbilities:(Lnet/minecraft/world/entity/LivingEntity;)V
+      16: aload_0
+      17: instanceof    #284                // class net/minecraft/world/entity/PathfinderMob
+      20: ifeq          91
+      23: aload_0
+      24: checkcast     #284                // class net/minecraft/world/entity/PathfinderMob
+      27: astore_1
+      28: aload_1
+      29: invokevirtual #288                // Method net/minecraft/world/entity/PathfinderMob.getType:()Lnet/minecraft/world/entity/EntityType;
+      32: getstatic     #294                // Field artifacts/registry/ModTags.CREEPERS:Lnet/minecraft/tags/TagKey;
+      35: invokevirtual #300                // Method net/minecraft/world/entity/EntityType.is:(Lnet/minecraft/tags/TagKey;)Z
+      38: ifeq          91
+      41: invokedynamic #311,  0            // InvokeDynamic #3:test:()Ljava/util/function/Predicate;
+      46: astore_2
+      47: aload_1
+      48: checkcast     #313                // class artifacts/mixin/accessors/MobAccessor
+      51: invokeinterface #317,  1          // InterfaceMethod artifacts/mixin/accessors/MobAccessor.getGoalSelector:()Lnet/minecraft/world/entity/ai/goal/GoalSelector;
+      56: iconst_3
+      57: new           #319                // class net/minecraft/world/entity/ai/goal/AvoidEntityGoal
+      60: dup
+      61: aload_1
+      62: ldc           #31                 // class net/minecraft/world/entity/player/Player
+      64: aload_2
+      65: ldc_w         #320                // float 6.0f
+      68: dconst_1
+      69: ldc2_w        #321                // double 1.3d
+      72: getstatic     #328                // Field net/minecraft/world/entity/EntitySelector.NO_CREATIVE_OR_SPECTATOR:Ljava/util/function/Predicate;
+      75: dup
+      76: invokestatic  #334                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+      79: pop
+      80: invokedynamic #342,  0            // InvokeDynamic #4:test:(Ljava/util/function/Predicate;)Ljava/util/function/Predicate;
+      85: invokespecial #345                // Method net/minecraft/world/entity/ai/goal/AvoidEntityGoal."<init>":(Lnet/minecraft/world/entity/PathfinderMob;Ljava/lang/Class;Ljava/util/function/Predicate;FDDLjava/util/function/Predicate;)V
+      88: invokevirtual #351                // Method net/minecraft/world/entity/ai/goal/GoalSelector.addGoal:(ILnet/minecraft/world/entity/ai/goal/Goal;)V
+      91: return
+
+  public static void onPlaySoundAtEntity(net.minecraft.world.entity.LivingEntity, float, float);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;FF)V
+    Code:
+       0: getstatic     #364                // Field artifacts/registry/ModDataComponents.HURT_SOUND:Ljava/util/function/Supplier;
+       3: invokeinterface #115,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       8: checkcast     #117                // class net/minecraft/core/component/DataComponentType
+      11: aload_0
+      12: aload_0
+      13: fload_1
+      14: fload_2
+      15: invokedynamic #377,  0            // InvokeDynamic #5:visit:(Lnet/minecraft/world/entity/LivingEntity;FF)Lartifacts/equipment/EquipmentHelper$Visitor;
+      20: invokestatic  #381                // Method artifacts/equipment/EquipmentHelper.iterateComponents:(Lnet/minecraft/core/component/DataComponentType;Lnet/minecraft/world/entity/LivingEntity;Lartifacts/equipment/EquipmentHelper$Visitor;)V
+      23: return
+
+  public static net.minecraft.world.item.ItemStack applySmeltOresAbility(net.minecraft.world.item.ItemStack, net.minecraft.world.entity.Entity, net.minecraft.world.level.block.state.BlockState, java.util.function.Consumer<java.lang.Integer>);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/level/block/state/BlockState;Ljava/util/function/Consumer;)Lnet/minecraft/world/item/ItemStack;
+    Code:
+       0: aload_1
+       1: instanceof    #59                 // class net/minecraft/world/entity/LivingEntity
+       4: ifeq          174
+       7: aload_1
+       8: checkcast     #59                 // class net/minecraft/world/entity/LivingEntity
+      11: astore        4
+      13: getstatic     #391                // Field artifacts/registry/ModDataComponents.AUTO_SMELT:Ljava/util/function/Supplier;
+      16: invokeinterface #115,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      21: checkcast     #117                // class net/minecraft/core/component/DataComponentType
+      24: aload         4
+      26: iconst_1
+      27: invokestatic  #395                // Method artifacts/equipment/EquipmentHelper.hasAbilityActive:(Lnet/minecraft/core/component/DataComponentType;Lnet/minecraft/world/entity/LivingEntity;Z)Z
+      30: ifeq          174
+      33: aload_2
+      34: ifnull        174
+      37: aload_2
+      38: getstatic     #398                // Field artifacts/registry/ModTags.ORES:Lnet/minecraft/tags/TagKey;
+      41: invokevirtual #401                // Method net/minecraft/world/level/block/state/BlockState.is:(Lnet/minecraft/tags/TagKey;)Z
+      44: ifeq          174
+      47: aload_0
+      48: getstatic     #404                // Field artifacts/registry/ModTags.RAW_MATERIALS:Lnet/minecraft/tags/TagKey;
+      51: invokevirtual #405                // Method net/minecraft/world/item/ItemStack.is:(Lnet/minecraft/tags/TagKey;)Z
+      54: ifeq          174
+      57: aload         4
+      59: invokevirtual #98                 // Method net/minecraft/world/entity/LivingEntity.level:()Lnet/minecraft/world/level/Level;
+      62: invokevirtual #409                // Method net/minecraft/world/level/Level.getRecipeManager:()Lnet/minecraft/world/item/crafting/RecipeManager;
+      65: getstatic     #415                // Field net/minecraft/world/item/crafting/RecipeType.SMELTING:Lnet/minecraft/world/item/crafting/RecipeType;
+      68: new           #417                // class net/minecraft/world/item/crafting/SingleRecipeInput
+      71: dup
+      72: aload_0
+      73: invokespecial #420                // Method net/minecraft/world/item/crafting/SingleRecipeInput."<init>":(Lnet/minecraft/world/item/ItemStack;)V
+      76: aload         4
+      78: invokevirtual #98                 // Method net/minecraft/world/entity/LivingEntity.level:()Lnet/minecraft/world/level/Level;
+      81: invokevirtual #426                // Method net/minecraft/world/item/crafting/RecipeManager.getRecipeFor:(Lnet/minecraft/world/item/crafting/RecipeType;Lnet/minecraft/world/item/crafting/RecipeInput;Lnet/minecraft/world/level/Level;)Ljava/util/Optional;
+      84: astore        5
+      86: aload         5
+      88: invokevirtual #431                // Method java/util/Optional.isPresent:()Z
+      91: ifeq          174
+      94: aload         5
+      96: invokevirtual #432                // Method java/util/Optional.get:()Ljava/lang/Object;
+      99: checkcast     #434                // class net/minecraft/world/item/crafting/RecipeHolder
+     102: invokevirtual #438                // Method net/minecraft/world/item/crafting/RecipeHolder.value:()Lnet/minecraft/world/item/crafting/Recipe;
+     105: checkcast     #440                // class net/minecraft/world/item/crafting/SmeltingRecipe
+     108: aload         4
+     110: invokevirtual #98                 // Method net/minecraft/world/entity/LivingEntity.level:()Lnet/minecraft/world/level/Level;
+     113: invokevirtual #444                // Method net/minecraft/world/level/Level.registryAccess:()Lnet/minecraft/core/RegistryAccess;
+     116: invokevirtual #448                // Method net/minecraft/world/item/crafting/SmeltingRecipe.getResultItem:(Lnet/minecraft/core/HolderLookup$Provider;)Lnet/minecraft/world/item/ItemStack;
+     119: astore        6
+     121: aload         6
+     123: invokevirtual #451                // Method net/minecraft/world/item/ItemStack.isEmpty:()Z
+     126: ifne          174
+     129: aload_3
+     130: aload         5
+     132: invokevirtual #432                // Method java/util/Optional.get:()Ljava/lang/Object;
+     135: checkcast     #434                // class net/minecraft/world/item/crafting/RecipeHolder
+     138: invokevirtual #438                // Method net/minecraft/world/item/crafting/RecipeHolder.value:()Lnet/minecraft/world/item/crafting/Recipe;
+     141: checkcast     #440                // class net/minecraft/world/item/crafting/SmeltingRecipe
+     144: invokevirtual #455                // Method net/minecraft/world/item/crafting/SmeltingRecipe.getExperience:()F
+     147: invokestatic  #458                // Method getExperience:(F)I
+     150: invokestatic  #463                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+     153: invokeinterface #468,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+     158: aload         6
+     160: aload         6
+     162: invokevirtual #472                // Method net/minecraft/world/item/ItemStack.getCount:()I
+     165: aload_0
+     166: invokevirtual #472                // Method net/minecraft/world/item/ItemStack.getCount:()I
+     169: imul
+     170: invokevirtual #476                // Method net/minecraft/world/item/ItemStack.copyWithCount:(I)Lnet/minecraft/world/item/ItemStack;
+     173: areturn
+     174: aload_0
+     175: areturn
+
+  private static int getExperience(float);
+    descriptor: (F)I
+    Code:
+       0: fload_0
+       1: invokestatic  #489                // Method net/minecraft/util/Mth.floor:(F)I
+       4: istore_1
+       5: invokestatic  #495                // Method java/lang/Math.random:()D
+       8: fload_0
+       9: invokestatic  #499                // Method net/minecraft/util/Mth.frac:(F)F
+      12: f2d
+      13: dcmpg
+      14: ifge          20
+      17: iinc          1, 1
+      20: iload_1
+      21: ireturn
+
+  public static int modifyUseDuration(int, net.minecraft.world.item.ItemStack, net.minecraft.world.entity.LivingEntity);
+    descriptor: (ILnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/LivingEntity;)I
+    Code:
+       0: iload_0
+       1: ifgt          6
+       4: iload_0
+       5: ireturn
+       6: aload_1
+       7: invokevirtual #507                // Method net/minecraft/world/item/ItemStack.getUseAnimation:()Lnet/minecraft/world/item/UseAnim;
+      10: getstatic     #513                // Field net/minecraft/world/item/UseAnim.EAT:Lnet/minecraft/world/item/UseAnim;
+      13: if_acmpne     35
+      16: lconst_1
+      17: iload_0
+      18: i2d
+      19: aload_2
+      20: getstatic     #516                // Field artifacts/registry/ModAttributes.EATING_SPEED:Lnet/minecraft/core/Holder;
+      23: invokevirtual #252                // Method net/minecraft/world/entity/LivingEntity.getAttributeValue:(Lnet/minecraft/core/Holder;)D
+      26: ddiv
+      27: invokestatic  #520                // Method java/lang/Math.round:(D)J
+      30: invokestatic  #524                // Method java/lang/Math.max:(JJ)J
+      33: l2i
+      34: ireturn
+      35: aload_1
+      36: invokevirtual #507                // Method net/minecraft/world/item/ItemStack.getUseAnimation:()Lnet/minecraft/world/item/UseAnim;
+      39: getstatic     #527                // Field net/minecraft/world/item/UseAnim.DRINK:Lnet/minecraft/world/item/UseAnim;
+      42: if_acmpne     64
+      45: lconst_1
+      46: iload_0
+      47: i2d
+      48: aload_2
+      49: getstatic     #530                // Field artifacts/registry/ModAttributes.DRINKING_SPEED:Lnet/minecraft/core/Holder;
+      52: invokevirtual #252                // Method net/minecraft/world/entity/LivingEntity.getAttributeValue:(Lnet/minecraft/core/Holder;)D
+      55: ddiv
+      56: invokestatic  #520                // Method java/lang/Math.round:(D)J
+      59: invokestatic  #524                // Method java/lang/Math.max:(JJ)J
+      62: l2i
+      63: ireturn
+      64: iload_0
+      65: ireturn
+
+  public static int modifyExperience(int, net.minecraft.world.entity.LivingEntity, net.minecraft.world.entity.player.Player);
+    descriptor: (ILnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/player/Player;)I
+    Code:
+       0: aload_2
+       1: ifnull        15
+       4: aload_1
+       5: instanceof    #31                 // class net/minecraft/world/entity/player/Player
+       8: ifne          15
+      11: iload_0
+      12: ifgt          17
+      15: iload_0
+      16: ireturn
+      17: aload_2
+      18: getstatic     #536                // Field artifacts/registry/ModAttributes.ENTITY_EXPERIENCE:Lnet/minecraft/core/Holder;
+      21: invokevirtual #537                // Method net/minecraft/world/entity/player/Player.getAttributeValue:(Lnet/minecraft/core/Holder;)D
+      24: dstore_3
+      25: iload_0
+      26: i2d
+      27: dload_3
+      28: dmul
+      29: invokestatic  #520                // Method java/lang/Math.round:(D)J
+      32: l2i
+      33: istore        5
+      35: iconst_0
+      36: iload         5
+      38: invokestatic  #540                // Method java/lang/Math.max:(II)I
+      41: ireturn
+
+  public static void absorbDamage(net.minecraft.world.entity.LivingEntity, net.minecraft.world.damagesource.DamageSource, float);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/damagesource/DamageSource;F)V
+    Code:
+       0: aload_1
+       1: invokestatic  #235                // Method artifacts/util/DamageSourceHelper.getAttacker:(Lnet/minecraft/world/damagesource/DamageSource;)Lnet/minecraft/world/entity/LivingEntity;
+       4: astore_3
+       5: aload_3
+       6: ifnull        41
+       9: aload_1
+      10: invokestatic  #239                // Method artifacts/util/DamageSourceHelper.isMeleeAttack:(Lnet/minecraft/world/damagesource/DamageSource;)Z
+      13: ifeq          41
+      16: getstatic     #546                // Field artifacts/registry/ModDataComponents.DAMAGE_ABSORPTION:Ljava/util/function/Supplier;
+      19: invokeinterface #115,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      24: checkcast     #117                // class net/minecraft/core/component/DataComponentType
+      27: aload_3
+      28: iconst_1
+      29: iconst_1
+      30: fload_2
+      31: aload_0
+      32: aload_3
+      33: invokedynamic #556,  0            // InvokeDynamic #6:accept:(FLnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/LivingEntity;)Ljava/util/function/BiConsumer;
+      38: invokestatic  #227                // Method artifacts/equipment/EquipmentHelper.iterateAbilities:(Lnet/minecraft/core/component/DataComponentType;Lnet/minecraft/world/entity/LivingEntity;ZZLjava/util/function/BiConsumer;)V
+      41: return
+
+  public static float getModifiedFriction(float, net.minecraft.world.entity.LivingEntity, net.minecraft.world.level.block.Block);
+    descriptor: (FLnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/level/block/Block;)F
+    Code:
+       0: fload_0
+       1: ldc_w         #561                // float 0.6f
+       4: fcmpl
+       5: ifle          36
+       8: aload_2
+       9: getstatic     #566                // Field net/minecraft/tags/BlockTags.ICE:Lnet/minecraft/tags/TagKey;
+      12: invokestatic  #570                // Method artifacts/registry/ModTags.isInTag:(Ljava/lang/Object;Lnet/minecraft/tags/TagKey;)Z
+      15: ifeq          36
+      18: aload_1
+      19: getstatic     #573                // Field artifacts/registry/ModAttributes.SLIP_RESISTANCE:Lnet/minecraft/core/Holder;
+      22: invokevirtual #252                // Method net/minecraft/world/entity/LivingEntity.getAttributeValue:(Lnet/minecraft/core/Holder;)D
+      25: dstore_3
+      26: dload_3
+      27: d2f
+      28: fload_0
+      29: ldc_w         #561                // float 0.6f
+      32: invokestatic  #577                // Method net/minecraft/util/Mth.lerp:(FFF)F
+      35: freturn
+      36: fload_0
+      37: freturn
+
+  public static void applyBoneMealAfterEating(net.minecraft.world.entity.LivingEntity, net.minecraft.world.food.FoodProperties);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/food/FoodProperties;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #98                 // Method net/minecraft/world/entity/LivingEntity.level:()Lnet/minecraft/world/level/Level;
+       4: invokevirtual #103                // Method net/minecraft/world/level/Level.isClientSide:()Z
+       7: ifne          85
+      10: getstatic     #585                // Field artifacts/registry/ModDataComponents.POST_EATING_PLANT_GROWTH:Ljava/util/function/Supplier;
+      13: invokeinterface #115,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      18: checkcast     #117                // class net/minecraft/core/component/DataComponentType
+      21: aload_0
+      22: iconst_1
+      23: invokestatic  #395                // Method artifacts/equipment/EquipmentHelper.hasAbilityActive:(Lnet/minecraft/core/component/DataComponentType;Lnet/minecraft/world/entity/LivingEntity;Z)Z
+      26: ifeq          85
+      29: aload_1
+      30: invokevirtual #590                // Method net/minecraft/world/food/FoodProperties.nutrition:()I
+      33: ifle          85
+      36: aload_1
+      37: invokevirtual #593                // Method net/minecraft/world/food/FoodProperties.canAlwaysEat:()Z
+      40: ifne          85
+      43: aload_0
+      44: invokevirtual #63                 // Method net/minecraft/world/entity/LivingEntity.onGround:()Z
+      47: ifeq          85
+      50: aload_0
+      51: invokevirtual #597                // Method net/minecraft/world/entity/LivingEntity.getBlockStateOn:()Lnet/minecraft/world/level/block/state/BlockState;
+      54: getstatic     #600                // Field artifacts/registry/ModTags.ROOTED_BOOTS_GRASS:Lnet/minecraft/tags/TagKey;
+      57: invokevirtual #401                // Method net/minecraft/world/level/block/state/BlockState.is:(Lnet/minecraft/tags/TagKey;)Z
+      60: ifeq          85
+      63: new           #119                // class net/minecraft/world/item/ItemStack
+      66: dup
+      67: getstatic     #606                // Field net/minecraft/world/item/Items.BONE_MEAL:Lnet/minecraft/world/item/Item;
+      70: invokespecial #609                // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+      73: aload_0
+      74: invokevirtual #98                 // Method net/minecraft/world/entity/LivingEntity.level:()Lnet/minecraft/world/level/Level;
+      77: aload_0
+      78: invokevirtual #613                // Method net/minecraft/world/entity/LivingEntity.getOnPos:()Lnet/minecraft/core/BlockPos;
+      81: invokestatic  #619                // Method net/minecraft/world/item/BoneMealItem.growCrop:(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)Z
+      84: pop
+      85: return
+
+  public static be.florens.expandability.api.EventResult onPlayerSwim(net.minecraft.world.entity.player.Player);
+    descriptor: (Lnet/minecraft/world/entity/player/Player;)Lbe/florens/expandability/api/EventResult;
+    Code:
+       0: invokestatic  #37                 // Method artifacts/platform/PlatformServices.getPlatformHelper:()Lartifacts/platform/PlatformHelper;
+       3: aload_0
+       4: invokeinterface #43,  2           // InterfaceMethod artifacts/platform/PlatformHelper.getSwimData:(Lnet/minecraft/world/entity/LivingEntity;)Lartifacts/component/SwimData;
+       9: astore_1
+      10: aload_1
+      11: ifnull        48
+      14: aload_1
+      15: invokevirtual #625                // Method artifacts/component/SwimData.isSwimming:()Z
+      18: ifeq          25
+      21: getstatic     #631                // Field be/florens/expandability/api/EventResult.SUCCESS:Lbe/florens/expandability/api/EventResult;
+      24: areturn
+      25: getstatic     #634                // Field artifacts/registry/ModDataComponents.SINKING:Ljava/util/function/Supplier;
+      28: invokeinterface #115,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      33: checkcast     #117                // class net/minecraft/core/component/DataComponentType
+      36: aload_0
+      37: iconst_1
+      38: invokestatic  #395                // Method artifacts/equipment/EquipmentHelper.hasAbilityActive:(Lnet/minecraft/core/component/DataComponentType;Lnet/minecraft/world/entity/LivingEntity;Z)Z
+      41: ifeq          48
+      44: getstatic     #637                // Field be/florens/expandability/api/EventResult.FAIL:Lbe/florens/expandability/api/EventResult;
+      47: areturn
+      48: getstatic     #640                // Field be/florens/expandability/api/EventResult.PASS:Lbe/florens/expandability/api/EventResult;
+      51: areturn
+
+  public static boolean onFluidCollision(net.minecraft.world.entity.LivingEntity, net.minecraft.world.level.material.FluidState);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/level/material/FluidState;)Z
+    Code:
+       0: invokestatic  #37                 // Method artifacts/platform/PlatformServices.getPlatformHelper:()Lartifacts/platform/PlatformHelper;
+       3: aload_0
+       4: invokeinterface #43,  2           // InterfaceMethod artifacts/platform/PlatformHelper.getSwimData:(Lnet/minecraft/world/entity/LivingEntity;)Lartifacts/component/SwimData;
+       9: astore_2
+      10: aload_2
+      11: ifnull        28
+      14: aload_2
+      15: invokevirtual #646                // Method artifacts/component/SwimData.isWet:()Z
+      18: ifne          28
+      21: aload_2
+      22: invokevirtual #625                // Method artifacts/component/SwimData.isSwimming:()Z
+      25: ifeq          30
+      28: iconst_0
+      29: ireturn
+      30: getstatic     #649                // Field artifacts/registry/ModDataComponents.FLUID_COLLISION:Ljava/util/function/Supplier;
+      33: invokeinterface #115,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      38: checkcast     #117                // class net/minecraft/core/component/DataComponentType
+      41: aload_0
+      42: iconst_1
+      43: aload_1
+      44: aload_0
+      45: invokedynamic #659,  0            // InvokeDynamic #7:test:(Lnet/minecraft/world/level/material/FluidState;Lnet/minecraft/world/entity/LivingEntity;)Ljava/util/function/Predicate;
+      50: invokestatic  #662                // Method artifacts/equipment/EquipmentHelper.hasAbilityActive:(Lnet/minecraft/core/component/DataComponentType;Lnet/minecraft/world/entity/LivingEntity;ZLjava/util/function/Predicate;)Z
+      53: ireturn
+
+  private static boolean lambda$onFluidCollision$6(net.minecraft.world.level.material.FluidState, net.minecraft.world.entity.LivingEntity, artifacts.component.ability.FluidCollision);
+    descriptor: (Lnet/minecraft/world/level/material/FluidState;Lnet/minecraft/world/entity/LivingEntity;Lartifacts/component/ability/FluidCollision;)Z
+    Code:
+       0: aload_2
+       1: aload_0
+       2: invokevirtual #670                // Method artifacts/component/ability/FluidCollision.matchesFluid:(Lnet/minecraft/world/level/material/FluidState;)Z
+       5: ifeq          23
+       8: aload_2
+       9: invokevirtual #674                // Method artifacts/component/ability/FluidCollision.condition:()Lartifacts/component/ability/EntityCondition;
+      12: aload_1
+      13: invokevirtual #678                // Method artifacts/component/ability/EntityCondition.test:(Lnet/minecraft/world/entity/LivingEntity;)Z
+      16: ifeq          23
+      19: iconst_1
+      20: goto          24
+      23: iconst_0
+      24: ireturn
+
+  private static void lambda$absorbDamage$5(float, net.minecraft.world.entity.LivingEntity, net.minecraft.world.entity.LivingEntity, artifacts.component.ability.DamageAbsorption, net.minecraft.world.item.ItemStack);
+    descriptor: (FLnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/LivingEntity;Lartifacts/component/ability/DamageAbsorption;Lnet/minecraft/world/item/ItemStack;)V
+    Code:
+       0: aload_3
+       1: invokevirtual #686                // Method artifacts/component/ability/DamageAbsorption.absorptionRatio:()Lartifacts/config/value/Value;
+       4: invokeinterface #689,  1          // InterfaceMethod artifacts/config/value/Value.get:()Ljava/lang/Object;
+       9: checkcast     #691                // class java/lang/Double
+      12: invokevirtual #694                // Method java/lang/Double.doubleValue:()D
+      15: dstore        5
+      17: aload_3
+      18: invokevirtual #697                // Method artifacts/component/ability/DamageAbsorption.maxDamageAbsorbed:()Lartifacts/config/value/Value;
+      21: invokeinterface #689,  1          // InterfaceMethod artifacts/config/value/Value.get:()Ljava/lang/Object;
+      26: checkcast     #460                // class java/lang/Integer
+      29: invokevirtual #700                // Method java/lang/Integer.intValue:()I
+      32: i2d
+      33: dstore        7
+      35: fload_0
+      36: aload_1
+      37: invokevirtual #703                // Method net/minecraft/world/entity/LivingEntity.getHealth:()F
+      40: invokestatic  #707                // Method java/lang/Math.min:(FF)F
+      43: fstore        9
+      45: dload         7
+      47: dload         5
+      49: fload         9
+      51: f2d
+      52: dmul
+      53: invokestatic  #710                // Method java/lang/Math.min:(DD)D
+      56: d2f
+      57: fstore        10
+      59: fload         10
+      61: fconst_0
+      62: fcmpl
+      63: ifle          100
+      66: aload_3
+      67: invokevirtual #713                // Method artifacts/component/ability/DamageAbsorption.absorptionChance:()Lartifacts/config/value/Value;
+      70: invokeinterface #689,  1          // InterfaceMethod artifacts/config/value/Value.get:()Ljava/lang/Object;
+      75: checkcast     #691                // class java/lang/Double
+      78: invokevirtual #694                // Method java/lang/Double.doubleValue:()D
+      81: aload_1
+      82: invokevirtual #717                // Method net/minecraft/world/entity/LivingEntity.getRandom:()Lnet/minecraft/util/RandomSource;
+      85: invokeinterface #722,  1          // InterfaceMethod net/minecraft/util/RandomSource.nextDouble:()D
+      90: dcmpl
+      91: ifle          100
+      94: aload_2
+      95: fload         10
+      97: invokevirtual #725                // Method net/minecraft/world/entity/LivingEntity.heal:(F)V
+     100: return
+
+  private static void lambda$onPlaySoundAtEntity$4(net.minecraft.world.entity.LivingEntity, float, float, net.minecraft.world.item.ItemStack, artifacts.component.HurtSound);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;FFLnet/minecraft/world/item/ItemStack;Lartifacts/component/HurtSound;)V
+    Code:
+       0: aload         4
+       2: invokevirtual #734                // Method artifacts/component/HurtSound.enabled:()Lartifacts/config/value/Value;
+       5: invokeinterface #689,  1          // InterfaceMethod artifacts/config/value/Value.get:()Ljava/lang/Object;
+      10: checkcast     #170                // class java/lang/Boolean
+      13: invokevirtual #200                // Method java/lang/Boolean.booleanValue:()Z
+      16: ifeq          38
+      19: aload_0
+      20: aload         4
+      22: invokevirtual #738                // Method artifacts/component/HurtSound.soundEvent:()Lnet/minecraft/core/Holder;
+      25: invokeinterface #742,  1          // InterfaceMethod net/minecraft/core/Holder.value:()Ljava/lang/Object;
+      30: checkcast     #744                // class net/minecraft/sounds/SoundEvent
+      33: fload_1
+      34: fload_2
+      35: invokevirtual #748                // Method net/minecraft/world/entity/LivingEntity.playSound:(Lnet/minecraft/sounds/SoundEvent;FF)V
+      38: return
+
+  private static boolean lambda$onEntityAdded$3(net.minecraft.world.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;)Z
+    Code:
+       0: getstatic     #753                // Field artifacts/registry/ModDataComponents.CREEPER_REPELLENT:Ljava/util/function/Supplier;
+       3: invokeinterface #115,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       8: checkcast     #117                // class net/minecraft/core/component/DataComponentType
+      11: aload_0
+      12: iconst_1
+      13: invokestatic  #395                // Method artifacts/equipment/EquipmentHelper.hasAbilityActive:(Lnet/minecraft/core/component/DataComponentType;Lnet/minecraft/world/entity/LivingEntity;Z)Z
+      16: ireturn
+
+  private static void lambda$doPostAttackEffects$2(net.minecraft.world.entity.LivingEntity, net.minecraft.world.damagesource.DamageSource, artifacts.component.ability.retaliation.RetaliationEffects, net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/damagesource/DamageSource;Lartifacts/component/ability/retaliation/RetaliationEffects;Lnet/minecraft/world/item/ItemStack;)V
+    Code:
+       0: aload_2
+       1: aload_0
+       2: aload_3
+       3: aload_1
+       4: invokevirtual #758                // Method artifacts/component/ability/retaliation/RetaliationEffects.onLivingHurt:(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/damagesource/DamageSource;)V
+       7: return
+
+  private static void lambda$onItemTick$1(net.minecraft.world.entity.LivingEntity, artifacts.component.ability.TickingAbility, net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;Lartifacts/component/ability/TickingAbility;Lnet/minecraft/world/item/ItemStack;)V
+    Code:
+       0: aload_0
+       1: instanceof    #31                 // class net/minecraft/world/entity/player/Player
+       4: ifeq          32
+       7: aload_0
+       8: checkcast     #31                 // class net/minecraft/world/entity/player/Player
+      11: astore        4
+      13: aload         4
+      15: invokevirtual #763                // Method net/minecraft/world/entity/player/Player.getCooldowns:()Lnet/minecraft/world/item/ItemCooldowns;
+      18: aload_2
+      19: invokevirtual #767                // Method net/minecraft/world/item/ItemStack.getItem:()Lnet/minecraft/world/item/Item;
+      22: invokevirtual #773                // Method net/minecraft/world/item/ItemCooldowns.isOnCooldown:(Lnet/minecraft/world/item/Item;)Z
+      25: ifeq          32
+      28: iconst_1
+      29: goto          33
+      32: iconst_0
+      33: istore_3
+      34: aload_1
+      35: aload_0
+      36: iload_3
+      37: aload_2
+      38: getstatic     #109                // Field artifacts/registry/ModDataComponents.DISABLED_BY_TOGGLE:Ljava/util/function/Supplier;
+      41: invokeinterface #115,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      46: checkcast     #117                // class net/minecraft/core/component/DataComponentType
+      49: invokevirtual #123                // Method net/minecraft/world/item/ItemStack.has:(Lnet/minecraft/core/component/DataComponentType;)Z
+      52: invokeinterface #777,  4          // InterfaceMethod artifacts/component/ability/TickingAbility.wornTick:(Lnet/minecraft/world/entity/LivingEntity;ZZ)V
+      57: return
+
+  private static java.lang.Boolean lambda$refreshTickingAbilities$0(net.minecraft.world.item.ItemStack, java.lang.Boolean);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;Ljava/lang/Boolean;)Ljava/lang/Boolean;
+    Code:
+       0: getstatic     #127                // Field artifacts/registry/ModDataComponents.TICKING_COMPONENTS:Ljava/util/Set;
+       3: invokeinterface #133,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+       8: astore_2
+       9: aload_2
+      10: invokeinterface #138,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      15: ifeq          52
+      18: aload_2
+      19: invokeinterface #141,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      24: checkcast     #111                // class java/util/function/Supplier
+      27: astore_3
+      28: aload_0
+      29: aload_3
+      30: invokeinterface #115,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      35: checkcast     #117                // class net/minecraft/core/component/DataComponentType
+      38: invokevirtual #123                // Method net/minecraft/world/item/ItemStack.has:(Lnet/minecraft/core/component/DataComponentType;)Z
+      41: ifeq          49
+      44: iconst_1
+      45: invokestatic  #174                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      48: areturn
+      49: goto          9
+      52: aload_1
+      53: areturn
+}

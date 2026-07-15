@@ -1,0 +1,1891 @@
+Compiled from "ItemConfigs.java"
+public class artifacts.config.ItemConfigs extends artifacts.config.ConfigManager {
+  private final java.util.Map<net.minecraft.resources.ResourceKey<net.minecraft.world.item.Item>, artifacts.config.value.Value$ConfigValue<java.lang.Boolean>> generateAsLoot;
+    descriptor: Ljava/util/Map;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> antidoteVesselEnabled;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> aquaDashersEnabled;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> charmOfSinkingEnabled;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> cloudInABottleEnabled;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> eternalSteakEnabled;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> everlastingBeefEnabled;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> pickaxeHeaterEnabled;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> rootedBootsEnabled;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> scarfOfInvisibilityEnabled;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> striderShoesEnabled;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> warpDriveEnabled;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> chorusTotemConsumeOnUse;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> flamePendantGrantFireResistance;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> rootedBootsGrowPlantsAfterEating;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> scarfOfInvisibilityHideWhenInvisible;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> shockPendantCancelLightningDamage;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> snorkelIsInfinite;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> snowshoesAllowWalkingOnPowderedSnow;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> striderShoesCancelHotFloorDamage;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> umbrellaIsShield;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> umbrellaIsGlider;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> warpDriveNullifyEnderPearlDamage;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> bunnyHoppersModifyHurtSounds;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> kittySlippersModifyHurtSounds;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> kittySlippersRepelCreepers;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> kittySlippersRepelPhantoms;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Boolean> charmOfSinkingUnderwaterFallDamage;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> cloudInABottleSprintJumpVerticalVelocity;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> cloudInABottleSprintJumpHorizontalVelocity;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> vampiricGloveAbsorptionRatio;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> bunnyHoppersFallDamageMultiplier;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> bunnyHoppersJumpStrengthBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> bunnyHoppersSafeFallDistanceBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> charmOfShrinkingScaleModifier;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> cloudInABottleSafeFallDistanceBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> cowboyHatMountSpeedBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> crossNecklaceBonusInvincibilityTicks;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> crystalHeartHealthBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> diggingClawsBlockBreakSpeedBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> feralClawsAttackSpeedBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> fireGauntletFireDuration;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> flippersSwimSpeedBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> goldenHookEntityExperienceBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> noveltyDrinkingHatDrinkingSpeedBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> noveltyDrinkingHatEatingSpeedBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> plasticDrinkingHatDrinkingSpeedBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> plasticDrinkingHatEatingSpeedBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> pocketPistonAttackKnockbackBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> powerGloveAttackDamageBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> runningShoesSprintingSpeedBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> runningShoesSprintingStepHeightBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> snowshoesMovementSpeedOnSnowBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> steadfastSpikesKnockbackResistance;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> steadfastSpikesSlipperinessReduction;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> villagerHatReputationBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> charmOfSinkingOxygenBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> whoopeeCushionFartChance;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> chorusTotemTeleportationChance;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> flamePendantStrikeChance;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> nightVisionGogglesStrength;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> thornPendantStrikeChance;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> shockPendantStrikeChance;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> vampiricGloveAbsorptionChance;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> witheredBraceletWitherChance;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> everlastingBeefDropRate;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Double> cloudInABottleFallDamageMultiplier;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> chorusTotemHealthRestored;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> thornPendantMaxDamage;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> thornPendantMinDamage;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> warpDriveHungerCost;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> vampiricGloveMaxHealingPerHit;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> antidoteVesselMaxEffectDuration;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> chorusTotemCooldown;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> crossNecklaceCooldown;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> eternalSteakCooldown;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> everlastingBeefCooldown;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> flamePendantCooldown;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> flamePendantFireDuration;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> heliumFlamingoFlightDuration;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> heliumFlamingoRechargeDuration;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> heliumFlamingoCooldown;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> obsidianSkullCooldown;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> obsidianSkullFireResistanceDuration;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> onionRingHasteDurationPerFoodPoint;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> panicNecklaceCooldown;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> panicNecklaceSpeedDuration;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> rootedBootsHungerReplenishingDuration;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> shockPendantCooldown;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> snorkelWaterBreathingDuration;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> thornPendantCooldown;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> warpDriveCooldown;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> witheredBraceletCooldown;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> witheredBraceletWitherDuration;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> anglersHatLuckOfTheSeaLevelBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> anglersHatLureLevelBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> luckScarfFortuneBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> superstitiousHatLootingLevelBonus;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> onionRingHasteLevel;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> panicNecklaceSpeedLevel;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> universalAttractorMagnetismLevel;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<java.lang.Integer> witheredBraceletWitherLevel;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  public final artifacts.config.value.Value$ConfigValue<artifacts.component.ability.ToolTierUpgrade$Tier> diggingClawsToolTier;
+    descriptor: Lartifacts/config/value/Value$ConfigValue;
+
+  protected artifacts.config.ItemConfigs();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: ldc           #134                // String items
+       3: invokespecial #137                // Method artifacts/config/ConfigManager."<init>":(Ljava/lang/String;)V
+       6: aload_0
+       7: new           #139                // class java/util/HashMap
+      10: dup
+      11: invokespecial #141                // Method java/util/HashMap."<init>":()V
+      14: putfield      #143                // Field generateAsLoot:Ljava/util/Map;
+      17: aload_0
+      18: aload_0
+      19: getstatic     #149                // Field artifacts/registry/ModItems.ANTIDOTE_VESSEL:Lnet/minecraft/core/Holder;
+      22: ldc           #151                // String enabled
+      24: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+      27: iconst_1
+      28: anewarray     #157                // class java/lang/String
+      31: dup
+      32: iconst_0
+      33: ldc           #159                // String Whether the Antidote Vessel reduces the duration of negative effects
+      35: aastore
+      36: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+      39: putfield      #165                // Field antidoteVesselEnabled:Lartifacts/config/value/Value$ConfigValue;
+      42: aload_0
+      43: aload_0
+      44: getstatic     #168                // Field artifacts/registry/ModItems.AQUA_DASHERS:Lnet/minecraft/core/Holder;
+      47: ldc           #151                // String enabled
+      49: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+      52: iconst_1
+      53: anewarray     #157                // class java/lang/String
+      56: dup
+      57: iconst_0
+      58: ldc           #170                // String Whether the Aqua-Dashers allow the wearer to sprint on water
+      60: aastore
+      61: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+      64: putfield      #172                // Field aquaDashersEnabled:Lartifacts/config/value/Value$ConfigValue;
+      67: aload_0
+      68: aload_0
+      69: getstatic     #175                // Field artifacts/registry/ModItems.CHARM_OF_SINKING:Lnet/minecraft/core/Holder;
+      72: ldc           #151                // String enabled
+      74: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+      77: iconst_1
+      78: iconst_1
+      79: iconst_1
+      80: anewarray     #157                // class java/lang/String
+      83: dup
+      84: iconst_0
+      85: ldc           #177                // String Whether the Charm of Sinking removes the wearer\'s collision with water
+      87: aastore
+      88: invokevirtual #180                // Method defineBool:(Ljava/lang/String;ZZ[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+      91: putfield      #182                // Field charmOfSinkingEnabled:Lartifacts/config/value/Value$ConfigValue;
+      94: aload_0
+      95: aload_0
+      96: getstatic     #185                // Field artifacts/registry/ModItems.CLOUD_IN_A_BOTTLE:Lnet/minecraft/core/Holder;
+      99: ldc           #151                // String enabled
+     101: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     104: iconst_1
+     105: anewarray     #157                // class java/lang/String
+     108: dup
+     109: iconst_0
+     110: ldc           #187                // String Whether the Cloud in a Bottle allows the wearer to double jump
+     112: aastore
+     113: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     116: putfield      #189                // Field cloudInABottleEnabled:Lartifacts/config/value/Value$ConfigValue;
+     119: aload_0
+     120: aload_0
+     121: getstatic     #192                // Field artifacts/registry/ModItems.ETERNAL_STEAK:Lnet/minecraft/core/Holder;
+     124: ldc           #151                // String enabled
+     126: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     129: iconst_1
+     130: anewarray     #157                // class java/lang/String
+     133: dup
+     134: iconst_0
+     135: ldc           #194                // String Whether the Eternal Steak can be eaten
+     137: aastore
+     138: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     141: putfield      #196                // Field eternalSteakEnabled:Lartifacts/config/value/Value$ConfigValue;
+     144: aload_0
+     145: aload_0
+     146: getstatic     #199                // Field artifacts/registry/ModItems.EVERLASTING_BEEF:Lnet/minecraft/core/Holder;
+     149: ldc           #151                // String enabled
+     151: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     154: iconst_1
+     155: anewarray     #157                // class java/lang/String
+     158: dup
+     159: iconst_0
+     160: ldc           #201                // String Whether the Everlasting Beef can be eaten
+     162: aastore
+     163: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     166: putfield      #203                // Field everlastingBeefEnabled:Lartifacts/config/value/Value$ConfigValue;
+     169: aload_0
+     170: aload_0
+     171: getstatic     #206                // Field artifacts/registry/ModItems.PICKAXE_HEATER:Lnet/minecraft/core/Holder;
+     174: ldc           #151                // String enabled
+     176: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     179: iconst_1
+     180: anewarray     #157                // class java/lang/String
+     183: dup
+     184: iconst_0
+     185: ldc           #208                // String Whether the Pickaxe Heater smelts mined ores
+     187: aastore
+     188: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     191: putfield      #210                // Field pickaxeHeaterEnabled:Lartifacts/config/value/Value$ConfigValue;
+     194: aload_0
+     195: aload_0
+     196: getstatic     #213                // Field artifacts/registry/ModItems.ROOTED_BOOTS:Lnet/minecraft/core/Holder;
+     199: ldc           #151                // String enabled
+     201: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     204: iconst_1
+     205: anewarray     #157                // class java/lang/String
+     208: dup
+     209: iconst_0
+     210: ldc           #215                // String Whether the Rooted Boots replenish hunger when standing on grass
+     212: aastore
+     213: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     216: putfield      #217                // Field rootedBootsEnabled:Lartifacts/config/value/Value$ConfigValue;
+     219: aload_0
+     220: aload_0
+     221: getstatic     #220                // Field artifacts/registry/ModItems.SCARF_OF_INVISIBILITY:Lnet/minecraft/core/Holder;
+     224: ldc           #151                // String enabled
+     226: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     229: iconst_1
+     230: iconst_1
+     231: iconst_1
+     232: anewarray     #157                // class java/lang/String
+     235: dup
+     236: iconst_0
+     237: ldc           #222                // String Whether the Scarf of Invisibility makes players invisible
+     239: aastore
+     240: invokevirtual #180                // Method defineBool:(Ljava/lang/String;ZZ[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     243: putfield      #224                // Field scarfOfInvisibilityEnabled:Lartifacts/config/value/Value$ConfigValue;
+     246: aload_0
+     247: aload_0
+     248: getstatic     #227                // Field artifacts/registry/ModItems.STRIDER_SHOES:Lnet/minecraft/core/Holder;
+     251: ldc           #151                // String enabled
+     253: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     256: iconst_1
+     257: anewarray     #157                // class java/lang/String
+     260: dup
+     261: iconst_0
+     262: ldc           #229                // String Whether the Strider Shoes allow sneaking on lava
+     264: aastore
+     265: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     268: putfield      #231                // Field striderShoesEnabled:Lartifacts/config/value/Value$ConfigValue;
+     271: aload_0
+     272: aload_0
+     273: getstatic     #234                // Field artifacts/registry/ModItems.WARP_DRIVE:Lnet/minecraft/core/Holder;
+     276: ldc           #151                // String enabled
+     278: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     281: iconst_1
+     282: anewarray     #157                // class java/lang/String
+     285: dup
+     286: iconst_0
+     287: ldc           #236                // String Whether the Warp Drive causes ender pearls to not be consumed
+     289: aastore
+     290: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     293: putfield      #238                // Field warpDriveEnabled:Lartifacts/config/value/Value$ConfigValue;
+     296: aload_0
+     297: aload_0
+     298: getstatic     #241                // Field artifacts/registry/ModItems.CHORUS_TOTEM:Lnet/minecraft/core/Holder;
+     301: ldc           #243                // String consumeOnUse
+     303: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     306: iconst_1
+     307: anewarray     #157                // class java/lang/String
+     310: dup
+     311: iconst_0
+     312: ldc           #245                // String Whether the Chorus Totem is consumed after activating
+     314: aastore
+     315: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     318: putfield      #247                // Field chorusTotemConsumeOnUse:Lartifacts/config/value/Value$ConfigValue;
+     321: aload_0
+     322: aload_0
+     323: getstatic     #250                // Field artifacts/registry/ModItems.FLAME_PENDANT:Lnet/minecraft/core/Holder;
+     326: ldc           #252                // String grantFireResistance
+     328: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     331: iconst_1
+     332: anewarray     #157                // class java/lang/String
+     335: dup
+     336: iconst_0
+     337: ldc           #254                // String Whether the Flame Pendant grants Fire Resistance after igniting an entity
+     339: aastore
+     340: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     343: putfield      #256                // Field flamePendantGrantFireResistance:Lartifacts/config/value/Value$ConfigValue;
+     346: aload_0
+     347: aload_0
+     348: getstatic     #213                // Field artifacts/registry/ModItems.ROOTED_BOOTS:Lnet/minecraft/core/Holder;
+     351: ldc_w         #258                // String growPlantsAfterEating
+     354: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     357: iconst_1
+     358: anewarray     #157                // class java/lang/String
+     361: dup
+     362: iconst_0
+     363: ldc_w         #260                // String Whether the Rooted Boots apply a bone meal effect after eating food
+     366: aastore
+     367: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     370: putfield      #262                // Field rootedBootsGrowPlantsAfterEating:Lartifacts/config/value/Value$ConfigValue;
+     373: aload_0
+     374: aload_0
+     375: getstatic     #220                // Field artifacts/registry/ModItems.SCARF_OF_INVISIBILITY:Lnet/minecraft/core/Holder;
+     378: ldc_w         #264                // String hideWhenInvisible
+     381: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     384: iconst_0
+     385: iconst_0
+     386: iconst_1
+     387: anewarray     #157                // class java/lang/String
+     390: dup
+     391: iconst_0
+     392: ldc_w         #266                // String Whether the Scarf of Invisibility is hidden when the wearer is invisible
+     395: aastore
+     396: invokevirtual #180                // Method defineBool:(Ljava/lang/String;ZZ[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     399: putfield      #268                // Field scarfOfInvisibilityHideWhenInvisible:Lartifacts/config/value/Value$ConfigValue;
+     402: aload_0
+     403: aload_0
+     404: getstatic     #271                // Field artifacts/registry/ModItems.SHOCK_PENDANT:Lnet/minecraft/core/Holder;
+     407: ldc_w         #273                // String cancelLightningDamage
+     410: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     413: iconst_1
+     414: anewarray     #157                // class java/lang/String
+     417: dup
+     418: iconst_0
+     419: ldc_w         #275                // String Whether the Shock Pendant cancels damage from lightning
+     422: aastore
+     423: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     426: putfield      #277                // Field shockPendantCancelLightningDamage:Lartifacts/config/value/Value$ConfigValue;
+     429: aload_0
+     430: aload_0
+     431: getstatic     #280                // Field artifacts/registry/ModItems.SNORKEL:Lnet/minecraft/core/Holder;
+     434: ldc_w         #282                // String isInfinite
+     437: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     440: iconst_0
+     441: iconst_1
+     442: iconst_1
+     443: anewarray     #157                // class java/lang/String
+     446: dup
+     447: iconst_0
+     448: ldc_w         #284                // String Whether the Snorkel\'s water breathing effect depletes when underwater
+     451: aastore
+     452: invokevirtual #180                // Method defineBool:(Ljava/lang/String;ZZ[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     455: putfield      #286                // Field snorkelIsInfinite:Lartifacts/config/value/Value$ConfigValue;
+     458: aload_0
+     459: aload_0
+     460: getstatic     #289                // Field artifacts/registry/ModItems.SNOWSHOES:Lnet/minecraft/core/Holder;
+     463: ldc_w         #291                // String allowWalkingOnPowderedSnow
+     466: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     469: iconst_1
+     470: anewarray     #157                // class java/lang/String
+     473: dup
+     474: iconst_0
+     475: ldc_w         #293                // String Whether the Snowshoes allow the wearer to walk on powdered snow
+     478: aastore
+     479: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     482: putfield      #295                // Field snowshoesAllowWalkingOnPowderedSnow:Lartifacts/config/value/Value$ConfigValue;
+     485: aload_0
+     486: aload_0
+     487: getstatic     #227                // Field artifacts/registry/ModItems.STRIDER_SHOES:Lnet/minecraft/core/Holder;
+     490: ldc_w         #297                // String cancelHotFloorDamage
+     493: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     496: iconst_1
+     497: anewarray     #157                // class java/lang/String
+     500: dup
+     501: iconst_0
+     502: ldc_w         #299                // String Whether the Strider Shoes make the wearer immune to hot floor damage
+     505: aastore
+     506: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     509: putfield      #301                // Field striderShoesCancelHotFloorDamage:Lartifacts/config/value/Value$ConfigValue;
+     512: aload_0
+     513: aload_0
+     514: getstatic     #304                // Field artifacts/registry/ModItems.UMBRELLA:Lnet/minecraft/core/Holder;
+     517: ldc_w         #306                // String isShield
+     520: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     523: iconst_1
+     524: anewarray     #157                // class java/lang/String
+     527: dup
+     528: iconst_0
+     529: ldc_w         #308                // String Whether the Umbrella can be used as a shield
+     532: aastore
+     533: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     536: putfield      #310                // Field umbrellaIsShield:Lartifacts/config/value/Value$ConfigValue;
+     539: aload_0
+     540: aload_0
+     541: getstatic     #304                // Field artifacts/registry/ModItems.UMBRELLA:Lnet/minecraft/core/Holder;
+     544: ldc_w         #312                // String isGlider
+     547: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     550: iconst_1
+     551: anewarray     #157                // class java/lang/String
+     554: dup
+     555: iconst_0
+     556: ldc_w         #314                // String Whether the Umbrella slows the player\'s falling speed when held
+     559: aastore
+     560: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     563: putfield      #316                // Field umbrellaIsGlider:Lartifacts/config/value/Value$ConfigValue;
+     566: aload_0
+     567: aload_0
+     568: getstatic     #234                // Field artifacts/registry/ModItems.WARP_DRIVE:Lnet/minecraft/core/Holder;
+     571: ldc_w         #318                // String nullifyEnderPearlDamage
+     574: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     577: iconst_1
+     578: anewarray     #157                // class java/lang/String
+     581: dup
+     582: iconst_0
+     583: ldc_w         #320                // String Whether the Warp Drive causes Ender Pearls not to deal any damage
+     586: aastore
+     587: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     590: putfield      #322                // Field warpDriveNullifyEnderPearlDamage:Lartifacts/config/value/Value$ConfigValue;
+     593: aload_0
+     594: aload_0
+     595: getstatic     #325                // Field artifacts/registry/ModItems.BUNNY_HOPPERS:Lnet/minecraft/core/Holder;
+     598: ldc_w         #327                // String modifyHurtSounds
+     601: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     604: iconst_1
+     605: anewarray     #157                // class java/lang/String
+     608: dup
+     609: iconst_0
+     610: ldc_w         #329                // String Whether the Bunny Hoppers change the player\'s hurt sounds
+     613: aastore
+     614: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     617: putfield      #331                // Field bunnyHoppersModifyHurtSounds:Lartifacts/config/value/Value$ConfigValue;
+     620: aload_0
+     621: aload_0
+     622: getstatic     #334                // Field artifacts/registry/ModItems.KITTY_SLIPPERS:Lnet/minecraft/core/Holder;
+     625: ldc_w         #327                // String modifyHurtSounds
+     628: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     631: iconst_1
+     632: anewarray     #157                // class java/lang/String
+     635: dup
+     636: iconst_0
+     637: ldc_w         #336                // String Whether the Kitty Slippers change the player\'s hurt sounds
+     640: aastore
+     641: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     644: putfield      #338                // Field kittySlippersModifyHurtSounds:Lartifacts/config/value/Value$ConfigValue;
+     647: aload_0
+     648: aload_0
+     649: getstatic     #334                // Field artifacts/registry/ModItems.KITTY_SLIPPERS:Lnet/minecraft/core/Holder;
+     652: ldc_w         #340                // String repelCreepers
+     655: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     658: iconst_1
+     659: anewarray     #157                // class java/lang/String
+     662: dup
+     663: iconst_0
+     664: ldc_w         #342                // String Whether the Kitty Slippers scare nearby creepers
+     667: aastore
+     668: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     671: putfield      #344                // Field kittySlippersRepelCreepers:Lartifacts/config/value/Value$ConfigValue;
+     674: aload_0
+     675: aload_0
+     676: getstatic     #334                // Field artifacts/registry/ModItems.KITTY_SLIPPERS:Lnet/minecraft/core/Holder;
+     679: ldc_w         #346                // String repelPhantoms
+     682: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     685: iconst_1
+     686: anewarray     #157                // class java/lang/String
+     689: dup
+     690: iconst_0
+     691: ldc_w         #348                // String Whether the Kitty Slippers hiss at nearby phantoms
+     694: aastore
+     695: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     698: putfield      #350                // Field kittySlippersRepelPhantoms:Lartifacts/config/value/Value$ConfigValue;
+     701: aload_0
+     702: aload_0
+     703: getstatic     #175                // Field artifacts/registry/ModItems.CHARM_OF_SINKING:Lnet/minecraft/core/Holder;
+     706: ldc_w         #352                // String underwaterFallDamage
+     709: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     712: iconst_0
+     713: iconst_1
+     714: iconst_1
+     715: anewarray     #157                // class java/lang/String
+     718: dup
+     719: iconst_0
+     720: ldc_w         #354                // String Whether it is possible to take fall damage underwater when wearing the Charm of Sinking
+     723: aastore
+     724: invokevirtual #180                // Method defineBool:(Ljava/lang/String;ZZ[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     727: putfield      #356                // Field charmOfSinkingUnderwaterFallDamage:Lartifacts/config/value/Value$ConfigValue;
+     730: aload_0
+     731: aload_0
+     732: getstatic     #185                // Field artifacts/registry/ModItems.CLOUD_IN_A_BOTTLE:Lnet/minecraft/core/Holder;
+     735: ldc_w         #358                // String sprintJumpVerticalVelocity
+     738: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     741: ldc2_w        #359                // double 0.25d
+     744: iconst_1
+     745: anewarray     #157                // class java/lang/String
+     748: dup
+     749: iconst_0
+     750: ldc_w         #362                // String The amount of extra vertical velocity that is applied to players that double jump while sprinting using the Cloud in a Bottle
+     753: aastore
+     754: invokevirtual #366                // Method defineNonNegativeDouble:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     757: putfield      #368                // Field cloudInABottleSprintJumpVerticalVelocity:Lartifacts/config/value/Value$ConfigValue;
+     760: aload_0
+     761: aload_0
+     762: getstatic     #185                // Field artifacts/registry/ModItems.CLOUD_IN_A_BOTTLE:Lnet/minecraft/core/Holder;
+     765: ldc_w         #370                // String sprintJumpHorizontalVelocity
+     768: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     771: ldc2_w        #359                // double 0.25d
+     774: iconst_1
+     775: anewarray     #157                // class java/lang/String
+     778: dup
+     779: iconst_0
+     780: ldc_w         #372                // String The amount of extra horizontal velocity that is applied to players that double jump while sprinting using the Cloud in a Bottle
+     783: aastore
+     784: invokevirtual #366                // Method defineNonNegativeDouble:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     787: putfield      #374                // Field cloudInABottleSprintJumpHorizontalVelocity:Lartifacts/config/value/Value$ConfigValue;
+     790: aload_0
+     791: aload_0
+     792: getstatic     #377                // Field artifacts/registry/ModItems.VAMPIRIC_GLOVE:Lnet/minecraft/core/Holder;
+     795: ldc_w         #379                // String absorptionRatio
+     798: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     801: ldc2_w        #380                // double 0.2d
+     804: iconst_1
+     805: anewarray     #157                // class java/lang/String
+     808: dup
+     809: iconst_0
+     810: ldc_w         #383                // String The proportion of melee damage dealt that is absorbed by the Vampiric Gloves
+     813: aastore
+     814: invokevirtual #366                // Method defineNonNegativeDouble:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     817: putfield      #385                // Field vampiricGloveAbsorptionRatio:Lartifacts/config/value/Value$ConfigValue;
+     820: aload_0
+     821: aload_0
+     822: getstatic     #325                // Field artifacts/registry/ModItems.BUNNY_HOPPERS:Lnet/minecraft/core/Holder;
+     825: ldc_w         #387                // String fallDamageMultiplier
+     828: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     831: dconst_0
+     832: iconst_3
+     833: anewarray     #157                // class java/lang/String
+     836: dup
+     837: iconst_0
+     838: ldc_w         #389                // String How much the Bunny Hoppers reduce or increase fall damage
+     841: aastore
+     842: dup
+     843: iconst_1
+     844: ldc_w         #391                // String Values between -1 and 0 reduce fall damage
+     847: aastore
+     848: dup
+     849: iconst_2
+     850: ldc_w         #393                // String Values above 0 increase fall damage
+     853: aastore
+     854: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     857: putfield      #398                // Field bunnyHoppersFallDamageMultiplier:Lartifacts/config/value/Value$ConfigValue;
+     860: aload_0
+     861: aload_0
+     862: getstatic     #325                // Field artifacts/registry/ModItems.BUNNY_HOPPERS:Lnet/minecraft/core/Holder;
+     865: ldc_w         #400                // String jumpStrengthBonus
+     868: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     871: ldc2_w        #401                // double 0.4d
+     874: iconst_1
+     875: anewarray     #157                // class java/lang/String
+     878: dup
+     879: iconst_0
+     880: ldc_w         #404                // String The amount of extra jump strength the Bunny Hoppers apply to players
+     883: aastore
+     884: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     887: putfield      #406                // Field bunnyHoppersJumpStrengthBonus:Lartifacts/config/value/Value$ConfigValue;
+     890: aload_0
+     891: aload_0
+     892: getstatic     #325                // Field artifacts/registry/ModItems.BUNNY_HOPPERS:Lnet/minecraft/core/Holder;
+     895: ldc_w         #408                // String safeFallDistanceBonus
+     898: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     901: ldc2_w        #409                // double 10.0d
+     904: iconst_1
+     905: anewarray     #157                // class java/lang/String
+     908: dup
+     909: iconst_0
+     910: ldc_w         #412                // String The amount of extra safe fall distance in blocks that is granted by the Bunny Hoppers
+     913: aastore
+     914: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     917: putfield      #414                // Field bunnyHoppersSafeFallDistanceBonus:Lartifacts/config/value/Value$ConfigValue;
+     920: aload_0
+     921: aload_0
+     922: getstatic     #417                // Field artifacts/registry/ModItems.CHARM_OF_SHRINKING:Lnet/minecraft/core/Holder;
+     925: ldc_w         #419                // String scaleModifier
+     928: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     931: ldc2_w        #420                // double -0.5d
+     934: iconst_3
+     935: anewarray     #157                // class java/lang/String
+     938: dup
+     939: iconst_0
+     940: ldc_w         #423                // String How much the Charm of Shrinking decreases or increases the player\'s Scale
+     943: aastore
+     944: dup
+     945: iconst_1
+     946: ldc_w         #425                // String Values between -1 and 0 reduce the player\'s scale
+     949: aastore
+     950: dup
+     951: iconst_2
+     952: ldc_w         #427                // String Values above 0 increase the player\'s scale
+     955: aastore
+     956: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     959: putfield      #429                // Field charmOfShrinkingScaleModifier:Lartifacts/config/value/Value$ConfigValue;
+     962: aload_0
+     963: aload_0
+     964: getstatic     #185                // Field artifacts/registry/ModItems.CLOUD_IN_A_BOTTLE:Lnet/minecraft/core/Holder;
+     967: ldc_w         #408                // String safeFallDistanceBonus
+     970: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+     973: ldc2_w        #430                // double 3.0d
+     976: iconst_1
+     977: anewarray     #157                // class java/lang/String
+     980: dup
+     981: iconst_0
+     982: ldc_w         #433                // String The amount of extra safe fall distance in blocks that is granted by the Cloud in a Bottle
+     985: aastore
+     986: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+     989: putfield      #435                // Field cloudInABottleSafeFallDistanceBonus:Lartifacts/config/value/Value$ConfigValue;
+     992: aload_0
+     993: aload_0
+     994: getstatic     #438                // Field artifacts/registry/ModItems.COWBOY_HAT:Lnet/minecraft/core/Holder;
+     997: ldc_w         #440                // String mountSpeedBonus
+    1000: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1003: ldc2_w        #401                // double 0.4d
+    1006: iconst_1
+    1007: anewarray     #157                // class java/lang/String
+    1010: dup
+    1011: iconst_0
+    1012: ldc_w         #442                // String How much the Cowboy Hat increases the speed of ridden mounts
+    1015: aastore
+    1016: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1019: putfield      #444                // Field cowboyHatMountSpeedBonus:Lartifacts/config/value/Value$ConfigValue;
+    1022: aload_0
+    1023: aload_0
+    1024: getstatic     #447                // Field artifacts/registry/ModItems.CROSS_NECKLACE:Lnet/minecraft/core/Holder;
+    1027: ldc_w         #449                // String bonusInvincibilityTicks
+    1030: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1033: ldc2_w        #450                // double 20.0d
+    1036: iconst_1
+    1037: anewarray     #157                // class java/lang/String
+    1040: dup
+    1041: iconst_0
+    1042: ldc_w         #453                // String The amount of extra ticks the player stays invincible for after taking damage while wearing the Cross Necklace
+    1045: aastore
+    1046: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1049: putfield      #455                // Field crossNecklaceBonusInvincibilityTicks:Lartifacts/config/value/Value$ConfigValue;
+    1052: aload_0
+    1053: aload_0
+    1054: getstatic     #458                // Field artifacts/registry/ModItems.CRYSTAL_HEART:Lnet/minecraft/core/Holder;
+    1057: ldc_w         #460                // String healthBonus
+    1060: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1063: ldc2_w        #409                // double 10.0d
+    1066: iconst_1
+    1067: anewarray     #157                // class java/lang/String
+    1070: dup
+    1071: iconst_0
+    1072: ldc_w         #462                // String The amount of extra health points that are granted by the Crystal Heart
+    1075: aastore
+    1076: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1079: putfield      #464                // Field crystalHeartHealthBonus:Lartifacts/config/value/Value$ConfigValue;
+    1082: aload_0
+    1083: aload_0
+    1084: getstatic     #467                // Field artifacts/registry/ModItems.DIGGING_CLAWS:Lnet/minecraft/core/Holder;
+    1087: ldc_w         #469                // String blockBreakSpeedBonus
+    1090: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1093: ldc2_w        #470                // double 0.3d
+    1096: iconst_1
+    1097: anewarray     #157                // class java/lang/String
+    1100: dup
+    1101: iconst_0
+    1102: ldc_w         #473                // String How much the Digging Claws increase the wearer\'s mining speed
+    1105: aastore
+    1106: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1109: putfield      #475                // Field diggingClawsBlockBreakSpeedBonus:Lartifacts/config/value/Value$ConfigValue;
+    1112: aload_0
+    1113: aload_0
+    1114: getstatic     #478                // Field artifacts/registry/ModItems.FERAL_CLAWS:Lnet/minecraft/core/Holder;
+    1117: ldc_w         #480                // String attackSpeedBonus
+    1120: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1123: ldc2_w        #470                // double 0.3d
+    1126: iconst_1
+    1127: anewarray     #157                // class java/lang/String
+    1130: dup
+    1131: iconst_0
+    1132: ldc_w         #482                // String How much the Feral Claws increase the wearer\'s attack speed
+    1135: aastore
+    1136: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1139: putfield      #484                // Field feralClawsAttackSpeedBonus:Lartifacts/config/value/Value$ConfigValue;
+    1142: aload_0
+    1143: aload_0
+    1144: getstatic     #487                // Field artifacts/registry/ModItems.FIRE_GAUNTLET:Lnet/minecraft/core/Holder;
+    1147: ldc_w         #489                // String fireDuration
+    1150: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1153: ldc2_w        #490                // double 8.0d
+    1156: iconst_1
+    1157: anewarray     #157                // class java/lang/String
+    1160: dup
+    1161: iconst_0
+    1162: ldc_w         #493                // String How long an entity is set on fire for after being attacked by an entity wearing the Fire Gauntlet
+    1165: aastore
+    1166: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1169: putfield      #495                // Field fireGauntletFireDuration:Lartifacts/config/value/Value$ConfigValue;
+    1172: aload_0
+    1173: aload_0
+    1174: getstatic     #498                // Field artifacts/registry/ModItems.FLIPPERS:Lnet/minecraft/core/Holder;
+    1177: ldc_w         #500                // String swimSpeedBonus
+    1180: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1183: ldc2_w        #501                // double 0.7d
+    1186: iconst_1
+    1187: anewarray     #157                // class java/lang/String
+    1190: dup
+    1191: iconst_0
+    1192: ldc_w         #504                // String How much the Flippers increase the wearer\'s swim speed
+    1195: aastore
+    1196: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1199: putfield      #506                // Field flippersSwimSpeedBonus:Lartifacts/config/value/Value$ConfigValue;
+    1202: aload_0
+    1203: aload_0
+    1204: getstatic     #509                // Field artifacts/registry/ModItems.GOLDEN_HOOK:Lnet/minecraft/core/Holder;
+    1207: ldc_w         #511                // String entityExperienceBonus
+    1210: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1213: ldc2_w        #512                // double 0.5d
+    1216: iconst_1
+    1217: anewarray     #157                // class java/lang/String
+    1220: dup
+    1221: iconst_0
+    1222: ldc_w         #515                // String The amount of extra experience dropped by entities that are killed by players wearing the Golden Hook
+    1225: aastore
+    1226: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1229: putfield      #517                // Field goldenHookEntityExperienceBonus:Lartifacts/config/value/Value$ConfigValue;
+    1232: aload_0
+    1233: aload_0
+    1234: getstatic     #520                // Field artifacts/registry/ModItems.NOVELTY_DRINKING_HAT:Lnet/minecraft/core/Holder;
+    1237: ldc_w         #522                // String drinkingSpeedBonus
+    1240: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1243: ldc2_w        #523                // double 1.5d
+    1246: iconst_1
+    1247: anewarray     #157                // class java/lang/String
+    1250: dup
+    1251: iconst_0
+    1252: ldc_w         #526                // String How much the Novelty Drinking Hat increases the wearer\'s drinking speed
+    1255: aastore
+    1256: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1259: putfield      #528                // Field noveltyDrinkingHatDrinkingSpeedBonus:Lartifacts/config/value/Value$ConfigValue;
+    1262: aload_0
+    1263: aload_0
+    1264: getstatic     #520                // Field artifacts/registry/ModItems.NOVELTY_DRINKING_HAT:Lnet/minecraft/core/Holder;
+    1267: ldc_w         #530                // String eatingSpeedBonus
+    1270: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1273: ldc2_w        #512                // double 0.5d
+    1276: iconst_1
+    1277: anewarray     #157                // class java/lang/String
+    1280: dup
+    1281: iconst_0
+    1282: ldc_w         #532                // String How much the Novelty Drinking Hat increases the wearer\'s eating speed
+    1285: aastore
+    1286: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1289: putfield      #534                // Field noveltyDrinkingHatEatingSpeedBonus:Lartifacts/config/value/Value$ConfigValue;
+    1292: aload_0
+    1293: aload_0
+    1294: getstatic     #537                // Field artifacts/registry/ModItems.PLASTIC_DRINKING_HAT:Lnet/minecraft/core/Holder;
+    1297: ldc_w         #522                // String drinkingSpeedBonus
+    1300: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1303: ldc2_w        #523                // double 1.5d
+    1306: iconst_1
+    1307: anewarray     #157                // class java/lang/String
+    1310: dup
+    1311: iconst_0
+    1312: ldc_w         #539                // String How much the Plastic Drinking Hat increases the wearer\'s drinking speed
+    1315: aastore
+    1316: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1319: putfield      #541                // Field plasticDrinkingHatDrinkingSpeedBonus:Lartifacts/config/value/Value$ConfigValue;
+    1322: aload_0
+    1323: aload_0
+    1324: getstatic     #537                // Field artifacts/registry/ModItems.PLASTIC_DRINKING_HAT:Lnet/minecraft/core/Holder;
+    1327: ldc_w         #530                // String eatingSpeedBonus
+    1330: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1333: ldc2_w        #512                // double 0.5d
+    1336: iconst_1
+    1337: anewarray     #157                // class java/lang/String
+    1340: dup
+    1341: iconst_0
+    1342: ldc_w         #543                // String How much the Plastic Drinking Hat increases the wearer\'s eating speed
+    1345: aastore
+    1346: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1349: putfield      #545                // Field plasticDrinkingHatEatingSpeedBonus:Lartifacts/config/value/Value$ConfigValue;
+    1352: aload_0
+    1353: aload_0
+    1354: getstatic     #548                // Field artifacts/registry/ModItems.POCKET_PISTON:Lnet/minecraft/core/Holder;
+    1357: ldc_w         #550                // String attackKnockbackBonus
+    1360: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1363: ldc2_w        #551                // double 0.75d
+    1366: iconst_1
+    1367: anewarray     #157                // class java/lang/String
+    1370: dup
+    1371: iconst_0
+    1372: ldc_w         #554                // String The amount of extra knockback that is granted by the Pocket Piston
+    1375: aastore
+    1376: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1379: putfield      #556                // Field pocketPistonAttackKnockbackBonus:Lartifacts/config/value/Value$ConfigValue;
+    1382: aload_0
+    1383: aload_0
+    1384: getstatic     #559                // Field artifacts/registry/ModItems.POWER_GLOVE:Lnet/minecraft/core/Holder;
+    1387: ldc_w         #561                // String attackDamageBonus
+    1390: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1393: ldc2_w        #562                // double 4.0d
+    1396: iconst_1
+    1397: anewarray     #157                // class java/lang/String
+    1400: dup
+    1401: iconst_0
+    1402: ldc_w         #565                // String The amount of extra damage that is dealt by melee attacks from players wearing the Power Glove
+    1405: aastore
+    1406: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1409: putfield      #567                // Field powerGloveAttackDamageBonus:Lartifacts/config/value/Value$ConfigValue;
+    1412: aload_0
+    1413: aload_0
+    1414: getstatic     #570                // Field artifacts/registry/ModItems.RUNNING_SHOES:Lnet/minecraft/core/Holder;
+    1417: ldc_w         #572                // String sprintingSpeedBonus
+    1420: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1423: ldc2_w        #401                // double 0.4d
+    1426: iconst_1
+    1427: anewarray     #157                // class java/lang/String
+    1430: dup
+    1431: iconst_0
+    1432: ldc_w         #574                // String How much the Running Shoes increase the wearer\'s sprinting speed
+    1435: aastore
+    1436: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1439: putfield      #576                // Field runningShoesSprintingSpeedBonus:Lartifacts/config/value/Value$ConfigValue;
+    1442: aload_0
+    1443: aload_0
+    1444: getstatic     #570                // Field artifacts/registry/ModItems.RUNNING_SHOES:Lnet/minecraft/core/Holder;
+    1447: ldc_w         #578                // String sprintingStepHeightBonus
+    1450: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1453: ldc2_w        #512                // double 0.5d
+    1456: iconst_1
+    1457: anewarray     #157                // class java/lang/String
+    1460: dup
+    1461: iconst_0
+    1462: ldc_w         #580                // String How much the Running Shoes increase the wearer\'s step height while sprinting
+    1465: aastore
+    1466: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1469: putfield      #582                // Field runningShoesSprintingStepHeightBonus:Lartifacts/config/value/Value$ConfigValue;
+    1472: aload_0
+    1473: aload_0
+    1474: getstatic     #289                // Field artifacts/registry/ModItems.SNOWSHOES:Lnet/minecraft/core/Holder;
+    1477: ldc_w         #584                // String movementSpeedOnSnowBonus
+    1480: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1483: ldc2_w        #470                // double 0.3d
+    1486: iconst_1
+    1487: anewarray     #157                // class java/lang/String
+    1490: dup
+    1491: iconst_0
+    1492: ldc_w         #586                // String How much the Snowshoes increase the wearer\'s movement speed on snow blocks
+    1495: aastore
+    1496: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1499: putfield      #588                // Field snowshoesMovementSpeedOnSnowBonus:Lartifacts/config/value/Value$ConfigValue;
+    1502: aload_0
+    1503: aload_0
+    1504: getstatic     #591                // Field artifacts/registry/ModItems.STEADFAST_SPIKES:Lnet/minecraft/core/Holder;
+    1507: ldc_w         #593                // String knockbackResistance
+    1510: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1513: dconst_1
+    1514: iconst_1
+    1515: anewarray     #157                // class java/lang/String
+    1518: dup
+    1519: iconst_0
+    1520: ldc_w         #595                // String How much knockback resistance is granted by the Steadfast Spikes
+    1523: aastore
+    1524: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1527: putfield      #597                // Field steadfastSpikesKnockbackResistance:Lartifacts/config/value/Value$ConfigValue;
+    1530: aload_0
+    1531: aload_0
+    1532: getstatic     #591                // Field artifacts/registry/ModItems.STEADFAST_SPIKES:Lnet/minecraft/core/Holder;
+    1535: ldc_w         #599                // String slipperinessReduction
+    1538: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1541: dconst_1
+    1542: iconst_1
+    1543: anewarray     #157                // class java/lang/String
+    1546: dup
+    1547: iconst_0
+    1548: ldc_w         #601                // String How much the Steadfast Spikes reduce the slipperiness of ice
+    1551: aastore
+    1552: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1555: putfield      #603                // Field steadfastSpikesSlipperinessReduction:Lartifacts/config/value/Value$ConfigValue;
+    1558: aload_0
+    1559: aload_0
+    1560: getstatic     #606                // Field artifacts/registry/ModItems.VILLAGER_HAT:Lnet/minecraft/core/Holder;
+    1563: ldc_w         #608                // String reputationBonus
+    1566: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1569: ldc2_w        #609                // double 75.0d
+    1572: iconst_1
+    1573: anewarray     #157                // class java/lang/String
+    1576: dup
+    1577: iconst_0
+    1578: ldc_w         #612                // String The amount of extra reputation that is granted by the Villager Hat when trading with villagers
+    1581: aastore
+    1582: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1585: putfield      #614                // Field villagerHatReputationBonus:Lartifacts/config/value/Value$ConfigValue;
+    1588: aload_0
+    1589: aload_0
+    1590: getstatic     #175                // Field artifacts/registry/ModItems.CHARM_OF_SINKING:Lnet/minecraft/core/Holder;
+    1593: ldc_w         #616                // String oxygenBonus
+    1596: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1599: ldc2_w        #523                // double 1.5d
+    1602: iconst_1
+    1603: anewarray     #157                // class java/lang/String
+    1606: dup
+    1607: iconst_0
+    1608: ldc_w         #618                // String How much longer players wearing the Charm of Sinking can stay underwater
+    1611: aastore
+    1612: invokevirtual #396                // Method defineAttributeModifier:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1615: putfield      #620                // Field charmOfSinkingOxygenBonus:Lartifacts/config/value/Value$ConfigValue;
+    1618: aload_0
+    1619: aload_0
+    1620: getstatic     #623                // Field artifacts/registry/ModItems.WHOOPEE_CUSHION:Lnet/minecraft/core/Holder;
+    1623: ldc_w         #625                // String fartChance
+    1626: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1629: ldc2_w        #626                // double 0.12d
+    1632: iconst_1
+    1633: anewarray     #157                // class java/lang/String
+    1636: dup
+    1637: iconst_0
+    1638: ldc_w         #629                // String The probability that a fart sound plays when sneaking or double jumping while wearing the Whoopee Cushion
+    1641: aastore
+    1642: invokevirtual #632                // Method defineFraction:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1645: putfield      #634                // Field whoopeeCushionFartChance:Lartifacts/config/value/Value$ConfigValue;
+    1648: aload_0
+    1649: aload_0
+    1650: getstatic     #241                // Field artifacts/registry/ModItems.CHORUS_TOTEM:Lnet/minecraft/core/Holder;
+    1653: ldc_w         #636                // String teleportationChance
+    1656: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1659: dconst_1
+    1660: iconst_1
+    1661: anewarray     #157                // class java/lang/String
+    1664: dup
+    1665: iconst_0
+    1666: ldc_w         #638                // String The probability that the Chorus Totem activates when a player dies
+    1669: aastore
+    1670: invokevirtual #632                // Method defineFraction:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1673: putfield      #640                // Field chorusTotemTeleportationChance:Lartifacts/config/value/Value$ConfigValue;
+    1676: aload_0
+    1677: aload_0
+    1678: getstatic     #250                // Field artifacts/registry/ModItems.FLAME_PENDANT:Lnet/minecraft/core/Holder;
+    1681: ldc_w         #642                // String strikeChance
+    1684: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1687: ldc2_w        #401                // double 0.4d
+    1690: iconst_1
+    1691: anewarray     #157                // class java/lang/String
+    1694: dup
+    1695: iconst_0
+    1696: ldc_w         #644                // String The probability that the Flame Pendant lights an attacker on fire
+    1699: aastore
+    1700: invokevirtual #632                // Method defineFraction:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1703: putfield      #646                // Field flamePendantStrikeChance:Lartifacts/config/value/Value$ConfigValue;
+    1706: aload_0
+    1707: aload_0
+    1708: getstatic     #649                // Field artifacts/registry/ModItems.NIGHT_VISION_GOGGLES:Lnet/minecraft/core/Holder;
+    1711: ldc_w         #651                // String strength
+    1714: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1717: ldc2_w        #652                // double 0.15d
+    1720: iconst_1
+    1721: anewarray     #157                // class java/lang/String
+    1724: dup
+    1725: iconst_0
+    1726: ldc_w         #655                // String The strength of the night vision effect applied by the Night Vision Goggles
+    1729: aastore
+    1730: invokevirtual #632                // Method defineFraction:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1733: putfield      #657                // Field nightVisionGogglesStrength:Lartifacts/config/value/Value$ConfigValue;
+    1736: aload_0
+    1737: aload_0
+    1738: getstatic     #660                // Field artifacts/registry/ModItems.THORN_PENDANT:Lnet/minecraft/core/Holder;
+    1741: ldc_w         #642                // String strikeChance
+    1744: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1747: ldc2_w        #512                // double 0.5d
+    1750: iconst_1
+    1751: anewarray     #157                // class java/lang/String
+    1754: dup
+    1755: iconst_0
+    1756: ldc_w         #662                // String The probability that the Thorn Pendant damages an attacking entity
+    1759: aastore
+    1760: invokevirtual #632                // Method defineFraction:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1763: putfield      #664                // Field thornPendantStrikeChance:Lartifacts/config/value/Value$ConfigValue;
+    1766: aload_0
+    1767: aload_0
+    1768: getstatic     #271                // Field artifacts/registry/ModItems.SHOCK_PENDANT:Lnet/minecraft/core/Holder;
+    1771: ldc_w         #642                // String strikeChance
+    1774: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1777: ldc2_w        #359                // double 0.25d
+    1780: iconst_1
+    1781: anewarray     #157                // class java/lang/String
+    1784: dup
+    1785: iconst_0
+    1786: ldc_w         #666                // String The probability that the Shock Pendant strikes an attacking entity with lightning
+    1789: aastore
+    1790: invokevirtual #632                // Method defineFraction:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1793: putfield      #668                // Field shockPendantStrikeChance:Lartifacts/config/value/Value$ConfigValue;
+    1796: aload_0
+    1797: aload_0
+    1798: getstatic     #377                // Field artifacts/registry/ModItems.VAMPIRIC_GLOVE:Lnet/minecraft/core/Holder;
+    1801: ldc_w         #670                // String absorptionChance
+    1804: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1807: dconst_1
+    1808: iconst_1
+    1809: anewarray     #157                // class java/lang/String
+    1812: dup
+    1813: iconst_0
+    1814: ldc_w         #672                // String The probability that damage is absorbed when attacking an entity with the Vampiric Gloves
+    1817: aastore
+    1818: invokevirtual #632                // Method defineFraction:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1821: putfield      #674                // Field vampiricGloveAbsorptionChance:Lartifacts/config/value/Value$ConfigValue;
+    1824: aload_0
+    1825: aload_0
+    1826: getstatic     #677                // Field artifacts/registry/ModItems.WITHERED_BRACELET:Lnet/minecraft/core/Holder;
+    1829: ldc_w         #679                // String witherChance
+    1832: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1835: ldc2_w        #470                // double 0.3d
+    1838: iconst_1
+    1839: anewarray     #157                // class java/lang/String
+    1842: dup
+    1843: iconst_0
+    1844: ldc_w         #681                // String The probability that the Withered Bracelet inflicts a wither effect
+    1847: aastore
+    1848: invokevirtual #632                // Method defineFraction:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1851: putfield      #683                // Field witheredBraceletWitherChance:Lartifacts/config/value/Value$ConfigValue;
+    1854: aload_0
+    1855: aload_0
+    1856: getstatic     #199                // Field artifacts/registry/ModItems.EVERLASTING_BEEF:Lnet/minecraft/core/Holder;
+    1859: ldc_w         #685                // String dropRate
+    1862: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1865: ldc2_w        #686                // double 0.002d
+    1868: iconst_1
+    1869: anewarray     #157                // class java/lang/String
+    1872: dup
+    1873: iconst_0
+    1874: ldc_w         #689                // String The probability that Everlasting Beef drops when a cow or mooshroom is killed by a player
+    1877: aastore
+    1878: invokevirtual #632                // Method defineFraction:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1881: putfield      #691                // Field everlastingBeefDropRate:Lartifacts/config/value/Value$ConfigValue;
+    1884: aload_0
+    1885: aload_0
+    1886: getstatic     #185                // Field artifacts/registry/ModItems.CLOUD_IN_A_BOTTLE:Lnet/minecraft/core/Holder;
+    1889: ldc_w         #387                // String fallDamageMultiplier
+    1892: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1895: dconst_0
+    1896: iconst_1
+    1897: anewarray     #157                // class java/lang/String
+    1900: dup
+    1901: iconst_0
+    1902: ldc_w         #693                // String How much fall damage is dealt when double jumping with the Cloud in a Bottle
+    1905: aastore
+    1906: invokevirtual #632                // Method defineFraction:(Ljava/lang/String;D[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1909: putfield      #695                // Field cloudInABottleFallDamageMultiplier:Lartifacts/config/value/Value$ConfigValue;
+    1912: aload_0
+    1913: aload_0
+    1914: getstatic     #241                // Field artifacts/registry/ModItems.CHORUS_TOTEM:Lnet/minecraft/core/Holder;
+    1917: ldc_w         #697                // String healthRestored
+    1920: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1923: bipush        10
+    1925: iconst_1
+    1926: anewarray     #157                // class java/lang/String
+    1929: dup
+    1930: iconst_0
+    1931: ldc_w         #699                // String The amount of health points that are restored after the Chorus Totem activates
+    1934: aastore
+    1935: invokevirtual #703                // Method defineNonNegativeInt:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1938: putfield      #705                // Field chorusTotemHealthRestored:Lartifacts/config/value/Value$ConfigValue;
+    1941: aload_0
+    1942: aload_0
+    1943: getstatic     #660                // Field artifacts/registry/ModItems.THORN_PENDANT:Lnet/minecraft/core/Holder;
+    1946: ldc_w         #707                // String maxDamage
+    1949: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1952: bipush        6
+    1954: iconst_1
+    1955: anewarray     #157                // class java/lang/String
+    1958: dup
+    1959: iconst_0
+    1960: ldc_w         #709                // String The minimum amount of damage that is dealt when the Thorn Pendant activates
+    1963: aastore
+    1964: invokevirtual #703                // Method defineNonNegativeInt:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1967: putfield      #711                // Field thornPendantMaxDamage:Lartifacts/config/value/Value$ConfigValue;
+    1970: aload_0
+    1971: aload_0
+    1972: getstatic     #660                // Field artifacts/registry/ModItems.THORN_PENDANT:Lnet/minecraft/core/Holder;
+    1975: ldc_w         #713                // String minDamage
+    1978: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    1981: iconst_2
+    1982: iconst_1
+    1983: anewarray     #157                // class java/lang/String
+    1986: dup
+    1987: iconst_0
+    1988: ldc_w         #715                // String The maximum amount of damage that is dealt when the Thorn Pendant activates
+    1991: aastore
+    1992: invokevirtual #703                // Method defineNonNegativeInt:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    1995: putfield      #717                // Field thornPendantMinDamage:Lartifacts/config/value/Value$ConfigValue;
+    1998: aload_0
+    1999: aload_0
+    2000: getstatic     #234                // Field artifacts/registry/ModItems.WARP_DRIVE:Lnet/minecraft/core/Holder;
+    2003: ldc_w         #719                // String hungerCost
+    2006: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2009: iconst_2
+    2010: iconst_1
+    2011: anewarray     #157                // class java/lang/String
+    2014: dup
+    2015: iconst_0
+    2016: ldc_w         #721                // String How many hunger points it costs to throw an Ender Pearl using the Warp Drive
+    2019: aastore
+    2020: invokevirtual #703                // Method defineNonNegativeInt:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2023: putfield      #723                // Field warpDriveHungerCost:Lartifacts/config/value/Value$ConfigValue;
+    2026: aload_0
+    2027: aload_0
+    2028: getstatic     #377                // Field artifacts/registry/ModItems.VAMPIRIC_GLOVE:Lnet/minecraft/core/Holder;
+    2031: ldc_w         #725                // String maxHealingPerHit
+    2034: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2037: bipush        6
+    2039: iconst_1
+    2040: anewarray     #157                // class java/lang/String
+    2043: dup
+    2044: iconst_0
+    2045: ldc_w         #727                // String The maximum amount of healing that can be absorbed in a single hit when attacking an entity while wearing the Vampiric Glove
+    2048: aastore
+    2049: invokevirtual #703                // Method defineNonNegativeInt:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2052: putfield      #729                // Field vampiricGloveMaxHealingPerHit:Lartifacts/config/value/Value$ConfigValue;
+    2055: aload_0
+    2056: aload_0
+    2057: getstatic     #149                // Field artifacts/registry/ModItems.ANTIDOTE_VESSEL:Lnet/minecraft/core/Holder;
+    2060: ldc_w         #731                // String maxEffectDuration
+    2063: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2066: iconst_5
+    2067: iconst_1
+    2068: anewarray     #157                // class java/lang/String
+    2071: dup
+    2072: iconst_0
+    2073: ldc_w         #733                // String The maximum duration in seconds negative mob effects can last when wearing the Antidote Vessel
+    2076: aastore
+    2077: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2080: putfield      #738                // Field antidoteVesselMaxEffectDuration:Lartifacts/config/value/Value$ConfigValue;
+    2083: aload_0
+    2084: aload_0
+    2085: getstatic     #241                // Field artifacts/registry/ModItems.CHORUS_TOTEM:Lnet/minecraft/core/Holder;
+    2088: ldc_w         #740                // String cooldown
+    2091: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2094: iconst_0
+    2095: iconst_1
+    2096: anewarray     #157                // class java/lang/String
+    2099: dup
+    2100: iconst_0
+    2101: ldc_w         #742                // String The duration in seconds the Chorus Totem goes on cooldown for after activating
+    2104: aastore
+    2105: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2108: putfield      #744                // Field chorusTotemCooldown:Lartifacts/config/value/Value$ConfigValue;
+    2111: aload_0
+    2112: aload_0
+    2113: getstatic     #447                // Field artifacts/registry/ModItems.CROSS_NECKLACE:Lnet/minecraft/core/Holder;
+    2116: ldc_w         #740                // String cooldown
+    2119: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2122: iconst_0
+    2123: iconst_1
+    2124: anewarray     #157                // class java/lang/String
+    2127: dup
+    2128: iconst_0
+    2129: ldc_w         #746                // String The duration in seconds the Cross Necklace goes on cooldown for after activating
+    2132: aastore
+    2133: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2136: putfield      #748                // Field crossNecklaceCooldown:Lartifacts/config/value/Value$ConfigValue;
+    2139: aload_0
+    2140: aload_0
+    2141: getstatic     #192                // Field artifacts/registry/ModItems.ETERNAL_STEAK:Lnet/minecraft/core/Holder;
+    2144: ldc_w         #740                // String cooldown
+    2147: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2150: bipush        15
+    2152: iconst_1
+    2153: anewarray     #157                // class java/lang/String
+    2156: dup
+    2157: iconst_0
+    2158: ldc_w         #750                // String The duration in seconds the Eternal Steak goes on cooldown for after being eaten
+    2161: aastore
+    2162: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2165: putfield      #752                // Field eternalSteakCooldown:Lartifacts/config/value/Value$ConfigValue;
+    2168: aload_0
+    2169: aload_0
+    2170: getstatic     #199                // Field artifacts/registry/ModItems.EVERLASTING_BEEF:Lnet/minecraft/core/Holder;
+    2173: ldc_w         #740                // String cooldown
+    2176: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2179: bipush        15
+    2181: iconst_1
+    2182: anewarray     #157                // class java/lang/String
+    2185: dup
+    2186: iconst_0
+    2187: ldc_w         #754                // String The duration in seconds the Everlasting Beef goes on cooldown for after being eaten
+    2190: aastore
+    2191: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2194: putfield      #756                // Field everlastingBeefCooldown:Lartifacts/config/value/Value$ConfigValue;
+    2197: aload_0
+    2198: aload_0
+    2199: getstatic     #250                // Field artifacts/registry/ModItems.FLAME_PENDANT:Lnet/minecraft/core/Holder;
+    2202: ldc_w         #740                // String cooldown
+    2205: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2208: iconst_0
+    2209: iconst_1
+    2210: anewarray     #157                // class java/lang/String
+    2213: dup
+    2214: iconst_0
+    2215: ldc_w         #758                // String The duration in seconds the Flame Pendant goes on cooldown for after setting an entity on fire
+    2218: aastore
+    2219: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2222: putfield      #760                // Field flamePendantCooldown:Lartifacts/config/value/Value$ConfigValue;
+    2225: aload_0
+    2226: aload_0
+    2227: getstatic     #250                // Field artifacts/registry/ModItems.FLAME_PENDANT:Lnet/minecraft/core/Holder;
+    2230: ldc_w         #489                // String fireDuration
+    2233: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2236: bipush        10
+    2238: iconst_1
+    2239: anewarray     #157                // class java/lang/String
+    2242: dup
+    2243: iconst_0
+    2244: ldc_w         #762                // String How long an attacking entity is set on fire for when the Flame Pendant activates
+    2247: aastore
+    2248: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2251: putfield      #764                // Field flamePendantFireDuration:Lartifacts/config/value/Value$ConfigValue;
+    2254: aload_0
+    2255: aload_0
+    2256: getstatic     #767                // Field artifacts/registry/ModItems.HELIUM_FLAMINGO:Lnet/minecraft/core/Holder;
+    2259: ldc_w         #769                // String flightDuration
+    2262: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2265: bipush        8
+    2267: iconst_1
+    2268: anewarray     #157                // class java/lang/String
+    2271: dup
+    2272: iconst_0
+    2273: ldc_w         #771                // String The amount of time in seconds a player can fly with the Helium Flamingo before needing to recharge
+    2276: aastore
+    2277: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2280: putfield      #773                // Field heliumFlamingoFlightDuration:Lartifacts/config/value/Value$ConfigValue;
+    2283: aload_0
+    2284: aload_0
+    2285: getstatic     #767                // Field artifacts/registry/ModItems.HELIUM_FLAMINGO:Lnet/minecraft/core/Holder;
+    2288: ldc_w         #775                // String rechargeDuration
+    2291: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2294: bipush        15
+    2296: iconst_1
+    2297: anewarray     #157                // class java/lang/String
+    2300: dup
+    2301: iconst_0
+    2302: ldc_w         #777                // String The amount of time in seconds it takes for the Helium Flamingo to recharge
+    2305: aastore
+    2306: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2309: putfield      #779                // Field heliumFlamingoRechargeDuration:Lartifacts/config/value/Value$ConfigValue;
+    2312: aload_0
+    2313: aload_0
+    2314: getstatic     #767                // Field artifacts/registry/ModItems.HELIUM_FLAMINGO:Lnet/minecraft/core/Holder;
+    2317: ldc_w         #740                // String cooldown
+    2320: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2323: iconst_3
+    2324: iconst_1
+    2325: anewarray     #157                // class java/lang/String
+    2328: dup
+    2329: iconst_0
+    2330: ldc_w         #781                // String The duration in seconds the Helium Flamingo goes on cooldown for when stopping flight
+    2333: aastore
+    2334: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2337: putfield      #783                // Field heliumFlamingoCooldown:Lartifacts/config/value/Value$ConfigValue;
+    2340: aload_0
+    2341: aload_0
+    2342: getstatic     #786                // Field artifacts/registry/ModItems.OBSIDIAN_SKULL:Lnet/minecraft/core/Holder;
+    2345: ldc_w         #740                // String cooldown
+    2348: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2351: bipush        60
+    2353: iconst_1
+    2354: anewarray     #157                // class java/lang/String
+    2357: dup
+    2358: iconst_0
+    2359: ldc_w         #788                // String The amount of time in seconds the Obsidian Skull goes on cooldown for after taking fire damage
+    2362: aastore
+    2363: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2366: putfield      #790                // Field obsidianSkullCooldown:Lartifacts/config/value/Value$ConfigValue;
+    2369: aload_0
+    2370: aload_0
+    2371: getstatic     #786                // Field artifacts/registry/ModItems.OBSIDIAN_SKULL:Lnet/minecraft/core/Holder;
+    2374: ldc_w         #792                // String fireResistanceDuration
+    2377: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2380: bipush        30
+    2382: iconst_1
+    2383: anewarray     #157                // class java/lang/String
+    2386: dup
+    2387: iconst_0
+    2388: ldc_w         #794                // String The duration of the fire resistance effect that is applied when taking fire damage while wearing the Obsidian Skull
+    2391: aastore
+    2392: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2395: putfield      #796                // Field obsidianSkullFireResistanceDuration:Lartifacts/config/value/Value$ConfigValue;
+    2398: aload_0
+    2399: aload_0
+    2400: getstatic     #799                // Field artifacts/registry/ModItems.ONION_RING:Lnet/minecraft/core/Holder;
+    2403: ldc_w         #801                // String hasteDurationPerFoodPoint
+    2406: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2409: bipush        6
+    2411: iconst_1
+    2412: anewarray     #157                // class java/lang/String
+    2415: dup
+    2416: iconst_0
+    2417: ldc_w         #803                // String The duration of haste that is applied per food point eaten while wearing the Onion Ring
+    2420: aastore
+    2421: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2424: putfield      #805                // Field onionRingHasteDurationPerFoodPoint:Lartifacts/config/value/Value$ConfigValue;
+    2427: aload_0
+    2428: aload_0
+    2429: getstatic     #808                // Field artifacts/registry/ModItems.PANIC_NECKLACE:Lnet/minecraft/core/Holder;
+    2432: ldc_w         #740                // String cooldown
+    2435: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2438: iconst_0
+    2439: iconst_1
+    2440: anewarray     #157                // class java/lang/String
+    2443: dup
+    2444: iconst_0
+    2445: ldc_w         #810                // String The duration in seconds the Panic Necklace goes on cooldown for after taking damage
+    2448: aastore
+    2449: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2452: putfield      #812                // Field panicNecklaceCooldown:Lartifacts/config/value/Value$ConfigValue;
+    2455: aload_0
+    2456: aload_0
+    2457: getstatic     #808                // Field artifacts/registry/ModItems.PANIC_NECKLACE:Lnet/minecraft/core/Holder;
+    2460: ldc_w         #814                // String speedDuration
+    2463: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2466: bipush        8
+    2468: iconst_1
+    2469: anewarray     #157                // class java/lang/String
+    2472: dup
+    2473: iconst_0
+    2474: ldc_w         #816                // String The duration in seconds of the speed effect that is applied when taking damage while wearing the Panic Necklace
+    2477: aastore
+    2478: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2481: putfield      #818                // Field panicNecklaceSpeedDuration:Lartifacts/config/value/Value$ConfigValue;
+    2484: aload_0
+    2485: aload_0
+    2486: getstatic     #213                // Field artifacts/registry/ModItems.ROOTED_BOOTS:Lnet/minecraft/core/Holder;
+    2489: ldc_w         #820                // String hungerReplenishingDuration
+    2492: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2495: bipush        10
+    2497: iconst_1
+    2498: anewarray     #157                // class java/lang/String
+    2501: dup
+    2502: iconst_0
+    2503: ldc_w         #822                // String The amount of time in seconds it takes to replenish a single point of hunger while wearing the Rooted Boots
+    2506: aastore
+    2507: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2510: putfield      #824                // Field rootedBootsHungerReplenishingDuration:Lartifacts/config/value/Value$ConfigValue;
+    2513: aload_0
+    2514: aload_0
+    2515: getstatic     #271                // Field artifacts/registry/ModItems.SHOCK_PENDANT:Lnet/minecraft/core/Holder;
+    2518: ldc_w         #740                // String cooldown
+    2521: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2524: iconst_0
+    2525: iconst_1
+    2526: anewarray     #157                // class java/lang/String
+    2529: dup
+    2530: iconst_0
+    2531: ldc_w         #826                // String The amount of time in seconds the Shock Pendant goes on cooldown for after striking an attacker with lightning
+    2534: aastore
+    2535: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2538: putfield      #828                // Field shockPendantCooldown:Lartifacts/config/value/Value$ConfigValue;
+    2541: aload_0
+    2542: aload_0
+    2543: getstatic     #280                // Field artifacts/registry/ModItems.SNORKEL:Lnet/minecraft/core/Holder;
+    2546: ldc_w         #830                // String waterBreathingDuration
+    2549: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2552: bipush        30
+    2554: iconst_1
+    2555: anewarray     #157                // class java/lang/String
+    2558: dup
+    2559: iconst_0
+    2560: ldc_w         #832                // String The duration of the water breathing effect that is applied by the Snorkel
+    2563: aastore
+    2564: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2567: putfield      #834                // Field snorkelWaterBreathingDuration:Lartifacts/config/value/Value$ConfigValue;
+    2570: aload_0
+    2571: aload_0
+    2572: getstatic     #660                // Field artifacts/registry/ModItems.THORN_PENDANT:Lnet/minecraft/core/Holder;
+    2575: ldc_w         #740                // String cooldown
+    2578: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2581: iconst_0
+    2582: iconst_1
+    2583: anewarray     #157                // class java/lang/String
+    2586: dup
+    2587: iconst_0
+    2588: ldc_w         #836                // String The duration in seconds the Thorn Pendant goes on cooldown for after activating
+    2591: aastore
+    2592: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2595: putfield      #838                // Field thornPendantCooldown:Lartifacts/config/value/Value$ConfigValue;
+    2598: aload_0
+    2599: aload_0
+    2600: getstatic     #234                // Field artifacts/registry/ModItems.WARP_DRIVE:Lnet/minecraft/core/Holder;
+    2603: ldc_w         #740                // String cooldown
+    2606: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2609: iconst_0
+    2610: iconst_1
+    2611: anewarray     #157                // class java/lang/String
+    2614: dup
+    2615: iconst_0
+    2616: ldc_w         #840                // String The duration Ender Pearls go on cooldown for after being thrown using the Warp Drive
+    2619: aastore
+    2620: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2623: putfield      #842                // Field warpDriveCooldown:Lartifacts/config/value/Value$ConfigValue;
+    2626: aload_0
+    2627: aload_0
+    2628: getstatic     #677                // Field artifacts/registry/ModItems.WITHERED_BRACELET:Lnet/minecraft/core/Holder;
+    2631: ldc_w         #740                // String cooldown
+    2634: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2637: iconst_0
+    2638: iconst_1
+    2639: anewarray     #157                // class java/lang/String
+    2642: dup
+    2643: iconst_0
+    2644: ldc_w         #844                // String The duration the Withered Bracelet goes on cooldown for after inflicting wither on an entity
+    2647: aastore
+    2648: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2651: putfield      #846                // Field witheredBraceletCooldown:Lartifacts/config/value/Value$ConfigValue;
+    2654: aload_0
+    2655: aload_0
+    2656: getstatic     #677                // Field artifacts/registry/ModItems.WITHERED_BRACELET:Lnet/minecraft/core/Holder;
+    2659: ldc_w         #848                // String witherDuration
+    2662: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2665: bipush        8
+    2667: iconst_1
+    2668: anewarray     #157                // class java/lang/String
+    2671: dup
+    2672: iconst_0
+    2673: ldc_w         #850                // String The duration of the wither effect applied by the Withered Bracelet
+    2676: aastore
+    2677: invokevirtual #736                // Method defineDuration:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2680: putfield      #852                // Field witheredBraceletWitherDuration:Lartifacts/config/value/Value$ConfigValue;
+    2683: aload_0
+    2684: aload_0
+    2685: getstatic     #855                // Field artifacts/registry/ModItems.ANGLERS_HAT:Lnet/minecraft/core/Holder;
+    2688: ldc_w         #857                // String luckOfTheSeaLevelBonus
+    2691: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2694: iconst_1
+    2695: iconst_1
+    2696: anewarray     #157                // class java/lang/String
+    2699: dup
+    2700: iconst_0
+    2701: ldc_w         #859                // String The amount of extra levels of luck of the sea that are granted by the Angler\'s Hat
+    2704: aastore
+    2705: invokevirtual #862                // Method defineEnchantmentLevel:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2708: putfield      #864                // Field anglersHatLuckOfTheSeaLevelBonus:Lartifacts/config/value/Value$ConfigValue;
+    2711: aload_0
+    2712: aload_0
+    2713: getstatic     #855                // Field artifacts/registry/ModItems.ANGLERS_HAT:Lnet/minecraft/core/Holder;
+    2716: ldc_w         #866                // String lureLevelBonus
+    2719: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2722: iconst_1
+    2723: iconst_1
+    2724: anewarray     #157                // class java/lang/String
+    2727: dup
+    2728: iconst_0
+    2729: ldc_w         #868                // String The amount of extra levels of lure that are granted by the Angler\'s Hat
+    2732: aastore
+    2733: invokevirtual #862                // Method defineEnchantmentLevel:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2736: putfield      #870                // Field anglersHatLureLevelBonus:Lartifacts/config/value/Value$ConfigValue;
+    2739: aload_0
+    2740: aload_0
+    2741: getstatic     #873                // Field artifacts/registry/ModItems.LUCKY_SCARF:Lnet/minecraft/core/Holder;
+    2744: ldc_w         #875                // String fortuneLevelBonus
+    2747: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2750: iconst_1
+    2751: iconst_1
+    2752: anewarray     #157                // class java/lang/String
+    2755: dup
+    2756: iconst_0
+    2757: ldc_w         #877                // String The amount of extra levels of fortune that are granted by the Lucky Scarf
+    2760: aastore
+    2761: invokevirtual #862                // Method defineEnchantmentLevel:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2764: putfield      #879                // Field luckScarfFortuneBonus:Lartifacts/config/value/Value$ConfigValue;
+    2767: aload_0
+    2768: aload_0
+    2769: getstatic     #882                // Field artifacts/registry/ModItems.SUPERSTITIOUS_HAT:Lnet/minecraft/core/Holder;
+    2772: ldc_w         #884                // String lootingLevelBonus
+    2775: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2778: iconst_1
+    2779: iconst_1
+    2780: anewarray     #157                // class java/lang/String
+    2783: dup
+    2784: iconst_0
+    2785: ldc_w         #886                // String The amount of extra levels of Looting that are granted by the Superstitious Hat
+    2788: aastore
+    2789: invokevirtual #862                // Method defineEnchantmentLevel:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2792: putfield      #888                // Field superstitiousHatLootingLevelBonus:Lartifacts/config/value/Value$ConfigValue;
+    2795: aload_0
+    2796: aload_0
+    2797: getstatic     #799                // Field artifacts/registry/ModItems.ONION_RING:Lnet/minecraft/core/Holder;
+    2800: ldc_w         #890                // String hasteLevel
+    2803: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2806: iconst_2
+    2807: iconst_1
+    2808: anewarray     #157                // class java/lang/String
+    2811: dup
+    2812: iconst_0
+    2813: ldc_w         #892                // String The level of the haste effect that is applied by the Onion Ring
+    2816: aastore
+    2817: invokevirtual #895                // Method defineMobEffectLevel:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2820: putfield      #897                // Field onionRingHasteLevel:Lartifacts/config/value/Value$ConfigValue;
+    2823: aload_0
+    2824: aload_0
+    2825: getstatic     #808                // Field artifacts/registry/ModItems.PANIC_NECKLACE:Lnet/minecraft/core/Holder;
+    2828: ldc_w         #899                // String speedLevel
+    2831: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2834: iconst_1
+    2835: iconst_1
+    2836: anewarray     #157                // class java/lang/String
+    2839: dup
+    2840: iconst_0
+    2841: ldc_w         #901                // String The level of the speed effect that is applied by the Panic Necklace
+    2844: aastore
+    2845: invokevirtual #895                // Method defineMobEffectLevel:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2848: putfield      #903                // Field panicNecklaceSpeedLevel:Lartifacts/config/value/Value$ConfigValue;
+    2851: aload_0
+    2852: aload_0
+    2853: getstatic     #906                // Field artifacts/registry/ModItems.UNIVERSAL_ATTRACTOR:Lnet/minecraft/core/Holder;
+    2856: ldc_w         #908                // String magnetismLevel
+    2859: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2862: iconst_5
+    2863: iconst_1
+    2864: anewarray     #157                // class java/lang/String
+    2867: dup
+    2868: iconst_0
+    2869: ldc_w         #910                // String The level of the magnetism effect that is applied by the Universal Attractor
+    2872: aastore
+    2873: invokevirtual #895                // Method defineMobEffectLevel:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2876: putfield      #912                // Field universalAttractorMagnetismLevel:Lartifacts/config/value/Value$ConfigValue;
+    2879: aload_0
+    2880: aload_0
+    2881: getstatic     #677                // Field artifacts/registry/ModItems.WITHERED_BRACELET:Lnet/minecraft/core/Holder;
+    2884: ldc_w         #914                // String witherLevel
+    2887: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2890: iconst_2
+    2891: iconst_1
+    2892: anewarray     #157                // class java/lang/String
+    2895: dup
+    2896: iconst_0
+    2897: ldc_w         #916                // String The level of the wither effect that is inflicted by the Withered Bracelet
+    2900: aastore
+    2901: invokevirtual #895                // Method defineMobEffectLevel:(Ljava/lang/String;I[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2904: putfield      #918                // Field witheredBraceletWitherLevel:Lartifacts/config/value/Value$ConfigValue;
+    2907: aload_0
+    2908: aload_0
+    2909: getstatic     #467                // Field artifacts/registry/ModItems.DIGGING_CLAWS:Lnet/minecraft/core/Holder;
+    2912: ldc_w         #920                // String toolTier
+    2915: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    2918: getstatic     #926                // Field artifacts/config/value/ValueTypes.TOOL_TIER:Lartifacts/config/value/type/EnumValueType;
+    2921: getstatic     #930                // Field artifacts/component/ability/ToolTierUpgrade$Tier.STONE:Lartifacts/component/ability/ToolTierUpgrade$Tier;
+    2924: iconst_0
+    2925: iconst_1
+    2926: anewarray     #157                // class java/lang/String
+    2929: dup
+    2930: iconst_0
+    2931: ldc_w         #932                // String The tool tier that the Digging Claws increase the wearer\'s mining level to
+    2934: aastore
+    2935: invokevirtual #936                // Method defineEnum:(Ljava/lang/String;Lartifacts/config/value/type/EnumValueType;Ljava/lang/Enum;Z[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    2938: putfield      #938                // Field diggingClawsToolTier:Lartifacts/config/value/Value$ConfigValue;
+    2941: getstatic     #942                // Field artifacts/registry/ModItems.ITEMS:Lartifacts/registry/Register;
+    2944: invokevirtual #948                // Method artifacts/registry/Register.getEntries:()Ljava/util/Collection;
+    2947: invokeinterface #954,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+    2952: astore_1
+    2953: aload_1
+    2954: invokeinterface #960,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+    2959: ifeq          3030
+    2962: aload_1
+    2963: invokeinterface #964,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+    2968: checkcast     #966                // class artifacts/registry/RegistryHolder
+    2971: astore_2
+    2972: aload_2
+    2973: getstatic     #192                // Field artifacts/registry/ModItems.ETERNAL_STEAK:Lnet/minecraft/core/Holder;
+    2976: if_acmpeq     3027
+    2979: aload_2
+    2980: getstatic     #969                // Field artifacts/registry/ModItems.MIMIC_SPAWN_EGG:Lnet/minecraft/core/Holder;
+    2983: if_acmpeq     3027
+    2986: aload_0
+    2987: getfield      #143                // Field generateAsLoot:Ljava/util/Map;
+    2990: aload_2
+    2991: invokevirtual #973                // Method artifacts/registry/RegistryHolder.unwrapKey:()Ljava/util/Optional;
+    2994: invokevirtual #978                // Method java/util/Optional.orElseThrow:()Ljava/lang/Object;
+    2997: checkcast     #980                // class net/minecraft/resources/ResourceKey
+    3000: aload_0
+    3001: aload_2
+    3002: ldc_w         #981                // String generateAsLoot
+    3005: invokestatic  #155                // Method createKey:(Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    3008: iconst_1
+    3009: anewarray     #157                // class java/lang/String
+    3012: dup
+    3013: iconst_0
+    3014: ldc_w         #983                // String Whether this item can be found in structures or drop from entities
+    3017: aastore
+    3018: invokevirtual #163                // Method defineBool:(Ljava/lang/String;[Ljava/lang/String;)Lartifacts/config/value/Value$ConfigValue;
+    3021: invokeinterface #989,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    3026: pop
+    3027: goto          2953
+    3030: return
+
+  private static java.lang.String createKey(net.minecraft.core.Holder<? extends net.minecraft.world.item.Item>, java.lang.String);
+    descriptor: (Lnet/minecraft/core/Holder;Ljava/lang/String;)Ljava/lang/String;
+    Code:
+       0: aload_0
+       1: invokeinterface #1000,  1         // InterfaceMethod net/minecraft/core/Holder.unwrapKey:()Ljava/util/Optional;
+       6: invokevirtual #978                // Method java/util/Optional.orElseThrow:()Ljava/lang/Object;
+       9: checkcast     #980                // class net/minecraft/resources/ResourceKey
+      12: invokevirtual #1004               // Method net/minecraft/resources/ResourceKey.location:()Lnet/minecraft/resources/ResourceLocation;
+      15: invokevirtual #1010               // Method net/minecraft/resources/ResourceLocation.getPath:()Ljava/lang/String;
+      18: aload_1
+      19: invokedynamic #1022,  0           // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      24: areturn
+
+  public artifacts.config.value.Value<java.lang.Boolean> generatesAsLoot(net.minecraft.world.item.Item);
+    descriptor: (Lnet/minecraft/world/item/Item;)Lartifacts/config/value/Value;
+    Code:
+       0: getstatic     #1034               // Field net/minecraft/core/registries/BuiltInRegistries.ITEM:Lnet/minecraft/core/DefaultedRegistry;
+       3: aload_1
+       4: invokeinterface #1040,  2         // InterfaceMethod net/minecraft/core/DefaultedRegistry.getResourceKey:(Ljava/lang/Object;)Ljava/util/Optional;
+       9: astore_2
+      10: aload_2
+      11: invokevirtual #1043               // Method java/util/Optional.isEmpty:()Z
+      14: ifne          33
+      17: aload_0
+      18: getfield      #143                // Field generateAsLoot:Ljava/util/Map;
+      21: aload_2
+      22: invokevirtual #1046               // Method java/util/Optional.get:()Ljava/lang/Object;
+      25: invokeinterface #1050,  2         // InterfaceMethod java/util/Map.containsKey:(Ljava/lang/Object;)Z
+      30: ifne          35
+      33: aconst_null
+      34: areturn
+      35: aload_0
+      36: getfield      #143                // Field generateAsLoot:Ljava/util/Map;
+      39: aload_2
+      40: invokevirtual #1046               // Method java/util/Optional.get:()Ljava/lang/Object;
+      43: invokeinterface #1053,  2         // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      48: checkcast     #9                  // class artifacts/config/value/Value
+      51: areturn
+
+  public void onConfigChanged();
+    descriptor: ()V
+    Code:
+       0: invokestatic  #1064               // Method artifacts/Artifacts.getCurrentServer:()Lnet/minecraft/server/MinecraftServer;
+       3: ifnull        28
+       6: getstatic     #1068               // Field artifacts/Artifacts.LOGGER:Lorg/apache/logging/log4j/Logger;
+       9: ldc_w         #1070               // String Sending updated item configs to connected clients
+      12: invokeinterface #1075,  2         // InterfaceMethod org/apache/logging/log4j/Logger.info:(Ljava/lang/String;)V
+      17: aload_0
+      18: invokevirtual #1078               // Method readValuesFromConfig:()V
+      21: aload_0
+      22: invokestatic  #1064               // Method artifacts/Artifacts.getCurrentServer:()Lnet/minecraft/server/MinecraftServer;
+      25: invokevirtual #1082               // Method sendToClients:(Lnet/minecraft/server/MinecraftServer;)V
+      28: return
+
+  private void sendToClients(net.minecraft.server.MinecraftServer);
+    descriptor: (Lnet/minecraft/server/MinecraftServer;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #1087               // Method getValues:()Ljava/util/Map;
+       4: aload_1
+       5: invokedynamic #1107,  0           // InvokeDynamic #1:accept:(Lnet/minecraft/server/MinecraftServer;)Ljava/util/function/BiConsumer;
+      10: invokeinterface #1111,  2         // InterfaceMethod java/util/Map.forEach:(Ljava/util/function/BiConsumer;)V
+      15: return
+
+  public void sendToClient(net.minecraft.server.level.ServerPlayer);
+    descriptor: (Lnet/minecraft/server/level/ServerPlayer;)V
+    Code:
+       0: getstatic     #1068               // Field artifacts/Artifacts.LOGGER:Lorg/apache/logging/log4j/Logger;
+       3: ldc_w         #1117               // String Sending item configs to client
+       6: invokeinterface #1075,  2         // InterfaceMethod org/apache/logging/log4j/Logger.info:(Ljava/lang/String;)V
+      11: aload_0
+      12: invokevirtual #1087               // Method getValues:()Ljava/util/Map;
+      15: aload_1
+      16: invokedynamic #1125,  0           // InvokeDynamic #2:accept:(Lnet/minecraft/server/level/ServerPlayer;)Ljava/util/function/BiConsumer;
+      21: invokeinterface #1111,  2         // InterfaceMethod java/util/Map.forEach:(Ljava/util/function/BiConsumer;)V
+      26: return
+
+  private static void lambda$sendToClient$1(net.minecraft.server.level.ServerPlayer, java.lang.String, artifacts.config.value.Value$ConfigValue);
+    descriptor: (Lnet/minecraft/server/level/ServerPlayer;Ljava/lang/String;Lartifacts/config/value/Value$ConfigValue;)V
+    Code:
+       0: aload_0
+       1: new           #1129               // class artifacts/network/UpdateItemConfigPacket
+       4: dup
+       5: aload_2
+       6: invokespecial #1132               // Method artifacts/network/UpdateItemConfigPacket."<init>":(Lartifacts/config/value/Value$ConfigValue;)V
+       9: invokestatic  #1138               // Method artifacts/network/NetworkHandler.sendToPlayer:(Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/network/protocol/common/custom/CustomPacketPayload;)V
+      12: return
+
+  private static void lambda$sendToClients$0(net.minecraft.server.MinecraftServer, java.lang.String, artifacts.config.value.Value$ConfigValue);
+    descriptor: (Lnet/minecraft/server/MinecraftServer;Ljava/lang/String;Lartifacts/config/value/Value$ConfigValue;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #1144               // Method net/minecraft/server/MinecraftServer.getPlayerList:()Lnet/minecraft/server/players/PlayerList;
+       4: invokevirtual #1150               // Method net/minecraft/server/players/PlayerList.getPlayers:()Ljava/util/List;
+       7: new           #1129               // class artifacts/network/UpdateItemConfigPacket
+      10: dup
+      11: aload_2
+      12: invokespecial #1132               // Method artifacts/network/UpdateItemConfigPacket."<init>":(Lartifacts/config/value/Value$ConfigValue;)V
+      15: invokestatic  #1154               // Method artifacts/network/NetworkHandler.sendToPlayers:(Ljava/lang/Iterable;Lnet/minecraft/network/protocol/common/custom/CustomPacketPayload;)V
+      18: return
+}

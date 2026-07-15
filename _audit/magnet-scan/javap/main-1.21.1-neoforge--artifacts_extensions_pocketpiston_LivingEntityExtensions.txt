@@ -1,0 +1,5 @@
+Compiled from "LivingEntityExtensions.java"
+public interface artifacts.extensions.pocketpiston.LivingEntityExtensions {
+  public abstract float artifacts$getPocketPistonLength();
+    descriptor: ()F
+}

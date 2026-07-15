@@ -1,0 +1,475 @@
+Compiled from "ModItems.java"
+public class artifacts.registry.ModItems {
+  public static final dev.architectury.registry.registries.DeferredRegister<net.minecraft.world.item.Item> ITEMS;
+    descriptor: Ldev/architectury/registry/registries/DeferredRegister;
+
+  public static final dev.architectury.registry.registries.DeferredRegister<net.minecraft.world.item.CreativeModeTab> CREATIVE_MODE_TABS;
+    descriptor: Ldev/architectury/registry/registries/DeferredRegister;
+
+  public static final artifacts.registry.RegistrySupplier<net.minecraft.world.item.CreativeModeTab> CREATIVE_TAB;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<net.minecraft.world.item.Item> MIMIC_SPAWN_EGG;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<net.minecraft.world.item.Item> UMBRELLA;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<net.minecraft.world.item.Item> EVERLASTING_BEEF;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<net.minecraft.world.item.Item> ETERNAL_STEAK;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.head.DrinkingHatItem> PLASTIC_DRINKING_HAT;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.head.DrinkingHatItem> NOVELTY_DRINKING_HAT;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> SNORKEL;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> NIGHT_VISION_GOGGLES;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> VILLAGER_HAT;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> SUPERSTITIOUS_HAT;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> COWBOY_HAT;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> ANGLERS_HAT;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> LUCKY_SCARF;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> SCARF_OF_INVISIBILITY;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> CROSS_NECKLACE;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> PANIC_NECKLACE;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> SHOCK_PENDANT;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> FLAME_PENDANT;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> THORN_PENDANT;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> CHARM_OF_SINKING;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> CLOUD_IN_A_BOTTLE;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> OBSIDIAN_SKULL;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> ANTIDOTE_VESSEL;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> UNIVERSAL_ATTRACTOR;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> CRYSTAL_HEART;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> HELIUM_FLAMINGO;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> CHORUS_TOTEM;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> DIGGING_CLAWS;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> FERAL_CLAWS;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> POWER_GLOVE;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> FIRE_GAUNTLET;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> POCKET_PISTON;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> VAMPIRIC_GLOVE;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> GOLDEN_HOOK;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> ONION_RING;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> PICKAXE_HEATER;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> AQUA_DASHERS;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> BUNNY_HOPPERS;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> KITTY_SLIPPERS;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> RUNNING_SHOES;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> SNOWSHOES;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> STEADFAST_SPIKES;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> FLIPPERS;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> ROOTED_BOOTS;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public static artifacts.registry.RegistrySupplier<artifacts.item.wearable.WearableArtifactItem> WHOOPEE_CUSHION;
+    descriptor: Lartifacts/registry/RegistrySupplier;
+
+  public artifacts.registry.ModItems();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #91                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  private static <T extends net.minecraft.world.item.Item> artifacts.registry.RegistrySupplier<T> register(java.lang.String, java.util.function.Supplier<T>);
+    descriptor: (Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+    Code:
+       0: getstatic     #100                // Field ITEMS:Ldev/architectury/registry/registries/DeferredRegister;
+       3: aload_0
+       4: aload_1
+       5: invokevirtual #105                // Method dev/architectury/registry/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Ldev/architectury/registry/registries/RegistrySupplier;
+       8: invokestatic  #111                // Method artifacts/registry/RegistrySupplier.of:(Ldev/architectury/registry/registries/RegistrySupplier;)Lartifacts/registry/RegistrySupplier;
+      11: areturn
+
+  private static artifacts.item.wearable.WearableArtifactItem lambda$static$7();
+    descriptor: ()Lartifacts/item/wearable/WearableArtifactItem;
+    Code:
+       0: new           #118                // class artifacts/item/wearable/MobEffectItem
+       3: dup
+       4: getstatic     #124                // Field net/minecraft/world/effect/MobEffects.f_19609_:Lnet/minecraft/world/effect/MobEffect;
+       7: getstatic     #128                // Field artifacts/registry/ModGameRules.SCARF_OF_INVISIBILITY_ENABLED:Lartifacts/registry/ModGameRules$BooleanValue;
+      10: invokespecial #131                // Method artifacts/item/wearable/MobEffectItem."<init>":(Lnet/minecraft/world/effect/MobEffect;Ljava/util/function/Supplier;)V
+      13: areturn
+
+  private static artifacts.item.wearable.head.DrinkingHatItem lambda$static$6();
+    descriptor: ()Lartifacts/item/wearable/head/DrinkingHatItem;
+    Code:
+       0: new           #135                // class artifacts/item/wearable/head/DrinkingHatItem
+       3: dup
+       4: getstatic     #139                // Field artifacts/registry/ModGameRules.NOVELTY_DRINKING_HAT_DRINKING_DURATION_MULTIPLIER:Lartifacts/registry/ModGameRules$DoubleValue;
+       7: getstatic     #142                // Field artifacts/registry/ModGameRules.NOVELTY_DRINKING_HAT_EATING_DURATION_MULTIPLIER:Lartifacts/registry/ModGameRules$DoubleValue;
+      10: iconst_1
+      11: invokespecial #145                // Method artifacts/item/wearable/head/DrinkingHatItem."<init>":(Lartifacts/registry/ModGameRules$DoubleValue;Lartifacts/registry/ModGameRules$DoubleValue;Z)V
+      14: areturn
+
+  private static artifacts.item.wearable.head.DrinkingHatItem lambda$static$5();
+    descriptor: ()Lartifacts/item/wearable/head/DrinkingHatItem;
+    Code:
+       0: new           #135                // class artifacts/item/wearable/head/DrinkingHatItem
+       3: dup
+       4: getstatic     #149                // Field artifacts/registry/ModGameRules.PLASTIC_DRINKING_HAT_DRINKING_DURATION_MULTIPLIER:Lartifacts/registry/ModGameRules$DoubleValue;
+       7: getstatic     #152                // Field artifacts/registry/ModGameRules.PLASTIC_DRINKING_HAT_EATING_DURATION_MULTIPLIER:Lartifacts/registry/ModGameRules$DoubleValue;
+      10: iconst_0
+      11: invokespecial #145                // Method artifacts/item/wearable/head/DrinkingHatItem."<init>":(Lartifacts/registry/ModGameRules$DoubleValue;Lartifacts/registry/ModGameRules$DoubleValue;Z)V
+      14: areturn
+
+  private static net.minecraft.world.item.Item lambda$static$4();
+    descriptor: ()Lnet/minecraft/world/item/Item;
+    Code:
+       0: new           #156                // class artifacts/item/EverlastingFoodItem
+       3: dup
+       4: new           #15                 // class net/minecraft/world/food/FoodProperties$Builder
+       7: dup
+       8: invokespecial #157                // Method net/minecraft/world/food/FoodProperties$Builder."<init>":()V
+      11: bipush        8
+      13: invokevirtual #161                // Method net/minecraft/world/food/FoodProperties$Builder.m_38760_:(I)Lnet/minecraft/world/food/FoodProperties$Builder;
+      16: ldc           #162                // float 0.8f
+      18: invokevirtual #166                // Method net/minecraft/world/food/FoodProperties$Builder.m_38758_:(F)Lnet/minecraft/world/food/FoodProperties$Builder;
+      21: invokevirtual #170                // Method net/minecraft/world/food/FoodProperties$Builder.m_38767_:()Lnet/minecraft/world/food/FoodProperties;
+      24: getstatic     #174                // Field artifacts/registry/ModGameRules.ETERNAL_STEAK_COOLDOWN:Lartifacts/registry/ModGameRules$IntegerValue;
+      27: getstatic     #177                // Field artifacts/registry/ModGameRules.ETERNAL_STEAK_ENABLED:Lartifacts/registry/ModGameRules$BooleanValue;
+      30: invokespecial #180                // Method artifacts/item/EverlastingFoodItem."<init>":(Lnet/minecraft/world/food/FoodProperties;Ljava/util/function/Supplier;Ljava/util/function/Supplier;)V
+      33: areturn
+
+  private static net.minecraft.world.item.Item lambda$static$3();
+    descriptor: ()Lnet/minecraft/world/item/Item;
+    Code:
+       0: new           #156                // class artifacts/item/EverlastingFoodItem
+       3: dup
+       4: new           #15                 // class net/minecraft/world/food/FoodProperties$Builder
+       7: dup
+       8: invokespecial #157                // Method net/minecraft/world/food/FoodProperties$Builder."<init>":()V
+      11: iconst_3
+      12: invokevirtual #161                // Method net/minecraft/world/food/FoodProperties$Builder.m_38760_:(I)Lnet/minecraft/world/food/FoodProperties$Builder;
+      15: ldc           #182                // float 0.3f
+      17: invokevirtual #166                // Method net/minecraft/world/food/FoodProperties$Builder.m_38758_:(F)Lnet/minecraft/world/food/FoodProperties$Builder;
+      20: invokevirtual #170                // Method net/minecraft/world/food/FoodProperties$Builder.m_38767_:()Lnet/minecraft/world/food/FoodProperties;
+      23: getstatic     #185                // Field artifacts/registry/ModGameRules.EVERLASTING_BEEF_COOLDOWN:Lartifacts/registry/ModGameRules$IntegerValue;
+      26: getstatic     #188                // Field artifacts/registry/ModGameRules.EVERLASTING_BEEF_ENABLED:Lartifacts/registry/ModGameRules$BooleanValue;
+      29: invokespecial #180                // Method artifacts/item/EverlastingFoodItem."<init>":(Lnet/minecraft/world/food/FoodProperties;Ljava/util/function/Supplier;Ljava/util/function/Supplier;)V
+      32: areturn
+
+  private static net.minecraft.world.item.Item lambda$static$2();
+    descriptor: ()Lnet/minecraft/world/item/Item;
+    Code:
+       0: new           #191                // class dev/architectury/core/item/ArchitecturySpawnEggItem
+       3: dup
+       4: getstatic     #196                // Field artifacts/registry/ModEntityTypes.MIMIC:Lartifacts/registry/RegistrySupplier;
+       7: invokevirtual #200                // Method artifacts/registry/RegistrySupplier.getRegistrySupplier:()Ldev/architectury/registry/registries/RegistrySupplier;
+      10: ldc           #201                // int 8409363
+      12: ldc           #202                // int 2171169
+      14: new           #23                 // class net/minecraft/world/item/Item$Properties
+      17: dup
+      18: invokespecial #203                // Method net/minecraft/world/item/Item$Properties."<init>":()V
+      21: getstatic     #205                // Field CREATIVE_TAB:Lartifacts/registry/RegistrySupplier;
+      24: invokevirtual #200                // Method artifacts/registry/RegistrySupplier.getRegistrySupplier:()Ldev/architectury/registry/registries/RegistrySupplier;
+      27: invokevirtual #209                // Method net/minecraft/world/item/Item$Properties.arch$tab:(Ldev/architectury/registry/registries/DeferredSupplier;)Lnet/minecraft/world/item/Item$Properties;
+      30: invokespecial #212                // Method dev/architectury/core/item/ArchitecturySpawnEggItem."<init>":(Ldev/architectury/registry/registries/RegistrySupplier;IILnet/minecraft/world/item/Item$Properties;)V
+      33: areturn
+
+  private static net.minecraft.world.item.CreativeModeTab lambda$static$1();
+    descriptor: ()Lnet/minecraft/world/item/CreativeModeTab;
+    Code:
+       0: ldc           #216                // String %s.creative_tab
+       2: iconst_1
+       3: anewarray     #4                  // class java/lang/Object
+       6: dup
+       7: iconst_0
+       8: ldc           #218                // String artifacts
+      10: aastore
+      11: invokevirtual #224                // Method java/lang/String.formatted:([Ljava/lang/Object;)Ljava/lang/String;
+      14: invokestatic  #230                // InterfaceMethod net/minecraft/network/chat/Component.m_237115_:(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;
+      17: invokedynamic #249,  0            // InvokeDynamic #0:get:()Ljava/util/function/Supplier;
+      22: invokestatic  #255                // Method dev/architectury/registry/CreativeTabRegistry.create:(Lnet/minecraft/network/chat/Component;Ljava/util/function/Supplier;)Lnet/minecraft/world/item/CreativeModeTab;
+      25: areturn
+
+  private static net.minecraft.world.item.ItemStack lambda$static$0();
+    descriptor: ()Lnet/minecraft/world/item/ItemStack;
+    Code:
+       0: new           #257                // class net/minecraft/world/item/ItemStack
+       3: dup
+       4: getstatic     #259                // Field BUNNY_HOPPERS:Lartifacts/registry/RegistrySupplier;
+       7: invokevirtual #261                // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+      10: checkcast     #263                // class net/minecraft/world/level/ItemLike
+      13: invokespecial #266                // Method net/minecraft/world/item/ItemStack."<init>":(Lnet/minecraft/world/level/ItemLike;)V
+      16: areturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: ldc           #218                // String artifacts
+       2: getstatic     #273                // Field net/minecraft/core/registries/Registries.f_256913_:Lnet/minecraft/resources/ResourceKey;
+       5: invokestatic  #276                // Method dev/architectury/registry/registries/DeferredRegister.create:(Ljava/lang/String;Lnet/minecraft/resources/ResourceKey;)Ldev/architectury/registry/registries/DeferredRegister;
+       8: putstatic     #100                // Field ITEMS:Ldev/architectury/registry/registries/DeferredRegister;
+      11: ldc           #218                // String artifacts
+      13: getstatic     #279                // Field net/minecraft/core/registries/Registries.f_279569_:Lnet/minecraft/resources/ResourceKey;
+      16: invokestatic  #276                // Method dev/architectury/registry/registries/DeferredRegister.create:(Ljava/lang/String;Lnet/minecraft/resources/ResourceKey;)Ldev/architectury/registry/registries/DeferredRegister;
+      19: putstatic     #281                // Field CREATIVE_MODE_TABS:Ldev/architectury/registry/registries/DeferredRegister;
+      22: getstatic     #281                // Field CREATIVE_MODE_TABS:Ldev/architectury/registry/registries/DeferredRegister;
+      25: ldc_w         #283                // String main
+      28: invokedynamic #288,  0            // InvokeDynamic #1:get:()Ljava/util/function/Supplier;
+      33: invokevirtual #105                // Method dev/architectury/registry/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Ldev/architectury/registry/registries/RegistrySupplier;
+      36: invokestatic  #111                // Method artifacts/registry/RegistrySupplier.of:(Ldev/architectury/registry/registries/RegistrySupplier;)Lartifacts/registry/RegistrySupplier;
+      39: putstatic     #205                // Field CREATIVE_TAB:Lartifacts/registry/RegistrySupplier;
+      42: ldc_w         #290                // String mimic_spawn_egg
+      45: invokedynamic #295,  0            // InvokeDynamic #2:get:()Ljava/util/function/Supplier;
+      50: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+      53: putstatic     #299                // Field MIMIC_SPAWN_EGG:Lartifacts/registry/RegistrySupplier;
+      56: ldc_w         #301                // String umbrella
+      59: invokedynamic #306,  0            // InvokeDynamic #3:get:()Ljava/util/function/Supplier;
+      64: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+      67: putstatic     #308                // Field UMBRELLA:Lartifacts/registry/RegistrySupplier;
+      70: ldc_w         #310                // String everlasting_beef
+      73: invokedynamic #314,  0            // InvokeDynamic #4:get:()Ljava/util/function/Supplier;
+      78: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+      81: putstatic     #316                // Field EVERLASTING_BEEF:Lartifacts/registry/RegistrySupplier;
+      84: ldc_w         #318                // String eternal_steak
+      87: invokedynamic #322,  0            // InvokeDynamic #5:get:()Ljava/util/function/Supplier;
+      92: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+      95: putstatic     #324                // Field ETERNAL_STEAK:Lartifacts/registry/RegistrySupplier;
+      98: ldc_w         #326                // String plastic_drinking_hat
+     101: invokedynamic #331,  0            // InvokeDynamic #6:get:()Ljava/util/function/Supplier;
+     106: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     109: putstatic     #333                // Field PLASTIC_DRINKING_HAT:Lartifacts/registry/RegistrySupplier;
+     112: ldc_w         #335                // String novelty_drinking_hat
+     115: invokedynamic #339,  0            // InvokeDynamic #7:get:()Ljava/util/function/Supplier;
+     120: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     123: putstatic     #341                // Field NOVELTY_DRINKING_HAT:Lartifacts/registry/RegistrySupplier;
+     126: ldc_w         #343                // String snorkel
+     129: invokedynamic #349,  0            // InvokeDynamic #8:get:()Ljava/util/function/Supplier;
+     134: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     137: putstatic     #351                // Field SNORKEL:Lartifacts/registry/RegistrySupplier;
+     140: ldc_w         #353                // String night_vision_goggles
+     143: invokedynamic #358,  0            // InvokeDynamic #9:get:()Ljava/util/function/Supplier;
+     148: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     151: putstatic     #360                // Field NIGHT_VISION_GOGGLES:Lartifacts/registry/RegistrySupplier;
+     154: ldc_w         #362                // String villager_hat
+     157: invokedynamic #367,  0            // InvokeDynamic #10:get:()Ljava/util/function/Supplier;
+     162: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     165: putstatic     #369                // Field VILLAGER_HAT:Lartifacts/registry/RegistrySupplier;
+     168: ldc_w         #371                // String superstitious_hat
+     171: invokedynamic #376,  0            // InvokeDynamic #11:get:()Ljava/util/function/Supplier;
+     176: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     179: putstatic     #378                // Field SUPERSTITIOUS_HAT:Lartifacts/registry/RegistrySupplier;
+     182: ldc_w         #380                // String cowboy_hat
+     185: invokedynamic #385,  0            // InvokeDynamic #12:get:()Ljava/util/function/Supplier;
+     190: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     193: putstatic     #387                // Field COWBOY_HAT:Lartifacts/registry/RegistrySupplier;
+     196: ldc_w         #389                // String anglers_hat
+     199: invokedynamic #394,  0            // InvokeDynamic #13:get:()Ljava/util/function/Supplier;
+     204: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     207: putstatic     #396                // Field ANGLERS_HAT:Lartifacts/registry/RegistrySupplier;
+     210: ldc_w         #398                // String lucky_scarf
+     213: invokedynamic #403,  0            // InvokeDynamic #14:get:()Ljava/util/function/Supplier;
+     218: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     221: putstatic     #405                // Field LUCKY_SCARF:Lartifacts/registry/RegistrySupplier;
+     224: ldc_w         #407                // String scarf_of_invisibility
+     227: invokedynamic #411,  0            // InvokeDynamic #15:get:()Ljava/util/function/Supplier;
+     232: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     235: putstatic     #413                // Field SCARF_OF_INVISIBILITY:Lartifacts/registry/RegistrySupplier;
+     238: ldc_w         #415                // String cross_necklace
+     241: invokedynamic #420,  0            // InvokeDynamic #16:get:()Ljava/util/function/Supplier;
+     246: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     249: putstatic     #422                // Field CROSS_NECKLACE:Lartifacts/registry/RegistrySupplier;
+     252: ldc_w         #424                // String panic_necklace
+     255: invokedynamic #429,  0            // InvokeDynamic #17:get:()Ljava/util/function/Supplier;
+     260: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     263: putstatic     #431                // Field PANIC_NECKLACE:Lartifacts/registry/RegistrySupplier;
+     266: ldc_w         #433                // String shock_pendant
+     269: invokedynamic #438,  0            // InvokeDynamic #18:get:()Ljava/util/function/Supplier;
+     274: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     277: putstatic     #440                // Field SHOCK_PENDANT:Lartifacts/registry/RegistrySupplier;
+     280: ldc_w         #442                // String flame_pendant
+     283: invokedynamic #447,  0            // InvokeDynamic #19:get:()Ljava/util/function/Supplier;
+     288: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     291: putstatic     #449                // Field FLAME_PENDANT:Lartifacts/registry/RegistrySupplier;
+     294: ldc_w         #451                // String thorn_pendant
+     297: invokedynamic #456,  0            // InvokeDynamic #20:get:()Ljava/util/function/Supplier;
+     302: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     305: putstatic     #458                // Field THORN_PENDANT:Lartifacts/registry/RegistrySupplier;
+     308: ldc_w         #460                // String charm_of_sinking
+     311: invokedynamic #465,  0            // InvokeDynamic #21:get:()Ljava/util/function/Supplier;
+     316: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     319: putstatic     #467                // Field CHARM_OF_SINKING:Lartifacts/registry/RegistrySupplier;
+     322: ldc_w         #469                // String cloud_in_a_bottle
+     325: invokedynamic #474,  0            // InvokeDynamic #22:get:()Ljava/util/function/Supplier;
+     330: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     333: putstatic     #476                // Field CLOUD_IN_A_BOTTLE:Lartifacts/registry/RegistrySupplier;
+     336: ldc_w         #478                // String obsidian_skull
+     339: invokedynamic #483,  0            // InvokeDynamic #23:get:()Ljava/util/function/Supplier;
+     344: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     347: putstatic     #485                // Field OBSIDIAN_SKULL:Lartifacts/registry/RegistrySupplier;
+     350: ldc_w         #487                // String antidote_vessel
+     353: invokedynamic #492,  0            // InvokeDynamic #24:get:()Ljava/util/function/Supplier;
+     358: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     361: putstatic     #494                // Field ANTIDOTE_VESSEL:Lartifacts/registry/RegistrySupplier;
+     364: ldc_w         #496                // String universal_attractor
+     367: invokedynamic #501,  0            // InvokeDynamic #25:get:()Ljava/util/function/Supplier;
+     372: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     375: putstatic     #503                // Field UNIVERSAL_ATTRACTOR:Lartifacts/registry/RegistrySupplier;
+     378: ldc_w         #505                // String crystal_heart
+     381: invokedynamic #510,  0            // InvokeDynamic #26:get:()Ljava/util/function/Supplier;
+     386: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     389: putstatic     #512                // Field CRYSTAL_HEART:Lartifacts/registry/RegistrySupplier;
+     392: ldc_w         #514                // String helium_flamingo
+     395: invokedynamic #519,  0            // InvokeDynamic #27:get:()Ljava/util/function/Supplier;
+     400: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     403: putstatic     #521                // Field HELIUM_FLAMINGO:Lartifacts/registry/RegistrySupplier;
+     406: ldc_w         #523                // String chorus_totem
+     409: invokedynamic #528,  0            // InvokeDynamic #28:get:()Ljava/util/function/Supplier;
+     414: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     417: putstatic     #530                // Field CHORUS_TOTEM:Lartifacts/registry/RegistrySupplier;
+     420: ldc_w         #532                // String digging_claws
+     423: invokedynamic #537,  0            // InvokeDynamic #29:get:()Ljava/util/function/Supplier;
+     428: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     431: putstatic     #539                // Field DIGGING_CLAWS:Lartifacts/registry/RegistrySupplier;
+     434: ldc_w         #541                // String feral_claws
+     437: invokedynamic #546,  0            // InvokeDynamic #30:get:()Ljava/util/function/Supplier;
+     442: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     445: putstatic     #548                // Field FERAL_CLAWS:Lartifacts/registry/RegistrySupplier;
+     448: ldc_w         #550                // String power_glove
+     451: invokedynamic #555,  0            // InvokeDynamic #31:get:()Ljava/util/function/Supplier;
+     456: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     459: putstatic     #557                // Field POWER_GLOVE:Lartifacts/registry/RegistrySupplier;
+     462: ldc_w         #559                // String fire_gauntlet
+     465: invokedynamic #564,  0            // InvokeDynamic #32:get:()Ljava/util/function/Supplier;
+     470: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     473: putstatic     #566                // Field FIRE_GAUNTLET:Lartifacts/registry/RegistrySupplier;
+     476: ldc_w         #568                // String pocket_piston
+     479: invokedynamic #573,  0            // InvokeDynamic #33:get:()Ljava/util/function/Supplier;
+     484: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     487: putstatic     #575                // Field POCKET_PISTON:Lartifacts/registry/RegistrySupplier;
+     490: ldc_w         #577                // String vampiric_glove
+     493: invokedynamic #582,  0            // InvokeDynamic #34:get:()Ljava/util/function/Supplier;
+     498: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     501: putstatic     #584                // Field VAMPIRIC_GLOVE:Lartifacts/registry/RegistrySupplier;
+     504: ldc_w         #586                // String golden_hook
+     507: invokedynamic #591,  0            // InvokeDynamic #35:get:()Ljava/util/function/Supplier;
+     512: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     515: putstatic     #593                // Field GOLDEN_HOOK:Lartifacts/registry/RegistrySupplier;
+     518: ldc_w         #595                // String onion_ring
+     521: invokedynamic #600,  0            // InvokeDynamic #36:get:()Ljava/util/function/Supplier;
+     526: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     529: putstatic     #602                // Field ONION_RING:Lartifacts/registry/RegistrySupplier;
+     532: ldc_w         #604                // String pickaxe_heater
+     535: invokedynamic #609,  0            // InvokeDynamic #37:get:()Ljava/util/function/Supplier;
+     540: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     543: putstatic     #611                // Field PICKAXE_HEATER:Lartifacts/registry/RegistrySupplier;
+     546: ldc_w         #613                // String aqua_dashers
+     549: invokedynamic #618,  0            // InvokeDynamic #38:get:()Ljava/util/function/Supplier;
+     554: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     557: putstatic     #620                // Field AQUA_DASHERS:Lartifacts/registry/RegistrySupplier;
+     560: ldc_w         #622                // String bunny_hoppers
+     563: invokedynamic #627,  0            // InvokeDynamic #39:get:()Ljava/util/function/Supplier;
+     568: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     571: putstatic     #259                // Field BUNNY_HOPPERS:Lartifacts/registry/RegistrySupplier;
+     574: ldc_w         #629                // String kitty_slippers
+     577: invokedynamic #634,  0            // InvokeDynamic #40:get:()Ljava/util/function/Supplier;
+     582: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     585: putstatic     #636                // Field KITTY_SLIPPERS:Lartifacts/registry/RegistrySupplier;
+     588: ldc_w         #638                // String running_shoes
+     591: invokedynamic #643,  0            // InvokeDynamic #41:get:()Ljava/util/function/Supplier;
+     596: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     599: putstatic     #645                // Field RUNNING_SHOES:Lartifacts/registry/RegistrySupplier;
+     602: ldc_w         #647                // String snowshoes
+     605: invokedynamic #652,  0            // InvokeDynamic #42:get:()Ljava/util/function/Supplier;
+     610: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     613: putstatic     #654                // Field SNOWSHOES:Lartifacts/registry/RegistrySupplier;
+     616: ldc_w         #656                // String steadfast_spikes
+     619: invokedynamic #661,  0            // InvokeDynamic #43:get:()Ljava/util/function/Supplier;
+     624: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     627: putstatic     #663                // Field STEADFAST_SPIKES:Lartifacts/registry/RegistrySupplier;
+     630: ldc_w         #665                // String flippers
+     633: invokedynamic #670,  0            // InvokeDynamic #44:get:()Ljava/util/function/Supplier;
+     638: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     641: putstatic     #672                // Field FLIPPERS:Lartifacts/registry/RegistrySupplier;
+     644: ldc_w         #674                // String rooted_boots
+     647: invokedynamic #679,  0            // InvokeDynamic #45:get:()Ljava/util/function/Supplier;
+     652: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     655: putstatic     #681                // Field ROOTED_BOOTS:Lartifacts/registry/RegistrySupplier;
+     658: ldc_w         #683                // String whoopee_cushion
+     661: invokedynamic #688,  0            // InvokeDynamic #46:get:()Ljava/util/function/Supplier;
+     666: invokestatic  #297                // Method register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistrySupplier;
+     669: putstatic     #690                // Field WHOOPEE_CUSHION:Lartifacts/registry/RegistrySupplier;
+     672: return
+}

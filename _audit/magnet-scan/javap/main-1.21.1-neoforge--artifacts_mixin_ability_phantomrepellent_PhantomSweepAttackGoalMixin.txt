@@ -1,0 +1,70 @@
+Compiled from "PhantomSweepAttackGoalMixin.java"
+public class artifacts.mixin.ability.phantomrepellent.PhantomSweepAttackGoalMixin {
+  private net.minecraft.world.entity.monster.Phantom artifacts$phantom;
+    descriptor: Lnet/minecraft/world/entity/monster/Phantom;
+
+  public artifacts.mixin.ability.phantomrepellent.PhantomSweepAttackGoalMixin();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #15                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  private net.minecraft.world.entity.monster.Phantom canContinueToUse(net.minecraft.world.entity.monster.Phantom);
+    descriptor: (Lnet/minecraft/world/entity/monster/Phantom;)Lnet/minecraft/world/entity/monster/Phantom;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #31                 // Field artifacts$phantom:Lnet/minecraft/world/entity/monster/Phantom;
+       5: aload_1
+       6: areturn
+
+  private boolean hissAtPhantom(boolean);
+    descriptor: (Z)Z
+    Code:
+       0: aload_0
+       1: getfield      #31                 // Field artifacts$phantom:Lnet/minecraft/world/entity/monster/Phantom;
+       4: ifnull        91
+       7: iload_1
+       8: ifeq          91
+      11: aload_0
+      12: getfield      #31                 // Field artifacts$phantom:Lnet/minecraft/world/entity/monster/Phantom;
+      15: invokevirtual #42                 // Method net/minecraft/world/entity/monster/Phantom.getTarget:()Lnet/minecraft/world/entity/LivingEntity;
+      18: astore_2
+      19: aload_2
+      20: ifnull        91
+      23: aload_0
+      24: getfield      #31                 // Field artifacts$phantom:Lnet/minecraft/world/entity/monster/Phantom;
+      27: aload_2
+      28: invokevirtual #46                 // Method net/minecraft/world/entity/monster/Phantom.distanceToSqr:(Lnet/minecraft/world/entity/Entity;)D
+      31: ldc2_w        #47                 // double 256.0d
+      34: dcmpg
+      35: ifge          91
+      38: getstatic     #54                 // Field artifacts/registry/ModDataComponents.PHANTOM_REPELLENT:Ljava/util/function/Supplier;
+      41: invokeinterface #60,  1           // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      46: checkcast     #62                 // class net/minecraft/core/component/DataComponentType
+      49: aload_2
+      50: iconst_1
+      51: invokestatic  #68                 // Method artifacts/equipment/EquipmentHelper.hasAbilityActive:(Lnet/minecraft/core/component/DataComponentType;Lnet/minecraft/world/entity/LivingEntity;Z)Z
+      54: ifeq          91
+      57: aload_0
+      58: getfield      #31                 // Field artifacts$phantom:Lnet/minecraft/world/entity/monster/Phantom;
+      61: invokevirtual #72                 // Method net/minecraft/world/entity/monster/Phantom.level:()Lnet/minecraft/world/level/Level;
+      64: aconst_null
+      65: aload_2
+      66: invokevirtual #78                 // Method net/minecraft/world/entity/LivingEntity.getX:()D
+      69: aload_2
+      70: invokevirtual #81                 // Method net/minecraft/world/entity/LivingEntity.getY:()D
+      73: aload_2
+      74: invokevirtual #84                 // Method net/minecraft/world/entity/LivingEntity.getZ:()D
+      77: getstatic     #90                 // Field net/minecraft/sounds/SoundEvents.CAT_HISS:Lnet/minecraft/sounds/SoundEvent;
+      80: aload_2
+      81: invokevirtual #94                 // Method net/minecraft/world/entity/LivingEntity.getSoundSource:()Lnet/minecraft/sounds/SoundSource;
+      84: fconst_1
+      85: fconst_1
+      86: invokevirtual #100                // Method net/minecraft/world/level/Level.playSound:(Lnet/minecraft/world/entity/player/Player;DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V
+      89: iconst_0
+      90: ireturn
+      91: iload_1
+      92: ireturn
+}

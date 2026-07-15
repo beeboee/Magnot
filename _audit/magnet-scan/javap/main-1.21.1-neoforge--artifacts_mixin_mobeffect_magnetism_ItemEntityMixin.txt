@@ -1,0 +1,31 @@
+Compiled from "ItemEntityMixin.java"
+public class artifacts.mixin.mobeffect.magnetism.ItemEntityMixin implements artifacts.extensions.mobeffect.magnetism.ItemEntityExtensions {
+  private java.util.UUID artifacts$thrower;
+    descriptor: Ljava/util/UUID;
+
+  public artifacts.mixin.mobeffect.magnetism.ItemEntityMixin();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #17                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public void artifacts$setThrower(net.minecraft.world.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #28                 // Method net/minecraft/world/entity/LivingEntity.getUUID:()Ljava/util/UUID;
+       5: putfield      #30                 // Field artifacts$thrower:Ljava/util/UUID;
+       8: return
+
+  public boolean artifacts$wasThrownBy(net.minecraft.world.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;)Z
+    Code:
+       0: aload_1
+       1: invokevirtual #28                 // Method net/minecraft/world/entity/LivingEntity.getUUID:()Ljava/util/UUID;
+       4: aload_0
+       5: getfield      #30                 // Field artifacts$thrower:Ljava/util/UUID;
+       8: invokevirtual #39                 // Method java/util/UUID.equals:(Ljava/lang/Object;)Z
+      11: ireturn
+}

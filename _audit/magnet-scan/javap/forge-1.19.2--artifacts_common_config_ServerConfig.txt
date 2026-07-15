@@ -1,0 +1,883 @@
+Compiled from "ServerConfig.java"
+public class artifacts.common.config.ServerConfig {
+  public java.util.Set<net.minecraft.world.item.Item> cosmetics;
+    descriptor: Ljava/util/Set;
+
+  public final java.util.Map<net.minecraft.world.item.Item, artifacts.common.config.item.ItemConfig> items;
+    descriptor: Ljava/util/Map;
+
+  public final artifacts.common.config.item.curio.belt.AntidoteVesselConfig antidoteVessel;
+    descriptor: Lartifacts/common/config/item/curio/belt/AntidoteVesselConfig;
+
+  public final artifacts.common.config.item.ItemConfig aquaDashers;
+    descriptor: Lartifacts/common/config/item/ItemConfig;
+
+  public final artifacts.common.config.item.curio.feet.BunnyHoppersConfig bunnyHoppers;
+    descriptor: Lartifacts/common/config/item/curio/feet/BunnyHoppersConfig;
+
+  public final artifacts.common.config.item.ItemConfig charmOfSinking;
+    descriptor: Lartifacts/common/config/item/ItemConfig;
+
+  public final artifacts.common.config.item.curio.belt.CloudInABottleConfig cloudInABottle;
+    descriptor: Lartifacts/common/config/item/curio/belt/CloudInABottleConfig;
+
+  public final artifacts.common.config.item.curio.necklace.CrossNecklaceConfig crossNecklace;
+    descriptor: Lartifacts/common/config/item/curio/necklace/CrossNecklaceConfig;
+
+  public final artifacts.common.config.item.curio.belt.CrystalHeartConfig crystalHeart;
+    descriptor: Lartifacts/common/config/item/curio/belt/CrystalHeartConfig;
+
+  public final artifacts.common.config.item.curio.hands.DiggingClawsConfig diggingClaws;
+    descriptor: Lartifacts/common/config/item/curio/hands/DiggingClawsConfig;
+
+  public final artifacts.common.config.item.curio.hands.FeralClawsConfig feralClaws;
+    descriptor: Lartifacts/common/config/item/curio/hands/FeralClawsConfig;
+
+  public final artifacts.common.config.item.curio.hands.FireGauntletConfig fireGauntlet;
+    descriptor: Lartifacts/common/config/item/curio/hands/FireGauntletConfig;
+
+  public final artifacts.common.config.item.curio.necklace.FlamePendantConfig flamePendant;
+    descriptor: Lartifacts/common/config/item/curio/necklace/FlamePendantConfig;
+
+  public final artifacts.common.config.item.curio.feet.FlippersConfig flippers;
+    descriptor: Lartifacts/common/config/item/curio/feet/FlippersConfig;
+
+  public final artifacts.common.config.item.curio.hands.GoldenHookConfig goldenHook;
+    descriptor: Lartifacts/common/config/item/curio/hands/GoldenHookConfig;
+
+  public final artifacts.common.config.item.curio.belt.HeliumFlamingoConfig heliumFlamingo;
+    descriptor: Lartifacts/common/config/item/curio/belt/HeliumFlamingoConfig;
+
+  public final artifacts.common.config.item.ItemConfig kittySlippers;
+    descriptor: Lartifacts/common/config/item/ItemConfig;
+
+  public final artifacts.common.config.item.curio.necklace.LuckyScarfConfig luckyScarf;
+    descriptor: Lartifacts/common/config/item/curio/necklace/LuckyScarfConfig;
+
+  public final artifacts.common.config.item.ItemConfig nightVisionGoggles;
+    descriptor: Lartifacts/common/config/item/ItemConfig;
+
+  public final artifacts.common.config.item.curio.belt.ObsidianSkullConfig obsidianSkull;
+    descriptor: Lartifacts/common/config/item/curio/belt/ObsidianSkullConfig;
+
+  public final artifacts.common.config.item.curio.necklace.PanicNecklaceConfig panicNecklace;
+    descriptor: Lartifacts/common/config/item/curio/necklace/PanicNecklaceConfig;
+
+  public final artifacts.common.config.item.curio.hands.PocketPistonConfig pocketPiston;
+    descriptor: Lartifacts/common/config/item/curio/hands/PocketPistonConfig;
+
+  public final artifacts.common.config.item.curio.hands.PowerGloveConfig powerGlove;
+    descriptor: Lartifacts/common/config/item/curio/hands/PowerGloveConfig;
+
+  public final artifacts.common.config.item.curio.feet.RunningShoesConfig runningShoes;
+    descriptor: Lartifacts/common/config/item/curio/feet/RunningShoesConfig;
+
+  public final artifacts.common.config.item.ItemConfig scarfOfInvisibility;
+    descriptor: Lartifacts/common/config/item/ItemConfig;
+
+  public final artifacts.common.config.item.curio.necklace.ShockPendantConfig shockPendant;
+    descriptor: Lartifacts/common/config/item/curio/necklace/ShockPendantConfig;
+
+  public final artifacts.common.config.item.ItemConfig snorkel;
+    descriptor: Lartifacts/common/config/item/ItemConfig;
+
+  public final artifacts.common.config.item.ItemConfig steadfastSpikes;
+    descriptor: Lartifacts/common/config/item/ItemConfig;
+
+  public final artifacts.common.config.item.curio.head.SuperstitiousHatConfig superstitiousHat;
+    descriptor: Lartifacts/common/config/item/curio/head/SuperstitiousHatConfig;
+
+  public final artifacts.common.config.item.curio.necklace.ThornPendantConfig thornPendant;
+    descriptor: Lartifacts/common/config/item/curio/necklace/ThornPendantConfig;
+
+  public final artifacts.common.config.item.UmbrellaConfig umbrella;
+    descriptor: Lartifacts/common/config/item/UmbrellaConfig;
+
+  public final artifacts.common.config.item.curio.belt.UniversalAttractorConfig universalAttractor;
+    descriptor: Lartifacts/common/config/item/curio/belt/UniversalAttractorConfig;
+
+  public final artifacts.common.config.item.curio.hands.VampiricGloveConfig vampiricGlove;
+    descriptor: Lartifacts/common/config/item/curio/hands/VampiricGloveConfig;
+
+  public final artifacts.common.config.item.curio.head.VillagerHatConfig villagerHat;
+    descriptor: Lartifacts/common/config/item/curio/head/VillagerHatConfig;
+
+  public final artifacts.common.config.item.curio.WhoopeeCushionConfig whoopeeCushion;
+    descriptor: Lartifacts/common/config/item/curio/WhoopeeCushionConfig;
+
+  public final java.util.Map<net.minecraft.world.item.Item, artifacts.common.config.item.EverlastingFoodConfig> everlastingFoods;
+    descriptor: Ljava/util/Map;
+
+  public final java.util.Map<net.minecraft.world.item.Item, artifacts.common.config.item.curio.head.DrinkingHatConfig> drinkingHats;
+    descriptor: Ljava/util/Map;
+
+  public final java.util.Map<net.minecraft.world.item.Item, artifacts.common.config.item.curio.necklace.PendantConfig> pendants;
+    descriptor: Ljava/util/Map;
+
+  private final net.minecraftforge.common.ForgeConfigSpec$ConfigValue<java.util.List<java.lang.String>> cosmeticsValue;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+
+  artifacts.common.config.ServerConfig(net.minecraftforge.common.ForgeConfigSpec$Builder);
+    descriptor: (Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+    Code:
+       0: aload_0
+       1: invokespecial #98                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: invokestatic  #104                // Method java/util/Collections.emptySet:()Ljava/util/Set;
+       8: putfield      #106                // Field cosmetics:Ljava/util/Set;
+      11: aload_0
+      12: new           #108                // class java/util/HashMap
+      15: dup
+      16: invokespecial #109                // Method java/util/HashMap."<init>":()V
+      19: putfield      #111                // Field items:Ljava/util/Map;
+      22: aload_0
+      23: new           #108                // class java/util/HashMap
+      26: dup
+      27: invokespecial #109                // Method java/util/HashMap."<init>":()V
+      30: putfield      #113                // Field everlastingFoods:Ljava/util/Map;
+      33: aload_0
+      34: new           #108                // class java/util/HashMap
+      37: dup
+      38: invokespecial #109                // Method java/util/HashMap."<init>":()V
+      41: putfield      #115                // Field drinkingHats:Ljava/util/Map;
+      44: aload_0
+      45: new           #108                // class java/util/HashMap
+      48: dup
+      49: invokespecial #109                // Method java/util/HashMap."<init>":()V
+      52: putfield      #117                // Field pendants:Ljava/util/Map;
+      55: aload_1
+      56: ldc           #118                // String items
+      58: invokevirtual #122                // Method net/minecraftforge/common/ForgeConfigSpec$Builder.push:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      61: pop
+      62: aload_0
+      63: aload_1
+      64: invokevirtual #126                // Method net/minecraftforge/common/ForgeConfigSpec$Builder.worldRestart:()Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      67: iconst_3
+      68: anewarray     #128                // class java/lang/String
+      71: dup
+      72: iconst_0
+      73: ldc           #130                // String List of cosmetic-only items. All items in this list will have their effects disabled
+      75: aastore
+      76: dup
+      77: iconst_1
+      78: ldc           #132                // String To blacklist all items, use \"artifacts:*\"
+      80: aastore
+      81: dup
+      82: iconst_2
+      83: ldc           #134                // String Note: blacklisting an item while it is equipped may have unintended side effects
+      85: aastore
+      86: invokevirtual #138                // Method net/minecraftforge/common/ForgeConfigSpec$Builder.comment:([Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      89: ldc           #140                // String artifacts.config.server.cosmetics
+      91: invokevirtual #143                // Method net/minecraftforge/common/ForgeConfigSpec$Builder.translation:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      94: ldc           #144                // String cosmetics
+      96: iconst_1
+      97: anewarray     #128                // class java/lang/String
+     100: dup
+     101: iconst_0
+     102: ldc           #146                // String
+     104: aastore
+     105: invokestatic  #152                // Method com/google/common/collect/Lists.newArrayList:([Ljava/lang/Object;)Ljava/util/ArrayList;
+     108: invokevirtual #156                // Method net/minecraftforge/common/ForgeConfigSpec$Builder.define:(Ljava/lang/String;Ljava/lang/Object;)Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     111: putfield      #158                // Field cosmeticsValue:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+     114: aload_0
+     115: new           #160                // class artifacts/common/config/item/curio/belt/AntidoteVesselConfig
+     118: dup
+     119: aload_1
+     120: invokespecial #162                // Method artifacts/common/config/item/curio/belt/AntidoteVesselConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     123: putfield      #164                // Field antidoteVessel:Lartifacts/common/config/item/curio/belt/AntidoteVesselConfig;
+     126: aload_0
+     127: new           #166                // class artifacts/common/config/item/ItemConfig
+     130: dup
+     131: aload_1
+     132: getstatic     #172                // Field artifacts/common/init/ModItems.AQUA_DASHERS:Lnet/minecraftforge/registries/RegistryObject;
+     135: ldc           #174                // String Affects how many seconds the player can run on fluids using the aqua dashers before breaking
+     137: invokespecial #177                // Method artifacts/common/config/item/ItemConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;Lnet/minecraftforge/registries/RegistryObject;Ljava/lang/String;)V
+     140: putfield      #179                // Field aquaDashers:Lartifacts/common/config/item/ItemConfig;
+     143: aload_0
+     144: new           #181                // class artifacts/common/config/item/curio/feet/BunnyHoppersConfig
+     147: dup
+     148: aload_1
+     149: invokespecial #182                // Method artifacts/common/config/item/curio/feet/BunnyHoppersConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     152: putfield      #184                // Field bunnyHoppers:Lartifacts/common/config/item/curio/feet/BunnyHoppersConfig;
+     155: aload_0
+     156: new           #166                // class artifacts/common/config/item/ItemConfig
+     159: dup
+     160: aload_1
+     161: getstatic     #187                // Field artifacts/common/init/ModItems.CHARM_OF_SINKING:Lnet/minecraftforge/registries/RegistryObject;
+     164: ldc           #189                // String Affects how many seconds the player can stay underwater using the charm of sinking before breaking
+     166: invokespecial #177                // Method artifacts/common/config/item/ItemConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;Lnet/minecraftforge/registries/RegistryObject;Ljava/lang/String;)V
+     169: putfield      #191                // Field charmOfSinking:Lartifacts/common/config/item/ItemConfig;
+     172: aload_0
+     173: new           #193                // class artifacts/common/config/item/curio/belt/CloudInABottleConfig
+     176: dup
+     177: aload_1
+     178: invokespecial #194                // Method artifacts/common/config/item/curio/belt/CloudInABottleConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     181: putfield      #196                // Field cloudInABottle:Lartifacts/common/config/item/curio/belt/CloudInABottleConfig;
+     184: aload_0
+     185: new           #198                // class artifacts/common/config/item/curio/necklace/CrossNecklaceConfig
+     188: dup
+     189: aload_1
+     190: invokespecial #199                // Method artifacts/common/config/item/curio/necklace/CrossNecklaceConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     193: putfield      #201                // Field crossNecklace:Lartifacts/common/config/item/curio/necklace/CrossNecklaceConfig;
+     196: aload_0
+     197: new           #203                // class artifacts/common/config/item/curio/belt/CrystalHeartConfig
+     200: dup
+     201: aload_1
+     202: invokespecial #204                // Method artifacts/common/config/item/curio/belt/CrystalHeartConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     205: putfield      #206                // Field crystalHeart:Lartifacts/common/config/item/curio/belt/CrystalHeartConfig;
+     208: aload_0
+     209: new           #208                // class artifacts/common/config/item/curio/hands/DiggingClawsConfig
+     212: dup
+     213: aload_1
+     214: invokespecial #209                // Method artifacts/common/config/item/curio/hands/DiggingClawsConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     217: putfield      #211                // Field diggingClaws:Lartifacts/common/config/item/curio/hands/DiggingClawsConfig;
+     220: new           #213                // class artifacts/common/config/item/EverlastingFoodConfig
+     223: dup
+     224: aload_1
+     225: getstatic     #216                // Field artifacts/common/init/ModItems.ETERNAL_STEAK:Lnet/minecraftforge/registries/RegistryObject;
+     228: invokespecial #219                // Method artifacts/common/config/item/EverlastingFoodConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;Lnet/minecraftforge/registries/RegistryObject;)V
+     231: astore_2
+     232: new           #213                // class artifacts/common/config/item/EverlastingFoodConfig
+     235: dup
+     236: aload_1
+     237: getstatic     #222                // Field artifacts/common/init/ModItems.EVERLASTING_BEEF:Lnet/minecraftforge/registries/RegistryObject;
+     240: invokespecial #219                // Method artifacts/common/config/item/EverlastingFoodConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;Lnet/minecraftforge/registries/RegistryObject;)V
+     243: astore_3
+     244: aload_0
+     245: new           #224                // class artifacts/common/config/item/curio/hands/FeralClawsConfig
+     248: dup
+     249: aload_1
+     250: invokespecial #225                // Method artifacts/common/config/item/curio/hands/FeralClawsConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     253: putfield      #227                // Field feralClaws:Lartifacts/common/config/item/curio/hands/FeralClawsConfig;
+     256: aload_0
+     257: new           #229                // class artifacts/common/config/item/curio/hands/FireGauntletConfig
+     260: dup
+     261: aload_1
+     262: invokespecial #230                // Method artifacts/common/config/item/curio/hands/FireGauntletConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     265: putfield      #232                // Field fireGauntlet:Lartifacts/common/config/item/curio/hands/FireGauntletConfig;
+     268: aload_0
+     269: new           #234                // class artifacts/common/config/item/curio/necklace/FlamePendantConfig
+     272: dup
+     273: aload_1
+     274: invokespecial #235                // Method artifacts/common/config/item/curio/necklace/FlamePendantConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     277: putfield      #237                // Field flamePendant:Lartifacts/common/config/item/curio/necklace/FlamePendantConfig;
+     280: aload_0
+     281: new           #239                // class artifacts/common/config/item/curio/feet/FlippersConfig
+     284: dup
+     285: aload_1
+     286: invokespecial #240                // Method artifacts/common/config/item/curio/feet/FlippersConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     289: putfield      #242                // Field flippers:Lartifacts/common/config/item/curio/feet/FlippersConfig;
+     292: aload_0
+     293: new           #244                // class artifacts/common/config/item/curio/hands/GoldenHookConfig
+     296: dup
+     297: aload_1
+     298: invokespecial #245                // Method artifacts/common/config/item/curio/hands/GoldenHookConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     301: putfield      #247                // Field goldenHook:Lartifacts/common/config/item/curio/hands/GoldenHookConfig;
+     304: aload_0
+     305: new           #249                // class artifacts/common/config/item/curio/belt/HeliumFlamingoConfig
+     308: dup
+     309: aload_1
+     310: invokespecial #250                // Method artifacts/common/config/item/curio/belt/HeliumFlamingoConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     313: putfield      #252                // Field heliumFlamingo:Lartifacts/common/config/item/curio/belt/HeliumFlamingoConfig;
+     316: aload_0
+     317: new           #166                // class artifacts/common/config/item/ItemConfig
+     320: dup
+     321: aload_1
+     322: getstatic     #255                // Field artifacts/common/init/ModItems.KITTY_SLIPPERS:Lnet/minecraftforge/registries/RegistryObject;
+     325: ldc_w         #257                // String Affects how many creepers the player can attack using the kitty slippers before breaking
+     328: invokespecial #177                // Method artifacts/common/config/item/ItemConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;Lnet/minecraftforge/registries/RegistryObject;Ljava/lang/String;)V
+     331: putfield      #259                // Field kittySlippers:Lartifacts/common/config/item/ItemConfig;
+     334: aload_0
+     335: new           #261                // class artifacts/common/config/item/curio/necklace/LuckyScarfConfig
+     338: dup
+     339: aload_1
+     340: invokespecial #262                // Method artifacts/common/config/item/curio/necklace/LuckyScarfConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     343: putfield      #264                // Field luckyScarf:Lartifacts/common/config/item/curio/necklace/LuckyScarfConfig;
+     346: aload_0
+     347: new           #166                // class artifacts/common/config/item/ItemConfig
+     350: dup
+     351: aload_1
+     352: getstatic     #267                // Field artifacts/common/init/ModItems.NIGHT_VISION_GOGGLES:Lnet/minecraftforge/registries/RegistryObject;
+     355: ldc_w         #269                // String Affects how many seconds the night vision effect should apply before breaking
+     358: invokespecial #177                // Method artifacts/common/config/item/ItemConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;Lnet/minecraftforge/registries/RegistryObject;Ljava/lang/String;)V
+     361: putfield      #271                // Field nightVisionGoggles:Lartifacts/common/config/item/ItemConfig;
+     364: new           #273                // class artifacts/common/config/item/curio/head/DrinkingHatConfig
+     367: dup
+     368: aload_1
+     369: getstatic     #276                // Field artifacts/common/init/ModItems.NOVELTY_DRINKING_HAT:Lnet/minecraftforge/registries/RegistryObject;
+     372: invokespecial #277                // Method artifacts/common/config/item/curio/head/DrinkingHatConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;Lnet/minecraftforge/registries/RegistryObject;)V
+     375: astore        4
+     377: aload_0
+     378: new           #279                // class artifacts/common/config/item/curio/belt/ObsidianSkullConfig
+     381: dup
+     382: aload_1
+     383: invokespecial #280                // Method artifacts/common/config/item/curio/belt/ObsidianSkullConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     386: putfield      #282                // Field obsidianSkull:Lartifacts/common/config/item/curio/belt/ObsidianSkullConfig;
+     389: aload_0
+     390: new           #284                // class artifacts/common/config/item/curio/necklace/PanicNecklaceConfig
+     393: dup
+     394: aload_1
+     395: invokespecial #285                // Method artifacts/common/config/item/curio/necklace/PanicNecklaceConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     398: putfield      #287                // Field panicNecklace:Lartifacts/common/config/item/curio/necklace/PanicNecklaceConfig;
+     401: new           #273                // class artifacts/common/config/item/curio/head/DrinkingHatConfig
+     404: dup
+     405: aload_1
+     406: getstatic     #290                // Field artifacts/common/init/ModItems.PLASTIC_DRINKING_HAT:Lnet/minecraftforge/registries/RegistryObject;
+     409: invokespecial #277                // Method artifacts/common/config/item/curio/head/DrinkingHatConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;Lnet/minecraftforge/registries/RegistryObject;)V
+     412: astore        5
+     414: aload_0
+     415: new           #292                // class artifacts/common/config/item/curio/hands/PocketPistonConfig
+     418: dup
+     419: aload_1
+     420: invokespecial #293                // Method artifacts/common/config/item/curio/hands/PocketPistonConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     423: putfield      #295                // Field pocketPiston:Lartifacts/common/config/item/curio/hands/PocketPistonConfig;
+     426: aload_0
+     427: new           #297                // class artifacts/common/config/item/curio/hands/PowerGloveConfig
+     430: dup
+     431: aload_1
+     432: invokespecial #298                // Method artifacts/common/config/item/curio/hands/PowerGloveConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     435: putfield      #300                // Field powerGlove:Lartifacts/common/config/item/curio/hands/PowerGloveConfig;
+     438: aload_0
+     439: new           #302                // class artifacts/common/config/item/curio/feet/RunningShoesConfig
+     442: dup
+     443: aload_1
+     444: invokespecial #303                // Method artifacts/common/config/item/curio/feet/RunningShoesConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     447: putfield      #305                // Field runningShoes:Lartifacts/common/config/item/curio/feet/RunningShoesConfig;
+     450: aload_0
+     451: new           #166                // class artifacts/common/config/item/ItemConfig
+     454: dup
+     455: aload_1
+     456: getstatic     #308                // Field artifacts/common/init/ModItems.SCARF_OF_INVISIBILITY:Lnet/minecraftforge/registries/RegistryObject;
+     459: ldc_w         #310                // String Affects how many seconds the invisibility effect should apply before breaking
+     462: invokespecial #177                // Method artifacts/common/config/item/ItemConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;Lnet/minecraftforge/registries/RegistryObject;Ljava/lang/String;)V
+     465: putfield      #312                // Field scarfOfInvisibility:Lartifacts/common/config/item/ItemConfig;
+     468: aload_0
+     469: new           #314                // class artifacts/common/config/item/curio/necklace/ShockPendantConfig
+     472: dup
+     473: aload_1
+     474: invokespecial #315                // Method artifacts/common/config/item/curio/necklace/ShockPendantConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     477: putfield      #317                // Field shockPendant:Lartifacts/common/config/item/curio/necklace/ShockPendantConfig;
+     480: aload_0
+     481: new           #166                // class artifacts/common/config/item/ItemConfig
+     484: dup
+     485: aload_1
+     486: getstatic     #320                // Field artifacts/common/init/ModItems.SNORKEL:Lnet/minecraftforge/registries/RegistryObject;
+     489: ldc_w         #322                // String Affects how many seconds the player can stay underwater using the snorkel before breaking
+     492: invokespecial #177                // Method artifacts/common/config/item/ItemConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;Lnet/minecraftforge/registries/RegistryObject;Ljava/lang/String;)V
+     495: putfield      #324                // Field snorkel:Lartifacts/common/config/item/ItemConfig;
+     498: aload_0
+     499: new           #166                // class artifacts/common/config/item/ItemConfig
+     502: dup
+     503: aload_1
+     504: getstatic     #327                // Field artifacts/common/init/ModItems.STEADFAST_SPIKES:Lnet/minecraftforge/registries/RegistryObject;
+     507: ldc_w         #329                // String Affects how many times the player can be hit while wearing steadfast spikes before breaking
+     510: invokespecial #177                // Method artifacts/common/config/item/ItemConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;Lnet/minecraftforge/registries/RegistryObject;Ljava/lang/String;)V
+     513: putfield      #331                // Field steadfastSpikes:Lartifacts/common/config/item/ItemConfig;
+     516: aload_0
+     517: new           #333                // class artifacts/common/config/item/curio/head/SuperstitiousHatConfig
+     520: dup
+     521: aload_1
+     522: invokespecial #334                // Method artifacts/common/config/item/curio/head/SuperstitiousHatConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     525: putfield      #336                // Field superstitiousHat:Lartifacts/common/config/item/curio/head/SuperstitiousHatConfig;
+     528: aload_0
+     529: new           #338                // class artifacts/common/config/item/curio/necklace/ThornPendantConfig
+     532: dup
+     533: aload_1
+     534: invokespecial #339                // Method artifacts/common/config/item/curio/necklace/ThornPendantConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     537: putfield      #341                // Field thornPendant:Lartifacts/common/config/item/curio/necklace/ThornPendantConfig;
+     540: aload_0
+     541: new           #343                // class artifacts/common/config/item/UmbrellaConfig
+     544: dup
+     545: aload_1
+     546: invokespecial #344                // Method artifacts/common/config/item/UmbrellaConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     549: putfield      #346                // Field umbrella:Lartifacts/common/config/item/UmbrellaConfig;
+     552: aload_0
+     553: new           #348                // class artifacts/common/config/item/curio/belt/UniversalAttractorConfig
+     556: dup
+     557: aload_1
+     558: invokespecial #349                // Method artifacts/common/config/item/curio/belt/UniversalAttractorConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     561: putfield      #351                // Field universalAttractor:Lartifacts/common/config/item/curio/belt/UniversalAttractorConfig;
+     564: aload_0
+     565: new           #353                // class artifacts/common/config/item/curio/hands/VampiricGloveConfig
+     568: dup
+     569: aload_1
+     570: invokespecial #354                // Method artifacts/common/config/item/curio/hands/VampiricGloveConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     573: putfield      #356                // Field vampiricGlove:Lartifacts/common/config/item/curio/hands/VampiricGloveConfig;
+     576: aload_0
+     577: new           #358                // class artifacts/common/config/item/curio/head/VillagerHatConfig
+     580: dup
+     581: aload_1
+     582: invokespecial #359                // Method artifacts/common/config/item/curio/head/VillagerHatConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     585: putfield      #361                // Field villagerHat:Lartifacts/common/config/item/curio/head/VillagerHatConfig;
+     588: aload_0
+     589: new           #363                // class artifacts/common/config/item/curio/WhoopeeCushionConfig
+     592: dup
+     593: aload_1
+     594: invokespecial #364                // Method artifacts/common/config/item/curio/WhoopeeCushionConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+     597: putfield      #366                // Field whoopeeCushion:Lartifacts/common/config/item/curio/WhoopeeCushionConfig;
+     600: aload_0
+     601: getfield      #115                // Field drinkingHats:Ljava/util/Map;
+     604: getstatic     #276                // Field artifacts/common/init/ModItems.NOVELTY_DRINKING_HAT:Lnet/minecraftforge/registries/RegistryObject;
+     607: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     610: checkcast     #374                // class net/minecraft/world/item/Item
+     613: aload         4
+     615: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     620: pop
+     621: aload_0
+     622: getfield      #115                // Field drinkingHats:Ljava/util/Map;
+     625: getstatic     #290                // Field artifacts/common/init/ModItems.PLASTIC_DRINKING_HAT:Lnet/minecraftforge/registries/RegistryObject;
+     628: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     631: checkcast     #374                // class net/minecraft/world/item/Item
+     634: aload         5
+     636: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     641: pop
+     642: aload_0
+     643: getfield      #113                // Field everlastingFoods:Ljava/util/Map;
+     646: getstatic     #216                // Field artifacts/common/init/ModItems.ETERNAL_STEAK:Lnet/minecraftforge/registries/RegistryObject;
+     649: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     652: checkcast     #374                // class net/minecraft/world/item/Item
+     655: aload_2
+     656: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     661: pop
+     662: aload_0
+     663: getfield      #113                // Field everlastingFoods:Ljava/util/Map;
+     666: getstatic     #222                // Field artifacts/common/init/ModItems.EVERLASTING_BEEF:Lnet/minecraftforge/registries/RegistryObject;
+     669: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     672: checkcast     #374                // class net/minecraft/world/item/Item
+     675: aload_3
+     676: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     681: pop
+     682: aload_0
+     683: getfield      #117                // Field pendants:Ljava/util/Map;
+     686: getstatic     #383                // Field artifacts/common/init/ModItems.FLAME_PENDANT:Lnet/minecraftforge/registries/RegistryObject;
+     689: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     692: checkcast     #374                // class net/minecraft/world/item/Item
+     695: aload_0
+     696: getfield      #237                // Field flamePendant:Lartifacts/common/config/item/curio/necklace/FlamePendantConfig;
+     699: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     704: pop
+     705: aload_0
+     706: getfield      #117                // Field pendants:Ljava/util/Map;
+     709: getstatic     #386                // Field artifacts/common/init/ModItems.SHOCK_PENDANT:Lnet/minecraftforge/registries/RegistryObject;
+     712: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     715: checkcast     #374                // class net/minecraft/world/item/Item
+     718: aload_0
+     719: getfield      #317                // Field shockPendant:Lartifacts/common/config/item/curio/necklace/ShockPendantConfig;
+     722: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     727: pop
+     728: aload_0
+     729: getfield      #117                // Field pendants:Ljava/util/Map;
+     732: getstatic     #389                // Field artifacts/common/init/ModItems.THORN_PENDANT:Lnet/minecraftforge/registries/RegistryObject;
+     735: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     738: checkcast     #374                // class net/minecraft/world/item/Item
+     741: aload_0
+     742: getfield      #341                // Field thornPendant:Lartifacts/common/config/item/curio/necklace/ThornPendantConfig;
+     745: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     750: pop
+     751: aload_0
+     752: invokevirtual #392                // Method addItemConfigs:()V
+     755: aload_1
+     756: invokevirtual #395                // Method net/minecraftforge/common/ForgeConfigSpec$Builder.pop:()Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+     759: pop
+     760: return
+
+  private void addItemConfigs();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: getfield      #111                // Field items:Ljava/util/Map;
+       4: getstatic     #408                // Field artifacts/common/init/ModItems.ANTIDOTE_VESSEL:Lnet/minecraftforge/registries/RegistryObject;
+       7: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      10: checkcast     #374                // class net/minecraft/world/item/Item
+      13: aload_0
+      14: getfield      #164                // Field antidoteVessel:Lartifacts/common/config/item/curio/belt/AntidoteVesselConfig;
+      17: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      22: pop
+      23: aload_0
+      24: getfield      #111                // Field items:Ljava/util/Map;
+      27: getstatic     #172                // Field artifacts/common/init/ModItems.AQUA_DASHERS:Lnet/minecraftforge/registries/RegistryObject;
+      30: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      33: checkcast     #374                // class net/minecraft/world/item/Item
+      36: aload_0
+      37: getfield      #179                // Field aquaDashers:Lartifacts/common/config/item/ItemConfig;
+      40: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      45: pop
+      46: aload_0
+      47: getfield      #111                // Field items:Ljava/util/Map;
+      50: getstatic     #411                // Field artifacts/common/init/ModItems.BUNNY_HOPPERS:Lnet/minecraftforge/registries/RegistryObject;
+      53: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      56: checkcast     #374                // class net/minecraft/world/item/Item
+      59: aload_0
+      60: getfield      #184                // Field bunnyHoppers:Lartifacts/common/config/item/curio/feet/BunnyHoppersConfig;
+      63: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      68: pop
+      69: aload_0
+      70: getfield      #111                // Field items:Ljava/util/Map;
+      73: getstatic     #187                // Field artifacts/common/init/ModItems.CHARM_OF_SINKING:Lnet/minecraftforge/registries/RegistryObject;
+      76: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+      79: checkcast     #374                // class net/minecraft/world/item/Item
+      82: aload_0
+      83: getfield      #191                // Field charmOfSinking:Lartifacts/common/config/item/ItemConfig;
+      86: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      91: pop
+      92: aload_0
+      93: getfield      #111                // Field items:Ljava/util/Map;
+      96: getstatic     #414                // Field artifacts/common/init/ModItems.CLOUD_IN_A_BOTTLE:Lnet/minecraftforge/registries/RegistryObject;
+      99: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     102: checkcast     #374                // class net/minecraft/world/item/Item
+     105: aload_0
+     106: getfield      #196                // Field cloudInABottle:Lartifacts/common/config/item/curio/belt/CloudInABottleConfig;
+     109: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     114: pop
+     115: aload_0
+     116: getfield      #111                // Field items:Ljava/util/Map;
+     119: getstatic     #417                // Field artifacts/common/init/ModItems.CROSS_NECKLACE:Lnet/minecraftforge/registries/RegistryObject;
+     122: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     125: checkcast     #374                // class net/minecraft/world/item/Item
+     128: aload_0
+     129: getfield      #201                // Field crossNecklace:Lartifacts/common/config/item/curio/necklace/CrossNecklaceConfig;
+     132: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     137: pop
+     138: aload_0
+     139: getfield      #111                // Field items:Ljava/util/Map;
+     142: getstatic     #420                // Field artifacts/common/init/ModItems.CRYSTAL_HEART:Lnet/minecraftforge/registries/RegistryObject;
+     145: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     148: checkcast     #374                // class net/minecraft/world/item/Item
+     151: aload_0
+     152: getfield      #206                // Field crystalHeart:Lartifacts/common/config/item/curio/belt/CrystalHeartConfig;
+     155: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     160: pop
+     161: aload_0
+     162: getfield      #111                // Field items:Ljava/util/Map;
+     165: getstatic     #423                // Field artifacts/common/init/ModItems.DIGGING_CLAWS:Lnet/minecraftforge/registries/RegistryObject;
+     168: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     171: checkcast     #374                // class net/minecraft/world/item/Item
+     174: aload_0
+     175: getfield      #211                // Field diggingClaws:Lartifacts/common/config/item/curio/hands/DiggingClawsConfig;
+     178: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     183: pop
+     184: aload_0
+     185: getfield      #111                // Field items:Ljava/util/Map;
+     188: getstatic     #426                // Field artifacts/common/init/ModItems.FERAL_CLAWS:Lnet/minecraftforge/registries/RegistryObject;
+     191: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     194: checkcast     #374                // class net/minecraft/world/item/Item
+     197: aload_0
+     198: getfield      #227                // Field feralClaws:Lartifacts/common/config/item/curio/hands/FeralClawsConfig;
+     201: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     206: pop
+     207: aload_0
+     208: getfield      #111                // Field items:Ljava/util/Map;
+     211: getstatic     #429                // Field artifacts/common/init/ModItems.FIRE_GAUNTLET:Lnet/minecraftforge/registries/RegistryObject;
+     214: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     217: checkcast     #374                // class net/minecraft/world/item/Item
+     220: aload_0
+     221: getfield      #232                // Field fireGauntlet:Lartifacts/common/config/item/curio/hands/FireGauntletConfig;
+     224: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     229: pop
+     230: aload_0
+     231: getfield      #111                // Field items:Ljava/util/Map;
+     234: getstatic     #383                // Field artifacts/common/init/ModItems.FLAME_PENDANT:Lnet/minecraftforge/registries/RegistryObject;
+     237: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     240: checkcast     #374                // class net/minecraft/world/item/Item
+     243: aload_0
+     244: getfield      #237                // Field flamePendant:Lartifacts/common/config/item/curio/necklace/FlamePendantConfig;
+     247: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     252: pop
+     253: aload_0
+     254: getfield      #111                // Field items:Ljava/util/Map;
+     257: getstatic     #432                // Field artifacts/common/init/ModItems.FLIPPERS:Lnet/minecraftforge/registries/RegistryObject;
+     260: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     263: checkcast     #374                // class net/minecraft/world/item/Item
+     266: aload_0
+     267: getfield      #242                // Field flippers:Lartifacts/common/config/item/curio/feet/FlippersConfig;
+     270: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     275: pop
+     276: aload_0
+     277: getfield      #111                // Field items:Ljava/util/Map;
+     280: getstatic     #435                // Field artifacts/common/init/ModItems.GOLDEN_HOOK:Lnet/minecraftforge/registries/RegistryObject;
+     283: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     286: checkcast     #374                // class net/minecraft/world/item/Item
+     289: aload_0
+     290: getfield      #247                // Field goldenHook:Lartifacts/common/config/item/curio/hands/GoldenHookConfig;
+     293: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     298: pop
+     299: aload_0
+     300: getfield      #111                // Field items:Ljava/util/Map;
+     303: getstatic     #438                // Field artifacts/common/init/ModItems.HELIUM_FLAMINGO:Lnet/minecraftforge/registries/RegistryObject;
+     306: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     309: checkcast     #374                // class net/minecraft/world/item/Item
+     312: aload_0
+     313: getfield      #252                // Field heliumFlamingo:Lartifacts/common/config/item/curio/belt/HeliumFlamingoConfig;
+     316: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     321: pop
+     322: aload_0
+     323: getfield      #111                // Field items:Ljava/util/Map;
+     326: getstatic     #255                // Field artifacts/common/init/ModItems.KITTY_SLIPPERS:Lnet/minecraftforge/registries/RegistryObject;
+     329: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     332: checkcast     #374                // class net/minecraft/world/item/Item
+     335: aload_0
+     336: getfield      #259                // Field kittySlippers:Lartifacts/common/config/item/ItemConfig;
+     339: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     344: pop
+     345: aload_0
+     346: getfield      #111                // Field items:Ljava/util/Map;
+     349: getstatic     #441                // Field artifacts/common/init/ModItems.LUCKY_SCARF:Lnet/minecraftforge/registries/RegistryObject;
+     352: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     355: checkcast     #374                // class net/minecraft/world/item/Item
+     358: aload_0
+     359: getfield      #264                // Field luckyScarf:Lartifacts/common/config/item/curio/necklace/LuckyScarfConfig;
+     362: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     367: pop
+     368: aload_0
+     369: getfield      #111                // Field items:Ljava/util/Map;
+     372: getstatic     #267                // Field artifacts/common/init/ModItems.NIGHT_VISION_GOGGLES:Lnet/minecraftforge/registries/RegistryObject;
+     375: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     378: checkcast     #374                // class net/minecraft/world/item/Item
+     381: aload_0
+     382: getfield      #271                // Field nightVisionGoggles:Lartifacts/common/config/item/ItemConfig;
+     385: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     390: pop
+     391: aload_0
+     392: getfield      #111                // Field items:Ljava/util/Map;
+     395: getstatic     #444                // Field artifacts/common/init/ModItems.OBSIDIAN_SKULL:Lnet/minecraftforge/registries/RegistryObject;
+     398: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     401: checkcast     #374                // class net/minecraft/world/item/Item
+     404: aload_0
+     405: getfield      #282                // Field obsidianSkull:Lartifacts/common/config/item/curio/belt/ObsidianSkullConfig;
+     408: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     413: pop
+     414: aload_0
+     415: getfield      #111                // Field items:Ljava/util/Map;
+     418: getstatic     #447                // Field artifacts/common/init/ModItems.PANIC_NECKLACE:Lnet/minecraftforge/registries/RegistryObject;
+     421: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     424: checkcast     #374                // class net/minecraft/world/item/Item
+     427: aload_0
+     428: getfield      #287                // Field panicNecklace:Lartifacts/common/config/item/curio/necklace/PanicNecklaceConfig;
+     431: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     436: pop
+     437: aload_0
+     438: getfield      #111                // Field items:Ljava/util/Map;
+     441: getstatic     #450                // Field artifacts/common/init/ModItems.POCKET_PISTON:Lnet/minecraftforge/registries/RegistryObject;
+     444: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     447: checkcast     #374                // class net/minecraft/world/item/Item
+     450: aload_0
+     451: getfield      #295                // Field pocketPiston:Lartifacts/common/config/item/curio/hands/PocketPistonConfig;
+     454: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     459: pop
+     460: aload_0
+     461: getfield      #111                // Field items:Ljava/util/Map;
+     464: getstatic     #453                // Field artifacts/common/init/ModItems.POWER_GLOVE:Lnet/minecraftforge/registries/RegistryObject;
+     467: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     470: checkcast     #374                // class net/minecraft/world/item/Item
+     473: aload_0
+     474: getfield      #300                // Field powerGlove:Lartifacts/common/config/item/curio/hands/PowerGloveConfig;
+     477: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     482: pop
+     483: aload_0
+     484: getfield      #111                // Field items:Ljava/util/Map;
+     487: getstatic     #456                // Field artifacts/common/init/ModItems.RUNNING_SHOES:Lnet/minecraftforge/registries/RegistryObject;
+     490: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     493: checkcast     #374                // class net/minecraft/world/item/Item
+     496: aload_0
+     497: getfield      #305                // Field runningShoes:Lartifacts/common/config/item/curio/feet/RunningShoesConfig;
+     500: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     505: pop
+     506: aload_0
+     507: getfield      #111                // Field items:Ljava/util/Map;
+     510: getstatic     #308                // Field artifacts/common/init/ModItems.SCARF_OF_INVISIBILITY:Lnet/minecraftforge/registries/RegistryObject;
+     513: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     516: checkcast     #374                // class net/minecraft/world/item/Item
+     519: aload_0
+     520: getfield      #312                // Field scarfOfInvisibility:Lartifacts/common/config/item/ItemConfig;
+     523: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     528: pop
+     529: aload_0
+     530: getfield      #111                // Field items:Ljava/util/Map;
+     533: getstatic     #386                // Field artifacts/common/init/ModItems.SHOCK_PENDANT:Lnet/minecraftforge/registries/RegistryObject;
+     536: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     539: checkcast     #374                // class net/minecraft/world/item/Item
+     542: aload_0
+     543: getfield      #317                // Field shockPendant:Lartifacts/common/config/item/curio/necklace/ShockPendantConfig;
+     546: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     551: pop
+     552: aload_0
+     553: getfield      #111                // Field items:Ljava/util/Map;
+     556: getstatic     #320                // Field artifacts/common/init/ModItems.SNORKEL:Lnet/minecraftforge/registries/RegistryObject;
+     559: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     562: checkcast     #374                // class net/minecraft/world/item/Item
+     565: aload_0
+     566: getfield      #324                // Field snorkel:Lartifacts/common/config/item/ItemConfig;
+     569: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     574: pop
+     575: aload_0
+     576: getfield      #111                // Field items:Ljava/util/Map;
+     579: getstatic     #327                // Field artifacts/common/init/ModItems.STEADFAST_SPIKES:Lnet/minecraftforge/registries/RegistryObject;
+     582: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     585: checkcast     #374                // class net/minecraft/world/item/Item
+     588: aload_0
+     589: getfield      #331                // Field steadfastSpikes:Lartifacts/common/config/item/ItemConfig;
+     592: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     597: pop
+     598: aload_0
+     599: getfield      #111                // Field items:Ljava/util/Map;
+     602: getstatic     #459                // Field artifacts/common/init/ModItems.SUPERSTITIOUS_HAT:Lnet/minecraftforge/registries/RegistryObject;
+     605: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     608: checkcast     #374                // class net/minecraft/world/item/Item
+     611: aload_0
+     612: getfield      #336                // Field superstitiousHat:Lartifacts/common/config/item/curio/head/SuperstitiousHatConfig;
+     615: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     620: pop
+     621: aload_0
+     622: getfield      #111                // Field items:Ljava/util/Map;
+     625: getstatic     #389                // Field artifacts/common/init/ModItems.THORN_PENDANT:Lnet/minecraftforge/registries/RegistryObject;
+     628: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     631: checkcast     #374                // class net/minecraft/world/item/Item
+     634: aload_0
+     635: getfield      #341                // Field thornPendant:Lartifacts/common/config/item/curio/necklace/ThornPendantConfig;
+     638: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     643: pop
+     644: aload_0
+     645: getfield      #111                // Field items:Ljava/util/Map;
+     648: getstatic     #462                // Field artifacts/common/init/ModItems.UMBRELLA:Lnet/minecraftforge/registries/RegistryObject;
+     651: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     654: checkcast     #374                // class net/minecraft/world/item/Item
+     657: aload_0
+     658: getfield      #346                // Field umbrella:Lartifacts/common/config/item/UmbrellaConfig;
+     661: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     666: pop
+     667: aload_0
+     668: getfield      #111                // Field items:Ljava/util/Map;
+     671: getstatic     #465                // Field artifacts/common/init/ModItems.UNIVERSAL_ATTRACTOR:Lnet/minecraftforge/registries/RegistryObject;
+     674: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     677: checkcast     #374                // class net/minecraft/world/item/Item
+     680: aload_0
+     681: getfield      #351                // Field universalAttractor:Lartifacts/common/config/item/curio/belt/UniversalAttractorConfig;
+     684: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     689: pop
+     690: aload_0
+     691: getfield      #111                // Field items:Ljava/util/Map;
+     694: getstatic     #468                // Field artifacts/common/init/ModItems.VAMPIRIC_GLOVE:Lnet/minecraftforge/registries/RegistryObject;
+     697: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     700: checkcast     #374                // class net/minecraft/world/item/Item
+     703: aload_0
+     704: getfield      #356                // Field vampiricGlove:Lartifacts/common/config/item/curio/hands/VampiricGloveConfig;
+     707: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     712: pop
+     713: aload_0
+     714: getfield      #111                // Field items:Ljava/util/Map;
+     717: getstatic     #471                // Field artifacts/common/init/ModItems.VILLAGER_HAT:Lnet/minecraftforge/registries/RegistryObject;
+     720: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     723: checkcast     #374                // class net/minecraft/world/item/Item
+     726: aload_0
+     727: getfield      #361                // Field villagerHat:Lartifacts/common/config/item/curio/head/VillagerHatConfig;
+     730: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     735: pop
+     736: aload_0
+     737: getfield      #111                // Field items:Ljava/util/Map;
+     740: getstatic     #474                // Field artifacts/common/init/ModItems.WHOOPEE_CUSHION:Lnet/minecraftforge/registries/RegistryObject;
+     743: invokevirtual #372                // Method net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;
+     746: checkcast     #374                // class net/minecraft/world/item/Item
+     749: aload_0
+     750: getfield      #366                // Field whoopeeCushion:Lartifacts/common/config/item/curio/WhoopeeCushionConfig;
+     753: invokeinterface #380,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     758: pop
+     759: aload_0
+     760: getfield      #111                // Field items:Ljava/util/Map;
+     763: aload_0
+     764: getfield      #115                // Field drinkingHats:Ljava/util/Map;
+     767: invokeinterface #478,  2          // InterfaceMethod java/util/Map.putAll:(Ljava/util/Map;)V
+     772: aload_0
+     773: getfield      #111                // Field items:Ljava/util/Map;
+     776: aload_0
+     777: getfield      #113                // Field everlastingFoods:Ljava/util/Map;
+     780: invokeinterface #478,  2          // InterfaceMethod java/util/Map.putAll:(Ljava/util/Map;)V
+     785: aload_0
+     786: getfield      #111                // Field items:Ljava/util/Map;
+     789: aload_0
+     790: getfield      #117                // Field pendants:Ljava/util/Map;
+     793: invokeinterface #478,  2          // InterfaceMethod java/util/Map.putAll:(Ljava/util/Map;)V
+     798: return
+
+  public void bake();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: getfield      #158                // Field cosmeticsValue:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+       4: invokevirtual #480                // Method net/minecraftforge/common/ForgeConfigSpec$ConfigValue.get:()Ljava/lang/Object;
+       7: checkcast     #482                // class java/util/List
+      10: ldc_w         #484                // String artifacts:*
+      13: invokeinterface #488,  2          // InterfaceMethod java/util/List.contains:(Ljava/lang/Object;)Z
+      18: ifeq          62
+      21: aload_0
+      22: getstatic     #494                // Field net/minecraftforge/registries/ForgeRegistries.ITEMS:Lnet/minecraftforge/registries/IForgeRegistry;
+      25: invokeinterface #500,  1          // InterfaceMethod net/minecraftforge/registries/IForgeRegistry.getValues:()Ljava/util/Collection;
+      30: invokeinterface #506,  1          // InterfaceMethod java/util/Collection.stream:()Ljava/util/stream/Stream;
+      35: invokedynamic #524,  0            // InvokeDynamic #0:test:()Ljava/util/function/Predicate;
+      40: invokeinterface #530,  2          // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+      45: invokestatic  #536                // Method java/util/stream/Collectors.toSet:()Ljava/util/stream/Collector;
+      48: invokeinterface #540,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+      53: checkcast     #542                // class java/util/Set
+      56: putfield      #106                // Field cosmetics:Ljava/util/Set;
+      59: goto          130
+      62: aload_0
+      63: aload_0
+      64: getfield      #158                // Field cosmeticsValue:Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;
+      67: invokevirtual #480                // Method net/minecraftforge/common/ForgeConfigSpec$ConfigValue.get:()Ljava/lang/Object;
+      70: checkcast     #482                // class java/util/List
+      73: invokeinterface #543,  1          // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+      78: invokedynamic #557,  0            // InvokeDynamic #1:apply:()Ljava/util/function/Function;
+      83: invokeinterface #561,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+      88: invokedynamic #568,  0            // InvokeDynamic #2:test:()Ljava/util/function/Predicate;
+      93: invokeinterface #530,  2          // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+      98: getstatic     #494                // Field net/minecraftforge/registries/ForgeRegistries.ITEMS:Lnet/minecraftforge/registries/IForgeRegistry;
+     101: dup
+     102: invokestatic  #573                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+     105: pop
+     106: invokedynamic #583,  0            // InvokeDynamic #3:apply:(Lnet/minecraftforge/registries/IForgeRegistry;)Ljava/util/function/Function;
+     111: invokeinterface #561,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+     116: invokestatic  #536                // Method java/util/stream/Collectors.toSet:()Ljava/util/stream/Collector;
+     119: invokeinterface #540,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+     124: checkcast     #542                // class java/util/Set
+     127: putfield      #106                // Field cosmetics:Ljava/util/Set;
+     130: aload_0
+     131: getfield      #111                // Field items:Ljava/util/Map;
+     134: invokedynamic #595,  0            // InvokeDynamic #4:accept:()Ljava/util/function/BiConsumer;
+     139: invokeinterface #599,  2          // InterfaceMethod java/util/Map.forEach:(Ljava/util/function/BiConsumer;)V
+     144: return
+
+  public boolean isCosmetic(net.minecraft.world.item.Item);
+    descriptor: (Lnet/minecraft/world/item/Item;)Z
+    Code:
+       0: aload_0
+       1: getfield      #106                // Field cosmetics:Ljava/util/Set;
+       4: aload_1
+       5: invokeinterface #601,  2          // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+      10: ireturn
+
+  private static void lambda$bake$2(net.minecraft.world.item.Item, artifacts.common.config.item.ItemConfig);
+    descriptor: (Lnet/minecraft/world/item/Item;Lartifacts/common/config/item/ItemConfig;)V
+    Code:
+       0: aload_1
+       1: invokevirtual #605                // Method artifacts/common/config/item/ItemConfig.bake:()V
+       4: return
+
+  private static boolean lambda$bake$1(net.minecraft.resources.ResourceLocation);
+    descriptor: (Lnet/minecraft/resources/ResourceLocation;)Z
+    Code:
+       0: aload_0
+       1: invokevirtual #610                // Method net/minecraft/resources/ResourceLocation.m_135827_:()Ljava/lang/String;
+       4: ldc_w         #612                // String artifacts
+       7: invokevirtual #615                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      10: ireturn
+
+  private static boolean lambda$bake$0(net.minecraft.world.item.Item);
+    descriptor: (Lnet/minecraft/world/item/Item;)Z
+    Code:
+       0: getstatic     #494                // Field net/minecraftforge/registries/ForgeRegistries.ITEMS:Lnet/minecraftforge/registries/IForgeRegistry;
+       3: aload_0
+       4: invokeinterface #621,  2          // InterfaceMethod net/minecraftforge/registries/IForgeRegistry.getKey:(Ljava/lang/Object;)Lnet/minecraft/resources/ResourceLocation;
+       9: invokevirtual #610                // Method net/minecraft/resources/ResourceLocation.m_135827_:()Ljava/lang/String;
+      12: ldc_w         #612                // String artifacts
+      15: invokevirtual #615                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      18: ireturn
+}

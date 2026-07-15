@@ -1,0 +1,184 @@
+Compiled from "UniversalAttractorItem.java"
+public class artifacts.item.wearable.belt.UniversalAttractorItem extends artifacts.item.wearable.WearableArtifactItem {
+  public artifacts.item.wearable.belt.UniversalAttractorItem();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #24                 // Method artifacts/item/wearable/WearableArtifactItem."<init>":()V
+       4: getstatic     #28                 // Field dev/architectury/event/events/common/PlayerEvent.DROP_ITEM:Ldev/architectury/event/Event;
+       7: aload_0
+       8: invokedynamic #45,  0             // InvokeDynamic #0:drop:(Lartifacts/item/wearable/belt/UniversalAttractorItem;)Ldev/architectury/event/events/common/PlayerEvent$DropItem;
+      13: invokeinterface #51,  2           // InterfaceMethod dev/architectury/event/Event.register:(Ljava/lang/Object;)V
+      18: return
+
+  public boolean hasNonCosmeticEffects();
+    descriptor: ()Z
+    Code:
+       0: getstatic     #59                 // Field artifacts/registry/ModGameRules.UNIVERSAL_ATTRACTOR_ENABLED:Lartifacts/registry/ModGameRules$BooleanValue;
+       3: invokevirtual #63                 // Method artifacts/registry/ModGameRules$BooleanValue.get:()Ljava/lang/Boolean;
+       6: invokevirtual #68                 // Method java/lang/Boolean.booleanValue:()Z
+       9: ireturn
+
+  dev.architectury.event.EventResult onItemToss(net.minecraft.class_1657, net.minecraft.class_1542);
+    descriptor: (Lnet/minecraft/class_1657;Lnet/minecraft/class_1542;)Ldev/architectury/event/EventResult;
+    Code:
+       0: getstatic     #59                 // Field artifacts/registry/ModGameRules.UNIVERSAL_ATTRACTOR_ENABLED:Lartifacts/registry/ModGameRules$BooleanValue;
+       3: invokevirtual #63                 // Method artifacts/registry/ModGameRules$BooleanValue.get:()Ljava/lang/Boolean;
+       6: invokevirtual #68                 // Method java/lang/Boolean.booleanValue:()Z
+       9: ifeq          27
+      12: aload_0
+      13: aload_1
+      14: invokevirtual #74                 // Method isEquippedBy:(Lnet/minecraft/class_1309;)Z
+      17: ifeq          27
+      20: aload_0
+      21: aload_1
+      22: bipush        100
+      24: invokevirtual #78                 // Method addCooldown:(Lnet/minecraft/class_1309;I)V
+      27: invokestatic  #84                 // Method dev/architectury/event/EventResult.pass:()Ldev/architectury/event/EventResult;
+      30: areturn
+
+  public void wornTick(net.minecraft.class_1309, net.minecraft.class_1799);
+    descriptor: (Lnet/minecraft/class_1309;Lnet/minecraft/class_1799;)V
+    Code:
+       0: getstatic     #59                 // Field artifacts/registry/ModGameRules.UNIVERSAL_ATTRACTOR_ENABLED:Lartifacts/registry/ModGameRules$BooleanValue;
+       3: invokevirtual #63                 // Method artifacts/registry/ModGameRules$BooleanValue.get:()Ljava/lang/Boolean;
+       6: invokevirtual #68                 // Method java/lang/Boolean.booleanValue:()Z
+       9: ifeq          46
+      12: aload_1
+      13: instanceof    #91                 // class net/minecraft/class_1657
+      16: ifeq          46
+      19: aload_1
+      20: checkcast     #91                 // class net/minecraft/class_1657
+      23: astore_3
+      24: aload_3
+      25: invokevirtual #94                 // Method net/minecraft/class_1657.method_7325:()Z
+      28: ifne          46
+      31: aload_0
+      32: aload_1
+      33: invokevirtual #97                 // Method isOnCooldown:(Lnet/minecraft/class_1309;)Z
+      36: ifne          46
+      39: aload_2
+      40: invokestatic  #101                // Method isActivated:(Lnet/minecraft/class_1799;)Z
+      43: ifne          47
+      46: return
+      47: aload_3
+      48: invokevirtual #105                // Method net/minecraft/class_1657.method_19538:()Lnet/minecraft/class_243;
+      51: dconst_0
+      52: ldc2_w        #106                // double 0.75d
+      55: dconst_0
+      56: invokevirtual #113                // Method net/minecraft/class_243.method_1031:(DDD)Lnet/minecraft/class_243;
+      59: astore        4
+      61: iconst_5
+      62: istore        5
+      64: aload_3
+      65: invokevirtual #117                // Method net/minecraft/class_1657.method_37908:()Lnet/minecraft/class_1937;
+      68: ldc           #119                // class net/minecraft/class_1542
+      70: new           #121                // class net/minecraft/class_238
+      73: dup
+      74: aload         4
+      76: getfield      #125                // Field net/minecraft/class_243.field_1352:D
+      79: iload         5
+      81: i2d
+      82: dsub
+      83: aload         4
+      85: getfield      #128                // Field net/minecraft/class_243.field_1351:D
+      88: iload         5
+      90: i2d
+      91: dsub
+      92: aload         4
+      94: getfield      #131                // Field net/minecraft/class_243.field_1350:D
+      97: iload         5
+      99: i2d
+     100: dsub
+     101: aload         4
+     103: getfield      #125                // Field net/minecraft/class_243.field_1352:D
+     106: iload         5
+     108: i2d
+     109: dadd
+     110: aload         4
+     112: getfield      #128                // Field net/minecraft/class_243.field_1351:D
+     115: iload         5
+     117: i2d
+     118: dadd
+     119: aload         4
+     121: getfield      #131                // Field net/minecraft/class_243.field_1350:D
+     124: iload         5
+     126: i2d
+     127: dadd
+     128: invokespecial #134                // Method net/minecraft/class_238."<init>":(DDDDDD)V
+     131: invokevirtual #140                // Method net/minecraft/class_1937.method_18467:(Ljava/lang/Class;Lnet/minecraft/class_238;)Ljava/util/List;
+     134: astore        6
+     136: iconst_0
+     137: istore        7
+     139: aload         6
+     141: invokeinterface #146,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+     146: astore        8
+     148: aload         8
+     150: invokeinterface #155,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     155: ifeq          291
+     158: aload         8
+     160: invokeinterface #159,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     165: checkcast     #119                // class net/minecraft/class_1542
+     168: astore        9
+     170: aload         9
+     172: invokevirtual #162                // Method net/minecraft/class_1542.method_5805:()Z
+     175: ifeq          288
+     178: aload         9
+     180: invokevirtual #165                // Method net/minecraft/class_1542.method_6977:()Z
+     183: ifne          288
+     186: iload         7
+     188: iinc          7, 1
+     191: sipush        200
+     194: if_icmple     200
+     197: goto          291
+     200: aload         4
+     202: aload         9
+     204: invokevirtual #166                // Method net/minecraft/class_1542.method_19538:()Lnet/minecraft/class_243;
+     207: dconst_0
+     208: aload         9
+     210: invokevirtual #170                // Method net/minecraft/class_1542.method_17682:()F
+     213: fconst_2
+     214: fdiv
+     215: f2d
+     216: dconst_0
+     217: invokevirtual #113                // Method net/minecraft/class_243.method_1031:(DDD)Lnet/minecraft/class_243;
+     220: invokevirtual #174                // Method net/minecraft/class_243.method_1020:(Lnet/minecraft/class_243;)Lnet/minecraft/class_243;
+     223: astore        10
+     225: aload         10
+     227: getfield      #125                // Field net/minecraft/class_243.field_1352:D
+     230: aload         10
+     232: getfield      #125                // Field net/minecraft/class_243.field_1352:D
+     235: dmul
+     236: aload         10
+     238: getfield      #128                // Field net/minecraft/class_243.field_1351:D
+     241: aload         10
+     243: getfield      #128                // Field net/minecraft/class_243.field_1351:D
+     246: dmul
+     247: dadd
+     248: aload         10
+     250: getfield      #131                // Field net/minecraft/class_243.field_1350:D
+     253: aload         10
+     255: getfield      #131                // Field net/minecraft/class_243.field_1350:D
+     258: dmul
+     259: dadd
+     260: invokestatic  #180                // Method java/lang/Math.sqrt:(D)D
+     263: dconst_1
+     264: dcmpl
+     265: ifle          275
+     268: aload         10
+     270: invokevirtual #183                // Method net/minecraft/class_243.method_1029:()Lnet/minecraft/class_243;
+     273: astore        10
+     275: aload         9
+     277: aload         10
+     279: ldc2_w        #184                // double 0.6d
+     282: invokevirtual #189                // Method net/minecraft/class_243.method_1021:(D)Lnet/minecraft/class_243;
+     285: invokevirtual #193                // Method net/minecraft/class_1542.method_18799:(Lnet/minecraft/class_243;)V
+     288: goto          148
+     291: return
+
+  public boolean makesPiglinsNeutral();
+    descriptor: ()Z
+    Code:
+       0: iconst_1
+       1: ireturn
+}

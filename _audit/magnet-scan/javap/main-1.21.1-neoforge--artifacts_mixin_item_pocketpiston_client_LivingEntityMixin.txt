@@ -1,0 +1,100 @@
+Compiled from "LivingEntityMixin.java"
+public abstract class artifacts.mixin.item.pocketpiston.client.LivingEntityMixin implements artifacts.extensions.pocketpiston.LivingEntityExtensions {
+  private static final int RETRACTION_DURATION;
+    descriptor: I
+
+  private static final int RETRACTION_DELAY;
+    descriptor: I
+
+  public int swingTime;
+    descriptor: I
+
+  private float artifacts$pocketPistonLength;
+    descriptor: F
+
+  private int artifacts$pocketPistonTimeRemaining;
+    descriptor: I
+
+  public artifacts.mixin.item.pocketpiston.client.LivingEntityMixin();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #25                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  private void updatePocketPistonLength(org.spongepowered.asm.mixin.injection.callback.CallbackInfo);
+    descriptor: (Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V
+    Code:
+       0: aload_0
+       1: getfield      #38                 // Field artifacts$pocketPistonTimeRemaining:I
+       4: iconst_2
+       5: if_icmpge     13
+       8: ldc           #39                 // float -1.0f
+      10: goto          14
+      13: fconst_1
+      14: fconst_2
+      15: fdiv
+      16: fstore_2
+      17: aload_0
+      18: fconst_0
+      19: fconst_1
+      20: aload_0
+      21: getfield      #41                 // Field artifacts$pocketPistonLength:F
+      24: fload_2
+      25: fadd
+      26: invokestatic  #47                 // Method java/lang/Math.min:(FF)F
+      29: invokestatic  #50                 // Method java/lang/Math.max:(FF)F
+      32: putfield      #41                 // Field artifacts$pocketPistonLength:F
+      35: aload_0
+      36: getfield      #52                 // Field swingTime:I
+      39: ifeq          48
+      42: aload_0
+      43: bipush        6
+      45: putfield      #38                 // Field artifacts$pocketPistonTimeRemaining:I
+      48: aload_0
+      49: getfield      #38                 // Field artifacts$pocketPistonTimeRemaining:I
+      52: ifle          65
+      55: aload_0
+      56: dup
+      57: getfield      #38                 // Field artifacts$pocketPistonTimeRemaining:I
+      60: iconst_1
+      61: isub
+      62: putfield      #38                 // Field artifacts$pocketPistonTimeRemaining:I
+      65: return
+
+  public float artifacts$getPocketPistonLength();
+    descriptor: ()F
+    Code:
+       0: invokestatic  #62                 // Method net/minecraft/client/Minecraft.getInstance:()Lnet/minecraft/client/Minecraft;
+       3: astore_1
+       4: aload_1
+       5: invokevirtual #66                 // Method net/minecraft/client/Minecraft.getTimer:()Lnet/minecraft/client/DeltaTracker;
+       8: iconst_1
+       9: invokeinterface #72,  2           // InterfaceMethod net/minecraft/client/DeltaTracker.getGameTimeDeltaPartialTick:(Z)F
+      14: fstore_2
+      15: aload_0
+      16: getfield      #38                 // Field artifacts$pocketPistonTimeRemaining:I
+      19: i2f
+      20: fload_2
+      21: fadd
+      22: fconst_2
+      23: fcmpg
+      24: ifge          32
+      27: ldc           #39                 // float -1.0f
+      29: goto          33
+      32: fconst_1
+      33: fconst_2
+      34: fdiv
+      35: fstore_3
+      36: fconst_0
+      37: fconst_1
+      38: aload_0
+      39: getfield      #41                 // Field artifacts$pocketPistonLength:F
+      42: fload_3
+      43: fload_2
+      44: fmul
+      45: fadd
+      46: invokestatic  #47                 // Method java/lang/Math.min:(FF)F
+      49: invokestatic  #50                 // Method java/lang/Math.max:(FF)F
+      52: freturn
+}

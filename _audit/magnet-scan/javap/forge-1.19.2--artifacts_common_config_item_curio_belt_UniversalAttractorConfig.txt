@@ -1,0 +1,69 @@
+Compiled from "UniversalAttractorConfig.java"
+public class artifacts.common.config.item.curio.belt.UniversalAttractorConfig extends artifacts.common.config.item.ItemConfig {
+  public net.minecraftforge.common.ForgeConfigSpec$IntValue range;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;
+
+  public net.minecraftforge.common.ForgeConfigSpec$DoubleValue motionMultiplier;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$DoubleValue;
+
+  public net.minecraftforge.common.ForgeConfigSpec$IntValue cooldown;
+    descriptor: Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;
+
+  public artifacts.common.config.item.curio.belt.UniversalAttractorConfig(net.minecraftforge.common.ForgeConfigSpec$Builder);
+    descriptor: (Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: getstatic     #29                 // Field artifacts/common/init/ModItems.UNIVERSAL_ATTRACTOR:Lnet/minecraftforge/registries/RegistryObject;
+       5: invokevirtual #35                 // Method net/minecraftforge/registries/RegistryObject.getId:()Lnet/minecraft/resources/ResourceLocation;
+       8: invokevirtual #41                 // Method net/minecraft/resources/ResourceLocation.m_135815_:()Ljava/lang/String;
+      11: ldc           #43                 // String Affects how many items can be picked up using the universal attractor
+      13: invokespecial #46                 // Method artifacts/common/config/item/ItemConfig."<init>":(Lnet/minecraftforge/common/ForgeConfigSpec$Builder;Ljava/lang/String;Ljava/lang/String;)V
+      16: return
+
+  public void addConfigs(net.minecraftforge.common.ForgeConfigSpec$Builder);
+    descriptor: (Lnet/minecraftforge/common/ForgeConfigSpec$Builder;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #55                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.worldRestart:()Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+       5: ldc           #57                 // String The range (in blocks) of the universal attractor
+       7: invokevirtual #61                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.comment:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      10: aload_0
+      11: ldc           #62                 // String range
+      13: invokevirtual #66                 // Method translate:(Ljava/lang/String;)Ljava/lang/String;
+      16: invokevirtual #69                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.translation:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      19: ldc           #62                 // String range
+      21: iconst_5
+      22: iconst_0
+      23: ldc           #70                 // int 2147483647
+      25: invokevirtual #74                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.defineInRange:(Ljava/lang/String;III)Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;
+      28: putfield      #76                 // Field range:Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;
+      31: aload_0
+      32: aload_1
+      33: ldc           #78                 // String Affects how fast items are moved towards the player
+      35: invokevirtual #61                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.comment:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      38: aload_0
+      39: ldc           #80                 // String motion_multiplier
+      41: invokevirtual #66                 // Method translate:(Ljava/lang/String;)Ljava/lang/String;
+      44: invokevirtual #69                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.translation:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      47: ldc           #81                 // String motionMultiplier
+      49: ldc2_w        #82                 // double 0.6d
+      52: dconst_0
+      53: ldc2_w        #84                 // double Infinityd
+      56: invokevirtual #88                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.defineInRange:(Ljava/lang/String;DDD)Lnet/minecraftforge/common/ForgeConfigSpec$DoubleValue;
+      59: putfield      #90                 // Field motionMultiplier:Lnet/minecraftforge/common/ForgeConfigSpec$DoubleValue;
+      62: aload_0
+      63: aload_1
+      64: ldc           #92                 // String The cooldown (in ticks) after throwing an item
+      66: invokevirtual #61                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.comment:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      69: ldc           #94                 // String artifacts.server.items.cooldown
+      71: invokevirtual #69                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.translation:(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;
+      74: ldc           #95                 // String cooldown
+      76: sipush        200
+      79: iconst_0
+      80: ldc           #70                 // int 2147483647
+      82: invokevirtual #74                 // Method net/minecraftforge/common/ForgeConfigSpec$Builder.defineInRange:(Ljava/lang/String;III)Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;
+      85: putfield      #97                 // Field cooldown:Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;
+      88: return
+}

@@ -1,0 +1,37 @@
+Compiled from "ModMobEffects.java"
+public class artifacts.registry.ModMobEffects {
+  public static final artifacts.registry.Register<net.minecraft.world.effect.MobEffect> MOB_EFFECTS;
+    descriptor: Lartifacts/registry/Register;
+
+  public static final net.minecraft.core.Holder<net.minecraft.world.effect.MobEffect> MAGNETISM;
+    descriptor: Lnet/minecraft/core/Holder;
+
+  public artifacts.registry.ModMobEffects();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #20                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  private static net.minecraft.core.Holder<net.minecraft.world.effect.MobEffect> register(java.lang.String, com.google.common.base.Supplier<net.minecraft.world.effect.MobEffect>);
+    descriptor: (Ljava/lang/String;Lcom/google/common/base/Supplier;)Lnet/minecraft/core/Holder;
+    Code:
+       0: getstatic     #29                 // Field MOB_EFFECTS:Lartifacts/registry/Register;
+       3: aload_0
+       4: aload_1
+       5: invokevirtual #34                 // Method artifacts/registry/Register.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lartifacts/registry/RegistryHolder;
+       8: invokevirtual #40                 // Method artifacts/registry/RegistryHolder.holder:()Lnet/minecraft/core/Holder;
+      11: areturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: getstatic     #50                 // Field net/minecraft/core/registries/Registries.MOB_EFFECT:Lnet/minecraft/resources/ResourceKey;
+       3: invokestatic  #54                 // Method artifacts/registry/Register.create:(Lnet/minecraft/resources/ResourceKey;)Lartifacts/registry/Register;
+       6: putstatic     #29                 // Field MOB_EFFECTS:Lartifacts/registry/Register;
+       9: ldc           #56                 // String magnetism
+      11: invokedynamic #75,  0             // InvokeDynamic #0:get:()Lcom/google/common/base/Supplier;
+      16: invokestatic  #77                 // Method register:(Ljava/lang/String;Lcom/google/common/base/Supplier;)Lnet/minecraft/core/Holder;
+      19: putstatic     #79                 // Field MAGNETISM:Lnet/minecraft/core/Holder;
+      22: return
+}

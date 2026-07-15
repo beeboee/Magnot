@@ -1,0 +1,42 @@
+Compiled from "LivingEntityMixin.java"
+public abstract class artifacts.mixin.attribute.invincibilityticks.LivingEntityMixin {
+  public artifacts.mixin.attribute.invincibilityticks.LivingEntityMixin();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #17                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  private void hurt(net.minecraft.world.damagesource.DamageSource, float, org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable<java.lang.Boolean>);
+    descriptor: (Lnet/minecraft/world/damagesource/DamageSource;FLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #41                 // Method artifacts$applyBonusTicks:()V
+       4: return
+
+  private void handleDamageEvent(net.minecraft.world.damagesource.DamageSource, org.spongepowered.asm.mixin.injection.callback.CallbackInfo);
+    descriptor: (Lnet/minecraft/world/damagesource/DamageSource;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #41                 // Method artifacts$applyBonusTicks:()V
+       4: return
+
+  private void artifacts$applyBonusTicks();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: checkcast     #53                 // class net/minecraft/world/entity/LivingEntity
+       4: astore_1
+       5: aload_1
+       6: getstatic     #59                 // Field artifacts/registry/ModAttributes.INVINCIBILITY_TICKS:Lnet/minecraft/core/Holder;
+       9: invokevirtual #63                 // Method net/minecraft/world/entity/LivingEntity.getAttributeValue:(Lnet/minecraft/core/Holder;)D
+      12: d2i
+      13: istore_2
+      14: aload_1
+      15: dup
+      16: getfield      #67                 // Field net/minecraft/world/entity/LivingEntity.invulnerableTime:I
+      19: iload_2
+      20: iadd
+      21: putfield      #67                 // Field net/minecraft/world/entity/LivingEntity.invulnerableTime:I
+      24: return
+}

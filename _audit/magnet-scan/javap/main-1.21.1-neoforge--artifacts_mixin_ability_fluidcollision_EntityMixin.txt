@@ -1,0 +1,214 @@
+Compiled from "EntityMixin.java"
+public abstract class artifacts.mixin.ability.fluidcollision.EntityMixin {
+  private net.minecraft.world.level.Level level;
+    descriptor: Lnet/minecraft/world/level/Level;
+
+  protected net.minecraft.util.RandomSource random;
+    descriptor: Lnet/minecraft/util/RandomSource;
+
+  private net.minecraft.world.entity.EntityDimensions dimensions;
+    descriptor: Lnet/minecraft/world/entity/EntityDimensions;
+
+  public artifacts.mixin.ability.fluidcollision.EntityMixin();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #20                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public abstract double getX();
+    descriptor: ()D
+
+  public abstract double getY();
+    descriptor: ()D
+
+  public abstract double getZ();
+    descriptor: ()D
+
+  public abstract net.minecraft.world.phys.Vec3 getDeltaMovement();
+    descriptor: ()Lnet/minecraft/world/phys/Vec3;
+
+  private void playWaterStepSound(net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState, org.spongepowered.asm.mixin.injection.callback.CallbackInfo);
+    descriptor: (Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V
+    Code:
+       0: aload_2
+       1: invokevirtual #45                 // Method net/minecraft/world/level/block/state/BlockState.liquid:()Z
+       4: ifeq          35
+       7: aload_0
+       8: invokevirtual #48                 // Method artifacts$isRunningWithAquaDashers:()Z
+      11: ifeq          35
+      14: aload_0
+      15: checkcast     #50                 // class net/minecraft/world/entity/LivingEntity
+      18: getstatic     #56                 // Field artifacts/registry/ModSoundEvents.WATER_STEP:Lnet/minecraft/core/Holder;
+      21: invokeinterface #61,  1           // InterfaceMethod net/minecraft/core/Holder.value:()Ljava/lang/Object;
+      26: checkcast     #63                 // class net/minecraft/sounds/SoundEvent
+      29: ldc           #64                 // float 0.15f
+      31: fconst_1
+      32: invokevirtual #68                 // Method net/minecraft/world/entity/LivingEntity.playSound:(Lnet/minecraft/sounds/SoundEvent;FF)V
+      35: return
+
+  private void spawnWaterSprintParticle(org.spongepowered.asm.mixin.injection.callback.CallbackInfo);
+    descriptor: (Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #48                 // Method artifacts$isRunningWithAquaDashers:()Z
+       4: ifeq          277
+       7: new           #76                 // class net/minecraft/core/BlockPos
+      10: dup
+      11: aload_0
+      12: invokevirtual #78                 // Method getX:()D
+      15: invokestatic  #84                 // Method net/minecraft/util/Mth.floor:(D)I
+      18: aload_0
+      19: invokevirtual #86                 // Method getY:()D
+      22: ldc2_w        #87                 // double 0.2d
+      25: dsub
+      26: invokestatic  #84                 // Method net/minecraft/util/Mth.floor:(D)I
+      29: aload_0
+      30: invokevirtual #90                 // Method getZ:()D
+      33: invokestatic  #84                 // Method net/minecraft/util/Mth.floor:(D)I
+      36: invokespecial #93                 // Method net/minecraft/core/BlockPos."<init>":(III)V
+      39: astore_2
+      40: aload_0
+      41: getfield      #95                 // Field level:Lnet/minecraft/world/level/Level;
+      44: aload_2
+      45: invokevirtual #101                // Method net/minecraft/world/level/Level.getBlockState:(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/block/state/BlockState;
+      48: astore_3
+      49: aload_3
+      50: invokevirtual #105                // Method net/minecraft/world/level/block/state/BlockState.getRenderShape:()Lnet/minecraft/world/level/block/RenderShape;
+      53: getstatic     #111                // Field net/minecraft/world/level/block/RenderShape.INVISIBLE:Lnet/minecraft/world/level/block/RenderShape;
+      56: if_acmpne     277
+      59: aload_0
+      60: invokevirtual #113                // Method getDeltaMovement:()Lnet/minecraft/world/phys/Vec3;
+      63: ldc2_w        #114                // double -4.0d
+      66: dconst_0
+      67: ldc2_w        #114                // double -4.0d
+      70: invokevirtual #121                // Method net/minecraft/world/phys/Vec3.multiply:(DDD)Lnet/minecraft/world/phys/Vec3;
+      73: astore        5
+      75: aload_3
+      76: invokevirtual #125                // Method net/minecraft/world/level/block/state/BlockState.getFluidState:()Lnet/minecraft/world/level/material/FluidState;
+      79: getstatic     #131                // Field net/minecraft/tags/FluidTags.LAVA:Lnet/minecraft/tags/TagKey;
+      82: invokevirtual #137                // Method net/minecraft/world/level/material/FluidState.is:(Lnet/minecraft/tags/TagKey;)Z
+      85: ifeq          143
+      88: aload         5
+      90: dconst_0
+      91: dconst_1
+      92: dconst_0
+      93: invokevirtual #140                // Method net/minecraft/world/phys/Vec3.add:(DDD)Lnet/minecraft/world/phys/Vec3;
+      96: astore        5
+      98: aload_0
+      99: getfield      #142                // Field random:Lnet/minecraft/util/RandomSource;
+     102: iconst_3
+     103: invokeinterface #148,  2          // InterfaceMethod net/minecraft/util/RandomSource.nextInt:(I)I
+     108: ifne          119
+     111: getstatic     #153                // Field net/minecraft/core/particles/ParticleTypes.LAVA:Lnet/minecraft/core/particles/SimpleParticleType;
+     114: astore        4
+     116: goto          195
+     119: getstatic     #158                // Field net/minecraft/core/particles/ParticleTypes.FLAME:Lnet/minecraft/core/particles/SimpleParticleType;
+     122: astore        4
+     124: aload         5
+     126: ldc2_w        #87                 // double 0.2d
+     129: ldc2_w        #159                // double 0.03d
+     132: ldc2_w        #87                 // double 0.2d
+     135: invokevirtual #121                // Method net/minecraft/world/phys/Vec3.multiply:(DDD)Lnet/minecraft/world/phys/Vec3;
+     138: astore        5
+     140: goto          195
+     143: aload_3
+     144: invokevirtual #125                // Method net/minecraft/world/level/block/state/BlockState.getFluidState:()Lnet/minecraft/world/level/material/FluidState;
+     147: invokevirtual #163                // Method net/minecraft/world/level/material/FluidState.isEmpty:()Z
+     150: ifne          194
+     153: aload_0
+     154: getfield      #142                // Field random:Lnet/minecraft/util/RandomSource;
+     157: iconst_3
+     158: invokeinterface #148,  2          // InterfaceMethod net/minecraft/util/RandomSource.nextInt:(I)I
+     163: ifne          174
+     166: getstatic     #166                // Field net/minecraft/core/particles/ParticleTypes.BUBBLE:Lnet/minecraft/core/particles/SimpleParticleType;
+     169: astore        4
+     171: goto          195
+     174: getstatic     #169                // Field net/minecraft/core/particles/ParticleTypes.SPLASH:Lnet/minecraft/core/particles/SimpleParticleType;
+     177: astore        4
+     179: aload         5
+     181: dconst_0
+     182: ldc2_w        #170                // double 1.5d
+     185: dconst_0
+     186: invokevirtual #140                // Method net/minecraft/world/phys/Vec3.add:(DDD)Lnet/minecraft/world/phys/Vec3;
+     189: astore        5
+     191: goto          195
+     194: return
+     195: aload_0
+     196: getfield      #95                 // Field level:Lnet/minecraft/world/level/Level;
+     199: aload         4
+     201: aload_0
+     202: invokevirtual #78                 // Method getX:()D
+     205: aload_0
+     206: getfield      #142                // Field random:Lnet/minecraft/util/RandomSource;
+     209: invokeinterface #176,  1          // InterfaceMethod net/minecraft/util/RandomSource.nextDouble:()D
+     214: ldc2_w        #177                // double 0.5d
+     217: dsub
+     218: aload_0
+     219: getfield      #180                // Field dimensions:Lnet/minecraft/world/entity/EntityDimensions;
+     222: invokevirtual #186                // Method net/minecraft/world/entity/EntityDimensions.width:()F
+     225: f2d
+     226: dmul
+     227: dadd
+     228: aload_0
+     229: invokevirtual #86                 // Method getY:()D
+     232: aload_0
+     233: invokevirtual #90                 // Method getZ:()D
+     236: aload_0
+     237: getfield      #142                // Field random:Lnet/minecraft/util/RandomSource;
+     240: invokeinterface #176,  1          // InterfaceMethod net/minecraft/util/RandomSource.nextDouble:()D
+     245: ldc2_w        #177                // double 0.5d
+     248: dsub
+     249: aload_0
+     250: getfield      #180                // Field dimensions:Lnet/minecraft/world/entity/EntityDimensions;
+     253: invokevirtual #186                // Method net/minecraft/world/entity/EntityDimensions.width:()F
+     256: f2d
+     257: dmul
+     258: dadd
+     259: aload         5
+     261: getfield      #190                // Field net/minecraft/world/phys/Vec3.x:D
+     264: aload         5
+     266: getfield      #193                // Field net/minecraft/world/phys/Vec3.y:D
+     269: aload         5
+     271: getfield      #196                // Field net/minecraft/world/phys/Vec3.z:D
+     274: invokevirtual #200                // Method net/minecraft/world/level/Level.addParticle:(Lnet/minecraft/core/particles/ParticleOptions;DDDDDD)V
+     277: return
+
+  private boolean artifacts$isRunningWithAquaDashers();
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: astore_2
+       2: aload_2
+       3: instanceof    #50                 // class net/minecraft/world/entity/LivingEntity
+       6: ifeq          17
+       9: aload_2
+      10: checkcast     #50                 // class net/minecraft/world/entity/LivingEntity
+      13: astore_1
+      14: goto          19
+      17: iconst_0
+      18: ireturn
+      19: invokestatic  #212                // Method artifacts/platform/PlatformServices.getPlatformHelper:()Lartifacts/platform/PlatformHelper;
+      22: aload_1
+      23: invokeinterface #218,  2          // InterfaceMethod artifacts/platform/PlatformHelper.getSwimData:(Lnet/minecraft/world/entity/LivingEntity;)Lartifacts/component/SwimData;
+      28: astore_2
+      29: aload_2
+      30: ifnull        70
+      33: getstatic     #224                // Field artifacts/registry/ModDataComponents.FLUID_COLLISION:Ljava/util/function/Supplier;
+      36: invokeinterface #229,  1          // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      41: checkcast     #231                // class net/minecraft/core/component/DataComponentType
+      44: aload_1
+      45: iconst_1
+      46: invokestatic  #237                // Method artifacts/equipment/EquipmentHelper.hasAbilityActive:(Lnet/minecraft/core/component/DataComponentType;Lnet/minecraft/world/entity/LivingEntity;Z)Z
+      49: ifeq          70
+      52: aload_1
+      53: invokevirtual #240                // Method net/minecraft/world/entity/LivingEntity.isSprinting:()Z
+      56: ifeq          70
+      59: aload_2
+      60: invokevirtual #245                // Method artifacts/component/SwimData.isWet:()Z
+      63: ifne          70
+      66: iconst_1
+      67: goto          71
+      70: iconst_0
+      71: ireturn
+}

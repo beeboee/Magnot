@@ -1,0 +1,786 @@
+Compiled from "ArtifactRenderers.java"
+public class artifacts.client.item.ArtifactRenderers {
+  public artifacts.client.item.ArtifactRenderers();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void register();
+    descriptor: ()V
+    Code:
+       0: getstatic     #23                 // Field artifacts/registry/ModItems.PLASTIC_DRINKING_HAT:Lartifacts/registry/RegistrySupplier;
+       3: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+       6: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+       9: invokedynamic #48,  0             // InvokeDynamic #0:get:()Ljava/util/function/Supplier;
+      14: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+      17: getstatic     #54                 // Field artifacts/registry/ModItems.NOVELTY_DRINKING_HAT:Lartifacts/registry/RegistrySupplier;
+      20: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+      23: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+      26: invokedynamic #59,  0             // InvokeDynamic #1:get:()Ljava/util/function/Supplier;
+      31: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+      34: getstatic     #62                 // Field artifacts/registry/ModItems.SNORKEL:Lartifacts/registry/RegistrySupplier;
+      37: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+      40: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+      43: invokedynamic #67,  0             // InvokeDynamic #2:get:()Ljava/util/function/Supplier;
+      48: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+      51: getstatic     #70                 // Field artifacts/registry/ModItems.NIGHT_VISION_GOGGLES:Lartifacts/registry/RegistrySupplier;
+      54: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+      57: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+      60: invokedynamic #75,  0             // InvokeDynamic #3:get:()Ljava/util/function/Supplier;
+      65: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+      68: getstatic     #78                 // Field artifacts/registry/ModItems.SUPERSTITIOUS_HAT:Lartifacts/registry/RegistrySupplier;
+      71: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+      74: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+      77: invokedynamic #83,  0             // InvokeDynamic #4:get:()Ljava/util/function/Supplier;
+      82: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+      85: getstatic     #86                 // Field artifacts/registry/ModItems.VILLAGER_HAT:Lartifacts/registry/RegistrySupplier;
+      88: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+      91: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+      94: invokedynamic #91,  0             // InvokeDynamic #5:get:()Ljava/util/function/Supplier;
+      99: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     102: getstatic     #94                 // Field artifacts/registry/ModItems.COWBOY_HAT:Lartifacts/registry/RegistrySupplier;
+     105: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     108: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     111: invokedynamic #99,  0             // InvokeDynamic #6:get:()Ljava/util/function/Supplier;
+     116: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     119: getstatic     #102                // Field artifacts/registry/ModItems.ANGLERS_HAT:Lartifacts/registry/RegistrySupplier;
+     122: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     125: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     128: invokedynamic #107,  0            // InvokeDynamic #7:get:()Ljava/util/function/Supplier;
+     133: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     136: getstatic     #110                // Field artifacts/registry/ModItems.LUCKY_SCARF:Lartifacts/registry/RegistrySupplier;
+     139: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     142: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     145: invokedynamic #115,  0            // InvokeDynamic #8:get:()Ljava/util/function/Supplier;
+     150: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     153: getstatic     #118                // Field artifacts/registry/ModItems.SCARF_OF_INVISIBILITY:Lartifacts/registry/RegistrySupplier;
+     156: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     159: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     162: invokedynamic #123,  0            // InvokeDynamic #9:get:()Ljava/util/function/Supplier;
+     167: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     170: getstatic     #126                // Field artifacts/registry/ModItems.CROSS_NECKLACE:Lartifacts/registry/RegistrySupplier;
+     173: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     176: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     179: invokedynamic #131,  0            // InvokeDynamic #10:get:()Ljava/util/function/Supplier;
+     184: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     187: getstatic     #134                // Field artifacts/registry/ModItems.PANIC_NECKLACE:Lartifacts/registry/RegistrySupplier;
+     190: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     193: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     196: invokedynamic #139,  0            // InvokeDynamic #11:get:()Ljava/util/function/Supplier;
+     201: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     204: getstatic     #142                // Field artifacts/registry/ModItems.SHOCK_PENDANT:Lartifacts/registry/RegistrySupplier;
+     207: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     210: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     213: invokedynamic #147,  0            // InvokeDynamic #12:get:()Ljava/util/function/Supplier;
+     218: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     221: getstatic     #150                // Field artifacts/registry/ModItems.FLAME_PENDANT:Lartifacts/registry/RegistrySupplier;
+     224: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     227: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     230: invokedynamic #155,  0            // InvokeDynamic #13:get:()Ljava/util/function/Supplier;
+     235: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     238: getstatic     #158                // Field artifacts/registry/ModItems.THORN_PENDANT:Lartifacts/registry/RegistrySupplier;
+     241: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     244: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     247: invokedynamic #163,  0            // InvokeDynamic #14:get:()Ljava/util/function/Supplier;
+     252: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     255: getstatic     #166                // Field artifacts/registry/ModItems.CHARM_OF_SINKING:Lartifacts/registry/RegistrySupplier;
+     258: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     261: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     264: invokedynamic #171,  0            // InvokeDynamic #15:get:()Ljava/util/function/Supplier;
+     269: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     272: getstatic     #174                // Field artifacts/registry/ModItems.CLOUD_IN_A_BOTTLE:Lartifacts/registry/RegistrySupplier;
+     275: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     278: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     281: invokedynamic #179,  0            // InvokeDynamic #16:get:()Ljava/util/function/Supplier;
+     286: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     289: getstatic     #182                // Field artifacts/registry/ModItems.OBSIDIAN_SKULL:Lartifacts/registry/RegistrySupplier;
+     292: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     295: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     298: invokedynamic #187,  0            // InvokeDynamic #17:get:()Ljava/util/function/Supplier;
+     303: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     306: getstatic     #190                // Field artifacts/registry/ModItems.ANTIDOTE_VESSEL:Lartifacts/registry/RegistrySupplier;
+     309: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     312: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     315: invokedynamic #195,  0            // InvokeDynamic #18:get:()Ljava/util/function/Supplier;
+     320: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     323: getstatic     #198                // Field artifacts/registry/ModItems.UNIVERSAL_ATTRACTOR:Lartifacts/registry/RegistrySupplier;
+     326: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     329: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     332: invokedynamic #203,  0            // InvokeDynamic #19:get:()Ljava/util/function/Supplier;
+     337: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     340: getstatic     #206                // Field artifacts/registry/ModItems.CRYSTAL_HEART:Lartifacts/registry/RegistrySupplier;
+     343: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     346: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     349: invokedynamic #211,  0            // InvokeDynamic #20:get:()Ljava/util/function/Supplier;
+     354: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     357: getstatic     #214                // Field artifacts/registry/ModItems.HELIUM_FLAMINGO:Lartifacts/registry/RegistrySupplier;
+     360: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     363: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     366: invokedynamic #219,  0            // InvokeDynamic #21:get:()Ljava/util/function/Supplier;
+     371: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     374: getstatic     #222                // Field artifacts/registry/ModItems.CHORUS_TOTEM:Lartifacts/registry/RegistrySupplier;
+     377: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     380: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     383: invokedynamic #227,  0            // InvokeDynamic #22:get:()Ljava/util/function/Supplier;
+     388: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     391: getstatic     #230                // Field artifacts/registry/ModItems.DIGGING_CLAWS:Lartifacts/registry/RegistrySupplier;
+     394: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     397: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     400: invokedynamic #235,  0            // InvokeDynamic #23:get:()Ljava/util/function/Supplier;
+     405: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     408: getstatic     #238                // Field artifacts/registry/ModItems.FERAL_CLAWS:Lartifacts/registry/RegistrySupplier;
+     411: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     414: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     417: invokedynamic #243,  0            // InvokeDynamic #24:get:()Ljava/util/function/Supplier;
+     422: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     425: getstatic     #246                // Field artifacts/registry/ModItems.POWER_GLOVE:Lartifacts/registry/RegistrySupplier;
+     428: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     431: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     434: invokedynamic #251,  0            // InvokeDynamic #25:get:()Ljava/util/function/Supplier;
+     439: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     442: getstatic     #254                // Field artifacts/registry/ModItems.FIRE_GAUNTLET:Lartifacts/registry/RegistrySupplier;
+     445: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     448: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     451: invokedynamic #259,  0            // InvokeDynamic #26:get:()Ljava/util/function/Supplier;
+     456: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     459: getstatic     #262                // Field artifacts/registry/ModItems.POCKET_PISTON:Lartifacts/registry/RegistrySupplier;
+     462: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     465: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     468: invokedynamic #267,  0            // InvokeDynamic #27:get:()Ljava/util/function/Supplier;
+     473: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     476: getstatic     #270                // Field artifacts/registry/ModItems.VAMPIRIC_GLOVE:Lartifacts/registry/RegistrySupplier;
+     479: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     482: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     485: invokedynamic #275,  0            // InvokeDynamic #28:get:()Ljava/util/function/Supplier;
+     490: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     493: getstatic     #278                // Field artifacts/registry/ModItems.GOLDEN_HOOK:Lartifacts/registry/RegistrySupplier;
+     496: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     499: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     502: invokedynamic #283,  0            // InvokeDynamic #29:get:()Ljava/util/function/Supplier;
+     507: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     510: getstatic     #286                // Field artifacts/registry/ModItems.ONION_RING:Lartifacts/registry/RegistrySupplier;
+     513: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     516: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     519: invokedynamic #291,  0            // InvokeDynamic #30:get:()Ljava/util/function/Supplier;
+     524: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     527: getstatic     #294                // Field artifacts/registry/ModItems.PICKAXE_HEATER:Lartifacts/registry/RegistrySupplier;
+     530: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     533: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     536: invokedynamic #299,  0            // InvokeDynamic #31:get:()Ljava/util/function/Supplier;
+     541: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     544: getstatic     #302                // Field artifacts/registry/ModItems.AQUA_DASHERS:Lartifacts/registry/RegistrySupplier;
+     547: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     550: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     553: invokedynamic #307,  0            // InvokeDynamic #32:get:()Ljava/util/function/Supplier;
+     558: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     561: getstatic     #310                // Field artifacts/registry/ModItems.BUNNY_HOPPERS:Lartifacts/registry/RegistrySupplier;
+     564: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     567: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     570: invokedynamic #315,  0            // InvokeDynamic #33:get:()Ljava/util/function/Supplier;
+     575: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     578: getstatic     #318                // Field artifacts/registry/ModItems.KITTY_SLIPPERS:Lartifacts/registry/RegistrySupplier;
+     581: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     584: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     587: invokedynamic #323,  0            // InvokeDynamic #34:get:()Ljava/util/function/Supplier;
+     592: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     595: getstatic     #326                // Field artifacts/registry/ModItems.RUNNING_SHOES:Lartifacts/registry/RegistrySupplier;
+     598: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     601: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     604: invokedynamic #331,  0            // InvokeDynamic #35:get:()Ljava/util/function/Supplier;
+     609: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     612: getstatic     #334                // Field artifacts/registry/ModItems.SNOWSHOES:Lartifacts/registry/RegistrySupplier;
+     615: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     618: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     621: invokedynamic #339,  0            // InvokeDynamic #36:get:()Ljava/util/function/Supplier;
+     626: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     629: getstatic     #342                // Field artifacts/registry/ModItems.STEADFAST_SPIKES:Lartifacts/registry/RegistrySupplier;
+     632: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     635: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     638: invokedynamic #347,  0            // InvokeDynamic #37:get:()Ljava/util/function/Supplier;
+     643: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     646: getstatic     #350                // Field artifacts/registry/ModItems.FLIPPERS:Lartifacts/registry/RegistrySupplier;
+     649: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     652: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     655: invokedynamic #355,  0            // InvokeDynamic #38:get:()Ljava/util/function/Supplier;
+     660: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     663: getstatic     #358                // Field artifacts/registry/ModItems.ROOTED_BOOTS:Lartifacts/registry/RegistrySupplier;
+     666: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     669: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     672: invokedynamic #363,  0            // InvokeDynamic #39:get:()Ljava/util/function/Supplier;
+     677: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     680: getstatic     #366                // Field artifacts/registry/ModItems.WHOOPEE_CUSHION:Lartifacts/registry/RegistrySupplier;
+     683: invokevirtual #29                 // Method artifacts/registry/RegistrySupplier.get:()Ljava/lang/Object;
+     686: checkcast     #31                 // class artifacts/item/wearable/WearableArtifactItem
+     689: invokedynamic #371,  0            // InvokeDynamic #40:get:()Ljava/util/function/Supplier;
+     694: invokestatic  #51                 // Method register:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+     697: return
+
+  public static net.minecraft.client.model.geom.ModelPart bakeLayer(net.minecraft.client.model.geom.ModelLayerLocation);
+    descriptor: (Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+    Code:
+       0: invokestatic  #380                // Method net/minecraft/client/Minecraft.m_91087_:()Lnet/minecraft/client/Minecraft;
+       3: invokevirtual #384                // Method net/minecraft/client/Minecraft.m_167973_:()Lnet/minecraft/client/model/geom/EntityModelSet;
+       6: aload_0
+       7: invokevirtual #389                // Method net/minecraft/client/model/geom/EntityModelSet.m_171103_:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      10: areturn
+
+  public static void register(artifacts.item.wearable.WearableArtifactItem, java.util.function.Supplier<artifacts.client.item.renderer.ArtifactRenderer>);
+    descriptor: (Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+    Code:
+       0: getstatic     #399                // Field artifacts/platform/PlatformServices.platformHelper:Lartifacts/platform/PlatformHelper;
+       3: aload_0
+       4: aload_1
+       5: invokeinterface #404,  3          // InterfaceMethod artifacts/platform/PlatformHelper.registerArtifactRenderer:(Lartifacts/item/wearable/WearableArtifactItem;Ljava/util/function/Supplier;)V
+      10: return
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$43();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #411                // String whoopee_cushion
+       7: new           #413                // class artifacts/client/item/model/HeadModel
+      10: dup
+      11: getstatic     #417                // Field artifacts/client/item/ArtifactLayers.WHOOPEE_CUSHION:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #422                // Method artifacts/client/item/model/HeadModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$42();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #427                // class artifacts/client/item/renderer/BootArtifactRenderer
+       3: dup
+       4: ldc_w         #429                // String rooted_boots
+       7: invokedynamic #441,  0            // InvokeDynamic #41:apply:()Ljava/util/function/Function;
+      12: invokespecial #444                // Method artifacts/client/item/renderer/BootArtifactRenderer."<init>":(Ljava/lang/String;Ljava/util/function/Function;)V
+      15: areturn
+
+  private static artifacts.client.item.model.LegsModel lambda$register$41(java.lang.Boolean);
+    descriptor: (Ljava/lang/Boolean;)Lartifacts/client/item/model/LegsModel;
+    Code:
+       0: new           #447                // class artifacts/client/item/model/LegsModel
+       3: dup
+       4: aload_0
+       5: invokevirtual #453                // Method java/lang/Boolean.booleanValue:()Z
+       8: ifeq          17
+      11: getstatic     #456                // Field artifacts/client/item/ArtifactLayers.BOOTS_LARGE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: goto          20
+      17: getstatic     #459                // Field artifacts/client/item/ArtifactLayers.BOOTS_SMALL:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      20: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      23: invokespecial #462                // Method artifacts/client/item/model/LegsModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      26: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$40();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #465                // String flippers
+       7: new           #447                // class artifacts/client/item/model/LegsModel
+      10: dup
+      11: getstatic     #467                // Field artifacts/client/item/ArtifactLayers.FLIPPERS:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #462                // Method artifacts/client/item/model/LegsModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$39();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #469                // String steadfast_spikes
+       7: new           #447                // class artifacts/client/item/model/LegsModel
+      10: dup
+      11: getstatic     #471                // Field artifacts/client/item/ArtifactLayers.STEADFAST_SPIKES:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #462                // Method artifacts/client/item/model/LegsModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$38();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #473                // String snowshoes
+       7: new           #447                // class artifacts/client/item/model/LegsModel
+      10: dup
+      11: getstatic     #475                // Field artifacts/client/item/ArtifactLayers.SNOWSHOES:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #462                // Method artifacts/client/item/model/LegsModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$37();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #427                // class artifacts/client/item/renderer/BootArtifactRenderer
+       3: dup
+       4: ldc_w         #477                // String running_shoes
+       7: invokedynamic #482,  0            // InvokeDynamic #42:apply:()Ljava/util/function/Function;
+      12: invokespecial #444                // Method artifacts/client/item/renderer/BootArtifactRenderer."<init>":(Ljava/lang/String;Ljava/util/function/Function;)V
+      15: areturn
+
+  private static artifacts.client.item.model.LegsModel lambda$register$36(java.lang.Boolean);
+    descriptor: (Ljava/lang/Boolean;)Lartifacts/client/item/model/LegsModel;
+    Code:
+       0: new           #447                // class artifacts/client/item/model/LegsModel
+       3: dup
+       4: aload_0
+       5: invokevirtual #453                // Method java/lang/Boolean.booleanValue:()Z
+       8: ifeq          17
+      11: getstatic     #456                // Field artifacts/client/item/ArtifactLayers.BOOTS_LARGE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: goto          20
+      17: getstatic     #459                // Field artifacts/client/item/ArtifactLayers.BOOTS_SMALL:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      20: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      23: invokespecial #462                // Method artifacts/client/item/model/LegsModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      26: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$35();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #484                // String kitty_slippers
+       7: new           #447                // class artifacts/client/item/model/LegsModel
+      10: dup
+      11: getstatic     #486                // Field artifacts/client/item/ArtifactLayers.KITTY_SLIPPERS:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #462                // Method artifacts/client/item/model/LegsModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$34();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #488                // String bunny_hoppers
+       7: new           #447                // class artifacts/client/item/model/LegsModel
+      10: dup
+      11: getstatic     #490                // Field artifacts/client/item/ArtifactLayers.BUNNY_HOPPERS:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #462                // Method artifacts/client/item/model/LegsModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$33();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #427                // class artifacts/client/item/renderer/BootArtifactRenderer
+       3: dup
+       4: ldc_w         #492                // String aqua_dashers
+       7: invokedynamic #497,  0            // InvokeDynamic #43:apply:()Ljava/util/function/Function;
+      12: invokespecial #444                // Method artifacts/client/item/renderer/BootArtifactRenderer."<init>":(Ljava/lang/String;Ljava/util/function/Function;)V
+      15: areturn
+
+  private static artifacts.client.item.model.LegsModel lambda$register$32(java.lang.Boolean);
+    descriptor: (Ljava/lang/Boolean;)Lartifacts/client/item/model/LegsModel;
+    Code:
+       0: new           #447                // class artifacts/client/item/model/LegsModel
+       3: dup
+       4: aload_0
+       5: invokevirtual #453                // Method java/lang/Boolean.booleanValue:()Z
+       8: ifeq          17
+      11: getstatic     #500                // Field artifacts/client/item/ArtifactLayers.AQUA_DASHERS_LARGE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: goto          20
+      17: getstatic     #503                // Field artifacts/client/item/ArtifactLayers.AQUA_DASHERS_SMALL:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      20: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      23: invokespecial #462                // Method artifacts/client/item/model/LegsModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      26: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$31();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #505                // class artifacts/client/item/renderer/GlowingGloveArtifactRenderer
+       3: dup
+       4: ldc_w         #507                // String pickaxe_heater
+       7: invokedynamic #517,  0            // InvokeDynamic #44:apply:()Ljava/util/function/Function;
+      12: invokespecial #518                // Method artifacts/client/item/renderer/GlowingGloveArtifactRenderer."<init>":(Ljava/lang/String;Ljava/util/function/Function;)V
+      15: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$30();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #520                // class artifacts/client/item/renderer/GloveArtifactRenderer
+       3: dup
+       4: ldc_w         #522                // String onion_ring
+       7: invokedynamic #527,  0            // InvokeDynamic #45:apply:()Ljava/util/function/Function;
+      12: invokespecial #528                // Method artifacts/client/item/renderer/GloveArtifactRenderer."<init>":(Ljava/lang/String;Ljava/util/function/Function;)V
+      15: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$29();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #520                // class artifacts/client/item/renderer/GloveArtifactRenderer
+       3: dup
+       4: ldc_w         #530                // String golden_hook
+       7: invokedynamic #535,  0            // InvokeDynamic #46:apply:()Ljava/util/function/Function;
+      12: invokespecial #528                // Method artifacts/client/item/renderer/GloveArtifactRenderer."<init>":(Ljava/lang/String;Ljava/util/function/Function;)V
+      15: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$28();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #520                // class artifacts/client/item/renderer/GloveArtifactRenderer
+       3: dup
+       4: ldc_w         #537                // String vampiric_glove
+       7: invokedynamic #542,  0            // InvokeDynamic #47:apply:()Ljava/util/function/Function;
+      12: invokespecial #528                // Method artifacts/client/item/renderer/GloveArtifactRenderer."<init>":(Ljava/lang/String;Ljava/util/function/Function;)V
+      15: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$27();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #520                // class artifacts/client/item/renderer/GloveArtifactRenderer
+       3: dup
+       4: ldc_w         #544                // String pocket_piston
+       7: invokedynamic #549,  0            // InvokeDynamic #48:apply:()Ljava/util/function/Function;
+      12: invokespecial #528                // Method artifacts/client/item/renderer/GloveArtifactRenderer."<init>":(Ljava/lang/String;Ljava/util/function/Function;)V
+      15: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$26();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #505                // class artifacts/client/item/renderer/GlowingGloveArtifactRenderer
+       3: dup
+       4: ldc_w         #551                // String fire_gauntlet
+       7: invokedynamic #542,  0            // InvokeDynamic #47:apply:()Ljava/util/function/Function;
+      12: invokespecial #518                // Method artifacts/client/item/renderer/GlowingGloveArtifactRenderer."<init>":(Ljava/lang/String;Ljava/util/function/Function;)V
+      15: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$25();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #520                // class artifacts/client/item/renderer/GloveArtifactRenderer
+       3: dup
+       4: ldc_w         #553                // String power_glove
+       7: invokedynamic #542,  0            // InvokeDynamic #47:apply:()Ljava/util/function/Function;
+      12: invokespecial #528                // Method artifacts/client/item/renderer/GloveArtifactRenderer."<init>":(Ljava/lang/String;Ljava/util/function/Function;)V
+      15: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$24();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #520                // class artifacts/client/item/renderer/GloveArtifactRenderer
+       3: dup
+       4: ldc_w         #555                // String feral_claws
+       7: ldc_w         #555                // String feral_claws
+      10: invokedynamic #560,  0            // InvokeDynamic #49:apply:()Ljava/util/function/Function;
+      15: invokespecial #563                // Method artifacts/client/item/renderer/GloveArtifactRenderer."<init>":(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Function;)V
+      18: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$23();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #520                // class artifacts/client/item/renderer/GloveArtifactRenderer
+       3: dup
+       4: ldc_w         #565                // String digging_claws
+       7: ldc_w         #565                // String digging_claws
+      10: invokedynamic #560,  0            // InvokeDynamic #49:apply:()Ljava/util/function/Function;
+      15: invokespecial #563                // Method artifacts/client/item/renderer/GloveArtifactRenderer."<init>":(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Function;)V
+      18: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$22();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #567                // class artifacts/client/item/renderer/BeltArtifactRenderer
+       3: dup
+       4: ldc_w         #569                // String chorus_totem
+       7: invokestatic  #575                // Method artifacts/client/item/model/BeltModel.createChorusTotemModel:()Lartifacts/client/item/model/BeltModel;
+      10: invokespecial #578                // Method artifacts/client/item/renderer/BeltArtifactRenderer."<init>":(Ljava/lang/String;Lartifacts/client/item/model/BeltModel;)V
+      13: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$21();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #580                // String helium_flamingo
+       7: invokestatic  #584                // Method artifacts/client/item/model/BeltModel.createHeliumFlamingoModel:()Lnet/minecraft/client/model/HumanoidModel;
+      10: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      13: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$20();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #567                // class artifacts/client/item/renderer/BeltArtifactRenderer
+       3: dup
+       4: ldc_w         #586                // String crystal_heart
+       7: invokestatic  #589                // Method artifacts/client/item/model/BeltModel.createCrystalHeartModel:()Lartifacts/client/item/model/BeltModel;
+      10: invokespecial #578                // Method artifacts/client/item/renderer/BeltArtifactRenderer."<init>":(Ljava/lang/String;Lartifacts/client/item/model/BeltModel;)V
+      13: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$19();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #567                // class artifacts/client/item/renderer/BeltArtifactRenderer
+       3: dup
+       4: ldc_w         #591                // String universal_attractor
+       7: invokestatic  #594                // Method artifacts/client/item/model/BeltModel.createUniversalAttractorModel:()Lartifacts/client/item/model/BeltModel;
+      10: invokespecial #578                // Method artifacts/client/item/renderer/BeltArtifactRenderer."<init>":(Ljava/lang/String;Lartifacts/client/item/model/BeltModel;)V
+      13: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$18();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #567                // class artifacts/client/item/renderer/BeltArtifactRenderer
+       3: dup
+       4: ldc_w         #596                // String antidote_vessel
+       7: invokestatic  #599                // Method artifacts/client/item/model/BeltModel.createAntidoteVesselModel:()Lartifacts/client/item/model/BeltModel;
+      10: invokespecial #578                // Method artifacts/client/item/renderer/BeltArtifactRenderer."<init>":(Ljava/lang/String;Lartifacts/client/item/model/BeltModel;)V
+      13: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$17();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #567                // class artifacts/client/item/renderer/BeltArtifactRenderer
+       3: dup
+       4: ldc_w         #601                // String obsidian_skull
+       7: invokestatic  #604                // Method artifacts/client/item/model/BeltModel.createObsidianSkullModel:()Lartifacts/client/item/model/BeltModel;
+      10: invokespecial #578                // Method artifacts/client/item/renderer/BeltArtifactRenderer."<init>":(Ljava/lang/String;Lartifacts/client/item/model/BeltModel;)V
+      13: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$16();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #567                // class artifacts/client/item/renderer/BeltArtifactRenderer
+       3: dup
+       4: ldc_w         #606                // String cloud_in_a_bottle
+       7: invokestatic  #609                // Method artifacts/client/item/model/BeltModel.createCloudInABottleModel:()Lartifacts/client/item/model/BeltModel;
+      10: invokespecial #578                // Method artifacts/client/item/renderer/BeltArtifactRenderer."<init>":(Ljava/lang/String;Lartifacts/client/item/model/BeltModel;)V
+      13: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$15();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #611                // String charm_of_sinking
+       7: new           #613                // class artifacts/client/item/model/NecklaceModel
+      10: dup
+      11: getstatic     #615                // Field artifacts/client/item/ArtifactLayers.CHARM_OF_SINKING:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #616                // Method artifacts/client/item/model/NecklaceModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$14();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #618                // String thorn_pendant
+       7: new           #613                // class artifacts/client/item/model/NecklaceModel
+      10: dup
+      11: getstatic     #621                // Field artifacts/client/item/ArtifactLayers.PENDANT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #616                // Method artifacts/client/item/model/NecklaceModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$13();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #623                // String flame_pendant
+       7: new           #613                // class artifacts/client/item/model/NecklaceModel
+      10: dup
+      11: getstatic     #621                // Field artifacts/client/item/ArtifactLayers.PENDANT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #616                // Method artifacts/client/item/model/NecklaceModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$12();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #625                // String shock_pendant
+       7: new           #613                // class artifacts/client/item/model/NecklaceModel
+      10: dup
+      11: getstatic     #621                // Field artifacts/client/item/ArtifactLayers.PENDANT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #616                // Method artifacts/client/item/model/NecklaceModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$11();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #627                // String panic_necklace
+       7: new           #613                // class artifacts/client/item/model/NecklaceModel
+      10: dup
+      11: getstatic     #629                // Field artifacts/client/item/ArtifactLayers.PANIC_NECKLACE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #616                // Method artifacts/client/item/model/NecklaceModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$10();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #631                // String cross_necklace
+       7: new           #613                // class artifacts/client/item/model/NecklaceModel
+      10: dup
+      11: getstatic     #633                // Field artifacts/client/item/ArtifactLayers.CROSS_NECKLACE:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #616                // Method artifacts/client/item/model/NecklaceModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$9();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #635                // String scarf_of_invisibility
+       7: new           #637                // class artifacts/client/item/model/ScarfModel
+      10: dup
+      11: getstatic     #640                // Field artifacts/client/item/ArtifactLayers.SCARF:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokedynamic #649,  0            // InvokeDynamic #50:apply:()Ljava/util/function/Function;
+      22: invokespecial #652                // Method artifacts/client/item/model/ScarfModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;Ljava/util/function/Function;)V
+      25: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      28: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$8();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #654                // String lucky_scarf
+       7: new           #637                // class artifacts/client/item/model/ScarfModel
+      10: dup
+      11: getstatic     #640                // Field artifacts/client/item/ArtifactLayers.SCARF:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokedynamic #659,  0            // InvokeDynamic #51:apply:()Ljava/util/function/Function;
+      22: invokespecial #652                // Method artifacts/client/item/model/ScarfModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;Ljava/util/function/Function;)V
+      25: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      28: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$7();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #661                // String anglers_hat
+       7: new           #413                // class artifacts/client/item/model/HeadModel
+      10: dup
+      11: getstatic     #663                // Field artifacts/client/item/ArtifactLayers.ANGLERS_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #422                // Method artifacts/client/item/model/HeadModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$6();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #665                // String cowboy_hat
+       7: new           #413                // class artifacts/client/item/model/HeadModel
+      10: dup
+      11: getstatic     #667                // Field artifacts/client/item/ArtifactLayers.COWBOY_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #422                // Method artifacts/client/item/model/HeadModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$5();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #669                // String villager_hat
+       7: new           #413                // class artifacts/client/item/model/HeadModel
+      10: dup
+      11: getstatic     #672                // Field artifacts/client/item/ArtifactLayers.BRIMMED_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #422                // Method artifacts/client/item/model/HeadModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$4();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #674                // String superstitious_hat
+       7: new           #413                // class artifacts/client/item/model/HeadModel
+      10: dup
+      11: getstatic     #676                // Field artifacts/client/item/ArtifactLayers.SUPERSTITIOUS_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokedynamic #659,  0            // InvokeDynamic #51:apply:()Ljava/util/function/Function;
+      22: invokespecial #677                // Method artifacts/client/item/model/HeadModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;Ljava/util/function/Function;)V
+      25: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      28: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$3();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #679                // class artifacts/client/item/renderer/GlowingArtifactRenderer
+       3: dup
+       4: ldc_w         #681                // String night_vision_goggles
+       7: new           #413                // class artifacts/client/item/model/HeadModel
+      10: dup
+      11: getstatic     #683                // Field artifacts/client/item/ArtifactLayers.NIGHT_VISION_GOGGLES:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #422                // Method artifacts/client/item/model/HeadModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #684                // Method artifacts/client/item/renderer/GlowingArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$2();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #686                // String snorkel
+       7: new           #413                // class artifacts/client/item/model/HeadModel
+      10: dup
+      11: getstatic     #688                // Field artifacts/client/item/ArtifactLayers.SNORKEL:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokedynamic #649,  0            // InvokeDynamic #50:apply:()Ljava/util/function/Function;
+      22: invokespecial #677                // Method artifacts/client/item/model/HeadModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;Ljava/util/function/Function;)V
+      25: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      28: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$1();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #690                // String novelty_drinking_hat
+       7: new           #413                // class artifacts/client/item/model/HeadModel
+      10: dup
+      11: getstatic     #693                // Field artifacts/client/item/ArtifactLayers.DRINKING_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #422                // Method artifacts/client/item/model/HeadModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+
+  private static artifacts.client.item.renderer.ArtifactRenderer lambda$register$0();
+    descriptor: ()Lartifacts/client/item/renderer/ArtifactRenderer;
+    Code:
+       0: new           #409                // class artifacts/client/item/renderer/GenericArtifactRenderer
+       3: dup
+       4: ldc_w         #695                // String plastic_drinking_hat
+       7: new           #413                // class artifacts/client/item/model/HeadModel
+      10: dup
+      11: getstatic     #693                // Field artifacts/client/item/ArtifactLayers.DRINKING_HAT:Lnet/minecraft/client/model/geom/ModelLayerLocation;
+      14: invokestatic  #419                // Method bakeLayer:(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;
+      17: invokespecial #422                // Method artifacts/client/item/model/HeadModel."<init>":(Lnet/minecraft/client/model/geom/ModelPart;)V
+      20: invokespecial #425                // Method artifacts/client/item/renderer/GenericArtifactRenderer."<init>":(Ljava/lang/String;Lnet/minecraft/client/model/HumanoidModel;)V
+      23: areturn
+}

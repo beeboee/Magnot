@@ -1,0 +1,25 @@
+Compiled from "PlayerMixin.java"
+public class artifacts.mixin.mobeffect.magnetism.PlayerMixin {
+  public artifacts.mixin.mobeffect.magnetism.PlayerMixin();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #12                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  private void setItemThrower(net.minecraft.world.item.ItemStack, boolean, boolean, org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable<net.minecraft.world.entity.item.ItemEntity>);
+    descriptor: (Lnet/minecraft/world/item/ItemStack;ZZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;)V
+    Code:
+       0: iload_3
+       1: ifeq          29
+       4: aload         4
+       6: invokevirtual #33                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.getReturnValue:()Ljava/lang/Object;
+       9: ifnull        29
+      12: aload         4
+      14: invokevirtual #33                 // Method org/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable.getReturnValue:()Ljava/lang/Object;
+      17: checkcast     #35                 // class artifacts/extensions/mobeffect/magnetism/ItemEntityExtensions
+      20: aload_0
+      21: checkcast     #37                 // class net/minecraft/world/entity/player/Player
+      24: invokeinterface #41,  2           // InterfaceMethod artifacts/extensions/mobeffect/magnetism/ItemEntityExtensions.artifacts$setThrower:(Lnet/minecraft/world/entity/LivingEntity;)V
+      29: return
+}

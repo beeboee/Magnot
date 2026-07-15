@@ -1,0 +1,370 @@
+Compiled from "DoubleJump.java"
+public final class artifacts.component.ability.DoubleJump extends java.lang.Record implements artifacts.component.ability.EquipmentAbility {
+  private final artifacts.config.value.Value<java.lang.Boolean> enabled;
+    descriptor: Lartifacts/config/value/Value;
+
+  private final artifacts.config.value.Value<java.lang.Double> fallDamageMultiplier;
+    descriptor: Lartifacts/config/value/Value;
+
+  private final artifacts.config.value.Value<java.lang.Double> sprintHorizontalVelocity;
+    descriptor: Lartifacts/config/value/Value;
+
+  private final artifacts.config.value.Value<java.lang.Double> sprintVerticalVelocity;
+    descriptor: Lartifacts/config/value/Value;
+
+  public static final com.mojang.serialization.Codec<artifacts.component.ability.DoubleJump> CODEC;
+    descriptor: Lcom/mojang/serialization/Codec;
+
+  public static final net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, artifacts.component.ability.DoubleJump> STREAM_CODEC;
+    descriptor: Lnet/minecraft/network/codec/StreamCodec;
+
+  public artifacts.component.ability.DoubleJump(artifacts.config.value.Value<java.lang.Boolean>, artifacts.config.value.Value<java.lang.Double>, artifacts.config.value.Value<java.lang.Double>, artifacts.config.value.Value<java.lang.Double>);
+    descriptor: (Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;Lartifacts/config/value/Value;)V
+    Code:
+       0: aload_0
+       1: invokespecial #41                 // Method java/lang/Record."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #43                 // Field enabled:Lartifacts/config/value/Value;
+       9: aload_0
+      10: aload_2
+      11: putfield      #45                 // Field fallDamageMultiplier:Lartifacts/config/value/Value;
+      14: aload_0
+      15: aload_3
+      16: putfield      #47                 // Field sprintHorizontalVelocity:Lartifacts/config/value/Value;
+      19: aload_0
+      20: aload         4
+      22: putfield      #49                 // Field sprintVerticalVelocity:Lartifacts/config/value/Value;
+      25: return
+
+  public static void jump(net.minecraft.world.entity.player.Player);
+    descriptor: (Lnet/minecraft/world/entity/player/Player;)V
+    Code:
+       0: getstatic     #60                 // Field artifacts/registry/ModDataComponents.DOUBLE_JUMP:Ljava/util/function/Supplier;
+       3: invokeinterface #66,  1           // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+       8: checkcast     #68                 // class net/minecraft/core/component/DataComponentType
+      11: aload_0
+      12: dconst_1
+      13: invokedynamic #87,  0             // InvokeDynamic #0:apply:()Ljava/util/function/Function;
+      18: iconst_1
+      19: invokestatic  #93                 // Method artifacts/equipment/EquipmentHelper.minDouble:(Lnet/minecraft/core/component/DataComponentType;Lnet/minecraft/world/entity/LivingEntity;DLjava/util/function/Function;Z)D
+      22: dstore_1
+      23: aload_0
+      24: getfield      #99                 // Field net/minecraft/world/entity/player/Player.fallDistance:F
+      27: fconst_0
+      28: fcmpl
+      29: ifle          56
+      32: dload_1
+      33: dconst_0
+      34: dcmpl
+      35: ifle          56
+      38: aload_0
+      39: aload_0
+      40: getfield      #99                 // Field net/minecraft/world/entity/player/Player.fallDistance:F
+      43: dload_1
+      44: d2f
+      45: aload_0
+      46: invokevirtual #103                // Method net/minecraft/world/entity/player/Player.damageSources:()Lnet/minecraft/world/damagesource/DamageSources;
+      49: invokevirtual #109                // Method net/minecraft/world/damagesource/DamageSources.fall:()Lnet/minecraft/world/damagesource/DamageSource;
+      52: invokevirtual #113                // Method net/minecraft/world/entity/player/Player.causeFallDamage:(FFLnet/minecraft/world/damagesource/DamageSource;)Z
+      55: pop
+      56: aload_0
+      57: fconst_0
+      58: putfield      #99                 // Field net/minecraft/world/entity/player/Player.fallDistance:F
+      61: ldc2_w        #114                // double 0.5d
+      64: dstore_3
+      65: aload_0
+      66: getstatic     #121                // Field net/minecraft/world/effect/MobEffects.JUMP:Lnet/minecraft/core/Holder;
+      69: invokevirtual #125                // Method net/minecraft/world/entity/player/Player.hasEffect:(Lnet/minecraft/core/Holder;)Z
+      72: ifeq          95
+      75: dload_3
+      76: ldc2_w        #126                // double 0.1d
+      79: aload_0
+      80: getstatic     #121                // Field net/minecraft/world/effect/MobEffects.JUMP:Lnet/minecraft/core/Holder;
+      83: invokevirtual #131                // Method net/minecraft/world/entity/player/Player.getEffect:(Lnet/minecraft/core/Holder;)Lnet/minecraft/world/effect/MobEffectInstance;
+      86: invokevirtual #137                // Method net/minecraft/world/effect/MobEffectInstance.getAmplifier:()I
+      89: iconst_1
+      90: iadd
+      91: i2d
+      92: dmul
+      93: dadd
+      94: dstore_3
+      95: aload_0
+      96: invokevirtual #141                // Method net/minecraft/world/entity/player/Player.isSprinting:()Z
+      99: ifeq          128
+     102: dload_3
+     103: dconst_1
+     104: getstatic     #60                 // Field artifacts/registry/ModDataComponents.DOUBLE_JUMP:Ljava/util/function/Supplier;
+     107: invokeinterface #66,  1           // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+     112: checkcast     #68                 // class net/minecraft/core/component/DataComponentType
+     115: aload_0
+     116: invokedynamic #146,  0            // InvokeDynamic #1:apply:()Ljava/util/function/Function;
+     121: iconst_1
+     122: invokestatic  #150                // Method artifacts/equipment/EquipmentHelper.maxDouble:(Lnet/minecraft/core/component/DataComponentType;Lnet/minecraft/world/entity/LivingEntity;Ljava/util/function/Function;Z)D
+     125: dadd
+     126: dmul
+     127: dstore_3
+     128: aload_0
+     129: invokevirtual #154                // Method net/minecraft/world/entity/player/Player.getDeltaMovement:()Lnet/minecraft/world/phys/Vec3;
+     132: astore        5
+     134: dconst_0
+     135: dstore        6
+     137: aload_0
+     138: invokevirtual #141                // Method net/minecraft/world/entity/player/Player.isSprinting:()Z
+     141: ifeq          167
+     144: getstatic     #60                 // Field artifacts/registry/ModDataComponents.DOUBLE_JUMP:Ljava/util/function/Supplier;
+     147: invokeinterface #66,  1           // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+     152: checkcast     #68                 // class net/minecraft/core/component/DataComponentType
+     155: aload_0
+     156: invokedynamic #159,  0            // InvokeDynamic #2:apply:()Ljava/util/function/Function;
+     161: iconst_1
+     162: invokestatic  #150                // Method artifacts/equipment/EquipmentHelper.maxDouble:(Lnet/minecraft/core/component/DataComponentType;Lnet/minecraft/world/entity/LivingEntity;Ljava/util/function/Function;Z)D
+     165: dstore        6
+     167: aload_0
+     168: invokevirtual #165                // Method net/minecraft/world/entity/player/Player.getYRot:()F
+     171: f2d
+     172: ldc2_w        #166                // double 3.141592653589793d
+     175: dmul
+     176: ldc2_w        #168                // double 180.0d
+     179: ddiv
+     180: d2f
+     181: fstore        8
+     183: aload_0
+     184: aload_0
+     185: invokevirtual #154                // Method net/minecraft/world/entity/player/Player.getDeltaMovement:()Lnet/minecraft/world/phys/Vec3;
+     188: fload         8
+     190: invokestatic  #175                // Method net/minecraft/util/Mth.sin:(F)F
+     193: fneg
+     194: f2d
+     195: dload         6
+     197: dmul
+     198: dload_3
+     199: aload         5
+     201: getfield      #179                // Field net/minecraft/world/phys/Vec3.y:D
+     204: dsub
+     205: fload         8
+     207: invokestatic  #182                // Method net/minecraft/util/Mth.cos:(F)F
+     210: f2d
+     211: dload         6
+     213: dmul
+     214: invokevirtual #186                // Method net/minecraft/world/phys/Vec3.add:(DDD)Lnet/minecraft/world/phys/Vec3;
+     217: invokevirtual #190                // Method net/minecraft/world/entity/player/Player.setDeltaMovement:(Lnet/minecraft/world/phys/Vec3;)V
+     220: aload_0
+     221: iconst_1
+     222: putfield      #194                // Field net/minecraft/world/entity/player/Player.hasImpulse:Z
+     225: aload_0
+     226: getstatic     #199                // Field net/minecraft/stats/Stats.JUMP:Lnet/minecraft/resources/ResourceLocation;
+     229: invokevirtual #203                // Method net/minecraft/world/entity/player/Player.awardStat:(Lnet/minecraft/resources/ResourceLocation;)V
+     232: aload_0
+     233: invokevirtual #141                // Method net/minecraft/world/entity/player/Player.isSprinting:()Z
+     236: ifeq          248
+     239: aload_0
+     240: ldc           #204                // float 0.2f
+     242: invokevirtual #208                // Method net/minecraft/world/entity/player/Player.causeFoodExhaustion:(F)V
+     245: goto          254
+     248: aload_0
+     249: ldc           #209                // float 0.05f
+     251: invokevirtual #208                // Method net/minecraft/world/entity/player/Player.causeFoodExhaustion:(F)V
+     254: aload_0
+     255: invokevirtual #213                // Method net/minecraft/world/entity/player/Player.level:()Lnet/minecraft/world/level/Level;
+     258: invokevirtual #218                // Method net/minecraft/world/level/Level.isClientSide:()Z
+     261: ifne          371
+     264: aload_0
+     265: getstatic     #223                // Field artifacts/registry/ModAttributes.FLATULENCE:Lnet/minecraft/core/Holder;
+     268: invokevirtual #227                // Method net/minecraft/world/entity/player/Player.getAttributeValue:(Lnet/minecraft/core/Holder;)D
+     271: dstore        9
+     273: aload_0
+     274: invokevirtual #231                // Method net/minecraft/world/entity/player/Player.getRandom:()Lnet/minecraft/util/RandomSource;
+     277: invokeinterface #236,  1          // InterfaceMethod net/minecraft/util/RandomSource.nextFloat:()F
+     282: f2d
+     283: dload         9
+     285: dcmpg
+     286: ifge          339
+     289: aload_0
+     290: getstatic     #242                // Field artifacts/registry/ModGameEvents.FART:Lartifacts/registry/RegistryHolder;
+     293: invokevirtual #246                // Method net/minecraft/world/entity/player/Player.gameEvent:(Lnet/minecraft/core/Holder;)V
+     296: aload_0
+     297: invokevirtual #213                // Method net/minecraft/world/entity/player/Player.level:()Lnet/minecraft/world/level/Level;
+     300: aconst_null
+     301: aload_0
+     302: getstatic     #250                // Field artifacts/registry/ModSoundEvents.FART:Lnet/minecraft/core/Holder;
+     305: invokeinterface #255,  1          // InterfaceMethod net/minecraft/core/Holder.value:()Ljava/lang/Object;
+     310: checkcast     #257                // class net/minecraft/sounds/SoundEvent
+     313: getstatic     #263                // Field net/minecraft/sounds/SoundSource.PLAYERS:Lnet/minecraft/sounds/SoundSource;
+     316: fconst_1
+     317: ldc_w         #264                // float 0.9f
+     320: aload_0
+     321: invokevirtual #231                // Method net/minecraft/world/entity/player/Player.getRandom:()Lnet/minecraft/util/RandomSource;
+     324: invokeinterface #236,  1          // InterfaceMethod net/minecraft/util/RandomSource.nextFloat:()F
+     329: ldc           #204                // float 0.2f
+     331: fmul
+     332: fadd
+     333: invokevirtual #268                // Method net/minecraft/world/level/Level.playSound:(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V
+     336: goto          371
+     339: aload_0
+     340: invokevirtual #213                // Method net/minecraft/world/entity/player/Player.level:()Lnet/minecraft/world/level/Level;
+     343: aconst_null
+     344: aload_0
+     345: getstatic     #274                // Field net/minecraft/sounds/SoundEvents.WOOL_FALL:Lnet/minecraft/sounds/SoundEvent;
+     348: getstatic     #263                // Field net/minecraft/sounds/SoundSource.PLAYERS:Lnet/minecraft/sounds/SoundSource;
+     351: fconst_1
+     352: ldc_w         #264                // float 0.9f
+     355: aload_0
+     356: invokevirtual #231                // Method net/minecraft/world/entity/player/Player.getRandom:()Lnet/minecraft/util/RandomSource;
+     359: invokeinterface #236,  1          // InterfaceMethod net/minecraft/util/RandomSource.nextFloat:()F
+     364: ldc           #204                // float 0.2f
+     366: fmul
+     367: fadd
+     368: invokevirtual #268                // Method net/minecraft/world/level/Level.playSound:(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V
+     371: return
+
+  public boolean isNonCosmetic();
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: invokevirtual #285                // Method enabled:()Lartifacts/config/value/Value;
+       4: invokeinterface #288,  1          // InterfaceMethod artifacts/config/value/Value.get:()Ljava/lang/Object;
+       9: checkcast     #290                // class java/lang/Boolean
+      12: invokevirtual #293                // Method java/lang/Boolean.booleanValue:()Z
+      15: ireturn
+
+  public final java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+    Code:
+       0: aload_0
+       1: invokedynamic #311,  0            // InvokeDynamic #3:toString:(Lartifacts/component/ability/DoubleJump;)Ljava/lang/String;
+       6: areturn
+
+  public final int hashCode();
+    descriptor: ()I
+    Code:
+       0: aload_0
+       1: invokedynamic #315,  0            // InvokeDynamic #3:hashCode:(Lartifacts/component/ability/DoubleJump;)I
+       6: ireturn
+
+  public final boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokedynamic #321,  0            // InvokeDynamic #3:equals:(Lartifacts/component/ability/DoubleJump;Ljava/lang/Object;)Z
+       7: ireturn
+
+  public artifacts.config.value.Value<java.lang.Boolean> enabled();
+    descriptor: ()Lartifacts/config/value/Value;
+    Code:
+       0: aload_0
+       1: getfield      #43                 // Field enabled:Lartifacts/config/value/Value;
+       4: areturn
+
+  public artifacts.config.value.Value<java.lang.Double> fallDamageMultiplier();
+    descriptor: ()Lartifacts/config/value/Value;
+    Code:
+       0: aload_0
+       1: getfield      #45                 // Field fallDamageMultiplier:Lartifacts/config/value/Value;
+       4: areturn
+
+  public artifacts.config.value.Value<java.lang.Double> sprintHorizontalVelocity();
+    descriptor: ()Lartifacts/config/value/Value;
+    Code:
+       0: aload_0
+       1: getfield      #47                 // Field sprintHorizontalVelocity:Lartifacts/config/value/Value;
+       4: areturn
+
+  public artifacts.config.value.Value<java.lang.Double> sprintVerticalVelocity();
+    descriptor: ()Lartifacts/config/value/Value;
+    Code:
+       0: aload_0
+       1: getfield      #49                 // Field sprintVerticalVelocity:Lartifacts/config/value/Value;
+       4: areturn
+
+  private static java.lang.Double lambda$jump$3(artifacts.component.ability.DoubleJump);
+    descriptor: (Lartifacts/component/ability/DoubleJump;)Ljava/lang/Double;
+    Code:
+       0: aload_0
+       1: invokevirtual #327                // Method sprintHorizontalVelocity:()Lartifacts/config/value/Value;
+       4: invokeinterface #288,  1          // InterfaceMethod artifacts/config/value/Value.get:()Ljava/lang/Object;
+       9: checkcast     #329                // class java/lang/Double
+      12: areturn
+
+  private static java.lang.Double lambda$jump$2(artifacts.component.ability.DoubleJump);
+    descriptor: (Lartifacts/component/ability/DoubleJump;)Ljava/lang/Double;
+    Code:
+       0: aload_0
+       1: invokevirtual #331                // Method sprintVerticalVelocity:()Lartifacts/config/value/Value;
+       4: invokeinterface #288,  1          // InterfaceMethod artifacts/config/value/Value.get:()Ljava/lang/Object;
+       9: checkcast     #329                // class java/lang/Double
+      12: areturn
+
+  private static java.lang.Double lambda$jump$1(artifacts.component.ability.DoubleJump);
+    descriptor: (Lartifacts/component/ability/DoubleJump;)Ljava/lang/Double;
+    Code:
+       0: aload_0
+       1: invokevirtual #333                // Method fallDamageMultiplier:()Lartifacts/config/value/Value;
+       4: invokeinterface #288,  1          // InterfaceMethod artifacts/config/value/Value.get:()Ljava/lang/Object;
+       9: checkcast     #329                // class java/lang/Double
+      12: areturn
+
+  private static com.mojang.datafixers.kinds.App lambda$static$0(com.mojang.serialization.codecs.RecordCodecBuilder$Instance);
+    descriptor: (Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;
+    Code:
+       0: aload_0
+       1: invokestatic  #342                // Method artifacts/config/value/ValueTypes.enabledField:()Lcom/mojang/serialization/MapCodec;
+       4: invokedynamic #346,  0            // InvokeDynamic #4:apply:()Ljava/util/function/Function;
+       9: invokevirtual #352                // Method com/mojang/serialization/MapCodec.forGetter:(Ljava/util/function/Function;)Lcom/mojang/serialization/codecs/RecordCodecBuilder;
+      12: getstatic     #356                // Field artifacts/config/value/ValueTypes.FRACTION:Lartifacts/config/value/type/NumberValueType;
+      15: invokevirtual #362                // Method artifacts/config/value/type/NumberValueType.codec:()Lcom/mojang/serialization/Codec;
+      18: ldc_w         #364                // String fall_damage_multiplier
+      21: dconst_0
+      22: invokestatic  #368                // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+      25: invokestatic  #372                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      28: invokeinterface #378,  3          // InterfaceMethod com/mojang/serialization/Codec.optionalFieldOf:(Ljava/lang/String;Ljava/lang/Object;)Lcom/mojang/serialization/MapCodec;
+      33: invokedynamic #380,  0            // InvokeDynamic #5:apply:()Ljava/util/function/Function;
+      38: invokevirtual #352                // Method com/mojang/serialization/MapCodec.forGetter:(Ljava/util/function/Function;)Lcom/mojang/serialization/codecs/RecordCodecBuilder;
+      41: getstatic     #383                // Field artifacts/config/value/ValueTypes.NON_NEGATIVE_DOUBLE:Lartifacts/config/value/type/NumberValueType;
+      44: invokevirtual #362                // Method artifacts/config/value/type/NumberValueType.codec:()Lcom/mojang/serialization/Codec;
+      47: ldc_w         #385                // String sprint_jump_horizontal_velocity
+      50: dconst_0
+      51: invokestatic  #368                // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+      54: invokestatic  #372                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      57: invokeinterface #378,  3          // InterfaceMethod com/mojang/serialization/Codec.optionalFieldOf:(Ljava/lang/String;Ljava/lang/Object;)Lcom/mojang/serialization/MapCodec;
+      62: invokedynamic #387,  0            // InvokeDynamic #6:apply:()Ljava/util/function/Function;
+      67: invokevirtual #352                // Method com/mojang/serialization/MapCodec.forGetter:(Ljava/util/function/Function;)Lcom/mojang/serialization/codecs/RecordCodecBuilder;
+      70: getstatic     #383                // Field artifacts/config/value/ValueTypes.NON_NEGATIVE_DOUBLE:Lartifacts/config/value/type/NumberValueType;
+      73: invokevirtual #362                // Method artifacts/config/value/type/NumberValueType.codec:()Lcom/mojang/serialization/Codec;
+      76: ldc_w         #389                // String sprint_jump_vertical_velocity
+      79: dconst_0
+      80: invokestatic  #368                // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+      83: invokestatic  #372                // InterfaceMethod artifacts/config/value/Value.of:(Ljava/lang/Object;)Lartifacts/config/value/Value;
+      86: invokeinterface #378,  3          // InterfaceMethod com/mojang/serialization/Codec.optionalFieldOf:(Ljava/lang/String;Ljava/lang/Object;)Lcom/mojang/serialization/MapCodec;
+      91: invokedynamic #391,  0            // InvokeDynamic #7:apply:()Ljava/util/function/Function;
+      96: invokevirtual #352                // Method com/mojang/serialization/MapCodec.forGetter:(Ljava/util/function/Function;)Lcom/mojang/serialization/codecs/RecordCodecBuilder;
+      99: invokevirtual #395                // Method com/mojang/serialization/codecs/RecordCodecBuilder$Instance.group:(Lcom/mojang/datafixers/kinds/App;Lcom/mojang/datafixers/kinds/App;Lcom/mojang/datafixers/kinds/App;Lcom/mojang/datafixers/kinds/App;)Lcom/mojang/datafixers/Products$P4;
+     102: aload_0
+     103: invokedynamic #405,  0            // InvokeDynamic #8:apply:()Lcom/mojang/datafixers/util/Function4;
+     108: invokevirtual #408                // Method com/mojang/datafixers/Products$P4.apply:(Lcom/mojang/datafixers/kinds/Applicative;Lcom/mojang/datafixers/util/Function4;)Lcom/mojang/datafixers/kinds/App;
+     111: areturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: invokedynamic #415,  0            // InvokeDynamic #9:apply:()Ljava/util/function/Function;
+       5: invokestatic  #419                // Method com/mojang/serialization/codecs/RecordCodecBuilder.create:(Ljava/util/function/Function;)Lcom/mojang/serialization/Codec;
+       8: putstatic     #421                // Field CODEC:Lcom/mojang/serialization/Codec;
+      11: getstatic     #425                // Field artifacts/config/value/ValueTypes.BOOLEAN:Lartifacts/config/value/type/BooleanValueType;
+      14: invokevirtual #431                // Method artifacts/config/value/type/BooleanValueType.streamCodec:()Lnet/minecraft/network/codec/StreamCodec;
+      17: invokedynamic #346,  0            // InvokeDynamic #4:apply:()Ljava/util/function/Function;
+      22: getstatic     #356                // Field artifacts/config/value/ValueTypes.FRACTION:Lartifacts/config/value/type/NumberValueType;
+      25: invokevirtual #432                // Method artifacts/config/value/type/NumberValueType.streamCodec:()Lnet/minecraft/network/codec/StreamCodec;
+      28: invokedynamic #380,  0            // InvokeDynamic #5:apply:()Ljava/util/function/Function;
+      33: getstatic     #383                // Field artifacts/config/value/ValueTypes.NON_NEGATIVE_DOUBLE:Lartifacts/config/value/type/NumberValueType;
+      36: invokevirtual #432                // Method artifacts/config/value/type/NumberValueType.streamCodec:()Lnet/minecraft/network/codec/StreamCodec;
+      39: invokedynamic #387,  0            // InvokeDynamic #6:apply:()Ljava/util/function/Function;
+      44: getstatic     #383                // Field artifacts/config/value/ValueTypes.NON_NEGATIVE_DOUBLE:Lartifacts/config/value/type/NumberValueType;
+      47: invokevirtual #432                // Method artifacts/config/value/type/NumberValueType.streamCodec:()Lnet/minecraft/network/codec/StreamCodec;
+      50: invokedynamic #391,  0            // InvokeDynamic #7:apply:()Ljava/util/function/Function;
+      55: invokedynamic #405,  0            // InvokeDynamic #8:apply:()Lcom/mojang/datafixers/util/Function4;
+      60: invokestatic  #438                // InterfaceMethod net/minecraft/network/codec/StreamCodec.composite:(Lnet/minecraft/network/codec/StreamCodec;Ljava/util/function/Function;Lnet/minecraft/network/codec/StreamCodec;Ljava/util/function/Function;Lnet/minecraft/network/codec/StreamCodec;Ljava/util/function/Function;Lnet/minecraft/network/codec/StreamCodec;Ljava/util/function/Function;Lcom/mojang/datafixers/util/Function4;)Lnet/minecraft/network/codec/StreamCodec;
+      63: putstatic     #440                // Field STREAM_CODEC:Lnet/minecraft/network/codec/StreamCodec;
+      66: return
+}

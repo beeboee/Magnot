@@ -1,0 +1,50 @@
+Compiled from "PlayerRendererMixin.java"
+public abstract class artifacts.mixin.compat.trinkets.client.PlayerRendererMixin {
+  public artifacts.mixin.compat.trinkets.client.PlayerRendererMixin();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #12                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  private void renderLeftGlove(com.mojang.blaze3d.vertex.PoseStack, net.minecraft.client.renderer.MultiBufferSource, int, net.minecraft.client.player.AbstractClientPlayer, org.spongepowered.asm.mixin.injection.callback.CallbackInfo);
+    descriptor: (Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/client/player/AbstractClientPlayer;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V
+    Code:
+       0: aload_1
+       1: aload_2
+       2: iload_3
+       3: aload         4
+       5: getstatic     #33                 // Field net/minecraft/world/entity/HumanoidArm.LEFT:Lnet/minecraft/world/entity/HumanoidArm;
+       8: invokestatic  #37                 // Method artifacts$renderArm:(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/client/player/AbstractClientPlayer;Lnet/minecraft/world/entity/HumanoidArm;)V
+      11: return
+
+  private void renderRightGlove(com.mojang.blaze3d.vertex.PoseStack, net.minecraft.client.renderer.MultiBufferSource, int, net.minecraft.client.player.AbstractClientPlayer, org.spongepowered.asm.mixin.injection.callback.CallbackInfo);
+    descriptor: (Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/client/player/AbstractClientPlayer;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V
+    Code:
+       0: aload_1
+       1: aload_2
+       2: iload_3
+       3: aload         4
+       5: getstatic     #47                 // Field net/minecraft/world/entity/HumanoidArm.RIGHT:Lnet/minecraft/world/entity/HumanoidArm;
+       8: invokestatic  #37                 // Method artifacts$renderArm:(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/client/player/AbstractClientPlayer;Lnet/minecraft/world/entity/HumanoidArm;)V
+      11: return
+
+  private static void artifacts$renderArm(com.mojang.blaze3d.vertex.PoseStack, net.minecraft.client.renderer.MultiBufferSource, int, net.minecraft.client.player.AbstractClientPlayer, net.minecraft.world.entity.HumanoidArm);
+    descriptor: (Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/client/player/AbstractClientPlayer;Lnet/minecraft/world/entity/HumanoidArm;)V
+    Code:
+       0: getstatic     #55                 // Field artifacts/Artifacts.CONFIG:Lartifacts/config/ModConfig;
+       3: getfield      #61                 // Field artifacts/config/ModConfig.client:Lartifacts/config/ClientConfig;
+       6: getfield      #67                 // Field artifacts/config/ClientConfig.showFirstPersonGloves:Ljava/util/function/Supplier;
+       9: invokeinterface #73,  1           // InterfaceMethod java/util/function/Supplier.get:()Ljava/lang/Object;
+      14: checkcast     #75                 // class java/lang/Boolean
+      17: invokevirtual #79                 // Method java/lang/Boolean.booleanValue:()Z
+      20: ifne          24
+      23: return
+      24: aload_0
+      25: aload_1
+      26: iload_2
+      27: aload_3
+      28: aload         4
+      30: invokestatic  #84                 // Method artifacts/equipment/client/EquipmentRenderingManager.renderArm:(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/client/player/AbstractClientPlayer;Lnet/minecraft/world/entity/HumanoidArm;)V
+      33: return
+}

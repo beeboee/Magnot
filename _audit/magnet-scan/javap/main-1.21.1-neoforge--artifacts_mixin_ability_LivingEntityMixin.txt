@@ -1,0 +1,72 @@
+Compiled from "LivingEntityMixin.java"
+public abstract class artifacts.mixin.ability.LivingEntityMixin extends net.minecraft.world.entity.Entity implements artifacts.extensions.ability.LivingEntityExtensions {
+  private boolean artifacts$hasTickingAbilities;
+    descriptor: Z
+
+  public artifacts.mixin.ability.LivingEntityMixin(net.minecraft.world.entity.EntityType<?>, net.minecraft.world.level.Level);
+    descriptor: (Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/level/Level;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokespecial #20                 // Method net/minecraft/world/entity/Entity."<init>":(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/level/Level;)V
+       6: new           #22                 // class java/lang/UnsupportedOperationException
+       9: dup
+      10: invokespecial #25                 // Method java/lang/UnsupportedOperationException."<init>":()V
+      13: athrow
+
+  public boolean artifacts$hasTickingAbilities();
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: getfield      #33                 // Field artifacts$hasTickingAbilities:Z
+       4: ireturn
+
+  public void artifacts$setTickingAbilities(boolean);
+    descriptor: (Z)V
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #33                 // Field artifacts$hasTickingAbilities:Z
+       5: return
+
+  protected abstract net.minecraft.world.item.ItemStack getLastArmorItem(net.minecraft.world.entity.EquipmentSlot);
+    descriptor: (Lnet/minecraft/world/entity/EquipmentSlot;)Lnet/minecraft/world/item/ItemStack;
+
+  public abstract net.minecraft.world.item.ItemStack getItemBySlot(net.minecraft.world.entity.EquipmentSlot);
+    descriptor: (Lnet/minecraft/world/entity/EquipmentSlot;)Lnet/minecraft/world/item/ItemStack;
+
+  private void handleEquipmentChanges(java.util.Map<net.minecraft.world.entity.EquipmentSlot, net.minecraft.world.item.ItemStack>, org.spongepowered.asm.mixin.injection.callback.CallbackInfo);
+    descriptor: (Ljava/util/Map;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V
+    Code:
+       0: aload_1
+       1: invokeinterface #57,  1           // InterfaceMethod java/util/Map.keySet:()Ljava/util/Set;
+       6: invokeinterface #63,  1           // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+      11: astore_3
+      12: aload_3
+      13: invokeinterface #68,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+      18: ifeq          73
+      21: aload_3
+      22: invokeinterface #72,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      27: checkcast     #74                 // class net/minecraft/world/entity/EquipmentSlot
+      30: astore        4
+      32: aload         4
+      34: invokevirtual #77                 // Method net/minecraft/world/entity/EquipmentSlot.isArmor:()Z
+      37: ifne          43
+      40: goto          12
+      43: aload_0
+      44: aload         4
+      46: invokevirtual #79                 // Method getLastArmorItem:(Lnet/minecraft/world/entity/EquipmentSlot;)Lnet/minecraft/world/item/ItemStack;
+      49: astore        5
+      51: aload_0
+      52: aload         4
+      54: invokevirtual #81                 // Method getItemBySlot:(Lnet/minecraft/world/entity/EquipmentSlot;)Lnet/minecraft/world/item/ItemStack;
+      57: astore        6
+      59: aload_0
+      60: checkcast     #83                 // class net/minecraft/world/entity/LivingEntity
+      63: aload         5
+      65: aload         6
+      67: invokestatic  #89                 // Method artifacts/event/ArtifactHooks.onItemChanged:(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)V
+      70: goto          12
+      73: return
+}

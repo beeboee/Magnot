@@ -1,0 +1,8 @@
+Compiled from "ItemEntityExtensions.java"
+public interface artifacts.extensions.mobeffect.magnetism.ItemEntityExtensions {
+  public abstract void artifacts$setThrower(net.minecraft.world.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;)V
+
+  public abstract boolean artifacts$wasThrownBy(net.minecraft.world.entity.LivingEntity);
+    descriptor: (Lnet/minecraft/world/entity/LivingEntity;)Z
+}
