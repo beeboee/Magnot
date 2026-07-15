@@ -1,8 +1,6 @@
 # Magnet and vacuum compatibility
 
-This page tracks exact compatibility status. The README should stay broad; only claim specific mod support publicly after it has been tested against the current Magnot target.
-
-Magnot support is optional. Compat code should be safe when a target mod is missing and should not add hard runtime dependencies to the published mod.
+This page tracks exact compatibility status. Magnot support is optional: compatibility code must remain safe when a target mod is missing and must not add hard runtime dependencies to the published jar.
 
 Mods that move dropped items can also support Magnot directly through the public compatibility API in [API.md](API.md).
 
@@ -10,50 +8,52 @@ Mods that move dropped items can also support Magnot directly through the public
 
 - Minecraft 1.21.1
 - NeoForge 21.1.230+
-- Create 6.0.10+, below Create 6.1
+- Default development target: Create 6.0.11
+- Supported Create range: 6.0.10 through the 6.0.x line
 
-## Confirmed in current testing
+## Runtime-tested integrations
 
-These have been tested against the current Magnot dev target:
+- Sophisticated Backpacks / Sophisticated Storage magnet upgrades
+- Applied Energistics 2 Wireless Terminals through AE2WTLib
+- ProjectE Black Hole Band
+- Artifacts Magnetism effect
+- Mekanism Magnetic Attraction Unit
+- Draconic Evolution Magnet / Advanced Magnet
+- Reliquary Reincarnations Fortune Coin paths
+- Mob Grinding Utils Absorption Hopper
+- Item Collectors Basic and Advanced Item Collectors
+- Simple Magnets Basic and Advanced Magnets
+- Modular Routers Vacuum Module
+- Ender IO Electromagnet and vacuum-machine paths
 
-- Sophisticated Backpacks / Sophisticated Storage: magnet upgrades.
-- Applied Energistics 2 Wireless Terminals: wireless magnet behavior through AE2WTLib.
-- ProjectE: Black Hole Band.
-- Artifacts: Magnetism effect.
-- Mekanism: Magnetic Attraction Unit.
-- Draconic Evolution: Magnet / Advanced Magnet.
-- Reliquary Reincarnations: Fortune Coin, including normal use, long-range vacuum use, and pedestal item pickup.
-- Actually Additions: magnet behavior.
-- Mob Grinding Utils: Absorption Hopper item pickup.
-- Item Collectors by SuperMartijn642: Basic Item Collector and Advanced Item Collector item pickup.
-- Simple Magnets by SuperMartijn642: Basic Magnet and Advanced Magnet item movement.
-- Modular Routers: Vacuum Module item pickup.
-- Ender IO: Electromagnet item movement and Vacuum Chest item pickup.
+## Source and bytecode verified
 
-## Experimental compat layers
+These targets match the selected published classes and methods, but should still receive a focused in-game regression test before being described as fully confirmed in release notes:
 
-No active experimental compat layers are currently listed as supported. New compat layers should be tested before being listed as confirmed support on a release page.
+- Actually Additions Ring of Magnetizing: `ItemMagnetRing.inventoryTick` candidate query
+- Industrial Foregoing Infinity Backpack loose-item collection
 
-## Dev test downloads
+The Actually Additions hook is registered in Magnot 1.0.2; earlier releases documented it without actually registering a mixin.
 
-The `downloadCompatTestMods` Gradle task attempts to download the newest Minecraft 1.21.1 NeoForge Modrinth build for these projects into `run/mods`:
+## Development test downloads
+
+The `downloadCompatTestMods` Gradle task attempts to download current Minecraft 1.21.1 NeoForge builds for:
 
 - Mob Grinding Utils
-- Item Collectors by SuperMartijn642
-- Simple Magnets by SuperMartijn642
+- Item Collectors
+- Simple Magnets
 - Modular Routers
 - Industrial Foregoing
 - Ender IO
 
-This task is only for local testing. Downloaded jars should not be committed.
+Downloaded test jars belong in `run/mods` and must not be committed.
 
 ## Planned or future work
 
-- Simple Magnets / Magnets by LPSMods: magnet items and magnet blocks.
-- Industrial Foregoing: inspect for a current loose-item vacuum or remote item collection path.
-- Botania: revisit when Magnot targets a compatible version with Ring of Magnetization available.
-- Cyclic: revisit when Magnot targets a compatible version with magnet or vacuum behavior available.
-- Other current NeoForge mods that directly move, teleport, or collect dropped items from a distance.
+- Simple Magnets / Magnets by LPSMods magnet blocks
+- Botania Ring of Magnetization when a compatible target is available
+- Cyclic magnet or vacuum behavior when a compatible target is available
+- Other mods that directly move, teleport, or collect loose item entities
 
 ## Compatibility rule
 
