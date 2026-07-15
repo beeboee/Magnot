@@ -4,6 +4,19 @@
   "package": "com.beeboee.magnot.mixin",
   "compatibilityLevel": "JAVA_17",
   "refmap": "magnot.refmap.json",
-  "mixins": ["simplemagnets.MagnetItemMixin", "itemcollectors.CollectorBlockEntityMixin"],
-  "injectors": { "defaultRequire": 0 }
+  "mixins": [
+    "simplemagnets.MagnetItemMixin",
+    "itemcollectors.CollectorBlockEntityMixin",
+    "portcompat.Ae2wtlibMagnetHandlerMixin",
+    "portcompat.ArtifactsMagnetismMixin",
+    "portcompat.MekanismMagneticAttractionMixin",
+    "portcompat.DraconicEvolutionMagnetMixin",
+    "portcompat.ReliquaryFortuneCoinMixin",
+    "portcompat.MobGrindingUtilsAbsorptionHopperMixin",
+    "portcompat.ModularRoutersVacuumMixin",
+    "portcompat.SophisticatedCoreMagnetMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
 }
