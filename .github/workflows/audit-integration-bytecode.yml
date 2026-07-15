@@ -1,0 +1,324 @@
+name: Audit integration bytecode targets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/audit-integration-bytecode.yml
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    if: github.event.head_commit.message == 'Audit integration bytecode targets'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Download and inspect supported mod jars
+        env:
+          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import datetime as dt
+          import json
+          import os
+          import re
+          import subprocess
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          root = Path('_porting/bytecode-audit')
+          jars = root / 'jars'
+          dumps = root / 'javap'
+          jars.mkdir(parents=True, exist_ok=True)
+          dumps.mkdir(parents=True, exist_ok=True)
+
+          headers = {'User-Agent': 'Magnot integration bytecode audit (github.com/beeboee/Magnot)'}
+          cf_token = os.environ.get('CURSEFORGE_TOKEN', '')
+          if cf_token:
+              headers_cf = {**headers, 'x-api-key': cf_token}
+          else:
+              headers_cf = headers
+
+          targets = [
+              {'key': 'main-1.21.1-neoforge', 'mc': '1.21.1', 'loader': 'neoforge'},
+              {'key': '1.20.1-forge', 'mc': '1.20.1', 'loader': 'forge'},
+              {'key': '1.20.1-fabric', 'mc': '1.20.1', 'loader': 'fabric'},
+              {'key': '1.19.2-forge', 'mc': '1.19.2', 'loader': 'forge'},
+              {'key': '1.18.2-forge', 'mc': '1.18.2', 'loader': 'forge'},
+              {'key': '1.16.5-forge', 'mc': '1.16.5', 'loader': 'forge'},
+              {'key': '1.12.2-forge', 'mc': '1.12.2', 'loader': 'forge'},
+          ]
+
+          projects = {
+              'sophisticated-core': ['MagnetUpgradeWrapper.class'],
+              'ae2wtlib': ['MagnetHandler.class'],
+              'projecte': ['BlackHoleBand.class'],
+              'artifacts': ['MagnetismMobEffect.class'],
+              'mekanism': ['ModuleMagneticAttractionUnit.class'],
+              'draconic-evolution': ['draconicevolution/items/tools/Magnet.class'],
+              'reliquary-reincarnations': ['FortuneCoinItem.class', 'FortuneCoin.class'],
+              'actually-additions': ['Magnet', 'magnet'],
+              'mob-grinding-utils': ['AbsorptionHopper.class'],
+              'item-collectors': ['CollectorBlockEntity.class'],
+              'simple-magnets': ['MagnetItem.class'],
+              'modular-routers': ['CompiledVacuumModule.class'],
+              'industrial-foregoing': ['ItemInfinityBackpack.class'],
+              'enderio': ['ElectromagnetItem.class', 'VacuumMachineBlockEntity.class'],
+          }
+
+          # CurseForge project IDs used when a project has no suitable Modrinth listing.
+          curse_ids = {
+              'projecte': 226410,
+              'artifacts': 312353,
+              'actually-additions': 228404,
+              'sophisticated-core': 618298,
+              'mekanism': 268560,
+              'draconic-evolution': 223565,
+              'reliquary-reincarnations': 241319,
+              'mob-grinding-utils': 250609,
+              'item-collectors': 395620,
+              'simple-magnets': 394140,
+              'modular-routers': 250294,
+              'industrial-foregoing': 266515,
+              'enderio': 64578,
+          }
+
+          exact_main = [
+              ('projecte', '6611984', 'https://cursemaven.com/curse/maven/projecte-226410/6611984/projecte-226410-6611984.jar'),
+              ('artifacts', '6871140', 'https://cursemaven.com/curse/maven/artifacts-312353/6871140/artifacts-312353-6871140.jar'),
+              ('actually-additions', '6329770', 'https://cursemaven.com/curse/maven/actually-additions-228404/6329770/actually-additions-228404-6329770.jar'),
+              ('sophisticated-core', '8145747', 'https://cursemaven.com/curse/maven/sophisticated-core-618298/8145747/sophisticated-core-618298-8145747.jar'),
+          ]
+
+          def get_bytes(url, custom_headers=None, timeout=90):
+              request = urllib.request.Request(url, headers=custom_headers or headers)
+              with urllib.request.urlopen(request, timeout=timeout) as response:
+                  return response.read(), response.geturl()
+
+          def get_json(url, custom_headers=None):
+              raw, final = get_bytes(url, custom_headers, 60)
+              return json.loads(raw), final
+
+          def safe_name(value):
+              return re.sub(r'[^A-Za-z0-9._-]+', '_', value)
+
+          def download(url, destination, custom_headers=None):
+              raw, final = get_bytes(url, custom_headers, 180)
+              destination.write_bytes(raw)
+              return final, len(raw)
+
+          def modrinth_latest(slug, mc, loader):
+              params = urllib.parse.urlencode({
+                  'loaders': json.dumps([loader], separators=(',', ':')),
+                  'game_versions': json.dumps([mc], separators=(',', ':')),
+              })
+              data, _ = get_json(f'https://api.modrinth.com/v2/project/{urllib.parse.quote(slug)}/version?{params}')
+              if not data:
+                  return None
+              releases = [v for v in data if v.get('version_type') == 'release']
+              chosen = releases[0] if releases else data[0]
+              files = chosen.get('files') or []
+              primary = next((f for f in files if f.get('primary') and str(f.get('filename','')).endswith('.jar')), None)
+              primary = primary or next((f for f in files if str(f.get('filename','')).endswith('.jar')), None)
+              if not primary:
+                  return None
+              return {
+                  'version': chosen.get('version_number'),
+                  'channel': chosen.get('version_type'),
+                  'published': chosen.get('date_published'),
+                  'url': primary.get('url'),
+                  'filename': primary.get('filename'),
+                  'source': 'modrinth',
+                  'version_id': chosen.get('id'),
+              }
+
+          def curseforge_latest(project_id, mc, loader):
+              # 1 Forge, 4 Fabric, 6 NeoForge in the CurseForge API.
+              loader_type = {'forge': 1, 'fabric': 4, 'neoforge': 6}[loader]
+              query = urllib.parse.urlencode({'gameVersion': mc, 'modLoaderType': loader_type, 'pageSize': 50})
+              data, _ = get_json(f'https://api.curseforge.com/v1/mods/{project_id}/files?{query}', headers_cf)
+              files = data.get('data') or []
+              if not files:
+                  return None
+              releases = [f for f in files if f.get('releaseType') == 1]
+              chosen = releases[0] if releases else files[0]
+              url = chosen.get('downloadUrl')
+              file_id = chosen.get('id')
+              filename = chosen.get('fileName')
+              if not url and file_id and filename:
+                  # CurseMaven fallback works without exposing the API key.
+                  url = f'https://cursemaven.com/curse/maven/project-{project_id}/{file_id}/project-{project_id}-{file_id}.jar'
+              return {
+                  'version': chosen.get('displayName') or filename,
+                  'channel': {1:'release',2:'beta',3:'alpha'}.get(chosen.get('releaseType'), str(chosen.get('releaseType'))),
+                  'published': chosen.get('fileDate'),
+                  'url': url,
+                  'filename': filename,
+                  'source': 'curseforge',
+                  'file_id': file_id,
+              }
+
+          def list_classes(jar_path):
+              result = subprocess.run(['jar', 'tf', str(jar_path)], text=True, capture_output=True, check=True)
+              return [line.strip() for line in result.stdout.splitlines() if line.strip().endswith('.class') and not line.startswith('META-INF/versions/')]
+
+          def inspect_class(jar_path, class_entry, out_path):
+              binary = class_entry[:-6].replace('/', '.')
+              proc = subprocess.run(['javap', '-classpath', str(jar_path), '-p', '-s', '-c', binary], text=True, capture_output=True)
+              text = proc.stdout + ('\nSTDERR\n' + proc.stderr if proc.stderr else '')
+              out_path.write_text(text, encoding='utf-8')
+              methods = []
+              lines = text.splitlines()
+              for i, line in enumerate(lines):
+                  if re.match(r'^\s*(public|protected|private|static|final|synchronized|native|abstract|strictfp|default).*[);]\s*$', line):
+                      descriptor = ''
+                      if i + 1 < len(lines) and 'descriptor:' in lines[i+1]:
+                          descriptor = lines[i+1].split('descriptor:',1)[1].strip()
+                      methods.append({'signature': line.strip(), 'descriptor': descriptor})
+              invokes = sorted(set(re.findall(r'// Method ([^\s]+)', text)))
+              return {'binary_name': binary, 'methods': methods, 'invokes': invokes, 'javap': str(out_path)}
+
+          create_versions = {}
+          for mc in ['1.21.1','1.20.1','1.19.2','1.18.2','1.16.5']:
+              url = f'https://maven.createmod.net/com/simibubi/create/create-{mc}/maven-metadata.xml'
+              try:
+                  raw, final = get_bytes(url)
+                  root_xml = ET.fromstring(raw)
+                  versions = [node.text for node in root_xml.findall('./versioning/versions/version') if node.text]
+                  releases = [v for v in versions if not re.search(r'(alpha|beta|rc|dev|snapshot)', v, re.I)]
+                  create_versions[f'{mc}-forge'] = {
+                      'latest': versions[-1] if versions else None,
+                      'latest_release_like': releases[-1] if releases else (versions[-1] if versions else None),
+                      'versions_tail': versions[-12:],
+                      'metadata_url': final,
+                  }
+              except Exception as exc:
+                  create_versions[f'{mc}-forge'] = {'error': repr(exc), 'metadata_url': url}
+
+          try:
+              cfabric = modrinth_latest('create-fabric', '1.20.1', 'fabric')
+              create_versions['1.20.1-fabric'] = cfabric or {'error':'no matching Modrinth version'}
+          except Exception as exc:
+              create_versions['1.20.1-fabric'] = {'error': repr(exc)}
+
+          report = {
+              'generated_at': dt.datetime.now(dt.timezone.utc).isoformat(),
+              'create_versions': create_versions,
+              'exact_main': [],
+              'targets': {},
+          }
+
+          # Inspect exact main CurseForge pins first.
+          for slug, version, url in exact_main:
+              row = {'project': slug, 'version': version, 'url': url, 'source': 'main-gradle-pin'}
+              try:
+                  dest = jars / f'main-exact-{safe_name(slug)}-{version}.jar'
+                  final, size = download(url, dest)
+                  classes = list_classes(dest)
+                  matches = []
+                  for pattern in projects[slug]:
+                      matches.extend([c for c in classes if pattern.lower() in c.lower()])
+                  matches = sorted(set(matches))[:30]
+                  row.update({'download_url': final, 'size': size, 'jar': str(dest), 'class_matches': matches, 'inspections': []})
+                  for class_entry in matches[:8]:
+                      out = dumps / f'main-exact-{safe_name(slug)}-{safe_name(class_entry)}.txt'
+                      row['inspections'].append(inspect_class(dest, class_entry, out))
+              except Exception as exc:
+                  row['error'] = repr(exc)
+              report['exact_main'].append(row)
+
+          for target in targets:
+              target_rows = []
+              for slug, patterns in projects.items():
+                  row = {'project': slug}
+                  info = None
+                  errors = []
+                  try:
+                      info = modrinth_latest(slug, target['mc'], target['loader'])
+                  except Exception as exc:
+                      errors.append('modrinth: ' + repr(exc))
+                  if info is None and slug in curse_ids and cf_token:
+                      try:
+                          info = curseforge_latest(curse_ids[slug], target['mc'], target['loader'])
+                      except Exception as exc:
+                          errors.append('curseforge: ' + repr(exc))
+                  if info is None:
+                      row['available'] = False
+                      row['errors'] = errors
+                      target_rows.append(row)
+                      continue
+                  row.update(info)
+                  row['available'] = True
+                  try:
+                      dest = jars / f"{target['key']}-{safe_name(slug)}-{safe_name(str(info.get('version')))}.jar"
+                      final, size = download(info['url'], dest, headers_cf if info.get('source') == 'curseforge' else headers)
+                      classes = list_classes(dest)
+                      matches = []
+                      for pattern in patterns:
+                          matches.extend([c for c in classes if pattern.lower() in c.lower()])
+                      matches = sorted(set(matches))[:40]
+                      row.update({'download_url': final, 'size': size, 'jar': str(dest), 'class_matches': matches, 'inspections': []})
+                      for class_entry in matches[:10]:
+                          out = dumps / f"{target['key']}-{safe_name(slug)}-{safe_name(class_entry)}.txt"
+                          row['inspections'].append(inspect_class(dest, class_entry, out))
+                  except Exception as exc:
+                      row['inspect_error'] = repr(exc)
+                  if errors:
+                      row['lookup_errors'] = errors
+                  target_rows.append(row)
+              report['targets'][target['key']] = target_rows
+
+          (root / 'audit.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
+
+          lines = [
+              '# Magnot integration bytecode audit', '',
+              f"Generated: {report['generated_at']}", '',
+              'This report inspects published jars. `class found` means the target class exists; the linked javap dump records exact method descriptors and invoked methods. It does not by itself prove behavior in a running game.', '',
+              '## Create versions', '',
+              '| Target | Latest metadata version | Latest release-like version |', '|---|---|---|'
+          ]
+          for key, value in create_versions.items():
+              lines.append(f"| {key} | `{value.get('latest') or value.get('version') or '—'}` | `{value.get('latest_release_like') or value.get('version') or '—'}` |")
+
+          lines += ['', '## Exact main pins', '', '| Project | Pin | Matching target classes | Status |', '|---|---:|---|---|']
+          for row in report['exact_main']:
+              matches = '<br>'.join(f'`{m}`' for m in row.get('class_matches', [])) or '—'
+              status = 'downloaded' if row.get('jar') else f"error: `{row.get('error','unknown')}`"
+              lines.append(f"| {row['project']} | `{row['version']}` | {matches} | {status} |")
+
+          for key, rows in report['targets'].items():
+              lines += ['', f'## {key}', '', '| Project | Selected version | Source | Matching target classes |', '|---|---|---|---|']
+              for row in rows:
+                  version = row.get('version') or '—'
+                  source = row.get('source') or '—'
+                  matches = '<br>'.join(f'`{m}`' for m in row.get('class_matches', [])) or ('not found in selected jar' if row.get('available') else 'no matching file')
+                  lines.append(f"| {row['project']} | `{version}` | {source} | {matches} |")
+          lines += ['', 'Full descriptors and bytecode call-site summaries are in `audit.json` and the `javap/` directory.']
+          (root / 'README.md').write_text('\n'.join(lines) + '\n', encoding='utf-8')
+          PY
+
+      - name: Commit audit report
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf _porting/bytecode-audit/jars
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add _porting/bytecode-audit
+          git commit -m 'Record integration bytecode audit'
+          git push
