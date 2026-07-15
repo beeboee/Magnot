@@ -35,12 +35,30 @@ mixin {
 sourceSets.main.java.srcDirs = ['ports/forge-1.19.2/src/main/java']
 sourceSets.main.resources.srcDirs = ['ports/forge-1.19.2/src/main/resources']
 
-repositories { mavenCentral() }
+repositories {
+    mavenCentral()
+    maven {
+        name = 'Modrinth'
+        url = 'https://api.modrinth.com/maven'
+        content { includeGroup 'maven.modrinth' }
+    }
+}
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    runtimeOnly fg.deobf("maven.modrinth:create:${create_version}")
 }
+
+tasks.register('validateCreateDependency') {
+    group = 'verification'
+    doLast {
+        configurations.runtimeClasspath.resolve()
+        println "Validated Create ${create_version} on Forge ${minecraft_version}."
+    }
+}
+
+build.dependsOn tasks.named('validateCreateDependency')
 
 processResources {
     inputs.property 'version', project.version
