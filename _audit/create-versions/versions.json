@@ -1,0 +1,75 @@
+{
+  "1.21.1-neoforge": {
+    "modrinth": {
+      "version": "6.0.10+mc1.21.1",
+      "channel": "release",
+      "published": "2026-04-21T22:20:03.579201Z",
+      "filename": "create-1.21.1-6.0.10.jar",
+      "url": "https://cdn.modrinth.com/data/LNytGWDc/versions/UjX6dr61/create-1.21.1-6.0.10.jar",
+      "version_id": "UjX6dr61"
+    },
+    "curseforge": {
+      "error": "<HTTPError 403: 'Forbidden'>"
+    }
+  },
+  "1.20.1-forge": {
+    "modrinth": {
+      "version": "mc1.20.1-6.0.8",
+      "channel": "release",
+      "published": "2025-11-02T16:10:25.364809Z",
+      "filename": "create-1.20.1-6.0.8.jar",
+      "url": "https://cdn.modrinth.com/data/LNytGWDc/versions/8amzvn9x/create-1.20.1-6.0.8.jar",
+      "version_id": "8amzvn9x"
+    },
+    "curseforge": {
+      "error": "<HTTPError 403: 'Forbidden'>"
+    }
+  },
+  "1.20.1-fabric": {
+    "modrinth": {
+      "version": "6.0.8.1+build.1744-mc1.20.1",
+      "channel": "release",
+      "published": "2025-12-02T17:58:03.504148Z",
+      "filename": "create-fabric-6.0.8.1+build.1744-mc1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/Xbc0uyRg/versions/HAqwA6X1/create-fabric-6.0.8.1%2Bbuild.1744-mc1.20.1.jar",
+      "version_id": "HAqwA6X1"
+    },
+    "curseforge": {
+      "error": "<HTTPError 403: 'Forbidden'>"
+    }
+  },
+  "1.19.2-forge": {
+    "modrinth": {
+      "version": "1.19.2-0.5.1.i",
+      "channel": "release",
+      "published": "2024-10-09T19:41:38.289272Z",
+      "filename": "create-1.19.2-0.5.1.i.jar",
+      "url": "https://cdn.modrinth.com/data/LNytGWDc/versions/tJVykywJ/create-1.19.2-0.5.1.i.jar",
+      "version_id": "tJVykywJ"
+    },
+    "curseforge": {
+      "error": "<HTTPError 403: 'Forbidden'>"
+    }
+  },
+  "1.18.2-forge": {
+    "modrinth": {
+      "version": "1.18.2-0.5.1.i",
+      "channel": "release",
+      "published": "2024-10-09T19:40:39.712712Z",
+      "filename": "create-1.18.2-0.5.1.i.jar",
+      "url": "https://cdn.modrinth.com/data/LNytGWDc/versions/7BIftSin/create-1.18.2-0.5.1.i.jar",
+      "version_id": "7BIftSin"
+    },
+    "curseforge": {
+      "error": "<HTTPError 403: 'Forbidden'>"
+    }
+  },
+  "1.16.5-forge": {
+    "modrinth": {
+      "error": "no matching version"
+    },
+    "curseforge": {
+      "error": "<HTTPError 403: 'Forbidden'>"
+    }
+  }
+}
