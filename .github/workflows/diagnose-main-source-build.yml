@@ -1,0 +1,41 @@
+name: Diagnose main source compatibility build
+
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/diagnose-main-source-build.yml]
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  diagnose:
+    if: github.event.head_commit.message == 'Diagnose main source compatibility build'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract compiler failures
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _audit/source-verified-build
+          : > _audit/source-verified-build/main-failure.txt
+          for job in 87258823482 87258823489; do
+            gh api "/repos/${GITHUB_REPOSITORY}/actions/jobs/${job}/logs" > "/tmp/${job}.log"
+            {
+              echo "===== job ${job} ====="
+              grep -nE -B 8 -A 20 '(error:|FAILURE:|What went wrong:|Caused by:|Could not|Exception)' "/tmp/${job}.log" | tail -n 280 || tail -n 280 "/tmp/${job}.log"
+              echo
+            } >> _audit/source-verified-build/main-failure.txt
+          done
+      - name: Commit diagnostic
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add _audit/source-verified-build/main-failure.txt
+          git commit -m 'Record main source compatibility failure'
+          git pull --rebase origin main
+          git push origin HEAD:main
