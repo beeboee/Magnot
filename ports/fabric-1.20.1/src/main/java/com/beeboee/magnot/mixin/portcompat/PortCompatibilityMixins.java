@@ -2,9 +2,11 @@ package com.beeboee.magnot.mixin.portcompat;
 
 import com.beeboee.magnot.region.FerrousMagnetRules;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -21,7 +23,11 @@ import java.util.stream.Collectors;
 abstract class Ae2wtlibMagnetHandlerMixin {
     @Redirect(
             method = "handleMagnet(Lnet/minecraft/world/entity/player/Player;)V",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/item/ItemEntity;playerTouch(Lnet/minecraft/world/entity/player/Player;)V"),
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/item/ItemEntity;playerTouch(Lnet/minecraft/world/entity/player/Player;)V",
+                    remap = true
+            ),
             require = 0
     )
     private static void magnot$filterAe2wtlibPickup(ItemEntity item, Player player) {
@@ -34,23 +40,34 @@ abstract class Ae2wtlibMagnetHandlerMixin {
 }
 
 @Pseudo
-@Mixin(targets = "artifacts.effect.MagnetismMobEffect", remap = false)
-abstract class ArtifactsMagnetismMixin {
+@Mixin(targets = "artifacts.item.wearable.belt.UniversalAttractorItem", remap = false)
+abstract class ArtifactsUniversalAttractorMixin {
     @Redirect(
-            method = "applyEffectTick",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;"),
+            method = "wornTick",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;",
+                    remap = true
+            ),
             require = 0
     )
-    private List<ItemEntity> magnot$filterArtifactsItems(Level level, Class<ItemEntity> type, AABB box, LivingEntity source, int amplifier) {
-        List<ItemEntity> candidates = level.getEntitiesOfClass(type, box);
-        if (!(level instanceof ServerLevel serverLevel)) {
+    private <T extends Entity> List<T> magnot$filterArtifactsItems(
+            Level level,
+            Class<T> type,
+            AABB box,
+            LivingEntity wearer,
+            ItemStack stack
+    ) {
+        List<T> candidates = level.getEntitiesOfClass(type, box);
+        if (!(level instanceof ServerLevel serverLevel) || !ItemEntity.class.isAssignableFrom(type)) {
             return candidates;
         }
-        Vec3 sourcePos = source.position().add(0.0D, 0.75D, 0.0D);
+        Vec3 source = wearer.position().add(0.0D, 0.75D, 0.0D);
         return candidates.stream()
-                .filter(item -> source instanceof Player player
+                .filter(candidate -> !(candidate instanceof ItemEntity item)
+                        || (wearer instanceof Player player
                         ? !FerrousMagnetRules.blocksPlayerItemPull(serverLevel, player, item)
-                        : !FerrousMagnetRules.blocksItemPull(serverLevel, sourcePos, item))
+                        : !FerrousMagnetRules.blocksItemPull(serverLevel, source, item)))
                 .collect(Collectors.toList());
     }
 }
