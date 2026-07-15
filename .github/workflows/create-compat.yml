@@ -49,7 +49,7 @@ jobs:
 
           if [[ "${{ matrix.target }}" == "pinned" ]]; then
             version="$(sed -n 's/^create_version=//p' gradle.properties | head -n 1)"
-            classifier='slim'
+            classifier="$(sed -n 's/^create_classifier=//p' gradle.properties | head -n 1)"
           else
             metadata="$(curl --fail --silent --show-error --location \
               'https://maven.createmod.net/com/simibubi/create/create-1.21.1/maven-metadata.xml')"
