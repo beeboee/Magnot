@@ -11,7 +11,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'maven-publish'
 
-version = '1.0.0-alpha.1+mc1.12.2'
+version = '1.0.0-alpha.2+mc1.12.2'
 group = 'com.beeboee.magnot'
 archivesBaseName = 'magnot'
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
