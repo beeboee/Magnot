@@ -1,4 +1,4 @@
-name: Inspect port alpha publications
+name: Inspect remaining port alpha publications
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   inspect:
-    if: github.event.head_commit.message == 'Inspect port alpha publications'
+    if: github.event.head_commit.message == 'Inspect remaining port alpha publications'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,22 +22,22 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p _release
-          target_sha='87c0f19288e6e790c92c2c2cb3ee9d8e5c14c6ae'
-          run_id="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/workflows/publish-port-integration-alphas.yml/runs?per_page=100" --jq ".workflow_runs[] | select(.head_sha == \"${target_sha}\") | .id" | head -n1)"
+          target_sha='af17667b1e0592cba1c3a54b87736de8ca1978df'
+          run_id="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/workflows/publish-remaining-port-alphas.yml/runs?per_page=100" --jq ".workflow_runs[] | select(.head_sha == \"${target_sha}\") | .id" | head -n1)"
           {
             echo "target_sha=$target_sha"
             echo "run_id=$run_id"
-          } > _release/port-alpha-publication-inspection.txt
+          } > _release/remaining-port-alpha-inspection.txt
           if [[ -n "$run_id" ]]; then
-            echo "status=$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.status')" >> _release/port-alpha-publication-inspection.txt
-            echo "conclusion=$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.conclusion // empty')" >> _release/port-alpha-publication-inspection.txt
-            gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/jobs?per_page=100" --jq '.jobs[] | [.id,.name,.status,(.conclusion // "")] | @tsv' >> _release/port-alpha-publication-inspection.txt
+            echo "status=$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.status')" >> _release/remaining-port-alpha-inspection.txt
+            echo "conclusion=$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.conclusion // empty')" >> _release/remaining-port-alpha-inspection.txt
+            gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/jobs?per_page=100" --jq '.jobs[] | [.id,.name,.status,(.conclusion // "")] | @tsv' >> _release/remaining-port-alpha-inspection.txt
           fi
       - name: Commit inspection
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add _release/port-alpha-publication-inspection.txt
-          git commit -m 'Record port alpha publication inspection'
+          git add _release/remaining-port-alpha-inspection.txt
+          git commit -m 'Record remaining port alpha inspection'
           git push
