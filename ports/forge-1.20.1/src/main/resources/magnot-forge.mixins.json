@@ -7,7 +7,16 @@
   "mixins": [
     "simplemagnets.MagnetItemMixin",
     "itemcollectors.CollectorBlockEntityMixin",
-    "sophisticatedcore.MagnetUpgradeWrapperMixin"
+    "sophisticatedcore.MagnetUpgradeWrapperMixin",
+    "portcompat.Ae2wtlibMagnetHandlerMixin",
+    "portcompat.ArtifactsMagnetismMixin",
+    "portcompat.MekanismMagneticAttractionMixin",
+    "portcompat.DraconicEvolutionMagnetMixin",
+    "portcompat.ReliquaryFortuneCoinMixin",
+    "portcompat.MobGrindingUtilsAbsorptionHopperMixin",
+    "portcompat.ModularRoutersVacuumMixin",
+    "portcompat.EnderIoElectromagnetMixin",
+    "portcompat.EnderIoVacuumMixin"
   ],
   "injectors": {
     "defaultRequire": 0
