@@ -1,0 +1,76 @@
+177-2026-07-15T03:21:41.2073158Z 
+178-2026-07-15T03:21:41.2074269Z ##[endgroup]
+179-2026-07-15T03:21:41.2091864Z Creating settings.xml with server-id: github
+180-2026-07-15T03:21:41.2099033Z Writing to /home/runner/.m2/settings.xml
+181-2026-07-15T03:21:41.2273775Z ##[group]Run python3 _audit/validate_repaired_targets.py
+182-2026-07-15T03:21:41.2275316Z [36;1mpython3 _audit/validate_repaired_targets.py[0m
+183-2026-07-15T03:21:41.2444977Z shell: /usr/bin/bash -e {0}
+184-2026-07-15T03:21:41.2446190Z env:
+185-2026-07-15T03:21:41.2447328Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.11-10/x64
+186-2026-07-15T03:21:41.2449163Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.11-10/x64
+187-2026-07-15T03:21:41.2451014Z   CURSEFORGE_TOKEN: ***
+188-2026-07-15T03:21:41.2451852Z ##[endgroup]
+189:2026-07-15T03:21:46.6302091Z Traceback (most recent call last):
+190-2026-07-15T03:21:46.6303646Z   File "/home/runner/work/Magnot/Magnot/_audit/validate_repaired_targets.py", line 228, in <module>
+191-2026-07-15T03:21:46.6304797Z     raise SystemExit(main())
+192-2026-07-15T03:21:46.6305263Z                      ^^^^^^
+193-2026-07-15T03:21:46.6305989Z   File "/home/runner/work/Magnot/Magnot/_audit/validate_repaired_targets.py", line 164, in main
+194-2026-07-15T03:21:46.6306933Z     resolved = resolution(target, project)
+195-2026-07-15T03:21:46.6307457Z                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+196-2026-07-15T03:21:46.6308263Z   File "/home/runner/work/Magnot/Magnot/_audit/validate_repaired_targets.py", line 149, in resolution
+197-2026-07-15T03:21:46.6309532Z     return curseforge_latest(target, project)
+198-2026-07-15T03:21:46.6310074Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+199-2026-07-15T03:21:46.6310937Z   File "/home/runner/work/Magnot/Magnot/_audit/validate_repaired_targets.py", line 117, in curseforge_latest
+200-2026-07-15T03:21:46.6312412Z     mods = json.loads(request("https://api.curseforge.com/v1/mods/search?" + q, {"x-api-key": TOKEN})).get("data", [])
+201-2026-07-15T03:21:46.6313591Z                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+202-2026-07-15T03:21:46.6314524Z   File "/home/runner/work/Magnot/Magnot/_audit/validate_repaired_targets.py", line 100, in request
+203-2026-07-15T03:21:46.6315475Z     with urllib.request.urlopen(req, timeout=180) as response:
+204-2026-07-15T03:21:46.6316147Z          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+205-2026-07-15T03:21:46.6316790Z   File "/usr/lib/python3.12/urllib/request.py", line 215, in urlopen
+206-2026-07-15T03:21:46.6317450Z     return opener.open(url, data, timeout)
+207-2026-07-15T03:21:46.6318018Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+208-2026-07-15T03:21:46.6318600Z   File "/usr/lib/python3.12/urllib/request.py", line 521, in open
+209-2026-07-15T03:21:46.6319236Z     response = meth(req, response)
+210-2026-07-15T03:21:46.6319690Z                ^^^^^^^^^^^^^^^^^^^
+211-2026-07-15T03:21:46.6320292Z   File "/usr/lib/python3.12/urllib/request.py", line 630, in http_response
+212-2026-07-15T03:21:46.6320978Z     response = self.parent.error(
+213-2026-07-15T03:21:46.6321301Z                ^^^^^^^^^^^^^^^^^^
+214-2026-07-15T03:21:46.6321695Z   File "/usr/lib/python3.12/urllib/request.py", line 559, in error
+215-2026-07-15T03:21:46.6322108Z     return self._call_chain(*args)
+216-2026-07-15T03:21:46.6322408Z            ^^^^^^^^^^^^^^^^^^^^^^^
+217-2026-07-15T03:21:46.6322803Z   File "/usr/lib/python3.12/urllib/request.py", line 492, in _call_chain
+218-2026-07-15T03:21:46.6323608Z     result = func(*args)
+219-2026-07-15T03:21:46.6324029Z              ^^^^^^^^^^^
+220-2026-07-15T03:21:46.6324460Z   File "/usr/lib/python3.12/urllib/request.py", line 639, in http_error_default
+221:2026-07-15T03:21:46.6324966Z     raise HTTPError(req.full_url, code, msg, hdrs, fp)
+222:2026-07-15T03:21:46.6325382Z urllib.error.HTTPError: HTTP Error 403: Forbidden
+223-2026-07-15T03:21:46.6538842Z ##[error]Process completed with exit code 1.
+224-2026-07-15T03:21:46.6600506Z ##[group]Run rm -rf _audit/final-validation/jars
+225-2026-07-15T03:21:46.6600942Z [36;1mrm -rf _audit/final-validation/jars[0m
+226-2026-07-15T03:21:46.6638551Z shell: /usr/bin/bash -e {0}
+227-2026-07-15T03:21:46.6638862Z env:
+228-2026-07-15T03:21:46.6639235Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.11-10/x64
+229-2026-07-15T03:21:46.6639796Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.11-10/x64
+230-2026-07-15T03:21:46.6640234Z ##[endgroup]
+231-2026-07-15T03:21:46.6759424Z ##[group]Run set -euo pipefail
+232-2026-07-15T03:21:46.6759775Z [36;1mset -euo pipefail[0m
+233-2026-07-15T03:21:46.6760105Z [36;1mgit config user.name 'github-actions[bot]'[0m
+234-2026-07-15T03:21:46.6760645Z [36;1mgit config user.email '41898282+github-actions[bot]@users.noreply.github.com'[0m
+235-2026-07-15T03:21:46.6761429Z [36;1mgit add _audit/final-validation/repaired-target-validation.json _audit/final-validation/repaired-target-validation.md[0m
+236-2026-07-15T03:21:46.6762117Z [36;1mgit commit -m 'Record repaired integration validation'[0m
+237-2026-07-15T03:21:46.6762534Z [36;1mgit pull --rebase origin main[0m
+238-2026-07-15T03:21:46.6763116Z [36;1mgit push origin HEAD:main[0m
+239-2026-07-15T03:21:46.6797238Z shell: /usr/bin/bash -e {0}
+240-2026-07-15T03:21:46.6797547Z env:
+241-2026-07-15T03:21:46.6797914Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.11-10/x64
+242-2026-07-15T03:21:46.6798467Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.11-10/x64
+243-2026-07-15T03:21:46.6798932Z ##[endgroup]
+244-2026-07-15T03:21:46.6905190Z fatal: pathspec '_audit/final-validation/repaired-target-validation.json' did not match any files
+245-2026-07-15T03:21:46.6910509Z ##[error]Process completed with exit code 128.
+246-2026-07-15T03:21:46.7049598Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+247-2026-07-15T03:21:46.7050797Z Post job cleanup.
+248-2026-07-15T03:21:46.8354062Z (node:2492) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+249-2026-07-15T03:21:46.8354865Z (Use `node --trace-deprecation ...` to show where the warning was created)
+250-2026-07-15T03:21:46.8566102Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+251-2026-07-15T03:21:46.8567375Z Post job cleanup.
+252-2026-07-15T03:21:46.9439877Z [command]/usr/bin/git version
