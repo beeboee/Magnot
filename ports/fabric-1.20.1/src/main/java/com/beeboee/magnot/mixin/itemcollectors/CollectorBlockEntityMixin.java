@@ -24,12 +24,13 @@ public abstract class CollectorBlockEntityMixin {
             method = "update",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;"
+                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;",
+                    remap = true
             ),
             require = 0
     )
     private <T extends Entity> List<T> magnot$filterItems(Level level, Class<T> entityClass, AABB box,
-                                                          Predicate<? super T> predicate) {
+                                                           Predicate<? super T> predicate) {
         List<T> candidates = level.getEntitiesOfClass(entityClass, box, predicate);
         if (!(level instanceof ServerLevel serverLevel) || !ItemEntity.class.isAssignableFrom(entityClass)) {
             return candidates;
