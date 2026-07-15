@@ -2,19 +2,27 @@
 
 Core Magnot port for Minecraft 1.18.2 Forge and Create 0.5.1.
 
-Included: persistent ferrous regions, tube placement/removal, region outlines, and compatibility API v2.
+## Requirements
 
-## Alpha integration coverage
+- Minecraft 1.18.2
+- Forge 40.2.4 or newer
+- Create 0.5.1 through the 0.5.x line; validated target: Create 0.5.1.i
+- Java 17
 
-- Simple Magnets `1.1.12-forge-mc1.18`
-- Item Collectors `1.1.12-forge-mc1.18`
-- Mekanism `10.2.5.465`
-- Draconic Evolution `3.0.31.531`
-- Reliquary Reincarnations `1.18.2-2.0.19.1161`
-- Sophisticated Core `1.18.2-0.6.4.604`
-- Modular Routers `9.1.2`
-- Artifacts, AE2 Wireless Terminals, and Mob Grinding Utils where their target methods match the installed 1.18.2 build
+## Alpha 2 integration coverage
 
-All integrations remain optional. Simple Magnets and Item Collectors have existing port coverage; the new hooks are experimental and published as alpha support.
+Verified targets retained for:
 
-This branch derives from the shared 1.18–1.19 Forge core. It does not include Sable, moving sub-level support, filtered-region behavior, custom region entities, Ender IO integration, or complete 1.21.1 parity.
+- Simple Magnets
+- Item Collectors
+- AE2 Wireless Terminals
+- Mekanism magnetic attraction
+- Draconic Evolution magnet
+- Reliquary Reincarnations fortune coin
+- Mob Grinding Utils absorption hopper
+- Modular Routers vacuum module
+- Sophisticated Core magnet upgrades
+
+Artifacts is not claimed for this branch because the selected 1.18.2 release did not expose the expected attraction implementation. Alpha 2 also corrects the Reliquary package and remaps Minecraft call sites used inside optional mod classes.
+
+The port includes persistent ferrous regions, tube placement/removal, region outlines, and API v2. It does not yet include Sable, moving sub-level support, filtered-region behavior, custom region entities, or the complete 1.21.1 feature set.
