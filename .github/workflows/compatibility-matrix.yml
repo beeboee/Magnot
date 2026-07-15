@@ -111,7 +111,7 @@ jobs:
             flags+=("-Pcreate_version=$LATEST_CREATE")
           fi
           gradle build --stacktrace "${flags[@]}" 2>&1 | tee build-${{ strategy.job-index }}.log
-      - name: Upload build log and test reports
+      - name: Upload build log, tests, and jar
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -119,6 +119,7 @@ jobs:
           path: |
             build-${{ strategy.job-index }}.log
             build/reports/tests/test
+            build/libs/*.jar
           if-no-files-found: ignore
           retention-days: 7
 
