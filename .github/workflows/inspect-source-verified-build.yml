@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   inspect:
-    if: github.event.head_commit.message == 'Inspect source-verified compatibility build'
+    if: github.event.head_commit.message == 'Inspect rebuilt source-verified compatibility branches'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,9 +21,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          target_sha='841c943a12e652f597dda570d494ea74d010e4d9'
+          target_sha='916f23196c939f300d3c44dd6c84421cb4b540c4'
           run_id=''
-          for attempt in $(seq 1 120); do
+          for attempt in $(seq 1 160); do
             run_id="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/workflows/build-source-verified-compat.yml/runs?per_page=100" --jq ".workflow_runs[] | select(.head_sha == \"${target_sha}\") | .id" | head -n1)"
             if [[ -n "$run_id" ]]; then
               status="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.status')"
@@ -45,5 +45,6 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add _audit/source-verified-build/result.txt
-          git commit -m 'Record source-verified compatibility build'
-          git push
+          git commit -m 'Record rebuilt source-verified compatibility build'
+          git pull --rebase origin main
+          git push origin HEAD:main
