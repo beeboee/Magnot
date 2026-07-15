@@ -20,7 +20,6 @@ import java.util.UUID;
 /** Shared authoritative entry point for magnet integrations. */
 public final class FerrousMagnetRules {
     private static final double CACHE_SCALE = 64.0D;
-    private static final int ITEM_SPAWN_GRACE_TICKS = 20;
     private static final Map<MagnetCheckKey, Boolean> CHECK_CACHE = new HashMap<>();
     private static final Map<SourceCheckKey, Boolean> SOURCE_CACHE = new HashMap<>();
     private static long cacheTick = Long.MIN_VALUE;
@@ -43,7 +42,7 @@ public final class FerrousMagnetRules {
     }
 
     public static boolean blocksItemPull(ServerLevel level, Vec3 magnetSource, ItemEntity item) {
-        return itemInSpawnGracePeriod(item) || blocksMagnet(level, magnetSource, itemPullTarget(item));
+        return blocksMagnet(level, magnetSource, itemPullTarget(item));
     }
 
     public static Vec3 itemPullTarget(ItemEntity item) {
@@ -51,12 +50,7 @@ public final class FerrousMagnetRules {
     }
 
     public static boolean blocksPlayerItemPull(ServerLevel level, Player player, ItemEntity item) {
-        return itemInSpawnGracePeriod(item) || blocksPlayerMagnet(level, player, itemPullTarget(item));
-    }
-
-    public static boolean itemInSpawnGracePeriod(ItemEntity item) {
-        int age = item.getAge();
-        return age >= 0 && age < ITEM_SPAWN_GRACE_TICKS;
+        return blocksPlayerMagnet(level, player, itemPullTarget(item));
     }
 
     public static boolean blocksPlayerMagnet(ServerLevel level, Player player, Vec3 targetPosition) {
@@ -177,7 +171,7 @@ public final class FerrousMagnetRules {
         }
 
         public boolean blocks(ItemEntity item) {
-            if (itemInSpawnGracePeriod(item) || sourceBlocked) return true;
+            if (sourceBlocked) return true;
             Vec3 target = itemPullTarget(item);
             if (sable) {
                 for (Vec3 source : sources) {
