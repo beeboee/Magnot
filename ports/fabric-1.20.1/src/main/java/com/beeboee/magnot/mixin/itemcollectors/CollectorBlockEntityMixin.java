@@ -15,22 +15,21 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 import java.util.List;
-import java.util.function.Predicate;
 
 @Pseudo
 @Mixin(targets = "com.supermartijn642.itemcollectors.CollectorBlockEntity", remap = false)
 public abstract class CollectorBlockEntityMixin {
     @Redirect(
-            method = "update",
+            method = "lambda$update$0",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;"
+                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;",
+                    remap = true
             ),
             require = 0
     )
-    private <T extends Entity> List<T> magnot$filterItems(Level level, Class<T> entityClass, AABB box,
-                                                          Predicate<? super T> predicate) {
-        List<T> candidates = level.getEntitiesOfClass(entityClass, box, predicate);
+    private <T extends Entity> List<T> magnot$filterItems(Level level, Class<T> entityClass, AABB box) {
+        List<T> candidates = level.getEntitiesOfClass(entityClass, box);
         if (!(level instanceof ServerLevel serverLevel) || !ItemEntity.class.isAssignableFrom(entityClass)) {
             return candidates;
         }
