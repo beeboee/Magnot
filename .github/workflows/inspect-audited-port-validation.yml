@@ -21,7 +21,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          target_sha='dd08be66c0d494919f48f63da605518fac41ec3d'
+          target_sha='8341043d8dc8a62eaab2082b9ef98de57142dceb'
           run_id=''
           for attempt in $(seq 1 60); do
             run_id="$(gh api "/repos/${GITHUB_REPOSITORY}/actions/workflows/validate-audited-ports.yml/runs?per_page=100" --jq ".workflow_runs[] | select(.head_sha == \"${target_sha}\") | .id" | head -n1)"
