@@ -14,7 +14,6 @@ import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -30,28 +29,21 @@ public abstract class CollectorBlockEntityMixin {
             require = 0
     )
     private <T extends Entity> List<T> magnot$filterCollectorItems(Level level, Class<T> entityClass, AABB box, Predicate<? super T> predicate) {
-        List<T> candidates = level.getEntitiesOfClass(entityClass, box, predicate);
         if (!(level instanceof ServerLevel serverLevel) || !ItemEntity.class.isAssignableFrom(entityClass)) {
-            return candidates;
+            return level.getEntitiesOfClass(entityClass, box, predicate);
         }
 
         BlockEntity blockEntity = (BlockEntity)(Object)this;
         Vec3 source = magnot$center(blockEntity.getBlockPos());
         FerrousMagnetRules.MagnetQueryContext query = FerrousMagnetRules.sourceContext(serverLevel, source);
-        ArrayList<T> filtered = null;
-        for (int i = 0; i < candidates.size(); i++) {
-            T candidate = candidates.get(i);
-            boolean blocked = candidate instanceof ItemEntity item && query.blocks(item);
-            if (blocked) {
-                if (filtered == null) {
-                    filtered = new ArrayList<>(candidates.size() - 1);
-                    filtered.addAll(candidates.subList(0, i));
-                }
-            } else if (filtered != null) {
-                filtered.add(candidate);
-            }
+        query.prepare(box);
+        if (query.isUnrestricted()) {
+            return level.getEntitiesOfClass(entityClass, box, predicate);
         }
-        return filtered == null ? candidates : filtered;
+
+        Predicate<? super T> guardedPredicate = candidate -> predicate.test(candidate)
+                && (!(candidate instanceof ItemEntity item) || !query.blocks(item));
+        return level.getEntitiesOfClass(entityClass, box, guardedPredicate);
     }
 
     private static Vec3 magnot$center(BlockPos pos) {
