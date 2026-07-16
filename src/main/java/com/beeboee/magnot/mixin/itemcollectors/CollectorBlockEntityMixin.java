@@ -29,17 +29,21 @@ public abstract class CollectorBlockEntityMixin {
             require = 0
     )
     private <T extends Entity> List<T> magnot$filterCollectorItems(Level level, Class<T> entityClass, AABB box, Predicate<? super T> predicate) {
-        List<T> candidates = level.getEntitiesOfClass(entityClass, box, predicate);
         if (!(level instanceof ServerLevel serverLevel) || !ItemEntity.class.isAssignableFrom(entityClass)) {
-            return candidates;
+            return level.getEntitiesOfClass(entityClass, box, predicate);
         }
 
         BlockEntity blockEntity = (BlockEntity)(Object)this;
         Vec3 source = magnot$center(blockEntity.getBlockPos());
-        return candidates.stream()
-                .filter(candidate -> !(candidate instanceof ItemEntity item)
-                        || !FerrousMagnetRules.blocksItemPull(serverLevel, source, item))
-                .toList();
+        FerrousMagnetRules.MagnetQueryContext query = FerrousMagnetRules.sourceContext(serverLevel, source);
+        query.prepare(box);
+        if (query.isUnrestricted()) {
+            return level.getEntitiesOfClass(entityClass, box, predicate);
+        }
+
+        Predicate<? super T> guardedPredicate = candidate -> predicate.test(candidate)
+                && (!(candidate instanceof ItemEntity item) || !query.blocks(item));
+        return level.getEntitiesOfClass(entityClass, box, guardedPredicate);
     }
 
     private static Vec3 magnot$center(BlockPos pos) {

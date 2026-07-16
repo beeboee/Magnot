@@ -1,0 +1,24 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "magnot:material_available",
+      "material": "external_iron_dust",
+      "expected": false
+    },
+    {
+      "type": "neoforge:not",
+      "value": { "type": "neoforge:mod_loaded", "modid": "create" }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NNN",
+    "NSN",
+    "NNN"
+  ],
+  "key": {
+    "N": { "tag": "c:nuggets/iron" },
+    "S": { "tag": "magnot:slime_adhesives" }
+  },
+  "result": { "id": "magnot:ferrous_paste", "count": 1 }
+}

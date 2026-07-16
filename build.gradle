@@ -6,11 +6,7 @@ plugins {
 
 version = mod_version
 group = mod_group_id
-
-base {
-    archivesName = mod_id
-}
-
+base { archivesName = mod_id }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 repositories {
@@ -19,9 +15,7 @@ repositories {
     maven {
         name = 'CurseMaven'
         url = 'https://www.cursemaven.com'
-        content {
-            includeGroup 'curse.maven'
-        }
+        content { includeGroup 'curse.maven' }
     }
     maven {
         name = 'ModMaven'
@@ -34,16 +28,12 @@ repositories {
     maven {
         name = 'TheIllusiveC4 Maven'
         url = 'https://maven.theillusivec4.top/'
-        content {
-            includeGroup 'top.theillusivec4.curios'
-        }
+        content { includeGroup 'top.theillusivec4.curios' }
     }
     maven {
         name = 'Modrinth'
         url = 'https://api.modrinth.com/maven'
-        content {
-            includeGroup 'maven.modrinth'
-        }
+        content { includeGroup 'maven.modrinth' }
     }
     maven {
         name = 'RyanHCode Maven'
@@ -63,141 +53,126 @@ repositories {
             includeGroup 'mezz.jei'
         }
     }
+    maven {
+        name = 'Terraformers Maven'
+        url = 'https://maven.terraformersmc.com/releases/'
+        content { includeGroup 'dev.emi' }
+    }
     mavenCentral()
 }
 
+def boolProperty = { String name -> (findProperty(name) ?: 'false').toString().toBoolean() }
+def withCreate = boolProperty('with_create')
+def withSable = boolProperty('with_sable')
+def withJei = boolProperty('with_jei')
+def withEmi = boolProperty('with_emi')
+def withCompatTestMods = boolProperty('with_compat_test_mods')
+
+def disabledIntegrationNames = new LinkedHashSet<String>()
+(findProperty('disable_integrations') ?: '').toString().split('[,;\\s]+')
+        .collect { it.trim() }
+        .findAll { !it.isEmpty() }
+        .each { disabledIntegrationNames.add(it) }
+project.properties.each { key, value ->
+    String name = key.toString()
+    if (name.startsWith('disable_') && name != 'disable_integrations' && value.toString().toBoolean()) {
+        disabledIntegrationNames.add(name.substring('disable_'.length()))
+    }
+}
+def disabledIntegrations = disabledIntegrationNames.join(',')
+def runProfile = withCompatTestMods ? 'compat' : 'clean'
+
 neoForge {
     version = neoforge_version
-
     runs {
         configureEach {
             logLevel = org.slf4j.event.Level.INFO
+            if (!disabledIntegrations.isEmpty()) {
+                systemProperty 'magnot.disableIntegrations', disabledIntegrations
+            }
         }
-
         client {
             client()
+            gameDirectory = project.file("run/${runProfile}/client")
         }
-
         server {
             server()
+            gameDirectory = project.file("run/${runProfile}/server")
         }
     }
-
     mods {
-        magnot {
-            sourceSet sourceSets.main
-        }
+        magnot { sourceSet sourceSets.main }
+    }
+    unitTest {
+        enable()
+        testedMod = mods.magnot
     }
 }
 
-def localRuntimeMods = fileTree(dir: 'run/mods', include: ['*.jar'])
-def compatModrinthProjects = (findProperty('compat_modrinth_projects') ?: '')
-        .toString()
-        .split(',')
-        .collect { it.trim() }
-        .findAll { !it.isEmpty() }
+def compatModsDirectory = file('run/compat/mods')
+def localRuntimeMods = fileTree(dir: compatModsDirectory, include: ['*.jar'])
+def compatModrinthProjects = (findProperty('compat_modrinth_projects') ?: '').toString()
+        .split(',').collect { it.trim() }.findAll { !it.isEmpty() }
 
 tasks.register('downloadCompatTestMods') {
     group = 'magnot'
-    description = 'Downloads optional Modrinth compat test jars into run/mods for the dev runtime.'
+    description = 'Downloads optional Modrinth compatibility jars into run/compat/mods.'
     notCompatibleWithConfigurationCache('Downloads external Modrinth files for local dev testing.')
-
     inputs.property('minecraft_version', minecraft_version)
     inputs.property('compat_modrinth_projects', compatModrinthProjects.join(','))
-    outputs.dir(layout.projectDirectory.dir('run/mods'))
+    outputs.dir(compatModsDirectory)
     outputs.upToDateWhen { false }
-
     onlyIf {
-        (findProperty('compat_modrinth_auto_download') ?: 'true').toString().toBoolean() && !compatModrinthProjects.isEmpty()
+        withCompatTestMods && boolProperty('compat_modrinth_auto_download') && !compatModrinthProjects.isEmpty()
     }
-
     doLast {
-        File modsDir = file('run/mods')
-        modsDir.mkdirs()
-
-        def urlEncode = { String value ->
+        compatModsDirectory.mkdirs()
+        def encode = { String value ->
             java.net.URLEncoder.encode(value, java.nio.charset.StandardCharsets.UTF_8.toString())
         }
-
-        def fetchJson = { String url ->
+        def json = { String url ->
             def connection = new URL(url).openConnection()
             connection.setRequestProperty('User-Agent', "Magnot/${mod_version} optional compat test downloader")
             connection.connectTimeout = 15000
             connection.readTimeout = 30000
-            connection.inputStream.withCloseable { input ->
-                new groovy.json.JsonSlurper().parse(input)
-            }
+            connection.inputStream.withCloseable { new groovy.json.JsonSlurper().parse(it) }
         }
-
-        def downloadFile = { fileInfo ->
-            File output = new File(modsDir, fileInfo.filename as String)
-            if (output.exists() && output.length() > 0L) {
-                println "Compat test mod already present: ${output.name}"
-                return
-            }
-
-            println "Downloading compat test mod: ${output.name}"
-            def connection = new URL(fileInfo.url as String).openConnection()
-            connection.setRequestProperty('User-Agent', "Magnot/${mod_version} optional compat test downloader")
-            connection.connectTimeout = 15000
-            connection.readTimeout = 120000
-            connection.inputStream.withCloseable { input ->
-                output.withOutputStream { out ->
-                    out << input
-                }
-            }
-        }
-
-        Set<String> queuedProjects = new LinkedHashSet<>(compatModrinthProjects)
-        Set<String> downloadedVersionIds = new LinkedHashSet<>()
+        def downloaded = new LinkedHashSet<String>()
+        def queued = new LinkedHashSet<String>(compatModrinthProjects)
         def queue = new java.util.ArrayDeque<String>(compatModrinthProjects)
-
         def downloadVersion
-        downloadVersion = { version, String reason ->
-            if (version == null || version.id == null || !downloadedVersionIds.add(version.id as String)) {
-                return
+        downloadVersion = { version ->
+            if (version == null || version.id == null || !downloaded.add(version.id as String)) return
+            def jar = (version.files ?: []).find { it.primary && it.filename.toString().endsWith('.jar') }
+                    ?: (version.files ?: []).find { it.filename.toString().endsWith('.jar') }
+            if (jar == null) return
+            File output = new File(compatModsDirectory, jar.filename as String)
+            if (!output.exists() || output.length() == 0L) {
+                def connection = new URL(jar.url as String).openConnection()
+                connection.setRequestProperty('User-Agent', "Magnot/${mod_version} optional compat test downloader")
+                connection.connectTimeout = 15000
+                connection.readTimeout = 120000
+                connection.inputStream.withCloseable { input -> output.withOutputStream { it << input } }
             }
-
-            def jarFile = (version.files ?: []).find { it.primary && (it.filename as String).endsWith('.jar') }
-                    ?: (version.files ?: []).find { (it.filename as String).endsWith('.jar') }
-            if (jarFile == null) {
-                println "No jar file found for Modrinth version ${version.version_number} (${reason})"
-                return
-            }
-
-            downloadFile(jarFile)
-
-            (version.dependencies ?: [])
-                    .findAll { it.dependency_type == 'required' }
-                    .each { dependency ->
-                        if (dependency.version_id != null) {
-                            try {
-                                def dependencyVersion = fetchJson("https://api.modrinth.com/v2/version/${urlEncode(dependency.version_id as String)}")
-                                downloadVersion(dependencyVersion, "dependency of ${jarFile.filename}")
-                            } catch (Exception exception) {
-                                println "Could not download required Modrinth dependency ${dependency.version_id}: ${exception.message}"
-                            }
-                        } else if (dependency.project_id != null && queuedProjects.add(dependency.project_id as String)) {
-                            queue.add(dependency.project_id as String)
-                        }
+            (version.dependencies ?: []).findAll { it.dependency_type == 'required' }.each { dependency ->
+                if (dependency.version_id != null) {
+                    try {
+                        downloadVersion(json("https://api.modrinth.com/v2/version/${encode(dependency.version_id as String)}"))
+                    } catch (Exception ignored) {
                     }
-        }
-
-        while (!queue.isEmpty()) {
-            String projectSlugOrId = queue.removeFirst()
-            String query = "loaders=${urlEncode('[\"neoforge\"]')}&game_versions=${urlEncode('[\"' + minecraft_version + '\"]')}"
-            String versionsUrl = "https://api.modrinth.com/v2/project/${urlEncode(projectSlugOrId)}/version?${query}"
-
-            try {
-                def versions = fetchJson(versionsUrl)
-                if (versions == null || versions.isEmpty()) {
-                    println "No ${minecraft_version} NeoForge Modrinth version found for ${projectSlugOrId}"
-                    continue
+                } else if (dependency.project_id != null && queued.add(dependency.project_id as String)) {
+                    queue.add(dependency.project_id as String)
                 }
-
-                downloadVersion(versions.first(), projectSlugOrId)
+            }
+        }
+        while (!queue.isEmpty()) {
+            String project = queue.removeFirst()
+            String query = "loaders=${encode('[\"neoforge\"]')}&game_versions=${encode('[\"' + minecraft_version + '\"]')}"
+            try {
+                def versions = json("https://api.modrinth.com/v2/project/${encode(project)}/version?${query}")
+                if (versions != null && !versions.isEmpty()) downloadVersion(versions.first())
             } catch (Exception exception) {
-                println "Could not fetch Modrinth project ${projectSlugOrId}: ${exception.message}"
+                println "Could not fetch Modrinth project ${project}: ${exception.message}"
             }
         }
     }
@@ -208,74 +183,76 @@ tasks.matching { it.name in ['runClient', 'runServer'] }.configureEach {
 }
 
 def requestedCreateVersion = (findProperty('create_version') ?: create_version).toString().trim()
-def defaultCreateClassifier = requestedCreateVersion.startsWith('6.0.10-') ? 'slim' : ''
 def createClassifier = hasProperty('create_classifier')
         ? property('create_classifier').toString().trim()
-        : defaultCreateClassifier
+        : (requestedCreateVersion.startsWith('6.0.10-') ? 'slim' : '')
 def createCoordinates = "com.simibubi.create:create-${minecraft_version}:${requestedCreateVersion}"
-if (!createClassifier.isEmpty()) {
-    createCoordinates += ":${createClassifier}"
-}
+if (!createClassifier.isEmpty()) createCoordinates += ":${createClassifier}"
 
 dependencies {
-    implementation(createCoordinates) { transitive = false }
-    implementation("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
+    compileOnly(createCoordinates) { transitive = false }
+    compileOnly("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
     compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")
-    runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
-    implementation("com.tterrag.registrate:Registrate:${registrate_version}")
+    compileOnly("com.tterrag.registrate:Registrate:${registrate_version}")
+    if (withCreate) {
+        runtimeOnly(createCoordinates) { transitive = false }
+        runtimeOnly("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
+        runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
+        runtimeOnly("com.tterrag.registrate:Registrate:${registrate_version}")
+    }
 
-    runtimeOnly("org.appliedenergistics:appliedenergistics2:${ae2_version}")
-    runtimeOnly("de.mari_023:ae2wtlib:${ae2wtlib_version}")
+    compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
+    compileOnly("dev.emi:emi-neoforge:${emi_version}+${minecraft_version}:api")
+    if (withJei) runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
+    if (withEmi) runtimeOnly("dev.emi:emi-neoforge:${emi_version}+${minecraft_version}")
 
     compileOnly("curse.maven:projecte-${projecte_curse_id}:${projecte_file_id}")
-    runtimeOnly("curse.maven:projecte-${projecte_curse_id}:${projecte_file_id}")
-
     compileOnly("dev.ryanhcode.sable:sable-neoforge-${minecraft_version}:${sable_version}")
-    runtimeOnly("maven.modrinth:oWaK0Q19:${create_aeronautics_modrinth_version}")
-    runtimeOnly("dev.ryanhcode.sable:sable-neoforge-${minecraft_version}:${sable_version}")
+    if (withSable) runtimeOnly("dev.ryanhcode.sable:sable-neoforge-${minecraft_version}:${sable_version}")
 
-    runtimeOnly("curse.maven:sophisticated-core-${sophisticated_core_curse_id}:${sophisticated_core_file_id}")
-    runtimeOnly("curse.maven:sophisticated-backpacks-${sophisticated_backpacks_curse_id}:${sophisticated_backpacks_file_id}")
-    runtimeOnly("curse.maven:sophisticated-storage-${sophisticated_storage_curse_id}:${sophisticated_storage_file_id}")
+    if (withCompatTestMods) {
+        runtimeOnly("org.appliedenergistics:appliedenergistics2:${ae2_version}")
+        runtimeOnly("de.mari_023:ae2wtlib:${ae2wtlib_version}")
+        runtimeOnly("curse.maven:projecte-${projecte_curse_id}:${projecte_file_id}")
+        runtimeOnly("curse.maven:sophisticated-core-${sophisticated_core_curse_id}:${sophisticated_core_file_id}")
+        runtimeOnly("curse.maven:sophisticated-backpacks-${sophisticated_backpacks_curse_id}:${sophisticated_backpacks_file_id}")
+        runtimeOnly("curse.maven:sophisticated-storage-${sophisticated_storage_curse_id}:${sophisticated_storage_file_id}")
+        runtimeOnly("top.theillusivec4.curios:curios-neoforge:${curios_version}")
+        runtimeOnly("curse.maven:artifacts-${artifacts_curse_id}:${artifacts_file_id}")
+        runtimeOnly("mekanism:Mekanism:${mekanism_version}")
+        runtimeOnly("curse.maven:actually-additions-${actually_additions_curse_id}:${actually_additions_file_id}")
+        runtimeOnly(localRuntimeMods)
+    }
 
-    runtimeOnly("top.theillusivec4.curios:curios-neoforge:${curios_version}")
-    runtimeOnly("curse.maven:artifacts-${artifacts_curse_id}:${artifacts_file_id}")
-    runtimeOnly("mekanism:Mekanism:${mekanism_version}")
-
-    // Optional magnet compat test mods. Only exact pinned file ids are usable here.
-    runtimeOnly("curse.maven:actually-additions-${actually_additions_curse_id}:${actually_additions_file_id}")
-
-    // Local compat test jars remain available as an escape hatch for jars that
-    // cannot be fetched cleanly from Maven.
-    runtimeOnly(localRuntimeMods)
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junit_version}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junit_version}")
+    testImplementation("net.neoforged:testframework:${neoforge_version}") { transitive = false }
 }
 
+tasks.named('test', Test).configure { useJUnitPlatform() }
+
 var replaceProperties = [
-        minecraft_version       : minecraft_version,
-        minecraft_version_range : minecraft_version_range,
-        neoforge_version        : neoforge_version,
-        neoforge_version_range  : neoforge_version_range,
-        loader_version_range    : loader_version_range,
-        create_version_range    : create_version_range,
-        mod_id                  : mod_id,
-        mod_name                : mod_name,
-        mod_license             : mod_license,
-        mod_version             : mod_version,
-        mod_authors             : mod_authors,
-        mod_description         : mod_description
+        minecraft_version: minecraft_version,
+        minecraft_version_range: minecraft_version_range,
+        neoforge_version: neoforge_version,
+        neoforge_version_range: neoforge_version_range,
+        loader_version_range: loader_version_range,
+        create_version_range: create_version_range,
+        mod_id: mod_id,
+        mod_name: mod_name,
+        mod_license: mod_license,
+        mod_version: mod_version,
+        mod_authors: mod_authors,
+        mod_description: mod_description
 ]
 
 tasks.named('processResources', ProcessResources).configure {
     inputs.properties replaceProperties
-    filesMatching(['META-INF/neoforge.mods.toml']) {
-        expand replaceProperties
-    }
+    filesMatching(['META-INF/neoforge.mods.toml']) { expand replaceProperties }
 }
 
 publishing {
     publications {
-        register('mavenJava', MavenPublication) {
-            from components.java
-        }
+        register('mavenJava', MavenPublication) { from components.java }
     }
 }

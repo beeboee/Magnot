@@ -8,6 +8,7 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.saveddata.SavedData;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.ArrayList;
@@ -195,6 +196,14 @@ public class FerrousRegionSavedData extends SavedData {
 
     public boolean blocksSubLevelMagnet(UUID subLevelId, Vec3 source, Vec3 itemPos) {
         return index().blocksSubLevelMagnet(subLevelId, source, itemPos);
+    }
+
+    List<FerrousRegion> collectAnyCandidates(Vec3 source, BlockPos targetBlock) {
+        return index().collectAnyCandidates(source, targetBlock);
+    }
+
+    List<FerrousRegion> collectAnyCandidates(Vec3[] sources, AABB targetBounds) {
+        return index().collectAnyCandidates(sources, targetBounds);
     }
 
     private FerrousRegionIndex index() {

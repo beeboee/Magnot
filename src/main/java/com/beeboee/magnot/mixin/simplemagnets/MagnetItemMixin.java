@@ -29,17 +29,21 @@ public abstract class MagnetItemMixin {
             require = 0
     )
     private <T extends Entity> List<T> magnot$filterSimpleMagnetItems(Level level, EntityTypeTest<Entity, T> entityTypeTest, AABB box, Predicate<? super T> predicate, ItemStack stack, Level originalLevel, Entity entity, int itemSlot, boolean isSelected) {
-        List<T> candidates = level.getEntities(entityTypeTest, box, predicate);
         if (level.isClientSide()) {
             return List.of();
         }
         if (!(level instanceof ServerLevel serverLevel) || !(entity instanceof Player player)) {
-            return candidates;
+            return level.getEntities(entityTypeTest, box, predicate);
         }
 
-        return candidates.stream()
-                .filter(candidate -> !(candidate instanceof ItemEntity item)
-                        || !FerrousMagnetRules.blocksPlayerItemPull(serverLevel, player, item))
-                .toList();
+        FerrousMagnetRules.MagnetQueryContext query = FerrousMagnetRules.playerContext(serverLevel, player);
+        query.prepare(box);
+        if (query.isUnrestricted()) {
+            return level.getEntities(entityTypeTest, box, predicate);
+        }
+
+        Predicate<? super T> guardedPredicate = candidate -> predicate.test(candidate)
+                && (!(candidate instanceof ItemEntity item) || !query.blocks(item));
+        return level.getEntities(entityTypeTest, box, guardedPredicate);
     }
 }

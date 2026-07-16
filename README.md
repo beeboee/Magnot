@@ -8,7 +8,10 @@ Items can sit behind a protected wall without being pulled through it by backpac
 
 - Minecraft 1.21.1
 - NeoForge 21.1.230 or newer
-- Create 6.0.10 or newer, below Create 6.1
+
+Create is optional. With Create installed, Magnot uses Create/Catnip selection rendering, raycasting, fade behavior, and glue-style sounds while keeping Magnot authoritative for region creation and removal. Without Create, Magnot uses its native selection backend with the same Magnot texture and gameplay rules.
+
+Sable, JEI, EMI, and all supported magnet integrations are optional.
 
 ## What it does
 
@@ -18,9 +21,20 @@ It does not delete items, disable magnets globally, or change normal vanilla ite
 
 ## Basic use
 
-1. Mark the area you want to protect with ferrous paste.
-2. Use magnets or vacuum blocks nearby as normal.
-3. Supported item pulls that cross the protected region are blocked.
+1. Craft ferrous paste and a ferrous tube. Recipes adapt to the common iron dust and plate tags available in the pack.
+2. Right-click the first and second corners with the tube.
+3. Hold the tube to inspect nearby regions, or attack a highlighted region to remove it.
+4. Use magnets or vacuum blocks nearby as normal.
+
+## Adaptive materials
+
+- External `c:dusts/iron` present: Magnot consumes external dust and hides its fallback dust.
+- No external dust + Create present: Create crushing produces `magnot:iron_dust`, which becomes visible and is used by ferrous paste.
+- No external dust + no Create: the dust path disappears and an eight-iron-nugget plus slime fallback recipe is enabled.
+- `c:plates/iron` present: the ferrous tube uses a plate or sheet from that tag.
+- `c:plates/iron` empty: the tube uses an iron ingot instead.
+
+Inactive recipes never enter the recipe manager. Dormant Magnot iron dust is omitted from the creative tab and hidden from optional JEI and EMI integrations.
 
 ## Compatibility
 
@@ -33,10 +47,61 @@ If a magnet or vacuum still pulls through a protected region, please report:
 - whether the pull came from a player or a block
 - what was between the pull source and the item
 
+### Disabling integration adapters
+
+Individual Magnot adapter mixins can be disabled for a Gradle dev launch without removing the target mod.
+
+Disable one adapter with a boolean project property:
+
+```powershell
+.\gradlew.bat runClient -Pwith_compat_test_mods=true -Pdisable_artifacts=true
+```
+
+Add more boolean flags to disable several adapters:
+
+```powershell
+.\gradlew.bat runClient -Pwith_compat_test_mods=true -Pdisable_artifacts=true -Pdisable_simplemagnets=true
+```
+
+A list form is also supported:
+
+```powershell
+.\gradlew.bat runClient -Pwith_compat_test_mods=true -Pdisable_integrations=artifacts,simplemagnets
+```
+
+Names are case-insensitive and punctuation is ignored, so `mob_grinding_utils` and `mobgrindingutils` are equivalent. Use `-Pdisable_integrations=all` to disable every Magnot integration mixin. The target mods remain installed and functioning; only Magnot's adapters for them are skipped.
+
+The lower-level JVM property `-Dmagnot.disableIntegrations=...` and environment variable `MAGNOT_DISABLE_INTEGRATIONS=...` remain available for launchers that do not invoke Gradle.
+
 ## For mod authors
 
 Mods with magnets, vacuums, remote item collectors, absorption hoppers, item teleporters, or similar item-moving behavior can support Magnot directly through the [public compatibility API](docs/API.md).
 
+## Development
+
+Development launches use separate game directories so jars from one test cannot contaminate another:
+
+- `runClient` and `runServer` use `run/clean/client` and `run/clean/server`.
+- `-Pwith_compat_test_mods=true` switches to `run/compat/client` or `run/compat/server`.
+- Manually supplied compatibility jars belong in `run/compat/mods`.
+- The legacy `run/mods` directory is intentionally ignored.
+
+A genuinely Magnot-only client launch is therefore:
+
+```powershell
+.\gradlew.bat runClient
+```
+
+Optional dev runtimes are explicit Gradle properties:
+
+- `-Pwith_create=true`
+- `-Pwith_sable=true`
+- `-Pwith_jei=true`
+- `-Pwith_emi=true`
+- `-Pwith_compat_test_mods=true`
+
+See [the v1.1.0 implementation notes](docs/V1.1.0.md) for architecture, recipe decisions, attribution, test coverage, and known risks.
+
 ## License
 
-MIT
+MIT. Third-party notices are in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
