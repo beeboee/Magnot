@@ -1,9 +1,11 @@
 package com.beeboee.magnot.region;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -36,6 +38,21 @@ class FerrousRegionTest {
         FerrousRegion region = FerrousRegion.fromCorners(new BlockPos(2, 0, 0), new BlockPos(2, 0, 0));
         double distance = region.hitDistanceSqr(new Vec3(0, 0.5, 0.5), new Vec3(10, 0.5, 0.5)).orElseThrow();
         assertEquals(4.0D, distance, 1.0E-9D);
+    }
+
+    @Test
+    void batchCandidateQueryKeepsRelevantRegionsAndDropsDistantOnes() {
+        FerrousRegion relevant = FerrousRegion.fromCorners(new BlockPos(4, 0, 0), new BlockPos(4, 2, 2));
+        FerrousRegion distant = FerrousRegion.fromCorners(new BlockPos(100, 0, 100), new BlockPos(101, 2, 101));
+        FerrousRegionIndex index = FerrousRegionIndex.build(List.of(relevant, distant));
+
+        List<FerrousRegion> candidates = index.collectAnyCandidates(
+                new Vec3[]{new Vec3(0.5D, 1.0D, 1.0D)},
+                new AABB(8.0D, 0.0D, 0.0D, 12.0D, 3.0D, 3.0D)
+        );
+
+        assertTrue(candidates.contains(relevant));
+        assertFalse(candidates.contains(distant));
     }
 
     @Test
