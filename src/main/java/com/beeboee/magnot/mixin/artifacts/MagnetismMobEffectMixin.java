@@ -17,10 +17,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.ArrayList;
-import java.util.IdentityHashMap;
 import java.util.List;
-import java.util.Map;
 
 @Pseudo
 @Mixin(targets = "artifacts.effect.MagnetismMobEffect", remap = false)
@@ -28,16 +25,12 @@ public abstract class MagnetismMobEffectMixin {
     @Unique
     private FerrousMagnetRules.MagnetQueryContext magnot$queryContext;
 
-    @Unique
-    private final Map<ItemEntity, Boolean> magnot$decisions = new IdentityHashMap<>();
-
     @Inject(
             method = "applyEffectTick(Lnet/minecraft/world/entity/LivingEntity;I)Z",
             at = @At("HEAD"),
             require = 0
     )
     private void magnot$beginMagnetPass(LivingEntity entity, int amplifier, CallbackInfoReturnable<Boolean> cir) {
-        magnot$decisions.clear();
         if (entity.level() instanceof ServerLevel serverLevel) {
             magnot$queryContext = magnot$createQuery(serverLevel, entity);
         } else {
@@ -52,9 +45,12 @@ public abstract class MagnetismMobEffectMixin {
     )
     private void magnot$endMagnetPass(LivingEntity entity, int amplifier, CallbackInfoReturnable<Boolean> cir) {
         magnot$queryContext = null;
-        magnot$decisions.clear();
     }
 
+    /**
+     * Preserves Artifacts' original entity list and only captures its search bounds so Magnot
+     * can build one broad-phase candidate set for the complete pass.
+     */
     @Redirect(
             method = "applyEffectTick(Lnet/minecraft/world/entity/LivingEntity;I)Z",
             at = @At(
@@ -63,37 +59,17 @@ public abstract class MagnetismMobEffectMixin {
             ),
             require = 0
     )
-    private List<ItemEntity> magnot$filterFerrousRegionBlockedItems(Level queriedLevel, Class<ItemEntity> entityClass, AABB bounds, LivingEntity entity, int amplifier) {
+    private List<ItemEntity> magnot$prepareFerrousRegionQuery(Level queriedLevel, Class<ItemEntity> entityClass, AABB bounds, LivingEntity entity, int amplifier) {
         List<ItemEntity> items = queriedLevel.getEntitiesOfClass(entityClass, bounds);
-        if (!(queriedLevel instanceof ServerLevel serverLevel)) {
-            return items;
-        }
-
-        FerrousMagnetRules.MagnetQueryContext query = magnot$queryContext;
-        if (query == null) {
-            query = magnot$createQuery(serverLevel, entity);
-            magnot$queryContext = query;
-        }
-
-        List<ItemEntity> filtered = null;
-        for (int index = 0; index < items.size(); index++) {
-            ItemEntity item = items.get(index);
-            boolean blocked = query.blocks(item);
-            magnot$decisions.put(item, blocked);
-            if (blocked) {
-                if (filtered == null) {
-                    filtered = new ArrayList<>(items.size());
-                    filtered.addAll(items.subList(0, index));
-                }
-                continue;
+        if (queriedLevel instanceof ServerLevel serverLevel) {
+            FerrousMagnetRules.MagnetQueryContext query = magnot$queryContext;
+            if (query == null) {
+                query = magnot$createQuery(serverLevel, entity);
+                magnot$queryContext = query;
             }
-
-            if (filtered != null) {
-                filtered.add(item);
-            }
+            query.prepare(bounds);
         }
-
-        return filtered == null ? items : filtered;
+        return items;
     }
 
     @Redirect(
@@ -128,18 +104,12 @@ public abstract class MagnetismMobEffectMixin {
             return;
         }
 
-        Boolean blocked = magnot$decisions.get(itemEntity);
-        if (blocked == null) {
-            FerrousMagnetRules.MagnetQueryContext query = magnot$queryContext;
-            if (query == null) {
-                query = magnot$createQuery(serverLevel, entity);
-                magnot$queryContext = query;
-            }
-            blocked = query.blocks(itemEntity);
-            magnot$decisions.put(itemEntity, blocked);
+        FerrousMagnetRules.MagnetQueryContext query = magnot$queryContext;
+        if (query == null) {
+            query = magnot$createQuery(serverLevel, entity);
+            magnot$queryContext = query;
         }
-
-        if (!blocked) {
+        if (!query.blocks(itemEntity)) {
             targetEntity.setDeltaMovement(motion);
         }
     }
