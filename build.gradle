@@ -71,12 +71,32 @@ repositories {
     mavenCentral()
 }
 
+def disabledIntegrationNames = new LinkedHashSet<String>()
+(findProperty('disable_integrations') ?: '')
+        .toString()
+        .split('[,;\\s]+')
+        .collect { it.trim() }
+        .findAll { !it.isEmpty() }
+        .each { disabledIntegrationNames.add(it) }
+project.properties.each { key, value ->
+    String propertyName = key.toString()
+    if (propertyName.startsWith('disable_')
+            && propertyName != 'disable_integrations'
+            && value.toString().toBoolean()) {
+        disabledIntegrationNames.add(propertyName.substring('disable_'.length()))
+    }
+}
+def disabledIntegrations = disabledIntegrationNames.join(',')
+
 neoForge {
     version = neoforge_version
 
     runs {
         configureEach {
             logLevel = org.slf4j.event.Level.INFO
+            if (!disabledIntegrations.isEmpty()) {
+                systemProperty 'magnot.disableIntegrations', disabledIntegrations
+            }
         }
 
         client {
