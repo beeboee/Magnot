@@ -1,6 +1,7 @@
 package com.beeboee.magnot.region;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.ArrayList;
@@ -62,17 +63,49 @@ final class FerrousRegionIndex {
     }
 
     List<FerrousRegion> collectAnyCandidates(Vec3 source, BlockPos targetBlock) {
+        return collectAnyCandidates(
+                new Vec3[]{source},
+                new AABB(
+                        targetBlock.getX(), targetBlock.getY(), targetBlock.getZ(),
+                        targetBlock.getX() + 1.0D, targetBlock.getY() + 1.0D, targetBlock.getZ() + 1.0D
+                )
+        );
+    }
+
+    /**
+     * Collects the conservative broad-phase candidate set for every segment from any source
+     * to any point inside the supplied target bounds. This work is intended to be reused for
+     * a complete magnet pass instead of repeated for each item entity.
+     */
+    List<FerrousRegion> collectAnyCandidates(Vec3[] sources, AABB targetBounds) {
+        if (sectionsByOwner.isEmpty()) return List.of();
+
+        double minX = targetBounds.minX;
+        double minY = targetBounds.minY;
+        double minZ = targetBounds.minZ;
+        double maxX = targetBounds.maxX;
+        double maxY = targetBounds.maxY;
+        double maxZ = targetBounds.maxZ;
+        for (Vec3 source : sources) {
+            minX = Math.min(minX, source.x);
+            minY = Math.min(minY, source.y);
+            minZ = Math.min(minZ, source.z);
+            maxX = Math.max(maxX, source.x);
+            maxY = Math.max(maxY, source.y);
+            maxZ = Math.max(maxZ, source.z);
+        }
+
+        int minSectionX = section(minX);
+        int minSectionY = section(minY);
+        int minSectionZ = section(minZ);
+        int maxSectionX = section(maxX);
+        int maxSectionY = section(maxY);
+        int maxSectionZ = section(maxZ);
         LinkedHashSet<FerrousRegion> candidates = new LinkedHashSet<>();
-        int minSectionX = section(Math.min(source.x, targetBlock.getX()));
-        int minSectionY = section(Math.min(source.y, targetBlock.getY()));
-        int minSectionZ = section(Math.min(source.z, targetBlock.getZ()));
-        int maxSectionX = section(Math.max(source.x, targetBlock.getX() + 1.0D));
-        int maxSectionY = section(Math.max(source.y, targetBlock.getY() + 1.0D));
-        int maxSectionZ = section(Math.max(source.z, targetBlock.getZ() + 1.0D));
         for (Map<Long, List<FerrousRegion>> sections : sectionsByOwner.values()) {
             collectSections(sections, candidates, minSectionX, minSectionY, minSectionZ, maxSectionX, maxSectionY, maxSectionZ);
         }
-        return List.copyOf(candidates);
+        return candidates.isEmpty() ? List.of() : List.copyOf(candidates);
     }
 
     private void add(FerrousRegion region) {
