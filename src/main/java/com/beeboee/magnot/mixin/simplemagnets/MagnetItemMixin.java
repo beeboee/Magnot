@@ -14,7 +14,6 @@ import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -30,28 +29,21 @@ public abstract class MagnetItemMixin {
             require = 0
     )
     private <T extends Entity> List<T> magnot$filterSimpleMagnetItems(Level level, EntityTypeTest<Entity, T> entityTypeTest, AABB box, Predicate<? super T> predicate, ItemStack stack, Level originalLevel, Entity entity, int itemSlot, boolean isSelected) {
-        List<T> candidates = level.getEntities(entityTypeTest, box, predicate);
         if (level.isClientSide()) {
             return List.of();
         }
         if (!(level instanceof ServerLevel serverLevel) || !(entity instanceof Player player)) {
-            return candidates;
+            return level.getEntities(entityTypeTest, box, predicate);
         }
 
         FerrousMagnetRules.MagnetQueryContext query = FerrousMagnetRules.playerContext(serverLevel, player);
-        ArrayList<T> filtered = null;
-        for (int i = 0; i < candidates.size(); i++) {
-            T candidate = candidates.get(i);
-            boolean blocked = candidate instanceof ItemEntity item && query.blocks(item);
-            if (blocked) {
-                if (filtered == null) {
-                    filtered = new ArrayList<>(candidates.size() - 1);
-                    filtered.addAll(candidates.subList(0, i));
-                }
-            } else if (filtered != null) {
-                filtered.add(candidate);
-            }
+        query.prepare(box);
+        if (query.isUnrestricted()) {
+            return level.getEntities(entityTypeTest, box, predicate);
         }
-        return filtered == null ? candidates : filtered;
+
+        Predicate<? super T> guardedPredicate = candidate -> predicate.test(candidate)
+                && (!(candidate instanceof ItemEntity item) || !query.blocks(item));
+        return level.getEntities(entityTypeTest, box, guardedPredicate);
     }
 }
