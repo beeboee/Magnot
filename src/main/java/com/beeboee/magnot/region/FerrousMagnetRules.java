@@ -69,7 +69,7 @@ public final class FerrousMagnetRules {
         return blocked;
     }
 
-    /** Reuses source points and section candidates for one bulk magnet pass. */
+    /** Reuses source points and broad-phase candidates for one bulk magnet pass. */
     public static MagnetQueryContext sourceContext(ServerLevel level, Vec3 source) {
         return new MagnetQueryContext(level, new Vec3[]{source}, null);
     }
@@ -154,6 +154,8 @@ public final class FerrousMagnetRules {
         private final boolean sable;
         private final boolean sourceBlocked;
         private final Map<BlockPos, List<FerrousRegion>> candidatesByTargetBlock = new HashMap<>();
+        private List<FerrousRegion> preparedCandidates = List.of();
+        private boolean prepared;
 
         private MagnetQueryContext(ServerLevel level, Vec3[] sources, Player player) {
             this.level = level;
@@ -170,8 +172,38 @@ public final class FerrousMagnetRules {
             this.sourceBlocked = blocked;
         }
 
+        /**
+         * Prepares one conservative candidate set for every potential item target in the
+         * magnet's search bounds. Repeated calls extend the prepared area when a mod performs
+         * more than one entity query during the same pass.
+         */
+        public void prepare(AABB targetBounds) {
+            if (sourceBlocked || sable) return;
+
+            List<FerrousRegion> candidates = FerrousRegionSavedData.get(level)
+                    .collectAnyCandidates(sources, targetBounds);
+            if (!prepared) {
+                preparedCandidates = candidates;
+                prepared = true;
+                candidatesByTargetBlock.clear();
+                return;
+            }
+            if (candidates.isEmpty()) return;
+
+            LinkedHashSet<FerrousRegion> merged = new LinkedHashSet<>(preparedCandidates);
+            merged.addAll(candidates);
+            preparedCandidates = List.copyOf(merged);
+        }
+
+        /** True when a prepared pass cannot possibly cross a Magnot world region. */
+        public boolean isUnrestricted() {
+            return !sourceBlocked && !sable && prepared && preparedCandidates.isEmpty();
+        }
+
         public boolean blocks(ItemEntity item) {
             if (sourceBlocked) return true;
+            if (isUnrestricted()) return false;
+
             Vec3 target = itemPullTarget(item);
             if (sable) {
                 for (Vec3 source : sources) {
@@ -180,10 +212,9 @@ public final class FerrousMagnetRules {
                 return false;
             }
 
-            List<FerrousRegion> candidates = candidatesByTargetBlock.computeIfAbsent(
-                    item.blockPosition(),
-                    this::collectCandidates
-            );
+            List<FerrousRegion> candidates = prepared
+                    ? preparedCandidates
+                    : candidatesByTargetBlock.computeIfAbsent(item.blockPosition(), this::collectCandidates);
             for (Vec3 source : sources) {
                 for (FerrousRegion region : candidates) {
                     if (region.intersectsSegment(source, target)) return true;
