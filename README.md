@@ -79,6 +79,19 @@ Mods with magnets, vacuums, remote item collectors, absorption hoppers, item tel
 
 ## Development
 
+Development launches use separate game directories so jars from one test cannot contaminate another:
+
+- `runClient` and `runServer` use `run/clean/client` and `run/clean/server`.
+- `-Pwith_compat_test_mods=true` switches to `run/compat/client` or `run/compat/server`.
+- Manually supplied compatibility jars belong in `run/compat/mods`.
+- The legacy `run/mods` directory is intentionally ignored.
+
+A genuinely Magnot-only client launch is therefore:
+
+```powershell
+.\gradlew.bat runClient
+```
+
 Optional dev runtimes are explicit Gradle properties:
 
 - `-Pwith_create=true`
