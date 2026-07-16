@@ -32,10 +32,11 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
     private static final int[][] FACES = {
             {0, 3, 2, 1},
             {4, 5, 6, 7},
-            {0, 1, 5, 4},
-            {3, 7, 6, 2},
-            {0, 4, 7, 3},
-            {1, 2, 6, 5}
+            // Vertical faces start at the top, then travel downward along texture V.
+            {5, 1, 0, 4},
+            {7, 3, 2, 6},
+            {4, 0, 3, 7},
+            {6, 2, 1, 5}
     };
     private final Map<Object, Outline> outlines = new LinkedHashMap<>();
 
