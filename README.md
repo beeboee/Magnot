@@ -32,7 +32,7 @@ It does not delete items, disable magnets globally, or change normal vanilla ite
 - No external dust + Create present: Create crushing produces `magnot:iron_dust`, which becomes visible and is used by ferrous paste.
 - No external dust + no Create: the dust path disappears and an eight-iron-nugget plus slime fallback recipe is enabled.
 - `c:plates/iron` present: the ferrous tube uses a plate or sheet from that tag.
-- `c:plates/iron` empty: the tube uses an iron ingot instead.
+- `c:plates/iron` empty: the ferrous tube uses an iron ingot instead.
 
 Inactive recipes never enter the recipe manager. Dormant Magnot iron dust is omitted from the creative tab and hidden from optional JEI and EMI integrations.
 
@@ -46,6 +46,24 @@ If a magnet or vacuum still pulls through a protected region, please report:
 - the item or block used
 - whether the pull came from a player or a block
 - what was between the pull source and the item
+
+### Disabling integration adapters
+
+Individual Magnot adapter mixins can be disabled without removing the target mod. Supply a comma-, semicolon-, or space-separated list through either:
+
+- JVM property: `-Dmagnot.disableIntegrations=artifacts,simplemagnets`
+- environment variable: `MAGNOT_DISABLE_INTEGRATIONS=artifacts,simplemagnets`
+
+Names are case-insensitive and punctuation is ignored, so `mob_grinding_utils` and `mobgrindingutils` are equivalent. Use `all` to disable every Magnot integration mixin. This is a diagnostic switch: it leaves the other mods installed and functioning, but Magnot will no longer block their pulls.
+
+For a PowerShell dev launch:
+
+```powershell
+$env:MAGNOT_DISABLE_INTEGRATIONS = "artifacts"
+.\gradlew.bat runClient -Pwith_compat_test_mods=true
+```
+
+Remove the temporary variable afterward with `Remove-Item Env:MAGNOT_DISABLE_INTEGRATIONS`.
 
 ## For mod authors
 
