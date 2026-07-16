@@ -88,6 +88,13 @@ project.properties.each { key, value ->
 }
 def disabledIntegrations = disabledIntegrationNames.join(',')
 
+def withCreate = (findProperty('with_create') ?: 'false').toString().toBoolean()
+def withSable = (findProperty('with_sable') ?: 'false').toString().toBoolean()
+def withJei = (findProperty('with_jei') ?: 'false').toString().toBoolean()
+def withEmi = (findProperty('with_emi') ?: 'false').toString().toBoolean()
+def withCompatTestMods = (findProperty('with_compat_test_mods') ?: 'false').toString().toBoolean()
+def runProfile = withCompatTestMods ? 'compat' : 'clean'
+
 neoForge {
     version = neoforge_version
 
@@ -101,10 +108,12 @@ neoForge {
 
         client {
             client()
+            gameDirectory = project.file("run/${runProfile}/client")
         }
 
         server {
             server()
+            gameDirectory = project.file("run/${runProfile}/server")
         }
     }
 
@@ -120,7 +129,7 @@ neoForge {
     }
 }
 
-def localRuntimeMods = fileTree(dir: 'run/mods', include: ['*.jar'])
+def localRuntimeMods = fileTree(dir: 'run/compat/mods', include: ['*.jar'])
 def compatModrinthProjects = (findProperty('compat_modrinth_projects') ?: '')
         .toString()
         .split(',')
@@ -129,20 +138,22 @@ def compatModrinthProjects = (findProperty('compat_modrinth_projects') ?: '')
 
 tasks.register('downloadCompatTestMods') {
     group = 'magnot'
-    description = 'Downloads optional Modrinth compat test jars into run/mods for the dev runtime.'
+    description = 'Downloads optional Modrinth compat test jars into run/compat/mods.'
     notCompatibleWithConfigurationCache('Downloads external Modrinth files for local dev testing.')
 
     inputs.property('minecraft_version', minecraft_version)
     inputs.property('compat_modrinth_projects', compatModrinthProjects.join(','))
-    outputs.dir(layout.projectDirectory.dir('run/mods'))
-    outputs.upToDateWhen { false }
+    outputs.dir(layout.projectDirectory.dir('run/compat/mods'))
+    outputs.upToWhen { false }
 
     onlyIf {
-        (findProperty('compat_modrinth_auto_download') ?: 'true').toString().toBoolean() && !compatModrinthProjects.isEmpty()
+        withCompatTestMods
+                && (findProperty('compat_modrinth_auto_download') ?: 'true').toString().toBoolean()
+                && !compatModrinthProjects.isEmpty()
     }
 
     doLast {
-        File modsDir = file('run/mods')
+        File modsDir = file('run/compat/mods')
         modsDir.mkdirs()
 
         def urlEncode = { String value ->
@@ -236,12 +247,6 @@ tasks.register('downloadCompatTestMods') {
 tasks.matching { it.name in ['runClient', 'runServer'] }.configureEach {
     dependsOn tasks.named('downloadCompatTestMods')
 }
-
-def withCreate = (findProperty('with_create') ?: 'false').toString().toBoolean()
-def withSable = (findProperty('with_sable') ?: 'false').toString().toBoolean()
-def withJei = (findProperty('with_jei') ?: 'false').toString().toBoolean()
-def withEmi = (findProperty('with_emi') ?: 'false').toString().toBoolean()
-def withCompatTestMods = (findProperty('with_compat_test_mods') ?: 'false').toString().toBoolean()
 
 def requestedCreateVersion = (findProperty('create_version') ?: create_version).toString().trim()
 def defaultCreateClassifier = requestedCreateVersion.startsWith('6.0.10-') ? 'slim' : ''
