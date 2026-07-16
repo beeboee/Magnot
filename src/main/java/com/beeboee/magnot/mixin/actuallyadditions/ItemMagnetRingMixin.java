@@ -37,16 +37,22 @@ public abstract class ItemMagnetRingMixin {
             int slot,
             boolean selected
     ) {
-        List<T> candidates = level.getEntitiesOfClass(entityClass, box);
         if (!(level instanceof ServerLevel serverLevel)
                 || !(source instanceof Player player)
                 || !ItemEntity.class.isAssignableFrom(entityClass)) {
-            return candidates;
+            return level.getEntitiesOfClass(entityClass, box);
         }
 
-        return candidates.stream()
-                .filter(candidate -> !(candidate instanceof ItemEntity item)
-                        || !FerrousMagnetRules.blocksPlayerItemPull(serverLevel, player, item))
-                .toList();
+        FerrousMagnetRules.MagnetQueryContext query = FerrousMagnetRules.playerContext(serverLevel, player);
+        query.prepare(box);
+        if (query.isUnrestricted()) {
+            return level.getEntitiesOfClass(entityClass, box);
+        }
+
+        return level.getEntitiesOfClass(
+                entityClass,
+                box,
+                candidate -> !(candidate instanceof ItemEntity item) || !query.blocks(item)
+        );
     }
 }
