@@ -1,12 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "PS",
+    "PI",
     "NP"
   ],
   "key": {
     "P": { "item": "magnot:ferrous_paste" },
-    "S": { "item": "create:iron_sheet" },
+    "I": { "item": "minecraft:iron_ingot" },
     "N": { "item": "minecraft:iron_nugget" }
   },
   "result": {
