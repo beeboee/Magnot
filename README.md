@@ -59,16 +59,17 @@ If a pull still crosses a protected region, report:
 
 The native backend is the baseline for every port. A Minecraft version does **not** need a matching Create release before Magnot can support it.
 
-Active parity work now covers:
+Paramount compatibility targets are:
 
-1. Forge 1.20.1 and Fabric 1.20.1
-2. Forge 1.19.2
-3. Forge 1.18.2 and 1.16.5
-4. Forge 1.12.2 core/API parity
+1. Minecraft 1.20.1 on Forge, NeoForge, Fabric, and Quilt
+2. Minecraft 1.12.2 on Forge
+3. Minecraft 1.7.10 on Forge
 
-Each line has its own long-lived branch, draft parity pull request, and branch-specific build gate. A successful build does not count as gameplay parity until native rendering, persistence, recipes, magnet blocking, and target-specific integrations are tested.
+NeoForge 1.21.1 remains the reference implementation. Forge 1.19.2, 1.18.2, and 1.16.5 remain active secondary public-alpha lines.
 
-See [version support and parity](docs/VERSION_SUPPORT.md) for the definition of parity and branch policy.
+Each dedicated loader line has a long-lived branch, parity pull request, and branch-specific build gate. Quilt validation uses the Fabric 1.20.1 artifact unless loader-specific testing proves a separate package is necessary. A successful build does not count as full gameplay parity until rendering, synchronization, persistence, recipes, magnet blocking, and target-specific integrations are verified.
+
+See [version support and parity](docs/VERSION_SUPPORT.md) for the exact target matrix, definition of parity, and branch policy. Exact optional-mod compatibility is stated per file rather than assumed across versions.
 
 ## Disabling integration adapters
 
