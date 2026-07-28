@@ -7,7 +7,7 @@ import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.region.FerrousRegionSavedData;
 import com.beeboee.magnot.server.FerrousParticles;
-import com.simibubi.create.AllSoundEvents;
+import com.beeboee.magnot.server.FerrousSelectionEffects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
@@ -76,8 +76,9 @@ public class FerrousTubeItem extends Item {
             UUID clickedSubLevelId = getClickedSubLevel(serverLevel, clicked);
             MagnotDebug.log("first-corner clicked={} sub={}", clicked, MagnotDebug.shortId(clickedSubLevelId));
             setFirstCorner(stack, clicked, clickedSubLevelId);
-            AllSoundEvents.SLIME_ADDED.play(serverLevel, null, clicked, 0.5F, 0.85F);
+            FerrousSelectionEffects.current().playFirstCorner(serverLevel, clicked);
             FerrousParticles.spawnRedstoneBlockBreak(serverLevel, clicked);
+            player.displayClientMessage(Component.translatable("message.magnot.first_corner"), true);
             return InteractionResult.SUCCESS;
         }
 
@@ -91,7 +92,7 @@ public class FerrousTubeItem extends Item {
         MagnotNetwork.syncToPlayersInDimension(serverLevel);
         clearFirstCorner(stack);
         player.displayClientMessage(Component.translatable("message.magnot.region_created"), true);
-        AllSoundEvents.SLIME_ADDED.play(serverLevel, null, clampedSecondCorner, 0.5F, 0.95F);
+        FerrousSelectionEffects.current().playConfirmation(serverLevel, clampedSecondCorner);
         FerrousParticles.spawnRedstoneBlockEdges(serverLevel, region);
         damageTubeIfNeeded(player, stack, context.getHand());
         return InteractionResult.SUCCESS;
@@ -137,7 +138,7 @@ public class FerrousTubeItem extends Item {
         return ModList.get().isLoaded("sable") ? MagnotSableCompat.containingSubLevelId(level, clicked) : null;
     }
 
-    private static Optional<UUID> getFirstSubLevelId(ItemStack stack) {
+    public static Optional<UUID> getFirstSubLevelId(ItemStack stack) {
         CustomData data = stack.get(DataComponents.CUSTOM_DATA);
         if (data == null) {
             return Optional.empty();

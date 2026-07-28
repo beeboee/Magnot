@@ -1,6 +1,8 @@
 package com.beeboee.magnot;
 
 import com.beeboee.magnot.network.MagnotNetwork;
+import com.beeboee.magnot.material.AdaptiveMaterials;
+import com.beeboee.magnot.registry.MagnotConditions;
 import com.beeboee.magnot.registry.MagnotEntityTypes;
 import com.beeboee.magnot.registry.MagnotItems;
 import com.beeboee.magnot.server.MagnotServerEvents;
@@ -19,6 +21,7 @@ public final class Magnot {
 
     public Magnot(IEventBus modEventBus) {
         MagnotItems.register(modEventBus);
+        MagnotConditions.register(modEventBus);
         MagnotEntityTypes.register(modEventBus);
         modEventBus.addListener(this::addCreativeTabContents);
         modEventBus.addListener(MagnotNetwork::register);
@@ -27,7 +30,9 @@ public final class Magnot {
 
     private void addCreativeTabContents(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(MagnotItems.IRON_DUST.get());
+            if (AdaptiveMaterials.fallbackDustRequired()) {
+                event.accept(MagnotItems.IRON_DUST.get());
+            }
             event.accept(MagnotItems.FERROUS_PASTE.get());
         }
 

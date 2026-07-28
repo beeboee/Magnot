@@ -5,7 +5,6 @@ import com.beeboee.magnot.entity.FerrousRegionEntities;
 import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.region.FerrousRegionSavedData;
-import com.simibubi.create.AllSoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -67,7 +66,7 @@ public final class FerrousRegionActions {
     private static void playRemovalEffects(ServerPlayer player, ServerLevel serverLevel, FerrousRegion removed) {
         FerrousRegionEntities.discard(serverLevel, removed);
         BlockPos soundPos = BlockPos.containing(removed.bounds().getCenter());
-        AllSoundEvents.SLIME_ADDED.play(serverLevel, null, soundPos, 0.5F, 0.5F);
+        FerrousSelectionEffects.current().playRemoval(serverLevel, soundPos);
         FerrousParticles.spawnRedstoneBlockEdges(serverLevel, removed);
         MagnotNetwork.syncToPlayersInDimension(serverLevel);
         player.displayClientMessage(Component.translatable("message.magnot.region_removed"), true);

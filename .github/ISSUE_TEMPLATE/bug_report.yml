@@ -1,0 +1,35 @@
+name: Bug report
+about: Report a Magnot gameplay, compatibility, or performance problem
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: input
+    id: magnot
+    attributes:
+      label: Magnot version
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Minecraft, NeoForge, and optional mod versions
+      placeholder: Minecraft 1.21.1, NeoForge 21.1.230, Create absent/present...
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or crash report
+      render: text

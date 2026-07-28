@@ -24,16 +24,25 @@ public abstract class MagnetUpgradeWrapperMixin {
     @Unique
     private Player magnot$playerMagnetSource;
 
+    @Unique
+    private FerrousMagnetRules.MagnetQueryContext magnot$queryContext;
+
     @Inject(method = "pickupItems", at = @At("HEAD"))
     private void magnot$captureMagnetSource(Entity entity, Level level, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
         magnot$playerMagnetSource = entity instanceof Player player ? player : null;
         magnot$magnetSource = entity == null ? Vec3.atCenterOf(pos) : entity.position();
+        if (level instanceof ServerLevel serverLevel) {
+            magnot$queryContext = magnot$playerMagnetSource != null
+                    ? FerrousMagnetRules.playerContext(serverLevel, magnot$playerMagnetSource)
+                    : FerrousMagnetRules.sourceContext(serverLevel, magnot$magnetSource);
+        }
     }
 
     @Inject(method = "pickupItems", at = @At("RETURN"))
     private void magnot$clearMagnetSource(Entity entity, Level level, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
         magnot$magnetSource = null;
         magnot$playerMagnetSource = null;
+        magnot$queryContext = null;
     }
 
     @Inject(method = "tryToInsertItem", at = @At("HEAD"), cancellable = true)
@@ -42,16 +51,13 @@ public abstract class MagnetUpgradeWrapperMixin {
             return;
         }
 
-        Player playerSource = magnot$playerMagnetSource == null ? player : magnot$playerMagnetSource;
-        if (playerSource != null) {
-            if (FerrousMagnetRules.blocksPlayerItemPull(serverLevel, playerSource, itemEntity)) {
-                cir.setReturnValue(false);
-            }
-            return;
+        FerrousMagnetRules.MagnetQueryContext query = magnot$queryContext;
+        if (query == null) {
+            query = player != null
+                    ? FerrousMagnetRules.playerContext(serverLevel, player)
+                    : FerrousMagnetRules.sourceContext(serverLevel, itemEntity.position());
         }
-
-        Vec3 source = magnot$magnetSource == null ? itemEntity.position() : magnot$magnetSource;
-        if (FerrousMagnetRules.blocksItemPull(serverLevel, source, itemEntity)) {
+        if (query.blocks(itemEntity)) {
             cir.setReturnValue(false);
         }
     }

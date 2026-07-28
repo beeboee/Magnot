@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: Version from gradle.properties, such as 1.0.1
+        description: Version from gradle.properties, such as 1.2.0
         required: true
-        default: 1.0.1
+        default: 1.2.0
         type: string
       release_type:
         description: CurseForge release channel
@@ -20,14 +20,19 @@ on:
       changelog:
         description: Changelog shown on CurseForge
         required: true
-        default: Adds compatibility with Create 6.0.11 while retaining support for Create 6.0.10.
+        default: Makes Create optional, adds the native parity renderer, adaptive recipes, and expanded magnet compatibility.
         type: string
+  push:
+    branches: [main]
+    paths:
+      - gradle.properties
 
 permissions:
   contents: read
 
 jobs:
   publish:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[release]')
     runs-on: ubuntu-latest
 
     steps:
@@ -43,10 +48,10 @@ jobs:
           fi
 
       - name: Check out Magnot
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Java 21
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '21'
@@ -58,6 +63,8 @@ jobs:
 
       - name: Validate release version
         id: version
+        env:
+          REQUESTED_VERSION: ${{ inputs.version }}
         shell: bash
         run: |
           set -euo pipefail
@@ -68,8 +75,8 @@ jobs:
             exit 1
           fi
 
-          if [[ "$project_version" != "${{ inputs.version }}" ]]; then
-            echo "Requested version ${{ inputs.version }} does not match gradle.properties ($project_version)." >&2
+          if [[ -n "${REQUESTED_VERSION:-}" && "$project_version" != "$REQUESTED_VERSION" ]]; then
+            echo "Requested version $REQUESTED_VERSION does not match gradle.properties ($project_version)." >&2
             exit 1
           fi
 
@@ -94,12 +101,12 @@ jobs:
           curseforge-id: 1609524
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           curseforge-dependencies: |
-            create(required)
+            create(optional)
           files: build/libs/magnot-${{ steps.version.outputs.version }}.jar
           name: Magnot ${{ steps.version.outputs.version }}
           version: ${{ steps.version.outputs.version }}
-          version-type: ${{ inputs.release_type }}
-          changelog: ${{ inputs.changelog }}
+          version-type: ${{ inputs.release_type || 'release' }}
+          changelog: ${{ inputs.changelog || 'Magnot 1.2.0 makes Create optional, adds native rendering parity, adaptive recipes, and expanded compatibility.' }}
           loaders: neoforge
           game-versions: 1.21.1
           game-version-filter: none

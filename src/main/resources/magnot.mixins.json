@@ -2,6 +2,7 @@
   "required": false,
   "minVersion": "0.8",
   "package": "com.beeboee.magnot.mixin",
+  "plugin": "com.beeboee.magnot.mixin.MagnotMixinPlugin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "sophisticatedcore.MagnetUpgradeWrapperMixin",

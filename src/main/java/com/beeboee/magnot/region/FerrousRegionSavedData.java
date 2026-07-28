@@ -197,6 +197,10 @@ public class FerrousRegionSavedData extends SavedData {
         return index().blocksSubLevelMagnet(subLevelId, source, itemPos);
     }
 
+    List<FerrousRegion> collectAnyCandidates(Vec3 source, BlockPos targetBlock) {
+        return index().collectAnyCandidates(source, targetBlock);
+    }
+
     private FerrousRegionIndex index() {
         if (regionIndex == null) {
             regionIndex = FerrousRegionIndex.build(regions);

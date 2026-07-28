@@ -1,0 +1,14 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "magnot:material_available",
+      "material": "external_iron_dust",
+      "expected": false
+    },
+    { "type": "neoforge:mod_loaded", "modid": "create" }
+  ],
+  "type": "create:crushing",
+  "ingredients": [ { "tag": "c:ingots/iron" } ],
+  "processingTime": 250,
+  "results": [ { "id": "magnot:iron_dust", "count": 1 } ]
+}

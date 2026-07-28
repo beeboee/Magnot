@@ -14,14 +14,19 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.WeakHashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
 public final class MagnotSableCompat {
+    private static final Map<ServerLevel, CandidateCache> CANDIDATE_CACHES = new WeakHashMap<>();
+
     private MagnotSableCompat() {}
 
     public static UUID containingSubLevelId(ServerLevel level, BlockPos pos) {
@@ -136,32 +141,39 @@ public final class MagnotSableCompat {
     }
 
     private static List<SubLevelAccess> candidateSubLevels(ServerLevel level, Vec3 source, Vec3 itemPosition) {
-        List<SubLevelAccess> candidates = new ArrayList<>();
+        CandidateCache cache = CANDIDATE_CACHES.computeIfAbsent(level, ignored -> new CandidateCache());
+        if (cache.tick != level.getGameTime()) {
+            cache.tick = level.getGameTime();
+            cache.entries.clear();
+        }
+        CandidateKey key = new CandidateKey(BlockPos.containing(source), BlockPos.containing(itemPosition));
+        return cache.entries.computeIfAbsent(key, ignored -> collectCandidateSubLevels(level, source, itemPosition));
+    }
+
+    private static List<SubLevelAccess> collectCandidateSubLevels(ServerLevel level, Vec3 source, Vec3 itemPosition) {
+        LinkedHashMap<UUID, SubLevelAccess> candidates = new LinkedHashMap<>();
         addCandidate(candidates, SableCompanion.INSTANCE.getContaining(level, source));
         addCandidate(candidates, SableCompanion.INSTANCE.getContaining(level, itemPosition));
-
         SubLevelContainer container = SubLevelContainer.getContainer(level);
         if (container != null) {
             for (SubLevelAccess subLevel : container.getAllSubLevels()) {
                 addCandidate(candidates, subLevel);
             }
         }
-
-        return candidates;
+        return List.copyOf(candidates.values());
     }
 
-    private static void addCandidate(List<SubLevelAccess> candidates, SubLevelAccess candidate) {
-        if (candidate == null) {
-            return;
+    private static void addCandidate(Map<UUID, SubLevelAccess> candidates, SubLevelAccess candidate) {
+        if (candidate != null) {
+            candidates.putIfAbsent(candidate.getUniqueId(), candidate);
         }
+    }
 
-        for (SubLevelAccess existing : candidates) {
-            if (existing.getUniqueId().equals(candidate.getUniqueId())) {
-                return;
-            }
-        }
+    private record CandidateKey(BlockPos source, BlockPos target) {}
 
-        candidates.add(candidate);
+    private static final class CandidateCache {
+        private long tick = Long.MIN_VALUE;
+        private final Map<CandidateKey, List<SubLevelAccess>> entries = new HashMap<>();
     }
 
     private static boolean intersectsAnyMovedBlock(FerrousRegion region, Set<BlockPos> movedBlocks) {

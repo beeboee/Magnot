@@ -6,9 +6,12 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.Optional;
+import java.util.OptionalDouble;
 import java.util.UUID;
 
 public record FerrousRegion(UUID id, UUID groupId, BlockPos min, BlockPos max, UUID subLevelId) {
+    private static final double EPSILON = 1.0E-12D;
+
     public FerrousRegion(UUID id, BlockPos min, BlockPos max) {
         this(id, id, min, max, null);
     }
@@ -64,37 +67,98 @@ public record FerrousRegion(UUID id, UUID groupId, BlockPos min, BlockPos max, U
     }
 
     public AABB bounds() {
-        return new AABB(
-                min.getX(), min.getY(), min.getZ(),
-                max.getX() + 1.0D, max.getY() + 1.0D, max.getZ() + 1.0D
-        );
+        return new AABB(minX(), minY(), minZ(), maxX(), maxY(), maxZ());
     }
 
+    /** Allocation-free containment for the magnet hot path. */
     public boolean contains(Vec3 pos) {
-        return bounds().contains(pos);
+        return pos.x >= minX() && pos.x <= maxX()
+                && pos.y >= minY() && pos.y <= maxY()
+                && pos.z >= minZ() && pos.z <= maxZ();
     }
 
     public boolean intersectsBlock(BlockPos pos) {
-        return bounds().intersects(new AABB(
-                pos.getX(), pos.getY(), pos.getZ(),
-                pos.getX() + 1.0D, pos.getY() + 1.0D, pos.getZ() + 1.0D
-        ));
+        return pos.getX() + 1.0D > minX() && pos.getX() < maxX()
+                && pos.getY() + 1.0D > minY() && pos.getY() < maxY()
+                && pos.getZ() + 1.0D > minZ() && pos.getZ() < maxZ();
     }
 
     public Optional<Vec3> clip(Vec3 from, Vec3 to) {
-        if (contains(from)) {
-            return Optional.of(from);
+        OptionalDouble parameter = clipParameter(from, to);
+        if (parameter.isEmpty()) {
+            return Optional.empty();
         }
-        return bounds().clip(from, to);
+        double t = parameter.getAsDouble();
+        return Optional.of(new Vec3(
+                from.x + (to.x - from.x) * t,
+                from.y + (to.y - from.y) * t,
+                from.z + (to.z - from.z) * t
+        ));
     }
 
     public Optional<Double> hitDistanceSqr(Vec3 from, Vec3 to) {
-        return clip(from, to).map(hit -> hit.distanceToSqr(from));
+        OptionalDouble parameter = clipParameter(from, to);
+        if (parameter.isEmpty()) {
+            return Optional.empty();
+        }
+        double t = parameter.getAsDouble();
+        return Optional.of(from.distanceToSqr(to) * t * t);
     }
 
+    /** Allocation-free slab intersection used by FerrousRegionIndex. */
     public boolean intersectsSegment(Vec3 from, Vec3 to) {
-        return clip(from, to).isPresent();
+        return clipParameter(from, to).isPresent();
     }
+
+    private OptionalDouble clipParameter(Vec3 from, Vec3 to) {
+        double tMin = 0.0D;
+        double tMax = 1.0D;
+
+        double delta = to.x - from.x;
+        if (Math.abs(delta) < EPSILON) {
+            if (from.x < minX() || from.x > maxX()) return OptionalDouble.empty();
+        } else {
+            double a = (minX() - from.x) / delta;
+            double b = (maxX() - from.x) / delta;
+            if (a > b) { double swap = a; a = b; b = swap; }
+            tMin = Math.max(tMin, a);
+            tMax = Math.min(tMax, b);
+            if (tMin > tMax) return OptionalDouble.empty();
+        }
+
+        delta = to.y - from.y;
+        if (Math.abs(delta) < EPSILON) {
+            if (from.y < minY() || from.y > maxY()) return OptionalDouble.empty();
+        } else {
+            double a = (minY() - from.y) / delta;
+            double b = (maxY() - from.y) / delta;
+            if (a > b) { double swap = a; a = b; b = swap; }
+            tMin = Math.max(tMin, a);
+            tMax = Math.min(tMax, b);
+            if (tMin > tMax) return OptionalDouble.empty();
+        }
+
+        delta = to.z - from.z;
+        if (Math.abs(delta) < EPSILON) {
+            if (from.z < minZ() || from.z > maxZ()) return OptionalDouble.empty();
+        } else {
+            double a = (minZ() - from.z) / delta;
+            double b = (maxZ() - from.z) / delta;
+            if (a > b) { double swap = a; a = b; b = swap; }
+            tMin = Math.max(tMin, a);
+            tMax = Math.min(tMax, b);
+            if (tMin > tMax) return OptionalDouble.empty();
+        }
+
+        return tMax < 0.0D || tMin > 1.0D ? OptionalDouble.empty() : OptionalDouble.of(Math.max(0.0D, tMin));
+    }
+
+    private double minX() { return min.getX(); }
+    private double minY() { return min.getY(); }
+    private double minZ() { return min.getZ(); }
+    private double maxX() { return max.getX() + 1.0D; }
+    private double maxY() { return max.getY() + 1.0D; }
+    private double maxZ() { return max.getZ() + 1.0D; }
 
     public CompoundTag save() {
         CompoundTag tag = new CompoundTag();
@@ -106,9 +170,7 @@ public record FerrousRegion(UUID id, UUID groupId, BlockPos min, BlockPos max, U
         tag.putInt("MaxX", max.getX());
         tag.putInt("MaxY", max.getY());
         tag.putInt("MaxZ", max.getZ());
-        if (subLevelId != null) {
-            tag.putUUID("SubLevelId", subLevelId);
-        }
+        if (subLevelId != null) tag.putUUID("SubLevelId", subLevelId);
         return tag;
     }
 

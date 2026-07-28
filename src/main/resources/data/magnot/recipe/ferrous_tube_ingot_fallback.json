@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "magnot:material_available",
+      "material": "iron_plate",
+      "expected": false
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["PI", "NP"],
+  "key": {
+    "P": { "item": "magnot:ferrous_paste" },
+    "I": { "tag": "c:ingots/iron" },
+    "N": { "tag": "c:nuggets/iron" }
+  },
+  "result": { "id": "magnot:ferrous_tube", "count": 1 }
+}
