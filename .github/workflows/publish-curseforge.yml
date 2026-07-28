@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: Version from gradle.properties, such as 1.1.0
+        description: Version from gradle.properties, such as 1.2.0
         required: true
-        default: 1.1.0
+        default: 1.2.0
         type: string
       release_type:
         description: CurseForge release channel
@@ -20,7 +20,7 @@ on:
       changelog:
         description: Changelog shown on CurseForge
         required: true
-        default: Makes Create optional and adds adaptive recipes, native selection, and performance improvements.
+        default: Makes Create optional, adds the native parity renderer, adaptive recipes, and expanded magnet compatibility.
         type: string
 
 permissions:
