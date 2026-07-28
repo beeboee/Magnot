@@ -21,6 +21,7 @@ sourceSets.main.resources.srcDirs = ['ports/fabric-1.20.1/src/main/resources']
 repositories {
     mavenCentral()
     maven { url = 'https://maven.quiltmc.org/repository/release/' }
+    maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
 }
 
 dependencies {
