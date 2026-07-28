@@ -1,0 +1,188 @@
+name: Publish public port alphas
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-port-alphas.yml
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[publish-port-alphas]')
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - key: forge-1.20.1
+            branch: version/1.20.1-forge
+            game_version: 1.20.1
+            loader: forge
+            loader_name: Forge
+            java_build: '17'
+            java_listing: '17'
+            gradle: '8.8'
+            version_id: 1.2.0-alpha.1+mc1.20.1-forge
+            file_name: magnot-1.2.0-alpha.1-mc1.20.1-forge.jar
+            note: Native visual parity and optional integrations are still being ported.
+          - key: fabric-1.20.1
+            branch: version/1.20.1-fabric
+            game_version: 1.20.1
+            loader: fabric
+            loader_name: Fabric
+            java_build: '17'
+            java_listing: '17'
+            gradle: '8.12.1'
+            version_id: 1.2.0-alpha.1+mc1.20.1-fabric
+            file_name: magnot-1.2.0-alpha.1-mc1.20.1-fabric.jar
+            note: Native visual parity and Fabric-specific integrations are still being ported.
+          - key: forge-1.19.2
+            branch: version/1.19.2-forge
+            game_version: 1.19.2
+            loader: forge
+            loader_name: Forge
+            java_build: '17'
+            java_listing: '17'
+            gradle: '7.6.4'
+            version_id: 1.2.0-alpha.1+mc1.19.2-forge
+            file_name: magnot-1.2.0-alpha.1-mc1.19.2-forge.jar
+            note: Native visual parity and optional integrations are still being ported.
+          - key: forge-1.18.2
+            branch: version/1.18.2-forge
+            game_version: 1.18.2
+            loader: forge
+            loader_name: Forge
+            java_build: '17'
+            java_listing: '17'
+            gradle: '7.6.4'
+            version_id: 1.2.0-alpha.1+mc1.18.2-forge
+            file_name: magnot-1.2.0-alpha.1-mc1.18.2-forge.jar
+            note: This alpha still shares its Java core with the 1.19.2 port while version-specific adapters are separated.
+          - key: forge-1.16.5
+            branch: version/1.16.5-forge
+            game_version: 1.16.5
+            loader: forge
+            loader_name: Forge
+            java_build: '17'
+            java_listing: '8'
+            gradle: '8.8'
+            version_id: 1.2.0-alpha.1+mc1.16.5-forge
+            file_name: magnot-1.2.0-alpha.1-mc1.16.5-forge.jar
+            note: Native visual parity and legacy integrations are still being ported.
+          - key: forge-1.12.2
+            branch: version/1.12.2-forge
+            game_version: 1.12.2
+            loader: forge
+            loader_name: Forge
+            java_build: '8'
+            java_listing: '8'
+            gradle: '4.10.3'
+            version_id: 1.2.0-alpha.1+mc1.12.2-forge
+            file_name: magnot-1.2.0-alpha.1-mc1.12.2-forge.jar
+            note: This legacy alpha is core/API-only and does not claim automatic magnet integrations.
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Verify CurseForge token
+        env:
+          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${CURSEFORGE_TOKEN:-}" ]]; then
+            echo '::error::Repository secret CURSEFORGE_TOKEN is missing.'
+            exit 1
+          fi
+
+      - name: Check out ${{ matrix.branch }}
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ matrix.branch }}
+
+      - name: Set up Java ${{ matrix.java_build }}
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java_build }}
+
+      - name: Set up Gradle ${{ matrix.gradle }}
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: ${{ matrix.gradle }}
+
+      - name: Build public alpha
+        shell: bash
+        run: |
+          set -euo pipefail
+          gradle clean build --stacktrace
+
+          mkdir -p release
+          jar="$(find build/libs -maxdepth 1 -type f -name 'magnot-*.jar' \
+            ! -name '*-sources.jar' ! -name '*-dev.jar' ! -name '*-slim.jar' \
+            -print | sort | head -n 1)"
+
+          if [[ -z "$jar" || ! -s "$jar" ]]; then
+            echo '::error::No release jar was produced.'
+            find build/libs -maxdepth 1 -type f -print || true
+            exit 1
+          fi
+
+          cp "$jar" "release/${{ matrix.file_name }}"
+
+      - name: Resolve CurseForge dependencies
+        id: deps
+        shell: bash
+        run: |
+          set -euo pipefail
+          case '${{ matrix.key }}' in
+            fabric-1.20.1)
+              dependencies=$'fabric-api(required)\ncreate(optional)'
+              ;;
+            forge-1.12.2)
+              dependencies=''
+              ;;
+            *)
+              dependencies='create(optional)'
+              ;;
+          esac
+
+          {
+            echo 'value<<EOF'
+            printf '%s\n' "$dependencies"
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Publish public alpha
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          curseforge-id: 1609524
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+          curseforge-dependencies: ${{ steps.deps.outputs.value }}
+          files: release/${{ matrix.file_name }}
+          name: Magnot 1.2.0 alpha 1 - ${{ matrix.loader_name }} ${{ matrix.game_version }}
+          version: ${{ matrix.version_id }}
+          version-type: alpha
+          changelog: |
+            Public testing build for Minecraft ${{ matrix.game_version }} on ${{ matrix.loader_name }}.
+
+            This is not yet feature-parity-certified with Magnot 1.2.0 on NeoForge 1.21.1. It is being published so the community can test loader and version combinations earlier.
+
+            Current alpha baseline:
+            - Magnot loads without Create.
+            - Create is optional where it exists for this Minecraft version.
+            - Ferrous paste and the tube have a vanilla-material crafting path.
+            - Existing ferrous-region persistence and supported magnet blocking are retained from the earlier port.
+
+            Known limitation:
+            - ${{ matrix.note }}
+
+            Please report the exact Minecraft version, loader version, Magnot filename, whether Create was installed, reproduction steps, and the latest log.
+          loaders: ${{ matrix.loader }}
+          game-versions: ${{ matrix.game_version }}
+          game-version-filter: none
+          java: ${{ matrix.java_listing }}
+          fail-mode: fail
