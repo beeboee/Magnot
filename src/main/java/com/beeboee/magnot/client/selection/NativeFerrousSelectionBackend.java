@@ -170,7 +170,9 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
             return;
         }
 
-        Vec3 faceOffset = normal.scale(FACE_OFFSET);
+        // Outside views need the shell nudged outward. From inside, nudge it into the
+        // selected volume so floor and wall blocks cannot hide the inward-facing texture.
+        Vec3 faceOffset = normal.scale(cameraInside ? -FACE_OFFSET : FACE_OFFSET);
         int uTiles = Math.max(1, (int) Math.ceil(uLength - MIN_FACE_EDGE));
         int vTiles = Math.max(1, (int) Math.ceil(vLength - MIN_FACE_EDGE));
 
