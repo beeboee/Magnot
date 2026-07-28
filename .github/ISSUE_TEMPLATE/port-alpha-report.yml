@@ -1,0 +1,92 @@
+name: Public port alpha report
+description: Report a problem in a Forge or Fabric cross-version alpha build.
+title: "[Port alpha]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for testing a public Magnot port alpha. These builds are intentionally released before full parity certification. Exact version and log details are especially important.
+
+  - type: dropdown
+    id: target
+    attributes:
+      label: Target
+      options:
+        - Forge 1.20.1
+        - Fabric 1.20.1
+        - Forge 1.19.2
+        - Forge 1.18.2
+        - Forge 1.16.5
+        - Forge 1.12.2
+    validations:
+      required: true
+
+  - type: input
+    id: filename
+    attributes:
+      label: Magnot filename
+      placeholder: magnot-1.2.0-alpha.1-mc1.20.1-forge.jar
+    validations:
+      required: true
+
+  - type: input
+    id: loader
+    attributes:
+      label: Loader version
+      placeholder: Forge 47.1.33 or Fabric Loader 0.17.2
+    validations:
+      required: true
+
+  - type: dropdown
+    id: create
+    attributes:
+      label: Was Create installed?
+      options:
+        - No
+        - Yes
+        - Not available for this target
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include what you expected and what happened instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. Start a world
+        2. Craft or give a ferrous tube
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: mods
+    attributes:
+      label: Relevant mods and versions
+      description: Include the magnet, vacuum, recipe viewer, Create, and structure-moving mods involved.
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log or crash report
+      description: Drag the latest.log or crash report here. Do not paste only the final exception line.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I reproduced this with the exact alpha filename listed above.
+          required: true
+        - label: I searched existing issues for the same target and problem.
+          required: true
