@@ -1,11 +1,11 @@
 name: Public port alpha report
-description: Report a problem in a Forge or Fabric cross-version alpha build.
+description: Report a problem in a cross-version or cross-loader Magnot alpha build.
 title: "[Port alpha]: "
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for testing a public Magnot port alpha. These builds are intentionally released before full parity certification. Exact version and log details are especially important.
+        Thanks for testing a public Magnot port alpha. These builds are intentionally released before full parity certification. Exact filename, loader, environment, and log details are especially important.
 
   - type: dropdown
     id: target
@@ -13,11 +13,14 @@ body:
       label: Target
       options:
         - Forge 1.20.1
+        - NeoForge 1.20.1
         - Fabric 1.20.1
+        - Quilt 1.20.1
         - Forge 1.19.2
         - Forge 1.18.2
         - Forge 1.16.5
         - Forge 1.12.2
+        - Forge 1.7.10
     validations:
       required: true
 
@@ -25,7 +28,7 @@ body:
     id: filename
     attributes:
       label: Magnot filename
-      placeholder: magnot-1.2.0-alpha.1-mc1.20.1-forge.jar
+      placeholder: magnot-1.2.0-alpha.2-mc1.20.1-fabric-quilt.jar
     validations:
       required: true
 
@@ -33,7 +36,19 @@ body:
     id: loader
     attributes:
       label: Loader version
-      placeholder: Forge 47.1.33 or Fabric Loader 0.17.2
+      placeholder: Forge 47.1.33, NeoForge 47.1.106, Fabric Loader 0.16.10, or Quilt Loader 0.28.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Where did it happen?
+      options:
+        - Single-player or integrated server
+        - Dedicated server
+        - Client connecting to a dedicated server
+        - Client startup before joining a world
     validations:
       required: true
 
@@ -71,7 +86,7 @@ body:
     id: mods
     attributes:
       label: Relevant mods and versions
-      description: Include the magnet, vacuum, recipe viewer, Create, and structure-moving mods involved.
+      description: Include the magnet, vacuum, recipe viewer, Create, and structure-moving mods involved. A full mod list is useful for startup failures.
 
   - type: textarea
     id: logs
