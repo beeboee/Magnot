@@ -14,6 +14,7 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import org.joml.Matrix4f;
 
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -26,6 +27,8 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
     private static final double MIN_FACE_EDGE = 1.0E-6D;
     private static final double FACE_OFFSET = 1.0D / 128.0D;
     private static final double INSIDE_EPSILON = 1.0E-5D;
+    private static final float FADE_OUT_SECONDS = 0.18F;
+    private static final float MIN_SELECTION_STRENGTH = 1.0E-3F;
     private static final int[][] EDGES = {
             {0, 1}, {1, 2}, {2, 3}, {3, 0},
             {4, 5}, {5, 6}, {6, 7}, {7, 4},
@@ -41,6 +44,7 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
             {6, 2, 1, 5}
     };
     private final Map<Object, Outline> outlines = new LinkedHashMap<>();
+    private long lastRenderNanos;
 
     @Override
     public String name() {
@@ -49,12 +53,19 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
 
     @Override
     public void beginFrame() {
-        outlines.clear();
+        for (Outline outline : outlines.values()) {
+            outline.beginFrame();
+        }
     }
 
     @Override
     public void showOutline(Level level, Object slot, FerrousRegion region, FerrousSelectionView view, int color, boolean textured, float lineWidth) {
-        outlines.put(slot, new Outline(view.corners(), color, textured, lineWidth));
+        Outline outline = outlines.get(slot);
+        if (outline == null) {
+            outlines.put(slot, new Outline(view.corners(), color, textured, lineWidth));
+            return;
+        }
+        outline.update(view.corners(), color, textured, lineWidth);
     }
 
     @Override
@@ -63,6 +74,12 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
             return;
         }
 
+        long now = System.nanoTime();
+        float deltaSeconds = lastRenderNanos == 0L
+                ? 0.0F
+                : Math.min((now - lastRenderNanos) / 1_000_000_000.0F, 0.1F);
+        lastRenderNanos = now;
+
         Minecraft minecraft = Minecraft.getInstance();
         Vec3 camera = event.getCamera().getPosition();
         PoseStack poseStack = event.getPoseStack();
@@ -70,37 +87,55 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
 
         poseStack.pushPose();
         poseStack.translate(-camera.x, -camera.y, -camera.z);
-        for (Outline outline : outlines.values()) {
-            if (outline.textured()) {
-                renderFaces(poseStack, buffers, outline, camera);
-                renderThickEdges(poseStack, buffers, outline, camera);
-            } else {
-                renderThinLines(poseStack, buffers, outline);
+        Iterator<Outline> iterator = outlines.values().iterator();
+        while (iterator.hasNext()) {
+            Outline outline = iterator.next();
+            outline.advance(deltaSeconds);
+            if (!outline.visible()) {
+                iterator.remove();
+                continue;
+            }
+
+            float selectionStrength = smoothstep(outline.selectionStrength());
+            if (selectionStrength > MIN_SELECTION_STRENGTH) {
+                renderFaces(poseStack, buffers, outline, camera, selectionStrength);
+            }
+            renderThinLines(poseStack, buffers, outline);
+            if (selectionStrength > MIN_SELECTION_STRENGTH) {
+                renderThickEdges(poseStack, buffers, outline, camera, selectionStrength);
             }
         }
         poseStack.popPose();
         RenderSystem.lineWidth(1.0F);
     }
 
-    private static void renderFaces(PoseStack poseStack, MultiBufferSource.BufferSource buffers, Outline outline, Vec3 camera) {
+    private static float smoothstep(float value) {
+        float clamped = Math.max(0.0F, Math.min(1.0F, value));
+        return clamped * clamped * (3.0F - 2.0F * clamped);
+    }
+
+    private static void renderFaces(PoseStack poseStack, MultiBufferSource.BufferSource buffers, Outline outline,
+                                    Vec3 camera, float selectionStrength) {
         RenderType renderType = RenderType.entityTranslucent(FerrousSelectionTexture.LOCATION);
         VertexConsumer consumer = buffers.getBuffer(renderType);
         Matrix4f matrix = poseStack.last().pose();
         int red = outline.red();
         int green = outline.green();
         int blue = outline.blue();
+        int alpha = Math.max(1, Math.round(72.0F * selectionStrength));
         Vec3 center = center(outline.corners());
         boolean cameraInside = contains(outline.corners(), camera);
 
         for (int[] face : FACES) {
-            renderTiledFace(consumer, matrix, outline.corners(), center, camera, cameraInside, face, red, green, blue);
+            renderTiledFace(consumer, matrix, outline.corners(), center, camera, cameraInside, face,
+                    red, green, blue, alpha);
         }
         buffers.endBatch(renderType);
     }
 
     private static void renderTiledFace(VertexConsumer consumer, Matrix4f matrix, Vec3[] corners, Vec3 center,
                                         Vec3 camera, boolean cameraInside, int[] face,
-                                        int red, int green, int blue) {
+                                        int red, int green, int blue, int alpha) {
         Vec3 origin = corners[face[0]];
         Vec3 vEdge = corners[face[1]].subtract(origin);
         Vec3 diagonal = corners[face[2]].subtract(origin);
@@ -154,10 +189,10 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
                 Vec3 c = pointOnFace(origin, uDirection, vDirection, uEnd, vEnd).add(faceOffset);
                 Vec3 d = pointOnFace(origin, uDirection, vDirection, uEnd, vStart).add(faceOffset);
 
-                addFaceVertex(consumer, matrix, a, 0.0F, 0.0F, red, green, blue, normal);
-                addFaceVertex(consumer, matrix, b, 0.0F, tileV, red, green, blue, normal);
-                addFaceVertex(consumer, matrix, c, tileU, tileV, red, green, blue, normal);
-                addFaceVertex(consumer, matrix, d, tileU, 0.0F, red, green, blue, normal);
+                addFaceVertex(consumer, matrix, a, 0.0F, 0.0F, red, green, blue, alpha, normal);
+                addFaceVertex(consumer, matrix, b, 0.0F, tileV, red, green, blue, alpha, normal);
+                addFaceVertex(consumer, matrix, c, tileU, tileV, red, green, blue, alpha, normal);
+                addFaceVertex(consumer, matrix, d, tileU, 0.0F, red, green, blue, alpha, normal);
             }
         }
     }
@@ -196,9 +231,10 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
         return origin.add(uDirection.scale(u)).add(vDirection.scale(v));
     }
 
-    private static void addFaceVertex(VertexConsumer consumer, Matrix4f matrix, Vec3 point, float u, float v, int red, int green, int blue, Vec3 normal) {
+    private static void addFaceVertex(VertexConsumer consumer, Matrix4f matrix, Vec3 point, float u, float v,
+                                      int red, int green, int blue, int alpha, Vec3 normal) {
         consumer.addVertex(matrix, (float) point.x, (float) point.y, (float) point.z)
-                .setColor(red, green, blue, 72)
+                .setColor(red, green, blue, alpha)
                 .setUv(u, v)
                 .setOverlay(OverlayTexture.NO_OVERLAY)
                 .setUv2(LightTexture.FULL_BRIGHT & 0xFFFF, LightTexture.FULL_BRIGHT >> 16)
@@ -206,14 +242,16 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
     }
 
     /**
-     * Render textured outlines as camera-facing ribbons. Unlike OpenGL line width,
+     * Render selected outlines as camera-facing ribbons. Unlike OpenGL line width,
      * this produces a dependable visible thickness on every supported renderer.
      */
-    private static void renderThickEdges(PoseStack poseStack, MultiBufferSource.BufferSource buffers, Outline outline, Vec3 camera) {
+    private static void renderThickEdges(PoseStack poseStack, MultiBufferSource.BufferSource buffers, Outline outline,
+                                         Vec3 camera, float selectionStrength) {
         RenderType renderType = RenderType.debugQuads();
         VertexConsumer consumer = buffers.getBuffer(renderType);
         Matrix4f matrix = poseStack.last().pose();
-        double halfWidth = Math.max(outline.lineWidth() * 0.5D, 1.0D / 256.0D);
+        double halfWidth = outline.selectedLineWidth() * 0.5D * selectionStrength;
+        int alpha = Math.max(1, Math.round(255.0F * selectionStrength));
 
         for (int[] edge : EDGES) {
             Vec3 from = outline.corners()[edge[0]];
@@ -244,17 +282,17 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
             Vec3 c = to.subtract(side).add(cameraOffset);
             Vec3 d = to.add(side).add(cameraOffset);
 
-            addColorVertex(consumer, matrix, a, outline);
-            addColorVertex(consumer, matrix, b, outline);
-            addColorVertex(consumer, matrix, c, outline);
-            addColorVertex(consumer, matrix, d, outline);
+            addColorVertex(consumer, matrix, a, outline, alpha);
+            addColorVertex(consumer, matrix, b, outline, alpha);
+            addColorVertex(consumer, matrix, c, outline, alpha);
+            addColorVertex(consumer, matrix, d, outline, alpha);
         }
         buffers.endBatch(renderType);
     }
 
-    private static void addColorVertex(VertexConsumer consumer, Matrix4f matrix, Vec3 point, Outline outline) {
+    private static void addColorVertex(VertexConsumer consumer, Matrix4f matrix, Vec3 point, Outline outline, int alpha) {
         consumer.addVertex(matrix, (float) point.x, (float) point.y, (float) point.z)
-                .setColor(outline.red(), outline.green(), outline.blue(), 255);
+                .setColor(outline.red(), outline.green(), outline.blue(), alpha);
     }
 
     private static void renderThinLines(PoseStack poseStack, MultiBufferSource.BufferSource buffers, Outline outline) {
@@ -280,16 +318,68 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
         buffers.endBatch(renderType);
     }
 
-    private record Outline(Vec3[] corners, int color, boolean textured, float lineWidth) {
-        int red() {
+    private static final class Outline {
+        private Vec3[] corners;
+        private int color;
+        private float lineWidth;
+        private float selectedLineWidth;
+        private boolean selected;
+        private boolean refreshed;
+        private float selectionStrength;
+
+        private Outline(Vec3[] corners, int color, boolean textured, float lineWidth) {
+            this.selectedLineWidth = lineWidth;
+            update(corners, color, textured, lineWidth);
+        }
+
+        private void beginFrame() {
+            refreshed = false;
+            selected = false;
+        }
+
+        private void update(Vec3[] corners, int color, boolean textured, float lineWidth) {
+            this.corners = corners;
+            this.color = color;
+            this.lineWidth = lineWidth;
+            this.refreshed = true;
+            this.selected = textured;
+            if (textured) {
+                this.selectedLineWidth = lineWidth;
+                this.selectionStrength = 1.0F;
+            }
+        }
+
+        private void advance(float deltaSeconds) {
+            if (!selected && selectionStrength > 0.0F) {
+                selectionStrength = Math.max(0.0F, selectionStrength - deltaSeconds / FADE_OUT_SECONDS);
+            }
+        }
+
+        private boolean visible() {
+            return refreshed || selectionStrength > MIN_SELECTION_STRENGTH;
+        }
+
+        private Vec3[] corners() {
+            return corners;
+        }
+
+        private float selectedLineWidth() {
+            return selectedLineWidth;
+        }
+
+        private float selectionStrength() {
+            return selectionStrength;
+        }
+
+        private int red() {
             return color >> 16 & 255;
         }
 
-        int green() {
+        private int green() {
             return color >> 8 & 255;
         }
 
-        int blue() {
+        private int blue() {
             return color & 255;
         }
     }
