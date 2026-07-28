@@ -1,4 +1,4 @@
-name: v1.1 compatibility matrix
+name: Magnot 1.21.1 compatibility matrix
 
 on:
   pull_request:
@@ -13,7 +13,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: v110-${{ github.workflow }}-${{ github.ref }}
+  group: magnot-1211-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
