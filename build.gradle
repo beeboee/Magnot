@@ -28,6 +28,8 @@ dependencies {
     mappings loom.officialMojangMappings()
     modImplementation "org.quiltmc:quilt-loader:${quilt_loader_version}"
     modImplementation "org.quiltmc.quilted-fabric-api:quilted-fabric-api:${qfapi_version}"
+    compileOnly 'org.spongepowered:mixin:0.8.5'
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 tasks.named('processResources', ProcessResources).configure {
