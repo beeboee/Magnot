@@ -28,13 +28,16 @@ jobs:
           gradle-version: '8.8'
       - name: Build Fabric 1.20.1 port
         shell: bash
-        run: gradle build --stacktrace
-      - name: Upload port jar and reports
+        run: |
+          set -o pipefail
+          gradle build --stacktrace 2>&1 | tee fabric-1.20.1-build.log
+      - name: Upload port jar, reports, and log
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: fabric-1.20.1-parity
           path: |
+            fabric-1.20.1-build.log
             build/libs/*.jar
             build/reports/**
           if-no-files-found: ignore
