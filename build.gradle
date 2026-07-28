@@ -35,6 +35,11 @@ processResources {
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+    from('src/main/resources/assets/magnot/textures/item') {
+        include 'ferrous_paste.png'
+        include 'ferrous_tube.png'
+        into 'assets/magnot/textures/items'
+    }
 }
 
 jar.finalizedBy('reobf')
