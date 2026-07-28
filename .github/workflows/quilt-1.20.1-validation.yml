@@ -1,0 +1,55 @@
+name: Quilt 1.20.1 validation
+
+on:
+  push:
+    branches: [validation/1.20.1-quilt]
+  pull_request:
+    branches: [1.20.1-quilt-validation]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quilt-1201-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.12.1'
+      - name: Build Fabric artifact against Quilt Loader and QFAPI
+        shell: bash
+        run: |
+          set -o pipefail
+          gradle clean build --stacktrace 2>&1 | tee quilt-1.20.1-build.log
+      - name: Verify Fabric metadata remains installable on both loaders
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+
+          metadata = json.loads(Path('ports/fabric-1.20.1/src/main/resources/fabric.mod.json').read_text())
+          assert metadata['id'] == 'magnot'
+          assert metadata['depends']['fabricloader'] == '>=0.16.10'
+          assert metadata['depends']['fabric-api'] == '*'
+          assert 'quilt_loader' not in metadata.get('breaks', {})
+      - name: Upload validation jar and log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quilt-1.20.1-validation
+          path: |
+            quilt-1.20.1-build.log
+            build/libs/*.jar
+            build/reports/**
+          if-no-files-found: ignore
+          retention-days: 7
