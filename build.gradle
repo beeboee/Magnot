@@ -9,7 +9,7 @@ version = "${mod_version}+mc${minecraft_version}"
 group = mod_group_id
 
 base {
-    archivesName = mod_id
+    archivesName = "${mod_id}-neoforge"
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -44,10 +44,11 @@ sourceSets.main.resources.srcDirs = ['ports/forge-1.20.1/src/main/resources']
 
 repositories {
     mavenCentral()
+    maven { url = 'https://maven.neoforged.net/releases' }
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    minecraft "net.neoforged:forge:${minecraft_version}-${neoforge_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
