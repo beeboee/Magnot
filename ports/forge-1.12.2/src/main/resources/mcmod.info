@@ -2,7 +2,7 @@
   {
     "modid": "magnot",
     "name": "Magnot",
-    "description": "Legacy ferrous-region core and compatibility API.",
+    "description": "Public alpha of Magnot's Forge 1.12.2 legacy core and compatibility API. This line is core/API-only while safe automatic legacy magnet integrations are evaluated.",
     "version": "${version}",
     "mcversion": "1.12.2",
     "authorList": ["beeboee"],
