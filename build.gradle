@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.10-SNAPSHOT'
+    id 'org.quiltmc.loom' version '1.4.1'
     id 'maven-publish'
 }
 
@@ -18,19 +18,27 @@ java {
 sourceSets.main.java.srcDirs = ['ports/fabric-1.20.1/src/main/java']
 sourceSets.main.resources.srcDirs = ['ports/fabric-1.20.1/src/main/resources']
 
+loom {
+    mods {
+        magnot {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
 repositories {
     mavenCentral()
     maven { url = 'https://maven.quiltmc.org/repository/release/' }
-    maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
 }
 
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings loom.officialMojangMappings()
+    mappings loom.layered {
+        mappings "org.quiltmc:quilt-mappings:${quilt_mappings_version}:intermediary-v2"
+        officialMojangMappings()
+    }
     modImplementation "org.quiltmc:quilt-loader:${quilt_loader_version}"
     modImplementation "org.quiltmc.quilted-fabric-api:quilted-fabric-api:${qfapi_version}"
-    compileOnly 'org.spongepowered:mixin:0.8.5'
-    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 tasks.named('processResources', ProcessResources).configure {
@@ -41,6 +49,11 @@ tasks.named('processResources', ProcessResources).configure {
     from('src/main/resources') {
         include 'assets/**'
     }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 17
 }
 
 publishing {
