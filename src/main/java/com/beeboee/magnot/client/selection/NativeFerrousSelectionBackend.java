@@ -7,8 +7,8 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
@@ -25,6 +25,8 @@ import java.util.Map;
 public final class NativeFerrousSelectionBackend implements FerrousSelectionBackend {
     private static final double MIN_FACE_EDGE = 1.0E-6D;
     private static final double FACE_OFFSET = 1.0D / 128.0D;
+    private static final double INSIDE_EPSILON = 1.0E-5D;
+    private static final float LINE_WIDTH_SCALE = 64.0F;
     private static final int[][] EDGES = {
             {0, 1}, {1, 2}, {2, 3}, {3, 0},
             {4, 5}, {5, 6}, {6, 7}, {7, 4},
@@ -71,7 +73,7 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
         poseStack.translate(-camera.x, -camera.y, -camera.z);
         for (Outline outline : outlines.values()) {
             if (outline.textured()) {
-                renderFaces(poseStack, buffers, outline);
+                renderFaces(poseStack, buffers, outline, camera);
             }
             renderLines(poseStack, buffers, outline);
         }
@@ -79,7 +81,7 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
         RenderSystem.lineWidth(1.0F);
     }
 
-    private static void renderFaces(PoseStack poseStack, MultiBufferSource.BufferSource buffers, Outline outline) {
+    private static void renderFaces(PoseStack poseStack, MultiBufferSource.BufferSource buffers, Outline outline, Vec3 camera) {
         RenderType renderType = RenderType.entityTranslucent(FerrousSelectionTexture.LOCATION);
         VertexConsumer consumer = buffers.getBuffer(renderType);
         Matrix4f matrix = poseStack.last().pose();
@@ -87,14 +89,16 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
         int green = outline.green();
         int blue = outline.blue();
         Vec3 center = center(outline.corners());
+        boolean cameraInside = contains(outline.corners(), camera);
 
         for (int[] face : FACES) {
-            renderTiledFace(consumer, matrix, outline.corners(), center, face, red, green, blue);
+            renderTiledFace(consumer, matrix, outline.corners(), center, camera, cameraInside, face, red, green, blue);
         }
         buffers.endBatch(renderType);
     }
 
-    private static void renderTiledFace(VertexConsumer consumer, Matrix4f matrix, Vec3[] corners, Vec3 center, int[] face,
+    private static void renderTiledFace(VertexConsumer consumer, Matrix4f matrix, Vec3[] corners, Vec3 center,
+                                        Vec3 camera, boolean cameraInside, int[] face,
                                         int red, int green, int blue) {
         Vec3 origin = corners[face[0]];
         Vec3 vEdge = corners[face[1]].subtract(origin);
@@ -122,8 +126,15 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
         if (normal.dot(faceCenter.subtract(center)) < 0.0D) {
             normal = normal.scale(-1.0D);
         }
-        Vec3 faceOffset = normal.scale(FACE_OFFSET);
 
+        // Create's outline behaves like a one-way shell from outside, while remaining
+        // fully visible from inside. The native path reproduces that explicitly because
+        // its translucent render type is intentionally double-sided.
+        if (!cameraInside && normal.dot(camera.subtract(faceCenter)) <= 0.0D) {
+            return;
+        }
+
+        Vec3 faceOffset = normal.scale(FACE_OFFSET);
         int uTiles = Math.max(1, (int) Math.ceil(uLength - MIN_FACE_EDGE));
         int vTiles = Math.max(1, (int) Math.ceil(vLength - MIN_FACE_EDGE));
 
@@ -150,6 +161,28 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
         }
     }
 
+    /** Supports axis-aligned and transformed Sable parallelepipeds. */
+    private static boolean contains(Vec3[] corners, Vec3 point) {
+        Vec3 origin = corners[0];
+        Vec3 xEdge = corners[1].subtract(origin);
+        Vec3 zEdge = corners[3].subtract(origin);
+        Vec3 yEdge = corners[4].subtract(origin);
+        double determinant = xEdge.dot(zEdge.cross(yEdge));
+        if (Math.abs(determinant) < MIN_FACE_EDGE) {
+            return false;
+        }
+
+        Vec3 relative = point.subtract(origin);
+        double x = relative.dot(zEdge.cross(yEdge)) / determinant;
+        double z = xEdge.dot(relative.cross(yEdge)) / determinant;
+        double y = xEdge.dot(zEdge.cross(relative)) / determinant;
+        return unitInterval(x) && unitInterval(y) && unitInterval(z);
+    }
+
+    private static boolean unitInterval(double value) {
+        return value >= -INSIDE_EPSILON && value <= 1.0D + INSIDE_EPSILON;
+    }
+
     private static Vec3 center(Vec3[] corners) {
         Vec3 center = Vec3.ZERO;
         for (Vec3 corner : corners) {
@@ -172,7 +205,7 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
     }
 
     private static void renderLines(PoseStack poseStack, MultiBufferSource.BufferSource buffers, Outline outline) {
-        RenderSystem.lineWidth(outline.lineWidth() >= 1.0F / 32.0F ? 3.0F : 1.0F);
+        RenderSystem.lineWidth(Math.max(1.0F, outline.lineWidth() * LINE_WIDTH_SCALE));
         RenderType renderType = RenderType.lines();
         VertexConsumer consumer = buffers.getBuffer(renderType);
         Matrix4f matrix = poseStack.last().pose();
