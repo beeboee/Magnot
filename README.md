@@ -59,12 +59,14 @@ If a pull still crosses a protected region, report:
 
 The native backend is the baseline for every port. A Minecraft version does **not** need a matching Create release before Magnot can support it.
 
-Current port priority:
+Active parity work now covers:
 
-1. NeoForge 1.21.1 — current 1.2.x release line
-2. Forge 1.20.1 and Fabric 1.20.1 — first parity targets
-3. Forge 1.19.2 — next legacy parity target
-4. Older published tracks after the core behavior is aligned
+1. Forge 1.20.1 and Fabric 1.20.1
+2. Forge 1.19.2
+3. Forge 1.18.2 and 1.16.5
+4. Forge 1.12.2 core/API parity
+
+Each line has its own long-lived branch, draft parity pull request, and branch-specific build gate. A successful build does not count as gameplay parity until native rendering, persistence, recipes, magnet blocking, and target-specific integrations are tested.
 
 See [version support and parity](docs/VERSION_SUPPORT.md) for the definition of parity and branch policy.
 
