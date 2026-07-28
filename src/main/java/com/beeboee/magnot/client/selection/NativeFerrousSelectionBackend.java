@@ -24,6 +24,7 @@ import java.util.Map;
  */
 public final class NativeFerrousSelectionBackend implements FerrousSelectionBackend {
     private static final double MIN_FACE_EDGE = 1.0E-6D;
+    private static final double FACE_OFFSET = 1.0D / 128.0D;
     private static final int[][] EDGES = {
             {0, 1}, {1, 2}, {2, 3}, {3, 0},
             {4, 5}, {5, 6}, {6, 7}, {7, 4},
@@ -85,14 +86,15 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
         int red = outline.red();
         int green = outline.green();
         int blue = outline.blue();
+        Vec3 center = center(outline.corners());
 
         for (int[] face : FACES) {
-            renderTiledFace(consumer, matrix, outline.corners(), face, red, green, blue);
+            renderTiledFace(consumer, matrix, outline.corners(), center, face, red, green, blue);
         }
         buffers.endBatch(renderType);
     }
 
-    private static void renderTiledFace(VertexConsumer consumer, Matrix4f matrix, Vec3[] corners, int[] face,
+    private static void renderTiledFace(VertexConsumer consumer, Matrix4f matrix, Vec3[] corners, Vec3 center, int[] face,
                                         int red, int green, int blue) {
         Vec3 origin = corners[face[0]];
         Vec3 vEdge = corners[face[1]].subtract(origin);
@@ -106,7 +108,22 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
 
         Vec3 uDirection = uEdge.scale(1.0D / uLength);
         Vec3 vDirection = vEdge.scale(1.0D / vLength);
-        Vec3 normal = vEdge.cross(diagonal).normalize();
+        Vec3 normal = vEdge.cross(diagonal);
+        if (normal.lengthSqr() < MIN_FACE_EDGE * MIN_FACE_EDGE) {
+            return;
+        }
+        normal = normal.normalize();
+
+        Vec3 faceCenter = corners[face[0]]
+                .add(corners[face[1]])
+                .add(corners[face[2]])
+                .add(corners[face[3]])
+                .scale(0.25D);
+        if (normal.dot(faceCenter.subtract(center)) < 0.0D) {
+            normal = normal.scale(-1.0D);
+        }
+        Vec3 faceOffset = normal.scale(FACE_OFFSET);
+
         int uTiles = Math.max(1, (int) Math.ceil(uLength - MIN_FACE_EDGE));
         int vTiles = Math.max(1, (int) Math.ceil(vLength - MIN_FACE_EDGE));
 
@@ -120,10 +137,10 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
                 double vEnd = Math.min(vTile + 1.0D, vLength);
                 float tileV = (float) (vEnd - vStart);
 
-                Vec3 a = pointOnFace(origin, uDirection, vDirection, uStart, vStart);
-                Vec3 b = pointOnFace(origin, uDirection, vDirection, uStart, vEnd);
-                Vec3 c = pointOnFace(origin, uDirection, vDirection, uEnd, vEnd);
-                Vec3 d = pointOnFace(origin, uDirection, vDirection, uEnd, vStart);
+                Vec3 a = pointOnFace(origin, uDirection, vDirection, uStart, vStart).add(faceOffset);
+                Vec3 b = pointOnFace(origin, uDirection, vDirection, uStart, vEnd).add(faceOffset);
+                Vec3 c = pointOnFace(origin, uDirection, vDirection, uEnd, vEnd).add(faceOffset);
+                Vec3 d = pointOnFace(origin, uDirection, vDirection, uEnd, vStart).add(faceOffset);
 
                 addFaceVertex(consumer, matrix, a, 0.0F, 0.0F, red, green, blue, normal);
                 addFaceVertex(consumer, matrix, b, 0.0F, tileV, red, green, blue, normal);
@@ -131,6 +148,14 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
                 addFaceVertex(consumer, matrix, d, tileU, 0.0F, red, green, blue, normal);
             }
         }
+    }
+
+    private static Vec3 center(Vec3[] corners) {
+        Vec3 center = Vec3.ZERO;
+        for (Vec3 corner : corners) {
+            center = center.add(corner);
+        }
+        return center.scale(1.0D / corners.length);
     }
 
     private static Vec3 pointOnFace(Vec3 origin, Vec3 uDirection, Vec3 vDirection, double u, double v) {
