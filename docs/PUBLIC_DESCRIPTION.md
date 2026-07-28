@@ -4,15 +4,13 @@ Magnot adds ferrous paste regions that block supported magnets, vacuums, and rem
 
 Magnets still work normally outside those boundaries. Protect storage rooms, machines, contraptions, farms, and item-processing areas without disabling magnet effects globally.
 
-## Requirements for Magnot 1.2.0
+## Installation
 
-- Minecraft 1.21.1
-- NeoForge 21.1.230 or newer
-- Magnot installed on the server and connecting clients
+Choose the file that matches your exact Minecraft version and mod loader. Install Magnot on the server and on connecting clients unless that file's changelog explicitly says otherwise.
 
-**Create is optional.**
+Each file page is authoritative for its loader requirements, supported optional mods, known limitations, and test status. Compatibility can differ between Minecraft versions because their modding APIs and available third-party mods differ substantially.
 
-When Create is installed, Magnot reuses Create/Catnip selection rendering and glue-style presentation where practical. Without Create, Magnot uses its own native renderer with the same ferrous texture and gameplay result.
+Create is not a universal requirement. Builds that support Create treat it as an optional enhancement; builds for versions without Create use Magnot's native behavior.
 
 ## Using ferrous regions
 
@@ -21,33 +19,25 @@ When Create is installed, Magnot reuses Create/Catnip selection rendering and gl
 3. Hold the tube to reveal nearby regions.
 4. Attack a highlighted region with the tube to remove it.
 
-Magnot automatically adapts its recipes to common iron dust and plate tags. Packs without Create or iron dust still receive a nugget-and-slime fallback recipe.
+Recipes adapt to the material systems available in each supported environment. A build should always provide a usable route using materials available without optional mods.
 
-## Optional compatibility
+## Compatibility
 
-Magnot includes optional adapters for supported magnet and vacuum behavior from mods including:
+Magnot can block supported player magnets, vacuum blocks, absorption hoppers, remote collectors, and similar item-moving effects when their pull path crosses a ferrous region.
 
-- Sophisticated Backpacks and Sophisticated Storage
-- Applied Energistics 2 Wireless Terminals / AE2WTLib
-- ProjectE
-- Artifacts
-- Mekanism
-- Draconic Evolution
-- Reliquary Reincarnations
-- Actually Additions
-- Mob Grinding Utils
-- Item Collectors
-- Simple Magnets
-- Modular Routers
-- Ender IO
-- Industrial Foregoing
+Exact integrations are listed per file and in the repository compatibility matrix. An integration is only called confirmed for a specific Minecraft version and loader after that exact combination has been verified. Missing optional integrations do not prevent Magnot's core region system from working.
 
-Sable moving structures, JEI, EMI, Create, and every listed magnet integration remain optional. Exact tested versions and confidence levels are maintained in the repository compatibility document.
-
-## Version ports
-
-NeoForge 1.21.1 is the current release line. Forge and Fabric 1.20.1 parity work comes next, followed by the older published Forge tracks. Create availability does not gate those ports; the native backend is the baseline.
+Mod authors can integrate directly through Magnot's public compatibility API where available.
 
 ## Feedback
 
-Magnot is young and compatibility reports are useful. Include the target mod version, magnet or collector used, whether the source was a player or block, and the protected geometry involved.
+Public alpha builds are released specifically to broaden testing. When reporting a problem, include:
+
+- the exact Magnot filename
+- Minecraft version and loader
+- whether Create was installed
+- the magnet, vacuum, or collector involved
+- reproduction steps
+- the latest log or crash report
+
+Reports are tracked through the Magnot GitHub issue form.
