@@ -3,7 +3,7 @@
   "id": "magnot",
   "version": "${version}",
   "name": "Magnot",
-  "description": "Public alpha of Magnot's Fabric 1.20.1 port. Ferrous regions block supported magnets and vacuum effects. Create is optional; visual and integration parity with the NeoForge 1.21.1 release is still in progress.",
+  "description": "Public alpha of Magnot's Fabric and Quilt-compatible 1.20.1 port. Ferrous regions block supported magnets and vacuum effects. Create is optional; visual and integration parity with the NeoForge 1.21.1 release is still in progress.",
   "authors": ["beeboee"],
   "license": "MIT",
   "environment": "*",
@@ -12,7 +12,7 @@
   },
   "mixins": ["magnot-fabric.mixins.json"],
   "depends": {
-    "fabricloader": ">=0.17.2",
+    "fabricloader": ">=0.16.10",
     "fabric-api": "*",
     "minecraft": "~1.20.1",
     "java": ">=17"
