@@ -1,17 +1,21 @@
 # Magnot
 
-Magnot lets ferrous paste act as a boundary for item magnets and vacuum blocks.
+Magnot lets ferrous paste act as a boundary for item magnets, vacuum blocks, and other remote item collectors.
 
-Items can sit behind a protected wall without being pulled through it by backpacks, rings, modules, hoppers, or other remote pickup effects. Magnets still work. They just have to mind the walls.
+Items can sit behind a protected wall without being pulled through it by backpacks, rings, modules, hoppers, or similar effects. Magnets still work. They just have to mind the walls.
 
-## Requirements
+## Current release
+
+**Magnot 1.2.0** targets:
 
 - Minecraft 1.21.1
 - NeoForge 21.1.230 or newer
 
-Create is optional. With Create installed, Magnot uses Create/Catnip selection rendering, raycasting, fade behavior, and glue-style sounds while keeping Magnot authoritative for region creation and removal. Without Create, Magnot uses its native selection backend with the same Magnot texture and gameplay rules.
+Install Magnot on both the server and connecting clients.
 
-Sable, JEI, EMI, and all supported magnet integrations are optional.
+Create is optional. With Create installed, Magnot reuses Create/Catnip selection rendering, raycasting, fade behavior, and glue-style sounds while remaining authoritative for region creation and removal. Without Create, Magnot uses its native selection backend with matching Magnot visuals and gameplay behavior.
+
+Sable, JEI, EMI, and all magnet/vacuum integrations are optional.
 
 ## What it does
 
@@ -26,6 +30,8 @@ It does not delete items, disable magnets globally, or change normal vanilla ite
 3. Hold the tube to inspect nearby regions, or attack a highlighted region to remove it.
 4. Use magnets or vacuum blocks nearby as normal.
 
+Selection appears immediately. When the player looks away, the textured faces and emphasized border fade quickly back to the passive outline.
+
 ## Adaptive materials
 
 - External `c:dusts/iron` present: Magnot consumes external dust and hides its fallback dust.
@@ -38,29 +44,36 @@ Inactive recipes never enter the recipe manager. Dormant Magnot iron dust is omi
 
 ## Compatibility
 
-Magnot supports a growing set of magnet and vacuum mods. Compatibility depends on the exact mod and version, so the detailed list lives in [magnet and vacuum compatibility](docs/COMPATIBILITY.md).
+Magnot supports a growing set of magnet and vacuum mods. Compatibility depends on the exact mod and version, so the maintained list lives in [magnet and vacuum compatibility](docs/COMPATIBILITY.md).
 
-If a magnet or vacuum still pulls through a protected region, please report:
+Mods with magnets, vacuums, remote item collectors, absorption hoppers, item teleporters, or similar item-moving behavior can support Magnot directly through the [public compatibility API](docs/API.md).
+
+If a pull still crosses a protected region, report:
 
 - the mod name and version
 - the item or block used
 - whether the pull came from a player or a block
 - what was between the pull source and the item
 
-### Disabling integration adapters
+## Version support
+
+The native backend is the baseline for every port. A Minecraft version does **not** need a matching Create release before Magnot can support it.
+
+Current port priority:
+
+1. NeoForge 1.21.1 — current 1.2.x release line
+2. Forge 1.20.1 and Fabric 1.20.1 — first parity targets
+3. Forge 1.19.2 — next legacy parity target
+4. Older published tracks after the core behavior is aligned
+
+See [version support and parity](docs/VERSION_SUPPORT.md) for the definition of parity and branch policy.
+
+## Disabling integration adapters
 
 Individual Magnot adapter mixins can be disabled for a Gradle dev launch without removing the target mod.
 
-Disable one adapter with a boolean project property:
-
 ```powershell
 .\gradlew.bat runClient -Pwith_compat_test_mods=true -Pdisable_artifacts=true
-```
-
-Add more boolean flags to disable several adapters:
-
-```powershell
-.\gradlew.bat runClient -Pwith_compat_test_mods=true -Pdisable_artifacts=true -Pdisable_simplemagnets=true
 ```
 
 A list form is also supported:
@@ -73,10 +86,6 @@ Names are case-insensitive and punctuation is ignored, so `mob_grinding_utils` a
 
 The lower-level JVM property `-Dmagnot.disableIntegrations=...` and environment variable `MAGNOT_DISABLE_INTEGRATIONS=...` remain available for launchers that do not invoke Gradle.
 
-## For mod authors
-
-Mods with magnets, vacuums, remote item collectors, absorption hoppers, item teleporters, or similar item-moving behavior can support Magnot directly through the [public compatibility API](docs/API.md).
-
 ## Development
 
 Development launches use separate game directories so jars from one test cannot contaminate another:
@@ -86,7 +95,7 @@ Development launches use separate game directories so jars from one test cannot 
 - Manually supplied compatibility jars belong in `run/compat/mods`.
 - The legacy `run/mods` directory is intentionally ignored.
 
-A genuinely Magnot-only client launch is therefore:
+A genuinely Magnot-only client launch is:
 
 ```powershell
 .\gradlew.bat runClient
@@ -100,7 +109,7 @@ Optional dev runtimes are explicit Gradle properties:
 - `-Pwith_emi=true`
 - `-Pwith_compat_test_mods=true`
 
-See [the v1.1.0 implementation notes](docs/V1.1.0.md) for architecture, recipe decisions, attribution, test coverage, and known risks.
+Release and architecture details are in [Magnot 1.2.0](docs/V1.2.0.md). The public-facing CurseForge/wiki copy is maintained in [docs/PUBLIC_DESCRIPTION.md](docs/PUBLIC_DESCRIPTION.md).
 
 ## License
 
