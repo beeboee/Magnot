@@ -22,12 +22,17 @@ on:
         required: true
         default: Makes Create optional, adds the native parity renderer, adaptive recipes, and expanded magnet compatibility.
         type: string
+  push:
+    branches: [main]
+    paths:
+      - gradle.properties
 
 permissions:
   contents: read
 
 jobs:
   publish:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[release]')
     runs-on: ubuntu-latest
 
     steps:
@@ -58,6 +63,8 @@ jobs:
 
       - name: Validate release version
         id: version
+        env:
+          REQUESTED_VERSION: ${{ inputs.version }}
         shell: bash
         run: |
           set -euo pipefail
@@ -68,8 +75,8 @@ jobs:
             exit 1
           fi
 
-          if [[ "$project_version" != "${{ inputs.version }}" ]]; then
-            echo "Requested version ${{ inputs.version }} does not match gradle.properties ($project_version)." >&2
+          if [[ -n "${REQUESTED_VERSION:-}" && "$project_version" != "$REQUESTED_VERSION" ]]; then
+            echo "Requested version $REQUESTED_VERSION does not match gradle.properties ($project_version)." >&2
             exit 1
           fi
 
@@ -98,8 +105,8 @@ jobs:
           files: build/libs/magnot-${{ steps.version.outputs.version }}.jar
           name: Magnot ${{ steps.version.outputs.version }}
           version: ${{ steps.version.outputs.version }}
-          version-type: ${{ inputs.release_type }}
-          changelog: ${{ inputs.changelog }}
+          version-type: ${{ inputs.release_type || 'release' }}
+          changelog: ${{ inputs.changelog || 'Magnot 1.2.0 makes Create optional, adds native rendering parity, adaptive recipes, and expanded compatibility.' }}
           loaders: neoforge
           game-versions: 1.21.1
           game-version-filter: none
