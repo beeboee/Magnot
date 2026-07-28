@@ -26,7 +26,6 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
     private static final double MIN_FACE_EDGE = 1.0E-6D;
     private static final double FACE_OFFSET = 1.0D / 128.0D;
     private static final double INSIDE_EPSILON = 1.0E-5D;
-    private static final float LINE_WIDTH_SCALE = 64.0F;
     private static final int[][] EDGES = {
             {0, 1}, {1, 2}, {2, 3}, {3, 0},
             {4, 5}, {5, 6}, {6, 7}, {7, 4},
@@ -74,8 +73,10 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
         for (Outline outline : outlines.values()) {
             if (outline.textured()) {
                 renderFaces(poseStack, buffers, outline, camera);
+                renderThickEdges(poseStack, buffers, outline, camera);
+            } else {
+                renderThinLines(poseStack, buffers, outline);
             }
-            renderLines(poseStack, buffers, outline);
         }
         poseStack.popPose();
         RenderSystem.lineWidth(1.0F);
@@ -204,8 +205,60 @@ public final class NativeFerrousSelectionBackend implements FerrousSelectionBack
                 .setNormal((float) normal.x, (float) normal.y, (float) normal.z);
     }
 
-    private static void renderLines(PoseStack poseStack, MultiBufferSource.BufferSource buffers, Outline outline) {
-        RenderSystem.lineWidth(Math.max(1.0F, outline.lineWidth() * LINE_WIDTH_SCALE));
+    /**
+     * Render textured outlines as camera-facing ribbons. Unlike OpenGL line width,
+     * this produces a dependable visible thickness on every supported renderer.
+     */
+    private static void renderThickEdges(PoseStack poseStack, MultiBufferSource.BufferSource buffers, Outline outline, Vec3 camera) {
+        RenderType renderType = RenderType.debugQuads();
+        VertexConsumer consumer = buffers.getBuffer(renderType);
+        Matrix4f matrix = poseStack.last().pose();
+        double halfWidth = Math.max(outline.lineWidth() * 0.5D, 1.0D / 256.0D);
+
+        for (int[] edge : EDGES) {
+            Vec3 from = outline.corners()[edge[0]];
+            Vec3 to = outline.corners()[edge[1]];
+            Vec3 edgeVector = to.subtract(from);
+            double length = edgeVector.length();
+            if (length < MIN_FACE_EDGE) {
+                continue;
+            }
+
+            Vec3 direction = edgeVector.scale(1.0D / length);
+            Vec3 midpoint = from.add(to).scale(0.5D);
+            Vec3 toCamera = camera.subtract(midpoint);
+            Vec3 side = direction.cross(toCamera);
+            if (side.lengthSqr() < MIN_FACE_EDGE * MIN_FACE_EDGE) {
+                Vec3 fallbackAxis = Math.abs(direction.y) < 0.9D
+                        ? new Vec3(0.0D, 1.0D, 0.0D)
+                        : new Vec3(1.0D, 0.0D, 0.0D);
+                side = direction.cross(fallbackAxis);
+            }
+            side = side.normalize().scale(halfWidth);
+
+            Vec3 cameraOffset = toCamera.lengthSqr() < MIN_FACE_EDGE * MIN_FACE_EDGE
+                    ? Vec3.ZERO
+                    : toCamera.normalize().scale(FACE_OFFSET * 1.5D);
+            Vec3 a = from.add(side).add(cameraOffset);
+            Vec3 b = from.subtract(side).add(cameraOffset);
+            Vec3 c = to.subtract(side).add(cameraOffset);
+            Vec3 d = to.add(side).add(cameraOffset);
+
+            addColorVertex(consumer, matrix, a, outline);
+            addColorVertex(consumer, matrix, b, outline);
+            addColorVertex(consumer, matrix, c, outline);
+            addColorVertex(consumer, matrix, d, outline);
+        }
+        buffers.endBatch(renderType);
+    }
+
+    private static void addColorVertex(VertexConsumer consumer, Matrix4f matrix, Vec3 point, Outline outline) {
+        consumer.addVertex(matrix, (float) point.x, (float) point.y, (float) point.z)
+                .setColor(outline.red(), outline.green(), outline.blue(), 255);
+    }
+
+    private static void renderThinLines(PoseStack poseStack, MultiBufferSource.BufferSource buffers, Outline outline) {
+        RenderSystem.lineWidth(1.0F);
         RenderType renderType = RenderType.lines();
         VertexConsumer consumer = buffers.getBuffer(renderType);
         Matrix4f matrix = poseStack.last().pose();
