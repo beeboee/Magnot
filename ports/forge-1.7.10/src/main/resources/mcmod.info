@@ -1,0 +1,13 @@
+[
+  {
+    "modid": "magnot",
+    "name": "Magnot",
+    "description": "Ferrous regions that block supported remote item pulls.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "authorList": ["beeboee"],
+    "credits": "",
+    "url": "",
+    "updateUrl": ""
+  }
+]
