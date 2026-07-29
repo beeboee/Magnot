@@ -1,0 +1,10 @@
+{
+  "fabric:load_conditions": [
+    { "condition": "fabric:not", "value": { "condition":"fabric:tags_populated", "values":["magnot:iron_dusts"] } },
+    { "condition": "fabric:all_mods_loaded", "values":["create"] }
+  ],
+  "type": "create:crushing",
+  "ingredients": [ { "item":"minecraft:iron_ingot" } ],
+  "processingTime": 250,
+  "results": [ { "item":"magnot:iron_dust", "count":1 } ]
+}

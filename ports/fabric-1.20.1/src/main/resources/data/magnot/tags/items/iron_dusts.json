@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "#c:dusts/iron", "required": false },
+    { "id": "#c:iron_dusts", "required": false }
+  ]
+}

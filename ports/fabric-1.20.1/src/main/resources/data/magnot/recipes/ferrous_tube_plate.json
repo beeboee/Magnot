@@ -1,0 +1,7 @@
+{
+  "fabric:load_conditions": [ { "condition": "fabric:tags_populated", "values": ["magnot:iron_plates"] } ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["PI","NP"],
+  "key": { "P":{"item":"magnot:ferrous_paste"}, "I":{"tag":"magnot:iron_plates"}, "N":{"item":"minecraft:iron_nugget"} },
+  "result": { "item":"magnot:ferrous_tube", "count":1 }
+}

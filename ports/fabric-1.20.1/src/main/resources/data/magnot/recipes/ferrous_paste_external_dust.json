@@ -1,0 +1,8 @@
+{
+  "fabric:load_conditions": [
+    { "condition": "fabric:tags_populated", "values": ["magnot:iron_dusts"] }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [ { "tag": "magnot:iron_dusts" }, { "item": "minecraft:slime_ball" } ],
+  "result": { "item": "magnot:ferrous_paste", "count": 1 }
+}

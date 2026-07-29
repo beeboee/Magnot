@@ -3,12 +3,13 @@
   "id": "magnot",
   "version": "${version}",
   "name": "Magnot",
-  "description": "Public alpha of Magnot's Fabric and Quilt-compatible 1.20.1 port. Ferrous regions block supported magnets and vacuum effects. Create is optional; visual and integration parity with the NeoForge 1.21.1 release is still in progress.",
+  "description": "Magnot 1.2 alpha for Fabric and Quilt-compatible 1.20.1. Includes the complete loader-independent Magnot feature set: native textured selection rendering, synchronized persistent regions, adaptive recipes, and Create-free operation. Optional integrations are documented separately.",
   "authors": ["beeboee"],
   "license": "MIT",
   "environment": "*",
   "entrypoints": {
-    "main": ["com.beeboee.magnot.Magnot"]
+    "main": ["com.beeboee.magnot.Magnot"],
+    "client": ["com.beeboee.magnot.client.MagnotClient"]
   },
   "mixins": ["magnot-fabric.mixins.json"],
   "depends": {
@@ -17,7 +18,5 @@
     "minecraft": "~1.20.1",
     "java": ">=17"
   },
-  "suggests": {
-    "create": ">=0.5.1 <6.1.0"
-  }
+  "suggests": { "create": ">=0.5.1 <6.1.0" }
 }
