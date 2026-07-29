@@ -118,10 +118,10 @@ jobs:
             java_build: '8'
             java_listing: '8'
             gradle: '4.4.1'
-            release_name: Magnot 1.2.0 alpha 2 - Forge 1.7.10
-            version_id: 1.2.0-alpha.2+mc1.7.10-forge
-            file_name: magnot-1.2.0-alpha.2-mc1.7.10-forge.jar
-            note: The dedicated Java 7 implementation has passed its parity build gate; in-game runtime reports are requested before stable status.
+            release_name: Magnot 1.2.0 alpha 3 - Forge 1.7.10
+            version_id: 1.2.0-alpha.3+mc1.7.10-forge
+            file_name: magnot-1.2.0-alpha.3-mc1.7.10-forge.jar
+            note: The dedicated Java 7 implementation has passed its parity build gate; the vanilla fallback uses one iron ingot and one slime ball per ferrous paste.
 
     runs-on: ubuntu-latest
 

@@ -14,7 +14,7 @@ The native selection backend, region storage, networking, recipes, magnet-path r
 | Paramount | 1.20.1 | Fabric | Dedicated build | `alpha.3`; core-parity build green |
 | Paramount | 1.20.1 | Quilt | Fabric-compatible artifact plus Quilt validation | `alpha.3`; shared Fabric artifact |
 | Paramount | 1.12.2 | Forge | Dedicated legacy build | `alpha.2`; core-parity build green |
-| Paramount | 1.7.10 | Forge | Dedicated legacy build | `alpha.2`; core-parity build green |
+| Paramount | 1.7.10 | Forge | Dedicated legacy build | `alpha.3`; core-parity build green |
 | Secondary | 1.19.2 | Forge | Dedicated build | `alpha.2`; core-parity build green |
 | Secondary | 1.18.2 | Forge | Shared core plus version-specific shims | `alpha.2`; core-parity build green |
 | Secondary | 1.16.5 | Forge | Dedicated Java 8 build | `alpha.2`; core-parity build green |
@@ -60,7 +60,7 @@ A target has Magnot-owned core parity when it contains:
 - matching public API semantics, even when loader-specific event wiring differs
 - per-loader packaging metadata and a green target build gate
 
-Legacy targets may use version-appropriate equivalents where vanilla lacks a modern material. For example, Minecraft 1.7.10 has no vanilla iron nuggets, so its ingot fallback preserves the intended material conversion by producing eight paste.
+Legacy targets may use version-appropriate equivalents where vanilla lacks a modern material. Minecraft 1.7.10 has no vanilla iron nuggets, so its fallback recipe uses one iron ingot and one slime ball for one ferrous paste.
 
 ## Runtime certification
 
