@@ -42,6 +42,10 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
     implementation('zone.rong:mixinbooter:10.7') { transitive = false }
     annotationProcessor 'zone.rong:mixinbooter:10.7'
+    annotationProcessor 'org.ow2.asm:asm:9.7.1'
+    annotationProcessor 'org.ow2.asm:asm-tree:9.7.1'
+    annotationProcessor 'org.ow2.asm:asm-commons:9.7.1'
+    annotationProcessor 'org.ow2.asm:asm-util:9.7.1'
 }
 
 sourceSets.main.java.srcDirs = ['ports/forge-1.12.2/src/main/java']
