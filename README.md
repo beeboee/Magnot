@@ -9,6 +9,7 @@ Active candidate-filter adapters target:
 - Simple Magnets
 - Item Collectors
 - AE2 Wireless Terminals
+- ProjectE Black Hole Band in inventory, alchemical bag, pedestal, and alchemical chest modes
 - Mekanism Magnetic Attraction Unit
 - Draconic Evolution magnets
 - Reliquary Fortune Coin, including pedestal collection
