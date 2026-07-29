@@ -7,11 +7,11 @@
   "mixins": [
     "simplemagnets.MagnetItemMixin",
     "portcompat.ItemCollectorsMixin",
-    "portcompat.MobGrindingUtilsMixin",
     "portcompat.ModularRoutersMixin",
     "portcompat.MekanismMixin",
     "portcompat.DraconicEvolutionMixin",
-    "portcompat.ReliquaryMixin"
+    "portcompat.ReliquaryMixin",
+    "industrialforegoing.ItemInfinityBackpackMixin"
   ],
   "injectors": {
     "defaultRequire": 0
