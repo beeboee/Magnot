@@ -1,41 +1,26 @@
-# Magnot — Forge 1.20.1 alpha
+# Magnot — NeoForge 1.20.1 alpha
 
-This branch ports Magnot's core ferrous-region behavior to Minecraft 1.20.1 Forge.
+This branch is the final-line NeoForge 1.20.1 port of Magnot 1.2's loader-independent feature set. It deliberately shares the behaviorally compatible 1.20.1 core with Forge while retaining separate packaging and validation.
 
 ## Requirements
 
 - Minecraft 1.20.1
-- Forge 47.1.33 or newer
-- Create 0.5.1 through the 6.0.x line; validated target: Create 6.0.8
+- NeoForge 47.1.106
 - Java 17
+- Create is optional
 
-## Included
+## Included Magnot features
 
-- Ferrous paste regions created with the ferrous tube
-- Persistent server-side region data
-- Public item-pull compatibility API (`MagnotApi.API_VERSION == 2`)
-- Visible region outlines while a player holds the tube
+- Create-free startup and the complete native selection backend
+- Immediate two-corner preview, textured active faces, passive outlines, ray highlighting, and quick fade
+- Attack-to-remove with server-side reach and stable region-ID validation
+- Login, dimension-change, placement, and removal synchronization
+- Persistent IDs/group IDs with old-alpha save migration
+- Indexed and cached path blocking, including source-inside behavior
+- Public item-pull API v2
+- Adaptive dust, nugget, plate, and ingot recipe selection
+- Fallback iron dust visible only when Create is installed and no external iron dust is available
 
-## Alpha 2 integration coverage
+## Not part of this parity pass
 
-The following targets were checked against their published 1.20.1 classes and methods before this alpha was built:
-
-- Simple Magnets `1.1.12-forge-mc1.20.1`
-- Item Collectors `1.1.12` 1.20.x builds
-- Sophisticated Core / Sophisticated Backpacks `1.20.1-1.3.67.2148`
-- Artifacts Universal Attractor `9.5.19`
-- Mekanism magnetic attraction module `10.4.16.80`
-- Draconic Evolution magnet `3.1.2.621`
-- Reliquary Reincarnations fortune coin `1.20.1-2.0.62.1532`
-- Modular Routers vacuum module `12.1.1`
-- Ender IO electromagnet and vacuum machines `6.2.18-beta`
-- AE2 Wireless Terminals magnet card
-- Mob Grinding Utils absorption hopper
-
-The integrations remain optional. Alpha 2 replaces stale Artifacts and Ender IO target packages, and remaps Minecraft call sites used inside third-party classes so the hooks can apply in production Forge environments.
-
-## Port status
-
-This is an alpha port, not full parity with the 1.21.1 NeoForge release. Sable, moving sub-levels, filtered-region v2 behavior, and custom region entities are not included.
-
-Use crouch + right-click to clear a pending corner. With no pending corner, crouch + right-click inside a region removes it.
+Third-party magnet/vacuum adapters and Sable remain separate target-specific work. NeoForge-specific client, server, save/reload, and reconnect validation remains the release gate.

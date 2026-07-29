@@ -1,0 +1,14 @@
+{
+  "conditions": [
+    { "type": "forge:tag_empty", "tag": "forge:dusts/iron" },
+    { "type": "forge:mod_loaded", "modid": "create" }
+  ],
+  "type": "create:crushing",
+  "ingredients": [
+    { "tag": "forge:ingots/iron" }
+  ],
+  "processingTime": 250,
+  "results": [
+    { "item": "magnot:iron_dust", "count": 1 }
+  ]
+}

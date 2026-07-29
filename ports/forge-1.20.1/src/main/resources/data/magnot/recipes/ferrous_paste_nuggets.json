@@ -1,4 +1,11 @@
 {
+  "conditions": [
+    { "type": "forge:tag_empty", "tag": "forge:dusts/iron" },
+    {
+      "type": "forge:not",
+      "value": { "type": "forge:mod_loaded", "modid": "create" }
+    }
+  ],
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     { "item": "minecraft:iron_nugget" },
@@ -11,8 +18,5 @@
     { "item": "minecraft:iron_nugget" },
     { "item": "minecraft:slime_ball" }
   ],
-  "result": {
-    "item": "magnot:ferrous_paste",
-    "count": 1
-  }
+  "result": { "item": "magnot:ferrous_paste", "count": 1 }
 }

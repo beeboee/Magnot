@@ -5,10 +5,26 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
+import java.util.Optional;
+import java.util.OptionalDouble;
 import java.util.UUID;
 
-public record FerrousRegion(UUID id, BlockPos min, BlockPos max) {
+public record FerrousRegion(UUID id, UUID groupId, BlockPos min, BlockPos max) {
+    private static final double EPSILON = 1.0E-12D;
+
+    public FerrousRegion(UUID id, BlockPos min, BlockPos max) {
+        this(id, id, min, max);
+    }
+
     public static FerrousRegion fromCorners(BlockPos first, BlockPos second) {
+        return fromCorners(UUID.randomUUID(), first, second);
+    }
+
+    public static FerrousRegion fromCorners(UUID id, BlockPos first, BlockPos second) {
+        return fromCorners(id, id, first, second);
+    }
+
+    public static FerrousRegion fromCorners(UUID id, UUID groupId, BlockPos first, BlockPos second) {
         BlockPos min = new BlockPos(
                 Math.min(first.getX(), second.getX()),
                 Math.min(first.getY(), second.getY()),
@@ -19,30 +35,107 @@ public record FerrousRegion(UUID id, BlockPos min, BlockPos max) {
                 Math.max(first.getY(), second.getY()),
                 Math.max(first.getZ(), second.getZ())
         );
-        return new FerrousRegion(UUID.randomUUID(), min, max);
+        return new FerrousRegion(id, groupId, min, max);
     }
 
     public AABB bounds() {
-        return new AABB(min.getX(), min.getY(), min.getZ(), max.getX() + 1.0D, max.getY() + 1.0D, max.getZ() + 1.0D);
+        return new AABB(minX(), minY(), minZ(), maxX(), maxY(), maxZ());
     }
 
-    public boolean contains(Vec3 point) {
-        return bounds().contains(point);
+    public boolean contains(Vec3 pos) {
+        return pos.x >= minX() && pos.x <= maxX()
+                && pos.y >= minY() && pos.y <= maxY()
+                && pos.z >= minZ() && pos.z <= maxZ();
     }
 
-    public boolean contains(BlockPos point) {
-        return point.getX() >= min.getX() && point.getX() <= max.getX()
-                && point.getY() >= min.getY() && point.getY() <= max.getY()
-                && point.getZ() >= min.getZ() && point.getZ() <= max.getZ();
+    public boolean intersectsBlock(BlockPos pos) {
+        return pos.getX() + 1.0D > minX() && pos.getX() < maxX()
+                && pos.getY() + 1.0D > minY() && pos.getY() < maxY()
+                && pos.getZ() + 1.0D > minZ() && pos.getZ() < maxZ();
+    }
+
+    public Optional<Vec3> clip(Vec3 from, Vec3 to) {
+        OptionalDouble parameter = clipParameter(from, to);
+        if (parameter.isEmpty()) {
+            return Optional.empty();
+        }
+        double t = parameter.getAsDouble();
+        return Optional.of(new Vec3(
+                from.x + (to.x - from.x) * t,
+                from.y + (to.y - from.y) * t,
+                from.z + (to.z - from.z) * t
+        ));
+    }
+
+    public Optional<Double> hitDistanceSqr(Vec3 from, Vec3 to) {
+        OptionalDouble parameter = clipParameter(from, to);
+        if (parameter.isEmpty()) {
+            return Optional.empty();
+        }
+        double t = parameter.getAsDouble();
+        return Optional.of(from.distanceToSqr(to) * t * t);
     }
 
     public boolean intersectsSegment(Vec3 from, Vec3 to) {
-        return contains(from) || contains(to) || bounds().clip(from, to).isPresent();
+        return clipParameter(from, to).isPresent();
     }
+
+    private OptionalDouble clipParameter(Vec3 from, Vec3 to) {
+        double tMin = 0.0D;
+        double tMax = 1.0D;
+
+        double delta = to.x - from.x;
+        if (Math.abs(delta) < EPSILON) {
+            if (from.x < minX() || from.x > maxX()) return OptionalDouble.empty();
+        } else {
+            double a = (minX() - from.x) / delta;
+            double b = (maxX() - from.x) / delta;
+            if (a > b) { double swap = a; a = b; b = swap; }
+            tMin = Math.max(tMin, a);
+            tMax = Math.min(tMax, b);
+            if (tMin > tMax) return OptionalDouble.empty();
+        }
+
+        delta = to.y - from.y;
+        if (Math.abs(delta) < EPSILON) {
+            if (from.y < minY() || from.y > maxY()) return OptionalDouble.empty();
+        } else {
+            double a = (minY() - from.y) / delta;
+            double b = (maxY() - from.y) / delta;
+            if (a > b) { double swap = a; a = b; b = swap; }
+            tMin = Math.max(tMin, a);
+            tMax = Math.min(tMax, b);
+            if (tMin > tMax) return OptionalDouble.empty();
+        }
+
+        delta = to.z - from.z;
+        if (Math.abs(delta) < EPSILON) {
+            if (from.z < minZ() || from.z > maxZ()) return OptionalDouble.empty();
+        } else {
+            double a = (minZ() - from.z) / delta;
+            double b = (maxZ() - from.z) / delta;
+            if (a > b) { double swap = a; a = b; b = swap; }
+            tMin = Math.max(tMin, a);
+            tMax = Math.min(tMax, b);
+            if (tMin > tMax) return OptionalDouble.empty();
+        }
+
+        return tMax < 0.0D || tMin > 1.0D
+                ? OptionalDouble.empty()
+                : OptionalDouble.of(Math.max(0.0D, tMin));
+    }
+
+    private double minX() { return min.getX(); }
+    private double minY() { return min.getY(); }
+    private double minZ() { return min.getZ(); }
+    private double maxX() { return max.getX() + 1.0D; }
+    private double maxY() { return max.getY() + 1.0D; }
+    private double maxZ() { return max.getZ() + 1.0D; }
 
     public CompoundTag save() {
         CompoundTag tag = new CompoundTag();
         tag.putUUID("Id", id);
+        tag.putUUID("GroupId", groupId);
         tag.putInt("MinX", min.getX());
         tag.putInt("MinY", min.getY());
         tag.putInt("MinZ", min.getZ());
@@ -54,8 +147,9 @@ public record FerrousRegion(UUID id, BlockPos min, BlockPos max) {
 
     public static FerrousRegion load(CompoundTag tag) {
         UUID id = tag.hasUUID("Id") ? tag.getUUID("Id") : UUID.randomUUID();
+        UUID groupId = tag.hasUUID("GroupId") ? tag.getUUID("GroupId") : id;
         BlockPos min = new BlockPos(tag.getInt("MinX"), tag.getInt("MinY"), tag.getInt("MinZ"));
         BlockPos max = new BlockPos(tag.getInt("MaxX"), tag.getInt("MaxY"), tag.getInt("MaxZ"));
-        return new FerrousRegion(id, min, max);
+        return new FerrousRegion(id, groupId, min, max);
     }
 }
