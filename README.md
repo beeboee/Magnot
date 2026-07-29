@@ -27,6 +27,20 @@ This branch is the Forge 1.20.1 port of Magnot 1.2's loader-independent feature 
   - tagged iron plates when available, otherwise an iron ingot
 - Dormant fallback iron dust omitted from the creative tab
 
-## Not part of this parity pass
+## Optional compatibility adapters
 
-Third-party magnet/vacuum adapters and Sable are maintained separately and are not used to determine core feature parity.
+The alpha filters candidate item entities before compatible mods move, teleport, insert, or remove them. Active adapters target:
+
+- Simple Magnets
+- Item Collectors
+- Sophisticated Backpacks / Sophisticated Storage
+- AE2 Wireless Terminals
+- Artifacts Universal Attractor
+- Mekanism Magnetic Attraction Unit
+- Draconic Evolution magnets
+- Reliquary Fortune Coin, including player and pedestal collection
+- Modular Routers Vacuum Module
+- Ender IO Electromagnet and Vacuum Chest
+- Industrial Foregoing Infinity Backpack
+
+Mob Grinding Utils is not registered on this target until an exact 1.20.1 distribution and interception point can be validated. Sable remains separate from this compatibility pass.
