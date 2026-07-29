@@ -5,6 +5,10 @@ on:
     branches: [version/1.7.10-forge]
     paths:
       - .github/workflows/audit-forge-1.7.10-integrations.yml
+  pull_request:
+    branches: [1.7.10-forge]
+    paths:
+      - .github/workflows/audit-forge-1.7.10-integrations.yml
 
 permissions:
   contents: read
