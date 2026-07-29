@@ -15,7 +15,5 @@
     "portcompat.ModularRoutersVacuumMixin",
     "portcompat.SophisticatedCoreMagnetMixin"
   ],
-  "injectors": {
-    "defaultRequire": 0
-  }
+  "injectors": { "defaultRequire": 0 }
 }

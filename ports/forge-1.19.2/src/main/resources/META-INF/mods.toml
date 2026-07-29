@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[40,)"
+loaderVersion="[43,)"
 license="MIT"
 
 [[mods]]
@@ -7,25 +7,25 @@ modId="magnot"
 version="${version}"
 displayName="Magnot"
 authors="beeboee"
-description='''Ferrous regions that block supported remote item pulls.'''
+description='''Public alpha of Magnot's Forge 1.19.2 port. Ferrous regions block supported remote item pulls. Create is optional; visual and integration parity with the NeoForge 1.21.1 release is still in progress.'''
 
 [[dependencies.magnot]]
 modId="forge"
 mandatory=true
-versionRange="[40.2.4,)"
+versionRange="[43.2.14,)"
 ordering="NONE"
 side="BOTH"
 
 [[dependencies.magnot]]
 modId="minecraft"
 mandatory=true
-versionRange="[1.18.2,1.18.3)"
+versionRange="[1.19.2,1.19.3)"
 ordering="NONE"
 side="BOTH"
 
 [[dependencies.magnot]]
 modId="create"
-mandatory=true
+mandatory=false
 versionRange="[0.5.1,0.6.0)"
 ordering="AFTER"
 side="BOTH"

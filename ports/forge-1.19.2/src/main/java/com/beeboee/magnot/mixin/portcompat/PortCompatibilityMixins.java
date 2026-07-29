@@ -21,6 +21,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.lang.reflect.Method;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -47,6 +48,52 @@ abstract class Ae2wtlibMagnetHandlerMixin {
 }
 
 @Pseudo
+@Mixin(targets = "artifacts.common.item.curio.belt.UniversalAttractorItem", remap = false)
+abstract class ArtifactsUniversalAttractorMixin {
+    @Redirect(
+            method = "curioTick",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;",
+                    remap = true
+            ),
+            require = 0
+    )
+    private <T extends Entity> List<T> magnot$filterArtifactsItems(
+            Level level,
+            Class<T> type,
+            AABB box,
+            @Coerce Object slotContext,
+            ItemStack stack
+    ) {
+        List<T> candidates = level.getEntitiesOfClass(type, box);
+        if (!(level instanceof ServerLevel) || !ItemEntity.class.isAssignableFrom(type)) {
+            return candidates;
+        }
+        ServerLevel serverLevel = (ServerLevel) level;
+        Player player = magnot$getPlayer(slotContext);
+        Vec3 source = box.getCenter();
+        return candidates.stream()
+                .filter(candidate -> !(candidate instanceof ItemEntity)
+                        || (player != null
+                        ? !FerrousMagnetRules.blocksPlayerItemPull(serverLevel, player, (ItemEntity) candidate)
+                        : !FerrousMagnetRules.blocksItemPull(serverLevel, source, (ItemEntity) candidate)))
+                .collect(Collectors.toList());
+    }
+
+    @Unique
+    private static Player magnot$getPlayer(Object slotContext) {
+        try {
+            Method entityMethod = slotContext.getClass().getMethod("entity");
+            Object entity = entityMethod.invoke(slotContext);
+            return entity instanceof Player ? (Player) entity : null;
+        } catch (ReflectiveOperationException ignored) {
+            return null;
+        }
+    }
+}
+
+@Pseudo
 @Mixin(targets = "mekanism.common.content.gear.mekasuit.ModuleMagneticAttractionUnit", remap = false)
 abstract class MekanismMagneticAttractionMixin {
     @Inject(method = "pullItem", at = @At("HEAD"), cancellable = true, require = 0)
@@ -55,40 +102,6 @@ abstract class MekanismMagneticAttractionMixin {
                 && FerrousMagnetRules.blocksPlayerItemPull((ServerLevel) item.level, player, item)) {
             ci.cancel();
         }
-    }
-}
-
-@Pseudo
-@Mixin(targets = "com.brandon3055.draconicevolution.items.tools.Magnet", remap = false)
-abstract class DraconicEvolutionMagnetMixin {
-    @Redirect(
-            method = "updateMagnet",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/level/Level;getEntitiesOfClass(Ljava/lang/Class;Lnet/minecraft/world/phys/AABB;)Ljava/util/List;",
-                    remap = true
-            ),
-            require = 0
-    )
-    private <T extends Entity> List<T> magnot$filterDraconicItems(
-            Level level,
-            Class<T> type,
-            AABB box,
-            ItemStack stack,
-            Entity source
-    ) {
-        List<T> candidates = level.getEntitiesOfClass(type, box);
-        if (!(level instanceof ServerLevel)
-                || !(source instanceof Player)
-                || !ItemEntity.class.isAssignableFrom(type)) {
-            return candidates;
-        }
-        ServerLevel serverLevel = (ServerLevel) level;
-        Player player = (Player) source;
-        return candidates.stream()
-                .filter(candidate -> !(candidate instanceof ItemEntity)
-                        || !FerrousMagnetRules.blocksPlayerItemPull(serverLevel, player, (ItemEntity) candidate))
-                .collect(Collectors.toList());
     }
 }
 
