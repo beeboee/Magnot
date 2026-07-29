@@ -13,7 +13,7 @@ buildscript {
 apply plugin: 'forge'
 apply plugin: 'maven-publish'
 
-version = '1.2.0-alpha.3+mc1.7.10'
+version = '1.2.0-alpha.4+mc1.7.10'
 group = 'com.beeboee.magnot'
 archivesBaseName = 'magnot-forge'
 sourceCompatibility = targetCompatibility = '1.7'
@@ -23,8 +23,51 @@ minecraft {
     runDir = 'run'
 }
 
+repositories {
+    maven { url = 'https://repo.spongepowered.org/maven' }
+    maven { url = 'https://jitpack.io' }
+}
+
+dependencies {
+    compile 'com.github.tox1cozZ:mixin-booter-legacy:1.2.1'
+    annotationProcessor 'com.github.tox1cozZ:mixin-booter-legacy:1.2.1:processor'
+}
+
 sourceSets.main.java.srcDirs = ['ports/forge-1.7.10/src/main/java']
 sourceSets.main.resources.srcDirs = ['ports/forge-1.7.10/src/main/resources']
+
+def mixinRefMapName = 'magnot.refmap.json'
+def mixinDir = file("${buildDir}/mixins")
+def mixinSrg = file("${mixinDir}/${mixinRefMapName}.srg")
+def mixinRefMap = file("${mixinDir}/${mixinRefMapName}")
+def reobfSrg = file("${buildDir}/srgs/mcp-srg.srg")
+
+task copySrgs(type: Copy, dependsOn: 'genSrgs') {
+    from plugins.getPlugin('forge').delayedFile('{SRG_DIR}')
+    include '**/*.srg'
+    into file("${buildDir}/srgs")
+}
+
+task prepareMixins(dependsOn: copySrgs) {
+    doLast {
+        mixinDir.mkdirs()
+        if (!mixinSrg.exists()) {
+            mixinSrg.createNewFile()
+        }
+    }
+}
+
+compileJava.dependsOn prepareMixins
+compileJava.options.compilerArgs += [
+        '-Xlint:-processing',
+        "-AoutSrgFile=${mixinSrg.canonicalPath}",
+        "-AoutRefMapFile=${mixinRefMap.canonicalPath}",
+        "-AreobfSrgFile=${reobfSrg.canonicalPath}"
+]
+
+reobf {
+    addExtraSrgFile mixinSrg
+}
 
 processResources {
     inputs.property 'version', project.version
@@ -48,7 +91,16 @@ processResources {
     }
 }
 
-jar.finalizedBy('reobf')
+jar {
+    from mixinRefMap
+    manifest {
+        attributes(
+                'FMLCorePlugin': 'com.beeboee.magnot.mixin.MagnotMixinPlugin',
+                'FMLCorePluginContainsFMLMod': 'true'
+        )
+    }
+    finalizedBy('reobf')
+}
 
 publishing {
     publications {
