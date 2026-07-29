@@ -6,6 +6,7 @@
   "mixins": [
     "simplemagnets.MagnetItemMixin",
     "itemcollectors.CollectorBlockEntityMixin",
+    "sophisticatedcore.MagnetUpgradeWrapperMixin",
     "portcompat.Ae2wtlibMagnetHandlerMixin",
     "portcompat.ArtifactsUniversalAttractorMixin"
   ],
