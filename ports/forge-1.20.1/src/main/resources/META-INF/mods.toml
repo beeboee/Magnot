@@ -7,7 +7,7 @@ modId="magnot"
 version="${version}"
 displayName="Magnot"
 authors="beeboee"
-description='''Public alpha of Magnot's Forge 1.20.1 port. Ferrous regions block supported magnets and vacuum effects from pulling dropped items through protected areas. Create is optional; visual and integration parity with the NeoForge 1.21.1 release is still in progress.'''
+description='''Magnot 1.2 alpha for Forge 1.20.1. Ferrous regions block supported remote item pulls and include the complete loader-independent Magnot feature set: native textured selection rendering, client synchronization, persistent IDs, adaptive recipes, and Create-free operation. Optional third-party integrations are reported separately.'''
 
 [[dependencies.magnot]]
 modId="forge"
