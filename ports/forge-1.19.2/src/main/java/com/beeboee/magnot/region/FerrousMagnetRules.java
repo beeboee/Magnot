@@ -1,34 +1,3 @@
 package com.beeboee.magnot.region;
-
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
-
-public final class FerrousMagnetRules {
-    private FerrousMagnetRules() {}
-
-    public static boolean blocksMagnet(ServerLevel level, Vec3 source, Vec3 target) {
-        return FerrousRegionSavedData.get(level).blocksMagnet(source, target);
-    }
-
-    public static Vec3 itemPullTarget(ItemEntity item) {
-        return item.position().add(0.0D, item.getBbHeight() * 0.5D, 0.0D);
-    }
-
-    public static boolean blocksItemPull(ServerLevel level, Vec3 source, ItemEntity item) {
-        return blocksMagnet(level, source, itemPullTarget(item));
-    }
-
-    public static boolean blocksPlayerItemPull(ServerLevel level, Player player, ItemEntity item) {
-        return blocksPlayerMagnet(level, player, itemPullTarget(item));
-    }
-
-    public static boolean blocksPlayerMagnet(ServerLevel level, Player player, Vec3 target) {
-        AABB body = player.getBoundingBox();
-        return blocksMagnet(level, player.position(), target)
-                || blocksMagnet(level, body.getCenter(), target)
-                || blocksMagnet(level, player.getEyePosition(), target);
-    }
-}
+import net.minecraft.server.level.ServerLevel;import net.minecraft.world.entity.item.ItemEntity;import net.minecraft.world.entity.player.Player;import net.minecraft.world.phys.*;import java.util.*;
+public final class FerrousMagnetRules{private static final Map<Key,Boolean>CACHE=new HashMap<>();private static long tick=Long.MIN_VALUE;private static String dimension="";private FerrousMagnetRules(){}public static boolean blocksMagnet(ServerLevel l,Vec3 s,Vec3 t){prepare(l);Key k=new Key(bucket(s.x),bucket(s.y),bucket(s.z),bucket(t.x),bucket(t.y),bucket(t.z));Boolean c=CACHE.get(k);if(c!=null)return c;boolean b=FerrousRegionSavedData.get(l).containsPoint(s)||FerrousRegionSavedData.get(l).blocksMagnet(s,t);CACHE.put(k,b);return b;}public static boolean blocksItemPull(ServerLevel l,Vec3 s,ItemEntity i){return blocksMagnet(l,s,itemPullTarget(i));}public static boolean blocksPlayerItemPull(ServerLevel l,Player p,ItemEntity i){AABB b=p.getBoundingBox();Vec3 t=itemPullTarget(i);return blocksMagnet(l,p.position(),t)||blocksMagnet(l,b.getCenter(),t)||blocksMagnet(l,p.getEyePosition(),t);}public static Vec3 itemPullTarget(ItemEntity i){return i.position().add(0,i.getBbHeight()*0.5,0);}static void invalidateCaches(){CACHE.clear();tick=Long.MIN_VALUE;dimension="";}private static void prepare(ServerLevel l){long t=l.getGameTime();String d=l.dimension().location().toString();if(t!=tick||!d.equals(dimension)){CACHE.clear();tick=t;dimension=d;}}private static int bucket(double v){return(int)Math.floor(v*64);}private record Key(int sx,int sy,int sz,int tx,int ty,int tz){}}

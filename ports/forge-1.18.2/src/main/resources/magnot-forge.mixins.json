@@ -8,14 +8,13 @@
     "simplemagnets.MagnetItemMixin",
     "itemcollectors.CollectorBlockEntityMixin",
     "portcompat.Ae2wtlibMagnetHandlerMixin",
-    "portcompat.ArtifactsUniversalAttractorMixin",
     "portcompat.MekanismMagneticAttractionMixin",
+    "portcompat.DraconicEvolutionMagnetMixin",
     "portcompat.ReliquaryFortuneCoinMixin",
-    "portcompat.MobGrindingUtilsAbsorptionHopperMixin",
     "portcompat.ModularRoutersVacuumMixin",
-    "portcompat.SophisticatedCoreMagnetMixin"
+    "portcompat.SophisticatedCoreMagnetMixin",
+    "industrialforegoing.ItemInfinityBackpackMixin",
+    "projecte.BlackHoleBandMixin"
   ],
-  "injectors": {
-    "defaultRequire": 0
-  }
+  "injectors": { "defaultRequire": 0 }
 }

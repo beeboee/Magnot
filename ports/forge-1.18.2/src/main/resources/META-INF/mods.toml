@@ -1,28 +1,24 @@
 modLoader="javafml"
-loaderVersion="[43,)"
+loaderVersion="[40,)"
 license="MIT"
-
 [[mods]]
 modId="magnot"
 version="${version}"
 displayName="Magnot"
 authors="beeboee"
-description='''Public alpha of Magnot's Forge 1.19.2 port. Ferrous regions block supported remote item pulls. Create is optional; visual and integration parity with the NeoForge 1.21.1 release is still in progress.'''
-
+description='''Magnot 1.2 alpha for Forge 1.18.2. Includes synchronized persistent region IDs, native textured selection rendering and fade, validated ray removal, adaptive recipes, indexed path blocking, and Create-free operation. Optional integrations are documented separately.'''
 [[dependencies.magnot]]
 modId="forge"
 mandatory=true
-versionRange="[43.2.14,)"
+versionRange="[40.2.4,)"
 ordering="NONE"
 side="BOTH"
-
 [[dependencies.magnot]]
 modId="minecraft"
 mandatory=true
-versionRange="[1.19.2,1.19.3)"
+versionRange="[1.18.2,1.19)"
 ordering="NONE"
 side="BOTH"
-
 [[dependencies.magnot]]
 modId="create"
 mandatory=false
