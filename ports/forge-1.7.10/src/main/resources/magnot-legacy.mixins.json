@@ -6,6 +6,7 @@
   "refmap": "magnot.refmap.json",
   "target": "@env(DEFAULT)",
   "mixins": [
+    "enderio.MagnetControllerMixin",
     "botania.ItemMagnetRingMixin",
     "openblocks.VacuumHopperMixin"
   ],
