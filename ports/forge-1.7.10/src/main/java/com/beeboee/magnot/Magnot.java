@@ -18,11 +18,17 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
-@Mod(modid = Magnot.MOD_ID, name = Magnot.NAME, version = Magnot.VERSION, acceptedMinecraftVersions = "[1.7.10]")
+@Mod(
+        modid = Magnot.MOD_ID,
+        name = Magnot.NAME,
+        version = Magnot.VERSION,
+        acceptedMinecraftVersions = "[1.7.10]",
+        dependencies = "required-after:mixinbooterlegacy@[1.2.1,)"
+)
 public final class Magnot {
     public static final String MOD_ID = "magnot";
     public static final String NAME = "Magnot";
-    public static final String VERSION = "1.2.0-alpha.3+mc1.7.10";
+    public static final String VERSION = "1.2.0-alpha.4+mc1.7.10";
 
     @SidedProxy(
             clientSide = "com.beeboee.magnot.proxy.ClientProxy",
