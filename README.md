@@ -21,6 +21,20 @@ This branch is the final-line NeoForge 1.20.1 port of Magnot 1.2's loader-indepe
 - Adaptive dust, nugget, plate, and ingot recipe selection
 - Fallback iron dust visible only when Create is installed and no external iron dust is available
 
-## Not part of this parity pass
+## Optional compatibility adapters
 
-Third-party magnet/vacuum adapters and Sable remain separate target-specific work. NeoForge-specific client, server, save/reload, and reconnect validation remains the release gate.
+The shared 1.20.1 adapter layer filters candidate item entities before compatible systems move, teleport, insert, or remove them. Active adapters target:
+
+- Simple Magnets
+- Item Collectors
+- Sophisticated Backpacks / Sophisticated Storage
+- AE2 Wireless Terminals
+- Artifacts Universal Attractor
+- Mekanism Magnetic Attraction Unit
+- Draconic Evolution magnets
+- Reliquary Fortune Coin, including player and pedestal collection
+- Modular Routers Vacuum Module
+- Ender IO Electromagnet and Vacuum Chest
+- Industrial Foregoing Infinity Backpack
+
+Mob Grinding Utils is not registered until an exact compatible distribution and target hook are validated. Sable remains separate. NeoForge-specific runtime testing remains appropriate for this alpha.
