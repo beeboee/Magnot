@@ -5,10 +5,10 @@ import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.registry.MagnotItems;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.EnumHand;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
 @Mod.EventBusSubscriber(modid = Magnot.MOD_ID)
 public final class MagnotServerEvents {
