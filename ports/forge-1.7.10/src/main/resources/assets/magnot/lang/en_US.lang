@@ -1,6 +1,7 @@
 item.magnot.ferrous_paste.name=Ferrous Paste
 item.magnot.ferrous_tube.name=Ferrous Tube
 message.magnot.first_corner=First corner selected
-message.magnot.region_created=Ferrous region created
-message.magnot.region_removed=Ferrous region removed
-message.magnot.selection_cleared=Selection cleared
+message.magnot.click_to_confirm=Click again to confirm
+message.magnot.region_created=Applying Paste...
+message.magnot.region_removed=Region removed
+message.magnot.selection_cleared=Selection discarded
