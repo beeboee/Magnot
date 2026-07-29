@@ -1,6 +1,13 @@
 # Magnot — Forge 1.12.2 alpha
 
-This branch is the Forge 1.12.2 implementation of Magnot 1.2. It carries Magnot-owned gameplay parity without requiring Create or any third-party integration.
+This branch is the Forge 1.12.2 implementation of Magnot 1.2. It carries Magnot-owned gameplay parity without requiring Create.
+
+## Requirements
+
+- Minecraft 1.12.2
+- Forge 14.23.5.2860
+- Java 8
+- MixinBooter 10.7 or newer
 
 ## Included core behavior
 
@@ -15,6 +22,9 @@ This branch is the Forge 1.12.2 implementation of Magnot 1.2. It carries Magnot-
 - vanilla nugget/ingot recipes when those materials are unavailable
 - hidden dormant Magnot iron dust retained for registry and save compatibility
 
-## Compatibility scope
+## Optional compatibility adapters
 
-This branch intentionally does not include automatic magnet/vacuum integrations, Sable, moving structures, or Create-backed presentation. External mods can use `MagnotApi` to query the authoritative region rules.
+- Simple Magnets: filters the entity list before teleportation or ItemPhysic-assisted direct pickup
+- Item Collectors: filters the entity list before inventory insertion and entity removal
+
+Draconic Evolution is the next legacy adapter pending exact method-level validation of its 2.3.28.354 magnet implementation. Ender IO, Industrial Foregoing, Mekanism, Reliquary, and ProjectE use substantially different legacy systems and are not claimed until their exact item-pull paths are intercepted. Sable remains separate.
