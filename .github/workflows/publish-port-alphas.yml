@@ -25,10 +25,10 @@ jobs:
             java_build: '17'
             java_listing: '17'
             gradle: '8.8'
-            release_name: Magnot 1.2.0 alpha 1 - Forge 1.20.1
-            version_id: 1.2.0-alpha.1+mc1.20.1-forge
-            file_name: magnot-1.2.0-alpha.1-mc1.20.1-forge.jar
-            note: Native visual parity and optional integrations are still being ported.
+            release_name: Magnot 1.2.0 alpha 2 - Forge 1.20.1
+            version_id: 1.2.0-alpha.2+mc1.20.1-forge
+            file_name: magnot-1.2.0-alpha.2-mc1.20.1-forge.jar
+            note: Magnot-owned parity is implemented and build-validated; in-game runtime reports are requested before stable status.
 
           - key: neoforge-1.20.1
             branch: version/1.20.1-neoforge
@@ -38,9 +38,9 @@ jobs:
             java_build: '17'
             java_listing: '17'
             gradle: '8.8'
-            release_name: Magnot 1.2.0 alpha 1 - NeoForge 1.20.1
-            version_id: 1.2.0-alpha.1+mc1.20.1-neoforge
-            file_name: magnot-1.2.0-alpha.1-mc1.20.1-neoforge.jar
+            release_name: Magnot 1.2.0 alpha 2 - NeoForge 1.20.1
+            version_id: 1.2.0-alpha.2+mc1.20.1-neoforge
+            file_name: magnot-1.2.0-alpha.2-mc1.20.1-neoforge.jar
             note: This uses the final NeoForge 1.20.1 line. Loader-specific runtime reports are requested before stable status.
 
           - key: fabric-quilt-1.20.1
@@ -53,10 +53,10 @@ jobs:
             java_build: '17'
             java_listing: '17'
             gradle: '8.12.1'
-            release_name: Magnot 1.2.0 alpha 2 - Fabric / Quilt 1.20.1
-            version_id: 1.2.0-alpha.2+mc1.20.1-fabric-quilt
-            file_name: magnot-1.2.0-alpha.2-mc1.20.1-fabric-quilt.jar
-            note: The artifact builds against Fabric and has passed Quilt Loader/QFAPI build validation. Loader-specific runtime reports are still requested.
+            release_name: Magnot 1.2.0 alpha 3 - Fabric / Quilt 1.20.1
+            version_id: 1.2.0-alpha.3+mc1.20.1-fabric-quilt
+            file_name: magnot-1.2.0-alpha.3-mc1.20.1-fabric-quilt.jar
+            note: The artifact builds against Fabric and has passed its parity build gate. Fabric- and Quilt-specific runtime reports are still requested.
 
           - key: forge-1.19.2
             branch: version/1.19.2-forge
@@ -66,10 +66,10 @@ jobs:
             java_build: '17'
             java_listing: '17'
             gradle: '7.6.4'
-            release_name: Magnot 1.2.0 alpha 1 - Forge 1.19.2
-            version_id: 1.2.0-alpha.1+mc1.19.2-forge
-            file_name: magnot-1.2.0-alpha.1-mc1.19.2-forge.jar
-            note: Native visual parity and optional integrations are still being ported.
+            release_name: Magnot 1.2.0 alpha 2 - Forge 1.19.2
+            version_id: 1.2.0-alpha.2+mc1.19.2-forge
+            file_name: magnot-1.2.0-alpha.2-mc1.19.2-forge.jar
+            note: Magnot-owned parity is implemented and build-validated; in-game runtime reports are requested before stable status.
 
           - key: forge-1.18.2
             branch: version/1.18.2-forge
@@ -79,10 +79,10 @@ jobs:
             java_build: '17'
             java_listing: '17'
             gradle: '7.6.4'
-            release_name: Magnot 1.2.0 alpha 1 - Forge 1.18.2
-            version_id: 1.2.0-alpha.1+mc1.18.2-forge
-            file_name: magnot-1.2.0-alpha.1-mc1.18.2-forge.jar
-            note: This alpha still shares its Java core with the 1.19.2 port while version-specific adapters are separated.
+            release_name: Magnot 1.2.0 alpha 2 - Forge 1.18.2
+            version_id: 1.2.0-alpha.2+mc1.18.2-forge
+            file_name: magnot-1.2.0-alpha.2-mc1.18.2-forge.jar
+            note: This target shares its loader-independent core with 1.19.2 and carries version-specific client, resource, and packaging shims.
 
           - key: forge-1.16.5
             branch: version/1.16.5-forge
@@ -92,10 +92,10 @@ jobs:
             java_build: '17'
             java_listing: '8'
             gradle: '8.8'
-            release_name: Magnot 1.2.0 alpha 1 - Forge 1.16.5
-            version_id: 1.2.0-alpha.1+mc1.16.5-forge
-            file_name: magnot-1.2.0-alpha.1-mc1.16.5-forge.jar
-            note: Native visual parity and legacy integrations are still being ported.
+            release_name: Magnot 1.2.0 alpha 2 - Forge 1.16.5
+            version_id: 1.2.0-alpha.2+mc1.16.5-forge
+            file_name: magnot-1.2.0-alpha.2-mc1.16.5-forge.jar
+            note: The Java 8 implementation has passed its parity build gate; in-game runtime reports are requested before stable status.
 
           - key: forge-1.12.2
             branch: version/1.12.2-forge
@@ -105,10 +105,10 @@ jobs:
             java_build: '8'
             java_listing: '8'
             gradle: '4.10.3'
-            release_name: Magnot 1.2.0 alpha 1 - Forge 1.12.2
-            version_id: 1.2.0-alpha.1+mc1.12.2-forge
-            file_name: magnot-1.2.0-alpha.1-mc1.12.2-forge.jar
-            note: Full visual, synchronization, and legacy integration parity are active work on this paramount target.
+            release_name: Magnot 1.2.0 alpha 2 - Forge 1.12.2
+            version_id: 1.2.0-alpha.2+mc1.12.2-forge
+            file_name: magnot-1.2.0-alpha.2-mc1.12.2-forge.jar
+            note: The legacy native renderer, synchronization, adaptive Ore Dictionary recipes, and API v2 core have passed the build gate.
 
           - key: forge-1.7.10
             branch: version/1.7.10-forge
@@ -118,10 +118,10 @@ jobs:
             java_build: '8'
             java_listing: '8'
             gradle: '4.4.1'
-            release_name: Magnot 1.2.0 alpha 1 - Forge 1.7.10
-            version_id: 1.2.0-alpha.1+mc1.7.10-forge
-            file_name: magnot-1.2.0-alpha.1-mc1.7.10-forge.jar
-            note: This is a dedicated 1.7.10 implementation. Textured client rendering, deterministic client sync, and ecosystem integrations remain active parity work.
+            release_name: Magnot 1.2.0 alpha 2 - Forge 1.7.10
+            version_id: 1.2.0-alpha.2+mc1.7.10-forge
+            file_name: magnot-1.2.0-alpha.2-mc1.7.10-forge.jar
+            note: The dedicated Java 7 implementation has passed its parity build gate; in-game runtime reports are requested before stable status.
 
     runs-on: ubuntu-latest
 
@@ -208,18 +208,20 @@ jobs:
           changelog: |
             Public testing build for Minecraft ${{ matrix.game_version }} on ${{ matrix.loader_name }}.
 
-            This is not yet feature-parity-certified with the reference Magnot 1.2 implementation. It is being published so the community can test loader and version combinations early.
+            This alpha implements the Magnot-owned gameplay and presentation capabilities of the reference Magnot 1.2 build. Third-party magnet/vacuum integrations, Sable, moving structures, and Create-backed presentation are tracked separately and are not part of this parity claim.
 
-            Current alpha baseline:
-            - Magnot installs without Create.
-            - A usable crafting path is available without optional mods.
-            - Persistent ferrous-region storage and a path-blocking core/API are present.
-            - Optional rendering and third-party integration parity may still differ by target.
+            Current core baseline:
+            - Magnot installs and remains usable without Create.
+            - Persistent regions use stable IDs and synchronize to clients.
+            - Native Magnot rendering provides nearby outlines, selected highlighting, placement preview, and fade.
+            - Region removal is ray-selected and server-validated.
+            - Crafting adapts to available iron dust and iron plate materials, with version-appropriate fallback recipes.
+            - Region lookup and path blocking use indexed and cached core rules exposed through the public API.
 
-            Known limitation:
+            Validation note:
             - ${{ matrix.note }}
 
-            Please report the exact Minecraft version, loader version, Magnot filename, whether Create was installed, reproduction steps, and the latest log.
+            Please report the exact Minecraft version, loader version, Magnot filename, reproduction steps, and the latest log.
           loaders: ${{ matrix.loader }}
           game-versions: ${{ matrix.game_version }}
           game-version-filter: none
