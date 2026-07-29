@@ -39,6 +39,8 @@ jobs:
             jar tf audit-jars/enderio.jar | grep -Ei 'ItemMagnet|Magnet' || true
             echo '=== Ender IO ItemMagnet ==='
             javap -classpath audit-jars/enderio.jar -c -p crazypants.enderio.item.ItemMagnet || true
+            echo '=== Ender IO MagnetController ==='
+            javap -classpath audit-jars/enderio.jar -c -p crazypants.enderio.item.MagnetController || true
             echo '=== Botania candidates ==='
             jar tf audit-jars/botania.jar | grep -Ei 'MagnetRing|Magnet' || true
             echo '=== Botania ItemMagnetRing ==='
