@@ -9,15 +9,15 @@ The native selection backend, region storage, networking, recipes, magnet-path r
 | Priority | Minecraft | Loader | Delivery model | Current 1.2.0 alpha |
 |---|---|---|---|---|
 | Reference | 1.21.1 | NeoForge | Dedicated build | Stable 1.2.x reference |
-| Paramount | 1.20.1 | Forge | Dedicated build | `alpha.3`; core and compatibility build green |
-| Paramount | 1.20.1 | NeoForge | Dedicated build | `alpha.3`; shared 1.20.1 compatibility layer build green |
+| Paramount | 1.20.1 | Forge | Dedicated build | `alpha.4`; core and compatibility build green |
+| Paramount | 1.20.1 | NeoForge | Dedicated build | `alpha.4`; shared 1.20.1 compatibility layer build green |
 | Paramount | 1.20.1 | Fabric | Dedicated build | `alpha.4`; core and Fabric compatibility build green |
 | Paramount | 1.20.1 | Quilt | Fabric-compatible artifact plus Quilt validation | `alpha.4`; shared Fabric artifact |
 | Paramount | 1.12.2 | Forge | Dedicated legacy build | `alpha.3`; core and legacy compatibility build green |
 | Paramount | 1.7.10 | Forge | Dedicated legacy build | `alpha.4`; core and legacy compatibility build green |
-| Secondary | 1.19.2 | Forge | Dedicated build | `alpha.3`; core and compatibility build green |
-| Secondary | 1.18.2 | Forge | Shared core plus version-specific shims | `alpha.3`; core and compatibility build green |
-| Secondary | 1.16.5 | Forge | Dedicated Java 8 build | `alpha.3`; core and compatibility build green |
+| Secondary | 1.19.2 | Forge | Dedicated build | `alpha.4`; core and compatibility build green |
+| Secondary | 1.18.2 | Forge | Shared core plus version-specific shims | `alpha.4`; core and compatibility build green |
+| Secondary | 1.16.5 | Forge | Dedicated Java 8 build | `alpha.4`; core and compatibility build green |
 
 ## Alpha naming
 
@@ -68,7 +68,7 @@ A compatibility adapter must preserve the target mod's ordinary behavior while e
 2. cancel a one-item helper at method entry when no stable candidate-list hook exists;
 3. avoid final movement-call interception unless no earlier stable hook is available.
 
-Player magnets use the player as the pull source. Block collectors, routers, and vacuum blocks use the block or module position. Target-mod blacklists, filters, upgrades, range limits, energy costs, cooldowns, XP handling, particles, and output behavior remain native.
+Player magnets use the player as the pull source. Block collectors, routers, pedestals, chests, and vacuum blocks use the block or module position. Target-mod blacklists, filters, upgrades, range limits, energy costs, cooldowns, XP handling, particles, fit checks, and output behavior remain native.
 
 Exact per-target adapters are listed in [magnet and vacuum compatibility](COMPATIBILITY.md).
 
