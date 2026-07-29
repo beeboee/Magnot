@@ -13,7 +13,8 @@
     "portcompat.ReliquaryFortuneCoinMixin",
     "portcompat.ModularRoutersVacuumMixin",
     "portcompat.SophisticatedCoreMagnetMixin",
-    "industrialforegoing.ItemInfinityBackpackMixin"
+    "industrialforegoing.ItemInfinityBackpackMixin",
+    "projecte.BlackHoleBandMixin"
   ],
   "injectors": { "defaultRequire": 0 }
 }
