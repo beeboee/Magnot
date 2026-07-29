@@ -67,9 +67,11 @@ Paramount compatibility targets are:
 
 NeoForge 1.21.1 remains the reference implementation. Forge 1.19.2, 1.18.2, and 1.16.5 remain active secondary public-alpha lines.
 
-Each dedicated loader line has a long-lived branch, parity pull request, and branch-specific build gate. Quilt validation uses the Fabric 1.20.1 artifact unless loader-specific testing proves a separate package is necessary. A successful build does not count as full gameplay parity until rendering, synchronization, persistence, recipes, magnet blocking, and target-specific integrations are verified.
+The current 1.2.0 alpha ports implement the shared Magnot-owned core: persistence, synchronization, native rendering, placement preview, ray removal, adaptive recipes, path blocking, and public API semantics. Third-party magnet/vacuum adapters, Sable, moving structures, and Create-backed presentation are tracked separately and do not determine native core parity.
 
-See [version support and parity](docs/VERSION_SUPPORT.md) for the exact target matrix, definition of parity, and branch policy. Exact optional-mod compatibility is stated per file rather than assumed across versions.
+Each loader line has a long-lived branch and branch-specific build gate. Quilt validation uses the Fabric 1.20.1 artifact unless loader-specific testing proves a separate package is necessary. A successful build confirms the target toolchain and mappings, but runtime placement, rendering, save/reload, reconnect, recipe, and path-blocking tests are still required before stable status.
+
+See [version support and parity](docs/VERSION_SUPPORT.md) for the exact target matrix, alpha naming scheme, core-parity definition, and branch policy. Exact optional-mod compatibility is stated per file rather than assumed across versions.
 
 ## Disabling integration adapters
 
