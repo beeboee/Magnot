@@ -9,6 +9,7 @@ Active item-pull adapters filter candidates before compatible systems mutate the
 - Simple Magnets
 - Item Collectors
 - AE2 Wireless Terminals
+- ProjectE Black Hole Band in inventory, alchemical bag, pedestal, and alchemical chest modes
 - Artifacts Universal Attractor
 - Mekanism Magnetic Attraction Unit
 - Reliquary Fortune Coin, including pedestal collection
