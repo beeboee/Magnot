@@ -11,9 +11,9 @@
     "portcompat.MekanismMagneticAttractionMixin",
     "portcompat.DraconicEvolutionMagnetMixin",
     "portcompat.ReliquaryFortuneCoinMixin",
-    "portcompat.MobGrindingUtilsAbsorptionHopperMixin",
     "portcompat.ModularRoutersVacuumMixin",
-    "portcompat.SophisticatedCoreMagnetMixin"
+    "portcompat.SophisticatedCoreMagnetMixin",
+    "industrialforegoing.ItemInfinityBackpackMixin"
   ],
   "injectors": { "defaultRequire": 0 }
 }
