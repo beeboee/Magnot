@@ -8,6 +8,7 @@ Active adapters target:
 
 - Simple Magnets
 - Item Collectors
+- ProjectE Black Hole Band in inventory, alchemical bag, pedestal, and alchemical chest modes
 - Modular Routers Vacuum Module
 - Mekanism Magnetic Attraction Unit
 - Draconic Evolution magnets
