@@ -1,14 +1,19 @@
 package com.beeboee.magnot.item;
 
+import com.beeboee.magnot.network.MagnotNetwork;
+import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.region.FerrousRegionSavedData;
+import com.beeboee.magnot.server.FerrousEffects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -16,9 +21,13 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
 import java.util.Optional;
+import java.util.UUID;
 
 public final class FerrousTubeItem extends Item {
-    private static final int LIMIT = 24;
+    public static final int MAX_REGION_AXIS_LENGTH = 25;
+    private static final int MAX_REGION_AXIS_OFFSET = MAX_REGION_AXIS_LENGTH - 1;
+    private static final int REGION_PLACEMENT_DAMAGE = 2;
+
     private static final String HAS_FIRST = "MagnotHasFirstCorner";
     private static final String FIRST_X = "MagnotFirstX";
     private static final String FIRST_Y = "MagnotFirstY";
@@ -31,8 +40,16 @@ public final class FerrousTubeItem extends Item {
     }
 
     @Override
-    public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand,
-                                      EnumFacing facing, float hitX, float hitY, float hitZ) {
+    public EnumActionResult onItemUse(
+            EntityPlayer player,
+            World world,
+            BlockPos pos,
+            EnumHand hand,
+            EnumFacing facing,
+            float hitX,
+            float hitY,
+            float hitZ
+    ) {
         ItemStack stack = player.getHeldItem(hand);
         if (world.isRemote) {
             return EnumActionResult.SUCCESS;
@@ -45,9 +62,10 @@ public final class FerrousTubeItem extends Item {
         if (player.isSneaking()) {
             if (getFirstCorner(stack).isPresent()) {
                 clear(stack);
-                player.sendStatusMessage(new TextComponentTranslation("message.magnot.selection_cleared"), true);
-            } else if (FerrousRegionSavedData.get(serverWorld).removeContaining(pos)) {
-                player.sendStatusMessage(new TextComponentTranslation("message.magnot.region_removed"), true);
+                player.sendStatusMessage(
+                        new TextComponentTranslation("message.magnot.selection_cleared"),
+                        true
+                );
             }
             return EnumActionResult.SUCCESS;
         }
@@ -56,21 +74,37 @@ public final class FerrousTubeItem extends Item {
         int dimension = world.provider.getDimension();
         if (!first.isPresent() || dimension != getDimension(stack)) {
             setFirst(stack, pos, dimension);
+            serverWorld.playSound(
+                    null,
+                    pos,
+                    SoundEvents.BLOCK_SLIME_PLACE,
+                    SoundCategory.BLOCKS,
+                    0.5F,
+                    0.85F
+            );
+            FerrousEffects.spawnCornerParticles(serverWorld, pos);
             player.sendStatusMessage(new TextComponentTranslation("message.magnot.first_corner"), true);
             return EnumActionResult.SUCCESS;
         }
 
-        BlockPos start = first.get();
-        BlockPos second = new BlockPos(
-                start.getX() + MathHelper.clamp(pos.getX() - start.getX(), -LIMIT, LIMIT),
-                start.getY() + MathHelper.clamp(pos.getY() - start.getY(), -LIMIT, LIMIT),
-                start.getZ() + MathHelper.clamp(pos.getZ() - start.getZ(), -LIMIT, LIMIT)
-        );
-        FerrousRegionSavedData.get(serverWorld).addRegion(start, second);
+        BlockPos second = clampToRegionLimit(first.get(), pos);
+        FerrousRegion region = FerrousRegion.fromCorners(UUID.randomUUID(), first.get(), second);
+        FerrousRegionSavedData.get(serverWorld).addRegion(region);
+        MagnotNetwork.syncDimension(serverWorld);
         clear(stack);
+
+        serverWorld.playSound(
+                null,
+                second,
+                SoundEvents.BLOCK_SLIME_PLACE,
+                SoundCategory.BLOCKS,
+                0.5F,
+                0.95F
+        );
+        FerrousEffects.spawnRegionParticles(serverWorld, region);
         player.sendStatusMessage(new TextComponentTranslation("message.magnot.region_created"), true);
         if (!player.capabilities.isCreativeMode) {
-            stack.damageItem(2, player);
+            stack.damageItem(REGION_PLACEMENT_DAMAGE, player);
         }
         return EnumActionResult.SUCCESS;
     }
@@ -79,15 +113,51 @@ public final class FerrousTubeItem extends Item {
     public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (!world.isRemote && !selected && getFirstCorner(stack).isPresent()) {
             clear(stack);
+            if (entity instanceof EntityPlayer) {
+                ((EntityPlayer) entity).sendStatusMessage(
+                        new TextComponentTranslation("message.magnot.selection_cleared"),
+                        true
+                );
+            }
         }
     }
 
-    private static Optional<BlockPos> getFirstCorner(ItemStack stack) {
+    public static Optional<BlockPos> getFirstCorner(ItemStack stack) {
         NBTTagCompound tag = stack.getTagCompound();
         if (tag == null || !tag.getBoolean(HAS_FIRST)) {
             return Optional.empty();
         }
-        return Optional.of(new BlockPos(tag.getInteger(FIRST_X), tag.getInteger(FIRST_Y), tag.getInteger(FIRST_Z)));
+        return Optional.of(new BlockPos(
+                tag.getInteger(FIRST_X),
+                tag.getInteger(FIRST_Y),
+                tag.getInteger(FIRST_Z)
+        ));
+    }
+
+    public static BlockPos clampToRegionLimit(BlockPos first, BlockPos second) {
+        return new BlockPos(
+                first.getX() + MathHelper.clamp(
+                        second.getX() - first.getX(),
+                        -MAX_REGION_AXIS_OFFSET,
+                        MAX_REGION_AXIS_OFFSET
+                ),
+                first.getY() + MathHelper.clamp(
+                        second.getY() - first.getY(),
+                        -MAX_REGION_AXIS_OFFSET,
+                        MAX_REGION_AXIS_OFFSET
+                ),
+                first.getZ() + MathHelper.clamp(
+                        second.getZ() - first.getZ(),
+                        -MAX_REGION_AXIS_OFFSET,
+                        MAX_REGION_AXIS_OFFSET
+                )
+        );
+    }
+
+    public static boolean exceedsRegionLimit(BlockPos first, BlockPos second) {
+        return Math.abs(second.getX() - first.getX()) >= MAX_REGION_AXIS_LENGTH
+                || Math.abs(second.getY() - first.getY()) >= MAX_REGION_AXIS_LENGTH
+                || Math.abs(second.getZ() - first.getZ()) >= MAX_REGION_AXIS_LENGTH;
     }
 
     private static int getDimension(ItemStack stack) {

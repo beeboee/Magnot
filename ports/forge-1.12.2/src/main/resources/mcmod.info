@@ -2,12 +2,13 @@
   {
     "modid": "magnot",
     "name": "Magnot",
-    "description": "Legacy ferrous-region core and compatibility API.",
+    "description": "Forge 1.12.2 alpha with Magnot's native region system and optional legacy magnet/collector adapters.",
     "version": "${version}",
     "mcversion": "1.12.2",
     "authorList": ["beeboee"],
     "credits": "",
     "url": "",
-    "updateUrl": ""
+    "updateUrl": "",
+    "requiredMods": ["mixinbooter@[10.7,)"]
   }
 ]
