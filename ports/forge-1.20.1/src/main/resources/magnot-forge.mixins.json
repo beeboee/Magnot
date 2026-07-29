@@ -16,7 +16,8 @@
     "portcompat.ModularRoutersVacuumMixin",
     "portcompat.EnderIoElectromagnetMixin",
     "portcompat.EnderIoVacuumMixin",
-    "industrialforegoing.ItemInfinityBackpackMixin"
+    "industrialforegoing.ItemInfinityBackpackMixin",
+    "projecte.BlackHoleBandMixin"
   ],
   "injectors": {
     "defaultRequire": 0
