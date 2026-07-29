@@ -1,0 +1,51 @@
+name: Audit Forge 1.7.10 integrations
+
+on:
+  push:
+    branches: [version/1.7.10-forge]
+    paths:
+      - .github/workflows/audit-forge-1.7.10-integrations.yml
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '8'
+      - name: Download target jars
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p audit-jars
+          curl -fL 'https://mediafilez.forgecdn.net/files/2222/045/EnderIO-1.7.10-2.2.4.309.jar' -o audit-jars/enderio.jar
+          curl -fL 'https://mediafilez.forgecdn.net/files/2272/878/Botania%20r1.8-247.jar' -o audit-jars/botania.jar
+          curl -fL 'https://mediafilez.forgecdn.net/files/2386/733/OpenBlocks-1.7.10-1.6.jar' -o audit-jars/openblocks.jar
+      - name: Inspect item-pull classes
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            echo '=== Ender IO candidates ==='
+            jar tf audit-jars/enderio.jar | grep -Ei 'ItemMagnet|Magnet' || true
+            echo '=== Ender IO ItemMagnet ==='
+            javap -classpath audit-jars/enderio.jar -c -p crazypants.enderio.item.ItemMagnet || true
+            echo '=== Botania candidates ==='
+            jar tf audit-jars/botania.jar | grep -Ei 'MagnetRing|Magnet' || true
+            echo '=== Botania ItemMagnetRing ==='
+            javap -classpath audit-jars/botania.jar -c -p vazkii.botania.common.item.equipment.bauble.ItemMagnetRing || true
+            echo '=== OpenBlocks candidates ==='
+            jar tf audit-jars/openblocks.jar | grep -Ei 'VacuumHopper' || true
+            echo '=== OpenBlocks Vacuum Hopper ==='
+            javap -classpath audit-jars/openblocks.jar -c -p openblocks.common.tileentity.TileEntityVacuumHopper || true
+          } 2>&1 | tee integration-audit.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: forge-1.7.10-integration-audit
+          path: integration-audit.log
+          retention-days: 7
