@@ -26,5 +26,6 @@ This branch is the Forge 1.12.2 implementation of Magnot 1.2. It carries Magnot-
 
 - Simple Magnets: filters the entity list before teleportation or ItemPhysic-assisted direct pickup
 - Item Collectors: filters the entity list before inventory insertion and entity removal
+- Draconic Evolution 2.3.28.354: filters ordinary item entities before motion reset or teleportation
 
-Draconic Evolution is the next legacy adapter pending exact method-level validation of its 2.3.28.354 magnet implementation. Ender IO, Industrial Foregoing, Mekanism, Reliquary, and ProjectE use substantially different legacy systems and are not claimed until their exact item-pull paths are intercepted. Sable remains separate.
+Draconic loot cores are not ordinary item entities and retain their native behavior. Ender IO, Industrial Foregoing, Mekanism, Reliquary, and ProjectE use substantially different legacy systems and are not claimed until their exact item-pull paths are intercepted. Sable remains separate.
