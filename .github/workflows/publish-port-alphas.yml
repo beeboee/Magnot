@@ -1,5 +1,7 @@
 name: Publish public port alphas
 
+# Public compatibility alpha dispatch: 2026-07-29
+
 on:
   workflow_dispatch:
   push:
