@@ -10,15 +10,21 @@ import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 public final class FerrousRegionSavedData extends SavedData {
     private static final String DATA_NAME = Magnot.MOD_ID + "_ferrous_regions";
     private final List<FerrousRegion> regions = new ArrayList<>();
+    private transient FerrousRegionIndex index;
 
     public static FerrousRegionSavedData get(ServerLevel level) {
-        return level.getDataStorage().computeIfAbsent(FerrousRegionSavedData::load, FerrousRegionSavedData::new, DATA_NAME);
+        return level.getDataStorage().computeIfAbsent(
+                FerrousRegionSavedData::load,
+                FerrousRegionSavedData::new,
+                DATA_NAME
+        );
     }
 
     public static FerrousRegionSavedData load(CompoundTag tag) {
@@ -41,30 +47,82 @@ public final class FerrousRegionSavedData extends SavedData {
     }
 
     public List<FerrousRegion> regions() {
-        return Collections.unmodifiableList(regions);
+        return List.copyOf(regions);
+    }
+
+    public Optional<FerrousRegion> findById(UUID id) {
+        return regions.stream().filter(region -> region.id().equals(id)).findFirst();
+    }
+
+    public void addRegion(FerrousRegion region) {
+        removeRegion(region.id());
+        regions.add(region);
+        changed();
     }
 
     public FerrousRegion addRegion(BlockPos first, BlockPos second) {
         FerrousRegion region = FerrousRegion.fromCorners(first, second);
-        regions.add(region);
-        setDirty();
+        addRegion(region);
         return region;
     }
 
-    public boolean removeRegionContaining(BlockPos pos) {
-        boolean removed = regions.removeIf(region -> region.contains(pos));
-        if (removed) {
-            setDirty();
-        }
+    public boolean removeRegion(UUID id) {
+        boolean removed = regions.removeIf(region -> region.id().equals(id));
+        if (removed) changed();
         return removed;
     }
 
-    public boolean blocksMagnet(Vec3 source, Vec3 target) {
-        for (FerrousRegion region : regions) {
-            if (region.intersectsSegment(source, target)) {
-                return true;
+    public boolean removeGroup(UUID groupId) {
+        boolean removed = regions.removeIf(region -> region.groupId().equals(groupId));
+        if (removed) changed();
+        return removed;
+    }
+
+    public Optional<FerrousRegion> closestIntersecting(Vec3 from, Vec3 to) {
+        FerrousRegion closest = null;
+        double bestDistance = Double.MAX_VALUE;
+        for (int i = regions.size() - 1; i >= 0; i--) {
+            FerrousRegion region = regions.get(i);
+            Optional<Double> hit = region.hitDistanceSqr(from, to);
+            if (hit.isPresent() && hit.get() < bestDistance) {
+                closest = region;
+                bestDistance = hit.get();
             }
         }
-        return false;
+        return Optional.ofNullable(closest);
+    }
+
+    public Optional<FerrousRegion> removeIntersectingById(UUID id, Vec3 from, Vec3 to) {
+        for (int i = 0; i < regions.size(); i++) {
+            FerrousRegion region = regions.get(i);
+            if (!region.id().equals(id) || !region.intersectsSegment(from, to)) continue;
+            regions.remove(i);
+            changed();
+            return Optional.of(region);
+        }
+        return Optional.empty();
+    }
+
+    public boolean containsPoint(Vec3 point) {
+        return index().containsPoint(point);
+    }
+
+    public boolean blocksMagnet(Vec3 source, Vec3 target) {
+        return index().blocksMagnet(source, target);
+    }
+
+    List<FerrousRegion> collectCandidates(Vec3 source, BlockPos targetBlock) {
+        return index().collectCandidates(source, targetBlock);
+    }
+
+    private FerrousRegionIndex index() {
+        if (index == null) index = FerrousRegionIndex.build(regions);
+        return index;
+    }
+
+    private void changed() {
+        index = null;
+        FerrousMagnetRules.invalidateCaches();
+        setDirty();
     }
 }

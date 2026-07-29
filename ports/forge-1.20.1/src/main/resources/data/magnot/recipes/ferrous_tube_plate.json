@@ -1,0 +1,16 @@
+{
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": { "type": "forge:tag_empty", "tag": "forge:plates/iron" }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["PI", "NP"],
+  "key": {
+    "P": { "item": "magnot:ferrous_paste" },
+    "I": { "tag": "forge:plates/iron" },
+    "N": { "item": "minecraft:iron_nugget" }
+  },
+  "result": { "item": "magnot:ferrous_tube", "count": 1 }
+}

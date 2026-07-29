@@ -1,5 +1,7 @@
 package com.beeboee.magnot;
 
+import com.beeboee.magnot.material.AdaptiveMaterials;
+import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.registry.MagnotItems;
 import com.beeboee.magnot.server.MagnotForgeEvents;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -20,12 +22,15 @@ public final class Magnot {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         MagnotItems.register(modBus);
         modBus.addListener(this::addCreativeTabContents);
+        MagnotNetwork.register();
         MinecraftForge.EVENT_BUS.register(MagnotForgeEvents.class);
     }
 
     private void addCreativeTabContents(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(MagnotItems.IRON_DUST.get());
+            if (AdaptiveMaterials.fallbackDustRequired()) {
+                event.accept(MagnotItems.IRON_DUST.get());
+            }
             event.accept(MagnotItems.FERROUS_PASTE.get());
         }
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
