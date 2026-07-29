@@ -29,6 +29,7 @@ The shared 1.20.1 adapter layer filters candidate item entities before compatibl
 - Item Collectors
 - Sophisticated Backpacks / Sophisticated Storage
 - AE2 Wireless Terminals
+- ProjectE Black Hole Band in inventory, alchemical bag, pedestal, and alchemical chest modes
 - Artifacts Universal Attractor
 - Mekanism Magnetic Attraction Unit
 - Draconic Evolution magnets
