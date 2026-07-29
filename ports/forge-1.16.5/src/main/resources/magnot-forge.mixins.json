@@ -11,7 +11,8 @@
     "portcompat.MekanismMixin",
     "portcompat.DraconicEvolutionMixin",
     "portcompat.ReliquaryMixin",
-    "industrialforegoing.ItemInfinityBackpackMixin"
+    "industrialforegoing.ItemInfinityBackpackMixin",
+    "projecte.BlackHoleBandMixin"
   ],
   "injectors": {
     "defaultRequire": 0
