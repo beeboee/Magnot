@@ -1,22 +1,36 @@
-# Magnot — Fabric 1.20.1 alpha
+# Magnot — Fabric / Quilt 1.20.1 alpha
 
-This branch ports Magnot's core ferrous-region behavior to Minecraft 1.20.1 Fabric.
+This branch carries Magnot 1.2's complete loader-independent feature set on Fabric, with Quilt compatibility validated through the Fabric-compatible artifact.
 
 ## Requirements
 
 - Minecraft 1.20.1
-- Fabric Loader 0.17.2 or newer
-- Fabric API 0.92.6 or newer for 1.20.1
-- Create Fabric 0.5.1 through the 6.0.x line; validated target: 6.0.8.1
+- Fabric Loader 0.16.10 or newer
+- Fabric API 0.92.6 or newer
 - Java 17
+- Create is optional
 
-## Alpha 2 integration coverage
+## Included Magnot features
+
+- Create-free startup
+- Immediate placement preview and 25-block axis limit
+- Native textured active faces, passive region outlines, ray highlighting, and quick fade
+- Attack-to-remove with server-side ID and reach validation
+- Region synchronization on login, dimension change, placement, and removal
+- Stable persistent IDs/group IDs with migration of old alpha saves
+- Indexed/cached path blocking and source-inside behavior
+- Public API v2
+- Adaptive common-tag dust/plate recipes, Create fallback dust, and vanilla fallback recipes
+- Dormant fallback dust omitted from the creative tab
+
+## Optional compatibility adapters
+
+The Fabric/Quilt artifact filters item candidates before compatible systems move or insert them. Active adapters target:
 
 - Simple Magnets
 - Item Collectors
-- AE2 Wireless Terminals magnet card
-- Artifacts Universal Attractor using its actual Fabric 1.20.1 `wornTick` implementation
+- Sophisticated Backpacks / Sophisticated Storage through the Fabric Sophisticated Core port
+- AE2 Wireless Terminals
+- Artifacts Universal Attractor
 
-Alpha 2 replaces the nonexistent modern Magnetism-effect target used by alpha.1 and remaps Minecraft call sites inside optional mod classes.
-
-Included core features are persistent ferrous regions, tube placement/removal, region outlines, and API v2. Sable, moving sub-level support, filtered-region behavior, and custom region entities are not included.
+Mods without a maintained Fabric/Quilt 1.20.1 implementation are not advertised on this target. Sable remains separate from this integration pass.
