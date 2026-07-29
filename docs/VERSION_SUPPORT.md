@@ -16,7 +16,7 @@ The native selection backend, region storage, networking, recipes, magnet-path r
 | Paramount | 1.12.2 | Forge | Dedicated legacy build | `alpha.2`; core-parity build green |
 | Paramount | 1.7.10 | Forge | Dedicated legacy build | `alpha.2`; core-parity build green |
 | Secondary | 1.19.2 | Forge | Dedicated build | `alpha.2`; core-parity build green |
-| Secondary | 1.18.2 | Forge | Shared core plus version-specific shims | `alpha.2`; core-parity validation active |
+| Secondary | 1.18.2 | Forge | Shared core plus version-specific shims | `alpha.2`; core-parity build green |
 | Secondary | 1.16.5 | Forge | Dedicated Java 8 build | `alpha.2`; core-parity build green |
 
 ## Alpha naming
@@ -90,11 +90,9 @@ Their absence cannot break the native region system. Support is stated per targe
 ## Current port order
 
 1. Maintain NeoForge 1.21.1 as the reference implementation.
-2. Complete runtime validation for the build-green 1.20.1 targets.
-3. Complete runtime validation for Forge 1.12.2 and Forge 1.7.10.
-4. Complete the remaining Forge 1.18.2 build and runtime validation.
-5. Runtime-test the secondary Forge 1.19.2 and 1.16.5 lines.
-6. Reintroduce and verify optional integrations target by target without changing the universal native baseline.
+2. Runtime-validate placement, rendering, persistence, synchronization, recipes, and path blocking across all build-green alpha targets.
+3. Promote targets individually when their loader- and version-specific runtime checks pass.
+4. Reintroduce and verify optional integrations target by target without changing the universal native baseline.
 
 ## Branch policy
 
