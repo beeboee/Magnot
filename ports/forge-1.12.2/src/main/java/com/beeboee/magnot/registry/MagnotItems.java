@@ -10,10 +10,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod.EventBusSubscriber(modid = Magnot.MOD_ID)
 public final class MagnotItems {
+    // Retained for registry/save compatibility. Create does not exist on 1.12.2,
+    // so the fallback dust is never required and intentionally has no creative tab.
     public static final Item IRON_DUST = new Item()
             .setRegistryName(Magnot.MOD_ID, "iron_dust")
-            .setUnlocalizedName(Magnot.MOD_ID + ".iron_dust")
-            .setCreativeTab(CreativeTabs.MATERIALS);
+            .setUnlocalizedName(Magnot.MOD_ID + ".iron_dust");
 
     public static final Item FERROUS_PASTE = new Item()
             .setRegistryName(Magnot.MOD_ID, "ferrous_paste")
