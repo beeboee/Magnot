@@ -7,7 +7,8 @@
   "target": "@env(DEFAULT)",
   "mixins": [
     "simplemagnets.MagnetItemMixin",
-    "itemcollectors.CollectorBlockEntityMixin"
+    "itemcollectors.CollectorBlockEntityMixin",
+    "draconicevolution.MagnetMixin"
   ],
   "injectors": {
     "defaultRequire": 0
