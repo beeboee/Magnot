@@ -23,4 +23,14 @@ This branch carries Magnot 1.2's complete loader-independent feature set on Fabr
 - Adaptive common-tag dust/plate recipes, Create fallback dust, and vanilla fallback recipes
 - Dormant fallback dust omitted from the creative tab
 
-Third-party integrations and Sable are separate from this core parity pass.
+## Optional compatibility adapters
+
+The Fabric/Quilt artifact filters item candidates before compatible systems move or insert them. Active adapters target:
+
+- Simple Magnets
+- Item Collectors
+- Sophisticated Backpacks / Sophisticated Storage through the Fabric Sophisticated Core port
+- AE2 Wireless Terminals
+- Artifacts Universal Attractor
+
+Mods without a maintained Fabric/Quilt 1.20.1 implementation are not advertised on this target. Sable remains separate from this integration pass.
