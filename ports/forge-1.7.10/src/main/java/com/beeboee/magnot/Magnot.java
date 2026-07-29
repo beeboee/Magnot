@@ -22,7 +22,7 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 public final class Magnot {
     public static final String MOD_ID = "magnot";
     public static final String NAME = "Magnot";
-    public static final String VERSION = "1.2.0-alpha.2+mc1.7.10";
+    public static final String VERSION = "1.2.0-alpha.3+mc1.7.10";
 
     @SidedProxy(
             clientSide = "com.beeboee.magnot.proxy.ClientProxy",
@@ -63,10 +63,8 @@ public final class Magnot {
                     Items.slime_ball
             ));
         } else {
-            // Vanilla 1.7.10 has no iron nuggets. Preserve the ingot-to-eight-paste
-            // material conversion used by the original legacy alpha.
             GameRegistry.addShapelessRecipe(
-                    new ItemStack(FERROUS_PASTE, 8),
+                    new ItemStack(FERROUS_PASTE),
                     Items.iron_ingot,
                     Items.slime_ball
             );
