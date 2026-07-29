@@ -1,5 +1,6 @@
 package com.beeboee.magnot;
 
+import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.registry.MagnotItems;
 import com.beeboee.magnot.server.MagnotForgeEvents;
 import net.minecraftforge.common.MinecraftForge;
@@ -11,12 +12,7 @@ import org.slf4j.LoggerFactory;
 
 @Mod(Magnot.MOD_ID)
 public final class Magnot {
-    public static final String MOD_ID = "magnot";
-    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-
-    public Magnot() {
-        IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
-        MagnotItems.register(modBus);
-        MinecraftForge.EVENT_BUS.register(MagnotForgeEvents.class);
-    }
+    public static final String MOD_ID="magnot";
+    public static final Logger LOGGER=LoggerFactory.getLogger(MOD_ID);
+    public Magnot(){IEventBus bus=FMLJavaModLoadingContext.get().getModEventBus();MagnotItems.register(bus);MagnotNetwork.register();MinecraftForge.EVENT_BUS.register(MagnotForgeEvents.class);}
 }

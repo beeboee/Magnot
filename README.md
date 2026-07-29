@@ -1,28 +1,20 @@
 # Magnot — Forge 1.19.2 alpha
 
-Core Magnot port for Minecraft 1.19.2 Forge and Create 0.5.1.
+This branch contains Magnot 1.2's loader-independent gameplay model for Forge 1.19.2: synchronized stable regions, native textured selection rendering and fade, validated ray removal, indexed/cached path blocking, API v2, and adaptive dust/plate recipes with Create and vanilla fallbacks.
 
-## Requirements
+## Optional compatibility adapters
 
-- Minecraft 1.19.2
-- Forge 43.2.14 or newer
-- Create 0.5.1 through the 0.5.x line; validated target: Create 0.5.1.i
-- Java 17
-
-## Alpha 2 integration coverage
-
-Source and published-class targets were checked for:
+Active item-pull adapters filter candidates before compatible systems mutate them:
 
 - Simple Magnets
 - Item Collectors
 - AE2 Wireless Terminals
-- Artifacts Universal Attractor using the 1.19.2 Curios implementation
-- Mekanism magnetic attraction
-- Reliquary Reincarnations fortune coin
-- Mob Grinding Utils absorption hopper
-- Modular Routers vacuum module
-- Sophisticated Core magnet upgrades
+- ProjectE Black Hole Band in inventory, alchemical bag, pedestal, and alchemical chest modes
+- Artifacts Universal Attractor
+- Mekanism Magnetic Attraction Unit
+- Reliquary Fortune Coin, including pedestal collection
+- Modular Routers Vacuum Module
+- Sophisticated Backpacks / Sophisticated Storage
+- Industrial Foregoing Infinity Backpack
 
-Alpha 2 corrects the older Artifacts and Reliquary packages and explicitly remaps Minecraft call sites used inside third-party classes.
-
-The port includes persistent ferrous regions, tube placement/removal, region outlines, and API v2. It does not yet include Sable, moving sub-level support, filtered-region behavior, custom region entities, or the complete 1.21.1 feature set.
+Mob Grinding Utils is not registered without a verified 1.19.2 target distribution. Sable remains separate from this compatibility pass.

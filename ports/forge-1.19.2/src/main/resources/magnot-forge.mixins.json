@@ -11,9 +11,10 @@
     "portcompat.ArtifactsUniversalAttractorMixin",
     "portcompat.MekanismMagneticAttractionMixin",
     "portcompat.ReliquaryFortuneCoinMixin",
-    "portcompat.MobGrindingUtilsAbsorptionHopperMixin",
     "portcompat.ModularRoutersVacuumMixin",
-    "portcompat.SophisticatedCoreMagnetMixin"
+    "portcompat.SophisticatedCoreMagnetMixin",
+    "industrialforegoing.ItemInfinityBackpackMixin",
+    "projecte.BlackHoleBandMixin"
   ],
   "injectors": {
     "defaultRequire": 0
