@@ -2,12 +2,13 @@
   {
     "modid": "magnot",
     "name": "Magnot",
-    "description": "Ferrous regions that block supported remote item pulls.",
+    "description": "Ferrous regions that block supported remote item pulls, with optional legacy compatibility adapters.",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "authorList": ["beeboee"],
     "credits": "",
     "url": "",
-    "updateUrl": ""
+    "updateUrl": "",
+    "requiredMods": ["mixinbooterlegacy@[1.2.1,)"]
   }
 ]
