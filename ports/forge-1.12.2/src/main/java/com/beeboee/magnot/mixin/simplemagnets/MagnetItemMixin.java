@@ -1,6 +1,7 @@
 package com.beeboee.magnot.mixin.simplemagnets;
 
 import com.beeboee.magnot.region.FerrousMagnetRules;
+import com.google.common.base.Predicate;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,7 +15,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @Pseudo
@@ -24,7 +24,7 @@ public abstract class MagnetItemMixin {
             method = "onUpdate",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/World;getEntitiesWithinAABB(Ljava/lang/Class;Lnet/minecraft/util/math/AxisAlignedBB;Ljava/util/function/Predicate;)Ljava/util/List;",
+                    target = "Lnet/minecraft/world/World;getEntitiesWithinAABB(Ljava/lang/Class;Lnet/minecraft/util/math/AxisAlignedBB;Lcom/google/common/base/Predicate;)Ljava/util/List;",
                     remap = true
             ),
             require = 0
