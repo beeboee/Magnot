@@ -1,0 +1,15 @@
+{
+  "required": false,
+  "minVersion": "0.8",
+  "package": "com.beeboee.magnot.mixin",
+  "compatibilityLevel": "JAVA_7",
+  "refmap": "magnot.refmap.json",
+  "target": "@env(DEFAULT)",
+  "mixins": [
+    "botania.ItemMagnetRingMixin",
+    "openblocks.VacuumHopperMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
+}
