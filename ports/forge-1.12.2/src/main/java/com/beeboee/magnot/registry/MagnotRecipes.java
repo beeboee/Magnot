@@ -43,7 +43,7 @@ public final class MagnotRecipes {
                     Items.SLIME_BALL
             );
         }
-        paste.setRegistryName(Magnot.MOD_ID, "ferrous_paste");
+        paste.setRegistryName(new ResourceLocation(Magnot.MOD_ID, "ferrous_paste"));
 
         IRecipe tube;
         if (available(IRON_PLATE)) {
@@ -67,7 +67,7 @@ public final class MagnotRecipes {
                     'N', available(IRON_NUGGET) ? IRON_NUGGET : Items.IRON_NUGGET
             );
         }
-        tube.setRegistryName(Magnot.MOD_ID, "ferrous_tube");
+        tube.setRegistryName(new ResourceLocation(Magnot.MOD_ID, "ferrous_tube"));
 
         event.getRegistry().registerAll(paste, tube);
     }
