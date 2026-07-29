@@ -93,12 +93,6 @@ processResources {
 
 jar {
     from mixinRefMap
-    manifest {
-        attributes(
-                'FMLCorePlugin': 'com.beeboee.magnot.mixin.MagnotMixinPlugin',
-                'FMLCorePluginContainsFMLMod': 'true'
-        )
-    }
     finalizedBy('reobf')
 }
 
