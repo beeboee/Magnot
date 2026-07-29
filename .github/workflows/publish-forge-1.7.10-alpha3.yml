@@ -1,0 +1,78 @@
+name: Publish Forge 1.7.10 alpha 3
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-forge-1.7.10-alpha3.yml
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify CurseForge token
+        env:
+          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${CURSEFORGE_TOKEN:-}" ]]; then
+            echo '::error::Repository secret CURSEFORGE_TOKEN is missing.'
+            exit 1
+          fi
+
+      - name: Check out Forge 1.7.10 alpha branch
+        uses: actions/checkout@v5
+        with:
+          ref: version/1.7.10-forge
+
+      - name: Set up Java 8
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '8'
+
+      - name: Set up Gradle 4.4.1
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '4.4.1'
+
+      - name: Build public alpha
+        shell: bash
+        run: |
+          set -euo pipefail
+          gradle clean build --stacktrace
+          mkdir -p release
+          jar="$(find build/libs -maxdepth 1 -type f -name 'magnot-*.jar' \
+            ! -name '*-sources.jar' ! -name '*-dev.jar' ! -name '*-slim.jar' \
+            -print | sort | head -n 1)"
+          if [[ -z "$jar" || ! -s "$jar" ]]; then
+            echo '::error::No release jar was produced.'
+            find build/libs -maxdepth 1 -type f -print || true
+            exit 1
+          fi
+          cp "$jar" release/magnot-1.2.0-alpha.3-mc1.7.10-forge.jar
+
+      - name: Publish public alpha
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          curseforge-id: 1609524
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+          files: release/magnot-1.2.0-alpha.3-mc1.7.10-forge.jar
+          name: Magnot 1.2.0 alpha 3 - Forge 1.7.10
+          version: 1.2.0-alpha.3+mc1.7.10-forge
+          version-type: alpha
+          changelog: |
+            Public testing build for Minecraft 1.7.10 on Forge.
+
+            Changed the no-dust fallback recipe to produce one ferrous paste from one iron ingot and one slime ball.
+
+            This alpha includes Magnot's native region rendering, synchronization, persistence, path blocking, adaptive Ore Dictionary recipes, and API v2 core. Automatic third-party magnet and vacuum integrations are not included in this target.
+          loaders: forge
+          game-versions: 1.7.10
+          game-version-filter: none
+          java: 8
+          fail-mode: fail
