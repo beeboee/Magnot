@@ -1,17 +1,20 @@
 buildscript {
     repositories {
         maven { url = 'https://maven.minecraftforge.net/' }
+        maven { url = 'https://repo.spongepowered.org/maven' }
         mavenCentral()
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
+        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 }
 
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'maven-publish'
+apply plugin: 'org.spongepowered.mixin'
 
-version = '1.2.0-alpha.2+mc1.12.2'
+version = '1.2.0-alpha.3+mc1.12.2'
 group = 'com.beeboee.magnot'
 archivesBaseName = 'magnot'
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
@@ -31,12 +34,23 @@ minecraft {
     }
 }
 
+repositories {
+    maven { url = 'https://maven.cleanroommc.com' }
+}
+
 dependencies {
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
+    implementation('zone.rong:mixinbooter:10.7') { transitive = false }
+    annotationProcessor 'zone.rong:mixinbooter:10.7'
 }
 
 sourceSets.main.java.srcDirs = ['ports/forge-1.12.2/src/main/java']
 sourceSets.main.resources.srcDirs = ['ports/forge-1.12.2/src/main/resources']
+
+mixin {
+    add sourceSets.main, 'magnot.refmap.json'
+    config 'magnot-legacy.mixins.json'
+}
 
 processResources {
     inputs.property 'version', project.version
@@ -52,7 +66,12 @@ processResources {
     }
 }
 
-jar.finalizedBy('reobfJar')
+jar {
+    manifest {
+        attributes 'MixinConfigs': 'magnot-legacy.mixins.json'
+    }
+    finalizedBy('reobfJar')
+}
 
 publishing {
     publications {
