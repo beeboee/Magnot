@@ -1,26 +1,18 @@
 # Magnot — Forge 1.16.5 alpha
 
-Core Java 8 port for Minecraft 1.16.5 and Forge 36.2.9+.
+Java 8 implementation of Magnot 1.2's complete loader-independent core: stable synchronized regions, native textured selection rendering and fade, immediate preview, validated ray removal, indexed/cached path blocking, API semantics, and adaptive dust/plate recipes with Create and vanilla fallbacks.
 
-## Requirements
+## Optional compatibility adapters
 
-- Minecraft 1.16.5
-- Forge 36.2.9 or newer
-- Create 0.3.2g through the 0.3.x line
-- Java 8 runtime
-
-## Alpha 2 integration coverage
-
-Verified legacy targets retained for:
+Active adapters target:
 
 - Simple Magnets
 - Item Collectors
-- Mob Grinding Utils absorption hopper
-- Modular Routers vacuum module
-- Mekanism magnetic attraction
-- Draconic Evolution magnet
-- Reliquary Reincarnations fortune coin (`xreliquary` package)
+- ProjectE Black Hole Band in inventory, alchemical bag, pedestal, and alchemical chest modes
+- Modular Routers Vacuum Module
+- Mekanism Magnetic Attraction Unit
+- Draconic Evolution magnets
+- Reliquary Fortune Coin
+- Industrial Foregoing Infinity Backpack
 
-Sophisticated Core and Industrial Foregoing are no longer claimed on 1.16.5 because the selected jars did not verify the alpha.1 target methods. Alpha 2 also remaps Minecraft call sites inside optional mod classes for production Forge.
-
-Included core features are persistent ferrous regions, tube placement/removal, particle outlines, and the compatibility API. Sable, moving sub-levels, filtered regions, and custom region entities remain exclusive to newer branches.
+Mob Grinding Utils and Sophisticated Core are not registered because the selected 1.16.5 ecosystem does not provide the copied targets. Sable remains separate.
