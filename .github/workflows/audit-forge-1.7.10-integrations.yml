@@ -27,9 +27,9 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p audit-jars
-          curl -fL 'https://mediafilez.forgecdn.net/files/2222/045/EnderIO-1.7.10-2.2.4.309.jar' -o audit-jars/enderio.jar
-          curl -fL 'https://mediafilez.forgecdn.net/files/2272/878/Botania%20r1.8-247.jar' -o audit-jars/botania.jar
-          curl -fL 'https://mediafilez.forgecdn.net/files/2386/733/OpenBlocks-1.7.10-1.6.jar' -o audit-jars/openblocks.jar
+          curl -fL -A 'Mozilla/5.0' 'https://mediafiles.forgecdn.net/files/2222/045/EnderIO-1.7.10-2.2.4.309.jar' -o audit-jars/enderio.jar
+          curl -fL -A 'Mozilla/5.0' 'https://mediafiles.forgecdn.net/files/2272/878/Botania%20r1.8-247.jar' -o audit-jars/botania.jar
+          curl -fL -A 'Mozilla/5.0' 'https://mediafiles.forgecdn.net/files/2386/733/OpenBlocks-1.7.10-1.6.jar' -o audit-jars/openblocks.jar
       - name: Inspect item-pull classes
         shell: bash
         run: |
