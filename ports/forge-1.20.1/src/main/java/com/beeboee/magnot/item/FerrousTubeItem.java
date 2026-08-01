@@ -1,14 +1,13 @@
 package com.beeboee.magnot.item;
 
+import com.beeboee.magnot.network.MagnotNetwork;
 import com.beeboee.magnot.region.FerrousRegion;
 import com.beeboee.magnot.region.FerrousRegionSavedData;
-import com.beeboee.magnot.server.MagnotForgeEvents;
+import com.beeboee.magnot.server.FerrousEffects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -19,6 +18,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 
 import java.util.Optional;
+import java.util.UUID;
 
 public final class FerrousTubeItem extends Item {
     public static final int MAX_REGION_AXIS_LENGTH = 25;
@@ -39,42 +39,35 @@ public final class FerrousTubeItem extends Item {
         Level level = context.getLevel();
         Player player = context.getPlayer();
         ItemStack stack = context.getItemInHand();
-        if (player == null) {
-            return InteractionResult.PASS;
-        }
-        if (level.isClientSide()) {
-            return InteractionResult.SUCCESS;
-        }
-        if (!(level instanceof ServerLevel serverLevel)) {
-            return InteractionResult.PASS;
-        }
+        if (player == null) return InteractionResult.PASS;
+        if (level.isClientSide()) return InteractionResult.SUCCESS;
+        if (!(level instanceof ServerLevel serverLevel)) return InteractionResult.PASS;
 
-        BlockPos clicked = context.getClickedPos();
         if (player.isShiftKeyDown()) {
             if (getFirstCorner(stack).isPresent()) {
                 clearFirstCorner(stack);
                 player.displayClientMessage(Component.translatable("message.magnot.selection_cleared"), true);
-            } else if (FerrousRegionSavedData.get(serverLevel).removeRegionContaining(clicked)) {
-                player.displayClientMessage(Component.translatable("message.magnot.region_removed"), true);
             }
             return InteractionResult.SUCCESS;
         }
 
+        BlockPos clicked = context.getClickedPos();
         Optional<BlockPos> first = getFirstCorner(stack);
         String dimension = serverLevel.dimension().location().toString();
         if (first.isEmpty() || !dimension.equals(getFirstDimension(stack))) {
             setFirstCorner(stack, clicked, dimension);
+            FerrousEffects.firstCorner(serverLevel, clicked);
             player.displayClientMessage(Component.translatable("message.magnot.first_corner"), true);
-            serverLevel.playSound(null, clicked, SoundEvents.SLIME_BLOCK_PLACE, SoundSource.PLAYERS, 0.55F, 0.85F);
             return InteractionResult.SUCCESS;
         }
 
         BlockPos second = clampToRegionLimit(first.get(), clicked);
-        FerrousRegion region = FerrousRegionSavedData.get(serverLevel).addRegion(first.get(), second);
+        FerrousRegion region = FerrousRegion.fromCorners(UUID.randomUUID(), first.get(), second);
+        FerrousRegionSavedData.get(serverLevel).addRegion(region);
+        MagnotNetwork.syncToPlayersInDimension(serverLevel);
         clearFirstCorner(stack);
         player.displayClientMessage(Component.translatable("message.magnot.region_created"), true);
-        serverLevel.playSound(null, second, SoundEvents.SLIME_BLOCK_PLACE, SoundSource.PLAYERS, 0.65F, 1.0F);
-        MagnotForgeEvents.spawnOutline(serverLevel, region);
+        FerrousEffects.confirmation(serverLevel, second, region);
         if (!player.getAbilities().instabuild) {
             stack.hurtAndBreak(PLACEMENT_DAMAGE, player, broken -> broken.broadcastBreakEvent(context.getHand()));
         }
@@ -93,9 +86,7 @@ public final class FerrousTubeItem extends Item {
 
     public static Optional<BlockPos> getFirstCorner(ItemStack stack) {
         CompoundTag tag = stack.getTag();
-        if (tag == null || !tag.getBoolean(HAS_FIRST)) {
-            return Optional.empty();
-        }
+        if (tag == null || !tag.getBoolean(HAS_FIRST)) return Optional.empty();
         return Optional.of(new BlockPos(tag.getInt(FIRST_X), tag.getInt(FIRST_Y), tag.getInt(FIRST_Z)));
     }
 
@@ -105,6 +96,12 @@ public final class FerrousTubeItem extends Item {
                 first.getY() + Mth.clamp(second.getY() - first.getY(), -MAX_REGION_AXIS_OFFSET, MAX_REGION_AXIS_OFFSET),
                 first.getZ() + Mth.clamp(second.getZ() - first.getZ(), -MAX_REGION_AXIS_OFFSET, MAX_REGION_AXIS_OFFSET)
         );
+    }
+
+    public static boolean exceedsRegionLimit(BlockPos first, BlockPos second) {
+        return Math.abs(second.getX() - first.getX()) >= MAX_REGION_AXIS_LENGTH
+                || Math.abs(second.getY() - first.getY()) >= MAX_REGION_AXIS_LENGTH
+                || Math.abs(second.getZ() - first.getZ()) >= MAX_REGION_AXIS_LENGTH;
     }
 
     private static String getFirstDimension(ItemStack stack) {

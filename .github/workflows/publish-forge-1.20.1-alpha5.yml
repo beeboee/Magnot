@@ -1,0 +1,124 @@
+name: Publish Forge 1.20.1 alpha 5
+
+on:
+  push:
+    branches:
+      - version/1.20.1-forge
+    paths:
+      - .github/workflows/publish-forge-1.20.1-alpha5.yml
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Verify CurseForge token
+        env:
+          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${CURSEFORGE_TOKEN:-}" ]]; then
+            echo '::error::Repository secret CURSEFORGE_TOKEN is missing.'
+            exit 1
+          fi
+
+      - name: Check out Forge 1.20.1 release branch
+        uses: actions/checkout@v5
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle 8.8
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.8'
+
+      - name: Validate release version
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="$(sed -n 's/^mod_version=//p' gradle.properties | head -n 1)"
+          if [[ "$version" != '1.2.0-alpha.5' ]]; then
+            echo "::error::Expected mod_version=1.2.0-alpha.5, found $version"
+            exit 1
+          fi
+
+      - name: Build Forge 1.20.1 alpha
+        shell: bash
+        run: |
+          set -euo pipefail
+          gradle clean build --stacktrace
+
+          mkdir -p release
+          jar="$(find build/libs -maxdepth 1 -type f -name 'magnot-*.jar' \
+            ! -name '*-sources.jar' ! -name '*-dev.jar' ! -name '*-slim.jar' \
+            -print | sort | head -n 1)"
+
+          if [[ -z "$jar" || ! -s "$jar" ]]; then
+            echo '::error::No release jar was produced.'
+            find build/libs -maxdepth 1 -type f -print || true
+            exit 1
+          fi
+
+          cp "$jar" release/magnot-1.2.0-alpha.5-mc1.20.1-forge.jar
+
+      - name: Upload GitHub test artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: magnot-1.2.0-alpha.5-forge-1.20.1
+          path: release/magnot-1.2.0-alpha.5-mc1.20.1-forge.jar
+          if-no-files-found: error
+
+      - name: Publish CurseForge alpha
+        id: publish
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          curseforge-id: 1609524
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+          curseforge-dependencies: |
+            create(optional)
+          files: release/magnot-1.2.0-alpha.5-mc1.20.1-forge.jar
+          name: Magnot 1.2.0 alpha 5 - Forge 1.20.1
+          version: 1.2.0-alpha.5+mc1.20.1-forge
+          version-type: alpha
+          changelog: |
+            Targeted Forge 1.20.1 compatibility test build.
+
+            Fixed a startup failure when Sophisticated Core is installed. Magnot's mixin handler incorrectly declared a Player parameter for Sophisticated Core's tryToInsertItem(ItemEntity) method, causing an InvalidInjectionException during class transformation. The handler now matches the actual method descriptor and continues using the source captured from the enclosing magnet pickup operation.
+
+            This build compiled successfully in CI with Java 17 and Gradle 8.8. It has not yet been runtime-tested in the reporting modpack and is being published as an alpha so the affected modpack author can verify it directly.
+
+            Please report whether the pack starts successfully and include latest.log if the mixin error remains.
+          loaders: forge
+          game-versions: 1.20.1
+          game-version-filter: none
+          java: 17
+          fail-mode: fail
+
+      - name: Verify CurseForge accepted the upload
+        env:
+          CURSEFORGE_FILE_ID: ${{ steps.publish.outputs['curseforge-version'] }}
+          CURSEFORGE_FILE_URL: ${{ steps.publish.outputs['curseforge-url'] }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${CURSEFORGE_FILE_ID:-}" || -z "${CURSEFORGE_FILE_URL:-}" ]]; then
+            echo '::error::The publishing action did not return a CurseForge file ID and URL.'
+            exit 1
+          fi
+
+          echo "CurseForge accepted file ID: $CURSEFORGE_FILE_ID"
+          echo "CurseForge file URL: $CURSEFORGE_FILE_URL"
+          {
+            echo '## CurseForge publication accepted'
+            echo
+            echo "- File ID: \`$CURSEFORGE_FILE_ID\`"
+            echo "- URL: $CURSEFORGE_FILE_URL"
+          } >> "$GITHUB_STEP_SUMMARY"

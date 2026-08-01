@@ -7,7 +7,7 @@ modId="magnot"
 version="${version}"
 displayName="Magnot"
 authors="beeboee"
-description='''Create-style ferrous regions that block supported magnets and vacuum effects from pulling dropped items through protected areas.'''
+description='''Magnot 1.2 alpha for Forge 1.20.1. Ferrous regions block supported remote item pulls and include the complete loader-independent Magnot feature set: native textured selection rendering, client synchronization, persistent IDs, adaptive recipes, and Create-free operation. Optional third-party integrations are reported separately.'''
 
 [[dependencies.magnot]]
 modId="forge"
@@ -25,7 +25,7 @@ side="BOTH"
 
 [[dependencies.magnot]]
 modId="create"
-mandatory=true
+mandatory=false
 versionRange="[0.5.1,6.1.0)"
 ordering="AFTER"
 side="BOTH"
