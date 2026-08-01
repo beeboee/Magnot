@@ -35,16 +35,26 @@ public abstract class MagnetUpgradeWrapperMixin {
         magnot$playerSource = null;
     }
 
-    @Inject(method = "tryToInsertItem", at = @At("HEAD"), cancellable = true, require = 0)
-    private void magnot$blockPickup(Player player, ItemEntity item, CallbackInfoReturnable<Boolean> cir) {
+    @Inject(
+            method = "tryToInsertItem(Lnet/minecraft/world/entity/item/ItemEntity;)Z",
+            at = @At("HEAD"),
+            cancellable = true,
+            require = 0
+    )
+    private void magnot$blockPickup(ItemEntity item, CallbackInfoReturnable<Boolean> cir) {
         if (!(item.level() instanceof ServerLevel serverLevel)) {
             return;
         }
-        Player sourcePlayer = magnot$playerSource == null ? player : magnot$playerSource;
+
+        Player sourcePlayer = magnot$playerSource;
         if (sourcePlayer != null && FerrousMagnetRules.blocksPlayerItemPull(serverLevel, sourcePlayer, item)) {
             cir.setReturnValue(false);
-        } else if (sourcePlayer == null && magnot$source != null
-                && FerrousMagnetRules.blocksItemPull(serverLevel, magnot$source, item)) {
+            return;
+        }
+
+        Vec3 source = magnot$source;
+        if (sourcePlayer == null && source != null
+                && FerrousMagnetRules.blocksItemPull(serverLevel, source, item)) {
             cir.setReturnValue(false);
         }
     }
