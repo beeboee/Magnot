@@ -21,7 +21,7 @@ jobs:
           script: |
             const owner = context.repo.owner;
             const repo = context.repo.repo;
-            const targetSha = '293afead1b199866a015629d12a3f6c8c1ea1ef7';
+            const targetSha = '215214c68ebfc3acf5fe9554d5b1576a659a77fd';
             const workflowId = 'publish-forge-1.20.1-alpha5.yml';
 
             for (let attempt = 1; attempt <= 60; attempt++) {
